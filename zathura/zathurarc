@@ -1,0 +1,4 @@
+# map <PageUp> navigate previous
+# map <PageDown> navigate next
+# map <Space> scroll full-down
+map <BackSpace> scroll full-up

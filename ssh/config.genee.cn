@@ -1,0 +1,7 @@
+Host *.genee.cn *.genee.in
+	User genee
+	ForwardAgent yes
+Host gordon.genee.cn
+	User weiyi.zhang
+Host 166.111.30.173 166.111.156.3
+	ProxyCommand ssh wine.genee.in -W %h:%p

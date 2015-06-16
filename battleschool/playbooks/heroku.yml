@@ -1,0 +1,22 @@
+---
+- hosts: 'all'
+  sudo: yes
+  sudo_user: root
+
+  tasks:
+
+    - name: Install Heroku Toolbelt
+      file:
+        path: /opt/heroku-client
+        state: absent
+
+    - name: Install Heroku Toolbelt
+      shell: 'wget -O - https://s3.amazonaws.com/assets.heroku.com/heroku-client/heroku-client.tgz | tar xz && mv heroku-client heroku'
+      args:
+        chdir: '/opt'
+        creates: '/opt/heroku'
+
+    - name: Change ownership for /opt/heroku
+      command: 'chown -R root:root /opt/heroku'
+      args:
+        creates: '/opt/heroku'

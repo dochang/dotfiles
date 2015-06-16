@@ -1,0 +1,14 @@
+#!/bin/sh
+
+venv=~/.local/venvs/battleschool
+[ ! -d "${venv}" ] || find "${venv}" -type l -delete
+virtualenv "${venv}"
+"${venv}/bin/pip" install -U 'git+https://github.com/dochang/battleschool.git@devel#egg=battleschool'
+hash -r
+export BATTLE="${venv}/bin/battle"
+
+cache_dir=~/.battleschool/cache
+[ -d "${cache_dir}" ] || mkdir -p "${cache_dir}"
+
+fresh update
+"${BATTLE}" --ask-sudo-pass -vvv

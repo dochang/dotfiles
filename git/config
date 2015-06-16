@@ -1,0 +1,17 @@
+[color]
+	ui = auto
+[rebase]
+	autosquash = true
+[core]
+	pager = "less -+$LESS -RS"
+	## Git sets `LESS` to `FRSX`.  Unset `-X` and `-F`.
+	##
+	## Unset `-X` to clear the screen when less exits.
+	##
+	## Unset `-F` to cause less not to exit even if the content
+	## can be displayed on one screen.
+[credential]
+	helper = pass
+	# https://help.github.com/articles/set-up-git
+[alias]
+	ignore-for = "!gi() { a=$(IFS=, eval 'echo \"$*\"') ; api=\"curl -sSL http://www.gitignore.io/api/$a\" ; case \"$a\" in list) api=\"$api | tr , '\\\\n'\" ;; esac ; eval \"$api | $(git config core.pager)\" ; } ; gi"

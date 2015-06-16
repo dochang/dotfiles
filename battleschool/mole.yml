@@ -1,0 +1,7 @@
+---
+sources:
+  git:
+    - name: poweron
+      repo: https://github.com/dochang/poweron.git
+      playbooks:
+        - playbooks/mole.yml

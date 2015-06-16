@@ -1,0 +1,27 @@
+maximum_width 194
+minimum_size 194
+
+# Don't fork conky to background when started.
+background no
+
+# Use Xft.
+use_xft yes
+
+# Set the WM_CLASS name to "Conky".
+own_window_class "Conky"
+
+TEXT
+${color grey}BAT:$color ${battery_short}, ${battery_time}
+${battery_bar}
+${color grey}CPU:$color $cpu%, ${acpitemp}°C
+${cpugraph}
+${color grey}MEM:$color $memperc%
+${memgraph}
+${color grey}Disk IO:$color ${diskio}
+${diskiograph}
+$hr
+${color grey}File systems:
+ / $color${fs_size /} ${fs_bar 6 /}
+ /home $color${fs_size /home} ${fs_bar 6 /home}
+${color grey}Networking:
+Up:$color ${upspeed eth0} ${color grey} - Down:$color ${downspeed eth0}

@@ -1,0 +1,212 @@
+---
+- hosts: 'all'
+  sudo: yes
+  sudo_user: root
+
+  vars:
+    - user_groups:
+        - staff
+        - adm
+        - sudo
+        - audio
+        - video
+        - plugdev
+        - scanner
+        - bluetooth
+        - netdev
+        - floppy
+        - cdrom
+        - dip
+        - fuse
+        - lpadmin
+        - disk
+    - apt_listchanges_frontend: 'none'
+    - apt_listbugs_frontend: 'none'
+
+  tasks:
+
+    - name: Install performance monitoring tools first
+      apt:
+        name: '{{ item }}'
+        state: present
+      environment:
+        APT_LISTCHANGES_FRONTEND: '{{ apt_listchanges_frontend }}'
+        APT_LISTBUGS_FRONTEND: '{{ apt_listbugs_frontend }}'
+      with_items:
+        - htop
+        - iotop
+        - iftop
+        - nethogs
+        - mtr-tiny
+
+    - name: Install packages
+      apt:
+        name: '{{ item }}'
+        state: present
+      environment:
+        APT_LISTCHANGES_FRONTEND: '{{ apt_listchanges_frontend }}'
+        APT_LISTBUGS_FRONTEND: '{{ apt_listbugs_frontend }}'
+      with_items:
+        - git
+        - etckeeper
+        - locales
+        - locales-all
+        - resolvconf
+        - firmware-linux
+        - molly-guard
+        - sudo
+        - fuse
+        - bash
+        - bash-completion
+        - zsh
+        - less
+        - vim
+        - apt-listchanges
+        - apt-listbugs
+        - laptop-detect
+        - laptop-mode-tools
+        - jq
+        - xorg
+        - keynav
+        - fcitx
+        - dbus-x11
+        - fcitx-pinyin
+        - fcitx-mozc
+        - i3
+        - rxvt-unicode
+        - mplayer2
+        - mpv
+        - conky
+        - mpd
+        - alsa-utils
+        - alsamixergui
+        - wget
+        - curl
+        - emacs24-lucid
+        - emacs-goodies-el
+        - aspell
+        - ssh-askpass
+        - chromium
+        - conkeror
+        - offlineimap
+        - tmux
+        - make
+        - unclutter
+        - ledger
+        - suckless-tools
+        - xautolock
+        - sxiv
+        - xinput
+        - xdotool
+        - wmctrl
+        - fonts-droid
+        - fonts-wqy-microhei
+        - cvs
+        - autoconf
+        - xwrits
+        - aria2
+        - lftp
+        - libpam-fprintd
+        - m4
+        - encfs
+        - pulseaudio
+        - pulseaudio-module-bluetooth
+        - xclip
+        - gnupg
+        - pinentry-gtk2
+        - gnupg-agent
+        - stow
+        - cups
+        - cups-client
+        - msmtp-mta
+        - bluetooth
+        - pass
+        - unzip
+        # For perl
+        - build-essential
+        # For pyenv
+        #
+        # https://github.com/yyuu/pyenv/wiki/Common-build-problems
+        - make
+        - build-essential
+        - libssl-dev
+        - zlib1g-dev
+        - libbz2-dev
+        - libreadline-dev
+        - libsqlite3-dev
+        - wget
+        - curl
+        - llvm
+        # For pyenv-ccache
+        - ccache
+        # For rbenv
+        #
+        # https://github.com/sstephenson/ruby-build/wiki
+        - autoconf
+        - bison
+        - build-essential
+        - libssl-dev
+        - libyaml-dev
+        - libreadline6-dev
+        - zlib1g-dev
+        - libncurses5-dev
+        - libffi-dev
+        - libgdbm3
+        - libgdbm-dev
+        # For node.js
+        #
+        # https://github.com/joyent/node/wiki/Installation
+        - build-essential
+        - curl
+        # For el-get
+        - install-info
+        # For dropbox
+        - python-gpgme
+        #- xdm
+
+    - name: Remove packages
+      apt:
+        name: '{{ item }}'
+        state: absent
+        purge: yes
+      with_items:
+        # Disk killer 1 !
+        - mlocate
+        # Disk killer 2 !
+        - locate
+
+    - name: Select suitable alternatives
+      alternatives:
+        name: '{{ item.name }}'
+        path: '{{ item.path }}'
+      with_items:
+        - name: x-window-manager
+          path: /usr/bin/i3
+        - name: x-terminal-emulator
+          path: /usr/bin/urxvt
+
+    - name: Ensure groups present
+      group:
+        name: '{{ item }}'
+        system: yes
+        state: present
+      with_items: user_groups
+
+    - name: Ensure user in groups
+      user:
+        name: '{{ ansible_ssh_user }}'
+        groups: '{{ item }}'
+        append: yes
+      with_items: user_groups
+
+    - name: Change user login shell
+      user:
+        name: '{{ ansible_ssh_user }}'
+        shell: /bin/zsh
+
+    - name: Enable auto-hibernate of laptop-mode-tools
+      lineinfile:
+        dest: /etc/laptop-mode/conf.d/auto-hibernate.conf
+        regexp: 'ENABLE_AUTO_HIBERNATION='
+        line: 'ENABLE_AUTO_HIBERNATION=1'
+        state: present

@@ -1,0 +1,118 @@
+#!/bin/zsh -l
+# -*- mode: sh -*-
+
+: ${TERMINAL:=x-terminal-emulator}
+export TERMINAL
+
+: ${X_WINDOW_MANAGER:=x-window-manager}
+export X_WINDOW_MANAGER
+
+: ${XLOCKER:=slock}
+export XLOCKER
+
+: ${BROWSER:=chromium -incognito:conkeror:$TERMINAL -e www-browser "%s":www-browser}
+export BROWSER
+
+# Customization
+export XLOCKER="i3lock -c 000000"
+
+# `.Xsession` has to be invoked by `/bin/sh -l`, because `/bin/sh`
+# loaded environment variables with `-l`.
+
+: > ~/.xsession-errors
+
+if [ -z "$XMODIFIERS" ] ; then
+	# `im-config` is not installed.
+	export XMODIFIERS="@im=fcitx"
+	export GTK_IM_MODULE=xim
+	export QT_IM_MODULE=xim
+	if which anthy-dic-tool > /dev/null && [ -r ~/.anthy/private-dic.src ] ; then
+		anthy-dic-tool --load --utf8 < ~/.anthy/private-dic.src
+	fi
+	fcitx -d
+fi
+
+# When a new keyboard is plugged in, the keymap does not apply to the new
+# keyboard.  xmodmap is a workaround, however, this only works if I type the
+# command on the new keyboard.  The answer is "using setxkbmap".
+#
+# https://bbs.archlinux.org/viewtopic.php?pid=1345868#p1345868
+#
+# Also, do not set the keyboard in VM.
+if [ x"$(hostnamectl | sed -n 's/^ *Chassis: *\([^ ]*\) *$/\1/p')" != xvm ] ; then
+	#[ -r ~/.xmodmaprc ] && xmodmap ~/.xmodmaprc
+	setkb.py
+fi
+
+### TrackPoint
+## http://www.thinkwiki.org/wiki/How_to_configure_the_TrackPoint
+## http://okomestudio.net/biboroku/?p=1816
+## https://wiki.debian.org/InstallingDebianOn/Thinkpad/Trackpoint
+## evdev(4)
+if xinput list "TPPS/2 IBM TrackPoint" >/dev/null ; then
+	# Enable vertical scrolling.
+	xinput set-prop "TPPS/2 IBM TrackPoint" "Evdev Wheel Emulation" 1
+	xinput set-prop "TPPS/2 IBM TrackPoint" "Evdev Wheel Emulation Button" 2
+	# Enable horizontal scrolling in addition to vertical scrolling.
+	#
+	# 6 : X up ; 7 : X down ; 4 : Y up ; 5 : Y down
+	xinput set-prop "TPPS/2 IBM TrackPoint" "Evdev Wheel Emulation Axes" 6 7 4 5
+	# To enable middle button emulation (using left- and right-click simultaneously)
+	xinput set-prop "TPPS/2 IBM TrackPoint" "Evdev Middle Button Emulation" 1
+	# Switch touchpad off if trackpoint exists.
+	synclient TouchpadOff=1
+fi
+
+[ -r ~/.Xresources ] && xrdb -load .Xresources
+
+xsetroot -cursor_name left_ptr
+
+# turn off system beep
+# http://www.debian-administration.org/articles/110
+xset b off
+
+pgrep '^xautolock$' >/dev/null || xautolock -time 20 -locker "xlock.sh --yes" &
+
+pgrep '^keynav$' >/dev/null || keynav &
+
+pgrep '^unclutter$' >/dev/null || unclutter -idle 1 -root &
+
+pgrep '^xwrits$' >/dev/null || xwrits +multiscreen +breakclock +cheat +clock +idle +mouse +top &
+
+#which dropbox.py >/dev/null && env -u DISPLAY dropbox.py start
+which encfs >/dev/null && \
+        { df | grep '/org$' ; test $? -eq 1 ; } >/dev/null && \
+        test -d ~/Dropbox/org.enc && \
+        { test -d ~/org || mkdir ~/org ; } && \
+        encfs --idle=720 --extpass="ssh-askpass -xrm 'SshAskpass*grabKeyboard:true' 'Password to mount ~/org'" ~/Dropbox/org.enc ~/org
+# Make `ssh-askpass` grab keyboard when encfs invokes it because WM has not yet
+# started at that time.
+multi-head.py
+# Run multi head setting after encfs so that the askpass dialog will appear in
+# the center of the primary output.
+pgrep '^keynav$' >/dev/null || keynav &
+# FIXME: keynav crashes after multi head setting.
+
+STARTUP="${X_WINDOW_MANAGER:-x-window-manager}"
+
+STARTUP="env SHELL=$(getent passwd $LOGNAME | cut -d: -f7) $STARTUP"
+# `SHELL` should be `/bin/sh` until now since `/bin/sh` is invoked
+# with `-l`.  Here it will be overridden by getting the login shell
+# from `getent`.  According to `login(1)`, the user's name should be
+# taken from `$LOGNAME`.
+
+STARTUP="~/bin/X.sh $STARTUP"
+
+# Invoking gpg-agent with no arguments exits successfully if the agent
+# is already running as pointed by $GPG_AGENT_INFO
+if [ x$GPG_AGENT_INFO = x ] && which gpg-agent >/dev/null && ! gpg-agent 2>/dev/null ; then
+	# From `/etc/X11/Xsession.d/90gpg-agent`
+	STARTUP="gpg-agent --daemon --sh $STARTUP"
+fi
+
+if [ x$SSH_AGENT_PID = x -o x$SSH_AUTH_SOCK = x ] && which ssh-agent >/dev/null ; then
+	# From `/etc/X11/Xsession.d/90x11-common_ssh-agent`
+	STARTUP="ssh-agent ${TMPDIR:+env TMPDIR=$TMPDIR} $STARTUP"
+fi
+
+eval "$STARTUP"

@@ -1,0 +1,61 @@
+# -*- mode: conf -*-
+
+[general]
+accounts = dochang@gmail.com
+ui = Blinkenlights
+# timeout in 60s
+socktimeout = 60
+pythonfile = ~/.offlineimap.py
+
+
+[Account dochang@gmail.com]
+localrepository = dochang@gmail.com_local
+remoterepository = dochang@gmail.com_remote
+
+[Repository dochang@gmail.com_local]
+type = Maildir
+localfolders = ~/Maildir/dochang@gmail.com
+nametrans = gmail_local_nametrans
+
+# You can specify the "path separator character" used for your Maildir
+# folders.  This is inserted in-between the components of the tree.
+# It defaults to ".".  If you want your Maildir folders to be nested,
+# set it to "/".
+
+sep = .
+
+[Repository dochang@gmail.com_remote]
+type = Gmail
+remoteuser = dochang@gmail.com
+realdelete = True
+nametrans = gmail_remote_nametrans
+# Until 6.3.4, there is a bug where any `readonly' setting was
+# considered as being True.  So we comment this out here.
+#
+# http://article.gmane.org/gmane.mail.imap.offlineimap.general/4987
+#readonly = False
+remotepasseval = get_remotepass('imap/imap.gmail.com/dochang@gmail.com/password')
+# No SSL verification is done without certs even if ssl = yes
+sslcacertfile = /etc/ssl/certs/ca-certificates.crt
+# Do not create any folders on the remote repository.
+createfolders = False
+
+
+[Account b6978148@mail.com]
+localrepository = b6978148@mail.com_local
+remoterepository = b6978148@mail.com_remote
+
+[Repository b6978148@mail.com_local]
+type = Maildir
+localfolders = ~/Maildir/b6978148@mail.com
+
+[Repository b6978148@mail.com_remote]
+type = IMAP
+remotehost = imap.mail.com
+ssl = yes
+remoteuser = b6978148@mail.com
+remotepasseval = get_remotepass('imap/imap.mail.com/b6978148@mail.com/password')
+# No SSL verification is done without certs even if ssl = yes
+sslcacertfile = /etc/ssl/certs/ca-certificates.crt
+# Do not create any folders on the remote repository.
+createfolders = False

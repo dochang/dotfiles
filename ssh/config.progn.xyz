@@ -1,0 +1,12 @@
+Host alioth.debian.org svn.debian.org git.debian.org bzr.debian.org hg.debian.org darcs.debian.org arch.debian.org
+	User dochang-guest
+Host common-lisp.net
+	User dchang
+Host repo.or.cz
+	User dochang
+Host secret-alien-tech.dyndns.org code-powered.dyndns.org
+	User doc
+Host secret-alien-tech.us.to code-powered.us.to unwind-protect.us.to
+	User doc
+Host luxion.ixx.io
+	User doc

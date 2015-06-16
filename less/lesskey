@@ -1,0 +1,27 @@
+# -*- mode: conf -*-
+
+#command
+
+\b back-screen
+\177 back-screen
+## Binding BACKSPACE to the `back-screen` command.
+##
+## On Debian (and most other distros), the BACKSPACE key is mapped to
+## ^?  (ASCII DEL). The only way currently for less to bind to it is
+## to use the octal code for ASCII DEL (\177).
+##
+## http://bugs.debian.org/609738
+
+
+
+#line-edit
+
+\e\b word-backspace
+\e\177 word-backspace
+## Binding M-BACKSPACE to the `word-backspace` command.
+##
+## On Debian (and most other distros), the BACKSPACE key is mapped to
+## ^?  (ASCII DEL). The only way currently for less to bind to it is
+## to use the octal code for ASCII DEL (\177).
+##
+## http://bugs.debian.org/609738

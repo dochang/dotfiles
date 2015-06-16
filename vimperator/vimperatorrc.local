@@ -1,0 +1,6 @@
+set followhints=1
+set toolbars=addons,nobookmarks,menu,navigation,tabs
+noremap <BS> <PageUp>
+noremap <Space> <PageDown>
+
+" vim: set ft=vimperator:

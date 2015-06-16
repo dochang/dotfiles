@@ -1,0 +1,3 @@
+bind generic Backspace move-page-up
+set show-rev-graph = yes
+set commit-order = topo

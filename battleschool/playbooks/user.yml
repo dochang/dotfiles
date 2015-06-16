@@ -1,0 +1,194 @@
+---
+- hosts: 'all'
+  sudo: yes
+  sudo_user: '{{ ansible_ssh_user }} -i'
+
+  vars:
+    pkg_state: present
+    envs:
+      - name: pyenv
+        version: 2.7.10
+      - name: rbenv
+        version: 2.2.2
+      - name: ndenv
+        version: v0.12.4
+      - name: goenv
+        version: 1.4.2
+
+  tasks:
+
+    - name: Install oh-my-zsh
+      git:
+        dest: ~/.oh-my-zsh
+        repo: https://github.com/robbyrussell/oh-my-zsh.git
+
+    - name: Install bash-it
+      git:
+        dest: ~/.bash_it
+        repo: https://github.com/revans/bash-it.git
+
+    - name: Install linuxbrew
+      git:
+        dest: ~/.linuxbrew
+        repo: https://github.com/Homebrew/linuxbrew.git
+
+    - name: Install anyenv
+      git:
+        dest: ~/.anyenv
+        repo: https://github.com/dochang/anyenv.git
+        remote: dochang
+        version: next
+
+    - name: Install anyenv-update
+      git:
+        dest: ~/.anyenv/plugins/anyenv-update
+        repo: https://github.com/znz/anyenv-update.git
+
+    - name: Install anyenv-git
+      git:
+        dest: ~/.anyenv/plugins/anyenv-git
+        repo: https://github.com/znz/anyenv-git.git
+
+    - name: Install envs
+      command: 'anyenv install {{ item }}'
+      args:
+        chdir: '~'
+        creates: '~/.anyenv/envs/{{ item }}'
+      with_items:
+        - pyenv
+        - rbenv
+        - ndenv
+        - goenv
+
+    - name: Install interpreters
+      shell: >-
+        {% if item.name == 'goenv' %}
+        wget --output-document - https://storage.googleapis.com/golang/go{{ item.version }}.linux-amd64.tar.gz | tar --extract --gzip --file - --xform "s/^go/{{ item.version }}/" --directory ~/.anyenv/envs/{{ item.name }}/versions/ ; status=$? ; [ $status -eq 0 ] || rm -rf ~/.anyenv/envs/{{ item.name }}/versions/{{ item.version }} ; exit $status
+        {% else %}
+        {{ item.name }} install {{ item.version }}
+        {% endif %}
+      args:
+        chdir: '~'
+        creates: '~/.anyenv/envs/{{ item.name }}/versions/{{ item.version }}'
+      with_items: envs
+
+    - name: Rehash envs
+      command: '{{ item.name }} rehash'
+      args:
+        chdir: '~'
+      with_items: envs
+
+    - name: Set global version of interpreters
+      command: '{{ item.name }} global {{ item.version }}'
+      args:
+        chdir: '~'
+      with_items: envs
+
+    - name: Install python 3 additionaly
+      command: 'pyenv install 3.4.3'
+      args:
+        chdir: '~'
+        creates: '~/.anyenv/envs/pyenv/versions/3.4.3'
+      notify:
+        - pyenv rehash
+
+    - name: Install utils
+      pip:
+        name: '{{ item }}'
+        state: '{{ pkg_state }}'
+      notify:
+        - pyenv rehash
+      with_items:
+        - pip
+        # virtualenvwrapper depends on pbr.
+        - pbr
+        - virtualenv
+        - virtualenvwrapper
+        - httpie
+        - thefuck
+        - 'git+https://github.com/dochang/battleschool.git@devel#egg=battleschool'
+        - ansible
+        - ansible-lint
+
+    # For rehashing battleschool
+    - meta: flush_handlers
+
+    - name: Install utils
+      gem:
+        name: '{{ item }}'
+        state: '{{ pkg_state }}'
+      notify:
+        - rbenv rehash
+      with_items:
+        - bundler
+
+    - name: Install utils
+      npm:
+        name: '{{ item }}'
+        state: '{{ pkg_state }}'
+        global: yes
+      notify:
+        - ndenv rehash
+      with_items:
+        - npm
+        - nrm
+        - metalsmith
+        - editorconfig
+        - yo
+        - gulp
+        - bower
+        # For Emacs flycheck
+        # https://github.com/zaach/jsonlint
+        - jsonlint
+
+    - name: Install utils
+      command: 'go get {{ item }}'
+      notify:
+        - goenv rehash
+      with_items:
+        - github.com/zimbatm/direnv
+
+    - name: Install dropbox.py
+      get_url:
+        dest: ~/bin/dropbox.py
+        url: https://www.dropbox.com/download?dl=packages/dropbox.py
+        sha256sum: 23732bac8f363b9573fc9cd8d83593f3396773f1340e3bff0bcfa68e41991a22
+
+    - name: Ensure dropbox.py executable
+      file:
+        path: ~/bin/dropbox.py
+        mode: 'a+x'
+        state: file
+
+    - name: Install dropbox
+      shell: wget -O - "https://www.dropbox.com/download?plat=lnx.x86_64" | tar xzf -
+      args:
+        chdir: '~'
+        creates: '~/.dropbox-dist'
+
+    - name: Install passmenu
+      get_url:
+        dest: ~/bin/passmenu
+        url: http://git.zx2c4.com/password-store/plain/contrib/dmenu/passmenu
+        sha256sum: 4696f749745dbeff3918045b6331242a969868be3ae5c4e178c3bca89673d244
+
+    - name: Ensure passmenu executable
+      file:
+        path: ~/bin/passmenu
+        mode: 'a+x'
+        state: file
+
+    - name: Deploy Emacs
+      command: ~/bin/deploy-emacs.sh
+      args:
+        chdir: '~'
+
+  handlers:
+    - name: pyenv rehash
+      command: pyenv rehash
+    - name: rbenv rehash
+      command: rbenv rehash
+    - name: ndenv rehash
+      command: ndenv rehash
+    - name: goenv rehash
+      command: goenv rehash

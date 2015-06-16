@@ -1,0 +1,17 @@
+# -*- mode: conf -*-
+
+defaults
+auth on
+tls on
+tls_trust_file /etc/ssl/certs/ca-certificates.crt
+
+account genee
+host smtp.geneegroup.com
+maildomain geneegroup.com
+
+account weiyi.zhang : genee
+from weiyi.zhang@geneegroup.com
+user weiyi.zhang
+passwordeval "pass smtp/smtp.geneegroup.com/weiyi.zhang/password"
+
+account default : weiyi.zhang

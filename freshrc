@@ -1,0 +1,175 @@
+# freshshell.com
+#
+# Examples:
+#
+#   fresh twe4ked/dotfiles shell/functions/\*
+#   fresh jasoncodes/dotfiles shell/aliases/rails.sh
+#   fresh jasoncodes/dotfiles config/tmux.conf --file
+#
+# See http://freshshell.com/readme for documentation.
+
+fresh freshshell/fresh bin/fresh --bin
+
+# # Fighting with `_fresh_symlink`.
+# ln () {
+# 	command ln --force "$@"
+# }
+
+: ${XDG_CONFIG_HOME:="~/.config"}
+export XDG_CONFIG_HOME
+
+: ${FRESH_LOCAL:="$HOME/.dotfiles"}
+export FRESH_LOCAL
+
+export VM=false
+if [ x"$(hostnamectl | sed -n 's/^ *Chassis: *\([^ ]*\) *$/\1/p')" != xvm ] ; then
+	VM=true
+fi
+
+export NAME='Desmond O. Chang'
+export EMAIL=dochang@gmail.com
+case $(hostname --domain) in
+genee.cn)
+	NAME='Weiyi Zhang'
+	EMAIL=weiyi.zhang@geneegroup.com
+	;;
+esac
+
+# Basic
+# =====
+
+fresh tests-always-included/mo mo --bin
+# Also see jwerle/mush
+
+# We need to use mo in this file later, but fresh builds everything after this
+# file.  So if `~/bin/mo` doesn't exist, use the internal file
+# `~/.fresh/build.new/bin/mo` instead.
+MO='~/bin/mo'
+[ -x "${MO}" ] || MO='~/.fresh/build.new/bin/mo'
+export MO
+
+fresh shell --file --filter="${MO}"
+fresh bin --bin
+
+fresh gnupg/gpg.conf --file="~/.gnupg/gpg.conf"
+
+fresh git/attributes --file="${XDG_CONFIG_HOME}/git/attributes"
+fresh-options --file="${XDG_CONFIG_HOME}/git/config"
+  fresh git/config.$(hostname --domain)
+  fresh git/config
+fresh-options
+
+fresh vim --file
+
+: ${LESSKEY:="~/.less"}
+export LESSKEY
+fresh less/lesskey --file="${LESSKEY}" --filter='lesskey --output /dev/stdout -- -'
+fresh less/lessfilter --bin=~/.lessfilter
+
+fresh tmux --file
+
+# Emacs
+# =====
+find "${FRESH_LOCAL}/emacs" -maxdepth 1 -name '*.el' -printf '%P\n' | {
+	while read f ; do
+		fresh "emacs/$f" --file="~/.emacs.d/$f" --filter="${MO}"
+	done
+}
+prefix=chinese-fonts-setup
+src_prefix="emacs/${prefix}"
+dst_prefix="~/.emacs.d/${prefix}"
+find "${FRESH_LOCAL}/${src_prefix}" -type f -name '*.el' -printf '%P\n' | {
+	while read REPLY ; do
+		fresh "${src_prefix}/${REPLY}" --file="${dst_prefix}/${REPLY}"
+	done
+}
+fresh gnus/gnus.el --file
+
+# X window
+# ========
+
+fresh X/Xresources --file
+fresh X/Xsession --bin=~/.Xsession
+
+fresh i3 --file="${XDG_CONFIG_HOME}/i3/"
+
+for x in '^eth[0-9]+$' '^p[0-9]+p[0-9]+$' '^usb[0-9]+$' '^em[0-9]+$' ; do
+	NETDEV="$(ls /sys/class/net | grep -E ${x} | sort --unique | head -n 1 || true)"
+	[ -z "${NETDEV}" ] || break
+done
+export NETDEV
+fresh i3status/config.mustache --file="${XDG_CONFIG_HOME}/i3status/config" --filter="${MO}"
+
+fresh gtk-3.0 --file="${XDG_CONFIG_HOME}/gtk-3.0/"
+
+fresh gtk-2.0 --file
+
+# Extra
+# =====
+
+find "${FRESH_LOCAL}/battleschool" -maxdepth 1 -name '*.yml' -printf '%P\n' | {
+	while read f ; do
+		fresh "battleschool/${f}" "--file=~/.battleschool/${f}"
+	done
+}
+fresh battleschool/playbooks --file=~/.battleschool/playbooks/
+cache=~/.battleschool/cache
+if [ ! -d "${cache}" ] ; then
+	[ ! -e "${cache}" ] || rm -rf "${cache}"
+	mkdir -p "${cache}"
+fi
+
+fresh zathura --file="${XDG_CONFIG_HOME}/zathura/"
+
+fresh keynav --file
+
+fresh msmtp/msmtprc.$(hostname --domain) --file="~/.msmtprc"
+
+fresh offlineimap/offlineimap.py --file="~/.offlineimap.py"
+fresh offlineimap/offlineimaprc.$(hostname --domain) --file="~/.offlineimaprc"
+
+fresh mime-support --file
+
+fresh quilt --file
+
+fresh dput --file
+
+fresh tig --file
+
+fresh wget --file
+
+fresh xmodmap --file
+
+fresh ssh/config.$(hostname --domain) --file="~/.ssh/config"
+
+fresh conky --file
+
+fresh mpv --file="${XDG_CONFIG_HOME}/mpv/"
+
+fresh mpd/mpd.conf --file="${XDG_CONFIG_HOME}/mpd/mpd.conf"
+
+fresh mplayer --file="~/.mplayer/"
+
+fresh fvwm --file="~/.fvwm/"
+
+fresh aria2/aria2.conf --file="~/.aria2/aria2.conf"
+
+fresh vimperator --file
+
+fresh conkeror --file="~/.conkerorrc/"
+
+fresh most --file
+
+fresh gradle/gradle.properties --file="~/.gradle/gradle.properties"
+
+fresh Russell91/sshrc sshrc --bin
+
+fresh sshrc --file
+
+fresh majutsushi/urxvt-font-size font-size --file="~/.urxvt/ext/font-size"
+
+fresh thefuck/settings.py --file="~/.thefuck/settings.py"
+
+# Local Variables:
+# mode: sh
+# End:

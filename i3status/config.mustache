@@ -1,0 +1,62 @@
+general {
+        output_format = "i3bar"
+        colors = true
+        interval = 1
+}
+
+order += "wireless wlan0"
+{{#NETDEV}}
+order += "ethernet {{NETDEV}}"
+{{/NETDEV}}
+order += "load"
+order += "cpu_usage"
+{{^VM}}
+order += "cpu_temperature 0"
+{{/VM}}
+order += "battery 0"
+order += "volume master"
+order += "time"
+
+wireless wlan0 {
+        format_up = "W: (%quality at %essid, %bitrate) %ip"
+        format_down = "W: down"
+}
+{{#NETDEV}}
+
+ethernet {{NETDEV}} {
+        # if you use %speed, i3status requires the cap_net_admin capability
+        format_up = "E: %ip (%speed)"
+        format_down = "E: down"
+}
+{{/NETDEV}}
+
+load {
+        format = "%5min"
+}
+
+cpu_usage {
+        format = "%usage"
+}
+{{^VM}}
+
+cpu_temperature 0 {
+        format = "T: %degrees °C"
+        # https://faq.i3wm.org/question/2168/cant-read-temp/?answer=2194#post-id-2194
+        path = "/sys/class/thermal/thermal_zone0/temp"
+}
+{{/VM}}
+
+battery 0 {
+        format = "%status %percentage %remaining %emptytime"
+        path = "/sys/class/power_supply/BAT%d/uevent"
+        low_threshold = 10
+        threshold_type = "time"
+}
+
+volume master {
+        format = "♪: %volume"
+}
+
+time {
+        format = "%Y-%m-%d %a %H:%M:%S"
+}

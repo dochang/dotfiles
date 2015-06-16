@@ -1,0 +1,17 @@
+# -*- mode: conf -*-
+
+defaults
+auth on
+tls on
+tls_trust_file /etc/ssl/certs/ca-certificates.crt
+
+account gmail
+host smtp.gmail.com
+maildomain gmail.com
+
+account dochang : gmail
+from dochang@gmail.com
+user dochang@gmail.com
+passwordeval "pass smtp/smtp.gmail.com/dochang@gmail.com/password"
+
+account default : dochang

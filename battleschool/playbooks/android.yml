@@ -1,0 +1,51 @@
+---
+- hosts: 'all'
+  sudo: yes
+
+  tasks:
+
+    - name: Install Android SDK
+      shell: wget -O - http://dl.google.com/android/android-sdk_r24.1.2-linux.tgz | tar xzf -
+      args:
+        chdir: /opt
+        creates: '/opt/android-sdk-linux'
+
+    - name: Fix ownership for /opt/android-sdk-linux
+      file:
+        path: /opt/android-sdk-linux
+        owner: '{{ ansible_ssh_user }}'
+        group: '{{ lookup("pipe", "id --group --name " + ansible_ssh_user) }}'
+        recurse: yes
+        state: directory
+
+    - name: Install Gradle
+      shell: 'wget --continue -O gradle-2.4-bin.zip https://services.gradle.org/distributions/gradle-2.4-bin.zip && unzip gradle-2.4-bin.zip'
+      args:
+        chdir: /opt
+        creates: '/opt/gradle-2.4'
+
+    - name: Link /opt/gradle
+      file:
+        src: gradle-2.4
+        path: /opt/gradle
+        state: link
+
+    - name: Add i386 arch for Debian
+      command: dpkg --add-architecture i386
+
+    - name: Update APT cache
+      apt:
+        update_cache: yes
+
+    - name: Install packages that Android SDK depends on
+      apt:
+        name: '{{ item }}'
+        state: present
+      environment:
+        APT_LISTCHANGES_FRONTEND: none
+        APT_LISTBUGS_FRONTEND: none
+      with_items:
+        - libncurses5:i386
+        - libstdc++6:i386
+        - zlib1g:i386
+        - default-jdk
