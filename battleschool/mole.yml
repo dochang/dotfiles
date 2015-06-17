@@ -1,7 +1,7 @@
 ---
 sources:
   git:
-    - name: poweron
-      repo: https://github.com/dochang/poweron.git
+    - name: mole
+      repo: https://github.com/dochang/mole.git
       playbooks:
-        - playbooks/mole.yml
+        - mole.yml
