@@ -21,7 +21,7 @@ export XDG_CONFIG_HOME
 : ${FRESH_LOCAL:="$HOME/.dotfiles"}
 export FRESH_LOCAL
 
-export VM=false
+export VM=
 [ x"$(hostnamectl | sed -n 's/^ *Chassis: *\([^ ]*\) *$/\1/p')" != xvm ] || VM=true
 
 export NAME='Desmond O. Chang'
