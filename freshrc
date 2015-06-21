@@ -22,9 +22,7 @@ export XDG_CONFIG_HOME
 export FRESH_LOCAL
 
 export VM=false
-if [ x"$(hostnamectl | sed -n 's/^ *Chassis: *\([^ ]*\) *$/\1/p')" != xvm ] ; then
-	VM=true
-fi
+[ x"$(hostnamectl | sed -n 's/^ *Chassis: *\([^ ]*\) *$/\1/p')" != xvm ] || VM=true
 
 export NAME='Desmond O. Chang'
 export EMAIL=dochang@gmail.com
