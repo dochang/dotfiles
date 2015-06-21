@@ -91,7 +91,9 @@ fresh X/Xsession --bin=~/.Xsession
 
 fresh i3 --file="${XDG_CONFIG_HOME}/i3/"
 
-for x in '^eth[0-9]+$' '^p[0-9]+p[0-9]+$' '^usb[0-9]+$' '^em[0-9]+$' ; do
+# https://wiki.freedesktop.org/www/Software/systemd/PredictableNetworkInterfaceNames/
+# http://cgit.freedesktop.org/systemd/systemd/tree/src/udev/udev-builtin-net_id.c#n20
+for x in '^eth[0-9]+$' '^p[0-9]+p[0-9]+$' '^usb[0-9]+$' '^em[0-9]+$' '^(en|sl|wl|ww)(b[0-9]+|ccw.+|o[0-9]+(d[0-9]+)?|s[0-9]+(f.+)?(d[0-9]+)?|x[0-9a-f]+|(P.+)?p[0-9]+s[0-9]+(f.+)?(d[0-9]+|(u[0-9]+)?(\.\.)?(c.+)?(i.+)?)?)$' ; do
 	NETDEV="$(ls /sys/class/net | grep -E ${x} | sort --unique | head -n 1 || true)"
 	[ -z "${NETDEV}" ] || break
 done
