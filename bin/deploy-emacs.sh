@@ -150,7 +150,10 @@
                 jsx-mode
                 symon
                 flycheck-pos-tip
-                flymake-cursor)
+                flymake-cursor
+                docker
+                docker-tramp
+                marcopolo)
               (if (< emacs-major-version 24)
                   '(scala-mode)
                 '(scala-mode2
