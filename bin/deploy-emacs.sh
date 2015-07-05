@@ -127,8 +127,6 @@
                 gitconfig-mode
                 gitignore-mode
                 gitattributes-mode
-                git-rebase-mode
-                git-commit-mode
                 chinese-fonts-setup
                 password-store
                 flycheck-package
