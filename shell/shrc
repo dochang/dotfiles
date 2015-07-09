@@ -4,6 +4,16 @@
 ## If `sh` links to `zsh`, and is invoked as a "non-login, non-interactive"
 ## shell, this file should be skipped.
 if ! { [ x"$(ps c -p $$ -o 'comm=' 2>/dev/null || true)" = xsh -a -n "${ZSH_VERSION}" ] && expr "$-" : '.*i' > /dev/null ; } ; then
+	get_alias () {
+		local a
+		a=$(alias $1 2>/dev/null)
+		if [ -z "$a" ]; then
+			echo "$1"
+		else
+			( eval "$a ; echo \$$1" )
+		fi
+	}
+
 	if [ "$TERM" != "dumb" ]; then
 		alias ls='ls --color=auto -F -tr --quoting-style=shell'
 		alias dir='ls --color=auto --format=vertical'
@@ -17,6 +27,8 @@ if ! { [ x"$(ps c -p $$ -o 'comm=' 2>/dev/null || true)" = xsh -a -n "${ZSH_VERS
 	alias rm='rm -I'
 	alias cp='cp -i'
 	alias mv='mv -i'
+
+	alias grep="$(get_alias grep) --color=auto"
 
 	is_function () {
 		type $1 | grep -E ' is (.* )?function' >/dev/null 2>&1

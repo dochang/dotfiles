@@ -45,10 +45,6 @@ export LESS
 ## For less input pre-processor
 
 
-: ${GREP_OPTIONS:='--color=auto'}
-export GREP_OPTIONS
-
-
 is_in_env () {
 	eval "expr \":\$${2}:\" : \".*:${1}:\" > /dev/null"
 }
