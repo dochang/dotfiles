@@ -11,7 +11,7 @@
       - name: rbenv
         version: 2.2.2
       - name: ndenv
-        version: v0.12.4
+        version: v0.12.7
       - name: goenv
         version: 1.4.2
 
