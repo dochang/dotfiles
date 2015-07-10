@@ -2162,6 +2162,9 @@ major mode isn't derived from `prog-mode'."
   (flycheck-package-setup)
   (when (require 'auth-password-store nil t)
     (auth-pass-enable))
+  ;; docean.el
+  (setq docean-oauth-token
+        (ignore-errors (password-store-get "web/digitalocean.com/{{ EMAIL }}/tokens/default")))
   (appt-activate 1)
   (unless **theme-initialized**
     ($theme-initialize))
