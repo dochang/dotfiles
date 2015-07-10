@@ -151,7 +151,8 @@
                 flymake-cursor
                 docker
                 docker-tramp
-                marcopolo)
+                marcopolo
+                pass)
               (if (< emacs-major-version 24)
                   '(scala-mode)
                 '(scala-mode2
