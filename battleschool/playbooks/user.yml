@@ -17,6 +17,8 @@
       - name: ndenv
         version: v0.12.7
         global: true
+      - name: ndenv
+        version: iojs-v2.3.4
       - name: goenv
         version: 1.4.2
         global: true
