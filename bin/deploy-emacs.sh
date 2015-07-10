@@ -153,7 +153,8 @@
                 docker-tramp
                 marcopolo
                 pass
-                auth-password-store)
+                auth-password-store
+                focus-autosave-mode)
               (if (< emacs-major-version 24)
                   '(scala-mode)
                 '(scala-mode2

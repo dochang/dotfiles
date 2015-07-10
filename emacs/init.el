@@ -2165,6 +2165,9 @@ major mode isn't derived from `prog-mode'."
   ;; docean.el
   (setq docean-oauth-token
         (ignore-errors (password-store-get "web/digitalocean.com/{{ EMAIL }}/tokens/default")))
+  ;; focus-autosave-mode
+  (when (require 'focus-autosave-mode nil t)
+    (focus-autosave-mode 1))
   (appt-activate 1)
   (unless **theme-initialized**
     ($theme-initialize))
