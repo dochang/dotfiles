@@ -152,7 +152,8 @@
                 docker
                 docker-tramp
                 marcopolo
-                pass)
+                pass
+                auth-password-store)
               (if (< emacs-major-version 24)
                   '(scala-mode)
                 '(scala-mode2

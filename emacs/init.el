@@ -2160,6 +2160,8 @@ major mode isn't derived from `prog-mode'."
   (when (require 'guide-key nil t)
     (guide-key-mode 1))
   (flycheck-package-setup)
+  (when (require 'auth-password-store nil t)
+    (auth-pass-enable))
   (appt-activate 1)
   (unless **theme-initialized**
     ($theme-initialize))
