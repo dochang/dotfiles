@@ -8,12 +8,18 @@
     envs:
       - name: pyenv
         version: 2.7.10
+        global: true
+      - name: pyenv
+        version: 3.4.3
       - name: rbenv
         version: 2.2.2
+        global: true
       - name: ndenv
         version: v0.12.7
+        global: true
       - name: goenv
         version: 1.4.2
+        global: true
 
   tasks:
 
@@ -87,15 +93,8 @@
       command: '{{ item.name }} global {{ item.version }}'
       args:
         chdir: '~'
+      when: item.global is defined and item.global
       with_items: envs
-
-    - name: Install python 3 additionaly
-      command: 'pyenv install 3.4.3'
-      args:
-        chdir: '~'
-        creates: '~/.anyenv/envs/pyenv/versions/3.4.3'
-      notify:
-        - pyenv rehash
 
     - name: Install utils
       pip:
