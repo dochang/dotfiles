@@ -2134,6 +2134,15 @@ major mode isn't derived from `prog-mode'."
                        symon-windows-network-tx-monitor)))))
 
 
+;;; docean.el
+(defun $eval-after-load-docean ()
+  (setq docean-oauth-token
+        (ignore-errors
+          (password-store-get "web/digitalocean.com/{{ EMAIL }}/tokens/default"))))
+
+(eval-after-load 'docean '($eval-after-load-docean))
+
+
 ;;; Server
 (unless (daemonp)
   (server-start))
@@ -2162,9 +2171,6 @@ major mode isn't derived from `prog-mode'."
   (flycheck-package-setup)
   (when (require 'auth-password-store nil t)
     (auth-pass-enable))
-  ;; docean.el
-  (setq docean-oauth-token
-        (ignore-errors (password-store-get "web/digitalocean.com/{{ EMAIL }}/tokens/default")))
   ;; focus-autosave-mode
   (when (require 'focus-autosave-mode nil t)
     (focus-autosave-mode 1))
