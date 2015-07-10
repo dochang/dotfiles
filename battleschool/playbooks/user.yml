@@ -60,6 +60,11 @@
         - ndenv
         - goenv
 
+    - name: Update anyenv
+      command: 'anyenv update'
+      args:
+        chdir: '~'
+
     - name: Install interpreters
       shell: >-
         {% if item.name == 'goenv' %}
