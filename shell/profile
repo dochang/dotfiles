@@ -208,11 +208,6 @@ which thefuck-alias >/dev/null 2>&1 && {
 }
 
 
-## digitalocean
-: ${DO_API_TOKEN:="$(pass show web/digitalocean.com/dochang@gmail.com/tokens/default 2>/dev/null)"}
-export DO_API_TOKEN
-
-
 if [ x"$(ps c -p $$ -o 'comm=' 2>/dev/null || true)" = xsh ] ; then
 	if expr "$-" : '.*i' > /dev/null ; then
 		if [ -n "${ZSH_VERSION}" ] ; then
