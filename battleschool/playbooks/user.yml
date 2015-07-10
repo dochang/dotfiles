@@ -70,6 +70,7 @@
       command: 'anyenv update'
       args:
         chdir: '~'
+      when: pkg_state == 'latest'
 
     - name: Install interpreters
       shell: >-
