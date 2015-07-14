@@ -122,6 +122,7 @@
         - bluetooth
         - pass
         - unzip
+        - socat
         # For perl
         - build-essential
         # For pyenv
