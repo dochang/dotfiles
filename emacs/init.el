@@ -11,6 +11,12 @@
 
 (load (locate-user-emacs-file "packages") t)
 
+(defun $clean-up-user-packages ()
+  (interactive)
+  (mapc (lambda (pkg)
+          (ignore-errors (package-delete pkg)))
+        (apply 'append (mapcar 'cddr package-alist))))
+
 (mapc 'load-file
       (let ((etcdir (expand-file-name "~/local/etc/emacs/site-start.d")))
         (and (file-accessible-directory-p etcdir)
