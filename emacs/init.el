@@ -2181,9 +2181,12 @@ major mode isn't derived from `prog-mode'."
     (global-undo-tree-mode 1))
   (when (require 'fringe-current-line nil t)
     (global-fringe-current-line-mode 1))
+  ;; guide-key
   (setq guide-key/guide-key-sequence t)
-  (when (require 'guide-key nil t)
-    (guide-key-mode 1))
+  ;; which-key
+  (when (require 'which-key nil t)
+    (which-key-mode 1)
+    (which-key-setup-side-window-right))
   (flycheck-package-setup)
   (when (require 'auth-password-store nil t)
     (auth-pass-enable))

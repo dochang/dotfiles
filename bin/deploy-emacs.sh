@@ -143,7 +143,7 @@
                 docean
                 http
                 vagrant
-                guide-key
+                which-key
                 nginx-mode
                 jsx-mode
                 symon
