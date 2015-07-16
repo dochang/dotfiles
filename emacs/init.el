@@ -2150,6 +2150,15 @@ major mode isn't derived from `prog-mode'."
 (eval-after-load 'docean '($eval-after-load-docean))
 
 
+;;; pass
+(defun $pass-mode-hook ()
+  ;; View mode overrides some key bindings.  Do not enable it.
+  (set (make-local-variable 'view-read-only) nil)
+  (view-mode -1))
+
+(add-hook 'pass-mode-hook '$pass-mode-hook)
+
+
 ;;; Server
 (unless (daemonp)
   (server-start))
