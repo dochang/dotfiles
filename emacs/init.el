@@ -1836,6 +1836,7 @@ major mode isn't derived from `prog-mode'."
 (setq ledger-highlight-xact-under-point nil)
 
 (defun $ledger-reconcile-mode-hook ()
+  ;; View mode overrides some key bindings.  Do not enable it.
   (set (make-local-variable 'view-read-only) nil))
 
 (add-hook 'ledger-reconcile-mode-hook '$ledger-reconcile-mode-hook)
