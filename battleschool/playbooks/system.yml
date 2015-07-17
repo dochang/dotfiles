@@ -154,6 +154,10 @@
         - libffi-dev
         - libgdbm3
         - libgdbm-dev
+        # For rbenv-ctags
+        #
+        # https://github.com/tpope/rbenv-ctags
+        - exuberant-ctags
         # For node.js
         #
         # https://github.com/joyent/node/wiki/Installation
@@ -185,6 +189,11 @@
           path: /usr/bin/i3
         - name: x-terminal-emulator
           path: /usr/bin/urxvt
+        # For rbenv-ctags
+        #
+        # https://github.com/tpope/rbenv-ctags
+        - name: ctags
+          path: /usr/bin/ctags-exuberant
 
     - name: Ensure groups present
       group:
