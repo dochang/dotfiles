@@ -144,6 +144,7 @@
         - yo
         - gulp
         - bower
+        - nodemon
         # For Emacs flycheck
         # https://github.com/zaach/jsonlint
         - jsonlint
