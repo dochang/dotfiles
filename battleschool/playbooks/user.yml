@@ -113,7 +113,7 @@
         - virtualenvwrapper
         - httpie
         - thefuck
-        - 'git+https://github.com/dochang/battleschool.git@devel#egg=battleschool'
+        - 'https://github.com/dochang/battleschool/archive/next.zip#egg=battleschool'
         - ansible
         - ansible-lint
 
