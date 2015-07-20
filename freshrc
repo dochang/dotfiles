@@ -170,6 +170,8 @@ fresh majutsushi/urxvt-font-size font-size --file="~/.urxvt/ext/font-size"
 
 fresh thefuck/settings.py --file="~/.thefuck/settings.py"
 
+fresh ansible --file
+
 # Local Variables:
 # mode: sh
 # End:
