@@ -1,8 +1,3 @@
-#!/bin/bash
-
-
-[ ! -r ~/.profile ] || . ~/.profile
-
 if expr "$-" : '.*i' > /dev/null ; then
         [ -r ~/.bashrc ] && . ~/.bashrc
 fi

@@ -1,6 +1,3 @@
-#!/bin/sh
-
-
 : ${ENV:=~/.shrc}
 export ENV
 

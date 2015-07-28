@@ -1,6 +1,3 @@
-#!/bin/bash
-
-
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).
@@ -29,6 +26,3 @@ export BASH_IT_THEME
 [ ! -r $BASH_IT/bash_it.sh ] || source $BASH_IT/bash_it.sh
 
 # Customize to your needs...
-
-
-[ ! -r ~/.shrc ] || . ~/.shrc

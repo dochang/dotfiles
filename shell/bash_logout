@@ -1,7 +1,0 @@
-#!/bin/bash
-
-
-if [ x"$(ps c -p $$ -o 'comm=' 2>/dev/null || true)" != xsh ] ; then
-	[ ! -r ~/.sh_logout ] || . ~/.sh_logout
-fi
-## Bash should not `. ~/.bash_logout` when it's invoked as `sh`.

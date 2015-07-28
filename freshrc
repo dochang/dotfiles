@@ -46,7 +46,54 @@ MO='~/bin/mo'
 [ -x "${MO}" ] || MO='~/.fresh/build.new/bin/mo'
 export MO
 
-fresh shell --file --filter="${MO}"
+fresh-options --filter="${MO}"
+{
+	fresh shell/inputrc --file="~/.inputrc"
+	fresh shell/profile.sh --file="~/.profile"
+	fresh shell/shrc.sh --file="~/.shrc"
+}
+fresh-options
+
+fresh-options --filter="${MO}" --file="~/.bash_profile" --marker
+{
+	fresh shell/profile.sh
+	fresh shell/bash_profile.footer.bash
+}
+fresh-options
+
+fresh-options --filter="${MO}" --file="~/.bashrc" --marker
+{
+	fresh shell/bashrc.header.bash
+	fresh shell/shrc.sh
+}
+fresh-options
+
+fresh-options --filter="${MO}" --file="~/.bash_logout" --marker
+{
+	fresh shell/logout.sh
+}
+fresh-options
+
+fresh-options --filter="${MO}" --file="~/.zprofile" --marker
+{
+	fresh shell/profile.sh
+}
+fresh-options
+
+fresh-options --filter="${MO}" --file="~/.zshrc" --marker
+{
+	fresh shell/zshrc.header.zsh
+	fresh shell/shrc.sh
+	fresh shell/zshrc.footer.zsh
+}
+fresh-options
+
+fresh-options --filter="${MO}" --file="~/.zlogout" --marker
+{
+	fresh shell/logout.sh
+}
+fresh-options
+
 fresh bin --bin
 
 fresh gnupg/gpg.conf --file="~/.gnupg/gpg.conf"
