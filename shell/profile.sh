@@ -206,8 +206,9 @@ which thefuck-alias >/dev/null 2>&1 && {
 
 
 ## nix
-if [ -e "${HOME}/.nix-profile/etc/profile.d/nix.sh" ]; then
-	. "${HOME}/.nix-profile/etc/profile.d/nix.sh"
+# Expand HOME for Nix installer check.
+if [ -e "{{ HOME }}/.nix-profile/etc/profile.d/nix.sh" ]; then
+	. "{{ HOME }}/.nix-profile/etc/profile.d/nix.sh"
 fi
 
 
