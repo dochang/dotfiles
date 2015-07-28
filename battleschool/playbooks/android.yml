@@ -10,11 +10,16 @@
         chdir: /opt
         creates: '/opt/android-sdk-linux'
 
+    - name: Get user primary group name
+      getent:
+        database: group
+        key: '{{ (ansible_env["SUDO_GID"] | default("")) or ansible_user_gid }}'
+
     - name: Fix ownership for /opt/android-sdk-linux
       file:
         path: /opt/android-sdk-linux
         owner: '{{ ansible_ssh_user }}'
-        group: '{{ lookup("pipe", "id --group --name " + ansible_ssh_user) }}'
+        group: '{{ getent_group.keys()[0] }}'
         recurse: yes
         state: directory
 
