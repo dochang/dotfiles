@@ -53,8 +53,10 @@ fresh gnupg/gpg.conf --file="~/.gnupg/gpg.conf"
 
 fresh git/attributes --file="${XDG_CONFIG_HOME}/git/attributes"
 fresh-options --file="${XDG_CONFIG_HOME}/git/config"
-  fresh git/config.$(hostname --domain)
-  fresh git/config
+{
+	fresh git/config.$(hostname --domain)
+	fresh git/config
+}
 fresh-options
 
 fresh vim --file
