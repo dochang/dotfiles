@@ -174,18 +174,6 @@
         chdir: '~'
         creates: '~/.dropbox-dist'
 
-    - name: Install passmenu
-      get_url:
-        dest: ~/bin/passmenu
-        url: http://git.zx2c4.com/password-store/plain/contrib/dmenu/passmenu
-        sha256sum: 4696f749745dbeff3918045b6331242a969868be3ae5c4e178c3bca89673d244
-
-    - name: Ensure passmenu executable
-      file:
-        path: ~/bin/passmenu
-        mode: 'a+x'
-        state: file
-
     - name: Deploy Emacs
       command: ~/bin/deploy-emacs.sh
       args:
