@@ -123,6 +123,7 @@
         - pass
         - unzip
         - socat
+        - xdm
         # For perl
         - build-essential
         # For pyenv
@@ -167,7 +168,6 @@
         - install-info
         # For dropbox
         - python-gpgme
-        #- xdm
 
     - name: Remove packages
       apt:
