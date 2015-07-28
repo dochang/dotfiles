@@ -62,7 +62,7 @@ fresh vim --file
 : ${LESSKEY:="~/.less"}
 export LESSKEY
 fresh less/lesskey --file="${LESSKEY}" --filter='lesskey --output /dev/stdout -- -'
-fresh less/lessfilter --bin=~/.lessfilter
+fresh less/lessfilter --bin="~/.lessfilter"
 
 fresh tmux --file
 
@@ -87,7 +87,7 @@ fresh gnus/gnus.el --file
 # ========
 
 fresh X/Xresources --file
-fresh X/Xsession --bin=~/.Xsession
+fresh X/Xsession --bin="~/.Xsession"
 
 fresh i3 --file="${XDG_CONFIG_HOME}/i3/"
 
@@ -109,11 +109,11 @@ fresh gtk-2.0 --file
 
 find "${FRESH_LOCAL}/battleschool" -maxdepth 1 -name '*.yml' -printf '%P\n' | {
 	while read f ; do
-		fresh "battleschool/${f}" "--file=~/.battleschool/${f}"
+		fresh "battleschool/${f}" --file="~/.battleschool/${f}"
 	done
 }
-fresh battleschool/playbooks --file=~/.battleschool/playbooks/
-cache=~/.battleschool/cache
+fresh battleschool/playbooks --file="~/.battleschool/playbooks/"
+cache="~/.battleschool/cache"
 if [ ! -d "${cache}" ] ; then
 	[ ! -e "${cache}" ] || rm -rf "${cache}"
 	mkdir -p "${cache}"
