@@ -3,7 +3,7 @@
 if ! { [ x"$(ps c -p $$ -o 'comm=' 2>/dev/null || true)" = xsh -a -n "${ZSH_VERSION}" ] && expr "$-" : '.*i' > /dev/null ; } ; then
 	get_alias () {
 		local a
-		a=$(alias $1 2>/dev/null)
+		a=$(alias $1 2>/dev/null | sed 's/^alias \+//')
 		if [ -z "$a" ]; then
 			echo "$1"
 		else
