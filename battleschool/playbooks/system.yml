@@ -168,6 +168,9 @@
         - install-info
         # For dropbox
         - python-gpgme
+        # For Nix
+        - bzip2
+        - tar
 
     - name: Remove packages
       apt:

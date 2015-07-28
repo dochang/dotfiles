@@ -156,6 +156,35 @@
       with_items:
         - github.com/zimbatm/direnv
 
+    - name: Get user primary group name
+      getent:
+        database: group
+        key: '{{ (ansible_env["SUDO_GID"] | default("")) or ansible_user_gid }}'
+
+    - name: Ensure /nix present
+      file:
+        path: /nix
+        state: directory
+        recurse: no
+        mode: 0755
+        owner: '{{ ansible_ssh_user }}'
+        group: '{{ getent_group.keys()[0] }}'
+      become: yes
+      become_user: root
+
+    - name: Install Nix
+      shell: curl -sSL https://nixos.org/nix/install | sh
+      args:
+        chdir: '~'
+        creates: /nix/store
+
+    - name: Upgrade Nix packages
+      shell: nix-channel --update && nix-env --upgrade
+      args:
+        chdir: '~'
+        creates: /nix/store
+      when: pkg_state == 'latest'
+
     - name: Install dropbox.py
       get_url:
         dest: ~/bin/dropbox.py
