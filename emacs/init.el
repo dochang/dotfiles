@@ -1339,6 +1339,7 @@ major mode isn't derived from `prog-mode'."
 (setq sh-shell-file "/bin/sh")
 
 (defun $eval-after-load-sh-mode ()
+  (add-to-list 'auto-mode-alist '("\\.zsh\\'" . sh-mode))
   (setq sh-alias-alist (cons (cons 'zsh5 'zsh)
                              (assq-delete-all 'zsh5 sh-alias-alist)))
   ;; The default argument of zsh is `-f`.  In fact, zsh won't source all
@@ -1350,6 +1351,8 @@ major mode isn't derived from `prog-mode'."
 (eval-after-load 'sh-mode '($eval-after-load-sh-mode))
 
 (defun $sh-mode-hook ()
+  (cond ((string-match "[.]zsh\\>" buffer-file-name)
+         (sh-set-shell "zsh")))
   ($prog-mode-hook*)
   (when (and (not (require 'flycheck nil t))
              flymake-mode
