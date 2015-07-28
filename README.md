@@ -6,7 +6,7 @@ dotfiles
 Installation
 ------------
 
-    curl -sSL get.freshshell.com | FRESH_LOCAL_SOURCE=https://github.com/dochang/dotfiles.git bash
+    curl -sSL get.freshshell.com | FRESH_LOCAL_SOURCE=dochang/dotfiles bash
 
 Then exit and re-login, run:
 
