@@ -18,3 +18,8 @@ Usage
     fresh [update]
     battle --ask-sudo-pass
 
+Upgrade
+-------
+
+To upgrade all user space packages, pass `-e|--extra-vars pkg_state=latest` to
+command line.
