@@ -221,6 +221,8 @@ fresh thefuck/settings.py --file="~/.thefuck/settings.py"
 
 fresh ansible --file
 
+fresh nix --file
+
 # Local Variables:
 # mode: sh
 # End:

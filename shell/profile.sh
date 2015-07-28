@@ -205,6 +205,12 @@ which thefuck-alias >/dev/null 2>&1 && {
 }
 
 
+## nix
+if [ -e "${HOME}/.nix-profile/etc/profile.d/nix.sh" ]; then
+	. "${HOME}/.nix-profile/etc/profile.d/nix.sh"
+fi
+
+
 if [ x"$(ps c -p $$ -o 'comm=' 2>/dev/null || true)" = xsh ] ; then
 	if expr "$-" : '.*i' > /dev/null ; then
 		if [ -n "${ZSH_VERSION}" ] ; then
