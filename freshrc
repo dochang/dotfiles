@@ -162,7 +162,7 @@ find "${FRESH_LOCAL}/battleschool" -maxdepth 1 -name '*.yml' -printf '%P\n' | {
 	done
 }
 fresh battleschool/playbooks --file="~/.battleschool/playbooks/"
-cache="~/.battleschool/cache"
+cache="${HOME}/.battleschool/cache"
 if [ ! -d "${cache}" ] ; then
 	[ ! -e "${cache}" ] || rm -rf "${cache}"
 	mkdir -p "${cache}"
