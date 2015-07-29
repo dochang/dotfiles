@@ -6,22 +6,57 @@
   vars:
     pkg_state: present
     envs:
+      pyenv:
+        versions:
+          - 2.7.10
+          - 3.4.3
+        packages:
+          - pip
+          # virtualenvwrapper depends on pbr.
+          - pbr
+          - virtualenv
+          - virtualenvwrapper
+          - httpie
+          - thefuck
+        packages2:
+          - 'https://github.com/dochang/battleschool/archive/next.zip#egg=battleschool'
+          - ansible
+          - ansible-lint
+      rbenv:
+        versions:
+          - 2.2.2
+        packages:
+          - bundler
+      ndenv:
+        versions:
+          - iojs-v2.4.0
+          - v0.12.7
+        packages:
+          - npm
+          - nrm
+          - metalsmith
+          - editorconfig
+          - yo
+          - gulp
+          - bower
+          - nodemon
+          # For Emacs flycheck
+          # https://github.com/zaach/jsonlint
+          - jsonlint
+      goenv:
+        versions:
+          - 1.4.2
+        packages:
+          - github.com/zimbatm/direnv
+    env_versions:
       - name: pyenv
-        version: 2.7.10
-        global: true
-      - name: pyenv
-        version: 3.4.3
+        versions: '{{ envs.pyenv.versions }}'
       - name: rbenv
-        version: 2.2.2
-        global: true
+        versions: '{{ envs.rbenv.versions }}'
       - name: ndenv
-        version: v0.12.7
-      - name: ndenv
-        version: iojs-v2.4.0
-        global: true
+        versions: '{{ envs.ndenv.versions }}'
       - name: goenv
-        version: 1.4.2
-        global: true
+        versions: '{{ envs.goenv.versions }}'
 
   tasks:
 
@@ -58,15 +93,11 @@
         repo: https://github.com/znz/anyenv-git.git
 
     - name: Install envs
-      command: 'anyenv install {{ item }}'
+      command: 'anyenv install {{ item.key }}'
       args:
         chdir: '~'
-        creates: '~/.anyenv/envs/{{ item }}'
-      with_items:
-        - pyenv
-        - rbenv
-        - ndenv
-        - goenv
+        creates: '~/.anyenv/envs/{{ item.key }}'
+      with_dict: envs
 
     - name: Update anyenv
       command: 'anyenv update'
@@ -76,85 +107,90 @@
 
     - name: Install interpreters
       shell: >-
-        {% if item.name == 'goenv' %}
-        wget --output-document - https://storage.googleapis.com/golang/go{{ item.version }}.linux-amd64.tar.gz | tar --extract --gzip --file - --xform "s/^go/{{ item.version }}/" --directory ~/.anyenv/envs/{{ item.name }}/versions/ ; status=$? ; [ $status -eq 0 ] || rm -rf ~/.anyenv/envs/{{ item.name }}/versions/{{ item.version }} ; exit $status
+        {% if item.0.name == 'goenv' %}
+        wget --output-document - https://storage.googleapis.com/golang/go{{ item.1 }}.linux-amd64.tar.gz | tar --extract --gzip --file - --xform "s/^go/{{ item.1 }}/" --directory ~/.anyenv/envs/{{ item.0.name }}/versions/ ; status=$? ; [ $status -eq 0 ] || rm -rf ~/.anyenv/envs/{{ item.0.name }}/versions/{{ item.1 }} ; exit $status
         {% else %}
-        {{ item.name }} install {{ item.version }}
+        {{ item.0.name }} install {{ item.1 }}
         {% endif %}
       args:
         chdir: '~'
-        creates: '~/.anyenv/envs/{{ item.name }}/versions/{{ item.version }}'
-      with_items: envs
+        creates: '~/.anyenv/envs/{{ item.0.name }}/versions/{{ item.1 }}'
+      with_subelements:
+        - env_versions
+        - versions
 
     - name: Rehash envs
-      command: '{{ item.name }} rehash'
+      command: '{{ item.key }} rehash'
       args:
         chdir: '~'
-      with_items: envs
+      with_dict: envs
 
     - name: Set global version of interpreters
-      command: '{{ item.name }} global {{ item.version }}'
+      command: '{{ item.key }} global {{ item.value.versions[0] }}'
       args:
         chdir: '~'
-      when: item.global is defined and item.global
-      with_items: envs
+      with_dict: envs
 
     - name: Install utils
       pip:
-        name: '{{ item }}'
+        name: '{{ item.1 }}'
         state: '{{ pkg_state }}'
+      environment:
+        PYENV_VERSION: '{{ item.0 }}'
       notify:
         - pyenv rehash
-      with_items:
-        - pip
-        # virtualenvwrapper depends on pbr.
-        - pbr
-        - virtualenv
-        - virtualenvwrapper
-        - httpie
-        - thefuck
-        - 'https://github.com/dochang/battleschool/archive/next.zip#egg=battleschool'
-        - ansible
-        - ansible-lint
+      with_nested:
+        - envs.pyenv.versions
+        - envs.pyenv.packages
 
-    # For rehashing battleschool
-    - meta: flush_handlers
+    # These utils currently supports Python 2 only.
+    - name: Install Python 2 utils
+      pip:
+        name: '{{ item.1 }}'
+        state: '{{ pkg_state }}'
+      environment:
+        PYENV_VERSION: '{{ item.0 }}'
+      notify:
+        - pyenv rehash
+      when: item.0 | version_compare('3', '<')
+      with_nested:
+        - envs.pyenv.versions
+        - envs.pyenv.packages2
 
     - name: Install utils
       gem:
-        name: '{{ item }}'
+        name: '{{ item.1 }}'
         state: '{{ pkg_state }}'
+      environment:
+        RBENV_VERSION: '{{ item.0 }}'
       notify:
         - rbenv rehash
-      with_items:
-        - bundler
+      with_nested:
+        - envs.rbenv.versions
+        - envs.rbenv.packages
 
     - name: Install utils
       npm:
-        name: '{{ item }}'
+        name: '{{ item.1 }}'
         state: '{{ pkg_state }}'
         global: yes
+      environment:
+        NDENV_VERSION: '{{ item.0 }}'
       notify:
         - ndenv rehash
-      with_items:
-        - npm
-        - nrm
-        - metalsmith
-        - editorconfig
-        - yo
-        - gulp
-        - bower
-        - nodemon
-        # For Emacs flycheck
-        # https://github.com/zaach/jsonlint
-        - jsonlint
+      with_nested:
+        - envs.ndenv.versions
+        - envs.ndenv.packages
 
     - name: Install utils
-      command: 'go get {{ item }}'
+      command: 'go get {{ item.1 }}'
+      environment:
+        GOENV_VERSION: '{{ item.0 }}'
       notify:
         - goenv rehash
-      with_items:
-        - github.com/zimbatm/direnv
+      with_nested:
+        - envs.goenv.versions
+        - envs.goenv.packages
 
     - name: Get user primary group name
       getent:
