@@ -225,6 +225,8 @@ fresh nix --file
 
 fresh git://git.zx2c4.com/password-store contrib/dmenu/passmenu --bin
 
+fresh LuRsT/hr hr --bin
+
 # Local Variables:
 # mode: sh
 # End:
