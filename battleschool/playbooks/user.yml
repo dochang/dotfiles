@@ -197,6 +197,8 @@
         database: group
         key: '{{ (ansible_env["SUDO_GID"] | default("")) or ansible_user_gid }}'
 
+    # Create /nix first, so that Nix installer will not run `sudo`, which might
+    # require password.
     - name: Ensure /nix present
       file:
         path: /nix
