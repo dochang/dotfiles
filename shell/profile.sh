@@ -135,6 +135,18 @@ export ANDROID_HOME
 prepend_to_env ${ANDROID_HOME}/tools PATH
 prepend_to_env ${ANDROID_HOME}/platform-tools PATH
 
+## Linuxbrew
+: ${LINUXBREW_ROOT:="${HOME}/.linuxbrew"}
+export LINUXBREW_ROOT
+prepend_to_env ${LINUXBREW_ROOT}/bin PATH
+prepend_to_env ${LINUXBREW_ROOT}/lib LD_LIBRARY_PATH
+
+## nix
+# Expand HOME for Nix installer check.
+if [ -e "{{ HOME }}/.nix-profile/etc/profile.d/nix.sh" ]; then
+	. "{{ HOME }}/.nix-profile/etc/profile.d/nix.sh"
+fi
+
 ## For anyenv
 : ${ANYENV_ROOT:="${HOME}/.anyenv"}
 export ANYENV_ROOT
@@ -181,12 +193,6 @@ prepend_to_env ${GRADLE_HOME}/bin PATH
 export COMPOSER_HOME
 prepend_to_env ${COMPOSER_HOME}/vendor/bin PATH
 
-## Linuxbrew
-: ${LINUXBREW_ROOT:="${HOME}/.linuxbrew"}
-export LINUXBREW_ROOT
-prepend_to_env ${LINUXBREW_ROOT}/bin PATH
-prepend_to_env ${LINUXBREW_ROOT}/lib LD_LIBRARY_PATH
-
 ## direnv
 which direnv >/dev/null 2>&1 && {
 	direnv_sh="$(ps c -p $$ -o 'comm=' 2>/dev/null || true)"
@@ -198,18 +204,10 @@ which direnv >/dev/null 2>&1 && {
 export HEROKU_ROOT
 prepend_to_env ${HEROKU_ROOT}/bin PATH
 
-
 ## thefuck
 which thefuck-alias >/dev/null 2>&1 && {
 	eval "$(thefuck-alias)"
 }
-
-
-## nix
-# Expand HOME for Nix installer check.
-if [ -e "{{ HOME }}/.nix-profile/etc/profile.d/nix.sh" ]; then
-	. "{{ HOME }}/.nix-profile/etc/profile.d/nix.sh"
-fi
 
 
 if [ x"$(ps c -p $$ -o 'comm=' 2>/dev/null || true)" = xsh ] ; then
