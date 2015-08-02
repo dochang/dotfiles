@@ -18,6 +18,7 @@
           - virtualenvwrapper
           - httpie
           - thefuck
+          - qrcode
         packages2:
           - 'https://github.com/dochang/battleschool/archive/next.zip#egg=battleschool'
           - ansible
