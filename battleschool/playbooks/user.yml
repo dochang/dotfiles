@@ -61,6 +61,52 @@
 
   tasks:
 
+    - name: Get user primary group name
+      getent:
+        database: group
+        key: '{{ (ansible_env["SUDO_GID"] | default("")) or ansible_user_gid }}'
+
+    # Create /nix first, so that Nix installer will not run `sudo`, which might
+    # require password.
+    - name: Ensure /nix present
+      file:
+        path: /nix
+        state: directory
+        recurse: no
+        mode: 0755
+        owner: '{{ ansible_ssh_user }}'
+        group: '{{ getent_group.keys()[0] }}'
+      become: yes
+      become_user: root
+
+    - name: Install Nix
+      shell: curl -sSL https://nixos.org/nix/install | sh
+      args:
+        chdir: '~'
+        creates: /nix/store
+
+    - name: Update Nix expressions
+      shell: nix-channel --update
+      args:
+        chdir: '~'
+      when: pkg_state == 'latest'
+
+    - name: Install/Upgrade Nix packages
+      shell: >-
+        if ! nix-env --query {{ item }} >/dev/null 2>&1 ; then
+          nix-env --install {{ item }}
+        {% if pkg_state == "latest" %}
+        else
+          nix-env --upgrade {{ item }}
+        {% endif %}
+        fi
+      args:
+        chdir: '~'
+      with_items:
+        - nix
+        - git-extras
+        - git-remote-gcrypt
+
     - name: Install oh-my-zsh
       git:
         dest: ~/.oh-my-zsh
@@ -192,52 +238,6 @@
       with_nested:
         - envs.goenv.versions
         - envs.goenv.packages
-
-    - name: Get user primary group name
-      getent:
-        database: group
-        key: '{{ (ansible_env["SUDO_GID"] | default("")) or ansible_user_gid }}'
-
-    # Create /nix first, so that Nix installer will not run `sudo`, which might
-    # require password.
-    - name: Ensure /nix present
-      file:
-        path: /nix
-        state: directory
-        recurse: no
-        mode: 0755
-        owner: '{{ ansible_ssh_user }}'
-        group: '{{ getent_group.keys()[0] }}'
-      become: yes
-      become_user: root
-
-    - name: Install Nix
-      shell: curl -sSL https://nixos.org/nix/install | sh
-      args:
-        chdir: '~'
-        creates: /nix/store
-
-    - name: Update Nix expressions
-      shell: nix-channel --update
-      args:
-        chdir: '~'
-      when: pkg_state == 'latest'
-
-    - name: Install/Upgrade Nix packages
-      shell: >-
-        if ! nix-env --query {{ item }} >/dev/null 2>&1 ; then
-          nix-env --install {{ item }}
-        {% if pkg_state == "latest" %}
-        else
-          nix-env --upgrade {{ item }}
-        {% endif %}
-        fi
-      args:
-        chdir: '~'
-      with_items:
-        - nix
-        - git-extras
-        - git-remote-gcrypt
 
     - name: Install dropbox.py
       get_url:
