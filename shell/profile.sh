@@ -143,7 +143,7 @@ prepend_to_env ${LINUXBREW_ROOT}/lib LD_LIBRARY_PATH
 
 ## nix
 # Expand HOME for Nix installer check.
-if [ -z "${NIX_LINK}" -a -e "{{ HOME }}/.nix-profile/etc/profile.d/nix.sh" ]; then
+if [ -z "${NIX_PATH}" -a -e "{{ HOME }}/.nix-profile/etc/profile.d/nix.sh" ]; then
 	. "{{ HOME }}/.nix-profile/etc/profile.d/nix.sh"
 fi
 
