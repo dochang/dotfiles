@@ -106,6 +106,7 @@
         - nix
         - git-extras
         - git-remote-gcrypt
+        - git-crypt
 
     - name: Install oh-my-zsh
       git:
