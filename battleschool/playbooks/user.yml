@@ -30,7 +30,7 @@
           - bundler
       ndenv:
         versions:
-          - iojs-v2.5.0
+          - iojs-v3.0.0
           - v0.12.7
         packages:
           - npm
