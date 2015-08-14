@@ -223,3 +223,10 @@
         regexp: 'ENABLE_AUTO_HIBERNATION='
         line: 'ENABLE_AUTO_HIBERNATION=1'
         state: present
+
+    - name: Always ask for the hostname when reboot, poweroff, etc.
+      lineinfile:
+        dest: /etc/molly-guard/rc
+        regexp: 'ALWAYS_QUERY_HOSTNAME='
+        line: 'ALWAYS_QUERY_HOSTNAME=true'
+        state: present
