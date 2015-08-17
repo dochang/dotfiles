@@ -114,6 +114,7 @@
         - xclip
         - gnupg
         - pinentry-gtk2
+        - pinentry-curses
         - gnupg-agent
         - stow
         - cups
