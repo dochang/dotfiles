@@ -58,7 +58,8 @@ append_to_env () {
 	fi
 }
 
-: ${PATH:="/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games"}
+PATH="/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games"
+export PATH
 prepend_to_env ${HOME}/.local/bin PATH
 prepend_to_env ${HOME}/local/bin PATH
 append_to_env ${HOME}/bin PATH
