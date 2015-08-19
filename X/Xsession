@@ -67,9 +67,7 @@ which encfs >/dev/null && \
         { df | grep '/org$' ; test $? -eq 1 ; } >/dev/null && \
         test -d ~/Dropbox/org.enc && \
         { test -d ~/org || mkdir ~/org ; } && \
-        encfs --idle=720 --extpass="ssh-askpass -xrm 'SshAskpass*grabKeyboard:true' 'Password to mount ~/org'" ~/Dropbox/org.enc ~/org
-# Make `ssh-askpass` grab keyboard when encfs invokes it because WM has not yet
-# started at that time.
+        encfs --idle=720 --extpass="pass show system/encfs/org/password" ~/Dropbox/org.enc ~/org
 multi-head.py
 # Run multi head setting after encfs so that the askpass dialog will appear in
 # the center of the primary output.
