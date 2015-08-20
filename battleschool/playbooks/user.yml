@@ -68,16 +68,9 @@
       when: pkg_state == 'latest'
 
     - name: Install/Upgrade Nix packages
-      shell: >-
-        if ! nix-env --query {{ item }} >/dev/null 2>&1 ; then
-          nix-env --install {{ item }}
-        {% if pkg_state == "latest" %}
-        else
-          nix-env --upgrade {{ item }}
-        {% endif %}
-        fi
-      args:
-        chdir: '~'
+      nix_env:
+        name: '{{ item }}'
+        state: '{{ pkg_state }}'
       with_items:
         - nix
         # build helper

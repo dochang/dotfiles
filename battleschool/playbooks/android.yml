@@ -2,6 +2,9 @@
 - hosts: 'all'
   sudo: yes
 
+  vars:
+    pkg_state: present
+
   tasks:
 
     - name: Install Android SDK
@@ -24,16 +27,9 @@
         state: directory
 
     - name: Install Gradle
-      shell: 'wget --continue -O gradle-2.4-bin.zip https://services.gradle.org/distributions/gradle-2.4-bin.zip && unzip gradle-2.4-bin.zip'
-      args:
-        chdir: /opt
-        creates: '/opt/gradle-2.4'
-
-    - name: Link /opt/gradle
-      file:
-        src: gradle-2.4
-        path: /opt/gradle
-        state: link
+      nix_env:
+        name: gradle
+        state: '{{ pkg_state }}'
 
     - name: Add i386 arch for Debian
       command: dpkg --add-architecture i386
