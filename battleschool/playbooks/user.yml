@@ -85,6 +85,7 @@
         - git-crypt
         - rustc
         - cargo
+        - heroku
 
     - name: Install oh-my-zsh
       git:

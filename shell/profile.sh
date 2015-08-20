@@ -200,11 +200,6 @@ which direnv >/dev/null 2>&1 && {
 	eval "$(direnv hook $direnv_sh)"
 }
 
-## Heroku
-: ${HEROKU_ROOT:="/opt/heroku"}
-export HEROKU_ROOT
-prepend_to_env ${HEROKU_ROOT}/bin PATH
-
 ## thefuck
 which thefuck-alias >/dev/null 2>&1 && {
 	eval "$(thefuck-alias)"
