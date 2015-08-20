@@ -80,6 +80,8 @@
         chdir: '~'
       with_items:
         - nix
+        # build helper
+        - nix-prefetch-scripts
         - git-extras
         - git-remote-gcrypt
         - git-crypt
