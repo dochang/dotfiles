@@ -83,6 +83,8 @@
         - git-extras
         - git-remote-gcrypt
         - git-crypt
+        - rustc
+        - cargo
 
     - name: Install oh-my-zsh
       git:
