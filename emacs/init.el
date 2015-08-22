@@ -1383,6 +1383,8 @@ major mode isn't derived from `prog-mode'."
 ;;; CSS Mode
 (defun $css-mode-hook ()
   ($prog-mode-hook*)
+  (when (require 'emmet-mode nil t)
+    (emmet-mode 1))
   (when (and (not (require 'flycheck nil t))
              flymake-mode
              (require 'flymake-css nil t))
@@ -1510,6 +1512,14 @@ major mode isn't derived from `prog-mode'."
 
 ;;; Ediff
 (setq ediff-window-setup-function 'ediff-setup-windows-plain)
+
+
+;;; SGML Mode
+(defun $sgml-mode-hook ()
+  (when (require 'emmet-mode nil t)
+    (emmet-mode 1)))
+
+(add-hook 'sgml-mode-hook '$sgml-mode-hook)
 
 
 ;;; nXML Mode
@@ -1692,6 +1702,11 @@ major mode isn't derived from `prog-mode'."
 
 ;;; Mustache Mode
 ;; [[https://github.com/mustache/emacs]]
+(defun $mustache-mode-hook ()
+  (when (require 'emmet-mode nil t)
+    (emmet-mode 1)))
+
+(add-hook 'mustache-mode-hook '$mustache-mode-hook)
 
 ;; The `auto-mode-alist' setting in `mustache-mode.el' does not have an
 ;; `autoload' directive.
@@ -1701,6 +1716,15 @@ major mode isn't derived from `prog-mode'."
 ;; For Hogan.js
 (add-to-list 'auto-mode-alist
              '("\\.\\(hjs\\|hogan\\)$" . mustache-mode))
+
+
+;;; Handlebars Mode
+;; [[https://github.com/danielevans/handlebars-mode]]
+(defun $handlebars-mode-hook ()
+  (when (require 'emmet-mode nil t)
+    (emmet-mode 1)))
+
+(add-hook 'handlebars-mode-hook '$handlebars-mode-hook)
 
 
 ;;; Go Mode
@@ -1857,6 +1881,8 @@ major mode isn't derived from `prog-mode'."
 
 (defun $jsx-mode-hook ()
   ($prog-mode-hook*)
+  (when (require 'emmet-mode nil t)
+    (emmet-mode 1))
   ($camel-case-mode 1))
 
 (add-hook 'jsx-mode-hook '$jsx-mode-hook)
@@ -2074,11 +2100,17 @@ major mode isn't derived from `prog-mode'."
 ;; (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
 
 (defun $web-mode-hook ()
+  (when (require 'emmet-mode nil t)
+    (emmet-mode 1))
   ;; In order to enable syntax highlighting in `web-mode', we have to disable
   ;; `font-lock-mode' here.  I don't know the reason.
   (font-lock-mode -1))
 
 (add-hook 'web-mode-hook '$web-mode-hook)
+
+
+;;; Emmet Mode
+(setq emmet-move-cursor-between-quotes t)
 
 
 ;;; Type Break Mode

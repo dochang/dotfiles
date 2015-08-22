@@ -155,7 +155,8 @@
                 pass
                 auth-password-store
                 focus-autosave-mode
-                nix-mode)
+                nix-mode
+                emmet-mode)
               (if (< emacs-major-version 24)
                   '(scala-mode)
                 '(scala-mode2
