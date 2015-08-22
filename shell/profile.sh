@@ -200,11 +200,6 @@ which direnv >/dev/null 2>&1 && {
 	eval "$(direnv hook $direnv_sh)"
 }
 
-## thefuck
-which thefuck >/dev/null 2>&1 && {
-	eval "$(thefuck --alias)"
-}
-
 
 if [ x"$(ps c -p $$ -o 'comm=' 2>/dev/null || true)" = xsh ] ; then
 	if expr "$-" : '.*i' > /dev/null ; then

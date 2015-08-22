@@ -27,6 +27,11 @@ if ! { [ x"$(ps c -p $$ -o 'comm=' 2>/dev/null || true)" = xsh -a -n "${ZSH_VERS
 
 	alias grep="$(get_alias grep) --color=auto"
 
+	## thefuck
+	which thefuck >/dev/null 2>&1 && {
+		eval "$(thefuck --alias)"
+	}
+
 	is_function () {
 		type $1 | grep -E ' is (.* )?function' >/dev/null 2>&1
 	}
