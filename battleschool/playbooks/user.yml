@@ -25,12 +25,12 @@
           - ansible-lint
       rbenv:
         versions:
-          - 2.2.2
+          - 2.2.3
         packages:
           - bundler
       ndenv:
         versions:
-          - iojs-v3.0.0
+          - iojs-v3.1.0
           - v0.12.7
         packages:
           - npm
@@ -46,7 +46,7 @@
           - jsonlint
       goenv:
         versions:
-          - 1.4.2
+          - 1.5
         packages:
           - github.com/zimbatm/direnv
     env_versions:
