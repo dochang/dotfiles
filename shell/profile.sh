@@ -201,8 +201,8 @@ which direnv >/dev/null 2>&1 && {
 }
 
 ## thefuck
-which thefuck-alias >/dev/null 2>&1 && {
-	eval "$(thefuck-alias)"
+which thefuck >/dev/null 2>&1 && {
+	eval "$(thefuck --alias)"
 }
 
 
