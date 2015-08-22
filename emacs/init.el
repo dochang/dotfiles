@@ -1585,9 +1585,19 @@ major mode isn't derived from `prog-mode'."
 
 (eval-after-load 'yaml-mode '($eval-after-load-yaml-mode))
 
+(defun $yaml-mode-hook ()
+  ($prog-mode-hook*))
+
+(add-hook 'yaml-mode-hook '$yaml-mode-hook)
+
 
 ;;; JSON Mode
 (add-to-list 'auto-mode-alist '("\\.bowerrc\\'" . json-mode))
+
+(defun $json-mode-hook ()
+  ($prog-mode-hook*))
+
+(add-hook 'json-mode-hook '$json-mode-hook)
 
 
 ;;; Haml Mode
