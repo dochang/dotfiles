@@ -72,6 +72,15 @@ options:
         description:
         - Additional arguments provided on the command line
         aliases: [ 'args' ]
+    use_service:
+        required: false
+        default: 'fallback'
+        choices: [ 'force', 'prefer', 'fallback' ]
+        description:
+        - Choose to use I(service) instead of other service tools. C(force)
+          means try I(service) only; C(prefer) means find I(service) first,
+          then try other tools; C(fallback) means find other tools first, use
+          I(service) as fallback. It's only available on Linux.
 '''
 
 EXAMPLES = '''
@@ -95,6 +104,9 @@ EXAMPLES = '''
 
 # Example action to restart network service for interface eth0
 - service: name=network state=restarted args=eth0
+
+# Example action to reload service udev, by service first.
+- service: name=udev state=reloaded use_service=prefer
 '''
 
 import platform
@@ -142,6 +154,7 @@ class Service(object):
         self.pattern        = module.params['pattern']
         self.enable         = module.params['enabled']
         self.runlevel       = module.params['runlevel']
+        self.use_service    = module.params['use_service']
         self.changed        = False
         self.running        = None
         self.crashed        = None
@@ -471,9 +484,16 @@ class LinuxService(Service):
         if self.enable_cmd is None:
             self.module.fail_json(msg="no service or tool found for: %s" % self.name)
 
-        # If no service control tool selected yet, try to see if 'service' is available
-        if self.svc_cmd is None and location.get('service', False):
-            self.svc_cmd = location['service']
+        if self.use_service == 'force':
+            # always fallback to None instead of '' because '' is used by the
+            # "upstart" case.
+            self.svc_cmd = location.get('service') or None
+        elif self.use_service == 'prefer':
+            self.svc_cmd = location.get('service') or self.svc_cmd
+        elif self.use_service == 'fallback':
+            # If no service control tool selected yet, try to see if 'service' is available
+            if self.svc_cmd is None and location.get('service', False):
+                self.svc_cmd = location['service']
 
         # couldn't find anything yet
         if self.svc_cmd is None and not self.svc_initscript:
@@ -1395,6 +1415,7 @@ def main():
             enabled = dict(type='bool'),
             runlevel = dict(required=False, default='default'),
             arguments = dict(aliases=['args'], default=''),
+            use_service = dict(choices=['force', 'prefer', 'fallback'], default='fallback'),
         ),
         supports_check_mode=True
     )
