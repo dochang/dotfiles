@@ -31,6 +31,24 @@
         name: gradle
         state: '{{ pkg_state }}'
 
+    - name: Install android-udev-rules
+      nix_env:
+        name: android-udev-rules
+        state: '{{ pkg_state }}'
+      sudo: yes
+      sudo_user: '{{ ansible_ssh_user }} -i'
+      register: udev_rules
+
+    - name: Symlink android-udev-rules
+      file:
+        path: /etc/udev/rules.d/51-android.rules
+        src: /nix/var/nix/profiles/default/lib/udev/rules.d/51-android.rules
+        state: link
+      register: link_rules
+      notify:
+        - reload udev
+      changed_when: udev_rules.changed or link_rules.changed
+
     - name: Add i386 arch for Debian
       command: dpkg --add-architecture i386
 
@@ -50,3 +68,10 @@
         - libstdc++6:i386
         - zlib1g:i386
         - default-jdk
+
+  handlers:
+    - name: reload udev
+      service:
+        name: udev
+        state: reloaded
+        use_service: prefer
