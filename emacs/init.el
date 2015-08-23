@@ -1107,9 +1107,6 @@ Chromium."
   ;; Enable Flyspell Prog Mode.  This invokes `(flyspell-mode 1)'.
   ;; Eval `(flyspell-mode -1)' to disable it.
   (flyspell-prog-mode)
-  ;; Sublimity
-  (when (require 'sublimity nil t)
-    (sublimity-mode -1))
   (when (require 'indent-guide nil t)
     (indent-guide-mode 1))
   (when (require 'highlight-indentation nil t)
@@ -2053,7 +2050,7 @@ major mode isn't derived from `prog-mode'."
 (add-hook 'sublimity-map-setup-hook '$sublimity-map-setup-hook)
 
 (defun $eval-after-load-sublimity ()
-  (sublimity-global-mode -1))
+  (sublimity-mode -1))
 
 (eval-after-load 'sublimity '($eval-after-load-sublimity))
 
