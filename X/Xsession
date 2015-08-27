@@ -1,4 +1,4 @@
-#!/bin/zsh -l
+#!/bin/sh -l
 # -*- mode: sh -*-
 
 : ${TERMINAL:=x-terminal-emulator}
