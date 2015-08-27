@@ -245,6 +245,21 @@ fresh git://git.zx2c4.com/password-store contrib/dmenu/passmenu --bin
 
 fresh LuRsT/hr hr --bin
 
+# DO NOT build unit files by fresh.  fresh changes basenames of unit files,
+# that makes systemd confused.
+prefix=systemd/user
+src_prefix="${FRESH_PATH}/build/${prefix}"
+dst_prefix=$(eval "echo ${XDG_CONFIG_HOME}/${prefix}")
+mkdir -p ${dst_prefix}
+find "${FRESH_LOCAL}/${prefix}" -name '*.service' -printf '%P\n' | {
+	while read REPLY ; do
+		fresh "${prefix}/${REPLY}" --file="${prefix}/${REPLY}" --filter="${MO}"
+		ln -sf "${src_prefix}/${REPLY}" "${dst_prefix}/${REPLY}"
+	done
+}
+
+systemctl --user daemon-reload
+
 # Local Variables:
 # mode: sh
 # End:

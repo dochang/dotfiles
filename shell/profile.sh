@@ -216,6 +216,8 @@ esac
 
 systemctl --user import-environment HOME PATH http_proxy https_proxy no_proxy
 
+systemctl --user start dropbox
+
 
 if [ x"$(get_shell)" = xsh ] ; then
 	if expr "$-" : '.*i' > /dev/null ; then

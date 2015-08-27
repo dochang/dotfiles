@@ -64,7 +64,6 @@ pgrep '^unclutter$' >/dev/null || unclutter -idle 1 -root &
 
 pgrep '^xwrits$' >/dev/null || xwrits +multiscreen +breakclock +cheat +clock +idle +mouse +top &
 
-#which dropbox.py >/dev/null && env -u DISPLAY dropbox.py start
 encfs_mount() {
 	src=$1
 	dest=$2

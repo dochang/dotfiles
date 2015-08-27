@@ -1,0 +1,7 @@
+[Unit]
+Description=Dropbox
+
+[Service]
+Type=forking
+ExecStart={{ HOME }}/bin/dropbox.py start
+ExecStop={{ HOME }}/bin/dropbox.py stop
