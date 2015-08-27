@@ -157,7 +157,8 @@
                 focus-autosave-mode
                 nix-mode
                 emmet-mode
-                dired+)
+                dired+
+                systemd)
               (if (< emacs-major-version 24)
                   '(scala-mode)
                 '(scala-mode2
