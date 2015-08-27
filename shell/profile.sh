@@ -214,6 +214,8 @@ bash|zsh|ksh)
 	;;
 esac
 
+systemctl --user import-environment HOME PATH http_proxy https_proxy no_proxy
+
 
 if [ x"$(get_shell)" = xsh ] ; then
 	if expr "$-" : '.*i' > /dev/null ; then
