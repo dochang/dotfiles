@@ -1,6 +1,6 @@
 ## If `sh` links to `zsh`, and is invoked as a "non-login, non-interactive"
 ## shell, this file should be skipped.
-if ! { [ x"$(ps c -p $$ -o 'comm=' 2>/dev/null || true)" = xsh -a -n "${ZSH_VERSION}" ] && expr "$-" : '.*i' > /dev/null ; } ; then
+if ! { [ x"$(get_shell)" = xsh -a -n "${ZSH_VERSION}" ] && expr "$-" : '.*i' > /dev/null ; } ; then
 	get_alias () {
 		local a
 		a=$(alias $1 2>/dev/null | sed 's/^alias \+//')
@@ -37,9 +37,9 @@ if ! { [ x"$(ps c -p $$ -o 'comm=' 2>/dev/null || true)" = xsh -a -n "${ZSH_VERS
 	}
 
 	## Define `*env` functions if the shell is invoked as non-login.
-	which anyenv >/dev/null 2>&1 && ! is_function anyenv && eval "$(anyenv init -)"
+	which anyenv >/dev/null 2>&1 && ! is_function anyenv && eval "$(anyenv init - $(get_shell))"
 	which pyenv >/dev/null 2>&1 && {
-		case "$(ps c -p $$ -o 'comm=' 2>/dev/null || true)" in
+		case "$(get_shell)" in
 		bash|zsh|ksh)
 			pyenv virtualenvwrapper 2>/dev/null
 			;;

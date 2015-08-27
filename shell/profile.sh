@@ -123,7 +123,7 @@ export REPORTTIME
 
 ## For fresh
 # https://github.com/freshshell/fresh
-case "$(ps c -p $$ -o 'comm=' 2>/dev/null || true)" in
+case "$(get_shell)" in
 bash|zsh|ksh)
 	[ -r ~/.fresh/build/shell.sh ] && . ~/.fresh/build/shell.sh
 	;;
@@ -161,12 +161,12 @@ fi
 : ${ANYENV_ROOT:="${HOME}/.anyenv"}
 export ANYENV_ROOT
 prepend_to_env ${ANYENV_ROOT}/bin PATH
-which anyenv >/dev/null 2>&1 && eval "$(anyenv init - $(ps c -p $$ -o 'comm=' 2>/dev/null || true))"
+which anyenv >/dev/null 2>&1 && eval "$(anyenv init - $(get_shell))"
 
 ## For pyenv
 which pyenv >/dev/null 2>&1 && {
-	{ pyenv commands | grep virtualenv-init ; } >/dev/null 2>&1 || eval "$(pyenv virtualenv-init - $(ps c -p $$ -o 'comm=' 2>/dev/null || true))"
-	case "$(ps c -p $$ -o 'comm=' 2>/dev/null || true)" in
+	{ pyenv commands | grep virtualenv-init ; } >/dev/null 2>&1 || eval "$(pyenv virtualenv-init - $(get_shell))"
+	case "$(get_shell)" in
 	bash|zsh|ksh)
 		# virtualenvwrapper depends on pbr.
 		! { pip list | grep '^pbr ' ; } >/dev/null 2>&1 || pyenv virtualenvwrapper 2>/dev/null
@@ -203,19 +203,19 @@ prepend_to_env ${GRADLE_HOME}/bin PATH
 export COMPOSER_HOME
 prepend_to_env ${COMPOSER_HOME}/vendor/bin PATH
 
-case "$(ps c -p $$ -o 'comm=' 2>/dev/null || true)" in
+case "$(get_shell)" in
 bash|zsh|ksh)
 
 	## direnv
 	which direnv >/dev/null 2>&1 && {
-		eval "$(direnv hook $(ps c -p $$ -o 'comm=' 2>/dev/null || true))"
+		eval "$(direnv hook $(get_shell))"
 	}
 
 	;;
 esac
 
 
-if [ x"$(ps c -p $$ -o 'comm=' 2>/dev/null || true)" = xsh ] ; then
+if [ x"$(get_shell)" = xsh ] ; then
 	if expr "$-" : '.*i' > /dev/null ; then
 		if [ -n "${ZSH_VERSION}" ] ; then
 			[ -z "${ENV}" ] || [ ! -r "${ENV}" ] || . "${ENV}"
