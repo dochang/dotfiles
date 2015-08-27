@@ -123,7 +123,16 @@ export REPORTTIME
 
 ## For fresh
 # https://github.com/freshshell/fresh
-[ -r ~/.fresh/build/shell.sh ] && . ~/.fresh/build/shell.sh
+case "$(ps c -p $$ -o 'comm=' 2>/dev/null || true)" in
+bash|zsh|ksh)
+	[ -r ~/.fresh/build/shell.sh ] && . ~/.fresh/build/shell.sh
+	;;
+*)
+	# A temp fix for sh, dash, etc.
+	__FRESH_BIN_PATH__=$HOME/bin; expr ":$PATH:" : ".*:$__FRESH_BIN_PATH__:" >/dev/null || export PATH="$__FRESH_BIN_PATH__:$PATH"; unset __FRESH_BIN_PATH__
+	export FRESH_PATH="$HOME/.fresh"
+	;;
+esac
 
 ## For breach
 # http://breach.cc/
@@ -152,11 +161,11 @@ fi
 : ${ANYENV_ROOT:="${HOME}/.anyenv"}
 export ANYENV_ROOT
 prepend_to_env ${ANYENV_ROOT}/bin PATH
-which anyenv >/dev/null 2>&1 && eval "$(anyenv init -)"
+which anyenv >/dev/null 2>&1 && eval "$(anyenv init - $(ps c -p $$ -o 'comm=' 2>/dev/null || true))"
 
 ## For pyenv
 which pyenv >/dev/null 2>&1 && {
-	{ pyenv commands | grep virtualenv-init ; } >/dev/null 2>&1 || eval "$(pyenv virtualenv-init -)"
+	{ pyenv commands | grep virtualenv-init ; } >/dev/null 2>&1 || eval "$(pyenv virtualenv-init - $(ps c -p $$ -o 'comm=' 2>/dev/null || true))"
 	case "$(ps c -p $$ -o 'comm=' 2>/dev/null || true)" in
 	bash|zsh|ksh)
 		# virtualenvwrapper depends on pbr.
@@ -172,7 +181,7 @@ prepend_to_env ${HOME}/.cabal/bin PATH
 : ${GOPATH:="${HOME}/go"}
 export GOPATH
 # https://github.com/golang/go/wiki/GOPATH
-prepend_to_env ${GOPATH//://bin:}/bin PATH
+prepend_to_env $(echo $GOPATH | sed -e 's|:|/bin:|g ; s|$|/bin|g') PATH
 
 ## For scala
 : ${SCALA_HOME:="${HOME}/opt/scala"}
@@ -194,11 +203,16 @@ prepend_to_env ${GRADLE_HOME}/bin PATH
 export COMPOSER_HOME
 prepend_to_env ${COMPOSER_HOME}/vendor/bin PATH
 
-## direnv
-which direnv >/dev/null 2>&1 && {
-	direnv_sh="$(ps c -p $$ -o 'comm=' 2>/dev/null || true)"
-	eval "$(direnv hook $direnv_sh)"
-}
+case "$(ps c -p $$ -o 'comm=' 2>/dev/null || true)" in
+bash|zsh|ksh)
+
+	## direnv
+	which direnv >/dev/null 2>&1 && {
+		eval "$(direnv hook $(ps c -p $$ -o 'comm=' 2>/dev/null || true))"
+	}
+
+	;;
+esac
 
 
 if [ x"$(ps c -p $$ -o 'comm=' 2>/dev/null || true)" = xsh ] ; then
