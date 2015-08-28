@@ -223,6 +223,8 @@ gpg-agent 2>/dev/null || systemctl --user start gpg-agent
 export GPG_AGENT_INFO=${GNUPGHOME:-$HOME/.gnupg}/S.gpg-agent:0:1
 systemctl --user import-environment GPG_AGENT_INFO
 
+encfs-mount.sh ~/Dropbox/org.enc ~/org
+
 
 if [ x"$(get_shell)" = xsh ] ; then
 	if expr "$-" : '.*i' > /dev/null ; then
