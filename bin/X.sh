@@ -17,7 +17,5 @@ encfs_mount ~/Dropbox/org.enc ~/org
 multi-head.py
 # Run multi head setting after encfs so that the askpass dialog will appear in
 # the center of the primary output.
-pgrep '^keynav$' >/dev/null || keynav &
-# FIXME: keynav crashes after multi head setting.
 
 eval "$@"

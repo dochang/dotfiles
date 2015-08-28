@@ -60,7 +60,7 @@ systemctl --user import-environment XLOCKER
 
 systemctl --user start xautolock
 
-pgrep '^keynav$' >/dev/null || keynav &
+systemctl --user start keynav
 
 pgrep '^unclutter$' >/dev/null || unclutter -idle 1 -root &
 
