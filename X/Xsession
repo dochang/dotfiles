@@ -62,7 +62,7 @@ systemctl --user start xautolock
 
 systemctl --user start keynav
 
-pgrep '^unclutter$' >/dev/null || unclutter -idle 1 -root &
+pgrep '^unclutter$' >/dev/null || systemctl --user start unclutter
 
 systemctl --user start xwrits
 
