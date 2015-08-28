@@ -56,7 +56,9 @@ xsetroot -cursor_name left_ptr
 # http://www.debian-administration.org/articles/110
 xset b off
 
-pgrep '^xautolock$' >/dev/null || xautolock -time 20 -locker "xlock.sh --yes" &
+systemctl --user import-environment XLOCKER
+
+systemctl --user start xautolock
 
 pgrep '^keynav$' >/dev/null || keynav &
 
