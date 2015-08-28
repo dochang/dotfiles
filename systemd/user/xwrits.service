@@ -1,0 +1,5 @@
+[Unit]
+Description=xwrits
+
+[Service]
+ExecStart=/usr/bin/xwrits +multiscreen +breakclock +cheat +clock +idle +mouse +top

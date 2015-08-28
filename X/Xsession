@@ -62,7 +62,7 @@ pgrep '^keynav$' >/dev/null || keynav &
 
 pgrep '^unclutter$' >/dev/null || unclutter -idle 1 -root &
 
-pgrep '^xwrits$' >/dev/null || xwrits +multiscreen +breakclock +cheat +clock +idle +mouse +top &
+systemctl --user start xwrits
 
 STARTUP="${X_WINDOW_MANAGER:-x-window-manager}"
 
