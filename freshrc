@@ -241,6 +241,8 @@ fresh ansible --file
 
 fresh nix --file
 
+fresh nixpkgs/config.nix --file="~/.nixpkgs/config.nix"
+
 fresh git://git.zx2c4.com/password-store contrib/dmenu/passmenu --bin
 
 fresh LuRsT/hr hr --bin
