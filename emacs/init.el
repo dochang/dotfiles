@@ -2235,6 +2235,8 @@ major mode isn't derived from `prog-mode'."
   ;; focus-autosave-mode
   (when (require 'focus-autosave-mode nil t)
     (focus-autosave-mode 1))
+  (when (require 'el-pocket nil t)
+    (el-pocket-load-auth))
   (appt-activate 1)
   (unless **theme-initialized**
     ($theme-initialize))

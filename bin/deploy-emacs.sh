@@ -158,7 +158,8 @@
                 nix-mode
                 emmet-mode
                 dired+
-                systemd)
+                systemd
+                el-pocket)
               (if (< emacs-major-version 24)
                   '(scala-mode)
                 '(scala-mode2
