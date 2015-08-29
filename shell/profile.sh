@@ -218,6 +218,11 @@ systemctl --user import-environment HOME PATH http_proxy https_proxy no_proxy
 
 systemctl --user start dropbox
 
+gpg-agent 2>/dev/null || systemctl --user start gpg-agent
+# For GnuPG 1.x
+export GPG_AGENT_INFO=${GNUPGHOME:-$HOME/.gnupg}/S.gpg-agent:0:1
+systemctl --user import-environment GPG_AGENT_INFO
+
 
 if [ x"$(get_shell)" = xsh ] ; then
 	if expr "$-" : '.*i' > /dev/null ; then
