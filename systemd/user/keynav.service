@@ -4,3 +4,4 @@ Description=keynav
 [Service]
 Type=forking
 ExecStart=/usr/bin/keynav
+Restart=on-failure

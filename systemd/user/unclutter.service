@@ -5,3 +5,4 @@ Description=unclutter
 Environment=EXTRA_OPTS="-idle 1 -root"
 EnvironmentFile=-/etc/default/unclutter
 ExecStart=/usr/bin/unclutter $EXTRA_OPTS
+Restart=on-failure

@@ -3,3 +3,4 @@ Description=xautolock
 
 [Service]
 ExecStart=/usr/bin/xautolock -time 20 -locker "xlock.sh --yes"
+Restart=on-failure

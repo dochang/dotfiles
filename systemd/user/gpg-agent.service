@@ -4,3 +4,4 @@ Description=gpg-agent
 [Service]
 Type=forking
 ExecStart=/usr/bin/gpg-agent --daemon
+Restart=on-failure

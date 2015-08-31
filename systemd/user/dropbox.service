@@ -5,3 +5,4 @@ Description=Dropbox
 Type=forking
 ExecStart={{ HOME }}/bin/dropbox.py start
 ExecStop={{ HOME }}/bin/dropbox.py stop
+Restart=on-failure
