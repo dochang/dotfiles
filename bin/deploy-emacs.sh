@@ -159,7 +159,8 @@
                 emmet-mode
                 dired+
                 systemd
-                el-pocket)
+                el-pocket
+                what-the-commit)
               (if (< emacs-major-version 24)
                   '(scala-mode)
                 '(scala-mode2
