@@ -45,10 +45,10 @@
 
 ;;; Dired Mode
 (defun $dired-load-hook ()
-  (define-key dired-mode-map "@" 'emms-play-dired)
+  (define-key dired-mode-map "E" 'emms-play-dired)
   ;; use "z" to kill dired buffer.
-  (unless (lookup-key dired-mode-map "z")
-    (define-key dired-mode-map "z" 'kill-this-buffer))
+  (unless (lookup-key dired-mode-map "K")
+    (define-key dired-mode-map "K" 'kill-this-buffer))
   (setq dired-listing-switches "-lhA"
         dired-dwim-target t
         ;; `find-ls-option' defaults to '("-ls" . "-dilsb").  Because
