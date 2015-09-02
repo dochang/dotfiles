@@ -1897,6 +1897,13 @@ major mode isn't derived from `prog-mode'."
 
 ;;; todotxt
 ;; [[https://github.com/rpdillon/todotxt.el]]
+(defun $todotxt-mode-hook ()
+  ;; View mode overrides some key bindings.  Do not enable it.
+  (set (make-local-variable 'view-read-only) nil)
+  (view-mode -1))
+
+(add-hook 'todotxt-mode-hook '$todotxt-mode-hook)
+
 (autoload 'todotxt "todotxt"
   "Open the todo.txt buffer.  If one already exists, bring it to
 the front and focus it.  Otherwise, create one and load the data
