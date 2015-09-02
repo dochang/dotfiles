@@ -132,7 +132,6 @@
                 flycheck-package
                 emms-player-mpv
                 todotxt
-                todotxt-mode
                 android-mode
                 lorem-ipsum
                 fringe-current-line

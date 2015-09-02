@@ -1895,8 +1895,16 @@ major mode isn't derived from `prog-mode'."
 (add-hook 'jsx-mode-hook '$jsx-mode-hook)
 
 
-;;; todotxt-mode
-;; [[https://github.com/avillafiorita/todotxt-mode]]
+;;; todotxt
+;; [[https://github.com/rpdillon/todotxt.el]]
+(autoload 'todotxt "todotxt"
+  "Open the todo.txt buffer.  If one already exists, bring it to
+the front and focus it.  Otherwise, create one and load the data
+from 'todotxt-file'." t)
+
+(autoload 'todotxt-mode "todotxt"
+  "Major mode for working with todo.txt files. \\{todotxt-mode-map}" t)
+
 (add-to-list 'auto-mode-alist '("/todo.txt\\'" . todotxt-mode))
 
 
