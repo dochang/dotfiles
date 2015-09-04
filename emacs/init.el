@@ -1914,6 +1914,8 @@ from 'todotxt-file'." t)
 
 (add-to-list 'auto-mode-alist '("/todo.txt\\'" . todotxt-mode))
 
+(setq todotxt-file (expand-file-name "~/todo/todo.txt"))
+
 
 ;;; Magit
 ;; [[http://magit.github.com/magit/]]
