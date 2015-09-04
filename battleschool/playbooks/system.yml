@@ -167,8 +167,6 @@
         - curl
         # For el-get
         - install-info
-        # For dropbox
-        - python-gpgme
         # For Nix
         - bzip2
         - tar

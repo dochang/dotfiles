@@ -214,24 +214,6 @@
         - envs.goenv.versions
         - envs.goenv.packages
 
-    - name: Install dropbox.py
-      get_url:
-        dest: ~/bin/dropbox.py
-        url: https://www.dropbox.com/download?dl=packages/dropbox.py
-        sha256sum: 23732bac8f363b9573fc9cd8d83593f3396773f1340e3bff0bcfa68e41991a22
-
-    - name: Ensure dropbox.py executable
-      file:
-        path: ~/bin/dropbox.py
-        mode: 'a+x'
-        state: file
-
-    - name: Install dropbox
-      shell: wget -O - "https://www.dropbox.com/download?plat=lnx.x86_64" | tar xzf -
-      args:
-        chdir: '~'
-        creates: '~/.dropbox-dist'
-
     - name: Deploy Emacs
       command: ~/bin/deploy-emacs.sh
       args:
