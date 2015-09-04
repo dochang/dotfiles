@@ -359,6 +359,16 @@
                :pkgname "dochang/curl-url-retrieve"
                :branch "bugfix"
                :features (curl-for-url))
+        (:name taskjuggler-mode
+               :website "http://www.skamphausen.de/cgi-bin/ska/taskjuggler-mode"
+               :description "Editing Taskjuggler Files"
+               :type http
+               :url "http://www.skamphausen.de/cgi-bin/ska/download/taskjuggler-mode.el"
+               :prepare (progn
+                          (autoload 'taskjuggler-mode "taskjuggler-mode" nil t)
+                          (add-to-list 'auto-mode-alist '("\\.tjp\\'" . taskjuggler-mode))
+                          (add-to-list 'auto-mode-alist '("\\.tji\\'" . taskjuggler-mode))
+                          (add-to-list 'auto-mode-alist '("\\.tjsp\\'" . taskjuggler-mode))))
         ;; 1. Do not build info documents or it reports an error.
         ;;
         ;;
