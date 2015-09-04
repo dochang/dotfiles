@@ -216,7 +216,7 @@ esac
 
 systemctl --user import-environment HOME PATH http_proxy https_proxy no_proxy
 
-systemctl --user start dropbox
+systemctl --user start syncthing
 
 gpg-agent 2>/dev/null || systemctl --user start gpg-agent
 # For GnuPG 1.x
