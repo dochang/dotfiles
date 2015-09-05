@@ -45,6 +45,7 @@
 
 ;;; Dired Mode
 (defun $dired-load-hook ()
+  (require 'dired+ nil t)
   (define-key dired-mode-map "E" 'emms-play-dired)
   ;; use "z" to kill dired buffer.
   (unless (lookup-key dired-mode-map "K")
