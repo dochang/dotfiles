@@ -30,6 +30,8 @@
       nix_env:
         name: gradle
         state: '{{ pkg_state }}'
+      sudo: yes
+      sudo_user: '{{ ansible_ssh_user }} -i'
 
     - name: Install android-udev-rules
       nix_env:
