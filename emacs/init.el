@@ -444,6 +444,11 @@ return value of `message-unique-id'."
       mode-require-final-newline 1)
 
 
+;;; Don't delete trailing lines when calling `delete-trailing-whitespace' on
+;;; the entire buffer.
+(setq delete-trailing-lines nil)
+
+
 ;;; Disable backup when saving.
 ;;; [[info:emacs#Backup]]
 (setq make-backup-files nil)
