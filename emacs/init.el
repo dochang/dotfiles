@@ -2131,10 +2131,7 @@ from 'todotxt-file'." t)
 
 (defun $web-mode-hook ()
   (when (require 'emmet-mode nil t)
-    (emmet-mode 1))
-  ;; In order to enable syntax highlighting in `web-mode', we have to disable
-  ;; `font-lock-mode' here.  I don't know the reason.
-  (font-lock-mode -1))
+    (emmet-mode 1)))
 
 (add-hook 'web-mode-hook '$web-mode-hook)
 
