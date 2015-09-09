@@ -2263,6 +2263,8 @@ from 'todotxt-file'." t)
     (focus-autosave-mode 1))
   (when (require 'el-pocket nil t)
     (el-pocket-load-auth))
+  ;; `dired+' may be not ready when `dired' loaded.  Ensure it loaded.
+  (require 'dired+ nil t)
   (appt-activate 1)
   (unless **theme-initialized**
     ($theme-initialize))
