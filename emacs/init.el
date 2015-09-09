@@ -351,6 +351,12 @@ return value of `message-unique-id'."
 (setq-default fill-column 79)
 
 
+;;; Disable `indent-tabs-mode'.
+;; `web-mode' changes indentation settings if `indent-tabs-mode' is non-nil.
+;; To prevent it, set the default value of `indent-tabs-mode' to `nil'.
+(setq-default indent-tabs-mode nil)
+
+
 ;;; Scroll Lock Mode
 (global-set-key [Scroll_Lock] 'scroll-lock-mode)
 
