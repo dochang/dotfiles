@@ -209,7 +209,7 @@ fresh xmodmap --file
 
 fresh ssh/config.$(hostname --domain) --file="~/.ssh/config"
 
-fresh conky --file
+fresh conky/conky.conf --file="${XDG_CONFIG_HOME}/conky/conky.conf"
 
 fresh mpv --file="${XDG_CONFIG_HOME}/mpv/"
 
