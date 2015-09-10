@@ -2148,6 +2148,11 @@ from 'todotxt-file'." t)
 ;;; Emmet Mode
 (setq emmet-move-cursor-between-quotes t)
 
+(defun $eval-after-load-emmet-mode ()
+  (define-key emmet-mode-keymap (kbd "C-j") nil))
+
+(eval-after-load 'emmet-mode '($eval-after-load-emmet-mode))
+
 
 ;;; Type Break Mode
 ;; Use X Window to prevent RSI.
