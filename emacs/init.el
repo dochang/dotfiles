@@ -2136,6 +2136,7 @@ from 'todotxt-file'." t)
 ;; (add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.jsx\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.js\\'" . web-mode))
 
 (defun $web-mode-hook ()
   (when (require 'emmet-mode nil t)
