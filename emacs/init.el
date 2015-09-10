@@ -1470,6 +1470,7 @@ major mode isn't derived from `prog-mode'."
 ;;; Lua Mode
 ;; [[http://immerrr.github.com/lua-mode/]]
 ;; [[https://github.com/immerrr/lua-mode]]
+(setq lua-indent-level 2)
 
 ;; Lua Block Mode
 ;;
