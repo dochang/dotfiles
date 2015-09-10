@@ -1,0 +1,7 @@
+[Unit]
+Description=conky
+
+[Service]
+Type=forking
+ExecStart=/usr/bin/conky
+Restart=on-failure

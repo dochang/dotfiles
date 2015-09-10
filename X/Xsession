@@ -66,6 +66,8 @@ pgrep '^unclutter$' >/dev/null || systemctl --user start unclutter
 
 systemctl --user start xwrits
 
+systemctl --user start conky
+
 STARTUP="${X_WINDOW_MANAGER:-x-window-manager}"
 
 STARTUP="env SHELL=$(getent passwd $LOGNAME | cut -d: -f7) $STARTUP"
