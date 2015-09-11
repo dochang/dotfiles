@@ -41,6 +41,7 @@
           - gulp
           - bower
           - nodemon
+          - speed-test
           # For Emacs flycheck
           # https://github.com/zaach/jsonlint
           - jsonlint
