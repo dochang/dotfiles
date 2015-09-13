@@ -159,7 +159,8 @@
                 dired+
                 systemd
                 el-pocket
-                what-the-commit)
+                what-the-commit
+                web-mode)
               (if (< emacs-major-version 24)
                   '(scala-mode)
                 '(scala-mode2
