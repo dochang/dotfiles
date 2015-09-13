@@ -2273,6 +2273,8 @@ from 'todotxt-file'." t)
     (el-pocket-load-auth))
   ;; `dired+' may be not ready when `dired' loaded.  Ensure it loaded.
   (require 'dired+ nil t)
+  (when (require 'smart-mark nil t)
+    (smart-mark-mode 1))
   (appt-activate 1)
   (unless **theme-initialized**
     ($theme-initialize))

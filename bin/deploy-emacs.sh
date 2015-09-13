@@ -160,7 +160,8 @@
                 systemd
                 el-pocket
                 what-the-commit
-                web-mode)
+                web-mode
+                smart-mark)
               (if (< emacs-major-version 24)
                   '(scala-mode)
                 '(scala-mode2
