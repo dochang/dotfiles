@@ -116,6 +116,11 @@
         dest: ~/.anyenv/plugins/anyenv-git
         repo: https://github.com/znz/anyenv-git.git
 
+    - name: Install anyenv-exec
+      git:
+        dest: ~/.anyenv/plugins/anyenv-exec
+        repo: https://github.com/aereal/anyenv-exec.git
+
     - name: Install envs
       command: 'anyenv install {{ item.key }}'
       args:
