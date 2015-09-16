@@ -40,6 +40,7 @@
           - editorconfig
           - yo
           - gulp
+          - webpack
           - bower
           - nodemon
           - speed-test
