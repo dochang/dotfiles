@@ -135,12 +135,7 @@
       when: pkg_state == 'latest'
 
     - name: Install interpreters
-      shell: >-
-        {% if item.0.name == 'goenv' %}
-        wget --output-document - https://storage.googleapis.com/golang/go{{ item.1 }}.linux-amd64.tar.gz | tar --extract --gzip --file - --xform "s/^go/{{ item.1 }}/" --directory ~/.anyenv/envs/{{ item.0.name }}/versions/ ; status=$? ; [ $status -eq 0 ] || rm -rf ~/.anyenv/envs/{{ item.0.name }}/versions/{{ item.1 }} ; exit $status
-        {% else %}
-        {{ item.0.name }} install {{ item.1 }}
-        {% endif %}
+      shell: '{{ item.0.name }} install {{ item.1 }}'
       args:
         chdir: '~'
         creates: '~/.anyenv/envs/{{ item.0.name }}/versions/{{ item.1 }}'
