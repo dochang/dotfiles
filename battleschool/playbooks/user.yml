@@ -9,7 +9,7 @@
       pyenv:
         versions:
           - 2.7.10
-          - 3.4.3
+          - 3.5.0
         packages:
           - pip
           # virtualenvwrapper depends on pbr.
