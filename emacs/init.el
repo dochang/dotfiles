@@ -1148,7 +1148,10 @@ Chromium."
   ;;
   ;; NOTE: Setting `indent-tabs-mode' to `t' does NOT mean "pressing `TAB'
   ;; inserts a `\t'".
-  (setq indent-tabs-mode nil))
+  (setq indent-tabs-mode nil)
+  ;; A workaround for editorconfig/editorconfig-emacs#38
+  (when (buffer-file-name)
+    (edconf-find-file-hook)))
 
 (add-hook 'prog-mode-hook '$prog-mode-hook)
 
