@@ -43,6 +43,12 @@
                              '("themes/" "site-lisp/")))))
 
 
+;;; Key bindings
+;; [[http://www.emacswiki.org/emacs/PrefixKey]]
+(define-prefix-command '$extended-map)
+(global-set-key "\C-cx" '$extended-map)
+
+
 ;;; Dired Mode
 (defun $dired-load-hook ()
   (require 'dired+ nil t)
