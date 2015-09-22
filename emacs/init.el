@@ -1591,10 +1591,8 @@ major mode isn't derived from `prog-mode'."
 (defun $eval-after-load-yaml-mode ()
   ;; Setup yaml-path
   ;;
-  ;; `yaml-path.el' suggests `C-c C-p', but according to
-  ;; [[info:elisp#Key%20Binding%20Conventions]], it's reserved for major
-  ;; modes.  So we use `C-c p' here, it's reserved for users.
-  (define-key yaml-mode-map (kbd "C-c p") 'yaml-path/path))
+  ;; `C-c C-p' is ok, because it's defined in a major mode keymap.
+  (define-key yaml-mode-map (kbd "C-c C-p") 'yaml-path/path))
 
 (eval-after-load 'yaml-mode '($eval-after-load-yaml-mode))
 
