@@ -72,6 +72,9 @@
         ;; `locate-ls-subdir-switches` should default to the value of
         ;; `dired-listing-switches'.
         locate-ls-subdir-switches dired-listing-switches)
+  (when (require 'git-annex nil t)
+    ;; Avoid key binding conflicts.
+    (define-key $extended-map "@" git-annex-dired-map))
   (when (require 'dired-x nil t)
     (setq dired-guess-shell-alist-user
           (mapcar (lambda (elem) (list elem "xdg-open"))
@@ -2283,6 +2286,10 @@ from 'todotxt-file'." t)
   (require 'dired+ nil t)
   (when (require 'smart-mark nil t)
     (smart-mark-mode 1))
+  ;; `git-annex' may be not ready when `dired' loaded.  Ensure it loaded.
+  (when (require 'git-annex nil t)
+    ;; Avoid key binding conflicts.
+    (define-key $extended-map "@" git-annex-dired-map))
   (appt-activate 1)
   (unless **theme-initialized**
     ($theme-initialize))

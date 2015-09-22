@@ -161,7 +161,9 @@
                 el-pocket
                 what-the-commit
                 web-mode
-                smart-mark)
+                smart-mark
+                git-annex
+                magit-annex)
               (if (< emacs-major-version 24)
                   '(scala-mode)
                 '(scala-mode2
