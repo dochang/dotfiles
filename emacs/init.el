@@ -53,6 +53,7 @@
 (defun $dired-load-hook ()
   (require 'dired+ nil t)
   (define-key dired-mode-map "E" 'emms-play-dired)
+  (define-key $extended-map "e" 'emms-play-dired)
   ;; use "z" to kill dired buffer.
   (unless (lookup-key dired-mode-map "K")
     (define-key dired-mode-map "K" 'kill-this-buffer))
