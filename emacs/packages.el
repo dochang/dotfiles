@@ -8,12 +8,17 @@
         ("melpa" . "http://melpa.org/packages/")
         ("org" . "http://orgmode.org/elpa/")
         ("melpa-stable" . "http://stable.melpa.org/packages/")
+
         ;; Downloading marmalade archive will cause Emacs hangs at 100% CPU
         ;; usage.  Disable it for now.  See nicferrier/elmarmalade#106 .
         ;;
         ;; ("marmalade" . "http://marmalade-repo.org/packages/")
-        ("ELPA" . "http://tromey.com/elpa/")
-        ("SC" . "http://joseito.republika.pl/sunrise-commander/")))
+
+        ;; Disable old archives.
+        ;; ("ELPA" . "http://tromey.com/elpa/")
+        ;; ("SC" . "http://joseito.republika.pl/sunrise-commander/")
+
+        ))
 
 (setq el-get-emacswiki-base-url "http://www.emacswiki.org/emacs/download/")
 
