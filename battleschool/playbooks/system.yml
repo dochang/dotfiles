@@ -170,6 +170,9 @@
         # For Nix
         - bzip2
         - tar
+        # For spaceman-diff
+        - jp2a
+        - imagemagick
 
     - name: Remove packages
       apt:

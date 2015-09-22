@@ -262,6 +262,8 @@ find "${FRESH_LOCAL}/${prefix}" -name '*.service' -printf '%P\n' | {
 
 systemctl --user daemon-reload
 
+fresh holman/spaceman-diff spaceman-diff --bin
+
 # Local Variables:
 # mode: sh
 # End:
