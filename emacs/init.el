@@ -688,6 +688,7 @@ return value of `message-unique-id'."
       (if (equal "" input) nil (intern input)))))
   (when (and **theme-initialized**
              (setq theme (or theme ($select-theme))))
+    (message "Theme: %s" theme)
     (cond ((eq **theme-engine** 'custom-theme)
            (mapc 'disable-theme (copy-sequence custom-enabled-themes))
            (when (load-theme theme t)
