@@ -2,5 +2,6 @@ set followhints=1
 set toolbars=addons,nobookmarks,menu,navigation,tabs
 noremap <BS> <PageUp>
 noremap <Space> <PageDown>
+source! ~/.vimperatorrc.local
 
 " vim: set ft=vimperator:
