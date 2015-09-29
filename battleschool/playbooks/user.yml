@@ -49,7 +49,7 @@
           - jsonlint
       goenv:
         versions:
-          - 1.5
+          - 1.5.1
         packages:
           - github.com/zimbatm/direnv
     env_versions:
