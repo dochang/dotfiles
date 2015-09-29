@@ -69,6 +69,8 @@
       args:
         chdir: '~'
       when: pkg_state == 'latest'
+      tags:
+        - nix
 
     - name: Install/Upgrade Nix packages
       nix_env:
@@ -84,6 +86,8 @@
         - rustc
         - cargo
         - heroku
+      tags:
+        - nix
 
     - name: Install oh-my-zsh
       git:
@@ -106,21 +110,29 @@
         repo: https://github.com/dochang/anyenv.git
         remote: dochang
         version: next
+      tags:
+        - anyenv
 
     - name: Install anyenv-update
       git:
         dest: ~/.anyenv/plugins/anyenv-update
         repo: https://github.com/znz/anyenv-update.git
+      tags:
+        - anyenv
 
     - name: Install anyenv-git
       git:
         dest: ~/.anyenv/plugins/anyenv-git
         repo: https://github.com/znz/anyenv-git.git
+      tags:
+        - anyenv
 
     - name: Install anyenv-exec
       git:
         dest: ~/.anyenv/plugins/anyenv-exec
         repo: https://github.com/aereal/anyenv-exec.git
+      tags:
+        - anyenv
 
     - name: Install envs
       command: 'anyenv install {{ item.key }}'
@@ -128,12 +140,16 @@
         chdir: '~'
         creates: '~/.anyenv/envs/{{ item.key }}'
       with_dict: envs
+      tags:
+        - anyenv
 
     - name: Update anyenv
       command: 'anyenv update'
       args:
         chdir: '~'
       when: pkg_state == 'latest'
+      tags:
+        - anyenv
 
     - name: Install interpreters
       shell: '{{ item.0.name }} install {{ item.1 }}'
@@ -143,18 +159,24 @@
       with_subelements:
         - env_versions
         - versions
+      tags:
+        - anyenv
 
     - name: Rehash envs
       command: '{{ item.key }} rehash'
       args:
         chdir: '~'
       with_dict: envs
+      tags:
+        - anyenv
 
     - name: Set global version of interpreters
       command: '{{ item.key }} global {{ item.value.versions[0] }}'
       args:
         chdir: '~'
       with_dict: envs
+      tags:
+        - anyenv
 
     - name: Install utils
       pip:
@@ -167,6 +189,8 @@
       with_nested:
         - envs.pyenv.versions
         - envs.pyenv.packages
+      tags:
+        - pip
 
     # These utils currently supports Python 2 only.
     - name: Install Python 2 utils
@@ -181,6 +205,8 @@
       with_nested:
         - envs.pyenv.versions
         - envs.pyenv.packages2
+      tags:
+        - pip
 
     - name: Install utils
       gem:
@@ -193,6 +219,8 @@
       with_nested:
         - envs.rbenv.versions
         - envs.rbenv.packages
+      tags:
+        - gem
 
     - name: Install utils
       npm:
@@ -206,6 +234,8 @@
       with_nested:
         - envs.ndenv.versions
         - envs.ndenv.packages
+      tags:
+        - npm
 
     - name: Install utils
       command: 'go get {{ item.1 }}'
@@ -216,11 +246,15 @@
       with_nested:
         - envs.goenv.versions
         - envs.goenv.packages
+      tags:
+        - go
 
     - name: Deploy Emacs
       command: ~/bin/deploy-emacs.sh
       args:
         chdir: '~'
+      tags:
+        - emacs
 
   handlers:
     - name: pyenv rehash
