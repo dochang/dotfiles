@@ -163,7 +163,9 @@
                 web-mode
                 smart-mark
                 git-annex
-                magit-annex)
+                magit-annex
+                writeroom-mode
+                transmission)
               (if (< emacs-major-version 24)
                   '(scala-mode)
                 '(scala-mode2
