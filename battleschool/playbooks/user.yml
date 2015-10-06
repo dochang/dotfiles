@@ -83,11 +83,31 @@
         - git-extras
         - git-remote-gcrypt
         - git-crypt
+        - go1.5-syncthing-v0.11.25
         - rustc
         - cargo
         - heroku
       tags:
         - nix
+
+    - name: Install systemd config file for syncthing
+      copy:
+        src: files/etc/systemd/system/syncthing@.service
+        dest: /etc/systemd/system/syncthing@.service
+        owner: root
+        group: root
+        mode: 0644
+      sudo: yes
+      sudo_user: root
+      tags:
+        - syncthing
+
+    - name: Configure systemd for syncthing
+      shell: 'systemctl enable syncthing@{{ ansible_ssh_user }}.service'
+      sudo: yes
+      sudo_user: root
+      tags:
+        - syncthing
 
     - name: Install oh-my-zsh
       git:
