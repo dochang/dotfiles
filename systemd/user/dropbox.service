@@ -3,6 +3,6 @@ Description=Dropbox
 
 [Service]
 Type=forking
-ExecStart={{ HOME }}/bin/dropbox.py start
-ExecStop={{ HOME }}/bin/dropbox.py stop
+ExecStart=/bin/sh -l -c 'dropbox.py start'
+ExecStop=/bin/sh -l -c 'dropbox.py stop'
 Restart=on-failure

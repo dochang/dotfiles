@@ -5,7 +5,7 @@ After=network.target
 
 [Service]
 Environment=STNORESTART=yes STNOUPGRADE=yes
-ExecStart={{ HOME }}/.nix-profile/bin/syncthing -no-browser -logflags=0
+ExecStart=/bin/sh -l -c 'syncthing -no-browser -logflags=0'
 Restart=on-failure
 SuccessExitStatus=2 3 4
 RestartForceExitStatus=3 4
