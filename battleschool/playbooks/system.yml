@@ -65,7 +65,6 @@
         - apt-listbugs
         - laptop-detect
         - laptop-mode-tools
-        - jq
         - xorg
         - keynav
         - fcitx
