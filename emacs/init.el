@@ -51,7 +51,6 @@
 
 ;;; Dired Mode
 (defun $dired-load-hook ()
-  (require 'dired+ nil t)
   (define-key dired-mode-map "E" 'emms-play-dired)
   (define-key $extended-map "e" 'emms-play-dired)
   ;; use "z" to kill dired buffer.
@@ -75,6 +74,9 @@
   (when (require 'git-annex nil t)
     ;; Avoid key binding conflicts.
     (define-key $extended-map "@" git-annex-dired-map))
+  ;; Load it after any other dired extensions, so that its key binding
+  ;; overrides others.
+  (require 'dired+ nil t)
   (when (require 'dired-x nil t)
     (setq dired-guess-shell-alist-user
           (mapcar (lambda (elem) (list elem "xdg-open"))
@@ -2283,14 +2285,17 @@ from 'todotxt-file'." t)
     (focus-autosave-mode 1))
   (when (require 'el-pocket nil t)
     (el-pocket-load-auth))
-  ;; `dired+' may be not ready when `dired' loaded.  Ensure it loaded.
-  (require 'dired+ nil t)
   (when (require 'smart-mark nil t)
     (smart-mark-mode 1))
   ;; `git-annex' may be not ready when `dired' loaded.  Ensure it loaded.
   (when (require 'git-annex nil t)
     ;; Avoid key binding conflicts.
     (define-key $extended-map "@" git-annex-dired-map))
+  ;; `dired+' may be not ready when `dired' loaded.  Ensure it loaded.
+  ;;
+  ;; Load it after any other dired extensions, so that its key binding
+  ;; overrides others.
+  (require 'dired+ nil t)
   (appt-activate 1)
   (unless **theme-initialized**
     ($theme-initialize))
