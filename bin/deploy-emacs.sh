@@ -165,7 +165,8 @@
                 git-annex
                 magit-annex
                 writeroom-mode
-                transmission)
+                transmission
+                auto-package-update)
               (if (< emacs-major-version 24)
                   '(scala-mode)
                 '(scala-mode2
