@@ -257,14 +257,15 @@ See Info node `(dired-x) Omitting Variables' for more information."
   "Is S an ID created by UUIDGEN?"
   (string-match "\\`[0-9a-f]\\{8\\}-[0-9a-f]\\{4\\}-[0-9a-f]\\{4\\}-[0-9a-f]\\{4\\}-[0-9a-f]\\{12\\}\\'" (downcase s)))
 
-(defadvice message-unique-id (around $message-unique-id-around-advice activate)
+(defun $message-unique-id-by-uuid (unique-id)
   "Return an UUID if available.  Otherwise, return the original
 return value of `message-unique-id'."
-  (setq ad-return-value
-        (let ((uuid ($uuid)))
-          (if ($uuidgen-p uuid)
-              uuid
-            ad-do-it))))
+  (let ((uuid ($uuid)))
+    (if ($uuidgen-p uuid)
+        uuid
+      unique-id)))
+
+(advice-add 'message-unique-id :filter-return '$message-unique-id-by-uuid)
 
 (defun $buffer-file-name (&optional name)
   ;; The following code is borrowed from `lisp/files.el' in Emacs source code.
@@ -2002,11 +2003,11 @@ from 'todotxt-file'." t)
   :group 'perl
   :safe (lambda (value) (or (booleanp value) (stringp value))))
 
-(defadvice flymake-perl-init (after local-lib activate)
+(defun $flymake-perl-init-local-lib-support (retval)
   "local::lib support."
   ;; Make local variables take effect first.
   (hack-local-variables)
-  (let* ((args (nth 1 ad-return-value))
+  (let* ((args (nth 1 retval))
          (mod-exist (and (executable-find "perl")
                          ;; Just test the existence of `local::lib`.  Do not
                          ;; creating the local dir here.
@@ -2017,7 +2018,10 @@ from 'todotxt-file'." t)
                            (format "-Mlocal::lib=%s" perl-local-lib-path))
                           (perl-local-lib-path "-Mlocal::lib"))))
     (when local-lib
-      (setf (nth 1 ad-return-value) (cons local-lib args)))))
+      (setf (nth 1 retval) (cons local-lib args)))))
+
+(advice-add 'flymake-perl-init :filter-return
+            '$flymake-perl-init-local-lib-support)
 
 ;; Flymake for Ruby
 ;;
