@@ -85,6 +85,7 @@
         - git-crypt
         - go1.5-syncthing-v0.11.25
         - progress
+        - yank
         - jq
         - rustc
         - cargo
