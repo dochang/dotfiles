@@ -2157,6 +2157,7 @@ from 'todotxt-file'." t)
 (add-to-list 'auto-mode-alist '("\\.js\\'" . web-mode))
 
 (defun $web-mode-hook ()
+  ($prog-mode-hook*)
   (when (require 'emmet-mode nil t)
     (emmet-mode 1)))
 
