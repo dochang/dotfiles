@@ -2159,7 +2159,8 @@ from 'todotxt-file'." t)
 (defun $web-mode-hook ()
   ($prog-mode-hook*)
   (when (require 'emmet-mode nil t)
-    (emmet-mode 1)))
+    (emmet-mode 1))
+  ($camel-case-mode 1))
 
 (add-hook 'web-mode-hook '$web-mode-hook)
 
