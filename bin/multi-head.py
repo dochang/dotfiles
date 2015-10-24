@@ -45,8 +45,8 @@ def parse(src):
         m = regex['mode'].search(line)
         if last and m:
             r = {
-                'width': m.group(1),
-                'height': m.group(2),
+                'width': int(m.group(1)),
+                'height': int(m.group(2)),
                 'rate': float(m.group(3)),
             }
             query[last]['modes'].append(r)
