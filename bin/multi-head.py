@@ -50,8 +50,8 @@ def parse(src):
                 'rate': float(m.group(3)),
             }
             query[last]['modes'].append(r)
-            if (m.group(4) == '*'): query[last]['native'] = r
-            if (m.group(5) == '+'): query[last]['current'] = r
+            if (m.group(4) == '*'): query[last]['current'] = r
+            if (m.group(5) == '+'): query[last]['preferred'] = r
             continue
         last = None
 
