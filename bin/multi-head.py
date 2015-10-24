@@ -5,6 +5,7 @@
 from subprocess import check_output
 import subprocess
 import re
+from functools import cmp_to_key
 
 regex = {
     'connected': re.compile('^(\S+) connected (?:(\d+)x(\d+))?'),
@@ -57,20 +58,51 @@ def parse(src):
 
     return query
 
+def get_config(query):
+    config = {}
+    def connected(output):
+        return query[output]['connected']
+    def index(output):
+        return query[output]['index']
+    def cmp(x, y):
+        if connected(x) and not connected(y):
+            return -1
+        if not connected(x) and connected(y):
+            return 1
+        return index(x) - index(y)
+    outputs = sorted(query.keys(), key=cmp_to_key(cmp))
+    x = y = 0
+    for output in outputs:
+        if not connected(output):
+            config[output] = None
+            continue
+        preferred = query[output]['preferred']
+        width = preferred['width']
+        height = preferred['height']
+        rate = preferred['rate']
+        config[output] = {
+            'x': x,
+            'y': y,
+            'width': width,
+            'height': height,
+            'rate': rate,
+        }
+        x += width
+        y += height
+    return config
+
 def multi_head_setup(query):
-    connects = query.keys()
-    connects = [ key for key in query if query[key]['connected'] ]
-    disconnects = [ key for key in query if not query[key]['connected'] ]
-    primary = 'LVDS1'
-    if primary in connects:
-        connects.remove(primary)
-    else:
-        primary = connects.pop()
-    cmd = ['xrandr', '--output', primary, '--auto']
-    if (len(connects) > 0):
-        cmd += ['--output', connects[0], '--right-of', primary, '--auto']
-    for output in disconnects:
-        cmd += ['--output', output, '--auto']
+    config = get_config(query)
+    cmd = ['xrandr']
+    for k in config.keys():
+        v = config[k]
+        cmd += ['--output', k]
+        if v:
+            cmd += ['--pos', '{x}x{y}'.format(**v)]
+            cmd += ['--mode', '{width}x{height}'.format(**v)]
+            cmd += ['--rate', '{rate}'.format(**v)]
+        else:
+            cmd += ['--off']
     subprocess.call(cmd)
 
 def main():
