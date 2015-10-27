@@ -166,7 +166,8 @@
                 magit-annex
                 writeroom-mode
                 transmission
-                auto-package-update)
+                auto-package-update
+                describe-number)
               (if (< emacs-major-version 24)
                   '(scala-mode)
                 '(scala-mode2
