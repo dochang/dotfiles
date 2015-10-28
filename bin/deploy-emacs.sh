@@ -167,7 +167,8 @@
                 writeroom-mode
                 transmission
                 auto-package-update
-                describe-number)
+                describe-number
+                cargo)
               (if (< emacs-major-version 24)
                   '(scala-mode)
                 '(scala-mode2

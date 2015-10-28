@@ -1775,7 +1775,8 @@ major mode isn't derived from `prog-mode'."
 ;;; Rust Mode
 ;; [[https://github.com/mozilla/rust/blob/master/src/etc/emacs/rust-mode.el]]
 (defun $rust-mode-hook ()
-  ($prog-mode-hook*))
+  ($prog-mode-hook*)
+  (cargo-minor-mode 1))
 
 (add-hook 'rust-mode-hook '$rust-mode-hook)
 
