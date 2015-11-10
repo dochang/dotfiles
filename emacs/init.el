@@ -2303,6 +2303,9 @@ from 'todotxt-file'." t)
     (el-pocket-load-auth))
   (when (require 'smart-mark nil t)
     (smart-mark-mode 1))
+  (when (require 'editorconfig-core nil t)
+    (setq editorconfig-get-properties-function
+          'editorconfig-core-get-properties-hash))
   (when (require 'editorconfig nil t)
     (editorconfig-mode 1))
   ;; `git-annex' may be not ready when `dired' loaded.  Ensure it loaded.

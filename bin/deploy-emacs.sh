@@ -170,7 +170,8 @@
                 describe-number
                 cargo
                 termbright-theme
-                color-theme-modern)
+                color-theme-modern
+                editorconfig-core)
               (if (< emacs-major-version 24)
                   '(scala-mode)
                 '(scala-mode2
