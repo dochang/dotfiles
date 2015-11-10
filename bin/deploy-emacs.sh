@@ -168,7 +168,8 @@
                 transmission
                 auto-package-update
                 describe-number
-                cargo)
+                cargo
+                termbright-theme)
               (if (< emacs-major-version 24)
                   '(scala-mode)
                 '(scala-mode2
