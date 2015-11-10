@@ -66,7 +66,7 @@
 ;;   - 7 - 9 will be "eval-after-load".
 
 (setq el-get-sources
-      '((:name vcard-mode
+      `((:name vcard-mode
                :website "https://github.com/dochang/vcard-mode#readme"
                :description "A major mode to edit vCard files in Emacs"
                :type github
@@ -297,12 +297,17 @@
         ;; - [[https://lists.gnu.org/archive/html/emacs-orgmode/2009-05/msg00135.html]]
         ;; - [[http://permalink.gmane.org/gmane.emacs.sources/3252]]
         ;; - [[https://github.com/leoliu/cal-china-plus]]
+        ;;
+        ;; Has been merged into Emacs 25.1
         (:name cal-china-plus
                :website "https://github.com/leoliu/cal-china-plus"
                :description "extra stuff for cal-china"
+               :builtin "25.1"
                :type github
                :pkgname "leoliu/cal-china-plus"
-               :library cal-china-plus)
+               :library ,(if (version< emacs-version "25.1")
+                             'cal-china-plus
+                           'cal-china))
         (:name dictionary
                :lazy nil
                :autoloads "dictionary-init"

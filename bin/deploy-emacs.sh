@@ -178,29 +178,32 @@
                   sbt-mode))))
 
 (el-get 'sync
-        '(el-get
-          vcard-mode
-          lua2-mode
-          lua-block
-          yaml-path
-          flymake-less
-          ri
-          rdoc-mode
-          cflow-mode
-          color-theme-blackboard
-          color-theme-hober2
-          hober2-theme
-          color-theme-tango
-          color-theme-tangotango
-          color-theme-empty-void
-          color-theme-inkpot
-          color-theme-wombat
-          color-theme-wombat-dark
-          zenburn
-          smarttabs
-          df-mode
-          curl-url-retrieve
-          cal-china-plus))
+        (append '(el-get
+                  vcard-mode
+                  lua2-mode
+                  lua-block
+                  yaml-path
+                  flymake-less
+                  ri
+                  rdoc-mode
+                  cflow-mode
+                  color-theme-blackboard
+                  color-theme-hober2
+                  hober2-theme
+                  color-theme-tango
+                  color-theme-tangotango
+                  color-theme-empty-void
+                  color-theme-inkpot
+                  color-theme-wombat
+                  color-theme-wombat-dark
+                  zenburn
+                  smarttabs
+                  df-mode
+                  curl-url-retrieve)
+                ;; cal-china-plus has been merged into Emacs 25.1
+                (if (version< emacs-version "25.1")
+                    '(cal-china-plus)
+                  '())))
 
 ;; Local Variables:
 ;; mode: emacs-lisp
