@@ -169,7 +169,8 @@
                 auto-package-update
                 describe-number
                 cargo
-                termbright-theme)
+                termbright-theme
+                color-theme-modern)
               (if (< emacs-major-version 24)
                   '(scala-mode)
                 '(scala-mode2
@@ -185,7 +186,6 @@
           ri
           rdoc-mode
           cflow-mode
-          replace-colorthemes
           color-theme-blackboard
           color-theme-hober2
           hober2-theme

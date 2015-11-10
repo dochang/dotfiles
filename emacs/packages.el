@@ -144,15 +144,6 @@
                :description "major mode for viewing cflow output files."
                :type http
                :url "http://git.savannah.gnu.org/cgit/cflow.git/plain/elisp/cflow-mode.el")
-        (:name replace-colorthemes
-               :website "https://github.com/emacs-jp/replace-colorthemes#readme"
-               :description "Replace color-theme with Emacs theme framework"
-               :type github
-               :pkgname "emacs-jp/replace-colorthemes"
-               :autoloads nil
-               :compile ()
-               :prepare (when (boundp 'custom-theme-load-path)
-                          (add-to-list 'custom-theme-load-path default-directory)))
         (:name uuid
                :website "https://github.com/nicferrier/emacs-uuid"
                :description "UUID's for EmacsLisp"
