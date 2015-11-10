@@ -2204,12 +2204,6 @@ from 'todotxt-file'." t)
 ;;; df-mode
 (setq df-interval 10)
 
-(defun $eval-after-load-df-mode ()
-  ;; Enable `df-mode' after loading.
-  (df-mode 1))
-
-(eval-after-load 'df-mode '($eval-after-load-df-mode))
-
 
 ;;; symon-mode
 (setq symon-delay 2)
@@ -2308,6 +2302,9 @@ from 'todotxt-file'." t)
           'editorconfig-core-get-properties-hash))
   (when (require 'editorconfig nil t)
     (editorconfig-mode 1))
+  ;; Enable `df-mode' after loading.
+  (when (require 'df-mode nil t)
+    (df-mode 1))
   ;; `git-annex' may be not ready when `dired' loaded.  Ensure it loaded.
   (when (require 'git-annex nil t)
     ;; Avoid key binding conflicts.
