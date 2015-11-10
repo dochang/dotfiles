@@ -1166,7 +1166,7 @@ Chromium."
   (setq indent-tabs-mode nil)
   ;; A workaround for editorconfig/editorconfig-emacs#38
   (when (buffer-file-name)
-    (edconf-find-file-hook)))
+    (editorconfig-apply)))
 
 (add-hook 'prog-mode-hook '$prog-mode-hook)
 
@@ -2193,13 +2193,10 @@ from 'todotxt-file'." t)
 
 
 ;;; EditorConfig
-(add-to-list 'auto-mode-alist
-             '("\\(/\\|\\`\\)\\.editorconfig\\'" . conf-mode))
-
 (defun $eval-after-load-editorconfig ()
-  (add-to-list 'edconf-indentation-alist '(nxml-mode nxml-child-indent nxml-attribute-indent))
-  (add-to-list 'edconf-indentation-alist '(puppet-mode puppet-indent-level puppet-include-indent))
-  (add-to-list 'edconf-indentation-alist '(jsx-mode jsx-indent-level)))
+  (add-to-list 'editorconfig-indentation-alist '(nxml-mode nxml-child-indent nxml-attribute-indent))
+  (add-to-list 'editorconfig-indentation-alist '(puppet-mode puppet-indent-level puppet-include-indent))
+  (add-to-list 'editorconfig-indentation-alist '(jsx-mode jsx-indent-level)))
 
 (eval-after-load 'editorconfig '($eval-after-load-editorconfig))
 
@@ -2306,6 +2303,8 @@ from 'todotxt-file'." t)
     (el-pocket-load-auth))
   (when (require 'smart-mark nil t)
     (smart-mark-mode 1))
+  (when (require 'editorconfig nil t)
+    (editorconfig-mode 1))
   ;; `git-annex' may be not ready when `dired' loaded.  Ensure it loaded.
   (when (require 'git-annex nil t)
     ;; Avoid key binding conflicts.
