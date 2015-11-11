@@ -40,23 +40,3 @@ remotepasseval = get_remotepass('imap/dochang@gmail.com/password')
 sslcacertfile = /etc/ssl/certs/ca-certificates.crt
 # Do not create any folders on the remote repository.
 createfolders = False
-
-
-[Account b6978148@mail.com]
-localrepository = b6978148@mail.com_local
-remoterepository = b6978148@mail.com_remote
-
-[Repository b6978148@mail.com_local]
-type = Maildir
-localfolders = ~/Maildir/b6978148@mail.com
-
-[Repository b6978148@mail.com_remote]
-type = IMAP
-remotehosteval = get_remotepass('imap/b6978148@mail.com/host')
-ssl = yes
-remoteusereval = get_remotepass('imap/b6978148@mail.com/user')
-remotepasseval = get_remotepass('imap/b6978148@mail.com/password')
-# No SSL verification is done without certs even if ssl = yes
-sslcacertfile = /etc/ssl/certs/ca-certificates.crt
-# Do not create any folders on the remote repository.
-createfolders = False
