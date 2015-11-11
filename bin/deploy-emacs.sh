@@ -171,7 +171,8 @@
                 cargo
                 termbright-theme
                 color-theme-modern
-                editorconfig-core)
+                editorconfig-core
+                ruby-additional)
               (if (< emacs-major-version 24)
                   '(scala-mode)
                 '(scala-mode2
@@ -185,7 +186,6 @@
                   yaml-path
                   flymake-less
                   ri
-                  rdoc-mode
                   cflow-mode
                   color-theme-blackboard
                   color-theme-hober2
