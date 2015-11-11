@@ -4,14 +4,17 @@ defaults
 auth on
 tls on
 tls_trust_file /etc/ssl/certs/ca-certificates.crt
+proxy_host 127.0.0.1
+proxy_port 1080
 
 account gmail
 host smtp.gmail.com
+port 587
 maildomain gmail.com
 
 account dochang : gmail
 from dochang@gmail.com
 user dochang@gmail.com
-passwordeval "pass smtp/smtp.gmail.com/dochang@gmail.com/password"
+passwordeval "pass smtp/dochang@gmail.com/password"
 
 account default : dochang
