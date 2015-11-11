@@ -5,12 +5,13 @@ accounts = dochang@gmail.com
 ui = Blinkenlights
 # timeout in 60s
 socktimeout = 60
-pythonfile = ~/.offlineimap.py
+pythonfile = ~/.config/offlineimap/config.py
 
 
 [Account dochang@gmail.com]
 localrepository = dochang@gmail.com_local
 remoterepository = dochang@gmail.com_remote
+proxy = SOCKS5:127.0.0.1:1080
 
 [Repository dochang@gmail.com_local]
 type = Maildir
@@ -26,7 +27,7 @@ sep = .
 
 [Repository dochang@gmail.com_remote]
 type = Gmail
-remoteuser = dochang@gmail.com
+remoteusereval = get_remotepass('imap/dochang@gmail.com/user')
 realdelete = True
 nametrans = gmail_remote_nametrans
 # Until 6.3.4, there is a bug where any `readonly' setting was
@@ -34,7 +35,7 @@ nametrans = gmail_remote_nametrans
 #
 # http://article.gmane.org/gmane.mail.imap.offlineimap.general/4987
 #readonly = False
-remotepasseval = get_remotepass('imap/imap.gmail.com/dochang@gmail.com/password')
+remotepasseval = get_remotepass('imap/dochang@gmail.com/password')
 # No SSL verification is done without certs even if ssl = yes
 sslcacertfile = /etc/ssl/certs/ca-certificates.crt
 # Do not create any folders on the remote repository.
@@ -51,10 +52,10 @@ localfolders = ~/Maildir/b6978148@mail.com
 
 [Repository b6978148@mail.com_remote]
 type = IMAP
-remotehost = imap.mail.com
+remotehosteval = get_remotepass('imap/b6978148@mail.com/host')
 ssl = yes
-remoteuser = b6978148@mail.com
-remotepasseval = get_remotepass('imap/imap.mail.com/b6978148@mail.com/password')
+remoteusereval = get_remotepass('imap/b6978148@mail.com/user')
+remotepasseval = get_remotepass('imap/b6978148@mail.com/password')
 # No SSL verification is done without certs even if ssl = yes
 sslcacertfile = /etc/ssl/certs/ca-certificates.crt
 # Do not create any folders on the remote repository.

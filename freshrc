@@ -192,8 +192,8 @@ fresh keynav --file
 
 fresh msmtp/msmtprc.$(hostname --domain) --file="~/.msmtprc"
 
-fresh offlineimap/offlineimap.py --file="~/.offlineimap.py"
-fresh offlineimap/offlineimaprc.$(hostname --domain) --file="~/.offlineimaprc"
+fresh offlineimap/config.py --file="${XDG_CONFIG_HOME}/offlineimap/config.py"
+fresh offlineimap/config.$(hostname --domain) --file="${XDG_CONFIG_HOME}/offlineimap/config"
 
 fresh mime-support --file
 
