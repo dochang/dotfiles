@@ -186,7 +186,7 @@
                   yaml-path
                   flymake-less
                   ri
-                  cflow-mode
+                  cflow
                   color-theme-blackboard
                   color-theme-hober2
                   hober2-theme

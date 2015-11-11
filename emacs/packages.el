@@ -139,11 +139,6 @@
                :type http
                :url "https://raw.github.com/ruby/ruby/trunk/misc/rdoc-mode.el"
                :prepare (add-to-list 'auto-mode-alist '("\\.rdoc\\'" . rdoc-mode)))
-        (:name cflow-mode
-               :website "http://git.savannah.gnu.org/cgit/cflow.git/tree/elisp/cflow-mode.el"
-               :description "major mode for viewing cflow output files."
-               :type http
-               :url "http://git.savannah.gnu.org/cgit/cflow.git/plain/elisp/cflow-mode.el")
         (:name uuid
                :website "https://github.com/nicferrier/emacs-uuid"
                :description "UUID's for EmacsLisp"
