@@ -20,3 +20,5 @@
 	ignore-for = "!gi() { a=$(IFS=, eval 'echo \"$*\"') ; api=\"curl -sSL http://www.gitignore.io/api/$a\" ; case \"$a\" in list) api=\"$api | tr , '\\\\n'\" ;; esac ; eval \"$api | $(git config core.pager)\" ; } ; gi"
 [diff "spaceman-diff"]
 	command = spaceman-diff
+[sendemail]
+	bcc = {{ EMAIL }}
