@@ -711,10 +711,8 @@ return value of `message-unique-id'."
   (unless frame
     (setq frame (selected-frame)))
   (when (display-graphic-p frame)
-    (if (require 'chinese-fonts-setup nil t)
-        (with-selected-frame frame
-          (cfs-set-font-with-saved-step))
-      ;; If `chinese-fonts-setup' is not installed, Run the following setup.
+    (unless (featurep 'chinese-fonts-setup)
+      ;; If `chinese-fonts-setup' is not installed, run the following setup.
       ;;
       ;; `face-font-rescale-alist' has to be set when setting the font
       ;; configuration.
@@ -2305,6 +2303,7 @@ from 'todotxt-file'." t)
   ;; Enable `df-mode' after loading.
   (when (require 'df-mode nil t)
     (df-mode 1))
+  (require 'chinese-fonts-setup nil t)
   ;; `git-annex' may be not ready when `dired' loaded.  Ensure it loaded.
   (when (require 'git-annex nil t)
     ;; Avoid key binding conflicts.
