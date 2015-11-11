@@ -316,11 +316,10 @@
         (:name elixir
                :library elixir-mode)
         (:name conkeror-minor-mode
-               :website "https://github.com/Bruce-Connor/conkeror-minor-mode#readme"
+               :website "https://github.com/Malabarba/conkeror-minor-mode#readme"
                :description "Mode for editing conkeror javascript files."
                :type github
-               :pkgname "Bruce-Connor/conkeror-minor-mode"
-               :library conkeror-minor-mode)
+               :pkgname "Malabarba/conkeror-minor-mode")
         (:name elm-mode
                :website "https://github.com/jcollard/elm-mode#readme"
                :description "Major mode for Elm"
@@ -395,7 +394,6 @@
         ;; [[https://launchpadlibrarian.net/110774405/slime-byte-compile.patch]]
         ;; [[http://debbugs.gnu.org/cgi/bugreport.cgi?bug=11821]]
         (:name slime
-               :library slime
                :compile ("\\.el\\'")
                :info nil
                :build nil
