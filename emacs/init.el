@@ -2303,6 +2303,8 @@ from 'todotxt-file'." t)
   (when (require 'df-mode nil t)
     (df-mode 1))
   (require 'chinese-fonts-setup nil t)
+  (when (require 'pointback nil t)
+    (global-pointback-mode 1))
   ;; `git-annex' may be not ready when `dired' loaded.  Ensure it loaded.
   (when (require 'git-annex nil t)
     ;; Avoid key binding conflicts.

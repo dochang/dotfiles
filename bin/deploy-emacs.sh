@@ -171,7 +171,8 @@
                 cargo
                 color-theme-modern
                 editorconfig-core
-                ruby-additional)
+                ruby-additional
+                pointback)
               (if (< emacs-major-version 24)
                   '(scala-mode)
                 '(scala-mode2
