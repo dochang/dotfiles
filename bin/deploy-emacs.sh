@@ -172,7 +172,8 @@
                 color-theme-modern
                 editorconfig-core
                 ruby-additional
-                pointback)
+                pointback
+                olivetti)
               (if (< emacs-major-version 24)
                   '(scala-mode)
                 '(scala-mode2
