@@ -102,12 +102,13 @@
         ;; flycheck doesn't exist.
         (:name flymake-ruby
                :post-init nil)
+        ;; Do not call `flymake-less-load'.  It would be called only if
+        ;; flycheck doesn't exist.
+        ;;
+        ;; Install dependencies via `package'
         (:name flymake-less
-               :website "https://github.com/purcell/flymake-less"
-               :description "Flymake handler for LESS stylesheets (lesscss.org)"
-               :depends ()              ; flymake-easy
-               :type github
-               :pkgname "purcell/flymake-less")
+               :depends ()
+               :post-init nil)
         ;; Do not call `flymake-coffee-load'.  It would be called only if
         ;; flycheck doesn't exist.
         (:name flymake-coffee
@@ -139,20 +140,6 @@
                :type http
                :url "https://raw.github.com/ruby/ruby/trunk/misc/rdoc-mode.el"
                :prepare (add-to-list 'auto-mode-alist '("\\.rdoc\\'" . rdoc-mode)))
-        (:name uuid
-               :website "https://github.com/nicferrier/emacs-uuid"
-               :description "UUID's for EmacsLisp"
-               :type github
-               :pkgname "nicferrier/emacs-uuid"
-               :lazy nil
-               :features uuid)
-        (:name uuidgen
-               :website "https://github.com/kanru/uuidgen-el"
-               :description "Provides uuid generating functions"
-               :type github
-               :pkgname "kanru/uuidgen-el"
-               :lazy nil
-               :features uuidgen)
         ;; There are 2 versions of `color-theme-blackboard'.
         ;;
         ;; 1. JD Huntington
@@ -315,46 +302,21 @@
                :type elpa)
         (:name elixir
                :library elixir-mode)
-        (:name conkeror-minor-mode
-               :website "https://github.com/Malabarba/conkeror-minor-mode#readme"
-               :description "Mode for editing conkeror javascript files."
-               :type github
-               :pkgname "Malabarba/conkeror-minor-mode")
+        ;; Install dependencies via `package'
         (:name elm-mode
-               :website "https://github.com/jcollard/elm-mode#readme"
-               :description "Major mode for Elm"
-               :type github
-               :pkgname "jcollard/elm-mode")
+               :depends ())
+        ;; Install dependencies via `package'
         (:name pip-requirements
-               :website "https://github.com/Wilfred/pip-requirements.el#readme"
-               :description "A major mode for editing pip requirements files."
-               :type github
-               :pkgname "Wilfred/pip-requirements.el"
-               :library pip-requirements)
+               :depends ())
         (:name httprepl
                :library httprepl)
         (:name toml-mode
                :library toml-mode)
         (:name haskell-mode
                :post-init nil)
-        (:name wsd-mode
-               :website "https://github.com/josteink/wsd-mode"
-               :description "Emacs major-mode for www.websequencediagrams.com"
-               :type github
-               :pkgname "josteink/wsd-mode")
-        (:name form-feed
-               :website "https://github.com/wasamasa/form-feed"
-               :description "Display ^L glyphs as horizontal lines"
-               :type github
-               :pkgname "wasamasa/form-feed")
+        ;; Install dependencies via `package'
         (:name chinese-fonts-setup
-               :website "https://github.com/tumashu/chinese-fonts-setup"
-               :description "A fonts config tool enforcing double-width Chinese character display"
-               :type github
-               :pkgname "tumashu/chinese-fonts-setup"
-               ;; Do not load it during startup.  We need to check whether a
-               ;; frame is `display-graphic-p' in `after-make-frame-functions'.
-               :lazy t)
+               :depends ())
         ;; `json' has been included with Emacs since February 2008.
         (:name json
                :builtin "24")
