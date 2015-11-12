@@ -1020,9 +1020,7 @@ Chromium."
 (add-hook 'org-load-hook '$org-load-hook)
 
 (defun $org-mode-hook ()
-  ;; `linum-mode' & `org-indent-mode' don't work together if a heading
-  ;; ends with ")", "]" or "}".
-  (linum-mode -1)
+  (linum-mode 1)
   (setq truncate-lines nil))
 
 (add-hook 'org-mode-hook '$org-mode-hook)
