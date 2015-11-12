@@ -534,50 +534,6 @@ return value of `message-unique-id'."
 
 (eval-after-load 'color-theme '($eval-after-load-color-theme))
 
-;; replace-colorthemes
-(setq **custom-themes**
-      (append **custom-themes**
-              '(tty-dark
-                arjen
-                billw
-                calm-forest
-                clarity
-                classic
-                dark-blue2
-                dark-laptop
-                deep-blue
-                desert
-                euphoria
-                gnome2
-                goldenrod
-                gray30
-                hober
-                jonadabian-slate
-                jonadabian
-                kingsajz
-                late-night
-                lawrence
-                ld-dark
-                midnight
-                oswald
-                pok-wob
-                pok-wog
-                raspopovic
-                renegade
-                resolve
-                retro-orange
-                robin-hood
-                ryerson
-                shaman
-                simple-1
-                sitaramv-solaris
-                subtle-hacker
-                taming-mr-arneson
-                taylor
-                word-perfect
-                subdued)
-              '()))
-
 ;; color-theme-blackboard
 (autoload 'color-theme-blackboard "color-theme-blackboard" nil t)
 (add-to-list '**color-themes** 'color-theme-blackboard)
@@ -622,16 +578,68 @@ return value of `message-unique-id'."
 ;; color-theme-zenburn
 (add-to-list '**color-themes** 'color-theme-zenburn)
 
+(setq **custom-themes**
+      (delete-dups
+       (append **custom-themes**
+               ;; color-theme-modern
+               '(tty-dark
+                 arjen
+                 billw
+                 calm-forest
+                 clarity
+                 classic
+                 dark-blue2
+                 dark-laptop
+                 deep-blue
+                 desert
+                 euphoria
+                 gnome2
+                 goldenrod
+                 gray30
+                 hober
+                 jonadabian-slate
+                 jonadabian
+                 kingsajz
+                 late-night
+                 lawrence
+                 ld-dark
+                 midnight
+                 oswald
+                 pok-wob
+                 pok-wog
+                 raspopovic
+                 renegade
+                 resolve
+                 retro-orange
+                 robin-hood
+                 ryerson
+                 shaman
+                 simple-1
+                 sitaramv-solaris
+                 subtle-hacker
+                 taming-mr-arneson
+                 taylor
+                 word-perfect
+                 subdued)
+               ;; built-in
+               '(wombat tsdh-dark tango-dark manoj-dark deeper-blue)
+               '())))
+
+(setq **color-themes**
+      (delete-dups
+       (append **color-themes**
+               ;; built-in
+               '(color-theme-tty-dark
+                 color-theme-dark-laptop
+                 color-theme-hober
+                 color-theme-midnight)
+               '())))
+
 (defvar **theme-initialized** nil)
 
 (defun $theme-initialize ()
   (unless **theme-initialized**
     (cond ((eq **theme-engine** 'custom-theme)
-           (setq **custom-themes**
-                 (delete-dups
-                  (append **custom-themes**
-                          '(wombat tsdh-dark tango-dark manoj-dark deeper-blue)
-                          '())))
            ;; `custom-theme' has been initialized during startup (See
            ;; `lisp/loadup.el`).
            (setq **theme-initialized** t))
@@ -644,14 +652,6 @@ return value of `message-unique-id'."
              ;; http://www.emacswiki.org/emacs/ColorThemeQuestions#toc9
              ;; http://savannah.nongnu.org/bugs/?29500
              (setq color-theme-is-cumulative nil)
-             (setq **color-themes**
-                   (delete-dups
-                    (append **color-themes**
-                            '(color-theme-tty-dark
-                              color-theme-dark-laptop
-                              color-theme-hober
-                              color-theme-midnight)
-                            '())))
              ;; The variable `color-theme-initialized' is not used in
              ;; `color-theme'.  There is no way to determine whether
              ;; `color-theme` has been initialized.
