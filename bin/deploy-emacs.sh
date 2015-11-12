@@ -169,7 +169,6 @@
                 auto-package-update
                 describe-number
                 cargo
-                termbright-theme
                 color-theme-modern
                 editorconfig-core
                 ruby-additional)

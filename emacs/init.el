@@ -575,8 +575,7 @@ return value of `message-unique-id'."
                 taming-mr-arneson
                 taylor
                 word-perfect
-                subdued
-                termbright)
+                subdued)
               '()))
 
 ;; color-theme-blackboard
