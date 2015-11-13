@@ -322,7 +322,7 @@
                :builtin "24")
         (:name noflet
                :library noflet)
-        ;; Install my version because of [[https://github.com/nicferrier/curl-url-retrieve/pull/1]]
+        ;; Install my version because of [[https://github.com/nicferrier/curl-url-retrieve/pull/2]]
         ;;
         ;; Once this PR merged, add recipes to MELPA & el-get.
         (:name curl-url-retrieve
@@ -331,8 +331,7 @@
                :depends (noflet)
                :type github
                :pkgname "dochang/curl-url-retrieve"
-               :branch "bugfix"
-               :features (curl-for-url))
+               :library curl-for-url)
         (:name taskjuggler-mode
                :website "http://www.skamphausen.de/cgi-bin/ska/taskjuggler-mode"
                :description "Editing Taskjuggler Files"

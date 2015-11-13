@@ -33,7 +33,7 @@
                (require 'curl-for-url nil 'noerror))
              (el-get 'sync curl-url-retrieve))
   (el-get-bundle! curl-for-url in dochang/curl-url-retrieve
-    :branch "bugfix"
+    :branch "master"
     :depends (noflet)
     :library curl-for-url))
 
