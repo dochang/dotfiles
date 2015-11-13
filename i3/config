@@ -72,16 +72,16 @@ bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
 # move focused window
-bindsym $mod+Shift+h move left
-bindsym $mod+Shift+j move down
-bindsym $mod+Shift+k move up
-bindsym $mod+Shift+l move right
+bindsym $mod+Mod1+h move left
+bindsym $mod+Mod1+j move down
+bindsym $mod+Mod1+k move up
+bindsym $mod+Mod1+l move right
 
 # alternatively, you can use the cursor keys:
-bindsym $mod+Shift+Left move left
-bindsym $mod+Shift+Down move down
-bindsym $mod+Shift+Up move up
-bindsym $mod+Shift+Right move right
+bindsym $mod+Mod1+Left move left
+bindsym $mod+Mod1+Down move down
+bindsym $mod+Mod1+Up move up
+bindsym $mod+Mod1+Right move right
 
 # focus the parent container
 bindsym $mod+Shift+6 focus parent
@@ -124,15 +124,6 @@ bindsym $mod+F7 workspace 7
 bindsym $mod+F8 workspace 8
 
 # move focused container to workspace
-bindsym $mod+Shift+F1 move container to workspace 1
-bindsym $mod+Shift+F2 move container to workspace 2
-bindsym $mod+Shift+F3 move container to workspace 3
-bindsym $mod+Shift+F4 move container to workspace 4
-bindsym $mod+Shift+F5 move container to workspace 5
-bindsym $mod+Shift+F6 move container to workspace 6
-bindsym $mod+Shift+F7 move container to workspace 7
-bindsym $mod+Shift+F8 move container to workspace 8
-
 bindsym $mod+Mod1+F1 move container to workspace 1
 bindsym $mod+Mod1+F2 move container to workspace 2
 bindsym $mod+Mod1+F3 move container to workspace 3
@@ -240,16 +231,16 @@ mode "command" {
         bindsym Right focus right
 
         # move focused window
-        bindsym Shift+h move left
-        bindsym Shift+j move down
-        bindsym Shift+k move up
-        bindsym Shift+l move right
+        bindsym Mod1+h move left
+        bindsym Mod1+j move down
+        bindsym Mod1+k move up
+        bindsym Mod1+l move right
 
         # alternatively, you can use the cursor keys:
-        bindsym Shift+Left move left
-        bindsym Shift+Down move down
-        bindsym Shift+Up move up
-        bindsym Shift+Right move right
+        bindsym Mod1+Left move left
+        bindsym Mod1+Down move down
+        bindsym Mod1+Up move up
+        bindsym Mod1+Right move right
 
         # focus the parent container
         bindsym Shift+6 focus parent
@@ -289,15 +280,6 @@ mode "command" {
         bindsym F8 workspace 8
 
         # move focused container to workspace
-        bindsym Shift+F1 move container to workspace 1
-        bindsym Shift+F2 move container to workspace 2
-        bindsym Shift+F3 move container to workspace 3
-        bindsym Shift+F4 move container to workspace 4
-        bindsym Shift+F5 move container to workspace 5
-        bindsym Shift+F6 move container to workspace 6
-        bindsym Shift+F7 move container to workspace 7
-        bindsym Shift+F8 move container to workspace 8
-
         bindsym Mod1+F1 move container to workspace 1
         bindsym Mod1+F2 move container to workspace 2
         bindsym Mod1+F3 move container to workspace 3
