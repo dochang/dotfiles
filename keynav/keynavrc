@@ -13,10 +13,10 @@ h cut-left
 j cut-down
 k cut-up
 l cut-right
-shift+h move-left
-shift+j move-down
-shift+k move-up
-shift+l move-right
+alt+h move-left
+alt+j move-down
+alt+k move-up
+alt+l move-right
 space warp,click 1,end
 Return warp,click 1,end
 semicolon warp,end
@@ -36,10 +36,10 @@ y cut-left,cut-up
 u cut-right,cut-up
 b cut-left,cut-down
 n cut-right,cut-down
-shift+y move-left,move-up
-shift+u move-right,move-up
-shift+b move-left,move-down
-shift+n move-right,move-down
+alt+y move-left,move-up
+alt+u move-right,move-up
+alt+b move-left,move-down
+alt+n move-right,move-down
 ctrl+y cut-left,cut-up
 ctrl+u cut-right,cut-up
 ctrl+b cut-left,cut-down
@@ -81,10 +81,10 @@ Left cut-left
 Down cut-down
 Up cut-up
 Right cut-right
-shift+Left move-left
-shift+Down move-down
-shift+Up move-up
-shift+Right move-right
+alt+Left move-left
+alt+Down move-down
+alt+Up move-up
+alt+Right move-right
 
 ctrl+g end
 
