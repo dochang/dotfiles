@@ -40,7 +40,7 @@ mouse_warping none
 bindsym $mod+Ctrl+r reload
 
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-bindsym $mod+Ctrl+Shift+r exec "xconfirm.sh 'i3-msg restart' 'Do you want to restart?'"
+bindsym $mod+Ctrl+Mod1+r exec "xconfirm.sh 'i3-msg restart' 'Do you want to restart?'"
 
 # exit i3 (logs you out of your X session)
 bindsym $mod+Ctrl+x exec "xconfirm.sh 'i3-msg exit' 'Do you want to exit?'"
@@ -95,7 +95,7 @@ bindsym $mod+s layout stacking
 bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
-bindsym $mod+Shift+space floating toggle
+bindsym $mod+Mod1+space floating toggle
 
 # change focus between tiling / floating windows
 bindsym $mod+space focus mode_toggle
@@ -173,15 +173,20 @@ bindsym XF86AudioLowerVolume exec "mixer.sh 5%-"
 bindsym XF86AudioRaiseVolume exec "mixer.sh 5%+"
 bindsym XF86AudioMute        exec "mixer.sh toggle"
 
-bindsym Shift+XF86AudioLowerVolume exec "mixer.sh 1%-"
-bindsym Shift+XF86AudioRaiseVolume exec "mixer.sh 1%+"
+bindsym Mod1+XF86AudioLowerVolume exec "mixer.sh 1%-"
+bindsym Mod1+XF86AudioRaiseVolume exec "mixer.sh 1%+"
 
 bindsym $mod+comma exec "mixer.sh 5%-"
 bindsym $mod+period exec "mixer.sh 5%+"
 bindsym $mod+slash exec "mixer.sh toggle"
 
+# $mod+<  /  $mod+>
 bindsym $mod+Shift+comma exec "mixer.sh 1%-"
 bindsym $mod+Shift+period exec "mixer.sh 1%+"
+
+# $mod+Mod1+,  /  $mod+Mod1+.
+bindsym $mod+Mod1+comma exec "mixer.sh 1%-"
+bindsym $mod+Mod1+period exec "mixer.sh 1%+"
 
 
 # Command Mode
@@ -202,7 +207,7 @@ mode "command" {
         bindsym Ctrl+r mode "default" ; reload
 
         # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-        bindsym Ctrl+Shift+r exec "xconfirm.sh 'i3-msg restart' 'Do you want to restart?'"
+        bindsym Ctrl+Mod1+r exec "xconfirm.sh 'i3-msg restart' 'Do you want to restart?'"
 
         # exit i3 (logs you out of your X session)
         bindsym Ctrl+x exec "xconfirm.sh 'i3-msg exit' 'Do you want to exit?'"
@@ -254,7 +259,7 @@ mode "command" {
         bindsym e layout toggle split
 
         # toggle tiling / floating
-        bindsym Shift+space floating toggle
+        bindsym Mod1+space floating toggle
 
         # change focus between tiling / floating windows
         bindsym space focus mode_toggle
@@ -329,15 +334,20 @@ mode "command" {
         bindsym XF86AudioRaiseVolume exec "mixer.sh 5%+"
         bindsym XF86AudioMute        exec "mixer.sh toggle"
 
-        bindsym Shift+XF86AudioLowerVolume exec "mixer.sh 1%-"
-        bindsym Shift+XF86AudioRaiseVolume exec "mixer.sh 1%+"
+        bindsym Mod1+XF86AudioLowerVolume exec "mixer.sh 1%-"
+        bindsym Mod1+XF86AudioRaiseVolume exec "mixer.sh 1%+"
 
         bindsym comma exec "mixer.sh 5%-"
         bindsym period exec "mixer.sh 5%+"
         bindsym slash exec "mixer.sh toggle"
 
+        # <  /  >
         bindsym Shift+comma exec "mixer.sh 1%-"
         bindsym Shift+period exec "mixer.sh 1%+"
+
+        # Mod1+,  /  Mod1+.
+        bindsym Mod1+comma exec "mixer.sh 1%-"
+        bindsym Mod1+period exec "mixer.sh 1%+"
 
         bindsym r mode "resize"
 }
