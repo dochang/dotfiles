@@ -221,9 +221,16 @@
     - name: Enable auto-hibernate of laptop-mode-tools
       lineinfile:
         dest: /etc/laptop-mode/conf.d/auto-hibernate.conf
-        regexp: 'ENABLE_AUTO_HIBERNATION='
-        line: 'ENABLE_AUTO_HIBERNATION=1'
+        regexp: '{{ item.regexp }}'
+        line: '{{ item.line }}'
         state: present
+      with_items:
+        - regexp: 'ENABLE_AUTO_HIBERNATION='
+          line: 'ENABLE_AUTO_HIBERNATION=1'
+        - regexp: 'AUTO_HIBERNATION_BATTERY_CHARGE_PERCENT='
+          line: 'AUTO_HIBERNATION_BATTERY_CHARGE_PERCENT=10'
+        - regexp: 'AUTO_HIBERNATION_ON_CRITICAL_BATTERY_LEVEL='
+          line: 'AUTO_HIBERNATION_ON_CRITICAL_BATTERY_LEVEL=1'
 
     - name: Always ask for the hostname when reboot, poweroff, etc.
       lineinfile:
