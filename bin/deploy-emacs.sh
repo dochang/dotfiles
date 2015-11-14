@@ -173,7 +173,8 @@
                 editorconfig-core
                 ruby-additional
                 pointback
-                olivetti)
+                olivetti
+                flymake-less)
               (if (< emacs-major-version 24)
                   '(scala-mode)
                 '(scala-mode2
@@ -185,7 +186,6 @@
                   lua2-mode
                   lua-block
                   yaml-path
-                  flymake-less
                   ri
                   cflow
                   color-theme-blackboard
