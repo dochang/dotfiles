@@ -89,7 +89,6 @@
         - chromium
         - firefox
         - conkeror
-        - offlineimap
         - tmux
         - make
         - unclutter

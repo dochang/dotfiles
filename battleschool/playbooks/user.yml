@@ -25,6 +25,11 @@
           - 'https://github.com/dochang/battleschool/archive/next.zip#egg=battleschool'
           - ansible
           - ansible-lint
+          - 'https://github.com/OfflineIMAP/offlineimap/archive/v6.6.0.zip#egg=offlineimap'
+          # OfflineIMAP on PyPI is too old, use Github archive instead.
+          - PySocks
+          # needed by offlineimap to use proxy
+          # https://github.com/OfflineIMAP/offlineimap/blob/master/offlineimap.conf#L437
       rbenv:
         versions:
           - 2.3.0
