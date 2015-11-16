@@ -2253,6 +2253,8 @@ from 'todotxt-file'." t)
 
 
 ;;; Server
+(setq server-name (number-to-string (emacs-pid)))
+
 (unless (daemonp)
   (server-start))
 
