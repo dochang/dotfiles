@@ -318,6 +318,10 @@ return value of `message-unique-id'."
       (expand-file-name file dir))))
 
 
+;;; Avoid killing emacs by mistake
+(setq confirm-kill-emacs 'yes-or-no-p)
+
+
 ;;; System Environment
 ;; Git cannot detect if it's run in Emacs.
 (setenv "GIT_PAGER" "")
@@ -2325,8 +2329,7 @@ from 'todotxt-file'." t)
     ;; Pass `(selected-frame)' as argument to `after-make-frame-functions'
     ;; because the local variable bindings made by Emacs Lisp are dynamic
     ;; binding, by default.  We must pass the initial frame.
-    (run-at-time 1 nil 'run-hook-with-args 'after-make-frame-functions (selected-frame)))
-  (setq confirm-kill-emacs 'yes-or-no-p))
+    (run-at-time 1 nil 'run-hook-with-args 'after-make-frame-functions (selected-frame))))
 
 ;; `$after-init-hook' should be added at the end because it should be
 ;; run after `color-theme-backup-original-values'.
