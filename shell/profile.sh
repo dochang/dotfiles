@@ -7,7 +7,7 @@ export ENV
 export LANG
 
 
-: ${EDITOR:=emacsclient}
+: ${EDITOR:=editor.py}
 export EDITOR
 : ${ALTERNATE_EDITOR:=""}
 export ALTERNATE_EDITOR
