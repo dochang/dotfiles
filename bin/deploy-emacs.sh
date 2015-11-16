@@ -174,7 +174,8 @@
                 ruby-additional
                 pointback
                 olivetti
-                flymake-less)
+                flymake-less
+                highlight-indent-guides)
               (if (< emacs-major-version 24)
                   '(scala-mode)
                 '(scala-mode2

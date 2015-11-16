@@ -1133,8 +1133,10 @@ Chromium."
   ;; Enable Flyspell Prog Mode.  This invokes `(flyspell-mode 1)'.
   ;; Eval `(flyspell-mode -1)' to disable it.
   (flyspell-prog-mode)
+  (when (require 'highlight-indent-guides nil t)
+    (highlight-indent-guides-mode 1))
   (when (require 'indent-guide nil t)
-    (indent-guide-mode 1))
+    (indent-guide-mode -1))
   (when (require 'highlight-indentation nil t)
     (highlight-indentation-mode -1)
     (highlight-indentation-current-column-mode -1))
