@@ -2255,9 +2255,6 @@ from 'todotxt-file'." t)
 ;;; Server
 (setq server-name (number-to-string (emacs-pid)))
 
-(unless (daemonp)
-  (server-start))
-
 
 (load "~/.emacs_local.el" t)
 
@@ -2319,6 +2316,7 @@ from 'todotxt-file'." t)
     ($theme-initialize))
   ($set-theme)
   (unless (daemonp)
+    (server-start)
     ;; Setup initial frame if emacs isn't running as daemon.
     ;;
     ;; We have to run `after-make-frame-functions' in `run-at-time'.  Setting
