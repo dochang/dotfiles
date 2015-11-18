@@ -175,7 +175,8 @@
                 pointback
                 olivetti
                 flymake-less
-                highlight-indent-guides)
+                highlight-indent-guides
+                diredful)
               (if (< emacs-major-version 24)
                   '(scala-mode)
                 '(scala-mode2
