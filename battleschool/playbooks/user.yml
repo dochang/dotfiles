@@ -89,6 +89,7 @@
         - progress
         - yank
         - silver-searcher
+        - lnav
         - editorconfig-core-c
         - jq
         - rustc
