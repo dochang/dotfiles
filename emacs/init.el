@@ -1230,6 +1230,15 @@ major mode isn't derived from `prog-mode'."
                      (eval (file-name-as-directory
                             (expand-file-name user-emacs-directory)))))))
 
+;; Paredit always inserts a space when I insert "(" after ",@".  Change the
+;; syntax descriptor of "@" from "_" to "'" will solve this problem.
+;;
+;; References:
+;;
+;;   - `paredit-space-for-delimiter-p'
+;;   - `emacs-lisp-mode-syntax-table'
+(modify-syntax-entry ?@ "'   " emacs-lisp-mode-syntax-table)
+
 (defun $emacs-lisp-mode-hook ()
   ($prog-mode-hook*)
   ($lisp-mode-common-hook)
