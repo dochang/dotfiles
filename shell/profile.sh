@@ -174,6 +174,9 @@ which pyenv >/dev/null 2>&1 && {
 	esac
 }
 
+## For Cask
+prepend_to_env ${HOME}/.cask/bin PATH
+
 ## For cabal
 prepend_to_env ${HOME}/.cabal/bin PATH
 
