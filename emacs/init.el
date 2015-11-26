@@ -1219,6 +1219,8 @@ major mode isn't derived from `prog-mode'."
 
 
 ;;; Emacs-Lisp Mode
+(add-to-list 'auto-mode-alist '("Cask\\'" . emacs-lisp-mode))
+
 (defun $init-file-p (file-name)
   (setq file-name (expand-file-name ($buffer-file-name file-name)))
   (cl-some (lambda (pattern) ($file-name-match pattern file-name))
