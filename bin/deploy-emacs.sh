@@ -27,11 +27,11 @@
         (goto-char (point-max))
         (eval-print-last-sexp)))))
 
-(unless (and (require 'package nil 'noerror)
-             (progn
-               (package-initialize)
-               (require 'curl-for-url nil 'noerror))
-             (el-get 'sync curl-url-retrieve))
+(unless (or (and (require 'package nil 'noerror)
+                 (progn
+                   (package-initialize)
+                   (require 'curl-for-url nil 'noerror)))
+            (el-get 'sync curl-url-retrieve))
   (el-get-bundle! curl-for-url in dochang/curl-url-retrieve
     :branch "master"
     :depends (noflet)
