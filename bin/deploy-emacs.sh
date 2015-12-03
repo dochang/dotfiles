@@ -176,7 +176,8 @@
                 olivetti
                 flymake-less
                 highlight-indent-guides
-                diredful)
+                diredful
+                el2markdown)
               (if (< emacs-major-version 24)
                   '(scala-mode)
                 '(scala-mode2
