@@ -30,14 +30,14 @@
 (unless (or (and (require 'package nil 'noerror)
                  (progn
                    (package-initialize)
-                   (require 'curl-for-url nil 'noerror)))
-            (el-get 'sync curl-url-retrieve))
-  (el-get-bundle! curl-for-url in dochang/curl-url-retrieve
+                   (require 'mb-url nil 'noerror)))
+            (el-get 'sync mb-url))
+  (el-get-bundle! mb-url in dochang/mb-url
     :branch "master"
-    :depends (noflet)
-    :library curl-for-url))
+    :depends ()
+    :library mb-url))
 
-(curl-for-url-install)
+(advice-add 'url-http :override 'mb-url-http-curl)
 
 (unless (require 'package nil 'noerror)
   (el-get 'sync 'package))
@@ -177,7 +177,8 @@
                 flymake-less
                 highlight-indent-guides
                 diredful
-                el2markdown)
+                el2markdown
+                mb-url)
               (if (< emacs-major-version 24)
                   '(scala-mode)
                 '(scala-mode2
@@ -202,12 +203,14 @@
                   color-theme-wombat-dark
                   zenburn
                   smarttabs
-                  df-mode
-                  curl-url-retrieve)
+                  df-mode)
                 ;; cal-china-plus has been merged into Emacs 25.1
                 (if (version< emacs-version "25.1")
                     '(cal-china-plus)
                   '())))
+
+;; Delete el-get bootstrap mb-url
+(el-get-remove 'mb-url)
 
 ;; Local Variables:
 ;; mode: emacs-lisp
