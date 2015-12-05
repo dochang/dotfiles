@@ -1628,6 +1628,7 @@ major mode isn't derived from `prog-mode'."
 
 ;;; JSON Mode
 (add-to-list 'auto-mode-alist '("\\.bowerrc\\'" . json-mode))
+(add-to-list 'auto-mode-alist '("\\.babelrc\\'" . json-mode))
 
 (defun $json-mode-hook ()
   ($prog-mode-hook*))
