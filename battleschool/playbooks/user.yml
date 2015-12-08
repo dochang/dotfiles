@@ -41,7 +41,6 @@
           - david
           - gulp
           - webpack
-          - bower
           - nodemon
           - speed-test
           # For Emacs flycheck
