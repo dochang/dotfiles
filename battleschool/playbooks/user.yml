@@ -18,6 +18,7 @@
           - virtualenv
           - virtualenvwrapper
           - httpie
+          - bumpversion
           - thefuck
           - qrcode
           - speedtest-cli
