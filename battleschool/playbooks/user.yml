@@ -262,7 +262,10 @@
         - npm
 
     - name: Install utils
-      command: 'go get {{ item.1 }}'
+      command: >-
+        go get
+        {{ (pkg_state == "latest") | ternary("-u", "") }}
+        {{ item.1 }}
       environment:
         GOENV_VERSION: '{{ item.0 }}'
       notify:
