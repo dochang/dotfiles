@@ -4,15 +4,15 @@
 (defvar **package-archives** (bound-and-true-p package-archives))
 
 (setq package-archives
-      '(("gnu" . "http://elpa.gnu.org/packages/")
-        ("melpa" . "http://melpa.org/packages/")
+      '(("gnu" . "https://elpa.gnu.org/packages/")
+        ("melpa" . "https://melpa.org/packages/")
         ("org" . "http://orgmode.org/elpa/")
-        ("melpa-stable" . "http://stable.melpa.org/packages/")
+        ("melpa-stable" . "https://stable.melpa.org/packages/")
 
         ;; Downloading marmalade archive will cause Emacs hangs at 100% CPU
         ;; usage.  Disable it for now.  See nicferrier/elmarmalade#106 .
         ;;
-        ;; ("marmalade" . "http://marmalade-repo.org/packages/")
+        ;; ("marmalade" . "https://marmalade-repo.org/packages/")
 
         ;; Disable old archives.
         ;; ("ELPA" . "http://tromey.com/elpa/")
