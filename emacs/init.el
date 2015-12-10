@@ -2269,6 +2269,7 @@ from 'todotxt-file'." t)
 
 ;;; Server
 (setq server-name (number-to-string (emacs-pid)))
+(setq server-use-tcp t)
 
 
 (load "~/.emacs_local.el" t)
