@@ -14,9 +14,8 @@
         ;;
         ;; ("marmalade" . "https://marmalade-repo.org/packages/")
 
-        ;; Disable old archives.
-        ;; ("ELPA" . "http://tromey.com/elpa/")
-        ;; ("SC" . "http://joseito.republika.pl/sunrise-commander/")
+        ("ELPA" . "http://tromey.com/elpa/")
+        ("SC" . "http://joseito.republika.pl/sunrise-commander/")
 
         ))
 
