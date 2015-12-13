@@ -1110,6 +1110,13 @@ Chromium."
 (setq comment-fill-column nil)
 
 
+;;; indent-guide
+;; [[https://github.com/zk-phi/indent-guide]]
+
+;; DO NOT draw all guide lines.  It's very slow when there're too many levels.
+(setq indent-guide-recursive nil)
+
+
 ;;; Prog Mode
 (defun $prog-mode-hook ()
   (linum-mode 1)
