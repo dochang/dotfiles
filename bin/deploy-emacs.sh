@@ -136,7 +136,6 @@
                 lorem-ipsum
                 fringe-current-line
                 indent-guide
-                highlight-indentation
                 cedit
                 download-region
                 docean
@@ -175,7 +174,6 @@
                 pointback
                 olivetti
                 flymake-less
-                highlight-indent-guides
                 diredful
                 el2markdown
                 mb-url)
