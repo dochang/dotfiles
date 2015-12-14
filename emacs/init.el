@@ -74,6 +74,7 @@
   (when (require 'git-annex nil t)
     ;; Avoid key binding conflicts.
     (define-key $extended-map "@" git-annex-dired-map))
+  (require 'dired-filetype-face nil t)
   ;; Load it after any other dired extensions, so that its key binding
   ;; overrides others.
   (require 'dired+ nil t)

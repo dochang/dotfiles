@@ -176,7 +176,8 @@
                 flymake-less
                 diredful
                 el2markdown
-                mb-url)
+                mb-url
+                dired-filetype-face)
               (if (< emacs-major-version 24)
                   '(scala-mode)
                 '(scala-mode2
