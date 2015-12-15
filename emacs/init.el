@@ -2176,6 +2176,11 @@ from 'todotxt-file'." t)
 (setq web-mode-css-indent-offset 2)
 (setq web-mode-sql-indent-offset 2)
 
+(setq web-mode-comment-formats
+      '(("java"       . "// ")
+        ("javascript" . "// ")
+        ("php"        . "// ")))
+
 (defun $web-mode-hook ()
   ($prog-mode-hook*)
   (when (require 'emmet-mode nil t)
