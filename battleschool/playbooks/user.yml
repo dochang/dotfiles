@@ -79,6 +79,7 @@
         - nix
         # build helper
         - nix-prefetch-scripts
+        - git-annex
         - git-extras
         - git-remote-gcrypt
         - git-crypt
