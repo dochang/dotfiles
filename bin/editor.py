@@ -59,6 +59,10 @@ def find_server_file():
     return server_file
 
 def add_arguments(argv):
+    # Convert argv from str list to unicode list in PY2
+    if sys.version_info[0] == 2:
+        argv = [ arg.decode(sys.getfilesystemencoding()) for arg in argv ]
+
     if 'EMACS_SERVER_FILE' in os.environ:
         return argv
 
