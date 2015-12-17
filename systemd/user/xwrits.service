@@ -2,5 +2,5 @@
 Description=xwrits
 
 [Service]
-ExecStart=/usr/bin/xwrits +multiscreen +breakclock +cheat +clock +idle +mouse +top
+ExecStart=/bin/sh -l -c 'xwrits +multiscreen +breakclock +cheat +clock +idle +mouse +top'
 Restart=on-failure
