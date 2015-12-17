@@ -3,5 +3,5 @@ Description=gpg-agent
 
 [Service]
 Type=forking
-ExecStart=/bin/sh -l -c 'gpg-agent --daemon'
+ExecStart=/bin/sh -l -c 'exec gpg-agent --daemon'
 Restart=on-failure

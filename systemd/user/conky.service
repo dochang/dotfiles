@@ -3,5 +3,5 @@ Description=conky
 
 [Service]
 Type=forking
-ExecStart=/bin/sh -l -c 'conky'
+ExecStart=/bin/sh -l -c 'exec conky'
 Restart=on-failure
