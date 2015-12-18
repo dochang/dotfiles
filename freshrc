@@ -257,6 +257,11 @@ find "${FRESH_LOCAL}/${prefix}" -name '*.service' -printf '%P\n' | {
 	while read REPLY ; do
 		fresh "${prefix}/${REPLY}" --file="${prefix}/${REPLY}" --filter="${MO}"
 		ln -sf "${src_prefix}/${REPLY}" "${dst_prefix}/${REPLY}"
+		case "${REPLY}" in
+		gpg-agent.service)
+			systemctl --user enable "${REPLY}"
+			;;
+		esac
 	done
 }
 
