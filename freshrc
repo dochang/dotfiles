@@ -256,7 +256,11 @@ mkdir -p ${dst_prefix}
 find "${FRESH_LOCAL}/${prefix}" -name '*.service' -printf '%P\n' | {
 	while read REPLY ; do
 		fresh "${prefix}/${REPLY}" --file="${prefix}/${REPLY}" --filter="${MO}"
-		ln -sf "${src_prefix}/${REPLY}" "${dst_prefix}/${REPLY}"
+		# Workaround for #1285996
+		#
+		# https://bugzilla.redhat.com/show_bug.cgi?format=multiple&id=1285996
+		rm -f "${dst_prefix}/${REPLY}"
+		cp -f "${src_prefix}/${REPLY}" "${dst_prefix}/${REPLY}"
 		case "${REPLY}" in
 		gpg-agent.service)
 			systemctl --user enable "${REPLY}"
@@ -268,6 +272,8 @@ find "${FRESH_LOCAL}/${prefix}" -name '*.service' -printf '%P\n' | {
 systemctl --user daemon-reload
 
 fresh holman/spaceman-diff spaceman-diff --bin
+
+fresh Makefile --file=~/Makefile --filter="${MO}"
 
 # Local Variables:
 # mode: sh
