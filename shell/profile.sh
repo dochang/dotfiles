@@ -90,7 +90,7 @@ ___no_proxy () {
 	printf ",sinaapp.com,sinaimg.cn"
 	printf ",youku.com,tudou.com,tudouui.com,tdimg.com"
 	printf ",baidupcs.com,baidu.com,bdstatic.com,bdimg.com,tiebaimg.com"
-	printf ",360.cn,sohu.com,sina.com.cn,douban.com,163.com"
+	printf ",360.cn,yunpan.cn,sohu.com,sina.com.cn,douban.com,163.com"
 	printf ",taobao.com,tmall.com,etao.com,tbcdn.cn,mmstat.com"
 	printf ",alipay.com,alimama.com,aliyun.com,yunos.com,alicdn.com"
 	printf ",jd.com,360buyimg.com,3.cn"
