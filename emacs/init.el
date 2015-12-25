@@ -1437,8 +1437,8 @@ major mode isn't derived from `prog-mode'."
 ;;; Asciidoc
 (autoload 'doc-mode "doc-mode" nil t)
 (autoload 'adoc-mode "adoc-mode" nil t)
-(add-to-list 'auto-mode-alist '("\\.adoc\\'" . doc-mode))
-(add-to-list 'auto-mode-alist '("\\.asciidoc\\'" . doc-mode))
+(add-to-list 'auto-mode-alist '("\\.adoc\\'" . adoc-mode))
+(add-to-list 'auto-mode-alist '("\\.asciidoc\\'" . adoc-mode))
 
 (defun $load-asciidoc (global-map)
   (when (require 'asciidoc nil t)
@@ -1448,11 +1448,11 @@ major mode isn't derived from `prog-mode'."
 (eval-after-load 'doc-mode '($load-asciidoc doc-mode-map))
 (eval-after-load 'adoc-mode '($load-asciidoc adoc-mode-map))
 
-(defun $doc-mode-hook ()
+(defun $adoc-mode-hook ()
   (linum-mode 1))
 
-(add-hook 'doc-mode-hook '$doc-mode-hook)
-(add-hook 'adoc-mode-hook '$doc-mode-hook)
+(add-hook 'doc-mode-hook '$adoc-mode-hook)
+(add-hook 'adoc-mode-hook '$adoc-mode-hook)
 
 
 ;;; Perl Mode

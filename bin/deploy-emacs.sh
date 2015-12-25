@@ -177,7 +177,8 @@
                 diredful
                 el2markdown
                 mb-url
-                dired-filetype-face)
+                dired-filetype-face
+                adoc-mode)
               (if (< emacs-major-version 24)
                   '(scala-mode)
                 '(scala-mode2
