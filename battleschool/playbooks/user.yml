@@ -12,6 +12,7 @@
           - 3.5.1
         packages:
           - pip
+          - pip-autoremove
           # virtualenvwrapper depends on pbr.
           - pbr
           - virtualenv
