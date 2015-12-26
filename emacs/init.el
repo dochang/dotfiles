@@ -2316,6 +2316,8 @@ from 'todotxt-file'." t)
   ;; focus-autosave-mode
   (when (require 'focus-autosave-mode nil t)
     (focus-autosave-mode 1))
+  (when (require 'super-save nil t)
+    (super-save-initialize))
   (when (require 'el-pocket nil t)
     (el-pocket-load-auth))
   (when (require 'smart-mark nil t)

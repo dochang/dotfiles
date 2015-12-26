@@ -178,7 +178,8 @@
                 el2markdown
                 mb-url
                 dired-filetype-face
-                adoc-mode)
+                adoc-mode
+                super-save)
               (if (< emacs-major-version 24)
                   '(scala-mode)
                 '(scala-mode2
