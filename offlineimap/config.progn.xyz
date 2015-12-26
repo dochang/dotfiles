@@ -1,40 +1,31 @@
 # -*- mode: conf -*-
 
+[DEFAULT]
+usecompression = yes
+
 [general]
 accounts = dochang@gmail.com
 ui = Blinkenlights
 # timeout in 60s
 socktimeout = 60
 pythonfile = ~/.config/offlineimap/config.py
+fsync = false
 
 
 [Account dochang@gmail.com]
 localrepository = dochang@gmail.com_local
 remoterepository = dochang@gmail.com_remote
+status_backend = sqlite
+synclabels = no
 proxy = SOCKS5:127.0.0.1:1080
 
 [Repository dochang@gmail.com_local]
-type = Maildir
+type = GmailMaildir
 localfolders = ~/Maildir/dochang@gmail.com
-nametrans = gmail_local_nametrans
-
-# You can specify the "path separator character" used for your Maildir
-# folders.  This is inserted in-between the components of the tree.
-# It defaults to ".".  If you want your Maildir folders to be nested,
-# set it to "/".
-
-sep = .
 
 [Repository dochang@gmail.com_remote]
 type = Gmail
 remoteusereval = get_remotepass('imap/dochang@gmail.com/user')
-realdelete = True
-nametrans = gmail_remote_nametrans
-# Until 6.3.4, there is a bug where any `readonly' setting was
-# considered as being True.  So we comment this out here.
-#
-# http://article.gmane.org/gmane.mail.imap.offlineimap.general/4987
-#readonly = False
 remotepasseval = get_remotepass('imap/dochang@gmail.com/password')
 # No SSL verification is done without certs even if ssl = yes
 sslcacertfile = /etc/ssl/certs/ca-certificates.crt
