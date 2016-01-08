@@ -179,7 +179,8 @@
                 mb-url
                 dired-filetype-face
                 adoc-mode
-                super-save)
+                super-save
+                tldr)
               (if (< emacs-major-version 24)
                   '(scala-mode)
                 '(scala-mode2
