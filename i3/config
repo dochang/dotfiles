@@ -22,7 +22,8 @@ font pango:DejaVu Sans Mono 10
 
 focus_follows_mouse no
 
-popup_during_fullscreen smart
+# For gpg-agent & pinentry
+popup_during_fullscreen leave_fullscreen
 
 workspace_layout tabbed
 
