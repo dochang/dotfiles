@@ -180,7 +180,8 @@
                 dired-filetype-face
                 adoc-mode
                 super-save
-                tldr)
+                tldr
+                gh-md)
               (if (< emacs-major-version 24)
                   '(scala-mode)
                 '(scala-mode2
