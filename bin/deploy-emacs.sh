@@ -181,7 +181,8 @@
                 adoc-mode
                 super-save
                 tldr
-                gh-md)
+                gh-md
+                projectile)
               (if (< emacs-major-version 24)
                   '(scala-mode)
                 '(scala-mode2
