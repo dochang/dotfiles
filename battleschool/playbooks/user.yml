@@ -44,6 +44,7 @@
           - webpack
           - nodemon
           - speed-test
+          - json
           # For Emacs flycheck
           # https://github.com/zaach/jsonlint
           - jsonlint
