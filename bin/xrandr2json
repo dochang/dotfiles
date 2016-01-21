@@ -1,0 +1,67 @@
+#!/usr/bin/env python
+
+# This code is borrowed from: https://github.com/substack/xrandr-parse
+
+from __future__ import unicode_literals
+
+from subprocess import check_output
+import re
+import json
+
+def parse(xrandr_state):
+
+    regex = {
+        'connected': re.compile('^(\S+) connected (?:(\d+)x(\d+)\+(\d+)\+(\d+))?'),
+        'disconnected': re.compile('^(\S+) disconnected'),
+        'mode': re.compile('^\s+(\d+)x(\d+)\s+((?:\d+\.)?\d+)([* ]?)([+ ]?)'),
+    }
+
+    lines = xrandr_state.splitlines()
+    query = {}
+    output = None
+    index = 0
+
+    for line in lines:
+        m = regex['connected'].search(line)
+        if m:
+            index += 1
+            output = m.group(1)
+            query[output] = {
+                'connected': True,
+                'modes': [],
+                'index': index,
+            }
+            if all([m.group(i) for i in range(2, 6)]):
+                query[output]['width'] = int(m.group(2))
+                query[output]['height'] = int(m.group(3))
+                query[output]['x'] = int(m.group(4))
+                query[output]['y'] = int(m.group(5))
+            continue
+        m = regex['disconnected'].search(line)
+        if m:
+            index += 1
+            output = m.group(1)
+            query[output] = {
+                'connected': False,
+                'modes': [],
+                'index': index,
+            }
+            continue
+        m = regex['mode'].search(line)
+        if output and m:
+            r = {
+                'width': int(m.group(1)),
+                'height': int(m.group(2)),
+                'rate': float(m.group(3)),
+            }
+            query[output]['modes'].append(r)
+            if (m.group(4) == '*'): query[output]['current'] = r
+            if (m.group(5) == '+'): query[output]['preferred'] = r
+            continue
+        output = None
+
+    return query
+
+xrandr_state = check_output(['xrandr'], universal_newlines=True)
+obj = parse(xrandr_state)
+print(json.dumps(obj))
