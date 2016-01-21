@@ -1,0 +1,23 @@
+#!/usr/bin/env python
+
+from __future__ import unicode_literals
+
+import sys
+import json
+from subprocess import check_call
+
+def xrandr(config):
+    cmd = ['xrandr']
+    for k in config.keys():
+        v = config[k]
+        cmd += ['--output', k]
+        if v:
+            cmd += ['--pos', '{x}x{y}'.format(**v)]
+            cmd += ['--mode', '{width}x{height}'.format(**v)]
+            cmd += ['--rate', '{rate}'.format(**v)]
+        else:
+            cmd += ['--off']
+    check_call(cmd)
+
+config = json.load(sys.stdin)
+xrandr(config)

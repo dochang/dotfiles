@@ -1,9 +1,11 @@
 #!/usr/bin/env python
 
-from subprocess import check_output
-import subprocess
+from __future__ import unicode_literals
+
+from subprocess import check_output, Popen, PIPE, CalledProcessError
 from functools import cmp_to_key
 import json
+import io
 
 def get_config(query):
     config = {}
@@ -38,24 +40,17 @@ def get_config(query):
         y += height
     return config
 
-def multi_head_setup(config):
-    cmd = ['xrandr']
-    for k in config.keys():
-        v = config[k]
-        cmd += ['--output', k]
-        if v:
-            cmd += ['--pos', '{x}x{y}'.format(**v)]
-            cmd += ['--mode', '{width}x{height}'.format(**v)]
-            cmd += ['--rate', '{rate}'.format(**v)]
-        else:
-            cmd += ['--off']
-    subprocess.call(cmd)
-
 def main():
     output = check_output(['xrandr2json'], universal_newlines=True)
     query = json.loads(output)
     config = get_config(query)
-    multi_head_setup(config)
+    json_input = json.dumps(config)
+    cmd = ['json2xrandr']
+    process = Popen(cmd, universal_newlines=True, stdin=PIPE)
+    output, err = process.communicate(json_input)
+    retcode = process.poll()
+    if retcode:
+        raise CalledProcessError(retcode, cmd, output=output)
 
 if __name__ == '__main__':
     main()
