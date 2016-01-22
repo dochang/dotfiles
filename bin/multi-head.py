@@ -2,10 +2,9 @@
 
 from __future__ import unicode_literals
 
-from subprocess import check_output, Popen, PIPE, CalledProcessError
 from functools import cmp_to_key
 import json
-import io
+import sys
 
 def get_config(query):
     config = {}
@@ -41,16 +40,9 @@ def get_config(query):
     return config
 
 def main():
-    output = check_output(['xrandr2json'], universal_newlines=True)
-    query = json.loads(output)
+    query = json.load(sys.stdin)
     config = get_config(query)
-    json_input = json.dumps(config)
-    cmd = ['json2xrandr']
-    process = Popen(cmd, universal_newlines=True, stdin=PIPE)
-    output, err = process.communicate(json_input)
-    retcode = process.poll()
-    if retcode:
-        raise CalledProcessError(retcode, cmd, output=output)
+    json.dump(config, sys.stdout)
 
 if __name__ == '__main__':
     main()
