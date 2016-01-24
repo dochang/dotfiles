@@ -53,6 +53,7 @@
           - 1.5.3
         packages:
           - github.com/zimbatm/direnv
+          - github.com/ellotheth/pipethis
     env_versions:
       - name: pyenv
         versions: '{{ envs.pyenv.versions }}'
