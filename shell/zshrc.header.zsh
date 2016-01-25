@@ -76,3 +76,9 @@ plugins=(git docker bower vagrant)
 [ ! -r $ZSH/oh-my-zsh.sh ] || source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
+
+## The git plugin of oh-my-zsh defines `gvt` as an alias, which conflicts with
+## the go vendoring tool [gvt][1].  Unalias it.
+##
+## [1]: https://github.com/FiloSottile/gvt
+unalias gvt
