@@ -19,7 +19,7 @@ def get_config(query):
             return 1
         return index(x) - index(y)
     outputs = sorted(query.keys(), key=cmp_to_key(cmp))
-    x = y = 0
+    last_config = None
     for output in outputs:
         if not connected(output):
             config[output] = None
@@ -28,15 +28,18 @@ def get_config(query):
         width = preferred['width']
         height = preferred['height']
         rate = preferred['rate']
-        config[output] = {
+        if last_config:
+            x = last_config['x'] + width
+            y = last_config['y'] + height
+        else:
+            x = y = 0
+        last_config = config[output] = {
             'x': x,
             'y': y,
             'width': width,
             'height': height,
             'rate': rate,
         }
-        x += width
-        y += height
     return config
 
 def main():
