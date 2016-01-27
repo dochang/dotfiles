@@ -275,6 +275,8 @@ fresh holman/spaceman-diff spaceman-diff --bin
 
 fresh Makefile --file=~/Makefile --filter="${MO}"
 
+fresh JElchison/format-udf format-udf.sh --bin
+
 # Local Variables:
 # mode: sh
 # End:
