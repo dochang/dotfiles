@@ -278,6 +278,8 @@ fresh Makefile --file=~/Makefile --filter="${MO}"
 
 fresh JElchison/format-udf format-udf.sh --bin
 
+fresh tumf/ansible-unit-test ansible-role-test-init --bin
+
 # Local Variables:
 # mode: sh
 # End:
