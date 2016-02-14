@@ -280,6 +280,8 @@ fresh JElchison/format-udf format-udf.sh --bin
 
 fresh tumf/ansible-unit-test ansible-role-test-init --bin
 
+fresh molecule/config.yml --file="${XDG_CONFIG_HOME}/molecule/config.yml"
+
 # Local Variables:
 # mode: sh
 # End:
