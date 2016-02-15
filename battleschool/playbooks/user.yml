@@ -20,6 +20,7 @@
           - httpie
           - thefuck
           - qrcode
+          - speedtest-cli
         packages2:
           - 'https://github.com/dochang/battleschool/archive/next.zip#egg=battleschool'
           - ansible
@@ -43,7 +44,6 @@
           - gulp
           - webpack
           - nodemon
-          - speed-test
           - json
           # For Emacs flycheck
           # https://github.com/zaach/jsonlint
