@@ -26,13 +26,6 @@
         recurse: yes
         state: directory
 
-    - name: Install Gradle
-      nix_env:
-        name: gradle
-        state: '{{ pkg_state }}'
-      sudo: yes
-      sudo_user: '{{ ansible_ssh_user }} -i'
-
     - name: Install android-udev-rules
       nix_env:
         name: android-udev-rules
