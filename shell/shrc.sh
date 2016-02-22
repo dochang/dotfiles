@@ -1,6 +1,18 @@
 ## If `sh` links to `zsh`, and is invoked as a "non-login, non-interactive"
 ## shell, this file should be skipped.
 if ! { [ x"$(get_shell)" = xsh -a -n "${ZSH_VERSION}" ] && expr "$-" : '.*i' > /dev/null ; } ; then
+	is_alias () {
+		local pat
+		case "$(get_shell)" in
+		bash)
+			pat="$1 is aliased to "
+			;;
+		*)
+			pat="$1 is an alias for "
+		esac
+		expr "$(type $1 2>/dev/null)" : "$pat" >/dev/null
+	}
+
 	get_alias () {
 		local a
 		a=$(alias $1 2>/dev/null | sed 's/^alias \+//')
