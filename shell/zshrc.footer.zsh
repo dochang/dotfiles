@@ -1,3 +1,9 @@
+## The git plugin of oh-my-zsh defines `gvt` as an alias, which conflicts with
+## the go vendoring tool [gvt][1].  Unalias it.
+##
+## [1]: https://github.com/FiloSottile/gvt
+is_alias gvt && unalias gvt
+
 setopt INTERACTIVE_COMMENTS
 setopt NO_BEEP
 
