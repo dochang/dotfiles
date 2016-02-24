@@ -32,7 +32,7 @@
           - bundler
       ndenv:
         versions:
-          - v5.6.0
+          - v5.7.0
           - v4.3.1              # LTS
           - v0.12.9             # LTS / Classic
         packages:
