@@ -6,7 +6,7 @@
 [rebase]
 	autosquash = true
 [core]
-	pager = "less -+XF -RS"
+	pager = "less -+XF --RAW-CONTROL-CHARS --chop-long-lines"
 	## Git sets `LESS` to `FRX` if `LESS` is not set.  Unset `-X` and `-F`.
 	##
 	## Unset `-X` to clear the screen when less exits.
