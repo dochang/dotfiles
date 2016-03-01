@@ -38,6 +38,7 @@ if ! { [ x"$(get_shell)" = xsh -a -n "${ZSH_VERSION}" ] && expr "$-" : '.*i' > /
 	alias mv='mv -i'
 
 	alias grep="$(get_alias grep) --color=auto"
+	alias ag='ag --pager ${PAGER:-less}'
 
 	## thefuck
 	which thefuck >/dev/null 2>&1 && {
