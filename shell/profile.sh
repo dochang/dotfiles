@@ -30,7 +30,7 @@ export GPG_TTY
 export EMAIL
 
 
-: ${LESS:=-R}
+: ${LESS:=-Ri}
 export LESS
 ## Without `-R`, less cannot handle some control characters correctly,
 ## such as colors.
