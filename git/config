@@ -7,7 +7,7 @@
 	autosquash = true
 [core]
 	pager = "less -+XF -RS"
-	## Git sets `LESS` to `FRSX`.  Unset `-X` and `-F`.
+	## Git sets `LESS` to `FRX` if `LESS` is not set.  Unset `-X` and `-F`.
 	##
 	## Unset `-X` to clear the screen when less exits.
 	##
