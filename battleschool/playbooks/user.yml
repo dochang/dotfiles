@@ -32,9 +32,10 @@
           - bundler
       ndenv:
         versions:
-          - v5.7.0
-          - v4.3.1              # LTS
-          - v0.12.9             # LTS / Classic
+          - v5.8.0
+          - v4.4.0              # LTS
+          - v0.12.12            # LTS / Classic
+          - v0.10.43            # Maintenance / Classic
         packages:
           - npm
           - nrm
