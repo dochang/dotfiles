@@ -87,6 +87,7 @@
         - aspell
         - ssh-askpass
         - chromium
+        - firefox
         - conkeror
         - offlineimap
         - tmux
