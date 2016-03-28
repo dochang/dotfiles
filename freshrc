@@ -140,14 +140,15 @@ find "${FRESH_LOCAL}/emacs" -maxdepth 1 -name '*.el' -printf '%P\n' | {
 		fresh "emacs/$f" --file="~/.emacs.d/$f" --filter="${MO}"
 	done
 }
-prefix=chinese-fonts-setup
-src_prefix="emacs/${prefix}"
-dst_prefix="~/.emacs.d/${prefix}"
-find "${FRESH_LOCAL}/${src_prefix}" -type f -name '*.el' -printf '%P\n' | {
-	while read REPLY ; do
-		fresh "${src_prefix}/${REPLY}" --file="${dst_prefix}/${REPLY}"
-	done
-}
+for prefix in chinese-fonts-setup site-lisp ; do
+	src_prefix="emacs/${prefix}"
+	dst_prefix="~/.emacs.d/${prefix}"
+	find "${FRESH_LOCAL}/${src_prefix}" -type f -name '*.el' -printf '%P\n' | {
+		while read REPLY ; do
+			fresh "${src_prefix}/${REPLY}" --file="${dst_prefix}/${REPLY}"
+		done
+	}
+done
 fresh gnus/gnus.el --file
 
 # X window

@@ -191,14 +191,11 @@
 (el-get 'sync
         (append '(el-get
                   vcard-mode
-                  ;; lua2-mode
                   lua-block
                   yaml-path
                   ri
                   cflow
                   color-theme-blackboard
-                  ;; color-theme-hober2
-                  ;; hober2-theme
                   color-theme-tango
                   color-theme-tangotango
                   color-theme-empty-void
