@@ -221,8 +221,6 @@ esac
 
 systemctl --user import-environment HOME PATH http_proxy https_proxy no_proxy
 
-encfs-mount.sh ~/Dropbox/org.enc ~/org
-
 
 if [ x"$(get_shell)" = xsh ] ; then
 	if expr "$-" : '.*i' > /dev/null ; then
