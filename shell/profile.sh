@@ -190,6 +190,19 @@ prepend_to_env $(echo $GOPATH | sed -e 's|:|/bin:|g ; s|$|/bin|g') PATH
 # https://golang.org/cmd/go/#hdr-Vendor_Directories
 export GO15VENDOREXPERIMENT=1
 
+## For Rust
+: ${MULTIRUST_HOME:="${HOME}/.multirust"}
+export MULTIRUST_HOME
+# https://github.com/rust-lang/rustup/blob/001dc1c0614f60c47b0620e332ab68586b1d4184/rustup.sh#L77
+#
+# For https://github.com/rust-lang/rustup
+# For https://github.com/brson/multirust
+: ${RUSTUP_DIST_SERVER:={{ dotfiles_rustup_dist_server | default("https://static.rust-lang.org") }}}
+export RUSTUP_DIST_SERVER
+# For https://github.com/Diggsey/multirust-rs
+: ${MULTIRUST_DIST_ROOT:={{ dotfiles_multirust_dist_root | default("https://static.rust-lang.org") }}}
+export MULTIRUST_DIST_ROOT
+
 ## For scala
 : ${SCALA_HOME:="${HOME}/opt/scala"}
 export SCALA_HOME
