@@ -150,7 +150,6 @@ prepend_to_env ${ANDROID_HOME}/platform-tools PATH
 export LINUXBREW_ROOT
 prepend_to_env ${LINUXBREW_ROOT}/sbin PATH
 prepend_to_env ${LINUXBREW_ROOT}/bin PATH
-prepend_to_env ${LINUXBREW_ROOT}/lib LD_LIBRARY_PATH
 prepend_to_env ${LINUXBREW_ROOT}/share/man MANPATH
 prepend_to_env ${LINUXBREW_ROOT}/share/info INFOPATH
 
