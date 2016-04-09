@@ -31,7 +31,7 @@
                  (progn
                    (package-initialize)
                    (require 'mb-url nil 'noerror)))
-            (el-get 'sync mb-url))
+            (el-get 'sync 'mb-url))
   (el-get-bundle! mb-url in dochang/mb-url
     :branch "master"
     :depends ()
