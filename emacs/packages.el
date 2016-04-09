@@ -19,8 +19,6 @@
 
         ))
 
-(setq el-get-emacswiki-base-url "http://www.emacswiki.org/emacs/download/")
-
 
 ;;; el-get
 ;; [[https://github.com/dimitri/el-get]]
