@@ -88,7 +88,6 @@
                 flymake-jshint
                 flymake-jslint
                 offlineimap
-                ox-impress-js
                 sublimity
                 mmm-mode
                 rainbow-mode
