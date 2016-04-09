@@ -23,7 +23,11 @@
                  (current-buffer))
                 (t
                  (url-retrieve-synchronously url))))
-      (let (el-get-master-branch)
+      (let (el-get-master-branch
+            (el-get-git-install-url (getenv "EL_GET_GIT_INSTALL_URL")))
+        (when (and (stringp el-get-git-install-url)
+                   (string= "" el-get-git-install-url))
+          (setq el-get-git-install-url nil))
         (goto-char (point-max))
         (eval-print-last-sexp)))))
 
