@@ -1,0 +1,24 @@
+---
+- name: add the release PGP keys
+  apt_key:
+    id: '00654A3E'
+    url: https://syncthing.net/release-key.txt
+    state: present
+    validate_certs: yes
+
+- name: add the "release" channel to APT sources
+  copy:
+    dest: /etc/apt/sources.list.d/syncthing.list
+    src: etc/apt/sources.list.d/syncthing.list
+    group: root
+    owner: root
+    mode: '644'
+  notify:
+    - update apt cache
+
+- meta: flush_handlers
+
+- name: install syncthing
+  apt:
+    name: syncthing
+    state: present

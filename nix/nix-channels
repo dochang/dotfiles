@@ -1,1 +1,1 @@
-https://github.com/NixOS/nixpkgs-channels/archive/nixpkgs-unstable.tar.gz nixpkgs
+{{ dotfiles_nix_nixpkgs_channel_url }} nixpkgs

@@ -1,0 +1,37 @@
+---
+- name: ensure /etc/wpa_supplicant/wpa_supplicant.conf.d present
+  file:
+    path: /etc/wpa_supplicant/wpa_supplicant.conf.d
+    state: directory
+
+- name: copy wpa_supplicant files
+  copy:
+    dest: '/etc/wpa_supplicant/wpa_supplicant.conf.d/{{ item }}'
+    src: 'etc/wpa_supplicant/wpa_supplicant.conf.d/{{ item }}'
+    group: root
+    owner: root
+    mode: '600'
+  with_items:
+    - 00ctrl_interface.conf
+
+- name: assemble /etc/wpa_supplicant/wpa_supplicant.conf
+  assemble:
+    dest: /etc/wpa_supplicant/wpa_supplicant.conf
+    src: /etc/wpa_supplicant/wpa_supplicant.conf.d
+    group: root
+    owner: root
+    mode: '600'
+    remote_src: true
+    regexp: '\.conf$'
+  notify:
+    - restart network
+
+- name: copy /etc/network/interfaces
+  copy:
+    dest: /etc/network/interfaces
+    src: etc/network/interfaces
+    group: root
+    owner: root
+    mode: '644'
+  notify:
+    - restart network

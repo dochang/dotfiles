@@ -1,0 +1,73 @@
+---
+
+pkg_state: present
+
+envs:
+  pyenv:
+    versions:
+      - 2.7.11
+      - 3.5.1
+    packages:
+      - pip
+      - pip-autoremove
+      # virtualenvwrapper depends on pbr.
+      - pbr
+      - virtualenv
+      - virtualenvwrapper
+      - httpie
+      - bumpversion
+      - thefuck
+      - qrcode
+      - speedtest-cli
+    packages2:
+      - 'https://github.com/dochang/battleschool/archive/next.zip#egg=battleschool'
+      - ansible
+      - ansible-lint
+      - molecule
+      - 'https://github.com/OfflineIMAP/offlineimap/archive/v6.6.0.zip#egg=offlineimap'
+      # OfflineIMAP on PyPI is too old, use Github archive instead.
+      - PySocks
+      # needed by offlineimap to use proxy
+      # https://github.com/OfflineIMAP/offlineimap/blob/master/offlineimap.conf#L437
+  rbenv:
+    versions:
+      - 2.3.0
+    packages:
+      - bundler
+      - itamae
+  ndenv:
+    versions:
+      - v5.10.1
+      - v4.4.2              # LTS
+      - v0.12.13            # LTS / Classic
+      - v0.10.44            # Maintenance / Classic
+    packages:
+      - npm
+      - nrm
+      - metalsmith
+      - yo
+      - david
+      - gulp
+      - webpack
+      - nodemon
+      - json
+      # For Emacs flycheck
+      # https://github.com/zaach/jsonlint
+      - jsonlint
+  goenv:
+    versions:
+      - 1.6
+    packages:
+      - github.com/zimbatm/direnv
+      - github.com/ellotheth/pipethis
+      - github.com/jbenet/hashpipe
+
+env_versions:
+  - name: pyenv
+    versions: '{{ envs.pyenv.versions }}'
+  - name: rbenv
+    versions: '{{ envs.rbenv.versions }}'
+  - name: ndenv
+    versions: '{{ envs.ndenv.versions }}'
+  - name: goenv
+    versions: '{{ envs.goenv.versions }}'

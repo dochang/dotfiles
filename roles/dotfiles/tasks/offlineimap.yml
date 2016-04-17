@@ -1,0 +1,10 @@
+- include: dothostname.yml
+  vars:
+    dest: '~/.config/offlineimap/config'
+    src: 'offlineimap/config'
+
+- name: install offlineimap.py
+  template:
+    dest: '~/.config/offlineimap/config.py'
+    src: 'offlineimap/config.py'
+    mode: '600'

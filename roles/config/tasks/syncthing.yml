@@ -1,0 +1,13 @@
+---
+- name: config syncthing
+  copy:
+    dest: '/etc/systemd/system/syncthing@{{ item }}.service.d/'
+    src: 'etc/systemd/system/syncthing@.service.d/'
+    group: root
+    owner: root
+    mode: '644'
+    directory_mode: '755'
+  notify:
+    - reload systemd
+    - restart syncthing
+  with_items: '{{ config_users }}'

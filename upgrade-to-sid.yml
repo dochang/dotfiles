@@ -1,0 +1,64 @@
+---
+- hosts: all
+
+  become: yes
+  become_user: root
+
+  pre_tasks:
+
+    - name: install performance monitoring tools first
+      apt:
+        name: '{{ item }}'
+        state: present
+      with_items:
+        - htop
+        - iotop
+        - iftop
+        - nethogs
+        - mtr-tiny
+
+    - name: install basic packages
+      apt:
+        name: '{{ item }}'
+        state: present
+      with_items:
+        - etckeeper
+        - git
+        - curl
+        - ca-certificates
+        - locales
+        - locales-all
+        - resolvconf
+
+    - block:
+
+        - name: autoremove apt
+          command: apt-get --yes autoremove --purge
+
+        - name: autoclean apt
+          command: apt-get --yes autoclean
+
+      when: ansible_distribution_release == 'NA'
+
+  roles:
+
+    - role: dochang.aptsource
+      aptsource_suite: sid
+      when: ansible_distribution_release == 'jessie'
+
+  post_tasks:
+
+    - block:
+
+        - name: update apt cache
+          apt:
+            update_cache: yes
+
+        - name: apt dist upgrade
+          apt:
+            upgrade: dist
+
+        - name: reboot
+          command: reboot
+
+      when: ansible_distribution_release != 'NA'

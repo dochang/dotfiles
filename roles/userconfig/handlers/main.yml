@@ -1,0 +1,13 @@
+---
+
+- name: pyenv rehash
+  command: pyenv rehash
+
+- name: rbenv rehash
+  command: rbenv rehash
+
+- name: ndenv rehash
+  command: ndenv rehash
+
+- name: goenv rehash
+  command: goenv rehash

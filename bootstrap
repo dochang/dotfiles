@@ -1,14 +1,12 @@
 #!/bin/sh
 
-venv=~/.local/venvs/battleschool
+venv=~/.local/venvs/ansible
 [ ! -d "${venv}" ] || find "${venv}" -type l -delete
 virtualenv "${venv}"
-"${venv}/bin/pip" install -U 'git+https://github.com/dochang/battleschool.git@devel#egg=battleschool'
+"${venv}/bin/pip" install -U ansible
 hash -r
-export BATTLE="${venv}/bin/battle"
+export ANSIBLE="${venv}/bin/ansible"
 
-cache_dir=~/.battleschool/cache
-[ -d "${cache_dir}" ] || mkdir -p "${cache_dir}"
+export ANSIBLE_EXECUTABLE='/bin/bash -l'
 
-fresh update
-"${BATTLE}" --ask-sudo-pass -vvv "$@"
+"${ANSIBLE}" main.yml --ask-sudo-pass -vvv "$@"

@@ -1,3 +1,5 @@
+{% include "get_shell.sh" %}
+
 ## If `sh` links to `zsh`, and is invoked as a "non-login, non-interactive"
 ## shell, this file should be skipped.
 if ! { [ x"$(get_shell)" = xsh -a -n "${ZSH_VERSION}" ] && expr "$-" : '.*i' > /dev/null ; } ; then

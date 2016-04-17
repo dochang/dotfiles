@@ -1,0 +1,22 @@
+- include: dotdir.yml
+  with_items:
+    - src: 'emacs/packages.el'
+      dest: '~/.emacs.d/packages.el'
+    - src: 'emacs/init.el'
+      dest: '~/.emacs.d/init.el'
+    - src: 'emacs/chinese-fonts-setup/v3/default.el'
+      dest: '~/.emacs.d/chinese-fonts-setup/v3/default.el'
+    - src: 'gnus/gnus.el'
+      dest: '~/.gnus.el'
+
+- name: ensure ~/.emacs.d/site-lisp present
+  file:
+    path: '~/.emacs.d/site-lisp'
+    state: directory
+
+- name: install emacs site lisp
+  copy:
+    dest: '~/.emacs.d/site-lisp/{{ item | basename }}'
+    src: '{{ item }}'
+  with_fileglob:
+    - emacs/site-lisp/*.el

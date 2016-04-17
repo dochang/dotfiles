@@ -1,0 +1,3 @@
+[registry]
+# https://github.com/rust-lang/cargo/blob/master/src/cargo/sources/registry.rs#L182
+index = {{ dotfiles_cargo_registry_index | default("https://github.com/rust-lang/crates.io-index") | to_json }}

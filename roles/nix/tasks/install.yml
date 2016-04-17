@@ -1,0 +1,59 @@
+---
+- name: download nix install tarball
+  get_url:
+    dest: '{{ nix_binary_tarball_pathname }}'
+    url: 'https://nixos.org/releases/nix/nix-{{ nix_version }}/{{ nix_binary_tarball_filename }}'
+    checksum: 'sha256:{{ nix_version_info[nix_version].checksums[nix_system].sha256 }}'
+    force: no
+    validate_certs: yes
+
+- name: clear nix cache dir
+  file:
+    path: '{{ nix_cache_dir }}'
+    state: absent
+
+- name: ensure nix cache dir present
+  file:
+    path: '{{ nix_cache_dir }}'
+    state: directory
+
+- name: extract nix install tarball
+  unarchive:
+    copy: no
+    dest: '{{ nix_cache_dir }}'
+    src: '{{ nix_binary_tarball_pathname }}'
+    creates: '{{ nix_cache_dir }}/{{ nix_binary_tarball_basename }}'
+
+- name: replace channel uri in the script
+  replace:
+    dest: '{{ nix_install_script_pathname }}'
+    regexp: '{{ "https://nixos.org/channels/nixpkgs-unstable" | regex_escape }}'
+    replace: '{{ nix_nixpkgs_channel_url }} nixpkgs'
+    validate: 'bash -n %s'
+
+- name: check stat of ~/.nix-channels
+  stat:
+    path: ~/.nix-channels
+  register: nix_channels_stat
+
+- name: preconfigure ~/.nix-channels
+  copy:
+    content: '{{ nix_nixpkgs_channel_url }} nixpkgs'
+    dest: ~/.nix-channels
+  when: not nix_channels_stat.stat.exists
+# We have to preconfigure `~/.nix-channels` because the install script sources
+# `etc/profile.d/nix.sh`, which adds a hard-coded nixpkgs channel url into
+# `~/.nix-channels` if it doesn't exist.
+
+- name: create nix install dir
+  file:
+    path: '{{ nix_install_dir }}'
+    state: directory
+
+- name: execute install script
+  command: '{{ nix_install_script_pathname }}'
+
+- name: clear nix cache dir
+  file:
+    path: '{{ nix_cache_dir }}'
+    state: absent

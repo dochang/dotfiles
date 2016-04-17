@@ -1,0 +1,7 @@
+---
+
+- name: exec lesskey
+  command: lesskey
+
+- name: reload systemd user daemon
+  command: systemctl --user daemon-reload

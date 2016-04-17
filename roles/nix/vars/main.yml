@@ -1,0 +1,7 @@
+---
+nix_version_info:
+  '1.11.2':
+    checksums:
+      x86_64-linux:
+        sha256: '8b208cfcd396da2bd2192fee485077618920b98fe9858105b3a7836562417d49'
+        sha512: '3934610bdc68b276a362b9079b18dd6d28221a727ec71ed3a3a11fddcee59dd2fa1ac401b3a25d668e880c04bcd4c971cf82861820b5ff678353f7e7ba1bfc41'

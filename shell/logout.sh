@@ -1,3 +1,5 @@
+{% include "get_shell.sh" %}
+
 # DO NOT `source` it when the shell is invoked as `sh`.
 if [ x"$(get_shell)" != xsh ] ; then
 	# when leaving the console clear the screen to increase privacy

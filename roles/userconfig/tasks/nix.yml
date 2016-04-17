@@ -1,0 +1,19 @@
+---
+
+- name: update Nix expressions
+  shell: nix-channel --update
+  args:
+    chdir: '~'
+  when: pkg_state == 'latest'
+
+- name: install/upgrade Nix packages
+  nix_env:
+    name: '{{ item }}'
+    state: '{{ pkg_state }}'
+  with_items:
+    - nix
+    # build helper
+    - nix-prefetch-scripts
+    - nix-serve
+    - yank
+    - lnav

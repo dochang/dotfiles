@@ -1,0 +1,167 @@
+---
+- name: install performance monitoring tools first
+  apt:
+    name: '{{ item }}'
+    state: present
+  with_items:
+    - htop
+    - iotop
+    - iftop
+    - nethogs
+    - mtr-tiny
+
+- name: install packages
+  apt:
+    name: '{{ item }}'
+    state: present
+  with_items:
+    - git
+    - etckeeper
+    - locales
+    - locales-all
+    - resolvconf
+    - firmware-linux
+    - tzdata
+    - molly-guard
+    - sudo
+    - fuse
+    - bzip2
+    - tar
+    - bash
+    - bash-completion
+    - zsh
+    - less
+    - vim
+    - apt-listchanges
+    - apt-listbugs
+    - laptop-detect
+    - laptop-mode-tools
+    - xorg
+    - keynav
+    - fcitx
+    - dbus-x11
+    - fcitx-pinyin
+    - fcitx-mozc
+    - i3
+    - rxvt-unicode
+    - mplayer
+    - mpv
+    - conky
+    - mpd
+    - alsa-utils
+    - alsamixergui
+    - wget
+    - curl
+    - emacs24-lucid
+    - emacs-goodies-el
+    - aspell
+    - ssh-askpass
+    - chromium
+    - firefox
+    - conkeror
+    - tmux
+    - make
+    - unclutter
+    - ledger
+    - suckless-tools
+    - xautolock
+    - sxiv
+    - xinput
+    - xdotool
+    - wmctrl
+    - fonts-droid-fallback
+    - fonts-roboto
+    - fonts-noto
+    - fonts-wqy-microhei
+    - xwrits
+    - aria2
+    - lftp
+    - libpam-fprintd
+    - encfs
+    - pulseaudio
+    - pulseaudio-module-bluetooth
+    - xclip
+    - gnupg
+    - pinentry-gtk2
+    - pinentry-curses
+    - gnupg-agent
+    - stow
+    - cups
+    - cups-client
+    - msmtp-mta
+    - bluetooth
+    - pass
+    - unzip
+    - socat
+    - git-annex
+    - git-extras
+    - git-remote-gcrypt
+    - git-crypt
+    - progress
+    - silversearcher-ag
+    - editorconfig
+    - jq
+    - pandoc
+    - xdm
+    # For Linuxbrew
+    - build-essential
+    - curl
+    - git
+    - python-setuptools
+    - ruby
+    # For perl
+    - build-essential
+    # For pyenv
+    #
+    # https://github.com/yyuu/pyenv/wiki/Common-build-problems
+    - make
+    - build-essential
+    - libssl-dev
+    - zlib1g-dev
+    - libbz2-dev
+    - libreadline-dev
+    - libsqlite3-dev
+    - wget
+    - curl
+    - llvm
+    # For pyenv-ccache
+    - ccache
+    # For rbenv
+    #
+    # https://github.com/sstephenson/ruby-build/wiki
+    - autoconf
+    - bison
+    - build-essential
+    - libssl-dev
+    - libyaml-dev
+    - libreadline6-dev
+    - zlib1g-dev
+    - libncurses5-dev
+    - libffi-dev
+    - libgdbm3
+    - libgdbm-dev
+    # For rbenv-ctags
+    #
+    # https://github.com/tpope/rbenv-ctags
+    - exuberant-ctags
+    # For node.js
+    #
+    # https://github.com/joyent/node/wiki/Installation
+    - build-essential
+    - curl
+    # For el-get
+    - install-info
+    # For spaceman-diff
+    - jp2a
+    - imagemagick
+
+- name: remove packages
+  apt:
+    name: '{{ item }}'
+    state: absent
+    purge: yes
+  with_items:
+    # Disk killer 1 !
+    - mlocate
+    # Disk killer 2 !
+    - locate

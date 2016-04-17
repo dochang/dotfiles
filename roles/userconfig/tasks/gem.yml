@@ -1,0 +1,13 @@
+---
+
+- name: Install utils
+  gem:
+    name: '{{ item.1 }}'
+    state: '{{ pkg_state }}'
+  environment:
+    RBENV_VERSION: '{{ item.0 }}'
+  notify:
+    - rbenv rehash
+  with_nested:
+    - '{{ envs.rbenv.versions }}'
+    - '{{ envs.rbenv.packages }}'

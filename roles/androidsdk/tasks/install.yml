@@ -1,0 +1,49 @@
+---
+- name: download android sdk
+  get_url:
+    dest: '{{ androidsdk_package_pathname }}'
+    url: 'https://dl.google.com/android/{{ androidsdk_package_filename }}'
+    checksum: 'sha1:{{ androidsdk_version_info[androidsdk_version].checksums[ansible_system].sha1 }}'
+    force: no
+    validate_certs: yes
+
+- name: clear android sdk cache dir
+  file:
+    path: '{{ androidsdk_cache_dir }}'
+    state: absent
+
+- name: ensure android sdk cache dir present
+  file:
+    path: '{{ androidsdk_cache_dir }}'
+    state: directory
+
+- name: extract android sdk package
+  unarchive:
+    copy: no
+    dest: '{{ androidsdk_cache_dir }}'
+    src: '{{ androidsdk_package_pathname }}'
+    creates: '{{ androidsdk_cache_dir }}/{{ androidsdk_package_topdir }}'
+
+- name: ensure android sdk install prefix present
+  file:
+    path: '{{ androidsdk_install_dir }}'
+    state: directory
+
+- name: install android sdk
+  command: 'cp -RpT {{ androidsdk_cache_dir }}/{{ androidsdk_package_topdir }} {{ androidsdk_install_dir }}'
+
+- name: clear android sdk cache dir
+  file:
+    path: '{{ androidsdk_cache_dir }}'
+    state: absent
+
+# To install Android SDK on a 64-bit distribution, we need to install
+# additional packages. Go to the official installation [guide][], click on
+# *Show instructions for all platforms* and then check *Troubleshooting
+# Ubuntu*. Or see this [answer][].
+#
+# [guide]: https://developer.android.com/sdk/installing/index.html?pkg=tools
+# [answer]: https://stackoverflow.com/a/13571288
+- include: i386/main.yml
+  become: yes
+  become_user: root

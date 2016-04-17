@@ -1,3 +1,5 @@
+{% include "get_shell.sh" %}
+
 : ${ENV:=~/.shrc}
 export ENV
 
@@ -26,7 +28,7 @@ GPG_TTY=$(tty)
 export GPG_TTY
 
 
-: ${EMAIL:={{ EMAIL }}}
+: ${EMAIL:={{ dotfiles_email }}}
 export EMAIL
 
 
@@ -157,8 +159,8 @@ export HOMEBREW_GITHUB_API_TOKEN
 
 ## nix
 # Expand HOME for Nix installer check.
-if [ -e "{{ HOME }}/.nix-profile/etc/profile.d/nix.sh" ]; then
-	. "{{ HOME }}/.nix-profile/etc/profile.d/nix.sh"
+if [ -e "{{ ansible_env.HOME }}/.nix-profile/etc/profile.d/nix.sh" ]; then
+	. "{{ ansible_env.HOME }}/.nix-profile/etc/profile.d/nix.sh"
 fi
 
 ## For anyenv

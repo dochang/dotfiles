@@ -1,0 +1,57 @@
+---
+
+- name: install anyenv
+  git:
+    dest: ~/.anyenv
+    repo: https://github.com/dochang/anyenv.git
+    remote: dochang
+    version: next
+
+- name: install anyenv-update
+  git:
+    dest: ~/.anyenv/plugins/anyenv-update
+    repo: https://github.com/znz/anyenv-update.git
+
+- name: install anyenv-git
+  git:
+    dest: ~/.anyenv/plugins/anyenv-git
+    repo: https://github.com/znz/anyenv-git.git
+
+- name: install anyenv-exec
+  git:
+    dest: ~/.anyenv/plugins/anyenv-exec
+    repo: https://github.com/aereal/anyenv-exec.git
+
+- name: install envs
+  command: 'anyenv install {{ item.key }}'
+  args:
+    chdir: '~'
+    creates: '~/.anyenv/envs/{{ item.key }}'
+  with_dict: '{{ envs }}'
+
+- name: update anyenv
+  command: 'anyenv update'
+  args:
+    chdir: '~'
+  when: pkg_state == 'latest'
+
+- name: install interpreters
+  shell: '{{ item.0.name }} install {{ item.1 }}'
+  args:
+    chdir: '~'
+    creates: '~/.anyenv/envs/{{ item.0.name }}/versions/{{ item.1 }}'
+  with_subelements:
+    - '{{ env_versions }}'
+    - versions
+
+- name: rehash envs
+  command: '{{ item.key }} rehash'
+  args:
+    chdir: '~'
+  with_dict: '{{ envs }}'
+
+- name: set global version of interpreters
+  command: '{{ item.key }} global {{ item.value.versions[0] }}'
+  args:
+    chdir: '~'
+  with_dict: '{{ envs }}'

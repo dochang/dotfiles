@@ -1,0 +1,3 @@
+---
+- include: install/main.yml
+- include: config/main.yml

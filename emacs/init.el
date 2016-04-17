@@ -200,8 +200,8 @@ See Info node `(dired-x) Omitting Variables' for more information."
 ;;;
 ;;;    [[info:message#Mail%20Variables]]
 ;;;
-(setq user-full-name (or (getenv "NAME") "{{ NAME }}")
-      user-mail-address (or (getenv "EMAIL") "{{ EMAIL }}")
+(setq user-full-name (or (getenv "NAME") "{{ dotfiles_emacs_name }}")
+      user-mail-address (or (getenv "EMAIL") "{{ dotfiles_emacs_email }}")
       mail-from-style 'angles
       ;; Insert BCC to self in messages to be sent.
       mail-self-blind t
@@ -2257,7 +2257,7 @@ from 'todotxt-file'." t)
 (defun $eval-after-load-docean ()
   (setq docean-oauth-token
         (ignore-errors
-          (password-store-get "web/digitalocean.com/{{ EMAIL }}/tokens/default"))))
+          (password-store-get "web/digitalocean.com/{{ dotfiles_emacs_email }}/tokens/default"))))
 
 (eval-after-load 'docean '($eval-after-load-docean))
 

@@ -1,0 +1,23 @@
+---
+- name: config docker
+  copy:
+    dest: /etc/systemd/system/docker.service.d/
+    src: etc/systemd/system/docker.service.d/
+    group: root
+    owner: root
+    mode: '644'
+    directory_mode: '755'
+  notify:
+    - reload systemd
+    - restart docker
+
+- name: config docker
+  template:
+    dest: /etc/systemd/system/docker.service.d/env.conf
+    src: etc/systemd/system/docker.service.d/env.conf
+    group: root
+    owner: root
+    mode: '644'
+  notify:
+    - reload systemd
+    - restart docker

@@ -1,0 +1,6 @@
+---
+
+- name: install oh-my-zsh
+  git:
+    dest: ~/.oh-my-zsh
+    repo: https://github.com/robbyrussell/oh-my-zsh.git

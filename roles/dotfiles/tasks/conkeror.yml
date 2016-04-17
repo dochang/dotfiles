@@ -1,0 +1,13 @@
+- name: ensure ~/.conkerorrc present
+  file:
+    path: '~/.conkerorrc'
+    state: directory
+    mode: '700'
+
+- name: install conkeror
+  template:
+    dest: '~/.conkerorrc/{{ item | basename }}'
+    src: '{{ item }}'
+    mode: '600'
+  with_fileglob:
+    - conkeror/*.js

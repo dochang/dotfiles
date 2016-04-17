@@ -1,0 +1,15 @@
+---
+- name: select suitable alternatives
+  alternatives:
+    name: '{{ item.name }}'
+    path: '{{ item.path }}'
+  with_items:
+    - name: x-window-manager
+      path: /usr/bin/i3
+    - name: x-terminal-emulator
+      path: /usr/bin/urxvt
+    # For rbenv-ctags
+    #
+    # https://github.com/tpope/rbenv-ctags
+    - name: ctags
+      path: /usr/bin/ctags-exuberant

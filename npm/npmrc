@@ -1,0 +1,1 @@
+registry = {{ dotfiles_npm_registry | default("https://registry.npmjs.org/") }}

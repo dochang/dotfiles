@@ -1,0 +1,31 @@
+---
+
+- name: Deploy Emacs
+  command: ~/bin/deploy-emacs.sh
+  args:
+    chdir: '~'
+
+- name: Install Cask
+  git:
+    dest: ~/.cask
+    repo: https://github.com/cask/cask.git
+    # Use `cask upgrade-cask` to upgrade Cask.  See [1][]
+    #
+    # [1]: http://cask.readthedocs.org/en/latest/guide/troubleshoot.html
+    update: no
+
+- name: Upgrade Cask
+  # Ignore HTTP proxy.
+  #
+  # Cask runs Emacs with `-Q` that makes Emacs not load init file to
+  # install a curl backend for `url-http`.  But the built-in `url-http`
+  # doesn't work behind HTTP proxy and I cannot use SOCKS proxy.  So I have
+  # to ignore HTTP proxy now.  See [#11788][1] for details.
+  #
+  # [1]: http://debbugs.gnu.org/cgi/bugreport.cgi?bug=11788
+  #
+  # Currently Ansible doesn't support env var unset.  To ensure
+  # `http_proxy` and `https_proxy` undefined, we have to use `env`.
+  command: >-
+    env --unset=http_proxy --unset=https_proxy ~/.cask/bin/cask upgrade-cask
+  when: pkg_state == 'latest'

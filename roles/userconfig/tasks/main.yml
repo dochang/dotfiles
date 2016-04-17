@@ -1,0 +1,41 @@
+---
+
+- include: nix.yml
+  tags:
+    - nix
+
+- include: zsh.yml
+  tags:
+    - zsh
+
+- include: bash.yml
+  tags:
+    - bash
+
+- include: anyenv.yml
+  tags:
+    - anyenv
+
+- include: pip.yml
+  tags:
+    - pip
+
+- include: gem.yml
+  tags:
+    - gem
+
+- include: npm.yml
+  tags:
+    - npm
+
+- include: go.yml
+  tags:
+    - go
+
+- include: linuxbrew.yml
+  tags:
+    - linuxbrew
+
+- include: emacs.yml
+  tags:
+    - emacs

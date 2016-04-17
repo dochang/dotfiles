@@ -1,0 +1,20 @@
+- name: ensure ~/.config/systemd/user present
+  file:
+    path: ~/.config/systemd/user
+    state: directory
+    mode: '700'
+
+- name: install systemd user unit files
+  template:
+    dest: '~/.config/systemd/user/{{ item | basename }}'
+    src: '{{ item }}'
+    mode: '600'
+  notify:
+    - reload systemd user daemon
+  with_fileglob:
+    - systemd/user/*.service
+
+- meta: flush_handlers
+
+- name: enable gpg-agent.service
+  command: systemctl --user enable gpg-agent.service

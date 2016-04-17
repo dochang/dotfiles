@@ -1,0 +1,29 @@
+---
+- hosts: all
+
+  become: yes
+  become_user: root
+
+  environment:
+    # Unnecessary. Built in apt module.
+    # DEBIAN_FRONTEND: noninteractive
+    APT_LISTCHANGES_FRONTEND: none
+    APT_LISTBUGS_FRONTEND: none
+
+  roles:
+
+    - syspkgs
+
+    - role: dochang.account
+      account_groups: '{{ system_account_groups }}'
+      account_users: '{{ system_account_users }}'
+
+    - role: dochang.docker
+      tags:
+        - docker
+
+    - role: syncthing
+      tags:
+        - syncthing
+
+    - config

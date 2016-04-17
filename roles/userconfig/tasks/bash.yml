@@ -1,0 +1,6 @@
+---
+
+- name: install bash-it
+  git:
+    dest: ~/.bash_it
+    repo: https://github.com/revans/bash-it.git

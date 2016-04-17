@@ -1,0 +1,7 @@
+---
+- include: packages.yml
+  environment:
+    # Unnecessary. Built in apt module.
+    # DEBIAN_FRONTEND: noninteractive
+    APT_LISTCHANGES_FRONTEND: none
+    APT_LISTBUGS_FRONTEND: none

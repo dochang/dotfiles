@@ -1,0 +1,17 @@
+---
+- name: disable APT translations download
+  copy:
+    dest: /etc/apt/apt.conf.d/99translation.conf
+    src: etc/apt/apt.conf.d/99translation.conf
+    group: root
+    owner: root
+    mode: '644'
+  notify: update apt cache
+
+- name: remove apt translation cache
+  file:
+    path: '{{ item }}'
+    state: absent
+  with_fileglob:
+    - /var/lib/apt/lists/*Translation*
+  notify: update apt cache

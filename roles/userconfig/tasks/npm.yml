@@ -1,0 +1,14 @@
+---
+
+- name: Install utils
+  npm:
+    name: '{{ item.1 }}'
+    state: '{{ pkg_state }}'
+    global: yes
+  environment:
+    NDENV_VERSION: '{{ item.0 }}'
+  notify:
+    - ndenv rehash
+  with_nested:
+    - '{{ envs.ndenv.versions }}'
+    - '{{ envs.ndenv.packages }}'

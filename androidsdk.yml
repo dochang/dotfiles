@@ -1,0 +1,34 @@
+---
+- hosts: all
+
+  environment:
+    # Unnecessary. Built in apt module.
+    # DEBIAN_FRONTEND: noninteractive
+    APT_LISTCHANGES_FRONTEND: none
+    APT_LISTBUGS_FRONTEND: none
+
+  pre_tasks:
+
+    - block:
+
+        - name: check if android sdk install dir empty
+          command: 'ls {{ androidsdk_install_dir }}'
+          register: androidsdk_install_dir_list
+          ignore_errors: yes
+          changed_when: false
+          always_run: yes
+
+        - file:
+            path: '{{ androidsdk_install_dir }}'
+            state: directory
+            group: '{{ hostvars[inventory_hostname].ansible_user }}'
+            owner: '{{ hostvars[inventory_hostname].ansible_user }}'
+            mode: '755'
+          when: 'androidsdk_install_dir_list.stdout_lines | length == 0'
+
+      become: yes
+      become_user: root
+
+  roles:
+
+    - androidsdk

@@ -1,6 +1,6 @@
 [user]
-	name = {{ NAME }}
-	email = {{ EMAIL }}
+	name = {{ dotfiles_git_user_name }}
+	email = {{ dotfiles_git_user_email }}
 [color]
 	ui = auto
 [rebase]
@@ -14,6 +14,7 @@
 	## Unset `-F` to cause less not to exit even if the content
 	## can be displayed on one screen.
 [credential]
+	username = {{ dotfiles_git_credential }}
 	helper = pass
 	# https://help.github.com/articles/set-up-git
 [alias]
@@ -21,4 +22,4 @@
 [diff "spaceman-diff"]
 	command = spaceman-diff
 [sendemail]
-	bcc = {{ EMAIL }}
+	bcc = {{ dotfiles_git_user_email }}

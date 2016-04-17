@@ -1,0 +1,5 @@
+---
+config_timezone: UTC
+config_users: []
+config_android_udev_rules_dir: '/opt/android-udev-rules'
+config_android_udev_rules_repo: 'https://github.com/M0Rf30/android-udev-rules.git'

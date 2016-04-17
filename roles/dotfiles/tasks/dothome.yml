@@ -1,0 +1,9 @@
+- name: set dest
+  set_fact:
+    dest: '{{ item.dest | default("~/." ~ item.src | basename) }}'
+
+- name: install dotfile
+  template:
+    dest: '{{ dest }}'
+    src: '{{ item.src }}'
+    mode: '{{ item.mode | default("600") }}'

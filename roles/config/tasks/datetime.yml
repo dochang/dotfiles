@@ -1,0 +1,6 @@
+---
+- name: set timezone
+  command: 'timedatectl set-timezone {{ config_timezone }}'
+
+- name: enable systemd ntp
+  command: timedatectl set-ntp true

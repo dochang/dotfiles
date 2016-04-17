@@ -1,0 +1,45 @@
+---
+- name: include os specific variables
+  include_vars: '{{ item }}'
+  with_first_found:
+    - files:
+        - '{{ ansible_system }}/{{ ansible_architecture }}/main.yml'
+        - default.yml
+      paths:
+        # `../vars/` is required because `with_first_found` looks in the
+        # `files/` directory.  See Ansible issues [7788][], [5108][] and this
+        # [page][] for details:
+        #
+        # [7788]: https://github.com/ansible/ansible/issues/7788
+        # [5108]: https://github.com/ansible/ansible/issues/5108
+        # [page]: https://groups.google.com/forum/#!topic/ansible-project/UQ_ArPEofFU
+        - ../vars/installer
+
+- name: set nix installer facts
+  set_fact:
+    # A variable evaluates the random filter in its value every time.  Solve it
+    # by setting the value to a fact.
+    #
+    # https://opensolitude.com/2015/05/27/ansible-lookups-variables-vs-facts.html
+    # https://stackoverflow.com/a/28490160
+    nix_cache_dir: '{{ nix_cache_prefix }}/ansible-nix-{{ ansible_user_uid }}-{{ ansible_date_time.epoch }}-{{ (2**48) | random }}'
+    nix_binary_tarball_basename: 'nix-{{ nix_version }}-{{ nix_system }}'
+
+- name: set nix installer facts
+  set_fact:
+    nix_install_script_pathname: '{{ nix_cache_dir }}/{{ nix_binary_tarball_basename }}/install'
+    nix_binary_tarball_filename: '{{ nix_binary_tarball_basename }}.tar.bz2'
+
+- name: set nix installer facts
+  set_fact:
+    nix_binary_tarball_pathname: '{{ nix_download_dir }}/{{ nix_binary_tarball_filename }}'
+
+- name: check if nix installed
+  command: 'ls {{ nix_install_dir }}'
+  register: nix_install_dir_list
+  ignore_errors: yes
+  changed_when: false
+  always_run: yes
+
+- include: install.yml
+  when: 'nix_install_dir_list.stdout_lines | length == 0'

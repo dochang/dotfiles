@@ -1,0 +1,2 @@
+---
+nix_system: '{{ ansible_architecture }}-{{ ansible_system | lower }}'

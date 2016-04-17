@@ -10,277 +10,30 @@
 
 fresh freshshell/fresh bin/fresh --bin
 
-# # Fighting with `_fresh_symlink`.
-# ln () {
-# 	command ln --force "$@"
-# }
-
-: ${XDG_CONFIG_HOME:="~/.config"}
-export XDG_CONFIG_HOME
-
-: ${FRESH_LOCAL:="$HOME/.dotfiles"}
-export FRESH_LOCAL
-
-export VM=
-[ x"$(hostnamectl | sed -n 's/^ *Chassis: *\([^ ]*\) *$/\1/p')" != xvm ] || VM=true
-
-export NAME='Desmond O. Chang'
-export EMAIL=dochang@gmail.com
-case $(hostname --domain) in
-genee.cn)
-	NAME='Weiyi Zhang'
-	EMAIL=weiyi.zhang@geneegroup.com
-	;;
-esac
-
 # Basic
 # =====
 
 fresh tests-always-included/mo mo --bin
 # Also see jwerle/mush
 
-# We need to use mo in this file later, but fresh builds everything after this
-# file.  So if `~/bin/mo` doesn't exist, use the internal file
-# `~/.fresh/build.new/bin/mo` instead.
-MO='~/bin/mo'
-[ -x "${MO}" ] || MO='~/.fresh/build.new/bin/mo'
-export MO
-
-fresh-options --filter="${MO}"
-{
-	fresh shell/inputrc --file="~/.inputrc"
-}
-fresh-options
-
-fresh-options --filter="${MO}" --file="~/.profile" --marker
-{
-	fresh shell/get_shell.sh
-	fresh shell/profile.sh
-}
-fresh-options
-
-fresh-options --filter="${MO}" --file="~/.shrc" --marker
-{
-	fresh shell/get_shell.sh
-	fresh shell/shrc.sh
-}
-fresh-options
-
-fresh-options --filter="${MO}" --file="~/.bash_profile" --marker
-{
-	fresh shell/get_shell.sh
-	fresh shell/profile.sh
-	fresh shell/bash_profile.footer.bash
-}
-fresh-options
-
-fresh-options --filter="${MO}" --file="~/.bashrc" --marker
-{
-	fresh shell/bashrc.header.bash
-	fresh shell/get_shell.sh
-	fresh shell/shrc.sh
-}
-fresh-options
-
-fresh-options --filter="${MO}" --file="~/.bash_logout" --marker
-{
-	fresh shell/get_shell.sh
-	fresh shell/logout.sh
-}
-fresh-options
-
-fresh-options --filter="${MO}" --file="~/.zprofile" --marker
-{
-	fresh shell/get_shell.sh
-	fresh shell/profile.sh
-}
-fresh-options
-
-fresh-options --filter="${MO}" --file="~/.zshrc" --marker
-{
-	fresh shell/zshrc.header.zsh
-	fresh shell/get_shell.sh
-	fresh shell/shrc.sh
-	fresh shell/zshrc.footer.zsh
-}
-fresh-options
-
-fresh-options --filter="${MO}" --file="~/.zlogout" --marker
-{
-	fresh shell/get_shell.sh
-	fresh shell/logout.sh
-}
-fresh-options
-
 fresh bin --bin
-
-fresh gnupg/gpg.conf --file="~/.gnupg/gpg.conf"
-
-fresh git/attributes --file="${XDG_CONFIG_HOME}/git/attributes"
-fresh-options --file="${XDG_CONFIG_HOME}/git/config" --filter="${MO}"
-{
-	fresh git/config
-	fresh git/config.$(hostname --domain)
-}
-fresh-options
-
-fresh vim --file
-
-: ${LESSKEY:="~/.less"}
-export LESSKEY
-fresh less/lesskey --file="${LESSKEY}" --filter='lesskey --output /dev/stdout -- -'
-fresh less/lessfilter --bin="~/.lessfilter"
-
-fresh tmux --file
-
-# Emacs
-# =====
-find "${FRESH_LOCAL}/emacs" -maxdepth 1 -name '*.el' -printf '%P\n' | {
-	while read f ; do
-		fresh "emacs/$f" --file="~/.emacs.d/$f" --filter="${MO}"
-	done
-}
-for prefix in chinese-fonts-setup site-lisp ; do
-	src_prefix="emacs/${prefix}"
-	dst_prefix="~/.emacs.d/${prefix}"
-	find "${FRESH_LOCAL}/${src_prefix}" -type f -name '*.el' -printf '%P\n' | {
-		while read REPLY ; do
-			fresh "${src_prefix}/${REPLY}" --file="${dst_prefix}/${REPLY}"
-		done
-	}
-done
-fresh gnus/gnus.el --file
-
-# X window
-# ========
-
-fresh X/Xresources --file
-fresh X/Xsession --bin="~/.Xsession"
-
-fresh i3 --file="${XDG_CONFIG_HOME}/i3/"
-
-# https://wiki.freedesktop.org/www/Software/systemd/PredictableNetworkInterfaceNames/
-# http://cgit.freedesktop.org/systemd/systemd/tree/src/udev/udev-builtin-net_id.c#n20
-for x in '^eth[0-9]+$' '^p[0-9]+p[0-9]+$' '^usb[0-9]+$' '^em[0-9]+$' '^(en|sl|wl|ww)(b[0-9]+|ccw.+|o[0-9]+(d[0-9]+)?|s[0-9]+(f.+)?(d[0-9]+)?|x[0-9a-f]+|(P.+)?p[0-9]+s[0-9]+(f.+)?(d[0-9]+|(u[0-9]+)?(\.\.)?(c.+)?(i.+)?)?)$' ; do
-	NETDEV="$(ls /sys/class/net | grep -E ${x} | sort --unique | head -n 1 || true)"
-	[ -z "${NETDEV}" ] || break
-done
-export NETDEV
-fresh i3status/config.mustache --file="${XDG_CONFIG_HOME}/i3status/config" --filter="${MO}"
-
-fresh gtk-3.0 --file="${XDG_CONFIG_HOME}/gtk-3.0/"
-
-fresh gtk-2.0 --file
 
 # Extra
 # =====
 
-find "${FRESH_LOCAL}/battleschool" -maxdepth 1 -name '*.yml' -printf '%P\n' | {
-	while read f ; do
-		fresh "battleschool/${f}" --file="~/.battleschool/${f}"
-	done
-}
-fresh battleschool/playbooks --file="~/.battleschool/playbooks/"
-cache="${HOME}/.battleschool/cache"
-if [ ! -d "${cache}" ] ; then
-	[ ! -e "${cache}" ] || rm -rf "${cache}"
-	mkdir -p "${cache}"
-fi
-
-fresh zathura --file="${XDG_CONFIG_HOME}/zathura/"
-
-fresh keynav --file
-
-fresh msmtp/msmtprc.$(hostname --domain) --file="~/.msmtprc"
-
-fresh offlineimap/config.py --file="${XDG_CONFIG_HOME}/offlineimap/config.py"
-fresh offlineimap/config.$(hostname --domain) --file="${XDG_CONFIG_HOME}/offlineimap/config"
-
-fresh mime-support --file
-
-fresh quilt --file
-
-fresh dput --file
-
-fresh tig --file
-
-fresh wget --file
-
-fresh xmodmap --file
-
-fresh ssh/config.$(hostname --domain) --file="~/.ssh/config"
-
-fresh conky/conky.conf --file="${XDG_CONFIG_HOME}/conky/conky.conf"
-
-fresh mpv --file="${XDG_CONFIG_HOME}/mpv/"
-
-fresh mpd/mpd.conf --file="${XDG_CONFIG_HOME}/mpd/mpd.conf"
-
-fresh mplayer --file="~/.mplayer/"
-
-fresh fvwm --file="~/.fvwm/"
-
-fresh aria2/aria2.conf --file="~/.aria2/aria2.conf"
-
-fresh vimperator --file
-
-fresh conkeror --file="~/.conkerorrc/"
-
-fresh most --file
-
-fresh gradle/gradle.properties --file="~/.gradle/gradle.properties"
-
 fresh Russell91/sshrc sshrc --bin
 
-fresh sshrc --file
-
 fresh majutsushi/urxvt-font-size font-size --file="~/.urxvt/ext/font-size"
-
-fresh thefuck/settings.py --file="~/.thefuck/settings.py"
-
-fresh ansible --file
-
-fresh nix --file
-
-fresh nixpkgs/config.nix --file="~/.nixpkgs/config.nix"
 
 fresh git://git.zx2c4.com/password-store contrib/dmenu/passmenu --bin
 
 fresh LuRsT/hr hr --bin
 
-# DO NOT build unit files by fresh.  fresh changes basenames of unit files,
-# that makes systemd confused.
-prefix=systemd/user
-src_prefix="${FRESH_PATH}/build/${prefix}"
-dst_prefix=$(eval "echo ${XDG_CONFIG_HOME}/${prefix}")
-mkdir -p ${dst_prefix}
-find "${FRESH_LOCAL}/${prefix}" -name '*.service' -printf '%P\n' | {
-	while read REPLY ; do
-		fresh "${prefix}/${REPLY}" --file="${prefix}/${REPLY}" --filter="${MO}"
-		# Workaround for #1285996
-		#
-		# https://bugzilla.redhat.com/show_bug.cgi?format=multiple&id=1285996
-		rm -f "${dst_prefix}/${REPLY}"
-		cp -f "${src_prefix}/${REPLY}" "${dst_prefix}/${REPLY}"
-		case "${REPLY}" in
-		gpg-agent.service)
-			systemctl --user enable "${REPLY}"
-			;;
-		esac
-	done
-}
-
-systemctl --user daemon-reload
-
 fresh holman/spaceman-diff spaceman-diff --bin
-
-fresh Makefile --file=~/Makefile --filter="${MO}"
 
 fresh JElchison/format-udf format-udf.sh --bin
 
 fresh tumf/ansible-unit-test ansible-role-test-init --bin
-
-fresh molecule/config.yml --file="${XDG_CONFIG_HOME}/molecule/config.yml"
 
 # Local Variables:
 # mode: sh

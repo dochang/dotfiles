@@ -1,0 +1,23 @@
+---
+- name: download android udev rules
+  git:
+    clone: yes
+    dest: '{{ config_android_udev_rules_dir }}'
+    force: no
+    recursive: yes
+    repo: '{{ config_android_udev_rules_repo }}'
+    update: yes
+
+- name: install android udev rules
+  copy:
+    dest: /etc/udev/rules.d/51-android.rules
+    src: '{{ config_android_udev_rules_dir }}/51-android.rules'
+    directory_mode: '755'
+    force: yes
+    group: root
+    owner: root
+    mode: '644'
+    remote_src: yes
+  notify:
+    - reload udev
+    - restart udev

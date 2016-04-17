@@ -1,0 +1,92 @@
+---
+
+- include: dothome.yml
+  with_items:
+    - src: 'shell/inputrc'
+    - src: 'shell/profile.sh'
+      dest: '~/.profile'
+    - src: 'shell/shrc.sh'
+      dest: '~/.shrc'
+    - src: 'shell/bash_profile.bash'
+      dest: '~/.bash_profile'
+    - src: 'shell/bashrc.bash'
+      dest: '~/.bashrc'
+    - src: 'shell/bash_logout.bash'
+      dest: '~/.bash_logout'
+    - src: 'shell/zprofile.zsh'
+      dest: '~/.zprofile'
+    - src: 'shell/zshrc.zsh'
+      dest: '~/.zshrc'
+    - src: 'shell/zlogout.zsh'
+      dest: '~/.zlogout'
+    - src: 'vim/vimrc'
+    - src: 'tmux/tmux.conf'
+    - src: 'X/Xresources'
+    - src: 'X/Xsession'
+      mode: '700'
+    - src: 'gtk-2.0/gtkrc-2.0'
+    - src: 'keynav/keynavrc'
+    - src: 'mime-support/mailcap'
+    - src: 'quilt/quiltrc'
+    - src: 'dput/dput.cf'
+    - src: 'tig/tigrc'
+    - src: 'wget/wgetrc'
+    - src: 'xmodmap/xmodmaprc'
+    - src: 'vimperator/vimperatorrc'
+    - src: 'most/mostrc'
+    - src: 'sshrc/sshrc'
+    - src: 'ansible/ansible.cfg'
+    - src: 'nix/nix-channels'
+    - src: 'npm/npmrc'
+    - src: 'gem/gemrc'
+
+- include: dotdir.yml
+  with_items:
+    - src: 'gnupg/gpg.conf'
+    - src: 'mplayer/config'
+    - src: 'fvwm/config'
+    - src: 'aria2/aria2.conf'
+    - src: 'thefuck/settings.py'
+    - src: 'nixpkgs/config.nix'
+    - src: 'bundle/config'
+    - src: 'cargo/config'
+
+- include: dotxdg.yml
+  with_items:
+    - src: 'git/attributes'
+    - src: 'git/config'
+    - src: 'i3/config'
+    - src: 'i3status/config'
+    - src: 'gtk-3.0/settings.ini'
+    - src: 'zathura/zathurarc'
+    - src: 'conky/conky.conf'
+    - src: 'mpv/input.conf'
+    - src: 'mpv/mpv.conf'
+    - src: 'mpd/mpd.conf'
+    - src: 'molecule/config.yml'
+    - src: 'pip/pip.conf'
+
+- include: less.yml
+
+- include: emacs.yml
+
+- include: dothostname.yml
+  vars:
+    dest: '~/.ssh/config'
+    src: 'ssh/config'
+
+- include: dothostname.yml
+  vars:
+    dest: '~/.gradle/gradle.properties'
+    src: 'gradle/gradle.properties'
+
+- include: dothostname.yml
+  vars:
+    dest: '~/.msmtprc'
+    src: 'msmtp/msmtprc'
+
+- include: offlineimap.yml
+
+- include: conkeror.yml
+
+- include: systemd.yml
