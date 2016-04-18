@@ -12,6 +12,10 @@
   tags:
     - bash
 
+- include: fresh.yml
+  tags:
+    - fresh
+
 - include: anyenv.yml
   tags:
     - anyenv

@@ -1,0 +1,38 @@
+---
+
+- name: install fresh
+  git:
+    dest: '{{ fresh_cache }}'
+    repo: https://github.com/freshshell/fresh
+    update: '{{ (pkg_state == "latest") | ternary("yes", "no") }}'
+
+- name: clone dotfiles
+  git:
+    dest: '{{ fresh_local }}'
+    repo: '{{ fresh_local_source }}'
+    update: '{{ (pkg_state == "latest") | ternary("yes", "no") }}'
+  when: 'fresh_local_source | default("")'
+
+- name: stat freshrc
+  stat:
+    path: '{{ fresh_local }}/freshrc'
+  register: freshrc_stat
+  ignore_errors: true
+  changed_when: false
+  always_run: yes
+
+- name: symlink .freshrc
+  file:
+    path: '~/.freshrc'
+    state: link
+    src: '{{ fresh_local }}/freshrc'
+  when: freshrc_stat.stat.exists
+
+- name: generate .freshrc if absent
+  copy:
+    dest: '~/.freshrc'
+    src: 'freshrc'
+  when: not freshrc_stat.stat.exists
+
+- name: run fresh
+  command: '{{ fresh_cache }}/bin/fresh {{ (pkg_state == "latest") | ternary("update", "") }}'
