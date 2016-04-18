@@ -55,6 +55,7 @@
   with_items:
     - src: 'git/attributes'
     - src: 'git/config'
+    - src: 'git/ignore'
     - src: 'i3/config'
     - src: 'i3status/config'
     - src: 'gtk-3.0/settings.ini'
