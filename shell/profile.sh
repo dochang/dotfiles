@@ -156,8 +156,6 @@ prepend_to_env ${LINUXBREW_ROOT}/sbin PATH
 prepend_to_env ${LINUXBREW_ROOT}/bin PATH
 prepend_to_env ${LINUXBREW_ROOT}/share/man MANPATH
 prepend_to_env ${LINUXBREW_ROOT}/share/info INFOPATH
-: ${HOMEBREW_GITHUB_API_TOKEN:="$(pass show web/github.com/dochang/tokens/homebrew)"}
-export HOMEBREW_GITHUB_API_TOKEN
 
 ## nix
 # Expand HOME for Nix installer check.
