@@ -30,7 +30,7 @@ def get_config(query):
         rate = preferred['rate']
         if last_config:
             x = last_config['x'] + width
-            y = last_config['y'] + height
+            y = last_config['y'] - height
         else:
             x = y = 0
         last_config = config[output] = {
