@@ -35,6 +35,8 @@ fresh JElchison/format-udf format-udf.sh --bin
 
 fresh tumf/ansible-unit-test ansible-role-test-init --bin
 
+fresh technomancy/leiningen bin/lein --bin --ref=origin/stable
+
 # Local Variables:
 # mode: sh
 # End:
