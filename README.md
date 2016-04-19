@@ -6,17 +6,16 @@ dotfiles
 Installation
 ------------
 
-    curl -sSL get.freshshell.com | FRESH_LOCAL_SOURCE=dochang/dotfiles bash
+Clone this repo, then run the following commands:
 
-Then exit and re-login, run:
-
-    ~/.dotfiles/bootstrap
+    ./bootstrap -i <inventory> [ other ansible arguments ... ]
 
 Usage
 -----
 
-    fresh [update]
-    battle --ask-sudo-pass
+Every time you modify the configuration, run:
+
+    ./bootstrap -i <inventory> [ other ansible arguments ... ]
 
 Upgrade
 -------
