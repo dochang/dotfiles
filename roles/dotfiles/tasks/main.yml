@@ -66,6 +66,8 @@
     - src: 'mpd/mpd.conf'
     - src: 'molecule/config.yml'
     - src: 'pip/pip.conf'
+    - src: 'multi-head/multi-head.py'
+      mode: '700'
 
 - include: less.yml
 
