@@ -9,4 +9,4 @@ export ANSIBLE="${venv}/bin/ansible"
 
 export ANSIBLE_EXECUTABLE='/bin/bash -l'
 
-"${ANSIBLE}" main.yml --ask-sudo-pass -vvv "$@"
+"${ANSIBLE}" --ask-sudo-pass -vvv "$@"
