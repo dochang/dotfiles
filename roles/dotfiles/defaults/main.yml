@@ -1,0 +1,39 @@
+---
+dotfiles_repo: 'https://github.com/dochang/dotfiles.git'
+dotfiles_name: 'Desmond O. Chang'
+dotfiles_email: dochang@gmail.com
+dotfiles_git_credential: dochang
+dotfiles_git_user_name: '{{ dotfiles_name }}'
+dotfiles_git_user_email: '{{ dotfiles_email }}'
+dotfiles_emacs_name: '{{ dotfiles_name }}'
+dotfiles_emacs_email: '{{ dotfiles_email }}'
+dotfiles_emacs_package_archives:
+  - id: gnu
+    location: https://elpa.gnu.org/packages/
+  - id: melpa
+    location: https://melpa.org/packages/
+  - id: org
+    location: http://orgmode.org/elpa/
+  - id: melpa-stable
+    location: https://stable.melpa.org/packages/
+  # Downloading marmalade archive will cause Emacs hangs at 100% CPU usage.
+  # Disable it for now.  See nicferrier/elmarmalade#106 .
+  #
+  # - id: marmalade
+  #   location: https://marmalade-repo.org/packages/
+  - id: ELPA
+    location: http://tromey.com/elpa/
+  - id: SC
+    location: http://joseito.republika.pl/sunrise-commander/
+dotfiles_i3status_netdev_enabled: yes
+dotfiles_i3status_netdev: wlan0
+dotfiles_i3status_vm_enabled: yes
+dotfiles_nix_nixpkgs_channel_url: https://nixos.org/channels/nixpkgs-unstable
+dotfiles_pip_index_url: https://pypi.python.org/simple
+dotfiles_npm_registry: https://registry.npmjs.org/
+dotfiles_gem_source: https://rubygems.org/
+# https://github.com/rust-lang/rustup/blob/001dc1c0614f60c47b0620e332ab68586b1d4184/rustup.sh#L77
+dotfiles_rustup_dist_server: https://static.rust-lang.org
+dotfiles_multirust_dist_root: '{{ dotfiles_rustup_dist_server }}'
+# https://github.com/rust-lang/cargo/blob/master/src/cargo/sources/registry.rs#L182
+dotfiles_cargo_registry_index: https://github.com/rust-lang/crates.io-index
