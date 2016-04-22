@@ -3,10 +3,12 @@
 venv=~/.local/venvs/ansible
 [ ! -d "${venv}" ] || find "${venv}" -type l -delete
 virtualenv "${venv}"
-"${venv}/bin/pip" install -U ansible
+. "${venv}/bin/activate"
+pip install -U ansible
 hash -r
-export ANSIBLE="${venv}/bin/ansible"
 
 export ANSIBLE_EXECUTABLE='/bin/bash -l'
+export ANSIBLE_ROLES_PATH="${venv}/roles"
 
-"${ANSIBLE}" --ask-sudo-pass -vvv "$@"
+ansible-galaxy install --role-file=requirements.yml
+ansible --ask-sudo-pass -vvv "$@"
