@@ -44,12 +44,8 @@ envs:
     packages:
       - npm
       - nrm
-      - metalsmith
       - yo
       - david
-      - gulp
-      - webpack
-      - nodemon
       - json
       # For Emacs flycheck
       # https://github.com/zaach/jsonlint
