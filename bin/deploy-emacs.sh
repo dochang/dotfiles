@@ -172,7 +172,6 @@
                 describe-number
                 cargo
                 color-theme-modern
-                editorconfig-core
                 ruby-additional
                 pointback
                 olivetti
