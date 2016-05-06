@@ -29,7 +29,7 @@ def get_config(query):
         height = preferred['height']
         rate = preferred['rate']
         if last_config:
-            x = last_config['x'] + width
+            x = last_config['x'] + last_config['width']
             y = last_config['y'] - height
         else:
             x = y = 0
