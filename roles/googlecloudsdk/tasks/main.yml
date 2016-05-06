@@ -1,0 +1,36 @@
+---
+- name: include os specific variables
+  include_vars: '{{ item }}'
+  with_first_found:
+    - files:
+        - '{{ ansible_system }}/{{ ansible_architecture }}/main.yml'
+        - 'main.yml'
+      paths:
+        # `../vars/` is required because `with_first_found` looks in the
+        # `files/` directory.  See Ansible issues [7788][], [5108][] and this
+        # [page][] for details:
+        #
+        # [7788]: https://github.com/ansible/ansible/issues/7788
+        # [5108]: https://github.com/ansible/ansible/issues/5108
+        # [page]: https://groups.google.com/forum/#!topic/ansible-project/UQ_ArPEofFU
+        - ../vars/installer
+
+- name: set facts for installing google cloud sdk
+  set_fact:
+    # A variable evaluates the random filter in its value every time.  Solve it
+    # by setting the value to a fact.
+    #
+    # https://opensolitude.com/2015/05/27/ansible-lookups-variables-vs-facts.html
+    # https://stackoverflow.com/a/28490160
+    googlecloudsdk_cache_dir: '{{ googlecloudsdk_cache_prefix }}/ansible-googlecloudsdk-{{ ansible_user_uid }}-{{ ansible_date_time.epoch }}-{{ (2**48) | random }}'
+    googlecloudsdk_package_pathname: '{{ googlecloudsdk_download_dir }}/{{ googlecloudsdk_package_filename }}'
+
+- name: check if google cloud sdk installed
+  command: 'ls {{ googlecloudsdk_install_dir }}'
+  register: googlecloudsdk_install_dir_list
+  ignore_errors: yes
+  changed_when: false
+  always_run: yes
+
+- include: install.yml
+  when: 'googlecloudsdk_install_dir_list.stdout_lines | length == 0'

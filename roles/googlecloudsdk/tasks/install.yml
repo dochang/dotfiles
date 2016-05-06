@@ -1,0 +1,38 @@
+---
+- name: download google cloud sdk
+  get_url:
+    dest: '{{ googlecloudsdk_package_pathname }}'
+    url: 'https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/{{ googlecloudsdk_package_filename }}'
+    checksum: 'sha1:{{ googlecloudsdk_version_info[googlecloudsdk_version].checksums[ansible_system][ansible_architecture].sha1 }}'
+    force: no
+    validate_certs: yes
+
+- name: clear google cloud sdk cache dir
+  file:
+    path: '{{ googlecloudsdk_cache_dir }}'
+    state: absent
+
+- name: ensure google cloud sdk cache dir present
+  file:
+    path: '{{ googlecloudsdk_cache_dir }}'
+    state: directory
+
+- name: extract google cloud sdk package
+  unarchive:
+    copy: no
+    dest: '{{ googlecloudsdk_cache_dir }}'
+    src: '{{ googlecloudsdk_package_pathname }}'
+    creates: '{{ googlecloudsdk_cache_dir }}/{{ googlecloudsdk_package_topdir }}'
+
+- name: ensure google cloud sdk install prefix present
+  file:
+    path: '{{ googlecloudsdk_install_dir }}'
+    state: directory
+
+- name: install google cloud sdk
+  command: 'cp -RpT {{ googlecloudsdk_cache_dir }}/{{ googlecloudsdk_package_topdir }} {{ googlecloudsdk_install_dir }}'
+
+- name: clear google cloud sdk cache dir
+  file:
+    path: '{{ googlecloudsdk_cache_dir }}'
+    state: absent

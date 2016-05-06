@@ -1,0 +1,28 @@
+---
+- hosts: all
+
+  pre_tasks:
+
+    - block:
+
+        - name: check if google cloud sdk install dir empty
+          command: 'ls {{ googlecloudsdk_install_dir }}'
+          register: googlecloudsdk_install_dir_list
+          ignore_errors: yes
+          changed_when: false
+          always_run: yes
+
+        - file:
+            path: '{{ googlecloudsdk_install_dir }}'
+            state: directory
+            group: '{{ hostvars[inventory_hostname].ansible_user }}'
+            owner: '{{ hostvars[inventory_hostname].ansible_user }}'
+            mode: '755'
+          when: 'googlecloudsdk_install_dir_list.stdout_lines | length == 0'
+
+      become: yes
+      become_user: root
+
+  roles:
+
+    - googlecloudsdk
