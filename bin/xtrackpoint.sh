@@ -4,17 +4,29 @@
 ## http://www.thinkwiki.org/wiki/How_to_configure_the_TrackPoint
 ## http://okomestudio.net/biboroku/?p=1816
 ## https://wiki.debian.org/InstallingDebianOn/Thinkpad/Trackpoint
+## xinput(1)
 ## evdev(4)
-if xinput list "TPPS/2 IBM TrackPoint" >/dev/null ; then
+## libinput(4)
+
+TRACKPOINT_DEV="TPPS/2 IBM TrackPoint"
+TOUCHPAD_DEV="SynPS/2 Synaptics TouchPad"
+
+configure_evdev_trackpoint() {
 	# Enable vertical scrolling.
-	xinput set-prop "TPPS/2 IBM TrackPoint" "Evdev Wheel Emulation" 1
-	xinput set-prop "TPPS/2 IBM TrackPoint" "Evdev Wheel Emulation Button" 2
+	xinput --set-prop "${TRACKPOINT_DEV}" "Evdev Wheel Emulation" 1
+	xinput --set-prop "${TRACKPOINT_DEV}" "Evdev Wheel Emulation Button" 2
 	# Enable horizontal scrolling in addition to vertical scrolling.
 	#
 	# 6 : X up ; 7 : X down ; 4 : Y up ; 5 : Y down
-	xinput set-prop "TPPS/2 IBM TrackPoint" "Evdev Wheel Emulation Axes" 6 7 4 5
+	xinput --set-prop "${TRACKPOINT_DEV}" "Evdev Wheel Emulation Axes" 6 7 4 5
 	# To enable middle button emulation (using left- and right-click simultaneously)
-	xinput set-prop "TPPS/2 IBM TrackPoint" "Evdev Middle Button Emulation" 1
-	# Switch touchpad off if trackpoint exists.
-	synclient TouchpadOff=1
+	xinput --set-prop "${TRACKPOINT_DEV}" "Evdev Middle Button Emulation" 1
+}
+
+if xinput --list --name-only "${TRACKPOINT_DEV}" >/dev/null ; then
+	if xinput --list-props "${TRACKPOINT_DEV}" | grep Evdev >/dev/null ; then
+		configure_evdev_trackpoint
+	fi
+	# Disable touchpad if trackpoint exists.
+	xinput --disable "${TOUCHPAD_DEV}"
 fi
