@@ -227,6 +227,11 @@ prepend_to_env ${GRADLE_HOME}/bin PATH
 export COMPOSER_HOME
 prepend_to_env ${COMPOSER_HOME}/vendor/bin PATH
 
+## For Google Cloud SDK
+: ${CLOUDSDK_HOME:=/opt/google-cloud-sdk}
+export CLOUDSDK_HOME
+[ -r "${CLOUDSDK_HOME}/path.$(get_shell).inc" ] && . "${CLOUDSDK_HOME}/path.$(get_shell).inc"
+
 case "$(get_shell)" in
 bash|zsh|ksh)
 

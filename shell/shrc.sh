@@ -110,4 +110,9 @@ if ! { [ x"$(get_shell)" = xsh -a -n "${ZSH_VERSION}" ] && expr "$-" : '.*i' > /
 		rm -f $tmpfile
 	}
 
+	## For Google Cloud SDK
+	: ${CLOUDSDK_HOME:=/opt/google-cloud-sdk}
+	export CLOUDSDK_HOME
+	[ -r "${CLOUDSDK_HOME}/completion.$(get_shell).inc" ] && . "${CLOUDSDK_HOME}/completion.$(get_shell).inc"
+
 fi
