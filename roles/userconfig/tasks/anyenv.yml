@@ -40,6 +40,8 @@
   args:
     chdir: '~'
     creates: '~/.anyenv/envs/{{ item.0.name }}/versions/{{ item.1 }}'
+  environment:
+    NODE_BUILD_MIRROR_URL: '{{ node_build_mirror_url }}'
   with_subelements:
     - '{{ env_versions }}'
     - versions
