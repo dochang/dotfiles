@@ -36,10 +36,10 @@ envs:
       - itamae
   ndenv:
     versions:
-      - v6.0.0
-      - v4.4.3              # LTS
-      - v0.12.13            # LTS / Classic
-      - v0.10.44            # Maintenance / Classic
+      - v6.1.0
+      - v4.4.4              # LTS
+      - v0.12.14            # LTS / Classic
+      - v0.10.45            # Maintenance / Classic
     packages:
       - npm
       - nrm
