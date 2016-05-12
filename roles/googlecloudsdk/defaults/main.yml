@@ -2,4 +2,4 @@
 googlecloudsdk_version: '108.0.0'
 googlecloudsdk_download_dir: '{{ ansible_env.TMPDIR | default("/tmp") }}'
 googlecloudsdk_cache_prefix: '{{ ansible_env.TMPDIR | default("/tmp") }}'
-googlecloudsdk_install_dir: '/opt/google-cloud-sdk'
+googlecloudsdk_install_dir: '{{ ansible_user_dir }}/opt/google-cloud-sdk'
