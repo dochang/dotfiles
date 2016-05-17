@@ -91,6 +91,7 @@ ___no_proxy () {
 	# https://github.com/docker/docker/issues/10224
 	printf ",/var/run/docker.sock"
 	printf ",lvh.me,vcap.me,localtest.me"
+	printf ",qq.com,wechat.com,tencent.com,weiyun.com"
 	printf ",sinaapp.com,sinaimg.cn"
 	printf ",youku.com,tudou.com,tudouui.com,tdimg.com"
 	printf ",baidupcs.com,baidu.com,bdstatic.com,bdimg.com,tiebaimg.com"
