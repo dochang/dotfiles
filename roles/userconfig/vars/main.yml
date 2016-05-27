@@ -36,8 +36,8 @@ envs:
       - itamae
   ndenv:
     versions:
-      - v6.1.0
-      - v4.4.4              # LTS
+      - v6.2.0
+      - v4.4.5              # LTS
       - v0.12.14            # LTS / Classic
       - v0.10.45            # Maintenance / Classic
     packages:
