@@ -39,6 +39,7 @@
     - src: 'nix/nix-channels'
     - src: 'npm/npmrc'
     - src: 'gem/gemrc'
+    - src: 'pypi/pypirc'
 
 - include: dotdir.yml
   with_items:
