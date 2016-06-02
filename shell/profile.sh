@@ -181,6 +181,11 @@ which pyenv >/dev/null 2>&1 && {
 	esac
 }
 
+## For rbenv-usergems
+[ -x "$(rbenv root)/plugins/rbenv-usergems/bin/rbenv-usergems-init" ] && {
+	eval "$(rbenv usergems-init - $(get_shell))"
+}
+
 ## For Cask
 prepend_to_env ${HOME}/.cask/bin PATH
 

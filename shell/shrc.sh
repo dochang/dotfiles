@@ -60,6 +60,9 @@ if ! { [ x"$(get_shell)" = xsh -a -n "${ZSH_VERSION}" ] && expr "$-" : '.*i' > /
 			;;
 		esac
 	}
+	! is_function rbenv && [ -x "$(rbenv root)/plugins/rbenv-usergems/bin/rbenv-usergems-init" ] && {
+		eval "$(rbenv usergems-init - $(get_shell))"
+	}
 
 	# https://transfer.sh/
 	# https://gist.github.com/nl5887/a511f172d3fb3cd0e42d
