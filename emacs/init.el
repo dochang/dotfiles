@@ -22,7 +22,11 @@
         (and (file-accessible-directory-p etcdir)
              (directory-files etcdir t "^[0-9][0-9].*\\.elc?$"))))
 
-(defvar **default-load-path** (copy-sequence load-path))
+(defvar **default-load-path**
+  (copy-sequence load-path))
+
+(defvar **default-custom-theme-load-path**
+  (copy-sequence custom-theme-load-path))
 
 (defun $subdirs-to-list (default-directory)
   (when (file-directory-p default-directory)
@@ -40,7 +44,14 @@
              (list "/usr/share/org-mode/lisp")
              (mapcar '$subdirs-to-list
                      (mapcar 'locate-user-emacs-file
-                             '("themes/" "site-lisp/")))))
+                             '("site-lisp/")))))
+
+(setq custom-theme-load-path
+      (apply 'append
+             **default-custom-theme-load-path**
+             (mapcar '$subdirs-to-list
+                     (mapcar 'locate-user-emacs-file
+                             '("themes/")))))
 
 
 ;;; Key bindings

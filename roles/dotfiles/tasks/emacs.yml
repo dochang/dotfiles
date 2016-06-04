@@ -9,14 +9,18 @@
     - src: 'gnus/gnus.el'
       dest: '~/.gnus.el'
 
-- name: ensure ~/.emacs.d/site-lisp present
+- name: ensure ~/.emacs.d/{{ item }} present
   file:
-    path: '~/.emacs.d/site-lisp'
+    path: '~/.emacs.d/{{ item }}'
     state: directory
+  with_items:
+    - site-lisp
+    - themes
 
-- name: install emacs site lisp
+- name: install emacs *.el files
   copy:
-    dest: '~/.emacs.d/site-lisp/{{ item | basename }}'
+    dest: '~/.emacs.d/{{ item | relpath("emacs") }}'
     src: '{{ item }}'
   with_fileglob:
     - emacs/site-lisp/*.el
+    - emacs/themes/*.el
