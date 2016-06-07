@@ -27,4 +27,4 @@ download() {
 	for region in $VULTR_REGIONS ; do
 		download "VULTR:${region}" "http://${region}-ping.vultr.com/vultr.com.${VULTR_TEST_TYPE}.bin"
 	done
-} | sort --numeric-sort
+} | sort --numeric-sort -r
