@@ -3,10 +3,10 @@
 LINODE_TEST_TYPE=100MB
 LINODE_REGIONS='newark atlanta dallas fremont frankfurt london singapore tokyo'
 
-DO_TEST_TYPE=10mb
+DO_TEST_TYPE=100mb
 DO_REGIONS='nyc1 nyc2 nyc3 ams1 ams2 ams3 sfo1 sgp1 lon1 fra1 tor1 blr1'
 
-VULTR_TEST_TYPE=100MB
+VULTR_TEST_TYPE=1000MB
 VULTR_REGIONS='fra-de ams-nl par-fr lon-gb hnd-jp nj-us il-us ga-us wa-us fl-us tx-us sjo-ca-us lax-ca-us syd-au'
 
 unset http_proxy
