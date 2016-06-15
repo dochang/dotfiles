@@ -51,6 +51,7 @@
     - src: 'nixpkgs/config.nix'
     - src: 'bundle/config'
     - src: 'cargo/config'
+    - src: 'proxychains/proxychains.conf'
 
 - include: dotxdg.yml
   with_items:
