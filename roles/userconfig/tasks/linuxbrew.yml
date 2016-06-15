@@ -24,3 +24,4 @@
   with_items:
     - beeftornado/rmtree/brew-rmtree
     - heroku
+    - proxychains-ng
