@@ -746,20 +746,6 @@ return value of `message-unique-id'."
         ;; `ttf-wqy-microhei` instead.
         (set-fontset-font nil script "WenQuanYi Micro Hei Mono-11" frame)))))
 
-;; chinese-fonts-setup
-;;
-;; [[http://www.newsmth.net/nForum/#!article/Emacs/108473]]
-;; [[https://github.com/tumashu/chinese-fonts-setup]]
-;; [[http://baohaojun.github.io/perfect-emacs-chinese-font.html]]
-;; [[http://zhuoqiang.me/torture-emacs.html]]
-(autoload 'cfs-edit-profile "chinese-fonts-setup" nil t)
-(autoload 'cfs-regenerate-profile "chinese-fonts-setup" nil t)
-(autoload 'cfs-switch-profile "chinese-fonts-setup" nil t)
-(autoload 'cfs-next-profile "chinese-fonts-setup" nil t)
-(autoload 'cfs-increase-fontsize "chinese-fonts-setup" nil t)
-(autoload 'cfs-decrease-fontsize "chinese-fonts-setup" nil t)
-(setq cfs-profiles '("default"))
-
 
 ;;; Font width test
 ;;;
@@ -2329,7 +2315,7 @@ from 'todotxt-file'." t)
   (when (require 'editorconfig nil t)
     (editorconfig-mode 1))
   (df-mode 1)
-  (require 'chinese-fonts-setup nil t)
+  (require 'chinese-fonts-setup nil 'noerror)
   (when (require 'pointback nil t)
     (global-pointback-mode 1))
   ;; `git-annex' may be not ready when `dired' loaded.  Ensure it loaded.
