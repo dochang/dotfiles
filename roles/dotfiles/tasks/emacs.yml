@@ -14,6 +14,7 @@
     path: '~/.emacs.d/{{ item }}'
     state: directory
   with_items:
+    - init.d
     - site-lisp
     - themes
 
@@ -22,5 +23,6 @@
     dest: '~/.emacs.d/{{ item | relpath("emacs") }}'
     src: '{{ item }}'
   with_fileglob:
+    - emacs/init.d/*.el
     - emacs/site-lisp/*.el
     - emacs/themes/*.el

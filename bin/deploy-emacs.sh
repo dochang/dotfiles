@@ -186,7 +186,8 @@
                 gh-md
                 projectile
                 use-package
-                req-package)
+                req-package
+                load-dir)
               (if (< emacs-major-version 24)
                   '(scala-mode)
                 '(scala-mode2

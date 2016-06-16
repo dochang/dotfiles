@@ -2282,15 +2282,6 @@ from 'todotxt-file'." t)
 (add-hook 'pass-mode-hook '$pass-mode-hook)
 
 
-;;; auto-package-update
-(defun $apu--packages-to-install-delete-el-get-packages (packages)
-  "auto-package-update MUST NOT update the packages installed by el-get."
-  (cl-set-difference packages el-get-activated-list))
-
-(advice-add 'apu--packages-to-install :filter-return
-            '$apu--packages-to-install-delete-el-get-packages)
-
-
 ;;; Server
 (setq server-name (number-to-string (emacs-pid)))
 (setq server-use-tcp t)
@@ -2313,13 +2304,16 @@ from 'todotxt-file'." t)
 (require 'req-package)
 
 
+(let ((load-dirs (locate-user-emacs-file "init.d")))
+  (load-dirs))
+
+
 (load "~/.emacs_local.el" t)
 
 
 (defun $after-init-hook ()
   (req-package-finish)
-  (when (require 'auto-package-update nil 'noerror)
-    (auto-package-update-maybe))
+  (auto-package-update-maybe)
   (when (require 'undo-tree nil t)
     (global-undo-tree-mode 1))
   (when (require 'fringe-current-line nil t)
