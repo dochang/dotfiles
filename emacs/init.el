@@ -2306,6 +2306,10 @@ from 'todotxt-file'." t)
 (package-initialize)
 
 
+(when (require 'mb-url nil 'noerror)
+  (advice-add 'url-http :override 'mb-url-http-curl))
+
+
 (require 'req-package)
 
 
@@ -2313,8 +2317,6 @@ from 'todotxt-file'." t)
 
 
 (defun $after-init-hook ()
-  (when (require 'mb-url nil 'noerror)
-    (advice-add 'url-http :override 'mb-url-http-curl))
   (req-package-finish)
   (when (require 'auto-package-update nil 'noerror)
     (auto-package-update-maybe))
