@@ -184,7 +184,9 @@
                 super-save
                 tldr
                 gh-md
-                projectile)
+                projectile
+                use-package
+                req-package)
               (if (< emacs-major-version 24)
                   '(scala-mode)
                 '(scala-mode2

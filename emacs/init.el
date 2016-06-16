@@ -2296,19 +2296,26 @@ from 'todotxt-file'." t)
 (setq server-use-tcp t)
 
 
-(load "~/.emacs_local.el" t)
-
-
 (require 'el-get nil 'noerror)
 (require 'package nil 'noerror)
 
+(when (featurep 'el-get)
+  (el-get))
+
+(setq package-enable-at-startup nil)
+(package-initialize)
+
+
+(require 'req-package)
+
+
+(load "~/.emacs_local.el" t)
+
 
 (defun $after-init-hook ()
-  (when user-init-file
-    (when (featurep 'el-get)
-      (el-get)))
   (when (require 'mb-url nil 'noerror)
     (advice-add 'url-http :override 'mb-url-http-curl))
+  (req-package-finish)
   (when (require 'auto-package-update nil 'noerror)
     (auto-package-update-maybe))
   (when (require 'undo-tree nil t)
