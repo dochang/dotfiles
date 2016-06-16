@@ -2235,10 +2235,6 @@ from 'todotxt-file'." t)
 (eval-after-load 'editorconfig '($eval-after-load-editorconfig))
 
 
-;;; df-mode
-(setq df-interval 10)
-
-
 ;;; symon-mode
 (setq symon-delay 2)
 (setq symon-refresh-rate 1)
@@ -2332,9 +2328,7 @@ from 'todotxt-file'." t)
           'editorconfig-core-get-properties-hash))
   (when (require 'editorconfig nil t)
     (editorconfig-mode 1))
-  ;; Enable `df-mode' after loading.
-  (when (require 'df-mode nil t)
-    (df-mode 1))
+  (df-mode 1)
   (require 'chinese-fonts-setup nil t)
   (when (require 'pointback nil t)
     (global-pointback-mode 1))
