@@ -2207,15 +2207,6 @@ from 'todotxt-file'." t)
 (electric-indent-mode -1)
 
 
-;;; EditorConfig
-(defun $eval-after-load-editorconfig ()
-  (add-to-list 'editorconfig-indentation-alist '(nxml-mode nxml-child-indent nxml-attribute-indent))
-  (add-to-list 'editorconfig-indentation-alist '(puppet-mode puppet-indent-level puppet-include-indent))
-  (add-to-list 'editorconfig-indentation-alist '(jsx-mode jsx-indent-level)))
-
-(eval-after-load 'editorconfig '($eval-after-load-editorconfig))
-
-
 ;;; symon-mode
 (setq symon-delay 2)
 (setq symon-refresh-rate 1)
@@ -2291,11 +2282,7 @@ from 'todotxt-file'." t)
   (focus-autosave-mode 1)
   (super-save-mode 1)
   (smart-mark-mode 1)
-  (when (require 'editorconfig-core nil t)
-    (setq editorconfig-get-properties-function
-          'editorconfig-core-get-properties-hash))
-  (when (require 'editorconfig nil t)
-    (editorconfig-mode 1))
+  (editorconfig-mode 1)
   (df-mode 1)
   (require 'chinese-fonts-setup nil 'noerror)
   (global-pointback-mode 1)
