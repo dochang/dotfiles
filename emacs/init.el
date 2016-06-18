@@ -2290,8 +2290,6 @@ from 'todotxt-file'." t)
   (auto-package-update-maybe)
   (global-undo-tree-mode 1)
   (global-fringe-current-line-mode 1)
-  ;; guide-key
-  (setq guide-key/guide-key-sequence t)
   ;; which-key
   (when (require 'which-key nil t)
     (which-key-mode 1)
