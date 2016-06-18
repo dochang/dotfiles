@@ -7,7 +7,7 @@
 
 (setq make-backup-files nil)
 
-(load (locate-user-emacs-file "packages") t)
+(load (locate-user-emacs-file "packages"))
 
 (add-to-list 'load-path (locate-user-emacs-file "el-get/el-get"))
 
