@@ -2260,21 +2260,22 @@ from 'todotxt-file'." t)
 (setq server-use-tcp t)
 
 
-(require 'el-get nil 'noerror)
-(require 'package nil 'noerror)
-
-(when (featurep 'el-get)
-  (el-get))
-
-(setq package-enable-at-startup nil)
-(package-initialize)
+(load (locate-user-emacs-file "bootstrap"))
 
 
-(when (require 'mb-url nil 'noerror)
-  (advice-add 'url-http :override 'mb-url-http-curl))
+(setq use-package-always-defer t)
+(unless (package-installed-p 'use-package)
+  (package-install 'use-package))
+(require 'use-package nil 'noerror)
 
 
-(require 'req-package)
+(use-package req-package
+  :demand t
+  :ensure t)
+
+
+(use-package load-dir
+  :ensure t)
 
 
 (let ((load-dirs (locate-user-emacs-file "init.d")))
