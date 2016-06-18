@@ -210,7 +210,8 @@
                   '())))
 
 ;; Delete el-get bootstrap mb-url
-(el-get-remove 'mb-url)
+(when (el-get-package-installed-p 'mb-url)
+  (el-get-remove 'mb-url))
 
 ;; Local Variables:
 ;; mode: emacs-lisp
