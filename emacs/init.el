@@ -471,12 +471,11 @@ return value of `message-unique-id'."
 
 ;;; Don't add the final newline globally.
 ;;;
-;;; Let the major mode ask the user to add or not since we shouldn't
-;;; add in some files like 3rd-party code.
+;;; Use editorconfig to force Emacs to add the final newline in certain files.
 ;;;
 ;;; [[info:emacs#Customize%20Save]]
 (setq require-final-newline nil
-      mode-require-final-newline 1)
+      mode-require-final-newline nil)
 
 
 ;;; Don't delete trailing lines when calling `delete-trailing-whitespace' on
