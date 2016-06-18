@@ -1129,11 +1129,7 @@ Chromium."
   ;; Enable Rainbow-Delimiters mode.
   (when (require 'rainbow-delimiters nil t)
     (rainbow-delimiters-mode))
-  ;; Enable flycheck if it is installed, otherwise flymake.
-  (cond ((require 'flycheck nil t)
-         (flycheck-mode 1))
-        ((require 'flymake nil t)
-         (flymake-mode 1)))
+  (flycheck-mode 1)
   ;; Enable Flyspell Prog Mode.  This invokes `(flyspell-mode 1)'.
   ;; Eval `(flyspell-mode -1)' to disable it.
   (flyspell-prog-mode)
