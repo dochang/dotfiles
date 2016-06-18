@@ -46,12 +46,6 @@
 (unless (require 'package nil 'noerror)
   (el-get 'sync 'package))
 
-;; TODO: This needs to be removed in the future!
-;;
-;; http://stackoverflow.com/a/26110978
-;; https://github.com/bbatsov/prelude/issues/699
-(setq package-check-signature nil)
-
 (package-initialize)
 
 (package-refresh-contents)
