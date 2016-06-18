@@ -2,6 +2,8 @@
   with_items:
     - src: 'emacs/packages.el'
       dest: '~/.emacs.d/packages.el'
+    - src: 'emacs/bootstrap.el'
+      dest: '~/.emacs.d/bootstrap.el'
     - src: 'emacs/init.el'
       dest: '~/.emacs.d/init.el'
     - src: 'emacs/chinese-fonts-setup/v3/default.el'

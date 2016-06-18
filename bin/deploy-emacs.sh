@@ -7,48 +7,7 @@
 
 (setq make-backup-files nil)
 
-(load (locate-user-emacs-file "packages"))
-
-(add-to-list 'load-path (locate-user-emacs-file "el-get/el-get"))
-
-(unless (require 'el-get nil 'noerror)
-  (with-temp-buffer
-    (with-current-buffer
-        (let* ((url "https://raw.github.com/dimitri/el-get/master/el-get-install.el"))
-          (cond ((executable-find "curl")
-                 (call-process "curl" nil t nil "--silent" "--show-error" "--location" url)
-                 (current-buffer))
-                ((executable-find "wget")
-                 (call-process "wget" nil t nil "--quiet" "--output-document" "-" url)
-                 (current-buffer))
-                (t
-                 (url-retrieve-synchronously url))))
-      (let (el-get-master-branch
-            (el-get-git-install-url (getenv "EL_GET_GIT_INSTALL_URL")))
-        (when (and (stringp el-get-git-install-url)
-                   (string= "" el-get-git-install-url))
-          (setq el-get-git-install-url nil))
-        (goto-char (point-max))
-        (eval-print-last-sexp)))))
-
-(unless (or (and (require 'package nil 'noerror)
-                 (progn
-                   (package-initialize)
-                   (require 'mb-url nil 'noerror)))
-            (el-get 'sync 'mb-url))
-  (el-get-bundle! mb-url in dochang/mb-url
-    :branch "master"
-    :depends ()
-    :library mb-url))
-
-(advice-add 'url-http :override 'mb-url-http-curl)
-
-(unless (require 'package nil 'noerror)
-  (el-get 'sync 'package))
-
-(package-initialize)
-
-(package-refresh-contents)
+(load (locate-user-emacs-file "bootstrap"))
 
 (mapc 'package-install
       (append '(emms
@@ -208,10 +167,6 @@
                 (if (version< emacs-version "25.1")
                     '(cal-china-plus)
                   '())))
-
-;; Delete el-get bootstrap mb-url
-(when (el-get-package-installed-p 'mb-url)
-  (el-get-remove 'mb-url))
 
 ;; Local Variables:
 ;; mode: emacs-lisp
