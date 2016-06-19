@@ -60,74 +60,6 @@
 (global-set-key "\C-cx" '$extended-map)
 
 
-;;; Dired Mode
-(defun $dired-load-hook ()
-  (define-key dired-mode-map "E" 'emms-play-dired)
-  (define-key $extended-map "e" 'emms-play-dired)
-  ;; use "z" to kill dired buffer.
-  (unless (lookup-key dired-mode-map "K")
-    (define-key dired-mode-map "K" 'kill-this-buffer))
-  (setq dired-listing-switches "-lhA"
-        dired-dwim-target t
-        ;; `find-ls-option' defaults to '("-ls" . "-dilsb").  Because
-        ;; `-ls' quotes non-printable characters in file names using
-        ;; C-like backslash escapes, We have to pass custom parameters
-        ;; to `ls' here.
-        find-ls-option '("-exec ls -lhAd {} +" . "-lhAd")
-        ;; `find-ls-subdir-switches' should default to the value of
-        ;; `dired-listing-switches'.  DO NOT set it to `nil',
-        ;; otherwise `dired-subdir-switches' in `*Find*' buffer is
-        ;; `nil', then `(cdr find-ls-option)' will be used.
-        find-ls-subdir-switches dired-listing-switches
-        ;; `locate-ls-subdir-switches` should default to the value of
-        ;; `dired-listing-switches'.
-        locate-ls-subdir-switches dired-listing-switches)
-  (when (require 'git-annex nil t)
-    ;; Avoid key binding conflicts.
-    (define-key $extended-map "@" git-annex-dired-map))
-  (require 'dired-filetype-face nil t)
-  ;; Load it after any other dired extensions, so that its key binding
-  ;; overrides others.
-  (require 'dired+ nil t)
-  (when (require 'dired-x nil t)
-    (setq dired-guess-shell-alist-user
-          (mapcar (lambda (elem) (list elem "xdg-open"))
-                  '("\\.\\(mpe?g\\|avi\\|mkv\\)$"
-                    "\\.\\(flv\\|rmvb\\|wmv\\|mp4\\|3gp\\)$"
-                    "\\.\\(ogg\\|mp3\\)$"
-                    "\\.\\(xbm\\|p[bgpn]m\\)$"
-                    "\\.\\(jpe?g\\|gif\\|tif\\|png\\)$")))))
-
-(add-hook 'dired-load-hook '$dired-load-hook)
-
-(autoload 'dired-omit-mode "dired-x"
-  "Toggle omission of uninteresting files in Dired (Dired-Omit mode).
-With a prefix argument ARG, enable Dired-Omit mode if ARG is
-positive, and disable it otherwise.  If called from Lisp, enable
-the mode if ARG is omitted or nil.
-
-Dired-Omit mode is a buffer-local minor mode.  When enabled in a
-Dired buffer, Dired does not list files whose filenames match
-regexp `dired-omit-files', nor files ending with extensions in
-`dired-omit-extensions'.
-
-To enable omitting in every Dired buffer, you can put this in
-your init file:
-
-  (add-hook 'dired-mode-hook (lambda () (dired-omit-mode)))
-
-See Info node `(dired-x) Omitting Variables' for more information."
-  t)
-
-(defun $dired-mode-hook ()
-  (dired-omit-mode -1))
-
-(add-hook 'dired-mode-hook '$dired-mode-hook)
-
-;; Image-Dired
-(setq image-dired-external-viewer "sxiv -f")
-
-
 ;;; Specify custom file, but not load it.
 ;;; [[info:emacs#Saving%20Customizations]]
 (setq custom-file (locate-user-emacs-file ".emacs-custom.el"))
@@ -2286,15 +2218,6 @@ from 'todotxt-file'." t)
   (df-mode 1)
   (require 'chinese-fonts-setup nil 'noerror)
   (global-pointback-mode 1)
-  ;; `git-annex' may be not ready when `dired' loaded.  Ensure it loaded.
-  (when (require 'git-annex nil t)
-    ;; Avoid key binding conflicts.
-    (define-key $extended-map "@" git-annex-dired-map))
-  ;; `dired+' may be not ready when `dired' loaded.  Ensure it loaded.
-  ;;
-  ;; Load it after any other dired extensions, so that its key binding
-  ;; overrides others.
-  (require 'dired+ nil t)
   (appt-activate 1)
   (unless **theme-initialized**
     ($theme-initialize))
