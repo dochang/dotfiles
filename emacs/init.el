@@ -2164,15 +2164,6 @@ from 'todotxt-file'." t)
                        symon-windows-network-tx-monitor)))))
 
 
-;;; docean.el
-(defun $eval-after-load-docean ()
-  (setq docean-oauth-token
-        (ignore-errors
-          (password-store-get "web/digitalocean.com/{{ dotfiles_emacs_email }}/tokens/default"))))
-
-(eval-after-load 'docean '($eval-after-load-docean))
-
-
 (load (locate-user-emacs-file "bootstrap"))
 
 
