@@ -2123,11 +2123,6 @@ from 'todotxt-file'." t)
 (eval-after-load 'emmet-mode '($eval-after-load-emmet-mode))
 
 
-;;; Type Break Mode
-;; Use X Window to prevent RSI.
-(type-break-mode -1)
-
-
 (load (locate-user-emacs-file "bootstrap"))
 
 
@@ -2168,6 +2163,8 @@ from 'todotxt-file'." t)
   (df-mode 1)
   (require 'chinese-fonts-setup nil 'noerror)
   (global-pointback-mode 1)
+  ;; Use X Window to prevent RSI.
+  (type-break-mode -1)
   ;; Disable by default since it doesn't work well in some modes such as
   ;; `yaml-mode'.
   (electric-indent-mode -1)
