@@ -1346,8 +1346,7 @@ major mode isn't derived from `prog-mode'."
 ;;; CSS Mode
 (defun $css-mode-hook ()
   ($prog-mode-hook*)
-  (when (require 'emmet-mode nil t)
-    (emmet-mode 1))
+  (emmet-mode 1)
   (when (and (not (require 'flycheck nil t))
              flymake-mode
              (require 'flymake-css nil t))
@@ -1480,8 +1479,7 @@ major mode isn't derived from `prog-mode'."
 
 ;;; SGML Mode
 (defun $sgml-mode-hook ()
-  (when (require 'emmet-mode nil t)
-    (emmet-mode 1)))
+  (emmet-mode 1))
 
 (add-hook 'sgml-mode-hook '$sgml-mode-hook)
 
@@ -1676,8 +1674,7 @@ major mode isn't derived from `prog-mode'."
 ;;; Mustache Mode
 ;; [[https://github.com/mustache/emacs]]
 (defun $mustache-mode-hook ()
-  (when (require 'emmet-mode nil t)
-    (emmet-mode 1)))
+  (emmet-mode 1))
 
 (add-hook 'mustache-mode-hook '$mustache-mode-hook)
 
@@ -1694,8 +1691,7 @@ major mode isn't derived from `prog-mode'."
 ;;; Handlebars Mode
 ;; [[https://github.com/danielevans/handlebars-mode]]
 (defun $handlebars-mode-hook ()
-  (when (require 'emmet-mode nil t)
-    (emmet-mode 1)))
+  (emmet-mode 1))
 
 (add-hook 'handlebars-mode-hook '$handlebars-mode-hook)
 
@@ -1855,8 +1851,7 @@ major mode isn't derived from `prog-mode'."
 
 (defun $jsx-mode-hook ()
   ($prog-mode-hook*)
-  (when (require 'emmet-mode nil t)
-    (emmet-mode 1))
+  (emmet-mode 1)
   ($camel-case-mode 1))
 
 (add-hook 'jsx-mode-hook '$jsx-mode-hook)
@@ -2107,20 +2102,10 @@ from 'todotxt-file'." t)
 
 (defun $web-mode-hook ()
   ($prog-mode-hook*)
-  (when (require 'emmet-mode nil t)
-    (emmet-mode 1))
+  (emmet-mode 1)
   ($camel-case-mode 1))
 
 (add-hook 'web-mode-hook '$web-mode-hook)
-
-
-;;; Emmet Mode
-(setq emmet-move-cursor-between-quotes t)
-
-(defun $eval-after-load-emmet-mode ()
-  (define-key emmet-mode-keymap (kbd "C-j") nil))
-
-(eval-after-load 'emmet-mode '($eval-after-load-emmet-mode))
 
 
 (load (locate-user-emacs-file "bootstrap"))
