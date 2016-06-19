@@ -2133,12 +2133,6 @@ from 'todotxt-file'." t)
   "Open an org schedule calendar in the new buffer." t)
 
 
-;;; Electric Indent Mode
-;; Disable by default since it doesn't work well in some modes such as
-;; `yaml-mode'.
-(electric-indent-mode -1)
-
-
 (load (locate-user-emacs-file "bootstrap"))
 
 
@@ -2179,6 +2173,9 @@ from 'todotxt-file'." t)
   (df-mode 1)
   (require 'chinese-fonts-setup nil 'noerror)
   (global-pointback-mode 1)
+  ;; Disable by default since it doesn't work well in some modes such as
+  ;; `yaml-mode'.
+  (electric-indent-mode -1)
   (appt-activate 1)
   (unless **theme-initialized**
     ($theme-initialize))
