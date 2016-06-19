@@ -2173,11 +2173,6 @@ from 'todotxt-file'." t)
 (eval-after-load 'docean '($eval-after-load-docean))
 
 
-;;; Server
-(setq server-name (number-to-string (emacs-pid)))
-(setq server-use-tcp t)
-
-
 (load (locate-user-emacs-file "bootstrap"))
 
 
