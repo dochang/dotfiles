@@ -2128,11 +2128,6 @@ from 'todotxt-file'." t)
 (type-break-mode -1)
 
 
-;;; Calfw
-(autoload 'cfw:open-org-calendar "calfw-org"
-  "Open an org schedule calendar in the new buffer." t)
-
-
 (load (locate-user-emacs-file "bootstrap"))
 
 
