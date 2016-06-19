@@ -2064,15 +2064,6 @@ from 'todotxt-file'." t)
 (eval-after-load 'dictionary '($eval-after-load-dictionary))
 
 
-;;; MMM Mode
-;; [[https://github.com/purcell/mmm-mode]]
-
-;; Load autoloads & default settings
-(require 'mmm-auto nil t)
-(require 'mmm-defaults nil t)
-(setq mmm-global-mode 'maybe)
-
-
 (load (locate-user-emacs-file "bootstrap"))
 
 
@@ -2113,6 +2104,9 @@ from 'todotxt-file'." t)
   (df-mode 1)
   (require 'chinese-fonts-setup nil 'noerror)
   (global-pointback-mode 1)
+  ;; Load MMM Mode autoloads & default settings
+  (require 'mmm-auto)
+  (require 'mmm-defaults)
   ;; Use X Window to prevent RSI.
   (type-break-mode -1)
   ;; Disable by default since it doesn't work well in some modes such as
