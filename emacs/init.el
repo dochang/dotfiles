@@ -1477,13 +1477,6 @@ major mode isn't derived from `prog-mode'."
 (setq ediff-window-setup-function 'ediff-setup-windows-plain)
 
 
-;;; SGML Mode
-(defun $sgml-mode-hook ()
-  (emmet-mode 1))
-
-(add-hook 'sgml-mode-hook '$sgml-mode-hook)
-
-
 (load (locate-user-emacs-file "bootstrap"))
 
 
