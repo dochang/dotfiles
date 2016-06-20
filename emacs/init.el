@@ -1688,14 +1688,6 @@ major mode isn't derived from `prog-mode'."
              '("\\.\\(hjs\\|hogan\\)$" . mustache-mode))
 
 
-;;; Handlebars Mode
-;; [[https://github.com/danielevans/handlebars-mode]]
-(defun $handlebars-mode-hook ()
-  (emmet-mode 1))
-
-(add-hook 'handlebars-mode-hook '$handlebars-mode-hook)
-
-
 (load (locate-user-emacs-file "bootstrap"))
 
 
