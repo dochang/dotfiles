@@ -2023,20 +2023,6 @@ from 'todotxt-file'." t)
 ;; instead.
 
 
-;;; Sublimity
-;; [[http://www.emacswiki.org/emacs/Sublimity]]
-;; [[https://github.com/zk-phi/sublimity]]
-(defun $sublimity-map-setup-hook ()
-  (text-scale-set -10))
-
-(add-hook 'sublimity-map-setup-hook '$sublimity-map-setup-hook)
-
-(defun $eval-after-load-sublimity ()
-  (sublimity-mode -1))
-
-(eval-after-load 'sublimity '($eval-after-load-sublimity))
-
-
 (load (locate-user-emacs-file "bootstrap"))
 
 
