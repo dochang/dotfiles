@@ -1796,15 +1796,6 @@ major mode isn't derived from `prog-mode'."
 (add-to-list 'auto-mode-alist '("\\.git/config\\'" . gitconfig-mode))
 
 
-;;; DNS Mode
-(defun $dns-mode-hook ()
-  ($prog-mode-hook*)
-  (setq indent-tabs-mode t)
-  (setq-local tab-always-indent nil))
-
-(add-hook 'dns-mode-hook '$dns-mode-hook)
-
-
 (load (locate-user-emacs-file "bootstrap"))
 
 
