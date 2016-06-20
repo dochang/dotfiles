@@ -1583,22 +1583,6 @@ major mode isn't derived from `prog-mode'."
 (add-hook 'sass-mode-hook '$sass-mode-hook)
 
 
-;;; Scss Mode
-;; [[https://github.com/antonj/scss-mode]]
-(defun $scss-mode-hook ()
-  ;; No need to eval `$prog-mode-hook' if `scss-mode' is derived from
-  ;; `css-mode'.
-  (unless (derived-mode-p 'css-mode)
-    ($prog-mode-hook*))
-  (when (require 'rainbow-mode nil t)
-    (rainbow-mode 1)))
-
-(add-hook 'scss-mode-hook '$scss-mode-hook)
-
-;; Don't compile after saving.
-(setq scss-compile-at-save nil)
-
-
 (load (locate-user-emacs-file "bootstrap"))
 
 
