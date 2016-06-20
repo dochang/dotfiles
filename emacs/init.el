@@ -1536,21 +1536,6 @@ major mode isn't derived from `prog-mode'."
 (add-hook 'conf-mode-hook '$conf-mode-hook)
 
 
-;;; YAML Mode
-(defun $eval-after-load-yaml-mode ()
-  ;; Setup yaml-path
-  ;;
-  ;; `C-c C-p' is ok, because it's defined in a major mode keymap.
-  (define-key yaml-mode-map (kbd "C-c C-p") 'yaml-path/path))
-
-(eval-after-load 'yaml-mode '($eval-after-load-yaml-mode))
-
-(defun $yaml-mode-hook ()
-  ($prog-mode-hook*))
-
-(add-hook 'yaml-mode-hook '$yaml-mode-hook)
-
-
 (load (locate-user-emacs-file "bootstrap"))
 
 
