@@ -1457,14 +1457,6 @@ major mode isn't derived from `prog-mode'."
 (add-hook 'php-mode-hook '$php-mode-hook)
 
 
-;;; README.Debian Mode
-(defun $readme-debian-mode-hook ()
-  ($prog-mode-hook*)
-  (remove-hook 'write-contents-functions 'readme-debian-update-timestamp t))
-
-(add-hook 'readme-debian-mode-hook '$readme-debian-mode-hook)
-
-
 (load (locate-user-emacs-file "bootstrap"))
 
 
