@@ -2037,10 +2037,6 @@ from 'todotxt-file'." t)
 (eval-after-load 'sublimity '($eval-after-load-sublimity))
 
 
-;;; Calc Mode
-(global-set-key [XF86Calculator] 'calc-dispatch)
-
-
 (load (locate-user-emacs-file "bootstrap"))
 
 
