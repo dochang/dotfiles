@@ -1443,20 +1443,6 @@ major mode isn't derived from `prog-mode'."
 (eval-after-load 'compile '($eval-after-load-lua-mode))
 
 
-;;; PHP Mode
-;; [[https://github.com/ejmr/php-mode]]
-(add-to-list 'auto-mode-alist '("\\.php[s345t]?\\'" . php-mode))
-(add-to-list 'auto-mode-alist '("\\.phtml\\'" . php-mode))
-(add-to-list 'auto-mode-alist '("Amkfile" . php-mode))
-(add-to-list 'auto-mode-alist '("\\.amk$" . php-mode))
-
-(defun $php-mode-hook ()
-  ($prog-mode-hook*)
-  ($camel-case-mode 1))
-
-(add-hook 'php-mode-hook '$php-mode-hook)
-
-
 (load (locate-user-emacs-file "bootstrap"))
 
 
