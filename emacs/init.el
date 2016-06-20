@@ -1750,22 +1750,6 @@ major mode isn't derived from `prog-mode'."
 (add-hook 'livescript-mode-hook '$livescript-mode-hook)
 
 
-;;; Groovy Mode
-;; - [[http://groovy.codehaus.org/Emacs+Groovy+Mode]]
-;; - [[https://github.com/Groovy-Emacs-Modes/groovy-emacs-modes]]
-
-;; Also edit gradle files by `groovy-mode'.
-(add-to-list 'auto-mode-alist '("\\.gradle\\'" . groovy-mode))
-
-(defun $groovy-mode-hook ()
-  ($prog-mode-hook*)
-  ($camel-case-mode 1)
-  (when (require 'groovy-electric nil t)
-    (groovy-electric-mode 1)))
-
-(add-hook 'groovy-mode-hook '$groovy-mode-hook)
-
-
 (load (locate-user-emacs-file "bootstrap"))
 
 
