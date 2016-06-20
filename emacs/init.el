@@ -1526,16 +1526,6 @@ major mode isn't derived from `prog-mode'."
 (add-hook 'haskell-mode-hook '$haskell-mode-hook)
 
 
-;;; Conf Mode
-;; `conf-mode' isn't derived from `prog-mode'.  Don't call
-;; `$prog-mode-hook'.
-(defun $conf-mode-hook ()
-  (linum-mode 1)
-  (whitespace-mode 1))
-
-(add-hook 'conf-mode-hook '$conf-mode-hook)
-
-
 (load (locate-user-emacs-file "bootstrap"))
 
 
