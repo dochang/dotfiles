@@ -1839,10 +1839,6 @@ major mode isn't derived from `prog-mode'."
 (add-hook 'ledger-reconcile-mode-hook '$ledger-reconcile-mode-hook)
 
 
-;;; cflow-mode
-(add-to-list 'auto-mode-alist '("\\.cflow$" . cflow-mode))
-
-
 (load (locate-user-emacs-file "bootstrap"))
 
 
