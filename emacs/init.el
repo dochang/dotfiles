@@ -1776,14 +1776,6 @@ major mode isn't derived from `prog-mode'."
 (add-hook 'erlang-mode-hook '$erlang-mode-hook)
 
 
-;;; Elixir Mode
-;; [[https://github.com/elixir-lang/emacs-elixir]]
-(defun $elixir-mode-hook ()
-  ($prog-mode-hook*))
-
-(add-hook 'elixir-mode-hook '$elixir-mode-hook)
-
-
 (load (locate-user-emacs-file "bootstrap"))
 
 
