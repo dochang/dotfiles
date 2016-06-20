@@ -1671,23 +1671,6 @@ major mode isn't derived from `prog-mode'."
               (rassq-delete-all 'markdown-mode auto-mode-alist))))
 
 
-;;; Mustache Mode
-;; [[https://github.com/mustache/emacs]]
-(defun $mustache-mode-hook ()
-  (emmet-mode 1))
-
-(add-hook 'mustache-mode-hook '$mustache-mode-hook)
-
-;; The `auto-mode-alist' setting in `mustache-mode.el' does not have an
-;; `autoload' directive.
-(add-to-list 'auto-mode-alist
-             '("\\.mustache$" . mustache-mode))
-
-;; For Hogan.js
-(add-to-list 'auto-mode-alist
-             '("\\.\\(hjs\\|hogan\\)$" . mustache-mode))
-
-
 (load (locate-user-emacs-file "bootstrap"))
 
 
