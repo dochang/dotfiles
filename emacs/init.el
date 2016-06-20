@@ -1473,10 +1473,6 @@ major mode isn't derived from `prog-mode'."
 (add-hook 'makefile-mode-hook '$makefile-mode-hook)
 
 
-;;; Ediff
-(setq ediff-window-setup-function 'ediff-setup-windows-plain)
-
-
 (load (locate-user-emacs-file "bootstrap"))
 
 
