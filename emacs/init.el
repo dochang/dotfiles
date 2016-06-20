@@ -1843,20 +1843,6 @@ major mode isn't derived from `prog-mode'."
 (add-to-list 'auto-mode-alist '("\\.cflow$" . cflow-mode))
 
 
-;;; JSX Mode
-;; [[https://github.com/jsx/jsx-mode.el]]
-(add-to-list 'auto-mode-alist '("\\.jsx\\'" . jsx-mode))
-
-(setq jsx-indent-level 4)
-
-(defun $jsx-mode-hook ()
-  ($prog-mode-hook*)
-  (emmet-mode 1)
-  ($camel-case-mode 1))
-
-(add-hook 'jsx-mode-hook '$jsx-mode-hook)
-
-
 (load (locate-user-emacs-file "bootstrap"))
 
 
