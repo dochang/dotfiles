@@ -1561,14 +1561,6 @@ major mode isn't derived from `prog-mode'."
 (add-hook 'json-mode-hook '$json-mode-hook)
 
 
-;;; Haml Mode
-;; [[https://github.com/nex3/haml-mode]]
-(defun $haml-mode-hook ()
-  ($prog-mode-hook*))
-
-(add-hook 'haml-mode-hook '$haml-mode-hook)
-
-
 (load (locate-user-emacs-file "bootstrap"))
 
 
