@@ -1821,24 +1821,6 @@ major mode isn't derived from `prog-mode'."
 (add-hook 'fvwm-mode-hook '$fvwm-mode-hook)
 
 
-;;; Ledger Mode
-;; [[http://www.ledger-cli.org/]]
-;; [[https://github.com/ledger/ledger]]
-(defun $ledger-mode-hook ()
-  (whitespace-mode 1))
-
-(add-hook 'ledger-mode-hook '$ledger-mode-hook)
-
-;; Do not highlight transaction under point.
-(setq ledger-highlight-xact-under-point nil)
-
-(defun $ledger-reconcile-mode-hook ()
-  ;; View mode overrides some key bindings.  Do not enable it.
-  (set (make-local-variable 'view-read-only) nil))
-
-(add-hook 'ledger-reconcile-mode-hook '$ledger-reconcile-mode-hook)
-
-
 (load (locate-user-emacs-file "bootstrap"))
 
 
