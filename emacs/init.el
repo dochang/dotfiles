@@ -2041,29 +2041,6 @@ from 'todotxt-file'." t)
 (global-set-key [XF86Calculator] 'calc-dispatch)
 
 
-;;; Dictionary Mode
-;; [[http://www.myrkr.in-berlin.de/dictionary/]]
-;; [[https://github.com/myrkr/dictionary-el]]
-(global-set-key "\C-cs" 'dictionary-search)
-(global-set-key "\C-cm" 'dictionary-match-words)
-(global-set-key "\C-cd" 'dictionary-lookup-definition)
-(setq dictionary-use-single-buffer t)
-(setq dictionary-tooltip-dictionary "!")
-
-(defun $dictionary-mode-hook ()
-  ;; View mode overrides some key bindings.  Do not enable it.
-  (set (make-local-variable 'view-read-only) nil))
-
-(add-hook 'dictionary-mode-hook '$dictionary-mode-hook)
-
-(defun $eval-after-load-dictionary ()
-  (define-key dictionary-mode-map (kbd "DEL") 'scroll-down)
-  ;; Enable `global-dictionary-tooltip-mode'.
-  (global-dictionary-tooltip-mode 1))
-
-(eval-after-load 'dictionary '($eval-after-load-dictionary))
-
-
 (load (locate-user-emacs-file "bootstrap"))
 
 
