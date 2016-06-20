@@ -1343,20 +1343,6 @@ major mode isn't derived from `prog-mode'."
 (add-hook 'sh-set-shell-hook '$sh-set-shell-hook)
 
 
-;;; CSS Mode
-(defun $css-mode-hook ()
-  ($prog-mode-hook*)
-  (emmet-mode 1)
-  (when (and (not (require 'flycheck nil t))
-             flymake-mode
-             (require 'flymake-css nil t))
-    (flymake-css-load))
-  (when (require 'rainbow-mode nil t)
-    (rainbow-mode 1)))
-
-(add-hook 'css-mode-hook '$css-mode-hook)
-
-
 (load (locate-user-emacs-file "bootstrap"))
 
 
