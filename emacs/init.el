@@ -1715,22 +1715,6 @@ major mode isn't derived from `prog-mode'."
 (add-hook 'rust-mode-hook '$rust-mode-hook)
 
 
-;;; Coffee Mode
-;; [[http://ozmm.org/posts/coffee_mode.html]]
-;; [[https://github.com/defunkt/coffee-mode]]
-(setq coffee-tab-width 2)
-
-(defun $coffee-mode-hook ()
-  ($prog-mode-hook*)
-  ($camel-case-mode 1)
-  (when (and (not (require 'flycheck nil t))
-             flymake-mode
-             (require 'flymake-coffee nil t))
-    (flymake-coffee-load)))
-
-(add-hook 'coffee-mode-hook '$coffee-mode-hook)
-
-
 (load (locate-user-emacs-file "bootstrap"))
 
 
