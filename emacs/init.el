@@ -1378,11 +1378,6 @@ major mode isn't derived from `prog-mode'."
 (add-hook 'adoc-mode-hook '$adoc-mode-hook)
 
 
-;;; Perl Mode
-;; For Rex
-(add-to-list 'auto-mode-alist '("Rexfile\\'" . perl-mode))
-
-
 (load (locate-user-emacs-file "bootstrap"))
 
 
