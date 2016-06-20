@@ -1789,13 +1789,6 @@ major mode isn't derived from `prog-mode'."
 (add-to-list 'auto-mode-alist '("Dockerfile\\'" . dockerfile-mode))
 
 
-;;; git-modes
-;; [[https://github.com/magit/git-modes]]
-
-;; Also edit config file of bare repo by `gitconfig-mode'.
-(add-to-list 'auto-mode-alist '("\\.git/config\\'" . gitconfig-mode))
-
-
 (load (locate-user-emacs-file "bootstrap"))
 
 
