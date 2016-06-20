@@ -1517,15 +1517,6 @@ major mode isn't derived from `prog-mode'."
 (add-hook 'scala-mode-hook '$scala-mode-hook)
 
 
-;;; Haskell Mode
-(require 'haskell-mode-autoloads nil t)
-
-(defun $haskell-mode-hook ()
-  ($prog-mode-hook*))
-
-(add-hook 'haskell-mode-hook '$haskell-mode-hook)
-
-
 (load (locate-user-emacs-file "bootstrap"))
 
 
