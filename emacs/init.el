@@ -1273,22 +1273,6 @@ major mode isn't derived from `prog-mode'."
 (add-hook 'java-mode-hook '$java-mode-hook)
 
 
-;;; JS Mode
-(defun $js-mode-hook ()
-  ($prog-mode-hook*)
-  ($camel-case-mode 1)
-  (cond ((or (require 'flycheck nil t)
-             (not flymake-mode)))
-        ((require 'flymake-jshint nil t)
-         (flymake-jshint-load))
-        ((require 'flymake-jslint nil t)
-         (flymake-jslint-load))))
-
-(setq js-indent-level 2)
-
-(add-hook 'js-mode-hook '$js-mode-hook)
-
-
 (load (locate-user-emacs-file "bootstrap"))
 
 
