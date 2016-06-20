@@ -1991,11 +1991,6 @@ from 'todotxt-file'." t)
 (eval-after-load 'flymake '($eval-after-load-flymake))
 
 
-;;; Whitespace
-;; `tab-mark` hurts my eyes.  Do not include it.
-(setq whitespace-style '(face trailing tabs lines-tail newline))
-
-
 (load (locate-user-emacs-file "bootstrap"))
 
 
