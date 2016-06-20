@@ -1551,16 +1551,6 @@ major mode isn't derived from `prog-mode'."
 (add-hook 'yaml-mode-hook '$yaml-mode-hook)
 
 
-;;; JSON Mode
-(add-to-list 'auto-mode-alist '("\\.bowerrc\\'" . json-mode))
-(add-to-list 'auto-mode-alist '("\\.babelrc\\'" . json-mode))
-
-(defun $json-mode-hook ()
-  ($prog-mode-hook*))
-
-(add-hook 'json-mode-hook '$json-mode-hook)
-
-
 (load (locate-user-emacs-file "bootstrap"))
 
 
