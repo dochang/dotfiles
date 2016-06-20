@@ -1879,16 +1879,6 @@ from 'todotxt-file'." t)
 (setq todotxt-file (expand-file-name "~/todo/todo.txt"))
 
 
-;;; Magit
-;; [[http://magit.github.com/magit/]]
-;; [[http://github.com/magit/magit]]
-;; [[http://daemianmack.com/magit-cheatsheet.html]]
-(global-set-key "\C-cg" 'magit-status)
-
-;; Don't pop a new window.
-(setq magit-status-buffer-switch-function 'switch-to-buffer)
-
-
 (load (locate-user-emacs-file "bootstrap"))
 
 
