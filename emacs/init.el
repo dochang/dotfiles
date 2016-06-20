@@ -1731,25 +1731,6 @@ major mode isn't derived from `prog-mode'."
 (add-hook 'coffee-mode-hook '$coffee-mode-hook)
 
 
-;;; LiveScript Mode
-;; There're 3 versions of livescript-mode.
-;;
-;; - [[https://github.com/tensai-cirno/livescript-mode]]
-;; - [[https://github.com/yhisamatsu/livescript-mode]]
-;; - [[https://github.com/bdowning/livescript-mode]]
-;;
-;; Here we use the one from yhisamatsu.
-;;
-;; See [[https://github.com/gkz/LiveScript/wiki/Projects-supporting-LiveScript#editor-support]]
-(add-to-list 'auto-mode-alist '("Slakefile\\'" . livescript-mode))
-
-(defun $livescript-mode-hook ()
-  ($prog-mode-hook*)
-  ($camel-case-mode 1))
-
-(add-hook 'livescript-mode-hook '$livescript-mode-hook)
-
-
 (load (locate-user-emacs-file "bootstrap"))
 
 
