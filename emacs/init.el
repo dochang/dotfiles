@@ -1420,29 +1420,6 @@ major mode isn't derived from `prog-mode'."
 (add-hook 'ruby-mode-hook '$ruby-mode-hook)
 
 
-;;; Lua Mode
-;; [[http://immerrr.github.com/lua-mode/]]
-;; [[https://github.com/immerrr/lua-mode]]
-(setq lua-indent-level 2)
-
-;; Lua Block Mode
-;;
-;; [[http://www.emacswiki.org/emacs/LuaBlockMode]]
-(setq lua-block-highlight-toggle t)
-
-(defun $lua-mode-hook ()
-  ($prog-mode-hook*)
-  (when (require 'lua-block nil t)
-    (lua-block-mode 1)))
-
-(add-hook 'lua-mode-hook '$lua-mode-hook)
-
-(defun $eval-after-load-lua-mode ()
-  (require 'lua2-mode nil t))
-
-(eval-after-load 'compile '($eval-after-load-lua-mode))
-
-
 (load (locate-user-emacs-file "bootstrap"))
 
 
