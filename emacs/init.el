@@ -1383,13 +1383,6 @@ major mode isn't derived from `prog-mode'."
 (add-to-list 'auto-mode-alist '("Rexfile\\'" . perl-mode))
 
 
-;;; Python Mode
-
-;; pip-requirements-mode
-(add-to-list 'auto-mode-alist
-             '("requirements.txt\\'" . pip-requirements-mode))
-
-
 (load (locate-user-emacs-file "bootstrap"))
 
 
