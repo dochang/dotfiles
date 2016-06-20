@@ -1628,16 +1628,6 @@ major mode isn't derived from `prog-mode'."
 (add-hook 'jade-mode-hook '$jade-mode-hook)
 
 
-;;; Stylus Mode
-;; [[https://github.com/brianc/jade-mode]]
-(defun $stylus-mode-hook ()
-  ($prog-mode-hook*)
-  (when (require 'rainbow-mode nil t)
-    (rainbow-mode 1)))
-
-(add-hook 'stylus-mode-hook '$stylus-mode-hook)
-
-
 (load (locate-user-emacs-file "bootstrap"))
 
 
