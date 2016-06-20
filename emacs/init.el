@@ -1620,14 +1620,6 @@ major mode isn't derived from `prog-mode'."
 (setq less-css-compile-at-save nil)
 
 
-;;; Jade Mode
-;; [[https://github.com/brianc/jade-mode]]
-(defun $jade-mode-hook ()
-  ($prog-mode-hook*))
-
-(add-hook 'jade-mode-hook '$jade-mode-hook)
-
-
 (load (locate-user-emacs-file "bootstrap"))
 
 
