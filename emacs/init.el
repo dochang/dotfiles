@@ -1696,16 +1696,6 @@ major mode isn't derived from `prog-mode'."
 (add-hook 'handlebars-mode-hook '$handlebars-mode-hook)
 
 
-;;; Go Mode
-;; [[http://golang.org/misc/emacs/]]
-(defun $go-mode-hook ()
-  ($prog-mode-hook*)
-  ($camel-case-mode 1)
-  (setq indent-tabs-mode t))
-
-(add-hook 'go-mode-hook '$go-mode-hook)
-
-
 (load (locate-user-emacs-file "bootstrap"))
 
 
