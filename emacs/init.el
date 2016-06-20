@@ -1766,16 +1766,6 @@ major mode isn't derived from `prog-mode'."
 (add-hook 'groovy-mode-hook '$groovy-mode-hook)
 
 
-;;; Erlang Mode
-;; [[http://melpa.milkbox.net/#/erlang]]
-(add-to-list 'auto-mode-alist '("\\.erl$" . erlang-mode))
-
-(defun $erlang-mode-hook ()
-  ($prog-mode-hook*))
-
-(add-hook 'erlang-mode-hook '$erlang-mode-hook)
-
-
 (load (locate-user-emacs-file "bootstrap"))
 
 
