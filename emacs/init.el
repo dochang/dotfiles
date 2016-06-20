@@ -1784,11 +1784,6 @@ major mode isn't derived from `prog-mode'."
 (add-hook 'elixir-mode-hook '$elixir-mode-hook)
 
 
-;;; Dockerfile Mode
-;; [[https://github.com/spotify/dockerfile-mode]]
-(add-to-list 'auto-mode-alist '("Dockerfile\\'" . dockerfile-mode))
-
-
 (load (locate-user-emacs-file "bootstrap"))
 
 
