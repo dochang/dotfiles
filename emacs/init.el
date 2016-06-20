@@ -1502,21 +1502,6 @@ major mode isn't derived from `prog-mode'."
 (eval-after-load 'nxml-mode '($eval-after-load-nxml-mode))
 
 
-;;; Scala Mode
-(defun $scala-mode-hook ()
-  ($prog-mode-hook*)
-  ($camel-case-mode 1)
-  ;; Flycheck is too strict for `*.sbt'.  Use flymake instead.
-  (when (or (null buffer-file-name)
-            ($file-name-match "\\.sbt\\'" buffer-file-name))
-    (when (require 'flycheck nil t)
-      (flycheck-mode -1))
-    (when (require 'flymake nil t)
-      (flymake-mode 1))))
-
-(add-hook 'scala-mode-hook '$scala-mode-hook)
-
-
 (load (locate-user-emacs-file "bootstrap"))
 
 
