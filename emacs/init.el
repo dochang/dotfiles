@@ -1390,36 +1390,6 @@ major mode isn't derived from `prog-mode'."
              '("requirements.txt\\'" . pip-requirements-mode))
 
 
-;;; Ruby Mode
-;; For Gem
-(add-to-list 'auto-mode-alist '("\\.gemspec\\'" . ruby-mode))
-;; For Bundler
-(add-to-list 'auto-mode-alist '("Gemfile\\'" . ruby-mode))
-;; For Rack
-(add-to-list 'auto-mode-alist '("config\\.ru\\'" . ruby-mode))
-;; For Rake
-(add-to-list 'auto-mode-alist '("\\.rake\\'" . ruby-mode))
-
-;; Ruby Block Mode
-;;
-;; [[http://www.emacswiki.org/emacs/RubyBlockMode]]
-(setq ruby-block-highlight-toggle t)
-
-(defun $ruby-mode-hook ()
-  ($prog-mode-hook*)
-  (when (and (not (require 'flycheck nil t))
-             flymake-mode
-             (require 'flymake-ruby nil t))
-    (flymake-ruby-load))
-  (local-set-key "\C-\M-h" 'ruby-mark-defun)
-  (when (require 'inf-ruby nil t)
-    (inf-ruby-minor-mode))
-  (when (require 'ruby-block nil t)
-    (ruby-block-mode 1)))
-
-(add-hook 'ruby-mode-hook '$ruby-mode-hook)
-
-
 (load (locate-user-emacs-file "bootstrap"))
 
 
