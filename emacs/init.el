@@ -1805,22 +1805,6 @@ major mode isn't derived from `prog-mode'."
 (add-hook 'dns-mode-hook '$dns-mode-hook)
 
 
-;;; FVWM Mode
-;; [[http://www.emacswiki.org/FvwmMode]]
-;; [[http://www.lair.be/projects_fvwm-mode.php]]
-(autoload 'fvwm-mode "fvwm-mode"
-  "Major mode for editing Fvwm configuration files." t)
-(add-to-list 'auto-mode-alist
-             '("\\.fvwm2rc\\'" . fvwm-mode))
-(add-to-list 'auto-mode-alist
-             '("/\\.fvwm/config\\'" . fvwm-mode))
-
-(defun $fvwm-mode-hook ()
-  ($prog-mode-hook*))
-
-(add-hook 'fvwm-mode-hook '$fvwm-mode-hook)
-
-
 (load (locate-user-emacs-file "bootstrap"))
 
 
