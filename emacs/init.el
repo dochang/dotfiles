@@ -1569,20 +1569,6 @@ major mode isn't derived from `prog-mode'."
 (add-hook 'haml-mode-hook '$haml-mode-hook)
 
 
-;;; Sass Mode
-;; [[https://github.com/nex3/sass-mode]]
-
-(defun $sass-mode-hook ()
-  ;; No need to eval `$prog-mode-hook', `$haml-mode-hook' will do this since
-  ;; `sass-mode' is derived from `haml-mode'.
-  (unless (derived-mode-p 'haml-mode)
-    ($prog-mode-hook*))
-  (when (require 'rainbow-mode nil t)
-    (rainbow-mode 1)))
-
-(add-hook 'sass-mode-hook '$sass-mode-hook)
-
-
 (load (locate-user-emacs-file "bootstrap"))
 
 
