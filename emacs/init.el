@@ -1465,14 +1465,6 @@ major mode isn't derived from `prog-mode'."
 (add-hook 'readme-debian-mode-hook '$readme-debian-mode-hook)
 
 
-;;; Makefile Mode
-(defun $makefile-mode-hook ()
-  ($prog-mode-hook*)
-  (setq indent-tabs-mode t))
-
-(add-hook 'makefile-mode-hook '$makefile-mode-hook)
-
-
 (load (locate-user-emacs-file "bootstrap"))
 
 
