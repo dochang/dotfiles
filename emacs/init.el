@@ -1357,27 +1357,6 @@ major mode isn't derived from `prog-mode'."
 (add-hook 'css-mode-hook '$css-mode-hook)
 
 
-;;; Asciidoc
-(autoload 'doc-mode "doc-mode" nil t)
-(autoload 'adoc-mode "adoc-mode" nil t)
-(add-to-list 'auto-mode-alist '("\\.adoc\\'" . adoc-mode))
-(add-to-list 'auto-mode-alist '("\\.asciidoc\\'" . adoc-mode))
-
-(defun $load-asciidoc (global-map)
-  (when (require 'asciidoc nil t)
-    (easy-menu-define
-      asciidoc-global-menu global-map "" asciidoc-global-menuspec)))
-
-(eval-after-load 'doc-mode '($load-asciidoc doc-mode-map))
-(eval-after-load 'adoc-mode '($load-asciidoc adoc-mode-map))
-
-(defun $adoc-mode-hook ()
-  (linum-mode 1))
-
-(add-hook 'doc-mode-hook '$adoc-mode-hook)
-(add-hook 'adoc-mode-hook '$adoc-mode-hook)
-
-
 (load (locate-user-emacs-file "bootstrap"))
 
 
