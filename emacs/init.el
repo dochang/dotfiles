@@ -1638,14 +1638,6 @@ major mode isn't derived from `prog-mode'."
 (add-hook 'stylus-mode-hook '$stylus-mode-hook)
 
 
-;;; Slim Mode
-;; [[https://github.com/slim-template/emacs-slim]]
-(defun $slim-mode-hook ()
-  ($prog-mode-hook*))
-
-(add-hook 'slim-mode-hook '$slim-mode-hook)
-
-
 (load (locate-user-emacs-file "bootstrap"))
 
 
