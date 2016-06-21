@@ -1111,27 +1111,6 @@ major mode isn't derived from `prog-mode'."
     (subword-mode arg)))
 
 
-;;; Generic Modes
-
-;; `generic-extras-enable-list' has to be set *before* loading
-;; `generic-x'
-;;
-;; Disable all generic modes.
-(setq generic-extras-enable-list '())
-
-;; `xmodmap-generic-mode' only exists in emacs >= 24
-(when (>= emacs-major-version 24)
-  (add-to-list 'generic-extras-enable-list 'xmodmap-generic-mode))
-
-(require 'generic-x nil t)
-
-;; Xmodmap Generic Mode
-(defun $xmodmap-generic-mode-hook ()
-  ($prog-mode-hook*))
-
-(add-hook 'xmodmap-generic-mode-hook '$xmodmap-generic-mode-hook)
-
-
 ;;; Lisp Common Mode
 (defun $lisp-mode-common-hook ()
   (when (require 'paredit nil t)
@@ -1185,6 +1164,7 @@ major mode isn't derived from `prog-mode'."
   (df-mode 1)
   (require 'chinese-fonts-setup nil 'noerror)
   (global-pointback-mode 1)
+  (require 'generic-x)
   ;; Load MMM Mode autoloads & default settings
   (require 'mmm-auto)
   (require 'mmm-defaults)
