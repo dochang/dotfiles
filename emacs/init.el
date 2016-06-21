@@ -1039,13 +1039,6 @@ Chromium."
 (setq comment-fill-column nil)
 
 
-;;; indent-guide
-;; [[https://github.com/zk-phi/indent-guide]]
-
-;; DO NOT draw all guide lines.  It's very slow when there're too many levels.
-(setq indent-guide-recursive nil)
-
-
 ;;; Prog Mode
 (defun $prog-mode-hook ()
   (linum-mode 1)
@@ -1065,8 +1058,7 @@ Chromium."
   ;; Enable Flyspell Prog Mode.  This invokes `(flyspell-mode 1)'.
   ;; Eval `(flyspell-mode -1)' to disable it.
   (flyspell-prog-mode)
-  (when (require 'indent-guide nil t)
-    (indent-guide-mode 1))
+  (indent-guide-mode 1)
   (when (and nil (require 'cedit nil t))
     ;; Strings cannot contain non-ASCII control characters.  Use `(kbd "C-.")'
     ;; or `[?\C-.]' etc instead.
