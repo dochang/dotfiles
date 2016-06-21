@@ -722,6 +722,8 @@ major mode isn't derived from `prog-mode'."
   ;; Disable by default since it doesn't work well in some modes such as
   ;; `yaml-mode'.
   (electric-indent-mode -1)
+  (unless (bound-and-true-p **org-timer**)
+    (setq **org-timer** (run-at-time nil 3600 'org-agenda-to-appt)))
   (appt-activate 1)
   (unless **theme-initialized**
     ($theme-initialize))

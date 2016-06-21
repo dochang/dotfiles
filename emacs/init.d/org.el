@@ -120,7 +120,7 @@
   (linum-mode 1)
   (setq truncate-lines nil))
 
-(defvar **org-timer** (run-at-time nil 3600 'org-agenda-to-appt))
+(defvar **org-timer**)
 
 (req-package org-plus-contrib
   :bind (("C-c l" . org-store-link)
