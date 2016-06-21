@@ -519,7 +519,7 @@ return value of `message-unique-id'."
 
 ;; zenburn-theme
 (add-to-list 'safe-local-eval-forms
-             '(when (require 'rainbow-mode nil t) (rainbow-mode 1)))
+             '(rainbow-mode 1))
 (add-to-list '**custom-themes** 'zenburn)
 
 ;; color-theme-zenburn
