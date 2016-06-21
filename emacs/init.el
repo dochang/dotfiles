@@ -967,24 +967,6 @@ Chromium."
       calendar-week-start-day 1)
 
 
-;;; Info
-(defun $Info-mode-hook ()
-  (scroll-lock-mode 1))
-
-(add-hook 'Info-mode-hook '$Info-mode-hook)
-
-(defvar **default-Info-default-directory-list** Info-default-directory-list)
-
-;; Put "~/local/share/info" before other dirs.
-;;
-;; Why not use `Info-directory-list'?  Because it is `nil' after info
-;; loaded.  `info-initialize' initializes it based on
-;; `Info-default-directory-list'.
-(setq Info-default-directory-list
-      (cons (expand-file-name "~/local/share/info/")
-            **default-Info-default-directory-list**))
-
-
 ;;; Appointments
 ;; Do not beep in `appt-display-message' since `visible-bell' is set
 ;; to `t'.
