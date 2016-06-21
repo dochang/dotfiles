@@ -322,23 +322,6 @@ return value of `message-unique-id'."
 (global-set-key [Scroll_Lock] 'scroll-lock-mode)
 
 
-;;; View Mode
-;; Enter View mode when a buffer become read-only.
-(setq view-read-only t)
-
-(defun $eval-after-load-view ()
-  ;; Bind "less"-like key bindings
-  (define-key view-mode-map "N" 'View-search-last-regexp-backward)
-  (define-key view-mode-map "?" 'View-search-regexp-backward)
-  (define-key view-mode-map "G" 'View-goto-line-last)
-  (define-key view-mode-map "k" 'View-scroll-line-backward)
-  (define-key view-mode-map "j" 'View-scroll-line-forward)
-  (define-key view-mode-map "b" 'View-scroll-page-backward)
-  (define-key view-mode-map "f" 'View-scroll-page-forward))
-
-(eval-after-load 'view '($eval-after-load-view))
-
-
 ;;; Midnight Mode
 ;;; [[info:emacs#Kill%20Buffer]]
 (require 'midnight nil t)
