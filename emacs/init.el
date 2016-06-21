@@ -369,10 +369,6 @@ return value of `message-unique-id'."
 (setq scroll-preserve-screen-position t)
 
 
-;;; Checking and Correcting Spelling
-;; Use aspell for spell-checking.
-(setq ispell-program-name "aspell")
-
 ;;; Auto Revert Mode
 (global-auto-revert-mode 1)
 
