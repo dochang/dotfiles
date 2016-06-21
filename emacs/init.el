@@ -81,12 +81,6 @@
 
 ;;; * Mail Config
 ;;;
-;;; ** What is Message Mode?
-;;;
-;;;    Message mode is an alternative to mail mode for composing and
-;;;    sending messages inside emacs.  It's the preferred mode used by
-;;;    gnus.  However it can be used independently from gnus.
-;;;
 ;;; ** How to compute the mail address?
 ;;;
 ;;;    - [[info:emacs#Mail%20Headers]]
@@ -158,31 +152,8 @@
       send-mail-function 'sendmail-send-it
       ;; Use `message-user-agent' for mail composition.
       ;; [[info:emacs#Mail%20Methods]]
-      mail-user-agent 'message-user-agent
-      ;; Set domain part of Message-Ids to a fully qualified domain name.
-      ;; [[info:message#News%20Headers]]
-      message-user-fqdn (or (bound-and-true-p message-user-fqdn)
-                            (let ((parts (split-string user-mail-address "@")))
-                              (and (> (length parts) 1) (last parts)))
-                            "mail.gmail.com")
-      ;; `message-from-style' overrides `mail-from-style' in message mode.
-      ;; [[info:message#Message%20Headers]]
-      ;; [[info:message#News%20Headers]]
-      message-from-style 'angles
-      ;; Turn off auto-fill-mode, but filling can be done by manual.
-      message-fill-column nil
-      ;; Do not use `unsent'.  `C-u C-x m' cannot switch to such a
-      ;; buffer whose name begins with "*unsent ".
-      message-generate-new-buffers 'unique
-      ;; Ask for confirmation when sending a message.
-      message-confirm-send t
-      ;; Kill the message buffer after sending a message.
-      message-kill-buffer-on-exit t)
+      mail-user-agent 'message-user-agent)
 
-(defun $message-setup-hook ()
-  (flyspell-mode 1))
-
-(add-hook 'message-setup-hook '$message-setup-hook)
 
 (defun $trim (s)
   "Remove whitespace at beginning and end of string."
@@ -200,16 +171,6 @@
 (defun $uuidgen-p (s)
   "Is S an ID created by UUIDGEN?"
   (string-match "\\`[0-9a-f]\\{8\\}-[0-9a-f]\\{4\\}-[0-9a-f]\\{4\\}-[0-9a-f]\\{4\\}-[0-9a-f]\\{12\\}\\'" (downcase s)))
-
-(defun $message-unique-id-by-uuid (unique-id)
-  "Return an UUID if available.  Otherwise, return the original
-return value of `message-unique-id'."
-  (let ((uuid ($uuid)))
-    (if ($uuidgen-p uuid)
-        uuid
-      unique-id)))
-
-(advice-add 'message-unique-id :filter-return '$message-unique-id-by-uuid)
 
 (defun $buffer-file-name (&optional name)
   ;; The following code is borrowed from `lisp/files.el' in Emacs source code.
