@@ -388,13 +388,6 @@ return value of `message-unique-id'."
   (setq uniquify-buffer-name-style 'post-forward))
 
 
-;;; Help Mode
-(defun $help-mode-hook ()
-  (scroll-lock-mode 1))
-
-(add-hook 'help-mode-hook '$help-mode-hook)
-
-
 ;;; Cut & Paste, Kill Ring, Clipboard, Selection
 ;;; [[info:emacs#Cut%20and%20Paste]]
 (setq x-select-enable-primary t
