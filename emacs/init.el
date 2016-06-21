@@ -279,13 +279,6 @@ return value of `message-unique-id'."
   (define-key special-mode-map "z" 'kill-this-buffer))
 
 
-;;; Text Mode
-(defun $text-mode-hook ()
-  (flyspell-mode 1))
-
-(add-hook 'text-mode-hook '$text-mode-hook)
-
-
 ;;; Set fill column to 79
 ;; A line begins at column 0 in Emacs.  79 is the last column on an 80-width
 ;; screen.  Do not occupy column 79, leave it for filling.
