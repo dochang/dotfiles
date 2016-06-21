@@ -1247,32 +1247,6 @@ major mode isn't derived from `prog-mode'."
 (add-hook 'clojure-mode-hook '$clojure-mode-hook)
 
 
-;;; CC Mode
-(defun $c-initialization-hook ()
-  (smart-tabs-insinuate 'c 'c++ 'java))
-
-(add-hook 'c-initialization-hook '$c-initialization-hook)
-
-(defun $c-mode-common-hook ()
-  ($prog-mode-hook*)
-  ;; Fix the indentation for anonymous class in java-mode.
-  ;;
-  ;; [[https://stackoverflow.com/a/7619497]]
-  ;; [[http://www.mail-archive.com/jde@sunsite.auc.dk/msg01159.html]]
-  (c-set-offset 'substatement-open 0)
-  (when (assoc 'inexpr-class c-offsets-alist)
-    (c-set-offset 'inexpr-class 0))
-  (c-set-offset 'arglist-intro '+)
-  (c-set-offset 'arglist-close 0))
-
-(add-hook 'c-mode-common-hook '$c-mode-common-hook)
-
-(defun $java-mode-hook ()
-  ($camel-case-mode 1))
-
-(add-hook 'java-mode-hook '$java-mode-hook)
-
-
 (load (locate-user-emacs-file "bootstrap"))
 
 
