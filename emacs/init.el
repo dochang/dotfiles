@@ -802,17 +802,6 @@ Chromium."
 (eval-after-load 'woman '($eval-after-load-woman))
 
 
-;;; Tramp
-(defun $add-tramp-environments ()
-  ;; Required by `tramp-remote-process-environment'.
-  (require 'tramp-sh)
-  (mapc (lambda (var)
-          (add-to-list 'tramp-remote-process-environment var))
-        '("GIT_PAGER=cat" "PAGER=cat" "LANGUAGE=C" "LANG=C" "LC_ALL=")))
-
-(eval-after-load 'tramp '($add-tramp-environments))
-
-
 ;;; Comparing Files in Unified Format
 ;;; [[info:emacs#Comparing%20Files]]
 (setq diff-switches "-u")
