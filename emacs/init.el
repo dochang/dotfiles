@@ -1049,8 +1049,7 @@ Chromium."
   ;; fci-mode has many issues [1].  DO NOT enable it.
   ;;
   ;; [1] https://github.com/alpaker/Fill-Column-Indicator/issues
-  (when (require 'fill-column-indicator nil t)
-    (fci-mode -1))
+  (fci-mode -1)
   ;; Enable Rainbow-Delimiters mode.
   (rainbow-delimiters-mode)
   (flycheck-mode 1)
