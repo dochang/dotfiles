@@ -961,12 +961,6 @@ Chromium."
 (defvar **org-timer** (run-at-time nil 3600 'org-agenda-to-appt))
 
 
-;;; Appointments
-;; Do not beep in `appt-display-message' since `visible-bell' is set
-;; to `t'.
-(setq appt-audible nil)
-
-
 ;;; Comparing Files in Unified Format
 ;;; [[info:emacs#Comparing%20Files]]
 (setq diff-switches "-u")
