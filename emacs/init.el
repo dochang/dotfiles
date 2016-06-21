@@ -770,38 +770,6 @@ Chromium."
 (setq mpc-browser-tags '(Artist|Composer|Performer Album|Playlist Title))
 
 
-;;; WoMan
-
-;; How to enable `scroll-lock-mode'?
-;;
-;; Since `woman-mode' runs `Man-mode', we can enable
-;; `scroll-lock-mode' in `Man-mode-hook'.
-
-;;; Use most of the frame width.
-;;; Override the value of `woman-fill-column'.
-;;; [[info:woman#Formatting%20Options]
-(setq woman-fill-frame t)
-
-;;; Don't use a dedicated frame for displaying woman mode.
-(setq woman-use-own-frame nil)
-
-;;; Unset `woman-locale' if locale is not "C".
-(setq woman-locale nil)
-
-(defvar **default-woman-manpath**)
-
-(defun $eval-after-load-woman ()
-  (unless (boundp '**default-woman-path**)
-    (setq **default-woman-path** woman-manpath))
-  ;; Put "~/local/share/man" at the beginning of `woman-manpath'
-  (setq woman-manpath
-        (cons (cons (expand-file-name "~/local/bin")
-                    (expand-file-name "~/local/share/man"))
-              **default-woman-path**)))
-
-(eval-after-load 'woman '($eval-after-load-woman))
-
-
 ;;; Comparing Files in Unified Format
 ;;; [[info:emacs#Comparing%20Files]]
 (setq diff-switches "-u")
