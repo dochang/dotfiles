@@ -985,16 +985,6 @@ Chromium."
             **default-Info-default-directory-list**))
 
 
-;;; Man
-(defun $Man-mode-hook ()
-  (scroll-lock-mode 1))
-
-(add-hook 'Man-mode-hook '$Man-mode-hook)
-
-;; Make the manpage the current buffer in the current window
-(setq Man-notify-method 'pushy)
-
-
 ;;; OfflineIMAP
 ;;; [[http://julien.danjou.info/projects/emacs-packages#offlineimap]]
 
