@@ -1229,14 +1229,6 @@ major mode isn't derived from `prog-mode'."
 (add-hook 'slime-load-hook '$slime-load-hook)
 
 
-;;; Scheme Mode
-(defun $scheme-mode-hook ()
-  ($prog-mode-hook*)
-  ($lisp-mode-common-hook))
-
-(add-hook 'scheme-mode-hook '$scheme-mode-hook)
-
-
 (load (locate-user-emacs-file "bootstrap"))
 
 
