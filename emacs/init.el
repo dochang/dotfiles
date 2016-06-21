@@ -332,12 +332,6 @@ return value of `message-unique-id'."
 (ido-mode 1)
 
 
-;;; Make Buffer Names Unique
-;;; [[info:emacs#Uniquify]]
-(when (require 'uniquify nil t)
-  (setq uniquify-buffer-name-style 'post-forward))
-
-
 ;;; Cut & Paste, Kill Ring, Clipboard, Selection
 ;;; [[info:emacs#Cut%20and%20Paste]]
 (setq x-select-enable-primary t
@@ -768,6 +762,7 @@ major mode isn't derived from `prog-mode'."
   (df-mode 1)
   (require 'chinese-fonts-setup nil 'noerror)
   (global-pointback-mode 1)
+  (require 'uniquify)
   (require 'generic-x)
   ;; Load MMM Mode autoloads & default settings
   (require 'mmm-auto)
