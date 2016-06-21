@@ -373,10 +373,6 @@ return value of `message-unique-id'."
 ;; Use aspell for spell-checking.
 (setq ispell-program-name "aspell")
 
-;; Flyspell
-(setq flyspell-use-meta-tab nil)
-
-
 ;;; Auto Revert Mode
 (global-auto-revert-mode 1)
 
