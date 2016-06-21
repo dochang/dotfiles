@@ -1113,15 +1113,14 @@ major mode isn't derived from `prog-mode'."
 
 ;;; Lisp Common Mode
 (defun $lisp-mode-common-hook ()
-  (when (require 'paredit nil t)
-    (enable-paredit-mode)
-    (when (and nil (require 'cedit nil t))
-      (local-set-key (kbd "C-)") 'cedit-or-paredit-slurp)
-      (local-set-key (kbd "C-<right>") 'cedit-or-paredit-slurp)
-      (local-set-key (kbd "C-}") 'cedit-or-paredit-barf)
-      (local-set-key (kbd "C-<left>") 'cedit-or-paredit-barf)
-      (local-set-key (kbd "M-<up>") 'cedit-or-paredit-splice-killing-backward)
-      (local-set-key (kbd "M-r") 'cedit-or-paredit-raise))))
+  (enable-paredit-mode)
+  (when (and nil (require 'cedit nil t))
+    (local-set-key (kbd "C-)") 'cedit-or-paredit-slurp)
+    (local-set-key (kbd "C-<right>") 'cedit-or-paredit-slurp)
+    (local-set-key (kbd "C-}") 'cedit-or-paredit-barf)
+    (local-set-key (kbd "C-<left>") 'cedit-or-paredit-barf)
+    (local-set-key (kbd "M-<up>") 'cedit-or-paredit-splice-killing-backward)
+    (local-set-key (kbd "M-r") 'cedit-or-paredit-raise)))
 
 
 (load (locate-user-emacs-file "bootstrap"))
