@@ -641,10 +641,6 @@ return value of `message-unique-id'."
 (add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
 
 
-;;; MPC
-(setq mpc-browser-tags '(Artist|Composer|Performer Album|Playlist Title))
-
-
 ;;; Comparing Files in Unified Format
 ;;; [[info:emacs#Comparing%20Files]]
 (setq diff-switches "-u")
