@@ -985,13 +985,6 @@ Chromium."
             **default-Info-default-directory-list**))
 
 
-;;; OfflineIMAP
-;;; [[http://julien.danjou.info/projects/emacs-packages#offlineimap]]
-
-;; Display the action as a text instead of a single symbol.
-(setq offlineimap-mode-line-style 'text)
-
-
 ;;; Appointments
 ;; Do not beep in `appt-display-message' since `visible-bell' is set
 ;; to `t'.
