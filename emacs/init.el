@@ -741,31 +741,6 @@ Chromium."
 (setq browse-url-browser-function '$browse-url-default-browser)
 
 
-;;; EMMS
-;; [[http://www.gnu.org/software/emms/]]
-(defun $eval-after-load-emms ()
-  (emms-minimalistic)
-  (require 'emms-playlist-mode nil t)
-  (emms-player-set emms-player-mplayer 'regex
-                   (concat "\\`\\(http\\|mms\\)://\\|"
-                           (emms-player-simple-regexp
-                            "ogg" "mp3" "wav" "mpg" "mpeg" "wmv" "wma"
-                            "mov" "avi" "divx" "ogm" "ogv" "asf" "mkv"
-                            "rm" "rmvb" "mp4" "flac" "vob" "m4a" "ape"
-                            "flv")))
-  (emms-default-players)
-  ;; mpv support for EMMS
-  ;;
-  ;; [[https://github.com/dochang/emms-player-mpv]]
-  (when (require 'emms-player-mpv nil t)
-    (add-to-list 'emms-player-list 'emms-player-mpv))
-  ;; Do not save playlist for EMMS.
-  (setq emms-history-file nil)
-  (setq emms-player-mpd-music-directory "~/media/music/"))
-
-(eval-after-load 'emms '($eval-after-load-emms))
-
-
 ;;; MPC
 (setq mpc-browser-tags '(Artist|Composer|Performer Album|Playlist Title))
 
