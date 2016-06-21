@@ -1052,8 +1052,7 @@ Chromium."
   (when (require 'fill-column-indicator nil t)
     (fci-mode -1))
   ;; Enable Rainbow-Delimiters mode.
-  (when (require 'rainbow-delimiters nil t)
-    (rainbow-delimiters-mode))
+  (rainbow-delimiters-mode)
   (flycheck-mode 1)
   ;; Enable Flyspell Prog Mode.  This invokes `(flyspell-mode 1)'.
   ;; Eval `(flyspell-mode -1)' to disable it.
