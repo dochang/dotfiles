@@ -320,18 +320,6 @@ return value of `message-unique-id'."
 (require 'midnight nil t)
 
 
-;;; Ido Mode
-;; [[http://www.emacswiki.org/emacs/InteractivelyDoThings]]
-;; [[http://ergoemacs.org/emacs/emacs_icomplete_vs_ido.html]]
-;; [[http://ergoemacs.org/emacs/emacs_iswitch_vs_ido.html]]
-(setq ido-confirm-unique-completion t)
-;; Disable automatic file search in ido mode
-;;
-;; [[http://stackoverflow.com/a/18089076]]
-(setq ido-auto-merge-work-directories-length -1)
-(ido-mode 1)
-
-
 ;;; Cut & Paste, Kill Ring, Clipboard, Selection
 ;;; [[info:emacs#Cut%20and%20Paste]]
 (setq x-select-enable-primary t
@@ -762,6 +750,7 @@ major mode isn't derived from `prog-mode'."
   (df-mode 1)
   (require 'chinese-fonts-setup nil 'noerror)
   (global-pointback-mode 1)
+  (ido-mode 1)
   (require 'uniquify)
   (require 'generic-x)
   ;; Load MMM Mode autoloads & default settings
