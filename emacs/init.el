@@ -966,16 +966,6 @@ Chromium."
 (setq diff-switches "-u")
 
 
-;;; VC Mode
-
-;;; Disable VC Mode
-(setq vc-handled-backends '())
-
-;;; Don't ask if visiting a symlink to a file under version control.
-;;; Follow it.
-(setq vc-follow-symlinks t)
-
-
 ;;; Which Function Mode
 (which-function-mode 1)
 
