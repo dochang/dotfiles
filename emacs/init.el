@@ -1237,16 +1237,6 @@ major mode isn't derived from `prog-mode'."
 (add-hook 'scheme-mode-hook '$scheme-mode-hook)
 
 
-;;; Clojure Mode
-;; [[http://www.emacswiki.org/emacs/ClojureMode]]
-;; [[https://github.com/clojure-emacs/clojure-mode]]
-(defun $clojure-mode-hook ()
-  ($prog-mode-hook*)
-  ($lisp-mode-common-hook))
-
-(add-hook 'clojure-mode-hook '$clojure-mode-hook)
-
-
 (load (locate-user-emacs-file "bootstrap"))
 
 
