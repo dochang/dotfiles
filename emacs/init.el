@@ -961,12 +961,6 @@ Chromium."
 (defvar **org-timer** (run-at-time nil 3600 'org-agenda-to-appt))
 
 
-;;; Calendar
-(setq calendar-chinese-all-holidays-flag t
-      calendar-mark-holidays-flag t
-      calendar-week-start-day 1)
-
-
 ;;; Appointments
 ;; Do not beep in `appt-display-message' since `visible-bell' is set
 ;; to `t'.
