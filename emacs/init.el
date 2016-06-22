@@ -2291,7 +2291,6 @@ from 'todotxt-file'." t)
   (global-fringe-current-line-mode 1)
   (which-key-mode 1)
   (which-key-setup-side-window-right)
-  (flycheck-package-setup)
   (when (require 'auth-password-store nil t)
     (auth-pass-enable))
   ;; focus-autosave-mode
