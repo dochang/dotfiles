@@ -255,7 +255,10 @@
                :branch "keep-indent-setting"
                :library smart-tabs-mode)
         (:name df-mode
+               :website "http://www.emacswiki.org/emacs/download/df-mode.el"
+               :description "Minor mode to show space left on devices in the mode line "
                :lazy nil
+               :type emacswiki
                :features (df-mode))
         (:name groovy-emacs-mode
                :library groovy-mode)
