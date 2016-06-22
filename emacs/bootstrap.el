@@ -13,6 +13,7 @@
                 (t
                  (url-retrieve-synchronously url))))
       (let (el-get-master-branch
+            el-get-install-skip-emacswiki-recipes
             (el-get-git-install-url (getenv "EL_GET_GIT_INSTALL_URL")))
         (when (and (stringp el-get-git-install-url)
                    (string= "" el-get-git-install-url))
