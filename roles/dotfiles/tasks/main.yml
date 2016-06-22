@@ -74,6 +74,8 @@
 - include: less.yml
 
 - include: emacs.yml
+  tags:
+    - emacs
 
 - include: dothostname.yml
   vars:
