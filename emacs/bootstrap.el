@@ -38,13 +38,11 @@
 (advice-add 'url-http :override 'mb-url-http-curl)
 
 (unless (package-installed-p 'mb-url)
+  (unless (assq 'mb-url package-archive-contents)
+    (package-refresh-contents))
   (package-install 'mb-url))
-;; If the archive contents are empty, there is no need to call
-;; `package-refresh-contents'.  `package-install' will refresh the archive
-;; contents if empty.
-;;
-;; If mb-url has been installed, I believe the archive contents are not
-;; empty.  If there are anything wrong, clear the archive.
+;; If mb-url has not been installed, I believe the archive contents are empty.
+;; If mb-url cannot be installed, clear the archive.
 
 ;; Delete el-get bootstrap mb-url
 (when (el-get-package-installed-p 'mb-url)
