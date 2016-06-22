@@ -599,22 +599,29 @@
 
 ;;; Prog Mode
 (defun $prog-mode-hook ()
-  (linum-mode 1)
+  (when (require 'linum nil 'noerror)
+    (linum-mode 1))
   ;; Enable Whitespace mode.
-  (whitespace-mode 1)
+  (when (require 'whitespace nil 'noerror)
+    (whitespace-mode 1))
   ;; Disable Fill-Column-Indicator mode.
   ;;
   ;; fci-mode has many issues [1].  DO NOT enable it.
   ;;
   ;; [1] https://github.com/alpaker/Fill-Column-Indicator/issues
-  (fci-mode -1)
+  (when (require 'fci-mode nil 'noerror)
+    (fci-mode -1))
   ;; Enable Rainbow-Delimiters mode.
-  (rainbow-delimiters-mode)
-  (flycheck-mode 1)
+  (when (require 'rainbow-delimiters nil 'noerror)
+    (rainbow-delimiters-mode))
+  (when (require 'flycheck nil 'noerror)
+    (flycheck-mode 1))
   ;; Enable Flyspell Prog Mode.  This invokes `(flyspell-mode 1)'.
   ;; Eval `(flyspell-mode -1)' to disable it.
-  (flyspell-prog-mode)
-  (indent-guide-mode 1)
+  (when (require 'flyspell nil 'noerror)
+    (flyspell-prog-mode))
+  (when (require 'indent-guide nil 'noerror)
+    (indent-guide-mode 1))
   (when (and nil (require 'cedit nil t))
     ;; Strings cannot contain non-ASCII control characters.  Use `(kbd "C-.")'
     ;; or `[?\C-.]' etc instead.
