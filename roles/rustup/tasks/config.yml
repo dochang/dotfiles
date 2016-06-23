@@ -1,0 +1,6 @@
+---
+- name: install ~/.cargo/config if not exist
+  template:
+    dest: '~/.cargo/config'
+    src: cargo/config
+    force: no

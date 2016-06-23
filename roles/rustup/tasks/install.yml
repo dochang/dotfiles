@@ -1,0 +1,42 @@
+---
+- name: set rustup cache dir
+  set_fact:
+    rustup_cache_dir: '{{ ansible_env.TMPDIR | default("/tmp") }}/ansible-rustup-{{ ansible_user_id }}-{{ ansible_date_time.epoch }}-{{ (2**48) | random }}'
+
+- name: set rustup install script path
+  set_fact:
+    rustup_install_script_path: '{{ rustup_cache_dir }}/rustup-init.sh'
+
+- name: ensure rustup cache dir present
+  file:
+    path: '{{ rustup_cache_dir }}'
+    state: directory
+
+- name: download rustup-init.sh
+  get_url:
+    dest: '{{ rustup_install_script_path }}'
+    force: yes
+    url: '{{ rustup_dist_server }}/rustup/rustup-init.sh'
+    validate_certs: yes
+
+- name: replace dist server in the script
+  replace:
+    dest: '{{ rustup_install_script_path }}'
+    regexp: '{{ "https://static.rust-lang.org" | regex_escape }}'
+    replace: '{{ rustup_dist_server | regex_replace("/*$", "") }}'
+    validate: '/bin/sh -n %s'
+
+- name: run the script
+  command: >-
+    /bin/sh {{ rustup_install_script_path }} -y
+    {{ rustup_no_modify_path | ternary("--no-modify-path", "") }}
+    {{ rustup_default_toolchain | ternary("--default-toolchain " + (rustup_default_toolchain or ""), "") }}
+    {{ rustup_default_host | ternary("--default-host " + (rustup_default_host or ""), "") }}
+  environment:
+    RUSTUP_DIST_SERVER: '{{ rustup_dist_server }}'
+    RUSTUP_HOME: '{{ rustup_home | expanduser }}'
+
+- name: delete cache dir
+  file:
+    path: '{{ rustup_cache_dir }}'
+    state: absent

@@ -1,0 +1,2 @@
+[registry]
+index = {{ rustup_cargo_registry_index | to_json }}

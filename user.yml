@@ -4,3 +4,7 @@
   roles:
 
     - role: userconfig
+
+    - role: rustup
+      tags:
+        - rust
