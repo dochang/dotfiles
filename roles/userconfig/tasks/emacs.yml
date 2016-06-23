@@ -1,10 +1,5 @@
 ---
 
-- name: Deploy Emacs
-  command: ~/bin/deploy-emacs.sh
-  args:
-    chdir: '~'
-
 - name: Install Cask
   git:
     dest: ~/.cask
