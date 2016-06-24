@@ -351,115 +351,6 @@
          **color-themes**)
         (t '())))
 
-;; color-theme
-(defun $eval-after-load-color-theme ()
-  (color-theme-initialize)
-  ;; NIL doesn't work any more.
-  (setq color-theme-is-global t))
-
-(eval-after-load 'color-theme '($eval-after-load-color-theme))
-
-;; color-theme-blackboard
-(autoload 'color-theme-blackboard "color-theme-blackboard" nil t)
-(add-to-list '**color-themes** 'color-theme-blackboard)
-
-;; color-theme-hober2
-(autoload 'color-theme-hober2 "color-theme-hober2" nil t)
-(add-to-list '**color-themes** 'color-theme-hober2)
-
-;; hober2-theme
-(add-to-list '**custom-themes** 'hober2)
-
-;; color-theme-tango
-(autoload 'color-theme-tango "color-theme-tango" nil t)
-(add-to-list '**color-themes** 'color-theme-tango)
-
-;; color-theme-tangotango
-(add-to-list '**custom-themes** 'tangotango)
-(autoload 'color-theme-tangotango "color-theme-tangotango" nil t)
-(add-to-list '**color-themes** 'color-theme-tangotango)
-
-;; color-theme-empty-void
-(autoload 'color-theme-empty-void "color-theme-empty-void" nil t)
-(add-to-list '**color-themes** 'color-theme-empty-void)
-
-;; color-theme-inkpot
-(autoload 'color-theme-inkpot "color-theme-inkpot" nil t)
-(add-to-list '**color-themes** 'color-theme-inkpot)
-
-;; color-theme-wombat
-(autoload 'color-theme-wombat "color-theme-wombat" nil t)
-(add-to-list '**color-themes** 'color-theme-wombat)
-
-;; color-theme-wombat-dark
-(autoload 'color-theme-wombat-dark "color-theme-wombat-dark" nil t)
-(add-to-list '**color-themes** 'color-theme-wombat-dark)
-
-;; zenburn-theme
-(add-to-list 'safe-local-eval-forms
-             '(rainbow-mode 1))
-(add-to-list '**custom-themes** 'zenburn)
-
-;; color-theme-zenburn
-(add-to-list '**color-themes** 'color-theme-zenburn)
-
-(setq **custom-themes**
-      (delete-dups
-       (append **custom-themes**
-               ;; color-theme-modern
-               '(tty-dark
-                 arjen
-                 billw
-                 calm-forest
-                 clarity
-                 classic
-                 dark-blue2
-                 dark-laptop
-                 deep-blue
-                 desert
-                 euphoria
-                 gnome2
-                 goldenrod
-                 gray30
-                 hober
-                 jonadabian-slate
-                 jonadabian
-                 kingsajz
-                 late-night
-                 lawrence
-                 ld-dark
-                 midnight
-                 oswald
-                 pok-wob
-                 pok-wog
-                 raspopovic
-                 renegade
-                 resolve
-                 retro-orange
-                 robin-hood
-                 ryerson
-                 shaman
-                 simple-1
-                 sitaramv-solaris
-                 subtle-hacker
-                 taming-mr-arneson
-                 taylor
-                 word-perfect
-                 subdued)
-               ;; built-in
-               '(wombat tsdh-dark tango-dark manoj-dark deeper-blue)
-               '())))
-
-(setq **color-themes**
-      (delete-dups
-       (append **color-themes**
-               ;; built-in
-               '(color-theme-tty-dark
-                 color-theme-dark-laptop
-                 color-theme-hober
-                 color-theme-midnight)
-               '())))
-
 (defvar **theme-initialized** nil)
 
 (defun $theme-initialize ()
@@ -698,6 +589,64 @@ major mode isn't derived from `prog-mode'."
 
 (let ((load-dirs (locate-user-emacs-file "init.d")))
   (load-dirs))
+
+
+(setq **custom-themes**
+      (delete-dups
+       (append **custom-themes**
+               ;; color-theme-modern
+               '(tty-dark
+                 arjen
+                 billw
+                 calm-forest
+                 clarity
+                 classic
+                 dark-blue2
+                 dark-laptop
+                 deep-blue
+                 desert
+                 euphoria
+                 gnome2
+                 goldenrod
+                 gray30
+                 hober
+                 jonadabian-slate
+                 jonadabian
+                 kingsajz
+                 late-night
+                 lawrence
+                 ld-dark
+                 midnight
+                 oswald
+                 pok-wob
+                 pok-wog
+                 raspopovic
+                 renegade
+                 resolve
+                 retro-orange
+                 robin-hood
+                 ryerson
+                 shaman
+                 simple-1
+                 sitaramv-solaris
+                 subtle-hacker
+                 taming-mr-arneson
+                 taylor
+                 word-perfect
+                 subdued)
+               ;; built-in
+               '(wombat tsdh-dark tango-dark manoj-dark deeper-blue)
+               '())))
+
+(setq **color-themes**
+      (delete-dups
+       (append **color-themes**
+               ;; built-in
+               '(color-theme-tty-dark
+                 color-theme-dark-laptop
+                 color-theme-hober
+                 color-theme-midnight)
+               '())))
 
 
 (load "~/.emacs_local.el" t)
