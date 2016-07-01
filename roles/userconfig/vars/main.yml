@@ -5,8 +5,8 @@ pkg_state: present
 envs:
   pyenv:
     versions:
-      - 2.7.11
-      - 3.5.1
+      - 2.7.12
+      - 3.5.2
     packages:
       - pip
       - pip-autoremove
@@ -37,10 +37,11 @@ envs:
       - itamae
   ndenv:
     versions:
-      - v6.2.2
-      - v4.4.5              # LTS
-      - v0.12.14            # LTS / Classic
-      - v0.10.45            # Maintenance / Classic
+      - v6.2.2              # Current
+      - v5.12.0             # Stable
+      - v4.4.7              # LTS
+      - v0.12.15            # Maintenance
+      - v0.10.46            # Maintenance
     packages:
       - npm
       - nrm
