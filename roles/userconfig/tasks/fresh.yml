@@ -11,7 +11,7 @@
     dest: '{{ fresh_local }}'
     repo: '{{ fresh_local_source }}'
     update: '{{ (pkg_state == "latest") | ternary("yes", "no") }}'
-  when: 'fresh_local_source | default("")'
+  when: fresh_local_source is defined and fresh_local_source
 
 - name: stat freshrc
   stat:
