@@ -17,7 +17,6 @@ localrepository = dochang@gmail.com_local
 remoterepository = dochang@gmail.com_remote
 status_backend = sqlite
 synclabels = no
-proxy = SOCKS5:127.0.0.1:1080
 
 [Repository dochang@gmail.com_local]
 type = GmailMaildir
