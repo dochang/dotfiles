@@ -244,6 +244,10 @@ bash|zsh|ksh)
 	;;
 esac
 
+## For Xapian with mu
+# https://github.com/djcb/mu/issues/544
+export XAPIAN_CJK_NGRAM=1
+
 systemctl --user import-environment HOME PATH http_proxy https_proxy no_proxy
 
 

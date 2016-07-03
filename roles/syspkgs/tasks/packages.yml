@@ -103,6 +103,8 @@
     - jq
     - pandoc
     - xdm
+    - mu4e
+    - maildir-utils
     # For Linuxbrew
     - build-essential
     - curl
