@@ -5,7 +5,7 @@ usecompression = yes
 
 [general]
 accounts = dochang@gmail.com
-ui = Blinkenlights
+ui = ttyui
 # timeout in 60s
 socktimeout = 60
 pythonfile = ~/.config/offlineimap/config.py
