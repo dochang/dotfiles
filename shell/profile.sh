@@ -30,6 +30,11 @@ export GPG_TTY
 
 : ${EMAIL:={{ dotfiles_email }}}
 export EMAIL
+# For nullmailer
+: ${MAILUSER:={{ dotfiles_mailuser }}}
+export MAILUSER
+: ${MAILHOST:={{ dotfiles_mailhost }}}
+export MAILHOST
 
 
 : ${LESS:=-Ri}
