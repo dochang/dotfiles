@@ -142,6 +142,10 @@
       mail-from-style 'angles
       ;; Insert BCC to self in messages to be sent.
       mail-self-blind t
+      ;; Use the From: header for the envelope-from when sending mail.  Do not
+      ;; use `user-mail-address'.
+      mail-specify-envelope-from t
+      mail-envelope-from 'header
       ;; `compose-mail' will warn if `mail-self-blind' &
       ;; `compose-mail-user-agent-warnings' are both set to `t'.
       ;;

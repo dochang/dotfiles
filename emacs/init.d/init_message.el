@@ -45,6 +45,10 @@ return value of `message-unique-id'."
   ;; Kill the message buffer after sending a message.
   (setq message-kill-buffer-on-exit t)
 
+  ;; Use the From: header for the envelope-from when sending mail with
+  ;; sendmail.  Do not use `user-mail-address'.
+  (setq message-sendmail-envelope-from 'header)
+
   (add-hook 'message-setup-hook '$message-setup-hook)
 
   (advice-add 'message-unique-id :filter-return '$message-unique-id-by-uuid))
