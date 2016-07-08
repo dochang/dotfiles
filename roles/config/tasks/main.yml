@@ -5,6 +5,8 @@
 
 - include: alternatives.yml
 
+- include: postfix.yml
+
 - name: enable auto-hibernate of laptop-mode-tools
   lineinfile:
     dest: /etc/laptop-mode/conf.d/auto-hibernate.conf

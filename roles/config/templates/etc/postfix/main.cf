@@ -1,0 +1,14 @@
+mydomain = {{ config_postfix_mydomain }}
+myhostname = {{ config_postfix_myhostname }}
+myorigin = $myhostname
+biff = no
+append_dot_mydomain = no
+
+smtp_sasl_auth_enable = yes
+smtp_sender_dependent_authentication = yes
+sender_dependent_relayhost_maps = hash:/etc/postfix/relayhost_map
+smtp_tls_policy_maps = hash:/etc/postfix/policy_map
+smtp_sasl_password_maps = hash:/etc/postfix/password_map
+
+smtp_tls_CApath = /etc/ssl/certs
+smtp_sasl_security_options = noanonymous

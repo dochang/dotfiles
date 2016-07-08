@@ -1,0 +1,3 @@
+{% for item in config_postfix_policy_map %}
+{{ item.key }} {{ item.value }}
+{% endfor %}

@@ -88,7 +88,7 @@
     - stow
     - cups
     - cups-client
-    - msmtp-mta
+    - postfix
     - bluetooth
     - pass
     - unzip

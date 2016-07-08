@@ -6,6 +6,9 @@
 - name: reload systemd
   command: systemctl daemon-reload
 
+- name: restart postfix
+  command: systemctl restart postfix.service
+
 - name: restart docker
   command: systemctl restart docker.service
 

@@ -3,3 +3,8 @@ config_timezone: UTC
 config_users: []
 config_android_udev_rules_dir: '/opt/android-udev-rules'
 config_android_udev_rules_repo: 'https://github.com/M0Rf30/android-udev-rules.git'
+config_postfix_relayhost_map: []
+config_postfix_policy_map: []
+config_postfix_password_map: []
+config_postfix_mydomain: '{{ ansible_domain }}'
+config_postfix_myhostname: '{{ inventory_hostname }}'

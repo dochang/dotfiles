@@ -1,0 +1,52 @@
+---
+- name: copy postfix maps
+  template:
+    dest: '/etc/postfix/{{ item }}'
+    src: 'etc/postfix/{{ item }}'
+    group: root
+    owner: root
+    mode: '600'
+    directory_mode: '755'
+    force: no
+  with_items:
+    - relayhost_map
+    - password_map
+    - policy_map
+
+- name: fix map permissions
+  file:
+    path: '/etc/postfix/{{ item }}'
+    group: root
+    owner: root
+    mode: '600'
+    state: file
+  with_items:
+    - relayhost_map
+    - password_map
+    - policy_map
+
+- name: compile lookup tables
+  command: 'postmap hash:/etc/postfix/{{ item }}'
+  with_items:
+    - relayhost_map
+    - password_map
+    - policy_map
+
+- name: copy /etc/postfix/main.cf
+  template:
+    dest: /etc/postfix/main.cf
+    src: etc/postfix/main.cf
+    group: root
+    owner: root
+    mode: '644'
+    directory_mode: '755'
+  register: config_postfix_config_copied
+
+- name: check postfix config
+  command: postfix check
+  register: config_postfix_check
+  when: config_postfix_config_copied | changed
+  failed_when: 'config_postfix_check.rc != 0'
+  changed_when: config_postfix_config_copied | changed
+  notify:
+    - restart postfix
