@@ -22,6 +22,9 @@ envs:
       - speedtest-cli
     packages2:
       - ansible
+      - netaddr
+      # needed by Ansible `ipaddr` filter
+      # https://docs.ansible.com/ansible/playbooks_filters_ipaddr.html
       - ansible-lint
       - molecule
       - 'https://github.com/OfflineIMAP/offlineimap/archive/v6.6.0.zip#egg=offlineimap'
