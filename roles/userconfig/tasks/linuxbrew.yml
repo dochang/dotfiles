@@ -3,7 +3,7 @@
 - name: install Linuxbrew
   git:
     dest: ~/.linuxbrew
-    repo: https://github.com/Linuxbrew/linuxbrew.git
+    repo: https://github.com/Linuxbrew/brew.git
 
 - name: update Linuxbrew
   homebrew:
