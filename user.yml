@@ -1,6 +1,9 @@
 ---
 - hosts: all
 
+  vars:
+    ansible_shell_executable: '/bin/bash -l'
+
   roles:
 
     - role: userconfig
