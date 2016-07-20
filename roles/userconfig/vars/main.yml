@@ -25,6 +25,9 @@ envs:
       - netaddr
       # needed by Ansible `ipaddr` filter
       # https://docs.ansible.com/ansible/playbooks_filters_ipaddr.html
+      - cryptography
+      # needed by Ansible Vault
+      # https://docs.ansible.com/ansible/playbooks_vault.html#speeding-up-vault-operations
       - ansible-lint
       - molecule
       - 'https://github.com/OfflineIMAP/offlineimap/archive/v6.6.0.zip#egg=offlineimap'
