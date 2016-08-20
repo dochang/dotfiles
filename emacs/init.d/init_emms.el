@@ -18,9 +18,9 @@
                             "rm" "rmvb" "mp4" "flac" "vob" "m4a" "ape"
                             "flv")))
   (emms-default-players)
-  (make-directory emms-directory)
+  (make-directory emms-directory 'parents)
   ;; mpv support for EMMS
   ;;
   ;; [[https://github.com/dochang/emms-player-mpv]]
-  (require emms-player-mpv)
+  (require 'emms-player-mpv)
   (add-to-list 'emms-player-list 'emms-player-mpv))
