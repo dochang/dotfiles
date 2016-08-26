@@ -1,0 +1,3 @@
+---
+terraform_system: linux_amd64
+terraform_package_filename: 'terraform_{{ terraform_version }}_{{ terraform_system }}.zip'

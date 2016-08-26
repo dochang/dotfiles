@@ -1,0 +1,18 @@
+---
+- hosts: all
+
+  vars_files:
+    - vars/terraform/main.yml
+    -
+      - 'vars/terraform/installer/{{ ansible_system }}/{{ ansible_architecture }}/main.yml'
+      - 'vars/terraform/installer/default.yml'
+
+  roles:
+
+    - role: binpkg
+      binpkg_package_filename: '{{ terraform_package_filename }}'
+      binpkg_package_url: 'https://releases.hashicorp.com/terraform/{{ terraform_version }}/{{ terraform_package_filename }}'
+      binpkg_package_checksum: 'sha512:{{ terraform_version_info[terraform_version].checksums[terraform_system].sha512 }}'
+      binpkg_binaries:
+        - src: terraform
+      binpkg_dest: ~/bin
