@@ -1,0 +1,18 @@
+---
+- hosts: all
+
+  vars_files:
+    - vars/ipfs/main.yml
+    -
+      - 'vars/ipfs/installer/{{ ansible_system }}/{{ ansible_architecture }}/main.yml'
+      - 'vars/ipfs/installer/default.yml'
+
+  roles:
+
+    - role: binpkg
+      binpkg_package_filename: '{{ ipfs_package_filename }}'
+      binpkg_package_url: 'https://dist.ipfs.io/go-ipfs/{{ ipfs_version }}/{{ ipfs_package_filename }}'
+      binpkg_package_checksum: 'sha512:{{ ipfs_version_info[ipfs_version].checksums[ipfs_system].sha512 }}'
+      binpkg_binaries:
+        - src: go-ipfs/ipfs
+      binpkg_dest: ~/bin
