@@ -1,0 +1,51 @@
+---
+
+- name: set facts
+  set_fact:
+    binpkg_package_pathname: '{{ binpkg_download_dir }}/{{ binpkg_package_filename }}'
+
+- name: download binary package
+  get_url:
+    dest: '{{ binpkg_package_pathname }}'
+    checksum: '{{ binpkg_package_checksum }}'
+    url: '{{ binpkg_package_url }}'
+    validate_certs: yes
+
+- name: set cache dir
+  set_fact:
+    # A variable evaluates the random filter in its value every time.  Solve it
+    # by setting the value to a fact.
+    #
+    # https://opensolitude.com/2015/05/27/ansible-lookups-variables-vs-facts.html
+    # https://stackoverflow.com/a/28490160
+    binpkg_cache_dir: '{{ binpkg_cache_prefix }}/ansible-binpkg-{{ ansible_user_uid }}-{{ ansible_date_time.epoch }}-{{ (2**48) | random }}'
+
+- name: clear binpkg cache dir
+  file:
+    path: '{{ binpkg_cache_dir }}'
+    state: absent
+
+- name: ensure binpkg cache dir present
+  file:
+    path: '{{ binpkg_cache_dir }}'
+    state: directory
+
+- name: extract binary package
+  unarchive:
+    dest: '{{ binpkg_cache_dir }}'
+    src: '{{ binpkg_package_pathname }}'
+    remote_src: yes
+
+- name: install binaries
+  copy:
+    dest: '{{ binpkg_dest }}'
+    src: '{{ binpkg_cache_dir }}/{{ item.src }}'
+    force: yes
+    mode: '{{ item.mode | default("a+x") }}'
+    remote_src: yes
+  with_items: '{{ binpkg_binaries | default([]) }}'
+
+- name: remove cache dir
+  file:
+    path: '{{ binpkg_cache_dir }}'
+    state: absent
