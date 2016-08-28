@@ -43,9 +43,9 @@ envs:
       - itamae
   ndenv:
     versions:
-      - v6.3.1              # Current
+      - v6.4.0              # Current
       - v5.12.0             # Stable
-      - v4.4.7              # LTS
+      - v4.5.0              # LTS
       - v0.12.15            # Maintenance
       - v0.10.46            # Maintenance
     packages:
@@ -59,7 +59,7 @@ envs:
       - jsonlint
   goenv:
     versions:
-      - 1.6.3
+      - 1.7
     packages:
       - github.com/zimbatm/direnv
       - github.com/ellotheth/pipethis
