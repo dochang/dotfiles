@@ -70,6 +70,9 @@ envs:
       - github.com/FiloSottile/gvt
       - github.com/dpw/vendetta
       - github.com/nicerobot/git-freeze
+      - github.com/govend/govend
+      - github.com/cespare/deplist
+      - github.com/cortesi/devd/cmd/devd
 
 env_versions:
   - name: pyenv
