@@ -59,7 +59,7 @@ envs:
       - jsonlint
   goenv:
     versions:
-      - 1.7
+      - 1.7.1
     packages:
       - github.com/zimbatm/direnv
       - github.com/ellotheth/pipethis
