@@ -13,8 +13,8 @@
 
 - name: config docker
   template:
-    dest: /etc/systemd/system/docker.service.d/env.conf
-    src: etc/systemd/system/docker.service.d/env.conf
+    dest: '/etc/systemd/system/docker.service.d/exec.conf'
+    src: 'etc/systemd/system/docker.service.d/exec.conf'
     group: root
     owner: root
     mode: '644'
