@@ -73,6 +73,7 @@ envs:
       - github.com/govend/govend
       - github.com/cespare/deplist
       - github.com/cortesi/devd/cmd/devd
+      - github.com/google/git-appraise/git-appraise
 
 env_versions:
   - name: pyenv
