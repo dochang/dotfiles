@@ -37,6 +37,8 @@ fresh tumf/ansible-unit-test ansible-role-test-init --bin
 
 fresh technomancy/leiningen bin/lein --bin --ref=origin/stable
 
+fresh dspinellis/gi gi.sh --bin="~/bin/gi"
+
 # Local Variables:
 # mode: sh
 # End:
