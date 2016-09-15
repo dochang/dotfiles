@@ -1,3 +1,7 @@
 ---
 - include: ipfs.yml
+  tags:
+    - ipfs
 - include: terraform.yml
+  tags:
+    - terraform
