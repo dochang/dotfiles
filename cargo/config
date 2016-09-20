@@ -1,2 +1,1 @@
-[registry]
-index = {{ dotfiles_cargo_registry_index | to_json }}
+{{ dotfiles_cargo_config | to_toml(sort_keys=True) }}

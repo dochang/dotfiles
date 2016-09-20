@@ -40,4 +40,4 @@ dotfiles_pip_index_url: https://pypi.python.org/simple
 dotfiles_npm_registry: https://registry.npmjs.org/
 dotfiles_gem_source: https://rubygems.org/
 dotfiles_rustup_dist_server: '{{ rustup_dist_server }}'
-dotfiles_cargo_registry_index: '{{ rustup_cargo_registry_index }}'
+dotfiles_cargo_config: '{{ rustup_cargo_config }}'

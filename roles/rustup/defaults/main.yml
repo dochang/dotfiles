@@ -5,5 +5,9 @@ rustup_home: '~/.rustup'
 rustup_no_modify_path: false
 rustup_default_toolchain: stable
 rustup_default_host: null
-# https://github.com/rust-lang/cargo/blob/master/src/cargo/sources/registry.rs#L182
-rustup_cargo_registry_index: https://github.com/rust-lang/crates.io-index
+rustup_cargo_config:
+  # https://github.com/rust-lang/cargo/blob/master/src/cargo/sources/registry/mod.rs#L175
+  # https://github.com/rust-lang/cargo/blob/master/src/cargo/sources/config.rs#L27
+  sources:
+    crates-io:
+      registry: https://github.com/rust-lang/crates.io-index
