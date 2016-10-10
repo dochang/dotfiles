@@ -1,6 +1,9 @@
 ---
-terraform_version: '0.7.3'
+terraform_version: '0.7.5'
 terraform_package_checksums:
   '0.7.3':
     linux:
       amd64: 'sha256:4e985f222ec99616e8c730d737c9b400f9d73bf0c436661ec888b2406d3a6f39'
+  '0.7.5':
+    linux:
+      amd64: 'sha256:7def82015b3a9a1bab13b4548e4c8d4ac960322a815cff7d9ebf76ef74a4cb34'
