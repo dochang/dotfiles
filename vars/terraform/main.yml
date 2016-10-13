@@ -1,11 +1,6 @@
 ---
 terraform_version: '0.7.3'
-terraform_version_info:
-  '0.7.1':
-    checksums:
-      sha512:
-        linux_amd64: '66d3ab6e04224e25899b779a8bd747fe2f6a2d72a1b383100a7ff8c1481d1b211194ab7f929346c721caed551a1172875457c57b71667c1a285f905f57435d06'
+terraform_package_checksums:
   '0.7.3':
-    checksums:
-      sha256:
-        linux_amd64: '4e985f222ec99616e8c730d737c9b400f9d73bf0c436661ec888b2406d3a6f39'
+    linux:
+      amd64: 'sha256:4e985f222ec99616e8c730d737c9b400f9d73bf0c436661ec888b2406d3a6f39'

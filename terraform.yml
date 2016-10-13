@@ -12,7 +12,7 @@
     - role: binpkg
       binpkg_package_filename: '{{ terraform_package_filename }}'
       binpkg_package_url: 'https://releases.hashicorp.com/terraform/{{ terraform_version }}/{{ terraform_package_filename }}'
-      binpkg_package_checksum: 'sha256:{{ terraform_version_info[terraform_version].checksums.sha256[terraform_system] }}'
+      binpkg_package_checksum: '{{ terraform_package_checksums[terraform_version][terraform_system][terraform_arch] }}'
       binpkg_binaries:
         - src: terraform
       binpkg_dest: ~/bin

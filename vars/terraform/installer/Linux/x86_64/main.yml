@@ -1,3 +1,4 @@
 ---
-terraform_system: linux_amd64
-terraform_package_filename: 'terraform_{{ terraform_version }}_{{ terraform_system }}.zip'
+terraform_system: linux
+terraform_arch: amd64
+terraform_package_filename: 'terraform_{{ terraform_version }}_linux_amd64.zip'
