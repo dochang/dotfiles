@@ -1,5 +1,5 @@
 ---
-ipfs_version: 'v0.4.3'
+ipfs_version: 'v0.4.4'
 ipfs_package_checksums:
   'v0.4.2':
     linux:
@@ -7,3 +7,6 @@ ipfs_package_checksums:
   'v0.4.3':
     linux:
       amd64: 'sha512:4bf6eb78f0bcbaddde28bc49c78092e1fd4c3f3b34853b8b2077828b8ada3379f4a6d6afd6db604b81d86a42d821ee46caf987fdf34c29f4c0a08625af016b50'
+  'v0.4.4':
+    linux:
+      amd64: 'sha512:6373373df68c0b0418ec8e620843ea26383e1520d5b29cf7fe62ab37f38f680a976f64e410233f1e12bda57f8128cdf6b4b6f684ed66d2abd850d2bc777c52aa'
