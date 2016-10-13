@@ -1,5 +1,5 @@
 ---
-googlecloudsdk_version: '129.0.0'
+googlecloudsdk_version: '130.0.0'
 googlecloudsdk_package_filename: 'google-cloud-sdk-{{ googlecloudsdk_version }}-{{ googlecloudsdk_system }}-{{ googlecloudsdk_arch }}.{{ googlecloudsdk_package_extname }}'
 googlecloudsdk_package_url: 'https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/{{ googlecloudsdk_package_filename }}'
 googlecloudsdk_install_dir: /opt/google-cloud-sdk
@@ -9,3 +9,6 @@ googlecloudsdk_package_checksums:
     linux:
       x86_64: 'sha1:12b413f1dcfeaf601f70749142f06e01e32c03ad'
       x86: 'sha1:dd859a30d674f3a138c2823fb440346cf498d5f7'
+  '130.0.0':
+    linux:
+      x86_64: 'sha1:ba5f6539cf3f8f471173a8dc5f38629758f246b5'
