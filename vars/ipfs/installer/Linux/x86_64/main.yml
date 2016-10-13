@@ -1,3 +1,4 @@
 ---
-ipfs_system: linux-amd64
-ipfs_package_filename: 'go-ipfs_{{ ipfs_version }}_{{ ipfs_system }}.tar.gz'
+ipfs_system: linux
+ipfs_arch: amd64
+ipfs_package_filename: 'go-ipfs_{{ ipfs_version }}_linux-amd64.tar.gz'

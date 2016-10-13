@@ -1,3 +1,4 @@
 ---
-ipfs_system: '{{ ansible_system | lower }}-{{ ansible_architecture }}'
-ipfs_package_filename: 'go-ipfs_{{ ipfs_version }}_{{ ipfs_system }}.tar.gz'
+ipfs_system: '{{ ansible_system | lower }}'
+ipfs_arch: '{{ ansible_architecture | lower }}'
+ipfs_package_filename: 'go-ipfs_{{ ipfs_version }}_{{ ipfs_system }}-{{ ipfs_arch }}.tar.gz'
