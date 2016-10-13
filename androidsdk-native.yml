@@ -1,0 +1,24 @@
+---
+# To install Android SDK on a 64-bit distribution, we need to install
+# additional packages. Go to the official installation [guide][] or the Debian
+# [wiki][], click on *Show instructions for all platforms* and then check
+# *Troubleshooting Ubuntu*. Or see this [answer][].
+#
+# [guide]: https://developer.android.com/sdk/installing/index.html?pkg=tools
+# [wiki]: https://wiki.debian.org/Multiarch/HOWTO#Installing_Android_SDK_compat_libraries
+# [answer]: https://stackoverflow.com/a/13571288
+
+- hosts: all
+
+  environment:
+    # Unnecessary. Built in apt module.
+    # DEBIAN_FRONTEND: noninteractive
+    APT_LISTCHANGES_FRONTEND: none
+    APT_LISTBUGS_FRONTEND: none
+
+  become: yes
+  become_user: root
+
+  roles:
+
+    - androidsdknative

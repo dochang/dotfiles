@@ -1,0 +1,8 @@
+---
+androidsdk_version: '24.4.1'
+androidsdk_package_filename: 'android-sdk_r{{ androidsdk_version }}-{{ androidsdk_system }}.{{ androidsdk_package_extname }}'
+androidsdk_package_url: 'https://dl.google.com/android/{{ androidsdk_package_filename }}'
+androidsdk_install_dir: /opt/android-sdk
+androidsdk_package_checksums:
+  '24.4.1':
+    linux: 'sha1:725bb360f0f7d04eaccff5a2d57abdd49061326d'

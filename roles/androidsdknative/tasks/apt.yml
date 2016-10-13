@@ -1,0 +1,27 @@
+---
+- name: check if i386 arch is present
+  shell: '{ dpkg --print-architecture ; dpkg --print-foreign-architectures ; }'
+  register: androidsdk_arch_list
+  changed_when: false
+  always_run: yes
+
+- block:
+
+    - name: ensure i386 arch present
+      command: dpkg --add-architecture i386
+
+    - name: update apt cache
+      apt:
+        update_cache: yes
+
+  when: '"i386" not in androidsdk_arch_list.stdout_lines'
+
+- name: install packages that android sdk depends on
+  apt:
+    name: '{{ item }}'
+    state: present
+  with_items:
+    - libncurses5:i386
+    - libstdc++6:i386
+    - zlib1g:i386
+    - default-jdk

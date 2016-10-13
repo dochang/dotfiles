@@ -1,0 +1,4 @@
+---
+androidsdk_system: '{{ ansible_system | lower }}'
+androidsdk_package_extname: zip
+androidsdk_package_topdir: 'android-sdk-{{ androidsdk_system }}'
