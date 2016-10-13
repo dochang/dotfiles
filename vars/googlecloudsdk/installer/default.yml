@@ -1,0 +1,4 @@
+---
+googlecloudsdk_system: '{{ ansible_system | lower }}'
+googlecloudsdk_arch: '{{ ansible_architecture | lower }}'
+googlecloudsdk_package_extname: 'tar.gz'

@@ -1,28 +1,30 @@
 ---
 - hosts: all
 
-  pre_tasks:
+  vars_files:
+    - vars/googlecloudsdk/main.yml
+    -
+      - 'vars/googlecloudsdk/installer/{{ ansible_system }}/{{ ansible_architecture }}/main.yml'
+      - 'vars/googlecloudsdk/installer/default.yml'
 
-    - block:
-
-        - name: check if google cloud sdk install dir empty
-          command: 'ls {{ googlecloudsdk_install_dir }}'
-          register: googlecloudsdk_install_dir_list
-          ignore_errors: yes
-          changed_when: false
-          always_run: yes
-
-        - file:
-            path: '{{ googlecloudsdk_install_dir }}'
-            state: directory
-            group: '{{ hostvars[inventory_hostname].ansible_user }}'
-            owner: '{{ hostvars[inventory_hostname].ansible_user }}'
-            mode: '755'
-          when: 'googlecloudsdk_install_dir_list.stdout_lines | length == 0'
-
-      become: yes
-      become_user: root
+  become: yes
+  become_user: root
 
   roles:
 
-    - googlecloudsdk
+    - role: archivepkg
+      archivepkg_package_filename: '{{ googlecloudsdk_package_filename }}'
+      archivepkg_package_url: '{{ googlecloudsdk_package_url }}'
+      archivepkg_package_checksum: '{{ googlecloudsdk_package_checksums[googlecloudsdk_version][googlecloudsdk_system][googlecloudsdk_arch] }}'
+      archivepkg_topdir: '{{ googlecloudsdk_package_topdir }}'
+      archivepkg_dest: '{{ googlecloudsdk_install_dir }}'
+
+  tasks:
+
+    - name: Fix ownership
+      file:
+        path: '{{ googlecloudsdk_install_dir }}'
+        state: directory
+        group: '{{ hostvars[inventory_hostname].ansible_user }}'
+        owner: '{{ hostvars[inventory_hostname].ansible_user }}'
+        recurse: yes
