@@ -1,0 +1,3 @@
+---
+archivepkg_download_dir: '{{ ansible_env.TMPDIR | default("/tmp") }}'
+archivepkg_cache_prefix: '{{ ansible_env.TMPDIR | default("/tmp") }}'

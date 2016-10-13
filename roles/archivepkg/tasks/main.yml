@@ -1,0 +1,20 @@
+---
+- name: set facts for installing archive packages
+  set_fact:
+    # A variable evaluates the random filter in its value every time.  Solve it
+    # by setting the value to a fact.
+    #
+    # https://opensolitude.com/2015/05/27/ansible-lookups-variables-vs-facts.html
+    # https://stackoverflow.com/a/28490160
+    archivepkg_cache_dir: '{{ archivepkg_cache_prefix }}/ansible-archivepkg-{{ ansible_user_uid }}-{{ ansible_date_time.epoch }}-{{ (2**48) | random }}'
+    archivepkg_package_pathname: '{{ archivepkg_download_dir }}/{{ archivepkg_package_filename }}'
+
+- name: check if package installed
+  command: 'ls {{ archivepkg_dest }}'
+  register: archivepkg_dest_list
+  ignore_errors: yes
+  changed_when: false
+  always_run: yes
+
+- include: install.yml
+  when: 'archivepkg_dest_list.stdout_lines | length == 0'

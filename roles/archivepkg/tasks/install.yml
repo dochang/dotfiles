@@ -1,0 +1,38 @@
+---
+- name: download archive
+  get_url:
+    dest: '{{ archivepkg_package_pathname }}'
+    url: '{{ archivepkg_package_url }}'
+    checksum: '{{ archivepkg_package_checksum }}'
+    force: no
+    validate_certs: yes
+
+- name: clear cache dir
+  file:
+    path: '{{ archivepkg_cache_dir }}'
+    state: absent
+
+- name: ensure cache dir present
+  file:
+    path: '{{ archivepkg_cache_dir }}'
+    state: directory
+
+- name: extract the archive
+  unarchive:
+    copy: no
+    dest: '{{ archivepkg_cache_dir }}'
+    src: '{{ archivepkg_package_pathname }}'
+    creates: '{{ archivepkg_cache_dir }}/{{ archivepkg_topdir }}'
+
+- name: ensure install path present
+  file:
+    path: '{{ archivepkg_dest }}'
+    state: directory
+
+- name: install the archive
+  command: 'cp -RpT {{ archivepkg_cache_dir }}/{{ archivepkg_topdir }} {{ archivepkg_dest }}'
+
+- name: clear cache dir
+  file:
+    path: '{{ archivepkg_cache_dir }}'
+    state: absent
