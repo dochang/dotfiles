@@ -3,7 +3,7 @@
   get_url:
     dest: '{{ nix_binary_tarball_pathname }}'
     url: 'https://nixos.org/releases/nix/nix-{{ nix_version }}/{{ nix_binary_tarball_filename }}'
-    checksum: 'sha256:{{ nix_version_info[nix_version].checksums[nix_system].sha256 }}'
+    checksum: '{{ nix_package_checksums[nix_version][nix_system][nix_arch] }}'
     force: no
     validate_certs: yes
 
