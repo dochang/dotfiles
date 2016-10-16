@@ -54,6 +54,7 @@ envs:
       - yo
       - david
       - json
+      - gitbook-cli
       # For Emacs flycheck
       # https://github.com/zaach/jsonlint
       - jsonlint
