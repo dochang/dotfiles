@@ -50,6 +50,7 @@ envs:
       - v0.10.47            # Maintenance
     packages:
       - npm
+      - yarn
       - nrm
       - yo
       - david

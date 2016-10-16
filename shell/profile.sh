@@ -238,6 +238,11 @@ prepend_to_env ${COMPOSER_HOME}/vendor/bin PATH
 export CLOUDSDK_HOME
 [ -r "${CLOUDSDK_HOME}/path.$(get_shell).inc" ] && . "${CLOUDSDK_HOME}/path.$(get_shell).inc"
 
+## For yarn
+: ${YARN_HOME:="${HOME}/.yarn"}
+export YARN_HOME
+prepend_to_env ${YARN_HOME}/bin PATH
+
 case "$(get_shell)" in
 bash|zsh|ksh)
 
