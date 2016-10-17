@@ -1,3 +1,0 @@
----
-androidsdk_package_topdir: android-sdk-linux
-androidsdk_package_filename: 'android-sdk_r{{ androidsdk_version }}-linux.tgz'

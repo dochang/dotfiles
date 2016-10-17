@@ -1,5 +1,0 @@
----
-androidsdk_version: '24.4.1'
-androidsdk_download_dir: '{{ ansible_env.TMPDIR | default("/tmp") }}'
-androidsdk_cache_prefix: '{{ ansible_env.TMPDIR | default("/tmp") }}'
-androidsdk_install_dir: '/opt/android-sdk'
