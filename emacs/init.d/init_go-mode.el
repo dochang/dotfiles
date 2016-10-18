@@ -8,4 +8,8 @@
 
 (req-package go-mode
   :init
+  (setq gofmt-command
+        (cond ((executable-find "goimports") "goimports")
+              (t "gofmt")))
+  (add-hook 'before-save-hook 'gofmt-before-save)
   (add-hook 'go-mode-hook '$go-mode-hook))
