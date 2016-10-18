@@ -1,0 +1,1 @@
+registry {{ dotfiles_yarn_registry | to_json }}
