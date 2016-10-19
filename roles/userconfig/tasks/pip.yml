@@ -25,3 +25,17 @@
   with_nested:
     - '{{ envs.pyenv.versions }}'
     - '{{ envs.pyenv.packages2 }}'
+
+# These utils currently supports Python 3 and up only.
+- name: Install Python 3 utils
+  pip:
+    name: '{{ item.1 }}'
+    state: '{{ pkg_state }}'
+  environment:
+    PYENV_VERSION: '{{ item.0 }}'
+  notify:
+    - pyenv rehash
+  when: item.0 | version_compare('3', '>=')
+  with_nested:
+    - '{{ envs.pyenv.versions }}'
+    - '{{ envs.pyenv.packages3 }}'
