@@ -16,7 +16,7 @@ envs:
       - virtualenvwrapper
       - twine
       - httpie
-      - bumpversion
+      - bumplus
       - thefuck
       - qrcode
       - speedtest-cli
@@ -30,7 +30,7 @@ envs:
       # https://docs.ansible.com/ansible/playbooks_vault.html#speeding-up-vault-operations
       - ansible-lint
       - molecule
-      - 'https://github.com/OfflineIMAP/offlineimap/archive/v6.6.0.zip#egg=offlineimap'
+      - 'https://github.com/OfflineIMAP/offlineimap/archive/v7.0.8.zip#egg=offlineimap'
       # OfflineIMAP on PyPI is too old, use Github archive instead.
       - PySocks
       # needed by offlineimap to use proxy
