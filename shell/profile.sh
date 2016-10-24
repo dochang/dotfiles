@@ -207,7 +207,7 @@ prepend_to_env ${HOME}/.cabal/bin PATH
 [ -z "${GOROOT}" ] || {
 	prepend_to_env ${GOROOT}/bin PATH
 }
-: ${GOPATH:="${HOME}/go"}
+: ${GOPATH:="${HOME}"}
 export GOPATH
 # https://github.com/golang/go/wiki/GOPATH
 prepend_to_env $(echo $GOPATH | sed -e 's|:|/bin:|g ; s|$|/bin|g') PATH
