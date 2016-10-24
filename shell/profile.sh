@@ -198,6 +198,15 @@ prepend_to_env ${HOME}/.cask/bin PATH
 prepend_to_env ${HOME}/.cabal/bin PATH
 
 ## For Go
+# Check whether `GOROOT` defined.
+#
+# If `GOROOT` is defined, ensure that `${GOROOT}/bin` is in `PATH`.
+#
+# If `GOROOT` is not defined.  `GOROOT` can be found according to `which go`.
+# No need to insert `${GOROOT}/bin` into `PATH` manually.
+[ -z "${GOROOT}" ] || {
+	prepend_to_env ${GOROOT}/bin PATH
+}
 : ${GOPATH:="${HOME}/go"}
 export GOPATH
 # https://github.com/golang/go/wiki/GOPATH
