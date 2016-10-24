@@ -45,7 +45,7 @@ envs:
       - itamae
   ndenv:
     versions:
-      - v6.9.0              # Current
+      - v6.9.1              # Current
       - v5.12.0             # Stable
       - v4.6.1              # LTS
       - v0.12.17            # Maintenance
@@ -63,7 +63,7 @@ envs:
       - jsonlint
   goenv:
     versions:
-      - 1.7.1
+      - 1.7.3
     packages:
       - golang.org/x/tools/cmd/goimports
       - github.com/zimbatm/direnv
