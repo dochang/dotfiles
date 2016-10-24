@@ -67,14 +67,11 @@ envs:
     packages:
       - golang.org/x/tools/cmd/goimports
       - github.com/zimbatm/direnv
-      - github.com/ellotheth/pipethis
-      - github.com/jbenet/hashpipe
       - github.com/joho/godotenv/cmd/godotenv
       - github.com/onsi/ginkgo/ginkgo
       - github.com/FiloSottile/gvt
       - github.com/dpw/vendetta
       - github.com/nicerobot/git-freeze
-      - github.com/govend/govend
       - github.com/cespare/deplist
       - github.com/cortesi/devd/cmd/devd
       - github.com/google/git-appraise/git-appraise
