@@ -613,6 +613,17 @@ major mode isn't derived from `prog-mode'."
                '())))
 
 
+;; The following content is always inserted by `package--ensure-init-file',
+;; which is called by `package-initialize'.  But we comment the s-exp out here,
+;; let Emacs call `package-initialize' after loading `user-init-file'.
+
+;; Added by Package.el.  This must come before configurations of
+;; installed packages.  Don't delete this line.  If you don't want it,
+;; just comment it out by adding a semicolon to the start of the line.
+;; You may delete these explanatory comments.
+;;(package-initialize)
+
+
 (load "~/.emacs_local.el" t)
 
 
