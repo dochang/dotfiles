@@ -32,6 +32,10 @@
   tags:
     - npm
 
+- include: yarn.yml
+  tags:
+    - yarn
+
 - include: go.yml
   tags:
     - go

@@ -1,7 +1,7 @@
 ---
 
 - name: Install utils
-  npm:
+  yarn:
     name: '{{ item.1 }}'
     state: '{{ pkg_state }}'
     global: yes
@@ -11,6 +11,4 @@
     - ndenv rehash
   with_nested:
     - '{{ envs.ndenv.versions }}'
-    -
-      - npm
-      - yarn
+    - '{{ envs.ndenv.packages }}'
