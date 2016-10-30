@@ -4,6 +4,7 @@
   git:
     dest: ~/.linuxbrew
     repo: https://github.com/Linuxbrew/brew.git
+    update: no
 
 - name: update Linuxbrew
   homebrew:
