@@ -49,8 +49,6 @@ envs:
       - v7.0.0              # Current
       - v6.9.1              # LTS
       - v4.6.1              # LTS
-      - v0.12.17            # Maintenance
-      - v0.10.48            # Maintenance
     packages:
       - npm
       - yarn
