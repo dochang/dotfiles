@@ -1,1 +1,1 @@
-{{ dotfiles_cargo_config | to_toml(sort_keys=True) }}
+{{ rustup_cargo_config | to_toml(sort_keys=True) }}
