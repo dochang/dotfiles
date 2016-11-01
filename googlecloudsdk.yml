@@ -7,9 +7,6 @@
       - 'vars/googlecloudsdk/installer/{{ ansible_system }}/{{ ansible_architecture }}/main.yml'
       - 'vars/googlecloudsdk/installer/default.yml'
 
-  become: yes
-  become_user: root
-
   roles:
 
     - role: archivepkg
@@ -18,13 +15,3 @@
       archivepkg_package_checksum: '{{ googlecloudsdk_package_checksums[googlecloudsdk_version][googlecloudsdk_system][googlecloudsdk_arch] }}'
       archivepkg_topdir: '{{ googlecloudsdk_package_topdir }}'
       archivepkg_dest: '{{ googlecloudsdk_install_dir }}'
-
-  tasks:
-
-    - name: Fix ownership
-      file:
-        path: '{{ googlecloudsdk_install_dir }}'
-        state: directory
-        group: '{{ hostvars[inventory_hostname].ansible_user }}'
-        owner: '{{ hostvars[inventory_hostname].ansible_user }}'
-        recurse: yes

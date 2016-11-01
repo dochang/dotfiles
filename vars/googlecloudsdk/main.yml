@@ -2,7 +2,11 @@
 googlecloudsdk_version: '130.0.0'
 googlecloudsdk_package_filename: 'google-cloud-sdk-{{ googlecloudsdk_version }}-{{ googlecloudsdk_system }}-{{ googlecloudsdk_arch }}.{{ googlecloudsdk_package_extname }}'
 googlecloudsdk_package_url: 'https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/{{ googlecloudsdk_package_filename }}'
-googlecloudsdk_install_dir: /opt/google-cloud-sdk
+googlecloudsdk_install_dir: '{{ ansible_user_dir }}/opt/google-cloud-sdk'
+# Unable to install Google Cloud SDK into system-wide directory such as `/opt`.
+# `gcloud components update` will put the temporary data under the parent
+# directory of Google Cloud SDK.  This means that the parent of the install
+# location must be user-writable.
 googlecloudsdk_package_topdir: 'google-cloud-sdk'
 googlecloudsdk_package_checksums:
   '129.0.0':

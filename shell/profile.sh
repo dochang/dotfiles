@@ -243,7 +243,10 @@ export COMPOSER_HOME
 prepend_to_env ${COMPOSER_HOME}/vendor/bin PATH
 
 ## For Google Cloud SDK
-: ${CLOUDSDK_HOME:="/opt/google-cloud-sdk"}
+# Google Cloud SDK must be installed into a user-writable location, such as
+# `$HOME`.  See the comment of `googlecloudsdk_install_dir` in Google Cloud SDK
+# install playbook for reason.
+: ${CLOUDSDK_HOME:="${HOME}/opt/google-cloud-sdk"}
 export CLOUDSDK_HOME
 [ -r "${CLOUDSDK_HOME}/path.$(get_shell).inc" ] && . "${CLOUDSDK_HOME}/path.$(get_shell).inc"
 
