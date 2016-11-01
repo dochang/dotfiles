@@ -1,5 +1,5 @@
 ---
-googlecloudsdk_version: '130.0.0'
+googlecloudsdk_version: '132.0.0'
 googlecloudsdk_package_filename: 'google-cloud-sdk-{{ googlecloudsdk_version }}-{{ googlecloudsdk_system }}-{{ googlecloudsdk_arch }}.{{ googlecloudsdk_package_extname }}'
 googlecloudsdk_package_url: 'https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/{{ googlecloudsdk_package_filename }}'
 googlecloudsdk_install_dir: '{{ ansible_user_dir }}/opt/google-cloud-sdk'
@@ -16,3 +16,6 @@ googlecloudsdk_package_checksums:
   '130.0.0':
     linux:
       x86_64: 'sha1:ba5f6539cf3f8f471173a8dc5f38629758f246b5'
+  '132.0.0':
+    linux:
+      x86_64: 'sha1:4926b770df756f2e7828e626476e0b2d8fa9a551'
