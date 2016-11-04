@@ -7,6 +7,25 @@ import json
 import sys
 
 
+def get_output_config(output, query, last_config):
+    preferred = query[output]['preferred']
+    width = preferred['width']
+    height = preferred['height']
+    rate = preferred['rate']
+    if last_config:
+        x = last_config['x'] + last_config['width']
+        y = last_config['y'] - height
+    else:
+        x = y = 0
+    return {
+        'x': x,
+        'y': y,
+        'width': width,
+        'height': height,
+        'rate': rate,
+    }
+
+
 def get_config(query):
     config = {}
 
@@ -29,22 +48,8 @@ def get_config(query):
         if not connected(output):
             config[output] = None
             continue
-        preferred = query[output]['preferred']
-        width = preferred['width']
-        height = preferred['height']
-        rate = preferred['rate']
-        if last_config:
-            x = last_config['x'] + last_config['width']
-            y = last_config['y'] - height
-        else:
-            x = y = 0
-        last_config = config[output] = {
-            'x': x,
-            'y': y,
-            'width': width,
-            'height': height,
-            'rate': rate,
-        }
+        config[output] = get_output_config(output, query, last_config)
+        last_config = config[output]
     return config
 
 
