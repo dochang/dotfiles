@@ -6,6 +6,7 @@ import sys
 import json
 from subprocess import check_call
 
+
 def xrandr(config):
     cmd = ['xrandr']
     for k in config.keys():

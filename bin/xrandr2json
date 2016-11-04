@@ -8,12 +8,17 @@ from subprocess import check_output
 import re
 import json
 
+
 def parse(xrandr_state):
 
+    connected_pattern = '^(\S+) connected (?:(\d+)x(\d+)\+(\d+)\+(\d+))?'
+    disconnected_pattern = '^(\S+) disconnected'
+    mode_pattern = '^\s+(\d+)x(\d+)\s+((?:\d+\.)?\d+)([* ]?)([+ ]?)'
+
     regex = {
-        'connected': re.compile('^(\S+) connected (?:(\d+)x(\d+)\+(\d+)\+(\d+))?'),
-        'disconnected': re.compile('^(\S+) disconnected'),
-        'mode': re.compile('^\s+(\d+)x(\d+)\s+((?:\d+\.)?\d+)([* ]?)([+ ]?)'),
+        'connected': re.compile(connected_pattern),
+        'disconnected': re.compile(disconnected_pattern),
+        'mode': re.compile(mode_pattern),
     }
 
     lines = xrandr_state.splitlines()
@@ -55,8 +60,10 @@ def parse(xrandr_state):
                 'rate': float(m.group(3)),
             }
             query[output]['modes'].append(r)
-            if (m.group(4) == '*'): query[output]['current'] = r
-            if (m.group(5) == '+'): query[output]['preferred'] = r
+            if (m.group(4) == '*'):
+                query[output]['current'] = r
+            if (m.group(5) == '+'):
+                query[output]['preferred'] = r
             continue
         output = None
 

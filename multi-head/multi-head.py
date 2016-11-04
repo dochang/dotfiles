@@ -6,18 +6,23 @@ from functools import cmp_to_key
 import json
 import sys
 
+
 def get_config(query):
     config = {}
+
     def connected(output):
         return query[output]['connected']
+
     def index(output):
         return query[output]['index']
+
     def cmp(x, y):
         if connected(x) and not connected(y):
             return -1
         if not connected(x) and connected(y):
             return 1
         return index(x) - index(y)
+
     outputs = sorted(query.keys(), key=cmp_to_key(cmp))
     last_config = None
     for output in outputs:
@@ -41,6 +46,7 @@ def get_config(query):
             'rate': rate,
         }
     return config
+
 
 def main():
     query = json.load(sys.stdin)
