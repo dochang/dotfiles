@@ -43,6 +43,7 @@ def get_config(query):
         return index(x) - index(y)
 
     outputs = sorted(query.keys(), key=cmp_to_key(cmp))
+    outputs = ['DP-1', 'LVDS-1']
     last_config = None
     for output in outputs:
         if not connected(output):
