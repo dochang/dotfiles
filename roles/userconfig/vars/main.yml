@@ -46,9 +46,9 @@ envs:
   ndenv:
     versions:
       # https://github.com/nodejs/LTS#lts-schedule
-      - v7.0.0              # Current
+      - v7.1.0              # Current
       - v6.9.1              # LTS
-      - v4.6.1              # LTS
+      - v4.6.2              # LTS
     packages:
       - npm
       - yarn
