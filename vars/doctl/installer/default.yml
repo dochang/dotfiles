@@ -1,0 +1,4 @@
+---
+doctl_system: '{{ ansible_system | lower }}'
+doctl_arch: '{{ ansible_architecture | lower }}'
+doctl_package_filename: 'doctl-{{ doctl_version }}-{{ doctl_system }}-{{ doctl_arch }}.tar.gz'

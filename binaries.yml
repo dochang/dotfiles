@@ -5,3 +5,6 @@
 - include: terraform.yml
   tags:
     - terraform
+- include: doctl.yml
+  tags:
+    - doctl
