@@ -39,6 +39,8 @@ fresh technomancy/leiningen bin/lein --bin --ref=origin/stable
 
 fresh dspinellis/gi gi.sh --bin="~/bin/gi"
 
+fresh soimort/translate-shell trans --bin --ref=origin/gh-pages
+
 # Local Variables:
 # mode: sh
 # End:
