@@ -16,6 +16,7 @@ envs:
       - virtualenvwrapper
       - twine
       - httpie
+      - HTTPolice
       - bumplus
       - thefuck
       - qrcode
