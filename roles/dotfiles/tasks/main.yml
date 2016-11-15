@@ -97,4 +97,6 @@
 
 - include: conkeror.yml
 
+- include: arduinoide.yml
+
 - include: systemd.yml
