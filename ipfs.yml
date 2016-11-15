@@ -6,7 +6,7 @@
     -
       - 'vars/ipfs/installer/{{ ansible_system }}/{{ ansible_architecture }}/main.yml'
       - 'vars/ipfs/installer/{{ ansible_system }}/main.yml'
-      - 'vars/ipfs/installer/default.yml'
+      - 'vars/ipfs/installer/main.yml'
 
   roles:
 

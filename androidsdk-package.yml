@@ -6,7 +6,7 @@
     -
       - 'vars/androidsdk/installer/{{ ansible_system }}/{{ ansible_architecture }}/main.yml'
       - 'vars/androidsdk/installer/{{ ansible_system }}/main.yml'
-      - 'vars/androidsdk/installer/default.yml'
+      - 'vars/androidsdk/installer/main.yml'
 
   become: yes
   become_user: root

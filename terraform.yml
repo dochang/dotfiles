@@ -6,7 +6,7 @@
     -
       - 'vars/terraform/installer/{{ ansible_system }}/{{ ansible_architecture }}/main.yml'
       - 'vars/terraform/installer/{{ ansible_system }}/main.yml'
-      - 'vars/terraform/installer/default.yml'
+      - 'vars/terraform/installer/main.yml'
 
   roles:
 

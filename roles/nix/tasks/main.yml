@@ -5,7 +5,7 @@
     - files:
         - '{{ ansible_system }}/{{ ansible_architecture }}/main.yml'
         - '{{ ansible_system }}/main.yml'
-        - default.yml
+        - main.yml
       paths:
         # `../vars/` is required because `with_first_found` looks in the
         # `files/` directory.  See Ansible issues [7788][], [5108][] and this

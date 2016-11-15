@@ -6,7 +6,7 @@
     -
       - 'vars/doctl/installer/{{ ansible_system }}/{{ ansible_architecture }}/main.yml'
       - 'vars/doctl/installer/{{ ansible_system }}/main.yml'
-      - 'vars/doctl/installer/default.yml'
+      - 'vars/doctl/installer/main.yml'
 
   roles:
 

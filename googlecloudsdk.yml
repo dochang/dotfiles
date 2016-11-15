@@ -6,7 +6,7 @@
     -
       - 'vars/googlecloudsdk/installer/{{ ansible_system }}/{{ ansible_architecture }}/main.yml'
       - 'vars/googlecloudsdk/installer/{{ ansible_system }}/main.yml'
-      - 'vars/googlecloudsdk/installer/default.yml'
+      - 'vars/googlecloudsdk/installer/main.yml'
 
   roles:
 

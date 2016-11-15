@@ -6,7 +6,7 @@
     -
       - 'vars/arduinoide/installer/{{ ansible_system }}/{{ ansible_architecture }}/main.yml'
       - 'vars/arduinoide/installer/{{ ansible_system }}/main.yml'
-      - 'vars/arduinoide/installer/default.yml'
+      - 'vars/arduinoide/installer/main.yml'
 
   become: yes
   become_user: root
