@@ -1,0 +1,3 @@
+---
+- include: arduinoide-package.yml
+- include: arduinoide-native.yml

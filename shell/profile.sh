@@ -255,6 +255,13 @@ export CLOUDSDK_HOME
 export YARN_HOME
 prepend_to_env ${YARN_HOME}/bin PATH
 
+## For [arduino-mk][1]
+##
+## [1]: https://github.com/sudar/Arduino-Makefile
+: ${ARDUINO_DIR:=/opt/arduino}
+export ARDUINO_DIR
+prepend_to_env ${ARDUINO_DIR} PATH
+
 case "$(get_shell)" in
 bash|zsh|ksh)
 

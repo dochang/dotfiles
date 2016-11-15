@@ -1,0 +1,31 @@
+---
+- hosts: all
+
+  vars_files:
+    - vars/arduinoide/main.yml
+    -
+      - 'vars/arduinoide/installer/{{ ansible_system }}/{{ ansible_architecture }}/main.yml'
+      - 'vars/arduinoide/installer/{{ ansible_system }}/main.yml'
+      - 'vars/arduinoide/installer/default.yml'
+
+  become: yes
+  become_user: root
+
+  roles:
+
+    - role: archivepkg
+      archivepkg_package_filename: '{{ arduinoide_package_filename }}'
+      archivepkg_package_url: '{{ arduinoide_package_url }}'
+      archivepkg_package_checksum: '{{ arduinoide_package_checksums[arduinoide_version][arduinoide_platform] }}'
+      archivepkg_topdir: '{{ arduinoide_package_topdir }}'
+      archivepkg_dest: '{{ arduinoide_install_dir }}'
+
+  tasks:
+
+    - name: Fix ownership
+      file:
+        path: '{{ arduinoide_install_dir }}'
+        state: directory
+        group: '{{ hostvars[inventory_hostname].ansible_user }}'
+        owner: '{{ hostvars[inventory_hostname].ansible_user }}'
+        recurse: yes

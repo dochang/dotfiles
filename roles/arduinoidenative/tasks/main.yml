@@ -1,0 +1,9 @@
+---
+# https://www.arduino.cc/en/Guide/Linux
+# http://playground.arduino.cc/Learning/Linux
+# http://playground.arduino.cc/Linux/All
+
+# http://playground.arduino.cc/Linux/Debian
+# http://playground.arduino.cc/Linux/Ubuntu
+- include: apt.yml
+  when: 'ansible_pkg_mgr == "apt"'

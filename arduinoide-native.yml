@@ -1,0 +1,19 @@
+---
+# https://www.arduino.cc/en/Guide/Linux
+# http://playground.arduino.cc/Learning/Linux
+# http://playground.arduino.cc/Linux/All
+
+- hosts: all
+
+  environment:
+    # Unnecessary. Built in apt module.
+    # DEBIAN_FRONTEND: noninteractive
+    APT_LISTCHANGES_FRONTEND: none
+    APT_LISTBUGS_FRONTEND: none
+
+  become: yes
+  become_user: root
+
+  roles:
+
+    - arduinoidenative
