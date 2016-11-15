@@ -4,6 +4,7 @@
   vars_files:
     - vars/androidsdk/main.yml
     -
+      - 'vars/androidsdk/installer/{{ ansible_system }}/{{ ansible_architecture }}/main.yml'
       - 'vars/androidsdk/installer/{{ ansible_system }}/main.yml'
       - 'vars/androidsdk/installer/default.yml'
 
@@ -15,7 +16,7 @@
     - role: archivepkg
       archivepkg_package_filename: '{{ androidsdk_package_filename }}'
       archivepkg_package_url: '{{ androidsdk_package_url }}'
-      archivepkg_package_checksum: '{{ androidsdk_package_checksums[androidsdk_version][androidsdk_system] }}'
+      archivepkg_package_checksum: '{{ androidsdk_package_checksums[androidsdk_version][androidsdk_platform] }}'
       archivepkg_topdir: '{{ androidsdk_package_topdir }}'
       archivepkg_dest: '{{ androidsdk_install_dir }}'
 

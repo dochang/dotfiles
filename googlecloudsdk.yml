@@ -5,6 +5,7 @@
     - vars/googlecloudsdk/main.yml
     -
       - 'vars/googlecloudsdk/installer/{{ ansible_system }}/{{ ansible_architecture }}/main.yml'
+      - 'vars/googlecloudsdk/installer/{{ ansible_system }}/main.yml'
       - 'vars/googlecloudsdk/installer/default.yml'
 
   roles:
@@ -12,6 +13,6 @@
     - role: archivepkg
       archivepkg_package_filename: '{{ googlecloudsdk_package_filename }}'
       archivepkg_package_url: '{{ googlecloudsdk_package_url }}'
-      archivepkg_package_checksum: '{{ googlecloudsdk_package_checksums[googlecloudsdk_version][googlecloudsdk_system][googlecloudsdk_arch] }}'
+      archivepkg_package_checksum: '{{ googlecloudsdk_package_checksums[googlecloudsdk_version][googlecloudsdk_platform] }}'
       archivepkg_topdir: '{{ googlecloudsdk_package_topdir }}'
       archivepkg_dest: '{{ googlecloudsdk_install_dir }}'

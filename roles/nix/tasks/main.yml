@@ -4,6 +4,7 @@
   with_first_found:
     - files:
         - '{{ ansible_system }}/{{ ansible_architecture }}/main.yml'
+        - '{{ ansible_system }}/main.yml'
         - default.yml
       paths:
         # `../vars/` is required because `with_first_found` looks in the
@@ -23,7 +24,7 @@
     # https://opensolitude.com/2015/05/27/ansible-lookups-variables-vs-facts.html
     # https://stackoverflow.com/a/28490160
     nix_cache_dir: '{{ nix_cache_prefix }}/ansible-nix-{{ ansible_user_uid }}-{{ ansible_date_time.epoch }}-{{ (2**48) | random }}'
-    nix_binary_tarball_basename: 'nix-{{ nix_version }}-{{ nix_arch }}-{{ nix_system }}'
+    nix_binary_tarball_basename: 'nix-{{ nix_version }}-{{ nix_platform }}'
 
 - name: set nix installer facts
   set_fact:

@@ -1,3 +1,2 @@
 ---
-nix_system: '{{ ansible_system | lower }}'
-nix_arch: '{{ ansible_architecture | lower }}'
+nix_platform: '{{ ansible_architecture | lower }}-{{ ansible_system | lower }}'

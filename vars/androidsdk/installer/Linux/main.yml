@@ -1,4 +1,4 @@
 ---
-androidsdk_system: linux
+androidsdk_platform: linux
 androidsdk_package_extname: tgz
 androidsdk_package_topdir: android-sdk-linux

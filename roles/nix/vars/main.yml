@@ -1,8 +1,6 @@
 ---
 nix_package_checksums:
   '1.11.2':
-    linux:
-      x86_64: 'sha256:8b208cfcd396da2bd2192fee485077618920b98fe9858105b3a7836562417d49'
+    x86_64-linux: 'sha256:8b208cfcd396da2bd2192fee485077618920b98fe9858105b3a7836562417d49'
   '1.11.4':
-    linux:
-      x86_64: 'sha256:c4161f3e5fda68cdb2f0ab14cef7ca50d16ebd8e4bc58f4c2a74b40aa11b13c1'
+    x86_64-linux: 'sha256:c4161f3e5fda68cdb2f0ab14cef7ca50d16ebd8e4bc58f4c2a74b40aa11b13c1'

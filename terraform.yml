@@ -5,6 +5,7 @@
     - vars/terraform/main.yml
     -
       - 'vars/terraform/installer/{{ ansible_system }}/{{ ansible_architecture }}/main.yml'
+      - 'vars/terraform/installer/{{ ansible_system }}/main.yml'
       - 'vars/terraform/installer/default.yml'
 
   roles:
@@ -12,7 +13,7 @@
     - role: binpkg
       binpkg_package_filename: '{{ terraform_package_filename }}'
       binpkg_package_url: 'https://releases.hashicorp.com/terraform/{{ terraform_version }}/{{ terraform_package_filename }}'
-      binpkg_package_checksum: '{{ terraform_package_checksums[terraform_version][terraform_system][terraform_arch] }}'
+      binpkg_package_checksum: '{{ terraform_package_checksums[terraform_version][terraform_platform] }}'
       binpkg_binaries:
         - src: terraform
       binpkg_dest: ~/bin

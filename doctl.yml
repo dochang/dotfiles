@@ -5,6 +5,7 @@
     - vars/doctl/main.yml
     -
       - 'vars/doctl/installer/{{ ansible_system }}/{{ ansible_architecture }}/main.yml'
+      - 'vars/doctl/installer/{{ ansible_system }}/main.yml'
       - 'vars/doctl/installer/default.yml'
 
   roles:
@@ -12,7 +13,7 @@
     - role: binpkg
       binpkg_package_filename: '{{ doctl_package_filename }}'
       binpkg_package_url: 'https://github.com/digitalocean/doctl/releases/download/v{{ doctl_version }}/{{ doctl_package_filename }}'
-      binpkg_package_checksum: '{{ doctl_package_checksums[doctl_version][doctl_system][doctl_arch] }}'
+      binpkg_package_checksum: '{{ doctl_package_checksums[doctl_version][doctl_platform] }}'
       binpkg_binaries:
         - src: doctl
       binpkg_dest: ~/bin
