@@ -1,3 +1,2 @@
 ---
 doctl_platform: '{{ ansible_system | lower }}-{{ ansible_architecture | lower }}'
-doctl_package_filename: 'doctl-{{ doctl_version }}-{{ doctl_platform }}.tar.gz'

@@ -1,3 +1,2 @@
 ---
 terraform_platform: '{{ ansible_system | lower }}_{{ ansible_architecture | lower }}'
-terraform_package_filename: 'terraform_{{ terraform_version }}_{{ terraform_platform }}.zip'

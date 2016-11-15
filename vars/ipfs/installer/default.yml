@@ -1,3 +1,2 @@
 ---
 ipfs_platform: '{{ ansible_system | lower }}-{{ ansible_architecture | lower }}'
-ipfs_package_filename: 'go-ipfs_{{ ipfs_version }}_{{ ipfs_platform }}.tar.gz'

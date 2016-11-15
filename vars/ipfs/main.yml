@@ -1,5 +1,7 @@
 ---
 ipfs_version: 'v0.4.4'
+ipfs_package_filename: 'go-ipfs_{{ ipfs_version }}_{{ ipfs_platform }}.tar.gz'
+ipfs_package_url: 'https://dist.ipfs.io/go-ipfs/{{ ipfs_version }}/{{ ipfs_package_filename }}'
 ipfs_package_checksums:
   'v0.4.2':
     linux-amd64: 'sha512:f9435ae4bd48cd7a6845aeae2bc7b4b2ce899195653b24665430598e579015fad12e9f3b47540a7fd92cc23ebc3b88bb0b575b72e96c60e047b7d697247e790b'

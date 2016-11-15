@@ -1,3 +1,2 @@
 ---
 doctl_platform: linux-amd64
-doctl_package_filename: 'doctl-{{ doctl_version }}-linux-amd64.tar.gz'

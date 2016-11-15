@@ -1,3 +1,2 @@
 ---
 terraform_platform: linux_amd64
-terraform_package_filename: 'terraform_{{ terraform_version }}_linux_amd64.zip'

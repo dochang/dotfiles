@@ -1,5 +1,7 @@
 ---
 terraform_version: '0.7.10'
+terraform_package_filename: 'terraform_{{ terraform_version }}_{{ terraform_platform }}.zip'
+terraform_package_url: 'https://releases.hashicorp.com/terraform/{{ terraform_version }}/{{ terraform_package_filename }}'
 terraform_package_checksums:
   '0.7.3':
     linux_amd64: 'sha256:4e985f222ec99616e8c730d737c9b400f9d73bf0c436661ec888b2406d3a6f39'

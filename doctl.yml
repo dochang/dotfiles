@@ -12,7 +12,7 @@
 
     - role: binpkg
       binpkg_package_filename: '{{ doctl_package_filename }}'
-      binpkg_package_url: 'https://github.com/digitalocean/doctl/releases/download/v{{ doctl_version }}/{{ doctl_package_filename }}'
+      binpkg_package_url: '{{ doctl_package_url }}'
       binpkg_package_checksum: '{{ doctl_package_checksums[doctl_version][doctl_platform] }}'
       binpkg_binaries:
         - src: doctl

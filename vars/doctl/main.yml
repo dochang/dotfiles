@@ -1,5 +1,7 @@
 ---
 doctl_version: '1.5.0'
+doctl_package_filename: 'doctl-{{ doctl_version }}-{{ doctl_platform }}.tar.gz'
+doctl_package_url: 'https://github.com/digitalocean/doctl/releases/download/v{{ doctl_version }}/{{ doctl_package_filename }}'
 doctl_package_checksums:
   '1.5.0':
     linux-amd64: 'sha256:a8735639c0b02bed700fb5791604b5fd4a86d43876c904b3df02016d32fba1ff'
