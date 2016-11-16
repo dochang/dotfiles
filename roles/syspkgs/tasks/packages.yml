@@ -120,7 +120,7 @@
     # https://github.com/yyuu/pyenv/wiki/Common-build-problems
     - make
     - build-essential
-    - libssl-dev
+    - libssl1.0-dev
     - zlib1g-dev
     - libbz2-dev
     - libreadline-dev
@@ -136,7 +136,7 @@
     - autoconf
     - bison
     - build-essential
-    - libssl-dev
+    - libssl1.0-dev
     - libyaml-dev
     - libreadline6-dev
     - zlib1g-dev
