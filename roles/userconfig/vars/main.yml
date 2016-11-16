@@ -40,7 +40,7 @@ envs:
       - asciinema
   rbenv:
     versions:
-      - 2.3.1
+      - 2.3.2
     packages:
       - bundler
       - itamae
