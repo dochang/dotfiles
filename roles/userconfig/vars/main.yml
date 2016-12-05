@@ -43,6 +43,8 @@ envs:
       - 2.3.3
     packages:
       - bundler
+      - rubocop
+      # For Emacs flycheck
       - itamae
   ndenv:
     versions:
