@@ -17,6 +17,7 @@
     state: present
   with_items:
     - beeftornado/rmtree
+    - dochang/binary
 
 - name: install/upgrade Linuxbrew packages
   homebrew:
@@ -26,3 +27,8 @@
     - beeftornado/rmtree/brew-rmtree
     - heroku
     - proxychains-ng
+    - dochang/binary/ipfs
+    - dochang/binary/terraform
+    - dochang/binary/doctl
+    - dochang/binary/jid
+    - dochang/binary/hugo
