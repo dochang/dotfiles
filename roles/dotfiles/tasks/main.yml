@@ -41,6 +41,7 @@
     - src: 'gem/gemrc'
     - src: 'pypi/pypirc'
     - src: 'yarn/yarnrc'
+    - src: 'rubocop/rubocop.yml'
 
 - include: dotdir.yml
   with_items:
