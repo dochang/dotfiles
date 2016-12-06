@@ -45,6 +45,7 @@ envs:
       - bundler
       - rubocop
       # For Emacs flycheck
+      - travis
       - itamae
   ndenv:
     versions:
