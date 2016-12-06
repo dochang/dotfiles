@@ -1,4 +1,0 @@
----
-binpkg_download_dir: '{{ ansible_env.TMPDIR | default("/tmp") }}'
-binpkg_cache_prefix: '{{ ansible_env.TMPDIR | default("/tmp") }}'
-binpkg_dest: /usr/local/bin

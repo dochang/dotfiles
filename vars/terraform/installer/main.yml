@@ -1,2 +1,0 @@
----
-terraform_platform: '{{ ansible_system | lower }}_{{ ansible_architecture | lower }}'

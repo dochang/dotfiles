@@ -1,2 +1,0 @@
----
-ipfs_platform: '{{ ansible_system | lower }}-{{ ansible_architecture | lower }}'
