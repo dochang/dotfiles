@@ -261,7 +261,7 @@ prepend_to_env ${YARN_GLOBAL_BIN} PATH
 ## For [arduino-mk][1]
 ##
 ## [1]: https://github.com/sudar/Arduino-Makefile
-: ${ARDUINO_DIR:=/opt/arduino}
+: ${ARDUINO_DIR:="${LINUXBREW_ROOT}/opt/arduino"}
 export ARDUINO_DIR
 prepend_to_env ${ARDUINO_DIR} PATH
 
