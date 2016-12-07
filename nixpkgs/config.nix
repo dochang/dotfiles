@@ -19,7 +19,7 @@
   packageOverrides = pkgs: rec {
     gnupg = pkgs.gnupg.override {
       inherit pinentry;
-      x11Support = true;
+      guiSupport = true;
     };
 
     pinentry = pkgs.pinentry.override {
