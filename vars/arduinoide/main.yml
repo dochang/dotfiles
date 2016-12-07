@@ -1,9 +1,0 @@
----
-arduinoide_version: '1.6.12'
-arduinoide_package_filename: 'arduino-{{ arduinoide_version }}-{{ arduinoide_platform }}.{{ arduinoide_package_extname }}'
-arduinoide_package_url: 'https://www.arduino.cc/download_handler.php?f=/{{ arduinoide_package_filename }}'
-arduinoide_install_dir: /opt/arduino
-arduinoide_package_topdir: 'arduino-{{ arduinoide_version }}'
-arduinoide_package_checksums:
-  '1.6.12':
-    linux64: 'sha512:ff1d5e6506692abdda63b2f0ec8ec0acccdc6d24f2e16240e1527a56b64cd0e30113c7d9b2f3fba443de68981ac16a9943ca327386873d9a1154aaf2b6f448a0'

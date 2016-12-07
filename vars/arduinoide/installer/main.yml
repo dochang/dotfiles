@@ -1,3 +1,0 @@
----
-arduinoide_platform: '{{ ansible_system | lower }}'
-arduinoide_package_extname: tar.xz
