@@ -191,6 +191,10 @@ which pyenv >/dev/null 2>&1 && {
 	eval "$(rbenv usergems-init - $(get_shell))"
 }
 
+## For node-build
+: ${NODE_BUILD_MIRROR_URL:={{ node_build_mirror_url | default("https://nodejs.org/dist") }}}
+export NODE_BUILD_MIRROR_URL
+
 ## For Cask
 prepend_to_env ${HOME}/.cask/bin PATH
 
