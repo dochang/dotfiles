@@ -38,6 +38,7 @@ dotfiles_i3status_vm_enabled: yes
 dotfiles_nix_nixpkgs_channel_url: https://nixos.org/channels/nixpkgs-unstable
 dotfiles_pip_index_url: https://pypi.python.org/simple
 dotfiles_npm_registry: https://registry.npmjs.org/
+dotfiles_npm_disturl: https://nodejs.org/dist
 dotfiles_gem_source: https://rubygems.org/
 dotfiles_rustup_dist_server: '{{ rustup_dist_server }}'
 dotfiles_cargo_config: '{{ rustup_cargo_config }}'

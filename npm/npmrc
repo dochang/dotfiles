@@ -1,1 +1,5 @@
 registry = {{ dotfiles_npm_registry | default("https://registry.npmjs.org/") }}
+
+## For node-gyp
+# https://stackoverflow.com/questions/18503373/how-to-set-tarball-url-of-node-gyp-via-environment-variable
+disturl = {{ dotfiles_npm_disturl | default("https://nodejs.org/dist") }}
