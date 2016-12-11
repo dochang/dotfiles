@@ -80,6 +80,8 @@ envs:
       - github.com/cespare/deplist
       - github.com/cortesi/devd/cmd/devd
       - github.com/google/git-appraise/git-appraise
+      - github.com/jteeuwen/go-bindata/...
+      - github.com/elazarl/go-bindata-assetfs/...
 
 env_versions:
   - name: pyenv
