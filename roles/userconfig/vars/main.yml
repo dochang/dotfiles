@@ -82,6 +82,7 @@ envs:
       - github.com/google/git-appraise/git-appraise
       - github.com/jteeuwen/go-bindata/...
       - github.com/elazarl/go-bindata-assetfs/...
+      - github.com/golang/lint/golint
 
 env_versions:
   - name: pyenv
