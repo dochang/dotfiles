@@ -40,13 +40,13 @@ dotfiles_pip_index_url: https://pypi.python.org/simple
 dotfiles_npm_registry: https://registry.npmjs.org/
 dotfiles_npm_disturl: https://nodejs.org/dist
 dotfiles_node_build_mirror_url: https://nodejs.org/dist
+dotfiles_yarn_registry: https://registry.yarnpkg.com
 dotfiles_gem_source: https://rubygems.org/
 dotfiles_rustup_dist_server: https://static.rust-lang.org
 dotfiles_cargo_config:
   sources:
     crates-io:
       registry: https://github.com/rust-lang/crates.io-index
-dotfiles_yarn_registry: https://registry.yarnpkg.com
 dotfiles_arduinoide_preferences:
   - line: 'editor.linenumbers=true'
     regexp: 'editor\.linenumbers='
