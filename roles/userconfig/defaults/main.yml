@@ -2,4 +2,4 @@
 fresh_cache: '~/.fresh/source/freshshell/fresh'
 fresh_local: '~/.dotfiles'
 fresh_local_source: ''
-node_build_mirror_url: '{{ dotfiles_npm_disturl }}'
+node_build_mirror_url: 'https://nodejs.org/dist'

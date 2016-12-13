@@ -192,7 +192,7 @@ which pyenv >/dev/null 2>&1 && {
 }
 
 ## For node-build
-: ${NODE_BUILD_MIRROR_URL:={{ node_build_mirror_url | default("https://nodejs.org/dist") }}}
+: ${NODE_BUILD_MIRROR_URL:={{ dotfiles_node_build_mirror_url | default("https://nodejs.org/dist") }}}
 export NODE_BUILD_MIRROR_URL
 
 ## For Cask
