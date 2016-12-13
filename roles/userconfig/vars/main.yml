@@ -49,12 +49,12 @@ envs:
       # For Emacs flycheck
       - travis
       - itamae
-  ndenv:
+  nodenv:
     versions:
       # https://github.com/nodejs/LTS#lts-schedule
-      - v7.2.1              # Current
-      - v6.9.2              # LTS
-      - v4.7.0              # LTS
+      - 7.2.1              # Current
+      - 6.9.2              # LTS
+      - 4.7.0              # LTS
     packages:
       - npm
       - yarn
@@ -89,7 +89,7 @@ env_versions:
     versions: '{{ envs.pyenv.versions }}'
   - name: rbenv
     versions: '{{ envs.rbenv.versions }}'
-  - name: ndenv
-    versions: '{{ envs.ndenv.versions }}'
+  - name: nodenv
+    versions: '{{ envs.nodenv.versions }}'
   - name: goenv
     versions: '{{ envs.goenv.versions }}'

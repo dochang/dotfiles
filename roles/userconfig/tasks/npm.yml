@@ -6,11 +6,11 @@
     state: '{{ pkg_state }}'
     global: yes
   environment:
-    NDENV_VERSION: '{{ item.0 }}'
+    NODENV_VERSION: '{{ item.0 }}'
   notify:
-    - ndenv rehash
+    - nodenv rehash
   with_nested:
-    - '{{ envs.ndenv.versions }}'
+    - '{{ envs.nodenv.versions }}'
     -
       - npm
       - yarn

@@ -6,8 +6,8 @@
 - name: rbenv rehash
   command: rbenv rehash
 
-- name: ndenv rehash
-  command: ndenv rehash
+- name: nodenv rehash
+  command: nodenv rehash
 
 - name: goenv rehash
   command: goenv rehash
