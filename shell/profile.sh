@@ -215,6 +215,10 @@ prepend_to_env ${HOME}/.cabal/bin PATH
 export GOPATH
 # https://github.com/golang/go/wiki/GOPATH
 prepend_to_env $(echo $GOPATH | sed -e 's|:|/bin:|g ; s|$|/bin|g') PATH
+# Disable CGO by default.
+#
+# https://golang.org/cmd/cgo/
+export CGO_ENABLED=0
 # https://golang.org/cmd/go/#hdr-Vendor_Directories
 export GO15VENDOREXPERIMENT=1
 
