@@ -30,6 +30,7 @@ envs:
       - cryptography
       # needed by Ansible Vault
       # https://docs.ansible.com/ansible/playbooks_vault.html#speeding-up-vault-operations
+      - ansible-container
       - ansible-lint
       - molecule
       - 'https://github.com/OfflineIMAP/offlineimap/archive/v7.0.8.zip#egg=offlineimap'
