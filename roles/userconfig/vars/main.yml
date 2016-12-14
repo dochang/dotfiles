@@ -84,6 +84,8 @@ envs:
       - github.com/jteeuwen/go-bindata/...
       - github.com/elazarl/go-bindata-assetfs/...
       - github.com/golang/lint/golint
+      - github.com/kisielk/errcheck
+      - github.com/mdempsky/unconvert
 
 env_versions:
   - name: pyenv
