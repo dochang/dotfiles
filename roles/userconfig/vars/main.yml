@@ -84,6 +84,7 @@ envs:
       - github.com/joho/godotenv/cmd/godotenv
       - github.com/cortesi/devd/cmd/devd
       - github.com/google/git-appraise/git-appraise
+      - github.com/homburg/git-get
       # dependency management / vendor management
       - github.com/FiloSottile/gvt
       - github.com/dpw/vendetta
