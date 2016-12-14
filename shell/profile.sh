@@ -269,6 +269,14 @@ prepend_to_env ${YARN_GLOBAL_BIN} PATH
 export ARDUINO_DIR
 prepend_to_env ${ARDUINO_DIR} PATH
 
+## For [git-get][1]
+##
+## [1]: https://github.com/homburg/git-get
+: ${GIT_GET_PATH:="${HOME}/src"}
+export GIT_GET_PATH
+: ${GIT_GET_HOST:="github.com"}
+export GIT_GET_HOST
+
 case "$(get_shell)" in
 bash|zsh|ksh)
 
