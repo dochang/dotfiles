@@ -89,6 +89,7 @@ envs:
       - github.com/dpw/vendetta
       - github.com/nicerobot/git-freeze
       - github.com/cespare/deplist
+      - github.com/kardianos/govendor
 
 env_versions:
   - name: pyenv
