@@ -6,13 +6,9 @@
     {{ (pkg_state == "latest") | ternary("-u", "") }}
     {{ item.1 }}
   environment:
-    GOENV_VERSION: '{{ item.0 }}'
     CGO_ENABLED: 0
   notify:
     - goenv rehash
-  with_nested:
-    - '{{ envs.goenv.versions }}'
-    - '{{ envs.goenv.packages }}'
 
 - name: Install go linters
   command: >-
