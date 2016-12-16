@@ -13,3 +13,12 @@
   with_nested:
     - '{{ envs.goenv.versions }}'
     - '{{ envs.goenv.packages }}'
+
+- name: Install go linters
+  command: >-
+    gometalinter --install
+    {{ (pkg_state == "latest") | ternary("--update", "") }}
+  environment:
+    CGO_ENABLED: 0
+  notify:
+    - goenv rehash
