@@ -36,13 +36,13 @@
   tags:
     - yarn
 
-- include: go.yml
-  tags:
-    - go
-
 - include: linuxbrew.yml
   tags:
     - linuxbrew
+
+- include: go.yml
+  tags:
+    - go
 
 - include: emacs.yml
   tags:

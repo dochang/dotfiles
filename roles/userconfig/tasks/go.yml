@@ -6,15 +6,15 @@
     {{ (pkg_state == "latest") | ternary("-u", "") }}
     {{ item.1 }}
   environment:
+    GOROOT: '~/.linuxbrew/opt/go'
+    GOPATH: '~'
     CGO_ENABLED: 0
-  notify:
-    - goenv rehash
 
 - name: Install go linters
   command: >-
     gometalinter --install
     {{ (pkg_state == "latest") | ternary("--update", "") }}
   environment:
+    GOROOT: '~/.linuxbrew/opt/go'
+    GOPATH: '~'
     CGO_ENABLED: 0
-  notify:
-    - goenv rehash

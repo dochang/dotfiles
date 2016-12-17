@@ -8,6 +8,3 @@
 
 - name: nodenv rehash
   command: nodenv rehash
-
-- name: goenv rehash
-  command: goenv rehash

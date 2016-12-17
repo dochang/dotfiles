@@ -67,32 +67,6 @@ envs:
       # For Emacs flycheck
       # https://github.com/zaach/jsonlint
       - jsonlint
-  goenv:
-    versions:
-      - 1.7.4
-    packages:
-      # dependency management / vendor management
-      - github.com/FiloSottile/gvt
-      - github.com/dpw/vendetta
-      - github.com/nicerobot/git-freeze
-      - github.com/cespare/deplist
-      - github.com/kardianos/govendor
-      # dev tools
-      - golang.org/x/tools/cmd/goimports
-      - golang.org/x/tools/cmd/gomvpkg
-      - github.com/onsi/ginkgo/ginkgo
-      - github.com/jteeuwen/go-bindata/...
-      - github.com/elazarl/go-bindata-assetfs/...
-      - github.com/alecthomas/gometalinter
-      - github.com/shurcooL/binstale
-      - github.com/rogpeppe/godef
-      - golang.org/x/tools/cmd/guru
-      # utils
-      - github.com/zimbatm/direnv
-      - github.com/joho/godotenv/cmd/godotenv
-      - github.com/cortesi/devd/cmd/devd
-      - github.com/google/git-appraise/git-appraise
-      - github.com/homburg/git-get
 
 env_versions:
   - name: pyenv
@@ -101,5 +75,27 @@ env_versions:
     versions: '{{ envs.rbenv.versions }}'
   - name: nodenv
     versions: '{{ envs.nodenv.versions }}'
-  - name: goenv
-    versions: '{{ envs.goenv.versions }}'
+
+go_packages:
+  # dependency management / vendor management
+  - github.com/FiloSottile/gvt
+  - github.com/dpw/vendetta
+  - github.com/nicerobot/git-freeze
+  - github.com/cespare/deplist
+  - github.com/kardianos/govendor
+  # dev tools
+  - golang.org/x/tools/cmd/goimports
+  - golang.org/x/tools/cmd/gomvpkg
+  - github.com/onsi/ginkgo/ginkgo
+  - github.com/jteeuwen/go-bindata/...
+  - github.com/elazarl/go-bindata-assetfs/...
+  - github.com/alecthomas/gometalinter
+  - github.com/shurcooL/binstale
+  - github.com/rogpeppe/godef
+  - golang.org/x/tools/cmd/guru
+  # utils
+  - github.com/zimbatm/direnv
+  - github.com/joho/godotenv/cmd/godotenv
+  - github.com/cortesi/devd/cmd/devd
+  - github.com/google/git-appraise/git-appraise
+  - github.com/homburg/git-get
