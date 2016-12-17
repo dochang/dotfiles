@@ -8,4 +8,6 @@
   (setq flycheck-gometalinter-disable-linters
         '("gas"))
   (setq flycheck-gometalinter-enable-linters
-        '("testify" "test" "goimports" "gofmt" "lll" "misspell" "unused")))
+        '("testify" "test" "goimports" "gofmt" "lll" "misspell" "unused"))
+  ;; Some linters are too slow.  Disable them.
+  (setq flycheck-gometalinter-fast t))
