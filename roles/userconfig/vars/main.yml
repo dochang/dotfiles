@@ -84,6 +84,7 @@ envs:
       - github.com/jteeuwen/go-bindata/...
       - github.com/elazarl/go-bindata-assetfs/...
       - github.com/alecthomas/gometalinter
+      - github.com/shurcooL/binstale
       # utils
       - github.com/zimbatm/direnv
       - github.com/joho/godotenv/cmd/godotenv
