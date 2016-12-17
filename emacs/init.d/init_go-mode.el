@@ -4,7 +4,8 @@
 (defun $go-mode-hook ()
   ($prog-mode-hook*)
   ($camel-case-mode 1)
-  (setq indent-tabs-mode t))
+  (setq indent-tabs-mode t)
+  (go-guru-hl-identifier-mode))
 
 (defun $gofmt-before-save ()
   (interactive)
