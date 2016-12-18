@@ -57,8 +57,6 @@ envs:
       - 6.9.2              # LTS
       - 4.7.0              # LTS
     packages:
-      - npm
-      - yarn
       - nrm
       - yo
       - david

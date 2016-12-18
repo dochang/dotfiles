@@ -32,13 +32,13 @@
   tags:
     - npm
 
-- include: yarn.yml
-  tags:
-    - yarn
-
 - include: linuxbrew.yml
   tags:
     - linuxbrew
+
+- include: yarn.yml
+  tags:
+    - yarn
 
 - include: go.yml
   tags:

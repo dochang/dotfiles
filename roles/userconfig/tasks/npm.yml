@@ -13,4 +13,3 @@
     - '{{ envs.nodenv.versions }}'
     -
       - npm
-      - yarn
