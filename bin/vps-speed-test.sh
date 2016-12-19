@@ -7,7 +7,7 @@
 
 # http://speedtest-${region}.digitalocean.com/
 : "${DO_TEST_TYPE:=100mb}"
-: "${DO_REGIONS:=nyc1 nyc2 nyc3 ams1 ams2 ams3 sfo1 sfo2 sgp1 lon1 fra1 tor1 blr1}"
+: "${DO_REGIONS:=nyc1 nyc2 nyc3 ams2 ams3 sfo1 sfo2 sgp1 lon1 fra1 tor1 blr1}"
 [ "${DO_REGIONS}" = - ] && DO_REGIONS=
 
 # https://www.vultr.com/faq/#downloadspeedtests
