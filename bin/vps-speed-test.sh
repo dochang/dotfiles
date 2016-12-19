@@ -20,7 +20,7 @@ unset https_proxy
 unset all_proxy
 
 download() {
-	curl --silent --output /dev/null --max-time 60 --write-out "%{speed_download}\t\t\t%{size_download}\t\t\t${1}\n" "${2}"
+	curl --silent --output /dev/null --max-time 30 --write-out "%{speed_download}\t\t\t%{size_download}\t\t\t${1}\n" "${2}"
 }
 
 {
