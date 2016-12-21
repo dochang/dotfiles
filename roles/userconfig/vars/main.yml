@@ -5,7 +5,7 @@ pkg_state: present
 envs:
   pyenv:
     versions:
-      - 2.7.12
+      - 2.7.13
       - 3.5.2
       - 3.4.5
     packages:
@@ -53,7 +53,7 @@ envs:
   nodenv:
     versions:
       # https://github.com/nodejs/LTS#lts-schedule
-      - 7.2.1              # Current
+      - 7.3.0              # Current
       - 6.9.2              # LTS
       - 4.7.0              # LTS
     packages:
