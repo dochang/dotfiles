@@ -33,8 +33,7 @@ envs:
       - ansible-container
       - ansible-lint
       - molecule
-      - 'https://github.com/OfflineIMAP/offlineimap/archive/v7.0.8.zip#egg=offlineimap'
-      # OfflineIMAP on PyPI is too old, use Github archive instead.
+      - offlineimap
       - PySocks
       # needed by offlineimap to use proxy
       # https://github.com/OfflineIMAP/offlineimap/blob/master/offlineimap.conf#L437
