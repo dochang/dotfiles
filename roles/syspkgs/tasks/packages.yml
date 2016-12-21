@@ -130,6 +130,12 @@
     - llvm
     # For pyenv-ccache
     - ccache
+    # For HTTPolice
+    #
+    # https://httpolice.readthedocs.io/en/stable/install.html
+    # http://lxml.de/installation.html
+    - libxml2-dev
+    - libxslt1-dev
     # For rbenv
     #
     # https://github.com/sstephenson/ruby-build/wiki
