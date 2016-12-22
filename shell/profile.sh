@@ -105,7 +105,8 @@ ___no_proxy () {
 	printf ",alipay.com,alimama.com,aliyun.com,yunos.com,alicdn.com"
 	printf ",jd.com,360buyimg.com,3.cn"
 	printf ",z.cn,amazon.cn"
-	printf ",acfun.*,bilibili.*,tucao.*"
+	printf ",acfun.*,bilibili.*,hdslb.com,acgvideo.com,tucao.*"
+	printf ",ourdvsss.com"
 	case "$(hostname --domain)" in
 	genee.cn|geneegroup.com)
 		printf ",genee.cn,geneegroup.com,genee.in"
