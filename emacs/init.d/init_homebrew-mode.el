@@ -8,16 +8,14 @@
       :connection-type 'pipe
       :sentinel (lambda (,proc ,evt)
                   (when (string= ,evt "finished\n")
-                    (unwind-protect
-                        (setq ,var
-                              (with-current-buffer (process-buffer ,proc)
-                                (buffer-substring
-                                 (point-min)
-                                 (save-excursion
-                                   (goto-char (point-min))
-                                   (re-search-forward "[^\r\n]*" nil t)
-                                   (point)))))
-                      (kill-buffer (process-buffer ,proc))))))))
+                    (setq ,var
+                          (with-current-buffer (process-buffer ,proc)
+                            (buffer-substring
+                             (point-min)
+                             (save-excursion
+                               (goto-char (point-min))
+                               (re-search-forward "[^\r\n]*" nil t)
+                               (point))))))))))
 
 (req-package homebrew-mode
   :init
