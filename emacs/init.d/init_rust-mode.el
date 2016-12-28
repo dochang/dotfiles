@@ -1,5 +1,5 @@
 ;;; Rust Mode
-;; [[https://github.com/mozilla/rust/blob/master/src/etc/emacs/rust-mode.el]]
+;; [[https://github.com/rust-lang/rust-mode]]
 
 (defun $rust-mode-hook ()
   ($prog-mode-hook*)
