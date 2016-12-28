@@ -7,4 +7,5 @@
 
 (req-package rust-mode
   :init
+  (setq rust-format-on-save t)
   (add-hook 'rust-mode-hook '$rust-mode-hook))
