@@ -224,6 +224,13 @@ export RUSTUP_HOME
 : ${RUSTUP_DIST_SERVER:={{ dotfiles_rustup_dist_server | default("https://static.rust-lang.org") }}}
 export RUSTUP_DIST_SERVER
 [ -r "${HOME}/.cargo/env" ] && . "${HOME}/.cargo/env"
+: ${CARGO_HOME:="${HOME}/.cargo"}
+export CARGO_HOME
+if [ -n "${CARGO_INSTALL_ROOT}" ] ; then
+	prepend_to_env ${CARGO_INSTALL_ROOT}/bin PATH
+elif [ -n "${CARGO_HOME}" ] ; then
+	prepend_to_env ${CARGO_HOME}/bin PATH
+fi
 
 ## For scala
 : ${SCALA_HOME:="${HOME}/opt/scala"}
