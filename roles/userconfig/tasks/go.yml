@@ -4,11 +4,13 @@
   command: >-
     go get
     {{ (pkg_state == "latest") | ternary("-u", "") }}
-    {{ item.1 }}
+    {{ item }}
   environment:
     GOROOT: '~/.linuxbrew/opt/go'
     GOPATH: '~'
     CGO_ENABLED: 0
+  with_items:
+    - '{{ envs.go_packages }}'
 
 - name: Install go linters
   command: >-
