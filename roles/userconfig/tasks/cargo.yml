@@ -1,0 +1,10 @@
+---
+
+# https://github.com/rust-lang/cargo/issues/2082
+- name: Install Rust packages
+  command: >-
+    cargo install
+    {{ (pkg_state == "latest") | ternary("--force", "") }}
+    {{ item }}
+  with_items:
+    - '{{ envs.rust_packages }}'

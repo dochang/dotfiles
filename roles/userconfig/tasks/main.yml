@@ -44,6 +44,11 @@
   tags:
     - go
 
+- include: cargo.yml
+  tags:
+    - cargo
+    - rust
+
 - include: emacs.yml
   tags:
     - emacs
