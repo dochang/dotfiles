@@ -1,0 +1,1 @@
+{{ config_dockerd_default_config | combine(config_dockerd_config) | to_nice_json }}

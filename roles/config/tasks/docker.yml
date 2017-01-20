@@ -11,13 +11,12 @@
     - reload systemd
     - restart docker
 
-- name: config docker
+- name: config dockerd
   template:
-    dest: '/etc/systemd/system/docker.service.d/exec.conf'
-    src: 'etc/systemd/system/docker.service.d/exec.conf'
+    dest: '/etc/docker/daemon.json'
+    src: 'etc/docker/daemon.json'
     group: root
     owner: root
     mode: '644'
   notify:
-    - reload systemd
     - restart docker

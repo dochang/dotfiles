@@ -29,6 +29,8 @@
     state: present
 
 - include: docker.yml
+  tags:
+    - docker
 
 - include: syncthing.yml
 
