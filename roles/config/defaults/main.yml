@@ -8,3 +8,4 @@ config_postfix_policy_map: []
 config_postfix_password_map: []
 config_postfix_mydomain: '{{ ansible_domain }}'
 config_postfix_myhostname: '{{ inventory_hostname }}'
+config_docker_opts: ''
