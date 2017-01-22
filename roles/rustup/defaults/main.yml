@@ -9,6 +9,6 @@ rustup_cargo_default_config: {}
 rustup_cargo_config:
   # https://github.com/rust-lang/cargo/blob/master/src/cargo/sources/registry/mod.rs#L175
   # https://github.com/rust-lang/cargo/blob/master/src/cargo/sources/config.rs#L27
-  sources:
+  source:
     crates-io:
       registry: https://github.com/rust-lang/crates.io-index

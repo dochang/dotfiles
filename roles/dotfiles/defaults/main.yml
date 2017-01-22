@@ -45,7 +45,7 @@ dotfiles_gem_source: https://rubygems.org/
 dotfiles_rustup_dist_server: https://static.rust-lang.org
 dotfiles_cargo_default_config: {}
 dotfiles_cargo_config:
-  sources:
+  source:
     crates-io:
       registry: https://github.com/rust-lang/crates.io-index
 dotfiles_arduinoide_preferences:
