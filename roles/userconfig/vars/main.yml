@@ -102,3 +102,4 @@ go_packages:
 
 rust_packages:
   - rustfmt
+  - cargo-vendor

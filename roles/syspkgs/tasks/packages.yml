@@ -164,6 +164,8 @@
     # For spaceman-diff
     - jp2a
     - imagemagick
+    # For cargo-vendor
+    - cmake
 
 - name: remove packages
   apt:
