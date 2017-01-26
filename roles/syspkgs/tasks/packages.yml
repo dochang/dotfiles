@@ -101,6 +101,7 @@
     - silversearcher-ag
     - editorconfig
     - jq
+    - jo
     - pandoc
     - xdm
     - mu4e
