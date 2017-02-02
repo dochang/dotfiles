@@ -41,6 +41,8 @@ fresh dspinellis/gi gi.sh --bin="~/bin/gi"
 
 fresh soimort/translate-shell trans --bin --ref=origin/gh-pages
 
+fresh Fakerr/git-recall git-recall --bin
+
 # Local Variables:
 # mode: sh
 # End:
