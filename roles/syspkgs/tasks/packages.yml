@@ -64,6 +64,7 @@
     - unclutter
     - ledger
     - suckless-tools
+    - rofi
     - xautolock
     - sxiv
     - xinput
