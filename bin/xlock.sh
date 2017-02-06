@@ -5,7 +5,7 @@ x-y|x--yes)
 	reply=yes
 	;;
 *)
-	reply="$(dmenu -i -p 'Lock the computer? (Press yes)' < /dev/null)"
+	reply="$(rofi -dmenu -i -p 'Lock the computer? (Press yes)' < /dev/null)"
 	;;
 esac
 

@@ -17,6 +17,6 @@ esac
 
 prompt="$(printf '%s (Press yes)' "$msg")"
 
-reply="$(dmenu -i -p "$prompt" < /dev/null)"
+reply="$(rofi -dmenu -i -p "$prompt" < /dev/null)"
 
 [ x"$reply" = xyes ] && eval "$cmd"

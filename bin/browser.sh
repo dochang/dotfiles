@@ -4,7 +4,7 @@ select_browser () {
 	if [ x"$DISPLAY" = x ]; then
 		echo w3m
 	else
-		cat <<EOF | dmenu -l 8 -p "Which browser?"
+		cat <<EOF | rofi -dmenu -l 8 -p "Which browser?"
 firefox -private-window
 firefox -new-window
 firefox -new-tab
