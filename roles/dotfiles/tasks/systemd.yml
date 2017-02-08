@@ -15,6 +15,3 @@
     - systemd/user/*.service
 
 - meta: flush_handlers
-
-- name: enable gpg-agent.service
-  command: systemctl --user enable gpg-agent.service
