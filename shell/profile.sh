@@ -151,7 +151,7 @@ esac
 export CHROME_DEVEL_SANDBOX
 
 ## For Android SDK
-: ${ANDROID_HOME:=/opt/android-sdk}
+: ${ANDROID_HOME:="${HOME}/opt/android-sdk"}
 export ANDROID_HOME
 prepend_to_env ${ANDROID_HOME}/tools PATH
 prepend_to_env ${ANDROID_HOME}/platform-tools PATH
