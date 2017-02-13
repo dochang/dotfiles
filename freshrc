@@ -25,7 +25,7 @@ fresh Russell91/sshrc sshrc --bin
 
 fresh majutsushi/urxvt-font-size font-size --file="~/.urxvt/ext/font-size"
 
-fresh git://git.zx2c4.com/password-store contrib/dmenu/passmenu --bin
+fresh https://git.zx2c4.com/password-store contrib/dmenu/passmenu --bin
 
 fresh LuRsT/hr hr --bin
 
