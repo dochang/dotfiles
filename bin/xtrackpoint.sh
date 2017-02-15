@@ -10,6 +10,7 @@
 
 TRACKPOINT_DEV="TPPS/2 IBM TrackPoint"
 TOUCHPAD_DEV="SynPS/2 Synaptics TouchPad"
+SANWA_TRACKBALL="HID 04d9:1166"
 
 configure_evdev_trackpoint() {
 	# Enable vertical scrolling.
@@ -29,4 +30,11 @@ if xinput --list --name-only "${TRACKPOINT_DEV}" >/dev/null ; then
 	fi
 	# Disable touchpad if trackpoint exists.
 	xinput --disable "${TOUCHPAD_DEV}"
+fi
+
+if xinput --list --name-only "${SANWA_TRACKBALL}" >/dev/null ; then
+	# Enable middle button scroll on SANWA trackball
+	xinput --set-prop "${SANWA_TRACKBALL}" "libinput Scroll Method Enabled" 0 0 1
+	# Make it slow.  The default speed is too fast...
+	xinput --set-prop "${SANWA_TRACKBALL}" "libinput Accel Speed" -1
 fi
