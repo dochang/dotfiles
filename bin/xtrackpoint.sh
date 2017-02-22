@@ -36,5 +36,5 @@ if xinput --list --name-only "${SANWA_TRACKBALL}" >/dev/null ; then
 	# Enable middle button scroll on SANWA trackball
 	xinput --set-prop "${SANWA_TRACKBALL}" "libinput Scroll Method Enabled" 0 0 1
 	# Make it slow.  The default speed is too fast...
-	xinput --set-prop "${SANWA_TRACKBALL}" "libinput Accel Speed" -1
+	xinput --set-prop "${SANWA_TRACKBALL}" "libinput Accel Speed" -0.5
 fi
