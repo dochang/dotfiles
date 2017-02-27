@@ -23,6 +23,7 @@ envs:
       - thefuck
       - qrcode
       - speedtest-cli
+      - httpstat
     packages2:
       - ansible
       - netaddr
