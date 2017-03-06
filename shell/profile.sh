@@ -156,19 +156,15 @@ export ANDROID_HOME
 prepend_to_env ${ANDROID_HOME}/tools PATH
 prepend_to_env ${ANDROID_HOME}/platform-tools PATH
 
-## Linuxbrew
-: ${LINUXBREW_ROOT:="${HOME}/.linuxbrew"}
-export LINUXBREW_ROOT
-prepend_to_env ${LINUXBREW_ROOT}/sbin PATH
-prepend_to_env ${LINUXBREW_ROOT}/bin PATH
-prepend_to_env ${LINUXBREW_ROOT}/share/man MANPATH
-prepend_to_env ${LINUXBREW_ROOT}/share/info INFOPATH
-
 ## nix
 # Expand HOME for Nix installer check.
 if [ -e "{{ ansible_env.HOME }}/.nix-profile/etc/profile.d/nix.sh" ]; then
 	. "{{ ansible_env.HOME }}/.nix-profile/etc/profile.d/nix.sh"
 fi
+
+## For node-build
+: ${NODE_BUILD_MIRROR_URL:={{ dotfiles_node_build_mirror_url | default("https://nodejs.org/dist") }}}
+export NODE_BUILD_MIRROR_URL
 
 ## For anyenv
 : ${ANYENV_ROOT:="${HOME}/.anyenv"}
@@ -192,9 +188,13 @@ which rbenv >/dev/null 2>&1 && [ -x "$(rbenv root)/plugins/rbenv-usergems/bin/rb
 	eval "$(rbenv usergems-init - $(get_shell))"
 }
 
-## For node-build
-: ${NODE_BUILD_MIRROR_URL:={{ dotfiles_node_build_mirror_url | default("https://nodejs.org/dist") }}}
-export NODE_BUILD_MIRROR_URL
+## Linuxbrew
+: ${LINUXBREW_ROOT:="${HOME}/.linuxbrew"}
+export LINUXBREW_ROOT
+prepend_to_env ${LINUXBREW_ROOT}/sbin PATH
+prepend_to_env ${LINUXBREW_ROOT}/bin PATH
+prepend_to_env ${LINUXBREW_ROOT}/share/man MANPATH
+prepend_to_env ${LINUXBREW_ROOT}/share/info INFOPATH
 
 ## For Cask
 prepend_to_env ${HOME}/.cask/bin PATH
