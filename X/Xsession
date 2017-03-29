@@ -34,19 +34,7 @@ if [ -z "$XMODIFIERS" ] ; then
 	fcitx -d
 fi
 
-# When a new keyboard is plugged in, the keymap does not apply to the new
-# keyboard.  xmodmap is a workaround, however, this only works if I type the
-# command on the new keyboard.  The answer is "using setxkbmap".
-#
-# https://bbs.archlinux.org/viewtopic.php?pid=1345868#p1345868
-#
-# Also, do not set the keyboard in VM.
-if [ x"$(hostnamectl | sed -n 's/^ *Chassis: *\([^ ]*\) *$/\1/p')" != xvm ] ; then
-	#[ -r ~/.xmodmaprc ] && xmodmap ~/.xmodmaprc
-	setkb.py
-fi
-
-xtrackpoint.sh
+config-input-devices
 
 [ -r ~/.Xresources ] && xrdb -load .Xresources
 

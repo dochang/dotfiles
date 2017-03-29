@@ -1,0 +1,98 @@
+#!/usr/bin/env python
+
+# TrackPoint
+# http://www.thinkwiki.org/wiki/How_to_configure_the_TrackPoint
+# http://okomestudio.net/biboroku/?p=1816
+# https://wiki.debian.org/InstallingDebianOn/Thinkpad/Trackpoint
+# xinput(1)
+# evdev(4)
+# libinput(4)
+
+from subprocess import check_output, call
+import os
+
+
+kbd_default_options = [
+    'ctrl:nocaps',
+    'altwin:swap_alt_win',
+]
+
+
+kbd_options = {
+    'AT Translated Set 2 keyboard': None,
+    'HID 04d9:1203': None,
+    'HID 0188:6796': ['altwin:swap_alt_win'],
+}
+
+
+dev_properties = {
+    'HID 04d9:1166': [
+        ['libinput Scroll Method Enabled', '0', '0', '1'],
+        ['libinput Accel Speed', '-0.5'],
+    ],
+}
+
+
+def get_id(name):
+    try:
+        cmd = ['xinput', '--list', '--id-only', name]
+        with open(os.devnull, 'w') as f:
+            dev_id = check_output(cmd, stderr=f)
+        dev_id = dev_id.strip()
+        return dev_id
+    except:
+        return None
+
+
+def device_exists(dev_id):
+    return dev_id is not None and dev_id != ''
+
+
+def config_kbd():
+    for name, options in kbd_options.items():
+        kbd_id = get_id(name)
+        if device_exists(kbd_id):
+            cmd = ['setxkbmap', '-device', kbd_id]
+            opts = options or kbd_default_options
+            for opt in opts:
+                cmd.append('-option')
+                cmd.append(opt)
+            call(cmd)
+
+
+def config_dev():
+    # Disable touchpad if trackpoint exists.
+    trackpoint_id = get_id('TPPS/2 IBM TrackPoint')
+    touchpad_id = get_id('SynPS/2 Synaptics TouchPad')
+    if device_exists(trackpoint_id) and device_exists(touchpad_id):
+        call(['xinput', '--disable', touchpad_id])
+
+    for name, properties in dev_properties.items():
+        dev_id = get_id(name)
+        if device_exists(dev_id):
+            for prop in properties:
+                cmd = ['xinput', '--set-prop', dev_id]
+                cmd.extend(prop)
+                call(cmd)
+
+
+def not_in_vm():
+    output = check_output(['hostnamectl'], universal_newlines=True)
+    return 'Chassis: vm\n' not in output
+
+
+def main():
+    # When a new keyboard is plugged in, the keymap does not apply to the new
+    # keyboard.  xmodmap is a workaround, however, this only works if I type
+    # the command on the new keyboard.  The answer is "using setxkbmap".
+    #
+    # https://bbs.archlinux.org/viewtopic.php?pid=1345868#p1345868
+    #
+    # Also, do not set the keyboard in VM.
+    if not_in_vm():
+        config_kbd()
+    config_dev()
+
+
+if __name__ == '__main__':
+    main()
