@@ -24,7 +24,6 @@
     name: '{{ item }}'
     state: '{{ pkg_state }}'
   with_items:
-    - beeftornado/rmtree/brew-rmtree
     - heroku
     - proxychains-ng
     - dochang/binary/ipfs
