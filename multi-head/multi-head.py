@@ -12,18 +12,22 @@ def get_output_config(output, query, last_config):
     width = preferred['width']
     height = preferred['height']
     rate = preferred['rate']
-    if last_config:
-        x = last_config['x'] + last_config['width']
-        y = last_config['y'] - height
-    else:
-        x = y = 0
-    return {
-        'x': x,
-        'y': y,
-        'width': width,
-        'height': height,
-        'rate': rate,
-    }
+    if output == 'LVDS-1':
+        return {
+            'x': 0,
+            'y': 0,
+            'width': width,
+            'height': height,
+            'rate': rate,
+        }
+    elif output == 'DP-1':
+        return {
+            'x': query['LVDS-1']['preferred']['width'],
+            'y': query['LVDS-1']['preferred']['height'],
+            'width': width,
+            'height': height,
+            'rate': rate,
+        }
 
 
 def get_config(query):
