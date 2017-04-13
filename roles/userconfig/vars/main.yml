@@ -56,7 +56,7 @@ envs:
   nodenv:
     versions:
       # https://github.com/nodejs/LTS#lts-schedule
-      - 7.8.0              # Current
+      - 7.9.0              # Current
       - 6.10.2             # LTS
       - 4.8.2              # LTS
     packages:
