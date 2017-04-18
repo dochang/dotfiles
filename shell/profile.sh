@@ -162,6 +162,11 @@ if [ -e "{{ ansible_env.HOME }}/.nix-profile/etc/profile.d/nix.sh" ]; then
 	. "{{ ansible_env.HOME }}/.nix-profile/etc/profile.d/nix.sh"
 fi
 
+## whalebrew
+: ${WHALEBREW_INSTALL_PATH:="${HOME}/bin"}
+export WHALEBREW_INSTALL_PATH
+prepend_to_env ${WHALEBREW_INSTALL_PATH} PATH
+
 ## For node-build
 : ${NODE_BUILD_MIRROR_URL:={{ dotfiles_node_build_mirror_url | default("https://nodejs.org/dist") }}}
 export NODE_BUILD_MIRROR_URL
