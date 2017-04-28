@@ -16,14 +16,14 @@
   get_url:
     dest: '{{ rustup_install_script_path }}'
     force: yes
-    url: '{{ rustup_dist_server }}/rustup/rustup-init.sh'
+    url: '{{ rustup_update_root }}/rustup-init.sh'
     validate_certs: yes
 
 - name: replace dist server in the script
   replace:
     dest: '{{ rustup_install_script_path }}'
-    regexp: '{{ "https://static.rust-lang.org" | regex_escape }}'
-    replace: '{{ rustup_dist_server | regex_replace("/*$", "") }}'
+    regexp: '{{ "https://static.rust-lang.org/rustup" | regex_escape }}'
+    replace: '{{ rustup_update_root | regex_replace("/*$", "") }}'
     validate: '/bin/sh -n %s'
 
 - name: run the script
@@ -34,6 +34,7 @@
     {{ rustup_default_host | ternary("--default-host " + (rustup_default_host or ""), "") }}
   environment:
     RUSTUP_DIST_SERVER: '{{ rustup_dist_server }}'
+    RUSTUP_UPDATE_ROOT: '{{ rustup_update_root }}'
     RUSTUP_HOME: '{{ rustup_home | expanduser }}'
 
 - name: delete cache dir

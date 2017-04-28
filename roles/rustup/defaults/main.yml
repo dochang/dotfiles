@@ -1,6 +1,8 @@
 ---
 # https://github.com/rust-lang-nursery/rustup.rs/blob/master/src/rustup-dist/src/dist.rs#L18
 rustup_dist_server: https://static.rust-lang.org
+# https://github.com/rust-lang-nursery/rustup.rs/blob/master/src/rustup-cli/self_update.rs#L197
+rustup_update_root: https://static.rust-lang.org/rustup
 rustup_home: '~/.rustup'
 rustup_no_modify_path: false
 rustup_default_toolchain: stable

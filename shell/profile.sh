@@ -228,6 +228,8 @@ export GO15VENDOREXPERIMENT=1
 export RUSTUP_HOME
 : ${RUSTUP_DIST_SERVER:={{ dotfiles_rustup_dist_server | default("https://static.rust-lang.org") }}}
 export RUSTUP_DIST_SERVER
+: ${RUSTUP_UPDATE_ROOT:={{ dotfiles_rustup_update_root | default("https://static.rust-lang.org/rustup") }}}
+export RUSTUP_UPDATE_ROOT
 [ -r "${HOME}/.cargo/env" ] && . "${HOME}/.cargo/env"
 : ${CARGO_HOME:="${HOME}/.cargo"}
 export CARGO_HOME

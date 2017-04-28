@@ -43,6 +43,7 @@ dotfiles_node_build_mirror_url: https://nodejs.org/dist
 dotfiles_yarn_registry: https://registry.yarnpkg.com
 dotfiles_gem_source: https://rubygems.org/
 dotfiles_rustup_dist_server: https://static.rust-lang.org
+dotfiles_rustup_update_root: https://static.rust-lang.org/rustup
 dotfiles_cargo_default_config: {}
 dotfiles_cargo_config:
   source:
