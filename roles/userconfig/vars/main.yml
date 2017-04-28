@@ -42,6 +42,7 @@ envs:
       # https://github.com/OfflineIMAP/offlineimap/blob/master/offlineimap.conf#L437
     packages3:
       - asciinema
+      - you-get
   rbenv:
     versions:
       - 2.4.1
