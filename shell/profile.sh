@@ -167,6 +167,10 @@ fi
 export WHALEBREW_INSTALL_PATH
 prepend_to_env ${WHALEBREW_INSTALL_PATH} PATH
 
+## For pass
+: ${PASSWORD_STORE_ENABLE_EXTENSIONS:=true}
+export PASSWORD_STORE_ENABLE_EXTENSIONS
+
 ## For node-build
 : ${NODE_BUILD_MIRROR_URL:={{ dotfiles_node_build_mirror_url | default("https://nodejs.org/dist") }}}
 export NODE_BUILD_MIRROR_URL
