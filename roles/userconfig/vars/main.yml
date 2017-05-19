@@ -102,6 +102,7 @@ go_packages:
   - github.com/cortesi/devd/cmd/devd
   - github.com/google/git-appraise/git-appraise
   - github.com/homburg/git-get
+  - github.com/digitalocean/doctl/cmd/doctl
 
 rust_packages:
   - rustfmt

@@ -28,7 +28,6 @@
     - proxychains-ng
     - dochang/binary/ipfs
     - dochang/binary/terraform
-    - dochang/binary/doctl
     - dochang/binary/jid
     - dochang/binary/hugo
     - dochang/binary/arduino
