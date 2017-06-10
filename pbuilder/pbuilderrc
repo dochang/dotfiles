@@ -1,0 +1,13 @@
+# -*- mode: sh; sh-shell: bash; -*-
+
+# https://jodal.no/2015/03/08/building-arm-debs-with-pbuilder/
+
+set -e
+
+MIRRORSITE="{{ aptsource_uri }}"
+
+DEBOOTSTRAP="qemu-debootstrap"
+
+# https://wiki.debian.org/CrossCompiling#Building_with_pbuilder
+# https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=834990
+PBUILDERSATISFYDEPENDSCMD="/usr/lib/pbuilder/pbuilder-satisfydepends-apt"

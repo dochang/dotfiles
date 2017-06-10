@@ -42,6 +42,7 @@
     - src: 'pypi/pypirc'
     - src: 'yarn/yarnrc'
     - src: 'rubocop/rubocop.yml'
+    - src: 'pbuilder/pbuilderrc'
 
 - include: dotdir.yml
   with_items:
