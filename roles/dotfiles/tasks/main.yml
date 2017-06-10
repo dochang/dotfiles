@@ -43,6 +43,7 @@
     - src: 'yarn/yarnrc'
     - src: 'rubocop/rubocop.yml'
     - src: 'pbuilder/pbuilderrc'
+    - src: 'gbp/gbp.conf'
 
 - include: dotdir.yml
   with_items:
