@@ -109,3 +109,4 @@ rust_packages:
   - rustfmt
   - cargo-vendor
   - ripgrep
+  - xsv
