@@ -146,5 +146,6 @@
 
   (add-hook 'org-mode-hook '$org-mode-hook)
 
-  :config
-  ($org-load-hook))
+  ;; Emacs runs `org-load-hook' right after loading `org', before
+  ;; `eval-after-load'.  We have to config it before loading `org'.
+  (add-hook 'org-load-hook '$org-load-hook))
