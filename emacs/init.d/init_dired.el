@@ -25,7 +25,8 @@
   (require 'dired-filetype-face)
   ;; Load it after any other dired extensions, so that its key binding
   ;; overrides others.
-  (require 'dired+))
+  (require 'dired+)
+  (dired-async-mode 1))
 
 (defun $dired-mode-hook ()
   (dired-omit-mode -1))
