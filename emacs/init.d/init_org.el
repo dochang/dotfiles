@@ -99,9 +99,9 @@
   ;; Templates for the creation of new entries.
   (setq org-capture-templates
         '(("t" "Task" entry (file+headline "" "Tasks")
-           "* TODO %?\n%U\n%a")
+           "* TODO %?\n:PROPERTIES:\n:CREATED:  %U\n:END:\n\n%a")
           ("n" "Note" entry (file+headline "" "Notes")
-           "* %?\n%U\n%a")))
+           "* %?\n:PROPERTIES:\n:CREATED:  %U\n:END:\n\n%a")))
   ;; Do not limit date range.
   (setq org-read-date-force-compatible-dates nil)
   ;; Show only one occurrence of a repeating timestamp in the agenda.
