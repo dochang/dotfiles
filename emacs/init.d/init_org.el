@@ -44,7 +44,7 @@
   ;; Place footnotes locally at the end of the current outline node.
   (setq org-footnote-section nil)
   ;; Record a note when entering each TODO state.
-  (setq org-todo-keywords '((sequence "TODO(t@)" "DONE(d@)")))
+  (setq org-todo-keywords '((sequence "NEXT(n@)" "TODO(t@)" "|" "DONE(d@)")))
   ;; Insert state change notes into the drawer "LOGBOOK".
   (setq org-log-into-drawer t)
   ;; Also insert clocking info into the drawer "LOGBOOK".
@@ -98,9 +98,11 @@
           (org-agenda-files . (:maxlevel . 1))))
   ;; Templates for the creation of new entries.
   (setq org-capture-templates
-        '(("t" "Task" entry (file+headline "" "Tasks")
+        '(("n" "NEXT" entry (file+headline "" "Tasks")
+           "* NEXT %?\n:PROPERTIES:\n:CREATED:  %U\n:END:\n\n%a")
+          ("t" "TODO" entry (file+headline "" "Tasks")
            "* TODO %?\n:PROPERTIES:\n:CREATED:  %U\n:END:\n\n%a")
-          ("n" "Note" entry (file+headline "" "Notes")
+          (" " "NOTE" entry (file+headline "" "Notes")
            "* %?\n:PROPERTIES:\n:CREATED:  %U\n:END:\n\n%a")))
   ;; Do not limit date range.
   (setq org-read-date-force-compatible-dates nil)
