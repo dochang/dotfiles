@@ -97,12 +97,35 @@
           (org-agenda-files . (:maxlevel . 1))))
   ;; Templates for the creation of new entries.
   (setq org-capture-templates
-        '(("n" "NEXT" entry (file+headline "" "Tasks")
-           "* NEXT %?\n:PROPERTIES:\n:CREATED:  %U\n:END:\n\n%a")
-          ("t" "TODO" entry (file+headline "" "Tasks")
-           "* TODO %?\n:PROPERTIES:\n:CREATED:  %U\n:END:\n\n%a")
-          (" " "NOTE" entry (file+headline "" "Notes")
-           "* %?\n:PROPERTIES:\n:CREATED:  %U\n:END:\n\n%a")))
+        '(("*" "NOTE" entry (file "")
+           "* %?\n:PROPERTIES:\n:CREATED:  %U\n:END:\n\n%a"
+           :empty-lines 1)
+          ("n" "NEXT" entry (file "")
+           "* NEXT %?\n:PROPERTIES:\n:CREATED:  %U\n:END:\n\n%a"
+           :empty-lines 1)
+          ("t" "TODO" entry (file "")
+           "* TODO %?\n:PROPERTIES:\n:CREATED:  %U\n:END:\n\n%a"
+           :empty-lines 1)
+          ("o" "CLOCK CAPTURE")
+          ("o*" "CLOCK NOTE" entry (clock)
+           "* %?\n:PROPERTIES:\n:CREATED:  %U\n:END:\n\n%a"
+           :empty-lines 1)
+          ("on" "CLOCK NEXT" entry (clock)
+           "* NEXT %?\n:PROPERTIES:\n:CREATED:  %U\n:END:\n\n%a"
+           :empty-lines 1)
+          ("ot" "CLOCK TODO" entry (clock)
+           "* TODO %?\n:PROPERTIES:\n:CREATED:  %U\n:END:\n\n%a"
+           :empty-lines 1)
+          ("oi" "CLOCK PLAIN LIST ITEM" item (clock)
+           nil)
+          ("oc" "CLOCK CHECKBOX ITEM" checkitem (clock)
+           nil)
+          ("oT" "CLOCK TABLE LINE" table-line (clock)
+           nil
+           :empty-lines 1)
+          ("o " "CLOCK PLAIN TEXT" plain (clock)
+           "%?"
+           :empty-lines 1)))
   ;; Do not limit date range.
   (setq org-read-date-force-compatible-dates nil)
   ;; Show only one occurrence of a repeating timestamp in the agenda.
