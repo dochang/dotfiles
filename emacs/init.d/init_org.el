@@ -10,7 +10,6 @@
     ;; The file where captured notes and flags from MobileOrg will be
     ;; appended to.
     (setq org-mobile-inbox-for-pull (expand-file-name "from-mobile.org"))
-    (setq org-default-notes-file (expand-file-name "notes.org"))
     (setq org-agenda-files (locate-user-emacs-file "org-agenda-files")))
   ;; `org-cycle-hide-drawers` doesn't work if `org-agenda-files`
   ;; doesn't exist.  It would cause org mode cannot expand headings.
