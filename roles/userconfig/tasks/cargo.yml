@@ -1,10 +1,10 @@
 ---
 
 # https://github.com/rust-lang/cargo/issues/2082
-- name: Install Rust packages
+- name: Install/Upgrade Rust packages
   command: >-
-    cargo install
-    {{ (pkg_state == "latest") | ternary("--force", "") }}
+    cargo
+    {{ (pkg_state == "latest") | ternary("install-update", "install") }}
     {{ item }}
   with_items:
     - '{{ envs.rust_packages }}'
