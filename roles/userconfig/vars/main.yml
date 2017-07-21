@@ -107,6 +107,7 @@ go_packages:
 
 rust_packages:
   - rustfmt
+  - cargo-update
   - cargo-vendor
   - ripgrep
   - xsv
