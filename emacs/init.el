@@ -430,8 +430,8 @@
   (unless frame
     (setq frame (selected-frame)))
   (when (display-graphic-p frame)
-    (unless (featurep 'chinese-fonts-setup)
-      ;; If `chinese-fonts-setup' is not installed, run the following setup.
+    (unless (featurep 'cnfonts)
+      ;; If `cnfonts' is not installed, run the following setup.
       ;;
       ;; `face-font-rescale-alist' has to be set when setting the font
       ;; configuration.
@@ -640,8 +640,8 @@ major mode isn't derived from `prog-mode'."
   (smart-mark-mode 1)
   (editorconfig-mode 1)
   (df-mode 1)
-  (when (require 'chinese-fonts-setup nil 'noerror)
-    (chinese-fonts-setup-enable))
+  (when (require 'cnfonts nil 'noerror)
+    (cnfonts-enable))
   (global-pointback-mode 1)
   (ido-mode 1)
   (require 'uniquify)

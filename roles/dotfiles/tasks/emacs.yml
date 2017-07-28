@@ -6,8 +6,6 @@
       dest: '~/.emacs.d/bootstrap.el'
     - src: 'emacs/init.el'
       dest: '~/.emacs.d/init.el'
-    - src: 'emacs/chinese-fonts-setup/v4/default.el'
-      dest: '~/.emacs.d/chinese-fonts-setup/v4/default.el'
     - src: 'gnus/gnus.el'
       dest: '~/.gnus.el'
 
