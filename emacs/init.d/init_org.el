@@ -94,9 +94,9 @@
   (setq org-refile-use-outline-path 'file)
   ;; Set targets for refiling entries.
   (setq org-refile-targets
-        '((nil . (:maxlevel . 1))
-          (org-default-notes-file . (:maxlevel . 1))
-          (org-agenda-files . (:maxlevel . 1))))
+        '((nil . (:maxlevel . 3))
+          (org-default-notes-file . (:maxlevel . 3))
+          (org-agenda-files . (:maxlevel . 3))))
   ;; Templates for the creation of new entries.
   (setq org-capture-templates
         '(("*" "NOTE" entry (file "")
