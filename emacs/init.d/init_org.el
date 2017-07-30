@@ -90,6 +90,8 @@
   (setq org-clone-delete-id nil)
   ;; Allow to create new nodes as refile targets with confirmation.
   (setq org-refile-allow-creating-parent-nodes 'confirm)
+  ;; Allow to refile entries to the top level in the file.
+  (setq org-refile-use-outline-path 'file)
   ;; Set targets for refiling entries.
   (setq org-refile-targets
         '((nil . (:maxlevel . 1))
