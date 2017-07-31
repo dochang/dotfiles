@@ -193,6 +193,8 @@ to use when highlighting the day in the calendar."
   ;; will be merged into the first one, and others will disappear in the
   ;; agenda.
   (setq org-agenda-skip-additional-timestamps-same-entry nil)
+  ;; Search agenda archives additionally.
+  (setq org-agenda-text-search-extra-files '(agenda-archives))
   ;; Track habits.
   (add-to-list 'org-modules 'org-habit)
   ;; Show habits in agenda buffers.
