@@ -655,6 +655,7 @@ major mode isn't derived from `prog-mode'."
   ;; `yaml-mode'.
   (electric-indent-mode -1)
   (global-homebrew-mode 1)
+  (beginend-global-mode 1)
   (unless (bound-and-true-p **org-timer**)
     (setq **org-timer** (run-at-time nil 3600 'org-agenda-to-appt)))
   (appt-activate 1)
