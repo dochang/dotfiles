@@ -7,9 +7,9 @@
   (set (make-local-variable 'view-read-only) nil))
 
 (req-package dictionary
-  :bind (("C-c s" . dictionary-search)
-         ("C-c m" . dictionary-match-words)
-         ("C-c d" . dictionary-lookup-definition)
+  :bind (("C-c d s" . dictionary-search)
+         ("C-c d m" . dictionary-match-words)
+         ("C-c d d" . dictionary-lookup-definition)
          :map dictionary-mode-map
          ("DEL" . scroll-down))
   :init
