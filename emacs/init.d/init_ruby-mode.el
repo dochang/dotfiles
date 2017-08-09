@@ -2,7 +2,6 @@
 
 (defun $ruby-mode-hook ()
   ($prog-mode-hook*)
-  (local-set-key "\C-\M-h" 'ruby-mark-defun)
   (inf-ruby-minor-mode)
   (ruby-block-mode 1))
 
