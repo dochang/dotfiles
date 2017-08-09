@@ -12,13 +12,15 @@
   ;; make the mode variable `show-paren-mode` buffer local first.
   (make-local-variable 'show-paren-mode)
   (show-paren-mode -1)
-  (local-set-key "\C-j" 'reindent-then-newline-and-indent)
   (setq indent-tabs-mode t))
 
 (req-package sh-script
   :loader :built-in
 
   :mode ("\\.zsh\\'" . sh-mode)
+
+  :bind (:map sh-mode-map
+         ("C-j" . reindent-then-newline-and-indent))
 
   :init
   ;; Indentation
