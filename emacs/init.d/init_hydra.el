@@ -6,4 +6,5 @@
     ("c" mc/edit-lines "edit multiple lines")
     ("l" multi-line "multi-line")
     ("e" emms-play-dired "play in dired")
-    ("=" er/expand-region "expand region")))
+    ("=" er/expand-region "expand region")
+    ("s" $hydra-symbol-overlay/body "symbol overlay")))
