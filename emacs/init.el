@@ -659,6 +659,7 @@ major mode isn't derived from `prog-mode'."
   (global-homebrew-mode 1)
   (beginend-global-mode 1)
   (global-aggressive-indent-mode 1)
+  (exec-path-from-shell-initialize)
   (unless (bound-and-true-p **org-timer**)
     (setq **org-timer** (run-at-time nil 3600 'org-agenda-to-appt)))
   (appt-activate 1)
