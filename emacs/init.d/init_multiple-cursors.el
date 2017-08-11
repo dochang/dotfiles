@@ -1,2 +1,1 @@
-(req-package multiple-cursors
-  :bind (("C-c m c" . mc/edit-lines)))
+(req-package multiple-cursors)

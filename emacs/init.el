@@ -54,12 +54,6 @@
                              '()))))
 
 
-;;; Key bindings
-;; [[http://www.emacswiki.org/emacs/PrefixKey]]
-(define-prefix-command '$extended-map)
-(global-set-key "\C-cx" '$extended-map)
-
-
 ;;; Specify custom file, but not load it.
 ;;; [[info:emacs#Saving%20Customizations]]
 (setq custom-file (locate-user-emacs-file ".emacs-custom.el"))
