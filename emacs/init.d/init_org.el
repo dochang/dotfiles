@@ -214,12 +214,11 @@ to use when highlighting the day in the calendar."
 (req-package org-plus-contrib
   :mode ("/\\.notes\\'" . org-mode)
   ;; Edit `org-default-notes-file' in org-mode.
-  :bind (("C-c l" . org-store-link)
+
+  :bind (("C-c o" . $hydra-org/body)
+         ;; Bind the following keys for convenience.
          ("C-c a" . org-agenda)
-         ("C-c b" . org-iswitchb)
-         ("C-c c" . org-capture)
-         ("C-c L" . org-insert-link-global)
-         ("C-c o" . org-open-at-point-global))
+         ("C-c c" . org-capture))
 
   :init
 
@@ -234,6 +233,16 @@ to use when highlighting the day in the calendar."
   ;;
   ;;   (when (featurep 'org-element) (load "org-element" t t))
   (setq org-list-allow-alphabetical t)
+
+  (defhydra $hydra-org (:color teal)
+    "org"
+    ("a" org-agenda "agenda")
+    ("b" org-iswitchb "iswitchb")
+    ("c" org-capture "capture")
+    ("l" org-store-link "store link")
+    ("L" org-insert-link-global "insert link global")
+    ("o" org-open-at-point-global "open at point global")
+    ("q" nil "quit"))
 
   (add-hook 'org-mode-hook '$org-mode-hook)
 
