@@ -51,7 +51,7 @@
              **default-custom-theme-load-path**
              (mapcar '$subdirs-to-list
                      (mapcar 'locate-user-emacs-file
-                             '("themes/")))))
+                             '()))))
 
 
 ;;; Key bindings
@@ -343,6 +343,8 @@
 (defvar **theme-engine**
   (cond ((>= emacs-major-version 24) 'custom-theme)
         ((>= emacs-major-version 21) 'color-theme)))
+
+(setq custom-theme-directory (locate-user-emacs-file "themes/"))
 
 (defvar **custom-themes** '())
 
