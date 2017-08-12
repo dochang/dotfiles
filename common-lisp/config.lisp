@@ -1,5 +1,5 @@
 ;; -*- mode: lisp -*-
-(in-package :cl-user)
+(cl:in-package :cl-user)
 
 #+ccl
 (setf ccl:*default-file-character-encoding* :utf-8
