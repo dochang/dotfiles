@@ -8,7 +8,7 @@
 ;; https://lists.clozure.com/pipermail/openmcl-devel/2013-October/010328.html
 ;; http://zoomq.qiniudn.com/ZQScrapBook/ZqFLOSS/data/20120220184701/index.html
 
-(ignore-errors (require :asdf))
+(ignore-errors (require "asdf"))
 
 #-asdf2
 (load (make-pathname :name "asdf" :type "lisp" :defaults *load-truename*))
