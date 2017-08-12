@@ -16,13 +16,13 @@
                                      (cmucl ("cmucl"))
                                      (clisp ("clisp" "-q" "-I"))))
   (add-hook 'cl-indent:load-hook '$define-cl-indents)
-  ;; * slime-fancy
-  ;;
-  ;;   a meta package which loads a combination of the most popular
-  ;;   packages.
-  (slime-setup '(slime-fancy slime-asdf slime-indentation))
   (setq slime-asdf-collect-notes nil))
 
 (req-package slime
   :init
+  ;; * slime-fancy
+  ;;
+  ;;   a meta package which loads a combination of the most popular
+  ;;   packages.
+  (setq slime-contribs '(slime-fancy slime-asdf slime-indentation))
   (add-hook 'slime-load-hook '$slime-load-hook))
