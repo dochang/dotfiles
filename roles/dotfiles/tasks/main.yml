@@ -44,6 +44,9 @@
     - src: 'rubocop/rubocop.yml'
     - src: 'pbuilder/pbuilderrc'
     - src: 'gbp/gbp.conf'
+    - src: 'common-lisp/common-lisp.lisp'
+    - src: 'common-lisp/asdf.lisp'
+      dest: '~/asdf.lisp'
 
 - include: dotdir.yml
   with_items:
@@ -75,6 +78,8 @@
     - src: 'multi-head/multi-head.py'
       mode: '700'
     - src: 'rofi/config'
+    - src: 'common-lisp/config.lisp'
+
 
 - include: less.yml
 
