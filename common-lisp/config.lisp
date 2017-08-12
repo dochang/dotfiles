@@ -8,10 +8,14 @@
 ;; https://lists.clozure.com/pipermail/openmcl-devel/2013-October/010328.html
 ;; http://zoomq.qiniudn.com/ZQScrapBook/ZqFLOSS/data/20120220184701/index.html
 
-(ignore-errors (require "asdf"))
-
-#-asdf2
-(load (make-pathname :name "asdf" :type "lisp" :defaults *load-truename*))
+;; Bootstrap ASDF
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (ignore-errors (require "asdf"))
+  (unless (member :asdf3.2 *features*)
+    ;; This local copy comes from [1]
+    ;;
+    ;; [1]: https://common-lisp.net/project/asdf/archives/asdf.lisp
+    (load (make-pathname :name "asdf" :type "lisp" :defaults *load-truename*))))
 
 ;; hot-upgrade ASDF
 (asdf:load-system :asdf)
