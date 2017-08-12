@@ -4,6 +4,9 @@
 #+ccl
 (setf ccl:*default-file-character-encoding* :utf-8
       ccl:*default-socket-character-encoding* :utf-8)
+;; https://ccl.clozure.com/manual/chapter4.5.html#External-Formats
+;; https://lists.clozure.com/pipermail/openmcl-devel/2013-October/010328.html
+;; http://zoomq.qiniudn.com/ZQScrapBook/ZqFLOSS/data/20120220184701/index.html
 
 (ignore-errors (require :asdf))
 
