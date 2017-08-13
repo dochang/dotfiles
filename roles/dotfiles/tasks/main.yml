@@ -48,6 +48,7 @@
     - src: 'common-lisp/asdf.lisp'
       dest: '~/asdf.lisp'
     - src: 'sbcl/sbclrc'
+    - src: 'clisp/clisprc.lisp'
 
 - include: dotdir.yml
   with_items:
