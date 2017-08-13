@@ -513,6 +513,8 @@
     (flyspell-prog-mode))
   (when (require 'indent-guide nil 'noerror)
     (indent-guide-mode 1))
+  (when (require 'aggressive-indent nil 'noerror)
+    (aggressive-indent-mode 1))
   (when (and nil (require 'cedit nil t))
     ;; Strings cannot contain non-ASCII control characters.  Use `(kbd "C-.")'
     ;; or `[?\C-.]' etc instead.
@@ -652,7 +654,6 @@ major mode isn't derived from `prog-mode'."
   (electric-indent-mode -1)
   (global-homebrew-mode 1)
   (beginend-global-mode 1)
-  (global-aggressive-indent-mode 1)
   (global-pangu-spacing-mode 1)
   (exec-path-from-shell-initialize)
   (require 'dashboard)
