@@ -50,6 +50,7 @@
     - src: 'swank/swank.lisp'
     - src: 'sbcl/sbclrc'
     - src: 'clisp/clisprc.lisp'
+    - src: 'ccl/ccl-init.lisp'
 
 - include: dotdir.yml
   with_items:
