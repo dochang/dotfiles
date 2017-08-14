@@ -51,6 +51,7 @@
     - src: 'sbcl/sbclrc'
     - src: 'clisp/clisprc.lisp'
     - src: 'ccl/ccl-init.lisp'
+    - src: 'ecl/eclrc'
 
 - include: dotdir.yml
   with_items:
