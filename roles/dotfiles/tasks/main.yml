@@ -43,7 +43,7 @@
     - src: 'yarn/yarnrc'
     - src: 'rubocop/rubocop.yml'
     - src: 'pbuilder/pbuilderrc'
-    - src: 'gbp/gbp.conf'
+    - src: 'git-buildpackage/gbp.conf'
     - src: 'common-lisp/common-lisp.lisp'
     - src: 'common-lisp/asdf.lisp'
       dest: '~/asdf.lisp'
