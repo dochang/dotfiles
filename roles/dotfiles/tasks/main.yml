@@ -47,6 +47,7 @@
     - src: 'common-lisp/common-lisp.lisp'
     - src: 'common-lisp/asdf.lisp'
       dest: '~/asdf.lisp'
+    - src: 'swank/swank.lisp'
     - src: 'sbcl/sbclrc'
     - src: 'clisp/clisprc.lisp'
 
