@@ -83,7 +83,7 @@ to use when highlighting the day in the calendar."
   ;; Place footnotes locally at the end of the current outline node.
   (setq org-footnote-section nil)
   ;; Record a note when entering each TODO state.
-  (setq org-todo-keywords '((sequence "NEXT(n@)" "TODO(t@)" "|" "DONE(d@)")))
+  (setq org-todo-keywords '((type "NEXT(n@)" "TODO(t@)" "|" "DONE(d@)")))
   ;; Insert state change notes into the drawer "LOGBOOK".
   (setq org-log-into-drawer t)
   ;; Also insert clocking info into the drawer "LOGBOOK".
