@@ -32,7 +32,6 @@
     - src: 'tig/tigrc'
     - src: 'wget/wgetrc'
     - src: 'xmodmap/xmodmaprc'
-    - src: 'vimperator/vimperatorrc'
     - src: 'most/mostrc'
     - src: 'sshrc/sshrc'
     - src: 'ansible/ansible.cfg'
@@ -109,6 +108,8 @@
     src: 'msmtp/msmtprc'
 
 - include: offlineimap.yml
+
+- include: vimperator.yml
 
 - include: conkeror.yml
 
