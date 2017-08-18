@@ -2,6 +2,9 @@ set followhints=1
 set toolbars=addons,nobookmarks,menu,navigation,tabs
 noremap <BS> <PageUp>
 noremap <Space> <PageDown>
+" https://superuser.com/a/956221
+" http://www.mozdev.org/pipermail/vimperator/2008-October/002547.html
+command yanktitle :js util.copyToClipboard(buffer.title, true);
 source! ~/.vimperatorrc.local
 
 " vim: set ft=vimperator:
