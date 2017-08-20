@@ -31,6 +31,8 @@ for_window [class="XWrits"] floating enable
 
 for_window [class="Dropbox"] floating enable
 
+for_window [class="Pinentry"] floating enable
+
 # Disable mouse warping entirely.
 mouse_warping none
 
