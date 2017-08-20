@@ -104,6 +104,7 @@ go_packages:
   - github.com/google/git-appraise/git-appraise
   - github.com/homburg/git-get
   - github.com/digitalocean/doctl/cmd/doctl
+  - github.com/bradleyfalzon/revgrep/cmd/revgrep
 
 rust_packages:
   - rustfmt
