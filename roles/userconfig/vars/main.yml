@@ -99,7 +99,7 @@ go_packages:
   - golang.org/x/tools/cmd/guru
   - github.com/tpng/gopkgs
   # utils
-  - github.com/zimbatm/direnv
+  - github.com/direnv/direnv
   - github.com/joho/godotenv/cmd/godotenv
   - github.com/cortesi/devd/cmd/devd
   - github.com/google/git-appraise/git-appraise
