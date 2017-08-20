@@ -97,6 +97,7 @@ go_packages:
   - github.com/shurcooL/binstale
   - github.com/rogpeppe/godef
   - golang.org/x/tools/cmd/guru
+  - github.com/tpng/gopkgs
   # utils
   - github.com/zimbatm/direnv
   - github.com/joho/godotenv/cmd/godotenv
