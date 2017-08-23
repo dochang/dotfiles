@@ -6,9 +6,9 @@ envs:
   pyenv:
     versions:
       - 2.7.13
-      - 3.6.1
-      - 3.5.3
-      - 3.4.6
+      - 3.6.2
+      - 3.5.4
+      - 3.4.7
     packages:
       - pip
       - pip-autoremove
@@ -57,9 +57,9 @@ envs:
   nodenv:
     versions:
       # https://github.com/nodejs/LTS#lts-schedule
-      - 8.1.3              # Current
-      - 6.11.0             # LTS
-      - 4.8.3              # LTS
+      - 8.4.0              # Current
+      - 6.11.2             # LTS
+      - 4.8.4              # LTS
     packages:
       - nrm
       - yo
