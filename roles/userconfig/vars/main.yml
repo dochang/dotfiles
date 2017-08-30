@@ -61,6 +61,7 @@ envs:
       - 6.11.2             # LTS
       - 4.8.4              # LTS
     packages:
+      - npm-run
       - nrm
       - yo
       - david
