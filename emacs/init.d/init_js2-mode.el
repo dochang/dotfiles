@@ -16,4 +16,8 @@
   ;; https://github.com/mooz/js2-mode/issues/111#issuecomment-24371116
   (setq js2-indent-switch-body t)
   (setq js2-strict-trailing-comma-warning nil)
+  ;; Do not warn about missing semicolon.
+  ;;
+  ;; Because it does NOT recognize object literals!
+  (setq js2-strict-missing-semi-warning nil)
   (add-hook 'js2-mode-hook '$js2-mode-hook))
