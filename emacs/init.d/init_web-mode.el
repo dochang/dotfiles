@@ -4,6 +4,9 @@
 
 (defun $web-mode-hook ()
   ($prog-mode-hook*)
+  (cond ((and buffer-file-name
+              (string-match "\\.jsx?\\'" buffer-file-name))
+         ($js-mode-common-hook)))
   (emmet-mode 1)
   ($camel-case-mode 1))
 

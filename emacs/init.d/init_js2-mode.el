@@ -1,6 +1,5 @@
 (defun $js2-mode-hook ()
-  ($prog-mode-hook*)
-  ($camel-case-mode 1))
+  ($js-mode-common-hook))
 
 (req-package js2-mode
   :require js

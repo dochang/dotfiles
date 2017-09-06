@@ -1,8 +1,12 @@
 ;;; JS Mode
 
-(defun $js-mode-hook ()
+(defun $js-mode-common-hook ()
   ($prog-mode-hook*)
-  ($camel-case-mode 1))
+  ($camel-case-mode 1)
+  (prettier-js-mode 1))
+
+(defun $js-mode-hook ()
+  ($js-mode-common-hook))
 
 (req-package js
   :loader :built-in
