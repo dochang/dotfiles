@@ -3,7 +3,6 @@
 ;; [[https://github.com/clojure-emacs/clojure-mode]]
 
 (defun $clojure-mode-hook ()
-  ($prog-mode-hook*)
   ($lisp-mode-common-hook))
 
 (req-package clojure-mode

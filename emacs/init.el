@@ -563,6 +563,7 @@ major mode isn't derived from `prog-mode'."
 
 ;;; Lisp Common Mode
 (defun $lisp-mode-common-hook ()
+  ($prog-mode-hook*)
   (enable-paredit-mode)
   (when (and nil (require 'cedit nil t))
     (local-set-key (kbd "C-)") 'cedit-or-paredit-slurp)

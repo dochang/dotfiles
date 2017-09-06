@@ -12,7 +12,6 @@
                             (expand-file-name user-emacs-directory)))))))
 
 (defun $emacs-lisp-mode-hook ()
-  ($prog-mode-hook*)
   ($lisp-mode-common-hook)
   (form-feed-mode 1)
   ;; Flycheck is too strict for my `.emacs' now.  Use flymake instead.

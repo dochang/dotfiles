@@ -92,7 +92,6 @@ Lisp function does not specify a special indentation."
                (funcall method indent-point state))))))))
 
 (defun $lisp-mode-hook ()
-  ($prog-mode-hook*)
   ($lisp-mode-common-hook))
 
 (req-package lisp-mode
