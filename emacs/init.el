@@ -65,7 +65,7 @@
 
 (setq safe-local-variable-values
       (cons (cons 'buffer-auto-save-file-name nil)
-             **default-safe-local-variable-values**))
+            **default-safe-local-variable-values**))
 
 
 ;;; Disable auto save recovery record.
