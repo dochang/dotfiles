@@ -52,6 +52,7 @@
     - src: 'ccl/ccl-init.lisp'
     - src: 'ecl/eclrc'
     - src: 'cmucl/cmucl-init.lisp'
+    - src: 'prettier/prettierrc'
 
 - include: dotdir.yml
   with_items:
