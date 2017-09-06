@@ -7,7 +7,7 @@
   :group 'perl
   :safe (lambda (value) (or (booleanp value) (stringp value))))
 
-(defun $flymake-perl-init-local-lib-support (retval)
+(define-advice flymake-perl-init (:filter-return (retval) local-lib-support)
   "local::lib support."
   ;; Make local variables take effect first.
   (hack-local-variables)
@@ -39,8 +39,6 @@
   (setq flymake-gui-warnings-enabled nil)
   ;; Log messages with level <= 1 (WARNING)
   (setq flymake-log-level 1)
-  (advice-add 'flymake-perl-init :filter-return
-              '$flymake-perl-init-local-lib-support)
   :config
   (add-to-list 'flymake-allowed-file-name-masks
                '("Rexfile\\'" flymake-perl-init))

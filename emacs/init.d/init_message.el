@@ -9,7 +9,7 @@
 (defun $message-setup-hook ()
   (flyspell-mode 1))
 
-(defun $message-unique-id-by-uuid (unique-id)
+(define-advice message-unique-id (:filter-return (unique-id) by-uuid)
   "Return an UUID if available.  Otherwise, return the original
 return value of `message-unique-id'."
   (let ((uuid ($uuid)))
@@ -49,6 +49,4 @@ return value of `message-unique-id'."
   ;; sendmail.  Do not use `user-mail-address'.
   (setq message-sendmail-envelope-from 'header)
 
-  (add-hook 'message-setup-hook '$message-setup-hook)
-
-  (advice-add 'message-unique-id :filter-return '$message-unique-id-by-uuid))
+  (add-hook 'message-setup-hook '$message-setup-hook))
