@@ -71,6 +71,7 @@ envs:
       # https://github.com/zaach/jsonlint
       - jsonlint
       - diff-so-fancy
+      - prettier
 
 env_versions:
   - name: pyenv
