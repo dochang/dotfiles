@@ -202,8 +202,6 @@ which rbenv >/dev/null 2>&1 && [ -x "$(rbenv root)/plugins/rbenv-usergems/bin/rb
 export LINUXBREW_ROOT
 prepend_to_env ${LINUXBREW_ROOT}/sbin PATH
 prepend_to_env ${LINUXBREW_ROOT}/bin PATH
-prepend_to_env ${LINUXBREW_ROOT}/share/man MANPATH
-prepend_to_env ${LINUXBREW_ROOT}/share/info INFOPATH
 
 ## For Cask
 prepend_to_env ${HOME}/.cask/bin PATH
