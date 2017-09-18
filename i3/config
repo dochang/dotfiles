@@ -33,6 +33,8 @@ for_window [class="Dropbox"] floating enable
 
 for_window [class="Pinentry"] floating enable
 
+for_window [class="Firefox" window_role="About"] floating enable
+
 # Disable mouse warping entirely.
 mouse_warping none
 
