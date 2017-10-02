@@ -1,12 +1,13 @@
+# https://packaging.python.org/guides/migrating-to-pypi-org/#uploading
+
 [distutils]
 index-servers =
   pypi
   pypitest
 
 [pypitest]
-repository = https://testpypi.python.org/pypi
+repository = https://test.pypi.org/legacy/
 username = dochang
 
 [pypi]
-repository = https://pypi.python.org/pypi
 username = dochang
