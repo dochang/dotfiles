@@ -8,8 +8,27 @@
 # evdev(4)
 # libinput(4)
 
+from __future__ import absolute_import, division, print_function
+__metaclass__ = type
+
 from subprocess import check_output, call
-import os
+import re
+
+
+class Device:
+    def __init__(self, name, dev_id, use, dev_type, attachment):
+        self.name = name
+        self.dev_id = dev_id
+        self.use = use
+        self.dev_type = dev_type
+        self.attachment = attachment
+        self.attached_devices = []
+
+
+devices_by_id = {}
+master_keyboard = None
+master_pointer = None
+devices_by_name = {}
 
 
 kbd_default_options = [
@@ -34,45 +53,38 @@ dev_properties = {
 }
 
 
-def get_id(name):
-    try:
-        cmd = ['xinput', '--list', '--id-only', name]
-        with open(os.devnull, 'w') as f:
-            dev_id = check_output(cmd, stderr=f)
-        dev_id = dev_id.strip()
-        return dev_id
-    except:
-        return None
-
-
-def device_exists(dev_id):
-    return dev_id is not None and dev_id != ''
+def get_ids(name):
+    devs = devices_by_name.get(name)
+    if not devs:
+        return []
+    return [dev.dev_id for dev in devs]
 
 
 def config_kbd():
     for name, options in kbd_options.items():
-        kbd_id = get_id(name)
-        if device_exists(kbd_id):
-            cmd = ['setxkbmap', '-device', kbd_id]
-            opts = options or kbd_default_options
-            for opt in opts:
-                cmd.append('-option')
-                cmd.append(opt)
-            call(cmd)
+        for kbd_id in get_ids(name):
+            if devices_by_id[kbd_id].dev_type == 'keyboard':
+                cmd = ['setxkbmap', '-device', str(kbd_id)]
+                opts = options or kbd_default_options
+                for opt in opts:
+                    cmd.append('-option')
+                    cmd.append(opt)
+                call(cmd)
 
 
 def config_dev():
     # Disable touchpad if trackpoint exists.
-    trackpoint_id = get_id('TPPS/2 IBM TrackPoint')
-    touchpad_id = get_id('SynPS/2 Synaptics TouchPad')
-    if device_exists(trackpoint_id) and device_exists(touchpad_id):
-        call(['xinput', '--disable', touchpad_id])
+    trackpoint_ids = get_ids('TPPS/2 IBM TrackPoint')
+    touchpad_ids = get_ids('SynPS/2 Synaptics TouchPad')
+    if trackpoint_ids and touchpad_ids:
+        for touchpad_id in touchpad_ids:
+            call(['xinput', '--disable', str(touchpad_id)])
 
     for name, properties in dev_properties.items():
-        dev_id = get_id(name)
-        if device_exists(dev_id):
+        dev_ids = get_ids(name)
+        for dev_id in dev_ids:
             for prop in properties:
-                cmd = ['xinput', '--set-prop', dev_id]
+                cmd = ['xinput', '--set-prop', str(dev_id)]
                 cmd.extend(prop)
                 call(cmd)
 
@@ -82,7 +94,52 @@ def not_in_vm():
     return 'Chassis: vm\n' not in output
 
 
+def get_devices():
+    pattern = re.compile(
+        '^[^A-Za-z0-9]*([^\t]+)\tid=(\d+)\t\[([^ ]+) +([^ ]+) +\((\d+)\)\]'
+    )
+    output = check_output(['xinput', '--list', '--short'],
+                          universal_newlines=True)
+    for line in output.splitlines():
+        m = re.match(pattern, line)
+        if not m:
+            continue
+        name = m.group(1).strip()
+        dev_id = int(m.group(2))
+        use = m.group(3)
+        dev_type = m.group(4)
+        attachment = int(m.group(5))
+        device = Device(
+            name=name,
+            dev_id=dev_id,
+            use=use,
+            dev_type=dev_type,
+            attachment=attachment,
+        )
+        devices_by_id[dev_id] = device
+        if name in devices_by_name:
+            devices_by_name[name].append(device)
+        else:
+            devices_by_name[name] = [device]
+    for device in devices_by_id.values():
+        if device.use == 'slave':
+            attachment = device.attachment
+            master_device = devices_by_id[attachment]
+            if master_device.attached_devices:
+                master_device.attached_devices.append(device)
+            else:
+                master_device.attached_devices = [device]
+        elif device.use == 'master':
+            if device.dev_type == 'keyboard':
+                global master_keyboard
+                master_keyboard = device
+            elif device.dev_type == 'pointer':
+                global master_pointer
+                master_pointer = device
+
+
 def main():
+    get_devices()
     # When a new keyboard is plugged in, the keymap does not apply to the new
     # keyboard.  xmodmap is a workaround, however, this only works if I type
     # the command on the new keyboard.  The answer is "using setxkbmap".
