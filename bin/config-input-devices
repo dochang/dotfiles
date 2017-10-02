@@ -22,6 +22,7 @@ kbd_options = {
     'AT Translated Set 2 keyboard': None,
     'HID 04d9:1203': None,
     'HID 0188:6796': ['altwin:swap_alt_win'],
+    'SINO WEALTH USB KEYBOARD': None,
 }
 
 
