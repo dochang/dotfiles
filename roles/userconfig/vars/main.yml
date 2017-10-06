@@ -5,8 +5,8 @@ pkg_state: present
 envs:
   pyenv:
     versions:
-      - 2.7.13
-      - 3.6.2
+      - 2.7.14
+      - 3.6.3
       - 3.5.4
       - 3.4.7
     packages:
@@ -45,9 +45,9 @@ envs:
       - you-get
   rbenv:
     versions:
-      - 2.4.1
-      - 2.3.4
-      - 2.2.7
+      - 2.4.2
+      - 2.3.5
+      - 2.2.8
     packages:
       - bundler
       - rubocop
@@ -57,7 +57,7 @@ envs:
   nodenv:
     versions:
       # https://github.com/nodejs/LTS#lts-schedule
-      - 8.4.0              # Current
+      - 8.6.0              # Current
       - 6.11.2             # LTS
       - 4.8.4              # LTS
     packages:
