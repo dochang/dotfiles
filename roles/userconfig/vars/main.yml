@@ -36,6 +36,9 @@ envs:
       - ansible-bundle
       - ansible-lint
       - molecule
+      - six
+      # needed by offlineimap
+      # must be installed before offlineimap
       - offlineimap
       - PySocks
       # needed by offlineimap to use proxy
