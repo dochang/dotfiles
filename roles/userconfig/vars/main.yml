@@ -20,7 +20,6 @@ envs:
       - httpie
       - HTTPolice
       - bumplus
-      - thefuck
       - qrcode
       - speedtest-cli
       - httpstat
@@ -44,6 +43,10 @@ envs:
       # needed by offlineimap to use proxy
       # https://github.com/OfflineIMAP/offlineimap/blob/master/offlineimap.conf#L437
     packages3:
+      - thefuck
+      # thefuck drops Python 2 support.  Install it only in Python 3.
+      #
+      # https://github.com/nvbn/thefuck/issues/685
       - asciinema
       - you-get
   rbenv:
