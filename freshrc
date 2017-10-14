@@ -43,6 +43,8 @@ fresh soimort/translate-shell trans --bin --ref=origin/gh-pages
 
 fresh Fakerr/git-recall git-recall --bin
 
+fresh aelesbao/git-recursive git-recursive --bin
+
 # Local Variables:
 # mode: sh
 # End:
