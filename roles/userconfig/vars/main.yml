@@ -123,3 +123,4 @@ rust_packages:
   - cargo-vendor
   - ripgrep
   - xsv
+  - fd-find
