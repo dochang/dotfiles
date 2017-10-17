@@ -4,19 +4,19 @@
 usecompression = yes
 
 [general]
-accounts = dochang@gmail.com
+accounts = dochangATgmailDOTcom
 ui = ttyui
 # timeout in 60s
 socktimeout = 60
 pythonfile = ~/.config/offlineimap/config.py
-fsync = false
 
 
-[Account dochang@gmail.com]
+[Account dochangATgmailDOTcom]
 localrepository = dochang@gmail.com_local
 remoterepository = dochang@gmail.com_remote
 status_backend = sqlite
 synclabels = no
+utf8foldernames = yes
 
 [Repository dochang@gmail.com_local]
 type = GmailMaildir
