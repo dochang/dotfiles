@@ -7,4 +7,8 @@
   :loader :path
   :init
   (setq mu4e-attachment-dir (expand-file-name "~/Downloads/"))
+  (setq mu4e-change-filenames-when-moving t)
+  ;; Change the filename when moving messages to different folders.
+  ;;
+  ;; http://isync.sourceforge.net/mbsync.html#RECOMMENDATIONS
   (add-hook 'mu4e-compose-mode-hook '$mu4e-compose-mode-hook))
