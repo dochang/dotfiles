@@ -18,11 +18,17 @@
     - site-lisp
     - themes
 
-- name: install emacs *.el files
+- name: install emacs site files
   copy:
     dest: '~/.emacs.d/{{ item | relpath("emacs") }}'
     src: '{{ item }}'
   with_fileglob:
-    - emacs/init.d/*.el
     - emacs/site-lisp/*.el
     - emacs/themes/*.el
+
+- name: install emacs *.el files
+  template:
+    dest: '~/.emacs.d/{{ item | relpath("emacs") }}'
+    src: '{{ item }}'
+  with_fileglob:
+    - emacs/init.d/*.el
