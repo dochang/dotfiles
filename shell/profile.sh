@@ -37,6 +37,10 @@ export MAILUSER
 export MAILHOST
 
 
+: ${MAILDIR:={{ dotfiles_maildir }}}
+export MAILDIR
+
+
 : ${LESS:=-Ri}
 export LESS
 ## Without `-R`, less cannot handle some control characters correctly,
