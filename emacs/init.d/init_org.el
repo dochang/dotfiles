@@ -139,13 +139,13 @@ to use when highlighting the day in the calendar."
           (org-agenda-files . (:maxlevel . 3))))
   ;; Templates for the creation of new entries.
   (setq org-capture-templates
-        '(("*" "NOTE" entry (file "")
+        '(("*" "NOTE" entry (file+olp+datetree "")
            "* %?\n:PROPERTIES:\n:CREATED:  %U\n:END:\n\n%a"
            :empty-lines 1)
-          ("n" "NEXT" entry (file "")
+          ("n" "NEXT" entry (file+olp+datetree "")
            "* NEXT %?\n:PROPERTIES:\n:CREATED:  %U\n:END:\n\n%a"
            :empty-lines 1)
-          ("t" "TODO" entry (file "")
+          ("t" "TODO" entry (file+olp+datetree "")
            "* TODO %?\n:PROPERTIES:\n:CREATED:  %U\n:END:\n\n%a"
            :empty-lines 1)
           ("o" "CLOCK CAPTURE")
