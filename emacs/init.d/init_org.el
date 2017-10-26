@@ -168,6 +168,8 @@ to use when highlighting the day in the calendar."
           ("o " "CLOCK PLAIN TEXT" plain (clock)
            "%?"
            :empty-lines 1)))
+  ;; Use the date at point when capturing from agendas.
+  (setq org-capture-use-agenda-date t)
   ;; Do not limit date range.
   (setq org-read-date-force-compatible-dates nil)
   ;; Show only one occurrence of a repeating timestamp in the agenda.
