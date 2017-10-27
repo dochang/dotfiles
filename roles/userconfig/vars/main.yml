@@ -72,6 +72,7 @@ envs:
       - jsonlint
       - diff-so-fancy
       - prettier
+      - eclint
 
 env_versions:
   - name: pyenv
