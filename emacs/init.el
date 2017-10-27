@@ -655,6 +655,7 @@ major mode isn't derived from `prog-mode'."
   ;; Disable by default since it doesn't work well in some modes such as
   ;; `yaml-mode'.
   (electric-indent-mode -1)
+  (electric-pair-mode 1)
   (global-homebrew-mode 1)
   (beginend-global-mode 1)
   (exec-path-from-shell-initialize)
