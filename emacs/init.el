@@ -643,7 +643,6 @@ major mode isn't derived from `prog-mode'."
   (df-mode 1)
   (when (require 'cnfonts nil 'noerror)
     (cnfonts-enable))
-  (global-pointback-mode 1)
   (ido-mode 1)
   (require 'uniquify)
   (require 'generic-x)
