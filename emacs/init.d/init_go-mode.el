@@ -5,7 +5,8 @@
   ($prog-mode-hook*)
   ($camel-case-mode 1)
   (setq indent-tabs-mode t)
-  (go-guru-hl-identifier-mode))
+  (go-guru-hl-identifier-mode)
+  (add-hook 'before-save-hook '$gofmt-before-save 'append 'local))
 
 (defun $gofmt-before-save ()
   (interactive)
@@ -22,5 +23,4 @@
   (setq gofmt-command
         (cond ((executable-find "goimports") "goimports")
               (t "gofmt")))
-  (add-hook 'before-save-hook '$gofmt-before-save)
   (add-hook 'go-mode-hook '$go-mode-hook))
