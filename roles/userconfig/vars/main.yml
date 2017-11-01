@@ -110,6 +110,7 @@ go_packages:
   - github.com/homburg/git-get
   - github.com/digitalocean/doctl/cmd/doctl
   - github.com/bradleyfalzon/revgrep/cmd/revgrep
+  - github.com/schollz/croc
 
 rust_packages:
   - rustfmt
