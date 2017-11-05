@@ -102,6 +102,7 @@ go_packages:
   - github.com/rogpeppe/godef
   - golang.org/x/tools/cmd/guru
   - github.com/tpng/gopkgs
+  - github.com/nsf/gocode
   # utils
   - github.com/direnv/direnv
   - github.com/joho/godotenv/cmd/godotenv
