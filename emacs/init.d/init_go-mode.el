@@ -20,6 +20,9 @@
           ("gofmt" "-s"))))
 
 (req-package go-mode
+  :bind (:map go-mode-map
+         ("M-." . godef-jump)
+         ("M-*" . pop-tag-mark))
   :init
   (setq gofmt-command
         (cond ((executable-find "goimports") "goimports")
