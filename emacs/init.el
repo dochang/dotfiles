@@ -658,6 +658,7 @@ major mode isn't derived from `prog-mode'."
   (global-homebrew-mode 1)
   (beginend-global-mode 1)
   (auto-insert-mode 1)
+  (global-company-mode 1)
   (exec-path-from-shell-initialize)
   (require 'dashboard)
   (unless (bound-and-true-p **org-timer**)
