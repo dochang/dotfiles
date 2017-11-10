@@ -5,6 +5,8 @@
   ($prog-mode-hook*)
   ($camel-case-mode 1)
   (setq indent-tabs-mode t)
+  (when (require 'go-eldoc nil 'noerror)
+    (go-eldoc-setup))
   (set (make-local-variable 'company-backends) '(company-go))
   (go-guru-hl-identifier-mode)
   (add-hook 'before-save-hook '$gofmt-before-save 'append 'local))
