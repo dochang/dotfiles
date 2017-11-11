@@ -62,15 +62,19 @@ ctrl+n cut-right,cut-down
 # ctrl+grave start
 ctrl+alt+z start
 
+## Wheeling.
+4 click 4
+5 click 5
+
 ## Dragging.  Likewise, 1 is the left button.
-4 drag 1
-5 drag 2
-6 drag 3
-alt+4 drag 1 alt
-shift+4 drag 1 shift
-shift+alt+4 drag 1 shift+alt
+6 drag 1
+7 drag 2
+8 drag 3
+alt+6 drag 1 alt
+shift+6 drag 1 shift
+shift+alt+6 drag 1 shift+alt
 ### Dragging for libvte-based terminal emulators.
-ctrl+shift+4 drag 1 ctrl+shift
+ctrl+shift+6 drag 1 ctrl+shift
 ctrl+shift+h move-left
 ctrl+shift+j move-down
 ctrl+shift+k move-up
