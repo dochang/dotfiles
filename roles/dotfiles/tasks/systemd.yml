@@ -15,3 +15,12 @@
     - systemd/user/*.service
 
 - meta: flush_handlers
+
+# Some units require X so do NOT enable all units.
+- name: enable systemd user unit files
+  systemd:
+    user: yes
+    name: '{{ item }}'
+    enabled: yes
+  with_items:
+    - emacs.service
