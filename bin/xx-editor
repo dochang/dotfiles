@@ -94,6 +94,7 @@ def add_arguments(argv):
     if server_file:
         return ['--server-file', server_file] + argv
 
+    return ['--server-file', 'systemd'] + argv
 
 def main():
     argv = add_arguments(sys.argv[1:])

@@ -9,6 +9,8 @@ export ENV
 export LANG
 
 
+: ${EMACS_SERVER_FILE:=systemd}
+export EMACS_SERVER_FILE
 : ${EDITOR:=xx-editor}
 export EDITOR
 : ${ALTERNATE_EDITOR:=""}
