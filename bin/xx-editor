@@ -8,6 +8,7 @@ import stat
 import socket
 import re
 
+
 def find_socket_name():
     socket_name = None
     tmpdir = os.environ.get('TMPDIR') or '/tmp'
@@ -28,6 +29,7 @@ def find_socket_name():
         finally:
             sock.close()
     return socket_name
+
 
 def find_server_file():
     server_file = None
@@ -57,10 +59,11 @@ def find_server_file():
                 sock.close()
     return server_file
 
+
 def add_arguments(argv):
     # Convert argv from str list to unicode list in PY2
     if sys.version_info[0] == 2:
-        argv = [ arg.decode(sys.getfilesystemencoding()) for arg in argv ]
+        argv = [arg.decode(sys.getfilesystemencoding()) for arg in argv]
 
     has_display = 'DISPLAY' in os.environ
     if not has_display:
@@ -91,11 +94,13 @@ def add_arguments(argv):
     if server_file:
         return ['--server-file', server_file] + argv
 
+
 def main():
     argv = add_arguments(sys.argv[1:])
     prog = 'emacsclient'
     argv = [prog] + argv
     os.execvp(prog, argv)
+
 
 if __name__ == '__main__':
     main()
