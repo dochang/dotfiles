@@ -62,6 +62,20 @@ def add_arguments(argv):
     if sys.version_info[0] == 2:
         argv = [ arg.decode(sys.getfilesystemencoding()) for arg in argv ]
 
+    has_display = 'DISPLAY' in os.environ
+    if not has_display:
+        has_display = '-d' in argv
+    if not has_display:
+        has_display = '--display' in argv
+    need_create_frame = False
+    if has_display:
+        need_create_frame = True
+        for opt in '-c', '--create-frame', '-nw', '-t', '--tty':
+            if opt in argv:
+                need_create_frame = False
+    if need_create_frame:
+        argv = ['--create-frame'] + argv
+
     if 'EMACS_SERVER_FILE' in os.environ:
         return argv
 
