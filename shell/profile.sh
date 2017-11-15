@@ -9,7 +9,7 @@ export ENV
 export LANG
 
 
-: ${EDITOR:=editor.py}
+: ${EDITOR:=xx-editor}
 export EDITOR
 : ${ALTERNATE_EDITOR:=""}
 export ALTERNATE_EDITOR
