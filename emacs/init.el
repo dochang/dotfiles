@@ -662,6 +662,7 @@ major mode isn't derived from `prog-mode'."
   (projectile-mode 1)
   (exec-path-from-shell-initialize)
   (require 'dashboard)
+  (atomic-chrome-start-server)
   (unless (bound-and-true-p **org-timer**)
     (setq **org-timer** (run-at-time nil 3600 'org-agenda-to-appt)))
   (appt-activate 1)
