@@ -31,9 +31,8 @@ def find_socket_name():
 
 def find_server_file():
     server_file = None
-    home = os.environ['HOME']
-    if not home:
-        return None
+    home = os.path.expanduser('~')
+    # https://stackoverflow.com/a/4028943
     server_dir = os.path.join(home, '.emacs.d', 'server')
     if not os.path.isdir(server_dir):
         return None
