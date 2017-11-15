@@ -4,4 +4,6 @@
   command: lesskey
 
 - name: reload systemd user daemon
-  command: systemctl --user daemon-reload
+  systemd:
+    user: yes
+    daemon_reload: yes
