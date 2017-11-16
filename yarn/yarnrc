@@ -1,1 +1,6 @@
+## Registries
+# https://github.com/yarnpkg/yarn/issues/3700#issuecomment-312872253
+# https://github.com/yarnpkg/yarn/issues/2322#issue-197206678
 registry {{ dotfiles_yarn_registry | to_json }}
+# A mirror may not have scoped packages.  Use upstream.
+"@types:registry" "https://registry.npmjs.org/"
