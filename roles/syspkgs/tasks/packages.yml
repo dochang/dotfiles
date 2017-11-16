@@ -58,7 +58,6 @@
     - ssh-askpass
     - chromium
     - firefox
-    - conkeror
     - tmux
     - make
     - unclutter
