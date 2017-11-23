@@ -114,6 +114,7 @@ go_packages:
   - github.com/bradleyfalzon/revgrep/cmd/revgrep
   - github.com/schollz/croc
   - github.com/aybabtme/humanlog/cmd/humanlog
+  - github.com/gchaincl/httplab/cmd/httplab
 
 rust_packages:
   - rustfmt
