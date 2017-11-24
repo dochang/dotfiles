@@ -1,0 +1,11 @@
+- name: ensure ~/.config/autostart present
+  file:
+    path: ~/.config/autostart
+    state: directory
+
+- name: install .desktop files
+  template:
+    dest: '~/.config/autostart/{{ item | basename }}'
+    src: '{{ item }}'
+  with_fileglob:
+    - autostart/*.desktop

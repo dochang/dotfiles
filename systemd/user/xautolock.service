@@ -1,6 +1,0 @@
-[Unit]
-Description=xautolock
-
-[Service]
-ExecStart=/bin/sh -l -c 'exec xautolock -time 20 -locker "xlock.sh --yes"'
-Restart=on-failure

@@ -104,6 +104,7 @@
     - jo
     - pandoc
     - xdm
+    - dex
     - mu4e
     - maildir-utils
     # For Linuxbrew

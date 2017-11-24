@@ -1,8 +1,0 @@
-[Unit]
-Description=unclutter
-
-[Service]
-Environment="EXTRA_OPTS=-idle 1 -root"
-EnvironmentFile=-/etc/default/unclutter
-ExecStart=/bin/sh -l -c 'exec unclutter $EXTRA_OPTS'
-Restart=on-failure

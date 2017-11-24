@@ -1,6 +1,0 @@
-[Unit]
-Description=xwrits
-
-[Service]
-ExecStart=/bin/sh -l -c 'exec xwrits +multiscreen +breakclock +cheat +clock +idle +mouse +top'
-Restart=on-failure

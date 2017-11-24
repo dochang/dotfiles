@@ -116,4 +116,6 @@
 
 - include: arduinoide.yml
 
+- include: xdg.yml
+
 - include: systemd.yml

@@ -1,7 +1,0 @@
-[Unit]
-Description=keynav
-
-[Service]
-Type=simple
-ExecStart=/bin/sh -l -c 'exec keynav'
-Restart=on-failure

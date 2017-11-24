@@ -1,8 +1,6 @@
 #!/bin/sh -l
 # -*- mode: sh -*-
 
-systemctl --user import-environment DISPLAY XAUTHORITY
-
 : ${TERMINAL:=x-terminal-emulator}
 export TERMINAL
 
@@ -44,17 +42,7 @@ xsetroot -cursor_name left_ptr
 # http://www.debian-administration.org/articles/110
 xset b off
 
-systemctl --user import-environment XLOCKER
-
-systemctl --user start xautolock
-
-systemctl --user start keynav
-
-pgrep '^unclutter$' >/dev/null || systemctl --user start unclutter
-
-systemctl --user start xwrits
-
-systemctl --user start conky
+dex --autostart --search ~/.config/autostart
 
 STARTUP="${X_WINDOW_MANAGER:-x-window-manager}"
 
