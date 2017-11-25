@@ -52,7 +52,7 @@ export LESSCHARSET
 
 
 [ -z "$LESSOPEN" -a -z "$LESSCLOSE" ] \
-	&& which lesspipe >/dev/null 2>&1 \
+	&& command -v lesspipe >/dev/null 2>&1 \
 	&& eval "$(lesspipe)"
 ## For less input pre-processor
 
@@ -185,10 +185,10 @@ export NODE_BUILD_MIRROR_URL
 : ${ANYENV_ROOT:="${HOME}/.anyenv"}
 export ANYENV_ROOT
 prepend_to_env ${ANYENV_ROOT}/bin PATH
-which anyenv >/dev/null 2>&1 && eval "$(anyenv init - $(get_shell))"
+command -v anyenv >/dev/null 2>&1 && eval "$(anyenv init - $(get_shell))"
 
 ## For pyenv
-which pyenv >/dev/null 2>&1 && {
+command -v pyenv >/dev/null 2>&1 && {
 	{ pyenv commands | grep virtualenv-init ; } >/dev/null 2>&1 || eval "$(pyenv virtualenv-init - $(get_shell))"
 	case "$(get_shell)" in
 	bash|zsh|ksh)
@@ -199,7 +199,7 @@ which pyenv >/dev/null 2>&1 && {
 }
 
 ## For rbenv-usergems
-which rbenv >/dev/null 2>&1 && [ -x "$(rbenv root)/plugins/rbenv-usergems/bin/rbenv-usergems-init" ] && {
+command -v rbenv >/dev/null 2>&1 && [ -x "$(rbenv root)/plugins/rbenv-usergems/bin/rbenv-usergems-init" ] && {
 	eval "$(rbenv usergems-init - $(get_shell))"
 }
 
@@ -302,7 +302,7 @@ case "$(get_shell)" in
 bash|zsh|ksh)
 
 	## direnv
-	which direnv >/dev/null 2>&1 && {
+	command -v direnv >/dev/null 2>&1 && {
 		eval "$(direnv hook $(get_shell))"
 	}
 

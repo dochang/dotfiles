@@ -43,7 +43,7 @@ if ! { [ x"$(get_shell)" = xsh -a -n "${ZSH_VERSION}" ] && expr "$-" : '.*i' > /
 	alias ag='ag --pager ${PAGER:-less}'
 
 	## thefuck
-	which thefuck >/dev/null 2>&1 && {
+	command -v thefuck >/dev/null 2>&1 && {
 		eval "$(thefuck --alias)"
 	}
 
@@ -52,8 +52,8 @@ if ! { [ x"$(get_shell)" = xsh -a -n "${ZSH_VERSION}" ] && expr "$-" : '.*i' > /
 	}
 
 	## Define `*env` functions if the shell is invoked as non-login.
-	which anyenv >/dev/null 2>&1 && ! is_function anyenv && eval "$(anyenv init - $(get_shell))"
-	which pyenv >/dev/null 2>&1 && {
+	command -v anyenv >/dev/null 2>&1 && ! is_function anyenv && eval "$(anyenv init - $(get_shell))"
+	command -v pyenv >/dev/null 2>&1 && {
 		case "$(get_shell)" in
 		bash|zsh|ksh)
 			pyenv virtualenvwrapper 2>/dev/null

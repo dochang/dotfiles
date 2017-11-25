@@ -12,7 +12,7 @@ if [ -z "$extpass" ]; then
 	extpass="pass show system/encfs/${src_basename}/password"
 fi
 
-which encfs >/dev/null
+command -v encfs >/dev/null
 ! mountpoint -q "$dst" || exit 0
 test -d "$src"
 { test -d "$dst" || mkdir "$dst" ; }

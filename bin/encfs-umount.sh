@@ -4,6 +4,6 @@ set -e
 
 dst=$1
 
-which fusermount >/dev/null
+command -v fusermount >/dev/null
 mountpoint -q "$dst" || exit 0
 fusermount -u "$dst"
