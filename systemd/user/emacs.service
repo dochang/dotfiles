@@ -11,6 +11,9 @@ ExecStart=/bin/sh -l -c 'exec emacs --daemon=systemd'
 ExecStop=/bin/sh -l -c 'exec emacsclient --server-file=systemd --eval "(kill-emacs)"'
 Restart=always
 WorkingDirectory=~
+# Sometimes Emacs daemon upgrades ELPA packages during start-up.  This may take
+# a long time.  Disable TimeoutStartSec.
+TimeoutStartSec=infinity
 
 [Install]
 WantedBy=default.target
