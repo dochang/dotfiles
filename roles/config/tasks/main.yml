@@ -28,13 +28,7 @@
     line: 'ALWAYS_QUERY_HOSTNAME=true'
     state: present
 
-- name: disable system-wide unclutter startup script
-  # use my own version instead
-  lineinfile:
-    path: /etc/default/unclutter
-    regexp: '^[ \t]*START_UNCLUTTER='
-    line: 'START_UNCLUTTER=false'
-    state: present
+- include: X.yml
 
 - include: docker.yml
   tags:
