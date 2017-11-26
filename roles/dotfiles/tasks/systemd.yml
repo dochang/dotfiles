@@ -24,3 +24,4 @@
     enabled: yes
   with_items:
     - emacs.service
+    - ssh-agent.service

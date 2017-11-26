@@ -53,6 +53,7 @@
     - src: 'ecl/eclrc'
     - src: 'cmucl/cmucl-init.lisp'
     - src: 'prettier/prettierrc'
+    - src: 'pam/pam_environment'
 
 - include: dotdir.yml
   with_items:

@@ -54,9 +54,4 @@ STARTUP="env SHELL=$(getent passwd $LOGNAME | cut -d: -f7) $STARTUP"
 
 STARTUP="~/bin/X.sh $STARTUP"
 
-if [ x$SSH_AGENT_PID = x -o x$SSH_AUTH_SOCK = x ] && command -v ssh-agent >/dev/null ; then
-	# From `/etc/X11/Xsession.d/90x11-common_ssh-agent`
-	STARTUP="ssh-agent ${TMPDIR:+env TMPDIR=$TMPDIR} $STARTUP"
-fi
-
 eval "$STARTUP"
