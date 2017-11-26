@@ -12,3 +12,4 @@ config_dockerd_default_config:
   disable-legacy-registry: true
   storage-driver: overlay2
 config_dockerd_config: {}
+config_x11_virtualheads: 2

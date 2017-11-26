@@ -6,3 +6,13 @@
     regexp: '^[ \t]*START_UNCLUTTER='
     line: 'START_UNCLUTTER=false'
     state: present
+
+- name: configure X11
+  template:
+    dest: /etc/X11/xorg.conf.d/20-intel.conf
+    src: etc/X11/xorg.conf.d/20-intel.conf
+    group: root
+    owner: root
+    mode: '644'
+  # Do NOT restart X here because we may run ansible under X.  Restart X
+  # manually later.
