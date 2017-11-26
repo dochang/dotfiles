@@ -1,0 +1,27 @@
+#!/bin/sh
+
+# https://gist.github.com/rkmax/6262e14d64ea58f8bb1c
+# https://ogbe.net/blog/moar_monitors.html
+# https://bbs.archlinux.org/viewtopic.php?id=191555
+
+# cvt is newer and better than gft.  Use cvt instead.
+#
+# https://forums.geforce.com/default/topic/379915/timing-standard-what-is-it-/
+# https://www.zhihu.com/question/38698890
+
+# The output of cvt quotes MODE_NAME.  We need to unquote it.  Otherwise
+# MODE_NAME will contain the quotation mark.  See [1].
+#
+# [1]: https://stackoverflow.com/a/6988363
+#
+# Also, remove the "_12.34" part from mode name.
+#
+# 1280x720 is for 酷比魔方 (51cube) iwork1X
+MODE=$(cvt 1280 720 60 | egrep -v '^#' | awk '{ $1 = ""; print $0; }' | xargs echo | sed 's/^\([0-9]\+x[0-9]\+\)_[0-9]\+\(\.[0-9]\+\)\?/\1/')
+MODE_NAME=$(echo ${MODE} | awk '{ print $1 }')
+VIRTUAL=VIRTUAL1
+
+{ xrandr | grep -q ${MODE_NAME} ; } || {
+	xrandr --newmode ${MODE}
+}
+xrandr --addmode ${VIRTUAL} ${MODE_NAME}

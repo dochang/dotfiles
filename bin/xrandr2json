@@ -13,7 +13,7 @@ def parse(xrandr_state):
 
     connected_pattern = '^(\S+) connected (?:(\d+)x(\d+)\+(\d+)\+(\d+))?'
     disconnected_pattern = '^(\S+) disconnected'
-    mode_pattern = '^\s+(\d+)x(\d+)\s+((?:\d+\.)?\d+)([* ]?)([+ ]?)'
+    mode_pattern = '^\s+(\d+)x(\d+)\s+(\d+(?:\.\d+)?)([* ]?)([+ ]?)'
 
     regex = {
         'connected': re.compile(connected_pattern),
