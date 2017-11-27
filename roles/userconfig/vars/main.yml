@@ -115,6 +115,7 @@ go_packages:
   - github.com/schollz/croc
   - github.com/aybabtme/humanlog/cmd/humanlog
   - github.com/gchaincl/httplab/cmd/httplab
+  - github.com/google/gops
 
 rust_packages:
   - rustfmt
