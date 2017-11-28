@@ -1,0 +1,3 @@
+#!/bin/sh
+
+dex --autostart --search ~/.config/autostart

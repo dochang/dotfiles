@@ -42,7 +42,7 @@ xsetroot -cursor_name left_ptr
 # http://www.debian-administration.org/articles/110
 xset b off
 
-dex --autostart --search ~/.config/autostart
+xx-autostart
 
 STARTUP="${X_WINDOW_MANAGER:-x-window-manager}"
 
