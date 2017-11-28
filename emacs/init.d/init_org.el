@@ -241,6 +241,7 @@ to use when highlighting the day in the calendar."
     ("a" org-agenda "agenda")
     ("b" org-iswitchb "iswitchb")
     ("c" org-capture "capture")
+    ("C" cfw:open-org-calendar "calendar")
     ("l" org-store-link "store link")
     ("L" org-insert-link-global "insert link global")
     ("o" org-open-at-point-global "open at point global")
