@@ -42,6 +42,10 @@
     creates: '~/.anyenv/envs/{{ item.0.name }}/versions/{{ item.1 }}'
   environment:
     NODE_BUILD_MIRROR_URL: '{{ node_build_mirror_url }}'
+    RUBY_CONFIGURE_OPTS: '--disable-install-doc'
+    # https://github.com/rbenv/ruby-build/issues/729#issuecomment-77776590
+    # https://github.com/postmodern/ruby-install/issues/223#issuecomment-167451300
+    # https://bugs.ruby-lang.org/issues/11494
   with_subelements:
     - '{{ env_versions }}'
     - versions
