@@ -6,7 +6,7 @@ envs:
   pyenv:
     versions:
       - 2.7.14
-      - 3.6.3
+      - 3.6.4
       - 3.5.4
       - 3.4.7
     packages:
@@ -44,9 +44,9 @@ envs:
       - you-get
   rbenv:
     versions:
-      - 2.4.2
-      - 2.3.5
-      - 2.2.8
+      - 2.4.3
+      - 2.3.6
+      - 2.2.9
     packages:
       - bundler
       - rubocop
@@ -56,10 +56,10 @@ envs:
   nodenv:
     versions:
       # https://github.com/nodejs/LTS#lts-schedule
-      - 9.1.0              # Current
-      - 8.9.1              # LTS
-      - 6.12.0             # LTS
-      - 4.8.6              # Maintenance
+      - 9.3.0              # Current
+      - 8.9.3              # LTS
+      - 6.12.2             # LTS
+      - 4.8.7              # Maintenance
     packages:
       - npm-run
       - nrm
