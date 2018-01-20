@@ -2,7 +2,6 @@
 
 from __future__ import unicode_literals
 
-from functools import cmp_to_key
 import json
 import sys
 
@@ -11,57 +10,64 @@ def get_preferred(query):
     return query.get('preferred') or query['modes'][0]
 
 
-def get_output_config(output, query, last_config):
-    q = query[output]
-    preferred = get_preferred(q)
-    width = preferred['width']
-    height = preferred['height']
-    rate = preferred['rate']
-    lvds1 = get_preferred(query['LVDS1'])
-    virtual1 = get_preferred(query['VIRTUAL1'])
+def is_connected(query, output):
+    if output in query:
+        if 'connected' in query[output]:
+            return query[output]['connected']
+    return False
+
+
+def generate_size(output_query):
+    preferred = get_preferred(output_query)
+    keys = ('name', 'width', 'height', 'interlaced', 'rate')
+    return {k: preferred[k] for k in keys if k in preferred}
+
+
+def generate_pos(output, config):
+    lvds1 = config['LVDS1']
     if output == 'LVDS1':
         return {
             'x': 0,
             'y': 0,
-            'width': width,
-            'height': height,
-            'rate': rate,
         }
+    if 'HDMI1' in config:
+        hdmi1 = config['HDMI1']
+        if output == 'HDMI1':
+            return {
+                'x': lvds1['width'],
+                'y': lvds1['height'],
+            }
+        elif output == 'VIRTUAL1':
+            return {
+                'x': lvds1['width'] - hdmi1['width'],
+                'y': lvds1['width'] + hdmi1['height'],
+            }
     elif output == 'VIRTUAL1':
         return {
-            'x': lvds1['width'],
+            'x': 0,
             'y': lvds1['height'],
-            'width': width,
-            'height': height,
-            'rate': rate,
         }
 
 
 def get_config(query):
     config = {}
 
-    def connected(output):
-        return query[output]['connected']
-
-    def index(output):
-        return query[output]['index']
-
-    def cmp(x, y):
-        if connected(x) and not connected(y):
-            return -1
-        if not connected(x) and connected(y):
-            return 1
-        return index(x) - index(y)
-
-    outputs = sorted(query.keys(), key=cmp_to_key(cmp))
-    outputs = outputs + ['VIRTUAL1']
-    last_config = None
-    for output in outputs:
-        if not connected(output):
-            config[output] = None
+    for output in ('LVDS1', 'HDMI1'):
+        if not is_connected(query, output):
             continue
-        config[output] = get_output_config(output, query, last_config)
-        last_config = config[output]
+        size = generate_size(query[output])
+        if size:
+            config[output] = size
+
+    for output in config:
+        pos = generate_pos(output, config)
+        if pos:
+            config[output].update(pos)
+
+    for output in query:
+        if output not in config:
+            config[output] = None
+
     return config
 
 
