@@ -22,6 +22,6 @@ MODE_NAME=$(echo ${MODE} | awk '{ print $1 }')
 VIRTUAL=VIRTUAL1
 
 { xrandr | grep -q ${MODE_NAME} ; } || {
-	xrandr --newmode ${MODE}
+	xrandr --newmode ${MODE_NAME} ${MODE}
 }
 xrandr --addmode ${VIRTUAL} ${MODE_NAME}
