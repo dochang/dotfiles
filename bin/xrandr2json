@@ -13,7 +13,7 @@ def parse(xrandr_state):
 
     connected_pattern = '^(\S+) connected (?:(\d+)x(\d+)\+(\d+)\+(\d+))?'
     disconnected_pattern = '^(\S+) disconnected'
-    mode_pattern = '^\s+(\d+)x(\d+)\s+(\d+(?:\.\d+)?)([* ]?)([+ ]?)'
+    mode_pattern = '^\s+((\d+)x(\d+)(i?))\s+(\d+(?:\.\d+)?)([* ]?)([+ ]?)'
 
     regex = {
         'connected': re.compile(connected_pattern),
@@ -55,14 +55,16 @@ def parse(xrandr_state):
         m = regex['mode'].search(line)
         if output and m:
             r = {
-                'width': int(m.group(1)),
-                'height': int(m.group(2)),
-                'rate': float(m.group(3)),
+                'name': m.group(1),
+                'width': int(m.group(2)),
+                'height': int(m.group(3)),
+                'interlaced': m.group(4) == 'i',
+                'rate': float(m.group(5)),
             }
             query[output]['modes'].append(r)
-            if (m.group(4) == '*'):
+            if (m.group(6) == '*'):
                 query[output]['current'] = r
-            if (m.group(5) == '+'):
+            if (m.group(7) == '+'):
                 query[output]['preferred'] = r
             continue
         output = None

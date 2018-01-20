@@ -14,7 +14,7 @@ def xrandr(config):
         cmd += ['--output', k]
         if v:
             cmd += ['--pos', '{x}x{y}'.format(**v)]
-            cmd += ['--mode', '{width}x{height}'.format(**v)]
+            cmd += ['--mode', '{name}'.format(**v)]
             cmd += ['--rate', '{rate}'.format(**v)]
         else:
             cmd += ['--off']
