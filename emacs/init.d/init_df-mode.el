@@ -1,4 +1,4 @@
 (req-package df-mode
-  :loader :el-get
+  :el-get t
   :init
   (setq df-interval 10))

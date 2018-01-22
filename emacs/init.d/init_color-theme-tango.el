@@ -1,5 +1,5 @@
 (req-package color-theme-tango
-  :loader :el-get
+  :el-get t
   :commands (color-theme-tango)
   :init
   (add-to-list '**color-themes** 'color-theme-tango))

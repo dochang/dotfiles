@@ -1,2 +1,2 @@
 (req-package smarttabs
-  :loader :el-get)
+  :el-get t)

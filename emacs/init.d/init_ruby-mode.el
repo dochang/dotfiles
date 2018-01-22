@@ -6,7 +6,6 @@
   (ruby-block-mode 1))
 
 (req-package ruby-mode
-  :loader :built-in
   :mode (;; For Gem
          ("\\.gemspec\\'" . ruby-mode)
          ;; For Bundler

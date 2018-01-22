@@ -8,6 +8,5 @@
         '("GIT_PAGER=cat" "PAGER=cat" "LANGUAGE=C" "LANG=C" "LC_ALL=")))
 
 (req-package tramp
-  :loader :built-in
   :config
   ($add-tramp-environments))

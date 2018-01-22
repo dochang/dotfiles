@@ -9,7 +9,6 @@
   ($js-mode-common-hook))
 
 (req-package js
-  :loader :built-in
   :init
   (setq js-indent-level 2)
   ;; Indent "case" in "switch".

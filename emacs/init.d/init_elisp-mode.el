@@ -25,8 +25,6 @@
   (eldoc-mode 1))
 
 (req-package elisp-mode
-  :loader :path
-
   :mode ("Cask\\'" . emacs-lisp-mode)
 
   :init

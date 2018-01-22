@@ -6,6 +6,5 @@
   (rainbow-mode 1))
 
 (req-package css-mode
-  :loader :built-in
   :init
   (add-hook 'css-mode-hook '$css-mode-hook))

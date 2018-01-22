@@ -34,7 +34,6 @@
     (list "luac" (list "-p" local-file))))
 
 (req-package flymake
-  :loader :built-in
   :init
   (setq flymake-gui-warnings-enabled nil)
   ;; Log messages with level <= 1 (WARNING)

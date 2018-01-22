@@ -6,7 +6,6 @@
   (setq indent-tabs-mode nil))
 
 (req-package nxml
-  :loader :built-in
   :init
   (add-hook 'nxml-mode-hook '$nxml-mode-hook)
   :config

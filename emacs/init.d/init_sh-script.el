@@ -15,8 +15,6 @@
   (setq indent-tabs-mode t))
 
 (req-package sh-script
-  :loader :built-in
-
   :mode ("\\.zsh\\'" . sh-mode)
 
   :bind (:map sh-mode-map

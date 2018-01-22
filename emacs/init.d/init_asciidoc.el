@@ -3,4 +3,4 @@
     asciidoc-global-menu global-map "" asciidoc-global-menuspec))
 
 (req-package asciidoc
-  :loader :el-get)
+  :el-get t)

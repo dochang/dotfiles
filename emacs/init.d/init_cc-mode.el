@@ -18,7 +18,6 @@
   ($camel-case-mode 1))
 
 (req-package cc-mode
-  :loader :built-in
   :init
   (add-hook 'c-initialization-hook '$c-initialization-hook)
   (add-hook 'c-mode-common-hook '$c-mode-common-hook)
