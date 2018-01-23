@@ -65,7 +65,6 @@ envs:
       - nrm
       - yrm
       - yo
-      - david
       - json
       - gitbook-cli
       # For Emacs flycheck
