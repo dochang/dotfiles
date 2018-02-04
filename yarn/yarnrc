@@ -4,3 +4,4 @@
 registry {{ dotfiles_yarn_registry | to_json }}
 # A mirror may not have scoped packages.  Use upstream.
 "@types:registry" "https://registry.npmjs.org/"
+"@sindresorhus:registry" "https://registry.npmjs.org/"
