@@ -1,2 +1,3 @@
 (req-package dired+
-  :require dired)
+  :require dired
+  :el-get t)
