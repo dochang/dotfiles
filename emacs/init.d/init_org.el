@@ -40,6 +40,11 @@ to use when highlighting the day in the calendar."
            (eq dy t))
        (cons mark entry)))))
 
+(defun $diary-chinese-hair-cutting-date (day)
+  (or ($diary-chinese-date 1 '())
+      ($diary-chinese-date 2 '(8 day))  ; 8 = 2 + 6
+      ($diary-chinese-date (number-sequence 3 12) day)))
+
 (defun $org-load-hook ()
   (setq org-directory (expand-file-name "~/org"))
   ;; Skip non-reachable files in `org-agenda-files'.
