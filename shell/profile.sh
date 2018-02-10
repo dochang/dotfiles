@@ -181,6 +181,12 @@ export PASSWORD_STORE_ENABLE_EXTENSIONS
 : ${NODE_BUILD_MIRROR_URL:={{ dotfiles_node_build_mirror_url | default("https://nodejs.org/dist") }}}
 export NODE_BUILD_MIRROR_URL
 
+## Linuxbrew
+: ${LINUXBREW_ROOT:="${HOME}/.linuxbrew"}
+export LINUXBREW_ROOT
+prepend_to_env ${LINUXBREW_ROOT}/sbin PATH
+prepend_to_env ${LINUXBREW_ROOT}/bin PATH
+
 ## For anyenv
 : ${ANYENV_ROOT:="${HOME}/.anyenv"}
 export ANYENV_ROOT
@@ -202,12 +208,6 @@ command -v pyenv >/dev/null 2>&1 && {
 command -v rbenv >/dev/null 2>&1 && [ -x "$(rbenv root)/plugins/rbenv-usergems/bin/rbenv-usergems-init" ] && {
 	eval "$(rbenv usergems-init - $(get_shell))"
 }
-
-## Linuxbrew
-: ${LINUXBREW_ROOT:="${HOME}/.linuxbrew"}
-export LINUXBREW_ROOT
-prepend_to_env ${LINUXBREW_ROOT}/sbin PATH
-prepend_to_env ${LINUXBREW_ROOT}/bin PATH
 
 ## For Cask
 prepend_to_env ${HOME}/.cask/bin PATH
