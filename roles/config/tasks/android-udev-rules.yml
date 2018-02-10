@@ -21,3 +21,33 @@
   notify:
     - reload udev
     - restart udev
+
+- name: remove adbusers group from `/etc/group`
+  group:
+    name: adbusers
+    state: absent
+
+- name: add adbusers group via systemd
+  copy:
+    dest: /etc/sysusers.d/android-udev.conf
+    src: '{{ config_android_udev_rules_dir }}/android-udev.conf'
+    directory_mode: '755'
+    force: yes
+    group: root
+    owner: root
+    mode: '644'
+    remote_src: yes
+  notify:
+    - allocate system users and groups
+    - reload udev
+    - restart udev
+
+- name: add user to adbusers group
+  user:
+    name: '{{ item }}'
+    group: adbusers
+    append: yes
+  notify:
+    - reload udev
+    - restart udev
+  with_items: '{{ config_users }}'

@@ -16,6 +16,9 @@
   command: 'systemctl restart syncthing@{{ hostvars[inventory_hostname].ansible_user }}.service'
   # Syncthing doesn't support reload for systemd.  Restart it instead.
 
+- name: allocate system users and groups
+  command: systemd-sysusers
+
 - name: reload udev
   command: udevadm control --reload-rules
 
