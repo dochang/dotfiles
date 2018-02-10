@@ -2,7 +2,7 @@
 
 ## If `sh` links to `zsh`, and is invoked as a "non-login, non-interactive"
 ## shell, this file should be skipped.
-if ! { [ x"$(get_shell)" = xsh -a -n "${ZSH_VERSION}" ] && expr "$-" : '.*i' > /dev/null ; } ; then
+if ! { [ x"$(get_shell)" = xsh ] && [ -n "${ZSH_VERSION}" ] && expr "$-" : '.*i' > /dev/null ; } ; then
 	is_alias () {
 		local pat
 		case "$(get_shell)" in

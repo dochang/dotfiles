@@ -51,7 +51,7 @@ export LESS
 export LESSCHARSET
 
 
-[ -z "$LESSOPEN" -a -z "$LESSCLOSE" ] \
+[ -z "$LESSOPEN" ] && [ -z "$LESSCLOSE" ] \
 	&& command -v lesspipe >/dev/null 2>&1 \
 	&& eval "$(lesspipe)"
 ## For less input pre-processor
