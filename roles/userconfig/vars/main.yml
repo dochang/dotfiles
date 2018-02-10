@@ -117,7 +117,6 @@ go_packages:
   - github.com/google/gops
 
 rust_packages:
-  - rustfmt
   - cargo-update
   - cargo-vendor
   - ripgrep
