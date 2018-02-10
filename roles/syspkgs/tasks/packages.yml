@@ -93,7 +93,6 @@
     - pass
     - unzip
     - socat
-    - git-annex
     - git-extras
     - git-remote-gcrypt
     - git-crypt
