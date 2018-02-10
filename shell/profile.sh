@@ -220,7 +220,7 @@ prepend_to_env ${HOME}/.cabal/bin PATH
 export GOPATH
 # https://github.com/golang/go/wiki/GOPATH
 prepend_to_env $(echo $GOPATH | sed -e 's|:|/bin:|g ; s|$|/bin|g') PATH
-# Set GOROOT.
+# Set global GOROOT
 : ${GOROOT:="${LINUXBREW_ROOT}/opt/go"}
 export GOROOT
 # Disable CGO by default.
