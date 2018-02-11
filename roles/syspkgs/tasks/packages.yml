@@ -101,7 +101,6 @@
     - editorconfig
     - jq
     - jo
-    - pandoc
     - xdm
     - dex
     - mu4e
