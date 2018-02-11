@@ -26,9 +26,22 @@
     - emacs/site-lisp/*.el
     - emacs/themes/*.el
 
-- name: install emacs *.el files
+- name: install emacs enabled init files
+  synchronize:
+    dest: '~/.emacs.d/init.d/'
+    src: 'emacs/init.enabled.d/'
+    partial: no
+
+- name: install emacs init template files
   template:
-    dest: '~/.emacs.d/{{ item | relpath("emacs") }}'
+    dest: '~/.emacs.d/init.d/{{ item | basename }}'
     src: '{{ item }}'
   with_fileglob:
-    - emacs/init.d/*.el
+    - emacs/init.template.d/*.el
+
+- name: install emacs disabled init files
+  file:
+    name: '~/.emacs.d/init.d/{{ item | basename }}'
+    state: absent
+  with_fileglob:
+    - emacs/init.disabled.d/*.el
