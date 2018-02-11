@@ -281,8 +281,8 @@
 
 ;;; Cut & Paste, Kill Ring, Clipboard, Selection
 ;;; [[info:emacs#Cut%20and%20Paste]]
-(setq x-select-enable-primary t
-      x-select-enable-clipboard t)
+(setq select-enable-primary t
+      select-enable-clipboard t)
 
 
 ;;; Don't add the final newline globally.
