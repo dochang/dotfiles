@@ -661,6 +661,16 @@ major mode isn't derived from `prog-mode'."
   (global-company-mode 1)
   (projectile-mode 1)
   (exec-path-from-shell-initialize)
+  ;; IMPORTANT: Define `flyspell-delayed-commands' before loading `dashboard'.
+  ;;
+  ;; `dashboard' loads `org'.  `org' will modify `flyspell-delayed-commands'
+  ;; after `flyspell' loaded.  Unfortunately we have an init file called
+  ;; `flyspell.el'.  It triggers the `eval-after-load' code, but at that moment
+  ;; `flyspell-delayed-commands' is undefined.  This will cause an error.
+  ;;
+  ;; To solve this issue, we define `flyspell-delayed-commands' *right before*
+  ;; loading `dashboard'.
+  (defvar flyspell-delayed-commands '())
   (require 'dashboard)
   (when (string= server-name "systemd")
     (atomic-chrome-start-server))
