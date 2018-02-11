@@ -16,4 +16,3 @@
     - nix-prefetch-scripts
     - nix-serve
     - yank
-    - lnav
