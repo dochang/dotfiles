@@ -46,6 +46,9 @@ kbd_options = {
 
 
 dev_properties = {
+    'TPPS/2 IBM TrackPoint': [
+        ['libinput Accel Speed', '-0.5'],
+    ],
     'HID 04d9:1166': [
         ['libinput Scroll Method Enabled', '0', '0', '1'],
         ['libinput Accel Speed', '-0.5'],
