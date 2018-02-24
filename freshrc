@@ -45,6 +45,8 @@ fresh Fakerr/git-recall git-recall --bin
 
 fresh aelesbao/git-recursive git-recursive --bin
 
+fresh antonlindstrom/passpwn passpwn --bin
+
 # Local Variables:
 # mode: sh
 # End:
