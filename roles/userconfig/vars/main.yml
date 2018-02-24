@@ -92,6 +92,7 @@ env_versions:
 go_packages:
   # dependency management / vendor management
   - github.com/golang/dep/cmd/dep
+  - golang.org/x/vgo
   - github.com/FiloSottile/gvt
   - github.com/dpw/vendetta
   - github.com/nicerobot/git-freeze
