@@ -2,7 +2,7 @@
 
 # https://www.linode.com/speedtest
 : "${LINODE_TEST_TYPE:=100MB}"
-: "${LINODE_REGIONS:=newark atlanta dallas fremont frankfurt london singapore tokyo}"
+: "${LINODE_REGIONS:=newark atlanta dallas fremont frankfurt london singapore tokyo2}"
 [ "${LINODE_REGIONS}" = - ] && LINODE_REGIONS=
 
 # http://speedtest-${region}.digitalocean.com/
@@ -12,7 +12,7 @@
 
 # https://www.vultr.com/faq/#downloadspeedtests
 : "${VULTR_TEST_TYPE:=1000MB}"
-: "${VULTR_REGIONS:=fra-de ams-nl par-fr lon-gb hnd-jp nj-us il-us ga-us wa-us fl-us tx-us sjo-ca-us lax-ca-us syd-au}"
+: "${VULTR_REGIONS:=fra-de ams-nl par-fr lon-gb sgp hnd-jp nj-us il-us ga-us wa-us fl-us tx-us sjo-ca-us lax-ca-us syd-au}"
 [ "${VULTR_REGIONS}" = - ] && VULTR_REGIONS=
 
 unset http_proxy
