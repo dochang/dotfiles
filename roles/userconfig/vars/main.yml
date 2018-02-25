@@ -42,6 +42,7 @@ envs:
       # https://github.com/nvbn/thefuck/issues/685
       - asciinema
       - you-get
+      - linode-cli
   rbenv:
     versions:
       - 2.5.0
