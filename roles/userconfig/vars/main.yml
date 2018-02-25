@@ -123,6 +123,7 @@ go_packages:
   - github.com/aybabtme/humanlog/cmd/humanlog
   - github.com/gchaincl/httplab/cmd/httplab
   - github.com/google/gops
+  - github.com/JamesClonk/vultr
 
 rust_packages:
   - cargo-update
