@@ -11,6 +11,7 @@ envs:
       - 3.4.8
     packages:
       - pip
+      - pipenv
       - pip-autoremove
       # virtualenvwrapper depends on pbr.
       - pbr
