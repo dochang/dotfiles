@@ -43,3 +43,4 @@
     - yank
     - dochang/binary/pandoc
     - dochang/binary/flarectl
+    - git-extras
