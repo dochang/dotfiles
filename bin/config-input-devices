@@ -38,17 +38,21 @@ kbd_default_options = [
 
 
 kbd_options = {
+    # ThinkPad built-in keyboard
     'AT Translated Set 2 keyboard': None,
-    'HID 04d9:1203': None,
+    # Noppoo Choc Mini
     'HID 0188:6796': ['altwin:swap_alt_win'],
+    # B.O.W HW098A
     'SINO WEALTH USB KEYBOARD': None,
 }
 
 
 dev_properties = {
+    # ThinkPad trackpoint
     'TPPS/2 IBM TrackPoint': [
         ['libinput Accel Speed', '-0.5'],
     ],
+    # SANWA trackball
     'HID 04d9:1166': [
         ['libinput Scroll Method Enabled', '0', '0', '1'],
         ['libinput Accel Speed', '-0.5'],
