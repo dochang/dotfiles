@@ -40,7 +40,6 @@
     - src: 'gem/gemrc'
     - src: 'pypi/pypirc'
     - src: 'yarn/yarnrc'
-    - src: 'rubocop/rubocop.yml'
     - src: 'pbuilder/pbuilderrc'
     - src: 'git-buildpackage/gbp.conf'
     - src: 'common-lisp/common-lisp.lisp'
