@@ -1,35 +1,18 @@
-(defmacro $set-homebrew-var (var command name)
-  (let ((proc (make-symbol "proc"))
-        (evt (make-symbol "evt")))
-    `(make-process
-      :name ,name
-      :buffer (generate-new-buffer ,name)
-      :command ,command
-      :connection-type 'pipe
-      :sentinel (lambda (,proc ,evt)
-                  (when (string= ,evt "finished\n")
-                    (setq ,var
-                          (with-current-buffer (process-buffer ,proc)
-                            (buffer-substring
-                             (point-min)
-                             (save-excursion
-                               (goto-char (point-min))
-                               (re-search-forward "[^\r\n]*" nil t)
-                               (point))))))))))
-
 (req-package homebrew-mode
   :init
-  (cond ((executable-find "brew")
-         ;; Do not use `shell-command-to-string' here.  Homebrew and Linuxbrew
-         ;; are written in Ruby and sometimes Ruby is a bit slow.  We have to
-         ;; do asynchronous operations.
-         ($set-homebrew-var
-          homebrew-prefix '("brew" "--prefix") "brew--prefix")
-         ($set-homebrew-var
-          homebrew-cache-dir '("brew" "--cache") "brew--cache"))
-        ((eq system-type 'gnu/linux)
+  (cond ((eq system-type 'gnu/linux)
          (setq homebrew-prefix "~/.linuxbrew")
          (setq homebrew-cache-dir "~/.cache/Homebrew"))
         ((eq system-type 'darwin)
          (setq homebrew-prefix "/usr/local")
-         (setq homebrew-cache-dir "~/Library/Caches/Homebrew/"))))
+         (setq homebrew-cache-dir "~/Library/Caches/Homebrew/")))
+  (when (and (not (file-exists-p homebrew-prefix))
+             (executable-find "brew"))
+    ;; Because Homebrew and Linuxbrew are written in Ruby and sometimes Ruby is
+    ;; a bit slow, do not call "brew --prefix" and "brew --cache" every time.
+    ;; Run external command only if Homebrew or Linuxbrew is in a non-standard
+    ;; location.
+    (setq homebrew-prefix (shell-command-to-string "brew --prefix"))
+    (setq homebrew-cache-dir (shell-command-to-string "brew --cache")))
+  (setq homebrew-executable (concat homebrew-prefix "/bin/brew"))
+  (setq homebrew-default-args '("--verbose")))
