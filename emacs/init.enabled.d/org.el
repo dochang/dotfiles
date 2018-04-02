@@ -42,7 +42,7 @@ to use when highlighting the day in the calendar."
 
 (defun $diary-chinese-hair-cutting-date (day)
   (or ($diary-chinese-date 1 '())
-      ($diary-chinese-date 2 '(8 day))  ; 8 = 2 + 6
+      ($diary-chinese-date 2 (list 8 day))  ; 8 = 2 + 6
       ($diary-chinese-date (number-sequence 3 12) day)))
 
 (defun $org-load-hook ()
