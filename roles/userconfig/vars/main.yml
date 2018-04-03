@@ -59,10 +59,10 @@ envs:
   nodenv:
     versions:
       # https://github.com/nodejs/LTS#lts-schedule
-      - 9.7.1              # Current
-      - 8.9.4              # LTS
-      - 6.13.0             # LTS
-      - 4.8.7              # Maintenance
+      - 9.10.1             # Current
+      - 8.11.1             # LTS
+      - 6.14.1             # LTS
+      - 4.9.1              # Maintenance
     packages:
       - npm-run
       - nrm
