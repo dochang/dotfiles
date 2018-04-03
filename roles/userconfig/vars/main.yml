@@ -125,6 +125,7 @@ go_packages:
   - github.com/gchaincl/httplab/cmd/httplab
   - github.com/google/gops
   - github.com/JamesClonk/vultr
+  - github.com/spolu/warp/client/cmd/warp
 
 rust_packages:
   - cargo-update
