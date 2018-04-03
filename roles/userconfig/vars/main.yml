@@ -6,7 +6,7 @@ envs:
   pyenv:
     versions:
       - 2.7.14
-      - 3.6.4
+      - 3.6.5
       - 3.5.5
       - 3.4.8
     packages:
