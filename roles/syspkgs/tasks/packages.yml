@@ -90,6 +90,7 @@
     - cups-client
     - postfix
     - bluetooth
+    - blueman
     - pass
     - unzip
     - socat
