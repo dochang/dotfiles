@@ -20,7 +20,7 @@
   (setq mu4e-headers-date-format "%F")
   (setq mu4e-headers-time-format "%T%z")
   (setq mu4e-headers-long-date-format "%FT%T%z")
-  (setq mu4e-compose-format-flowed t)
+  (setq mu4e-compose-format-flowed nil)
   (setq mu4e-context-policy 'ask)
   (setq mu4e-compose-context-policy 'ask)
   (add-hook 'mu4e-compose-mode-hook '$mu4e-compose-mode-hook)
@@ -38,7 +38,8 @@
                              msg '(:from :to :cc :bcc) "dochang@gmail.com")))
           :vars '((user-mail-address . "dochang@gmail.com")
                   (user-full-name . "Desmond O. Chang")
-                  (mu4e-compose-signature . nil)))))
+                  (mu4e-compose-signature . nil)
+                  (mu4e-compose-format-flowed . nil)))))
   (setq mu4e-user-mail-address-list
         (delq nil
               (mapcar (lambda (context)
