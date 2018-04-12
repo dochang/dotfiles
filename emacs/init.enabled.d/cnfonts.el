@@ -17,7 +17,12 @@
   ;;
   ;; NOTE: This feature doesn't work on Windows.  It should work on most Linux
   ;; distributions.  It has not been tested on masOS.
-  (setq cnfonts-use-face-font-rescale t)
+  ;;
+  ;; https://github.com/tumashu/cnfonts#cnfonts-%E4%B8%8E-org-mode-%E9%85%8D%E5%90%88%E4%BD%BF%E7%94%A8
+  (setq cnfonts-use-face-font-rescale
+        (cl-case system-type
+          ((windows-nt ms-dos cygwin) nil)
+          (t t)))
   ;; Put the profile into an system dependent path.
   ;;
   ;; This makes cnfonts use different configuration on different system for
