@@ -12,6 +12,16 @@
              cnfonts-increase-fontsize
              cnfonts-decrease-fontsize)
   :init
+  (setq cnfonts-personal-fontnames
+        '(
+          ("DejaVu Sans Mono" "Liberation Mono" "Noto Sans Mono" "Droid Sans Fallback")
+          ("Noto Sans Mono CJK SC" "Noto Sans Mono CJK TC"
+           "Noto Sans Mono CJK JP" "Noto Sans Mono CJK KR"
+           "WenQuanYi Micro Hei Mono" "WenQuanYi Micro Hei"
+           "HanaMinA" "Droid Sans Fallback")
+          ("HanaMinB")
+          )
+        )
   (setq cnfonts-profiles '("default"))
   ;; Use different font size for different title, e.g., in org-mode.
   ;;
