@@ -72,6 +72,8 @@
     - fonts-droid-fallback
     - fonts-roboto
     - fonts-noto
+    - fonts-noto-cjk
+    - fonts-noto-cjk-extra
     - fonts-wqy-microhei
     - xwrits
     - aria2
