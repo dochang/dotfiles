@@ -75,6 +75,8 @@
     - fonts-noto-cjk
     - fonts-noto-cjk-extra
     - fonts-wqy-microhei
+    # For EXT-B characters
+    - fonts-hanazono
     - xwrits
     - aria2
     - lftp
