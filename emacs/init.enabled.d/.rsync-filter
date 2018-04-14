@@ -1,3 +1,8 @@
 + *.el
+# Include *.el
+
 - .*
+# Exclude .*
+
 -C
+# Exclude VCS files
