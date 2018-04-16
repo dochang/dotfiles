@@ -116,6 +116,7 @@ go_packages:
   - github.com/direnv/direnv
   - github.com/joho/godotenv/cmd/godotenv
   - github.com/cortesi/devd/cmd/devd
+  - github.com/cortesi/modd/cmd/modd
   - github.com/google/git-appraise/git-appraise
   - github.com/homburg/git-get
   - github.com/digitalocean/doctl/cmd/doctl
