@@ -230,14 +230,6 @@
 (setenv "GIT_PAGER" "")
 
 
-;;; Special Mode
-;;;
-;;; Emacs has deleted `z' binding in GIT#0d4505d & GIT#82dffff .  We
-;;; restore it here.
-(unless (lookup-key special-mode-map "z")
-  (define-key special-mode-map "z" 'kill-this-buffer))
-
-
 ;;; Set fill column to 79
 ;; A line begins at column 0 in Emacs.  79 is the last column on an 80-width
 ;; screen.  Do not occupy column 79, leave it for filling.
@@ -268,15 +260,6 @@
 ;; `web-mode' changes indentation settings if `indent-tabs-mode' is non-nil.
 ;; To prevent it, set the default value of `indent-tabs-mode' to `nil'.
 (setq-default indent-tabs-mode nil)
-
-
-;;; Scroll Lock Mode
-(global-set-key [Scroll_Lock] 'scroll-lock-mode)
-
-
-;;; Midnight Mode
-;;; [[info:emacs#Kill%20Buffer]]
-(require 'midnight nil t)
 
 
 ;;; Cut & Paste, Kill Ring, Clipboard, Selection
@@ -310,10 +293,6 @@
 (setq scroll-preserve-screen-position t)
 
 
-;;; Auto Revert Mode
-(global-auto-revert-mode 1)
-
-
 ;;; UI Configuration
 (setq-default cursor-in-non-selected-windows nil
               indicate-buffer-boundaries 'left
@@ -324,13 +303,6 @@
       display-time-day-and-date t
       visible-bell t
       inhibit-startup-screen t)
-
-(tool-bar-mode -1)
-(set-scroll-bar-mode 'left)
-(blink-cursor-mode -1)
-(mouse-avoidance-mode 'exile)
-(column-number-mode 1)
-(display-time)
 
 
 ;;; Theme
@@ -470,18 +442,6 @@
 ;;; Comparing Files in Unified Format
 ;;; [[info:emacs#Comparing%20Files]]
 (setq diff-switches "-u")
-
-
-;;; Which Function Mode
-(which-function-mode 1)
-
-
-;;; Enable Font-Lock Mode Globally.
-(global-font-lock-mode 1)
-
-
-;;; Highlight matching parenthesis
-(show-paren-mode 1)
 
 
 ;;; Use `fill-column' for `comment-indent'.
@@ -654,6 +614,31 @@ The call stack:
 (defun $after-init-hook ()
   (req-package-finish)
   (auto-package-update-maybe)
+  ;; Special Mode
+  ;;
+  ;; Emacs has deleted `z' binding in GIT#0d4505d & GIT#82dffff .  We
+  ;; restore it here.
+  (unless (lookup-key special-mode-map "z")
+    (define-key special-mode-map "z" 'kill-this-buffer))
+  ;; Scroll Lock Mode
+  (global-set-key [Scroll_Lock] 'scroll-lock-mode)
+  ;; Midnight Mode
+  ;; [[info:emacs#Kill%20Buffer]]
+  (require 'midnight nil t)
+  ;; Auto Revert Mode
+  (global-auto-revert-mode 1)
+  (tool-bar-mode -1)
+  (set-scroll-bar-mode 'left)
+  (blink-cursor-mode -1)
+  (mouse-avoidance-mode 'exile)
+  (column-number-mode 1)
+  (display-time)
+  ;; Which Function Mode
+  (which-function-mode 1)
+  ;; Enable Font-Lock Mode Globally.
+  (global-font-lock-mode 1)
+  ;; Highlight matching parenthesis
+  (show-paren-mode 1)
   (global-undo-tree-mode 1)
   (global-fringe-current-line-mode 1)
   (which-key-mode 1)
