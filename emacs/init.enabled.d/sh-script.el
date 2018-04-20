@@ -4,14 +4,6 @@
   (cond ((string-match "[.]zsh\\>" buffer-file-name)
          (sh-set-shell "zsh")))
   ($prog-mode-hook*)
-  ;; Show Paren mode raises an error when typing `(`, `[' or `{`:
-  ;;
-  ;;     Error running timer `show-paren-function': (error "Lisp nesting exceeds `max-lisp-eval-depth'")
-  ;;
-  ;; Didn't get the reason now.  Disable it.  Since it's a global minor mode,
-  ;; make the mode variable `show-paren-mode` buffer local first.
-  (make-local-variable 'show-paren-mode)
-  (show-paren-mode -1)
   (setq indent-tabs-mode t))
 
 (req-package sh-script
