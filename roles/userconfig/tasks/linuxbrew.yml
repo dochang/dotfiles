@@ -44,3 +44,4 @@
     - dochang/binary/pandoc
     - dochang/binary/flarectl
     - git-extras
+    - dochang/binary/restic
