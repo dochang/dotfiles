@@ -47,6 +47,8 @@ fresh aelesbao/git-recursive git-recursive --bin
 
 fresh antonlindstrom/passpwn passpwn --bin
 
+fresh vaporup/ssh-tools ssh-diff --bin
+
 # Local Variables:
 # mode: sh
 # End:
