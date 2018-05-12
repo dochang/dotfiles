@@ -5,7 +5,7 @@ pkg_state: present
 envs:
   pyenv:
     versions:
-      - 2.7.14
+      - 2.7.15
       - 3.6.5
       - 3.5.5
       - 3.4.8
@@ -60,10 +60,10 @@ envs:
   nodenv:
     versions:
       # https://github.com/nodejs/LTS#lts-schedule
-      - 10.0.0             # Current
+      - 10.1.0             # Current
       - 9.11.1             # Current
       - 8.11.1             # LTS
-      - 6.14.1             # LTS
+      - 6.14.2             # LTS
       - 4.9.1              # Maintenance
     packages:
       - npm-run
@@ -80,8 +80,8 @@ envs:
       - eclint
   goenv:
     versions:
-      - 1.10.1
-      - 1.9.5
+      - 1.10.2
+      - 1.9.6
 
 env_versions:
   - name: pyenv
