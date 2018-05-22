@@ -160,6 +160,7 @@ export CHROME_DEVEL_SANDBOX
 : ${ANDROID_HOME:="${HOME}/opt/android-sdk"}
 export ANDROID_HOME
 prepend_to_env ${ANDROID_HOME}/tools PATH
+prepend_to_env ${ANDROID_HOME}/tools/bin PATH
 prepend_to_env ${ANDROID_HOME}/platform-tools PATH
 
 ## nix
