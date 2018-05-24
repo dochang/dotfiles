@@ -169,11 +169,50 @@
   ;; Do not show the consistency graph of the habits, which are not scheduled,
   ;; on today's agenda.
   (setq org-habit-show-all-today nil)
-  (add-to-list 'org-export-backends 'md))
+  (add-to-list 'org-export-backends 'md)
+  (setq org-archive-location "%s_archive::datetree/"))
 
 (defun $org-mode-hook ()
   (linum-mode 1)
   (setq truncate-lines nil))
+
+;; https://emacs.stackexchange.com/questions/477/how-do-i-automatically-save-org-mode-buffers
+(defun $org-capture-after-finalize-hook ()
+  (org-save-all-org-buffers))
+
+(define-advice org-capture (:after (&rest r) org-save-all-org-buffers)
+  (org-save-all-org-buffers))
+
+;; https://emacs.stackexchange.com/questions/477/how-do-i-automatically-save-org-mode-buffers
+(defun $org-agenda-finalize-hook ()
+  (org-save-all-org-buffers))
+
+(define-advice org-agenda (:after (&rest r) org-save-all-org-buffers)
+  (org-save-all-org-buffers))
+
+(defun $org-after-refile-insert-hook ()
+  (org-save-all-org-buffers))
+
+(define-advice org-refile (:after (&rest r) org-save-all-org-buffers)
+  (org-save-all-org-buffers))
+
+(defun $org-archive-hook ()
+  (org-save-all-org-buffers))
+
+(define-advice org-archive-subtree-default (:after (&rest r) org-save-all-org-buffers)
+  (org-save-all-org-buffers))
+
+(define-advice org-archive-subtree-default-with-confirmation (:after (&rest r) org-save-all-org-buffers)
+  (org-save-all-org-buffers))
+
+(define-advice org-archive-subtree (:after (&rest r) org-save-all-org-buffers)
+  (org-save-all-org-buffers))
+
+(define-advice org-archive-to-archive-sibling (:after (&rest r) org-save-all-org-buffers)
+  (org-save-all-org-buffers))
+
+(define-advice org-archive-set-tag (:after (&rest r) org-save-all-org-buffers)
+  (org-save-all-org-buffers))
 
 (defvar **org-timer**)
 
@@ -212,6 +251,14 @@
     ("q" nil "quit"))
 
   (add-hook 'org-mode-hook '$org-mode-hook)
+
+  (add-hook 'org-capture-after-finalize-hook '$org-capture-after-finalize-hook)
+
+  (add-hook 'org-agenda-finalize-hook '$org-agenda-finalize-hook)
+
+  (add-hook 'org-after-refile-insert-hook '$org-after-refile-insert-hook)
+
+  (add-hook 'org-archive-hook '$org-archive-hook)
 
   ;; Emacs runs `org-load-hook' right after loading `org', before
   ;; `eval-after-load'.  We have to config it before loading `org'.
