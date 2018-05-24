@@ -1,5 +1,8 @@
 ;;; Org
 
+(defun $org-capture-file ()
+  (completing-read "capture to: " (org-files-list)))
+
 (defun $org-load-hook ()
   (setq org-directory (expand-file-name "~/org"))
   ;; Skip non-reachable files in `org-agenda-files'.
@@ -99,13 +102,13 @@
           (org-agenda-files . (:maxlevel . 3))))
   ;; Templates for the creation of new entries.
   (setq org-capture-templates
-        '(("*" "NOTE" entry (file+olp+datetree "")
+        `(("*" "NOTE" entry (file ,#'$org-capture-file)
            "* %?\n:PROPERTIES:\n:CREATED:  %U\n:END:\n\n%a"
            :empty-lines 1)
-          ("n" "NEXT" entry (file+olp+datetree "")
+          ("n" "NEXT" entry (file ,#'$org-capture-file)
            "* NEXT %?\n:PROPERTIES:\n:CREATED:  %U\n:END:\n\n%a"
            :empty-lines 1)
-          ("t" "TODO" entry (file+olp+datetree "")
+          ("t" "TODO" entry (file ,#'$org-capture-file)
            "* TODO %?\n:PROPERTIES:\n:CREATED:  %U\n:END:\n\n%a"
            :empty-lines 1)
           ("o" "CLOCK CAPTURE")
