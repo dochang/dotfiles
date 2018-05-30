@@ -26,18 +26,18 @@ envs:
       - qrcode
       - speedtest-cli
       - httpstat
-    packages2:
       - ansible
       - netaddr
       # needed by Ansible `ipaddr` filter
-      # https://docs.ansible.com/ansible/playbooks_filters_ipaddr.html
+      # https://docs.ansible.com/ansible/latest/user_guide/playbooks_filters_ipaddr.html
       - cryptography
       # needed by Ansible Vault
-      # https://docs.ansible.com/ansible/playbooks_vault.html#speeding-up-vault-operations
+      # https://docs.ansible.com/ansible/latest/user_guide/vault.html#speeding-up-vault-operations
       - ansible-container
-      - ansible-bundle
       - ansible-lint
       - molecule
+    packages2:
+      - ansible-bundle
     packages3:
       - thefuck
       # thefuck drops Python 2 support.  Install it only in Python 3.
