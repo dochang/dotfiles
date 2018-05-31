@@ -5,10 +5,10 @@ pkg_state: present
 envs:
   pyenv:
     versions:
-      - 2.7.15
       - 3.6.5
       - 3.5.5
       - 3.4.8
+      - 2.7.15
     packages:
       - pip
       - pipenv
