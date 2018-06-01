@@ -1,54 +1,54 @@
 ---
 
-- include: nix.yml
+- import_tasks: nix.yml
   tags:
     - nix
 
-- include: zsh.yml
+- import_tasks: zsh.yml
   tags:
     - zsh
 
-- include: bash.yml
+- import_tasks: bash.yml
   tags:
     - bash
 
-- include: fresh.yml
+- import_tasks: fresh.yml
   tags:
     - fresh
 
-- include: anyenv.yml
+- import_tasks: anyenv.yml
   tags:
     - anyenv
 
-- include: pip.yml
+- import_tasks: pip.yml
   tags:
     - pip
 
-- include: gem.yml
+- import_tasks: gem.yml
   tags:
     - gem
 
-- include: npm.yml
+- import_tasks: npm.yml
   tags:
     - npm
 
-- include: linuxbrew.yml
+- import_tasks: linuxbrew.yml
   tags:
     - linuxbrew
 
-- include: yarn.yml
+- import_tasks: yarn.yml
   tags:
     - yarn
 
-- include: go.yml
+- import_tasks: go.yml
   tags:
     - go
 
-- include: cargo.yml
+- import_tasks: cargo.yml
   tags:
     - cargo
     - rust
 
-- include: emacs.yml
+- import_tasks: emacs.yml
   tags:
     - emacs

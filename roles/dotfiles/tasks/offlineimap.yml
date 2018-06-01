@@ -1,4 +1,4 @@
-- include: dothostname.yml
+- include_tasks: dothostname.yml
   vars:
     dest: '~/.config/offlineimap/config'
     src: 'offlineimap/config'

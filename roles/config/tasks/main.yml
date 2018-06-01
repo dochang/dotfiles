@@ -1,11 +1,11 @@
 ---
-- include: apt.yml
+- import_tasks: apt.yml
 
-- include: datetime.yml
+- import_tasks: datetime.yml
 
-- include: alternatives.yml
+- import_tasks: alternatives.yml
 
-- include: postfix.yml
+- import_tasks: postfix.yml
 
 - name: enable auto-hibernate of laptop-mode-tools
   lineinfile:
@@ -28,12 +28,12 @@
     line: 'ALWAYS_QUERY_HOSTNAME=true'
     state: present
 
-- include: X.yml
+- import_tasks: X.yml
 
-- include: docker.yml
+- import_tasks: docker.yml
   tags:
     - docker
 
-- include: syncthing.yml
+- import_tasks: syncthing.yml
 
-- include: android-udev-rules.yml
+- import_tasks: android-udev-rules.yml

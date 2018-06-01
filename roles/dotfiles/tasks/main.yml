@@ -1,6 +1,6 @@
 ---
 
-- include: dothome.yml
+- include_tasks: dothome.yml
   with_items:
     - src: 'shell/inputrc'
     - src: 'shell/profile.sh'
@@ -54,7 +54,7 @@
     - src: 'prettier/prettierrc'
     - src: 'pam/pam_environment'
 
-- include: dotdir.yml
+- include_tasks: dotdir.yml
   with_items:
     - src: 'gnupg/gpg.conf'
     - src: 'mplayer/config'
@@ -66,7 +66,7 @@
     - src: 'cargo/config'
     - src: 'proxychains/proxychains.conf'
 
-- include: dotxdg.yml
+- include_tasks: dotxdg.yml
   with_items:
     - src: 'git/attributes'
     - src: 'git/config'
@@ -89,35 +89,35 @@
     - src: 'common-lisp/config.lisp'
 
 
-- include: less.yml
+- include_tasks: less.yml
 
-- include: emacs.yml
+- include_tasks: emacs.yml
   tags:
     - emacs
 
-- include: dothostname.yml
+- include_tasks: dothostname.yml
   vars:
     dest: '~/.ssh/config'
     src: 'ssh/config'
 
-- include: dothostname.yml
+- include_tasks: dothostname.yml
   vars:
     dest: '~/.gradle/gradle.properties'
     src: 'gradle/gradle.properties'
 
-- include: dothostname.yml
+- include_tasks: dothostname.yml
   vars:
     dest: '~/.msmtprc'
     src: 'msmtp/msmtprc'
 
-- include: offlineimap.yml
+- include_tasks: offlineimap.yml
 
-- include: vimperator.yml
+- include_tasks: vimperator.yml
 
-- include: conkeror.yml
+- include_tasks: conkeror.yml
 
-- include: arduinoide.yml
+- include_tasks: arduinoide.yml
 
-- include: xdg.yml
+- include_tasks: xdg.yml
 
-- include: systemd.yml
+- include_tasks: systemd.yml

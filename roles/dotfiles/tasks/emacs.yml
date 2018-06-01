@@ -1,4 +1,4 @@
-- include: dotdir.yml
+- include_tasks: dotdir.yml
   with_items:
     - src: 'emacs/packages.el'
       dest: '~/.emacs.d/packages.el'
