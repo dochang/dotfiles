@@ -170,7 +170,8 @@
   ;; on today's agenda.
   (setq org-habit-show-all-today nil)
   (add-to-list 'org-export-backends 'md)
-  (setq org-archive-location "%s_archive::datetree/"))
+  (setq org-archive-location "%s_archive::datetree/")
+  (org-edna-load))
 
 (defun $org-mode-hook ()
   (linum-mode 1)
