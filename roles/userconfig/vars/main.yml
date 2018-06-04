@@ -36,6 +36,7 @@ envs:
       - ansible-container
       - ansible-lint
       - molecule
+      - yamllint
     packages2:
       - ansible-bundle
     packages3:
