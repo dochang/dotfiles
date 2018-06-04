@@ -6,6 +6,7 @@
   (aggressive-indent-mode -1))
 
 (req-package yaml-mode
+  :mode (("\\.yamllint\\'" . yaml-mode))
   ;; Setup yaml-path
   ;;
   ;; `C-c C-p' is ok, because it's defined in a major mode keymap.
