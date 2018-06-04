@@ -1,5 +1,6 @@
 (defun $flycheck-mode-hook ()
-  (flycheck-rust-setup))
+  (flycheck-rust-setup)
+  (flycheck-yamllint-setup))
 
 (req-package flycheck
   :init
