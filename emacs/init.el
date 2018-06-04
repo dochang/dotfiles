@@ -560,6 +560,29 @@ The call stack:
     (apply fn r)))
 
 
+;;; Some packages have multiple variants, such as `org' and `org-plus-contrib'.
+;;; We have to ensure that emacs will always install one of the variants,
+;;; because some packages, e.g. `org-edna', put another variant in its
+;;; dependency.
+;;;
+;;; https://emacs.stackexchange.com/a/26513
+(define-advice package-compute-transaction (:filter-return (packages) map)
+  (let ((maps '((org . org-plus-contrib))))
+    (dolist (map maps)
+      (let* ((from (car map))
+             (to (cdr map))
+             (to-pkg (first (cdr (assq to package-archive-contents)))))
+        (setq packages (seq-remove (lambda (pkg)
+                                     (eq (package-desc-name pkg) from))
+                                   packages))
+        (unless (or (package-installed-p to)
+                    (seq-find (lambda (pkg)
+                                (eq (package-desc-name pkg) to))
+                              packages))
+          (setq packages (cons to-pkg packages)))))
+    packages))
+
+
 (setq use-package-always-defer t)
 (unless (package-installed-p 'use-package)
   (package-install 'use-package))
