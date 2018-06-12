@@ -11,12 +11,20 @@
     - reload systemd
     - restart docker
 
+- name: ensure /etc/docker present
+  file:
+    path: /etc/docker
+    group: root
+    owner: root
+    mode: '700'
+    state: directory
+
 - name: config dockerd
   template:
     dest: '/etc/docker/daemon.json'
     src: 'etc/docker/daemon.json'
     group: root
     owner: root
-    mode: '644'
+    mode: '600'
   notify:
     - restart docker
