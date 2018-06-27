@@ -159,31 +159,36 @@
   (if (string-match "[ \t\n\r]+\\'" s) (setq s (replace-match "" t t s)))
   s)
 
+(defun $funcall-when (arg fn)
+  (and arg (funcall fn arg)))
+
+(defmacro $andp (predicate)
+  (let ((object (gensym))
+        (pred (gensym)))
+    `(lambda (,object)
+       (let ((,pred ,predicate))
+         (and (funcall ,pred ,object) ,object)))))
+
 (defun $uuid ()
   "Return an UUID."
-  (cond ((seq-reduce (lambda (result fn)
-                       (and result (funcall fn result)))
+  (cond ((seq-reduce '$funcall-when
                      (list
-                      (lambda (uuid-file)
-                        (and (file-readable-p uuid-file) uuid-file))
+                      ($andp 'file-readable-p)
                       (lambda (uuid-file)
                         (with-temp-buffer
                           (let ((uuid-len 36))
                             (and (<= uuid-len (nth 1 (insert-file-contents uuid-file)))
                                  (buffer-substring (point-min) (+ (point-min) uuid-len))))))
-                      (lambda (uuid-str)
-                        (and ($uuidgen-p uuid-str) uuid-str)))
+                      ($andp '$uuidgen-p))
                      "/proc/sys/kernel/random/uuid"))
-        ((seq-reduce (lambda (result fn)
-                       (and result (funcall fn result)))
+        ((seq-reduce '$funcall-when
                      (list
                       'executable-find
                       'shell-command-to-string
                       (lambda (output)
                         (let ((uuid-len 36))
                           (substring output 0 uuid-len)))
-                      (lambda (uuid-str)
-                        (and ($uuidgen-p uuid-str) uuid-str)))
+                      ($andp '$uuidgen-p))
                      "uuid"))
         ((require 'uuidgen nil t)
          (uuidgen-4))))
