@@ -161,8 +161,17 @@
 
 (defun $uuid ()
   "Return an UUID."
-  (cond ((let ((uuid (executable-find "uuidgen")))
-           (and uuid ($trim (shell-command-to-string uuid)))))
+  (cond ((seq-reduce (lambda (result fn)
+                       (and result (funcall fn result)))
+                     (list
+                      'executable-find
+                      'shell-command-to-string
+                      (lambda (output)
+                        (let ((uuid-len 36))
+                          (substring output 0 uuid-len)))
+                      (lambda (uuid-str)
+                        (and ($uuidgen-p uuid-str) uuid-str)))
+                     "uuid"))
         ((require 'uuidgen nil t)
          (uuidgen-4))))
 
