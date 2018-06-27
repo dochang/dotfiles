@@ -164,6 +164,19 @@
   (cond ((seq-reduce (lambda (result fn)
                        (and result (funcall fn result)))
                      (list
+                      (lambda (uuid-file)
+                        (and (file-readable-p uuid-file) uuid-file))
+                      (lambda (uuid-file)
+                        (with-temp-buffer
+                          (let ((uuid-len 36))
+                            (and (<= uuid-len (nth 1 (insert-file-contents uuid-file)))
+                                 (buffer-substring (point-min) (+ (point-min) uuid-len))))))
+                      (lambda (uuid-str)
+                        (and ($uuidgen-p uuid-str) uuid-str)))
+                     "/proc/sys/kernel/random/uuid"))
+        ((seq-reduce (lambda (result fn)
+                       (and result (funcall fn result)))
+                     (list
                       'executable-find
                       'shell-command-to-string
                       (lambda (output)
