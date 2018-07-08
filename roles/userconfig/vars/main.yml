@@ -14,8 +14,6 @@ envs:
       - pip
       - pipenv
       - pip-autoremove
-      # virtualenvwrapper depends on pbr.
-      - pbr
       - virtualenv
       - virtualenvwrapper
       - twine
@@ -35,8 +33,11 @@ envs:
       # needed by Ansible Vault
       # https://docs.ansible.com/ansible/latest/user_guide/vault.html#speeding-up-vault-operations
       - ansible-container
-      - ansible-lint
       - molecule
+      # Do not install pbr and ansible-lint explicitly
+      #
+      # molecule locks on the dependencies of pbr, ansible-lint and PyYAML.  Do
+      # not install them explicitly.
       - yamllint
     packages2:
       - ansible-bundle
