@@ -25,6 +25,7 @@ envs:
       - qrcode
       - speedtest-cli
       - httpstat
+      - caniusepython3
       - ansible
       - netaddr
       # needed by Ansible `ipaddr` filter
