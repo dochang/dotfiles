@@ -87,6 +87,7 @@
       mode: '700'
     - src: 'rofi/config'
     - src: 'common-lisp/config.lisp'
+    - src: 'xx-input/config.json'
 
 
 - include_tasks: less.yml

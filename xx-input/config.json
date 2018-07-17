@@ -1,0 +1,37 @@
+{
+  "keyboards": {
+    "HID 0188:6796": {
+      "desc": "Noppoo Choc Mini",
+      "options": ["altwin:swap_alt_win"]
+    },
+    "SINO WEALTH USB KEYBOARD": {
+      "desc": "B.O.W HW098A",
+      "options": [
+        "ctrl:nocaps",
+        "altwin:swap_alt_win"
+      ]
+    },
+    "AT Translated Set 2 keyboard": {
+      "desc": "ThinkPad built-in keyboard",
+      "options": [
+        "ctrl:nocaps",
+        "altwin:swap_alt_win"
+      ]
+    }
+  },
+  "pointers": {
+    "HID 04d9:1166": {
+      "desc": "SANWA trackball",
+      "properties": [
+        ["libinput Scroll Method Enabled", "0", "0", "1"],
+        ["libinput Accel Speed", "-0.5"]
+      ]
+    },
+    "TPPS/2 IBM TrackPoint": {
+      "desc": "ThinkPad trackpoint",
+      "properties": [
+        ["libinput Accel Speed", "-0.5"]
+      ]
+    }
+  }
+}
