@@ -32,7 +32,7 @@ if [ -z "$XMODIFIERS" ] ; then
 	fcitx -d
 fi
 
-config-input-devices
+xx-input
 
 [ -r ~/.Xresources ] && xrdb -load .Xresources
 
