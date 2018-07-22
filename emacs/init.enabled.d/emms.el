@@ -11,10 +11,6 @@
   (emms-minimalistic)
   (require 'emms-playlist-mode)
   (make-directory emms-directory 'parents)
-  ;; mpv support for EMMS
-  ;;
-  ;; [[https://github.com/dochang/emms-player-mpv]]
-  (require 'emms-player-mpv)
   (setq emms-player-list '(emms-player-mpv))
   (setq emms-player-base-format-list
         (delete-dups
