@@ -52,8 +52,7 @@
     - alsamixergui
     - wget
     - curl
-    - emacs24-lucid
-    - emacs-goodies-el
+    - emacs-lucid
     - aspell
     - ssh-askpass
     - chromium
