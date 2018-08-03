@@ -277,10 +277,7 @@ export CLOUDSDK_HOME
 [ -r "${CLOUDSDK_HOME}/path.$(get_shell).inc" ] && . "${CLOUDSDK_HOME}/path.$(get_shell).inc"
 
 ## For yarn
-# `yarn global bin` always gives us the bin path of the Node.js version where
-# Yarn is installed, even if We change the default Node.js version.  We have to
-# add the real global bin path.
-: ${YARN_GLOBAL_BIN:="${XDG_CONFIG_DIR:-${HOME}/.config}/yarn/global/node_modules/.bin"}
+: ${YARN_GLOBAL_BIN:="$(yarn global bin)"}
 export YARN_GLOBAL_BIN
 prepend_to_env ${YARN_GLOBAL_BIN} PATH
 

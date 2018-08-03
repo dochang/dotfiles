@@ -1,20 +1,12 @@
 ---
 
 - name: Install utils
-  command: 'yarn global add --no-bin-links {{ item }}'
+  yarn:
+    name: '{{ item }}'
+    global: yes
+    production: yes
+    state: '{{ pkg_state }}'
   notify:
     - nodenv rehash
   with_items:
     - '{{ envs.nodenv.packages }}'
-# The packages installed globally by Yarn are shared by all the Node.js
-# versions.  Install them only once.
-
-- name: Upgrade utils
-  command: 'yarn global upgrade {{ item }}'
-  notify:
-    - nodenv rehash
-  with_items:
-    - '{{ envs.nodenv.packages }}'
-  when: pkg_state == "latest"
-# `upgrade` doesn't know `--no-bin-links`.  We `add` a packages first to ensure
-# the package present, then `upgrade` it.
