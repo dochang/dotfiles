@@ -84,6 +84,7 @@ envs:
       - eclint
       - git-stats
       - lebab
+      - nativefier
   goenv:
     versions:
       - 1.10.3
