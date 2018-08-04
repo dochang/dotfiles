@@ -6,6 +6,11 @@
     repo: https://github.com/Linuxbrew/brew.git
     update: no
 
+- name: install vendor dependencies
+  command: 'brew vendor-install {{ item }}'
+  with_items:
+    - ruby
+
 - name: update Linuxbrew
   homebrew:
     update_homebrew: yes

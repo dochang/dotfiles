@@ -33,6 +33,8 @@
     - npm
 
 - import_tasks: linuxbrew.yml
+  environment:
+    HOMEBREW_FORCE_VENDOR_RUBY: 1
   tags:
     - linuxbrew
 
