@@ -1,4 +1,5 @@
 (req-package color-theme-empty-void
+  :ensure nil
   :el-get t
   :commands (color-theme-empty-void)
   :init

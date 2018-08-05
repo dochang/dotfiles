@@ -1,4 +1,5 @@
 (req-package zenburn
+  :ensure nil
   :el-get t
   :init
   (autoload 'color-theme-zenburn "color-theme-zenburn" nil t)

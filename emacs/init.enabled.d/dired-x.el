@@ -1,4 +1,5 @@
 (req-package dired-x
+  :ensure nil
   :require dired
   :commands (dired-omit-mode)
   :init

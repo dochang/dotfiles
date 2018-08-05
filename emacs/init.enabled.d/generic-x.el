@@ -5,6 +5,7 @@
   ($prog-mode-hook*))
 
 (req-package generic-x
+  :ensure nil
   :init
   ;; `generic-extras-enable-list' has to be set *before* loading
   ;; `generic-x'

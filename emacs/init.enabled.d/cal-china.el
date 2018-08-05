@@ -1,1 +1,2 @@
-(req-package cal-china)
+(req-package cal-china
+  :ensure nil)

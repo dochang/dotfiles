@@ -7,6 +7,8 @@
   (eww-browse-url (concat "file://" (mu4e~write-body-to-html msg))))
 
 (req-package mu4e
+  :ensure nil
+
   :init
   (setq mu4e-maildir (expand-file-name (or (getenv "MAILDIR")) "~/Maildir"))
   (setq mu4e-attachment-dir (expand-file-name "~/Downloads/"))

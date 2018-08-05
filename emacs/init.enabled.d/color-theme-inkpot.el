@@ -1,4 +1,5 @@
 (req-package color-theme-inkpot
+  :ensure nil
   :el-get t
   :commands (color-theme-inkpot)
   :init

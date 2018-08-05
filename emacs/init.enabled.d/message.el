@@ -18,6 +18,8 @@ return value of `message-unique-id'."
       unique-id)))
 
 (req-package message
+  :ensure nil
+
   :init
 
   ;; Set domain part of Message-Ids to a fully qualified domain name.

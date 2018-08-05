@@ -1,4 +1,5 @@
 (req-package color-theme-tangotango
+  :ensure nil
   :el-get t
   :commands (color-theme-tangotango)
   :init

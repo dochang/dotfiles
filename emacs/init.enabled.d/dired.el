@@ -31,6 +31,7 @@
   (dired-omit-mode -1))
 
 (req-package dired
+  :ensure nil
   :init
   (add-hook 'dired-mode-hook '$dired-mode-hook)
   :config

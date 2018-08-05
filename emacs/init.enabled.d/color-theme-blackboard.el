@@ -1,4 +1,5 @@
 (req-package color-theme-blackboard
+  :ensure nil
   :el-get t
   :commands (color-theme-blackboard)
   :init

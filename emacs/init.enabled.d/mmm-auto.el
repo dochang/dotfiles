@@ -1,1 +1,2 @@
-(req-package mmm-auto)
+(req-package mmm-auto
+  :ensure nil)
