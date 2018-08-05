@@ -163,8 +163,8 @@
   (and arg (funcall fn arg)))
 
 (defmacro $andp (predicate)
-  (let ((object (gensym))
-        (pred (gensym)))
+  (let ((object (cl-gensym))
+        (pred (cl-gensym)))
     `(lambda (,object)
        (let ((,pred ,predicate))
          (and (funcall ,pred ,object) ,object)))))
