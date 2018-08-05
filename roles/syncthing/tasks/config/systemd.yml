@@ -1,16 +1,26 @@
 ---
 - name: enable syncthing systemd system service
-  command: 'systemctl enable syncthing@{{ item }}.service'
+  systemd:
+    name: 'syncthing@{{ item }}.service'
+    enabled: yes
   with_items: '{{ syncthing_server_users or [] }}'
 
 - name: ensure syncthing systemd system service started
-  command: 'systemctl start syncthing@{{ item }}.service'
+  systemd:
+    name: 'syncthing@{{ item }}.service'
+    state: started
   with_items: '{{ syncthing_server_users or [] }}'
 
 - name: enable syncthing systemd user service
-  command: 'systemctl --user enable syncthing.service'
+  systemd:
+    name: 'syncthing.service'
+    user: yes
+    enabled: yes
   with_items: '{{ syncthing_desktop_users or [] }}'
 
 - name: ensure syncthing systemd user service started
-  command: 'systemctl --user start syncthing.service'
+  systemd:
+    name: 'syncthing.service'
+    user: yes
+    state: started
   with_items: '{{ syncthing_desktop_users or [] }}'
