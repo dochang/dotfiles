@@ -24,3 +24,8 @@
     user: yes
     state: started
   with_items: '{{ syncthing_desktop_users or [] }}'
+
+- name: enable syncthing resume service
+  systemd:
+    name: 'syncthing-resume.service'
+    enabled: yes
