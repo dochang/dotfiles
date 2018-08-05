@@ -111,9 +111,8 @@
     # For Linuxbrew
     - build-essential
     - curl
+    - file
     - git
-    - python-setuptools
-    - ruby
     # For Linuxbrew anonymous aggregate user behaviour analytics
     - uuid-runtime
     # For perl
