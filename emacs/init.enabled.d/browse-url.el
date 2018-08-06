@@ -28,12 +28,17 @@
     (insert url)
     (copy-region-as-kill (point-min) (point-max))))
 
-(defun $browse-url-default-browser (url &optional new-window)
+(defun $browse-url-default-browser (url &rest args)
   (interactive (browse-url-interactive-arg "URL: "))
-  (let ((browse-url-generic-program
-         (or (executable-find "xdg-open")
-             (executable-find "sensible-browser"))))
-    (browse-url-generic url new-window)))
+  (let* ((browser-alist '(("firefox" . browse-url-firefox)
+                          ("chromium" . browse-url-chromium)
+                          ("chromium/incognito" . $browse-url-chromium/incognito)
+                          ("sensible-browser" . $browse-url-sensible-browser)
+                          ("clipboard" . $browse-url-clipboard)))
+         (browser (completing-read "Browser: " browser-alist
+                                   nil t nil nil "clipboard"))
+         (browser-function (cdr (assoc browser browser-alist))))
+    (apply browser-function url args)))
 
 (req-package browse-url
   :commands (browse-url-interactive-arg)
