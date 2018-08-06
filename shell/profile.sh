@@ -282,7 +282,11 @@ export CLOUDSDK_HOME
 [ -r "${CLOUDSDK_HOME}/path.$(get_shell).inc" ] && . "${CLOUDSDK_HOME}/path.$(get_shell).inc"
 
 ## For yarn
-: ${YARN_GLOBAL_BIN:="$(yarn global bin)"}
+if command -v yarn >/dev/null 2>&1; then
+	: ${YARN_GLOBAL_BIN:="$(yarn global bin)"}
+else
+	: ${YARN_GLOBAL_BIN:="${HOME}/.yarn/bin"}
+fi
 export YARN_GLOBAL_BIN
 prepend_to_env ${YARN_GLOBAL_BIN} PATH
 
