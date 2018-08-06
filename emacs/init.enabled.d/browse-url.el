@@ -30,6 +30,12 @@ Chromium."
           (t
            (browse-url-chromium url new-window)))))
 
+(defun $browse-url-clipboard (url &optional new-window)
+  (interactive (browse-url-interactive-arg "URL: "))
+  (with-temp-buffer
+    (insert url)
+    (copy-region-as-kill (point-min) (point-max))))
+
 (defun $browse-url-default-browser (url &optional new-window)
   (interactive (browse-url-interactive-arg "URL: "))
   (let ((browse-url-generic-program
