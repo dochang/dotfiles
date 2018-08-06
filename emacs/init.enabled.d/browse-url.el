@@ -30,6 +30,11 @@ Chromium."
           (t
            (browse-url-chromium url new-window)))))
 
+(defun $browse-url-sensible-browser (url &optional new-window)
+  (interactive (browse-url-interactive-arg "URL: "))
+  (let ((browse-url-generic-program "sensible-browser"))
+    (browse-url-generic url new-window)))
+
 (defun $browse-url-clipboard (url &optional new-window)
   (interactive (browse-url-interactive-arg "URL: "))
   (with-temp-buffer
