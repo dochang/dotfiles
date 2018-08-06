@@ -1,8 +1,14 @@
 ---
 
+- name: retrieve status of /home/linuxbrew
+  stat:
+    path: /home/linuxbrew
+    get_attributes: yes
+  register: linuxbrew_home_stat
+
 - name: install Linuxbrew
   git:
-    dest: ~/.linuxbrew
+    dest: '{{ linuxbrew_home_stat.writeable | ternary("/home/linuxbrew/.linuxbrew", "~/.linuxbrew") }}'
     repo: https://github.com/Linuxbrew/brew.git
     update: no
 

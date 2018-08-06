@@ -185,7 +185,10 @@ export PASSWORD_STORE_ENABLE_EXTENSIONS
 export NODE_BUILD_MIRROR_URL
 
 ## Linuxbrew
-: ${LINUXBREW_ROOT:="${HOME}/.linuxbrew"}
+# Install Linuxbrew into `/home/linuxbrew/`.
+#
+# https://github.com/Linuxbrew/brew/issues/762
+: ${LINUXBREW_ROOT:="/home/linuxbrew/.linuxbrew"}
 export LINUXBREW_ROOT
 prepend_to_env ${LINUXBREW_ROOT}/sbin PATH
 prepend_to_env ${LINUXBREW_ROOT}/bin PATH

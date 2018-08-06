@@ -4,10 +4,22 @@
   vars:
     ansible_shell_executable: '/bin/bash -l'
 
-  roles:
+  tasks:
 
-    - role: rustup
+    - import_role:
+        name: rustup
       tags:
         - rust
 
-    - role: userconfig
+    - name: create /home/linuxbrew
+      file:
+        path: /home/linuxbrew
+        mode: '700'
+        group: '{{ ansible_user }}'
+        owner: '{{ ansible_user }}'
+        state: directory
+      become: yes
+      become_user: root
+
+    - import_role:
+        name: userconfig
