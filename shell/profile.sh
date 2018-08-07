@@ -320,6 +320,15 @@ esac
 # https://github.com/djcb/mu/issues/544
 export XAPIAN_CJK_NGRAM=1
 
+## For wine
+# Use win32 by default.  I use wine to run some old windows applications.  Some
+# of them run on Windows 98.  Set `WINEARCH` to `win32` because wine64 does not
+# support Windows 98.
+#
+# https://bbs.archlinux.org/viewtopic.php?pid=1511536#p1511536
+# https://wiki.archlinux.org/index.php/Wine#WINEARCH
+export WINEARCH=win32
+
 systemctl --user import-environment HOME PATH http_proxy https_proxy no_proxy
 
 
