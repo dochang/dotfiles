@@ -56,3 +56,4 @@
     - dochang/binary/flarectl
     - git-extras
     - dochang/binary/restic
+    - dochang/binary/git-sizer
