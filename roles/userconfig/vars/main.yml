@@ -17,6 +17,7 @@ envs:
       - virtualenv
       - virtualenvwrapper
       - twine
+      - python-language-server
       - httpie
       # https://github.com/requests/requests/issues/4246#issuecomment-356336986
       - pyOpenSSL
