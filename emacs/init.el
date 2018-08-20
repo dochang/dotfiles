@@ -504,26 +504,6 @@
     (aggressive-indent-mode 1))
   (when (require 'pangu-spacing nil 'noerror)
     (pangu-spacing-mode 1))
-  (when (and nil (require 'cedit nil t))
-    ;; Strings cannot contain non-ASCII control characters.  Use `(kbd "C-.")'
-    ;; or `[?\C-.]' etc instead.
-    ;;
-    ;; [[https://stackoverflow.com/a/2483459]]
-    ;; [[https://stackoverflow.com/a/10088297]]
-    ;; [[https://lists.gnu.org/archive/html/help-gnu-emacs/2007-08/msg00397.html]]
-    (local-set-key (kbd "C-f") 'cedit-forward-char)
-    (local-set-key (kbd "C-b") 'cedit-backward-char)
-    (local-set-key (kbd "M-a") 'cedit-beginning-of-statement)
-    (local-set-key (kbd "M-e") 'cedit-end-of-statement)
-    (local-set-key (kbd "C-M-d") 'cedit-down-block)
-    (local-set-key (kbd "C-M-u") 'cedit-up-block-backward)
-    (local-set-key (kbd "C-)") 'cedit-slurp)
-    (local-set-key (kbd "C-<right>") 'cedit-slurp)
-    (local-set-key (kbd "M-(") 'cedit-wrap-brace)
-    (local-set-key (kbd "C-}") 'cedit-barf)
-    (local-set-key (kbd "C-<left>") 'cedit-barf)
-    (local-set-key (kbd "M-<up>") 'cedit-splice-killing-backward)
-    (local-set-key (kbd "M-r") 'cedit-raise))
   ;; Do not insert tabs in indentation by default.
   ;;
   ;; NOTE: Setting `indent-tabs-mode' to `t' does NOT mean "pressing `TAB'
@@ -550,15 +530,7 @@ major mode isn't derived from `prog-mode'."
 
 ;;; Lisp Common Mode
 (defun $lisp-mode-common-hook ()
-  ($prog-mode-hook*)
-  (enable-paredit-mode)
-  (when (and nil (require 'cedit nil t))
-    (local-set-key (kbd "C-)") 'cedit-or-paredit-slurp)
-    (local-set-key (kbd "C-<right>") 'cedit-or-paredit-slurp)
-    (local-set-key (kbd "C-}") 'cedit-or-paredit-barf)
-    (local-set-key (kbd "C-<left>") 'cedit-or-paredit-barf)
-    (local-set-key (kbd "M-<up>") 'cedit-or-paredit-splice-killing-backward)
-    (local-set-key (kbd "M-r") 'cedit-or-paredit-raise)))
+  ($prog-mode-hook*))
 
 
 (load (locate-user-emacs-file "bootstrap"))
@@ -717,13 +689,14 @@ The call stack:
   ;; Disable by default since it doesn't work well in some modes such as
   ;; `yaml-mode'.
   (electric-indent-mode -1)
-  (electric-pair-mode 1)
   (global-homebrew-mode 1)
   (beginend-global-mode 1)
   (auto-insert-mode 1)
   (global-company-mode 1)
   (projectile-mode 1)
   (wrap-region-global-mode 1)
+  (smartparens-global-strict-mode 1)
+  (show-smartparens-global-mode 1)
   (exec-path-from-shell-initialize)
   ;; IMPORTANT: Define `flyspell-delayed-commands' before loading `dashboard'.
   ;;
