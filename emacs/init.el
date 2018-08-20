@@ -723,6 +723,7 @@ The call stack:
   (auto-insert-mode 1)
   (global-company-mode 1)
   (projectile-mode 1)
+  (wrap-region-global-mode 1)
   (exec-path-from-shell-initialize)
   ;; IMPORTANT: Define `flyspell-delayed-commands' before loading `dashboard'.
   ;;
