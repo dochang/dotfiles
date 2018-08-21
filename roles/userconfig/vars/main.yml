@@ -88,6 +88,7 @@ envs:
       - git-stats
       - lebab
       - nativefier
+      - flow-language-server
   goenv:
     versions:
       - 1.10.3
