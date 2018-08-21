@@ -89,6 +89,7 @@ envs:
       - lebab
       - nativefier
       - flow-language-server
+      - vscode-html-languageserver-bin
   goenv:
     versions:
       - 1.10.3
