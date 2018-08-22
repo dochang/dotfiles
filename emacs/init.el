@@ -604,6 +604,11 @@ The call stack:
   (setq quelpa-update-melpa-p nil))
 
 
+(use-package quelpa-use-package
+  :demand t
+  :ensure t)
+
+
 (use-package req-package
   :demand t
   :ensure t)
