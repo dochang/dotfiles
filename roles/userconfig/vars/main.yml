@@ -90,6 +90,7 @@ envs:
       - nativefier
       - flow-language-server
       - vscode-html-languageserver-bin
+      - bash-language-server
   goenv:
     versions:
       - 1.10.3
