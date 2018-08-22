@@ -170,12 +170,6 @@
          :description "Color theme based on the Inkpot theme. Ported and tweaked by Per Vognsen."
          ;; :depends (color-theme)
          :type emacswiki)
-        (:name color-theme-wombat
-         :website "https://github.com/jasonblewis/color-theme-wombat"
-         :description "Vim color theme ported to Emacs."
-         ;; :depends (color-theme)
-         :type github
-         :pkgname "jasonblewis/color-theme-wombat")
         ;; This theme is a fork of `color-theme-wombat+`.  We won't use the
         ;; original fork since the site is too slow.
         ;;
