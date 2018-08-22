@@ -598,6 +598,7 @@ The call stack:
 
 
 (use-package load-dir
+  :demand t
   :ensure t)
 
 
