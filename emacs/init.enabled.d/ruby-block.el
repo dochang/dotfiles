@@ -5,6 +5,6 @@
 (req-package ruby-block
   :ensure nil
   :quelpa (ruby-block :fetcher github :repo "emacsmirror/ruby-block")
+  :commands (ruby-block-mode)
   :init
-  (autoload 'ruby-block-mode "ruby-block" nil t)
   (setq ruby-block-highlight-toggle t))
