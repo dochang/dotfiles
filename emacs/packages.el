@@ -154,15 +154,6 @@
         (:name color-theme-tango
          :depends ()              ; color-theme
          :website "http://www.emacswiki.org/emacs/color-theme-tango.el")
-        ;; 1. Use package.el to install tangotango for Emacs 24.  Do not load
-        ;; the theme from here.
-        ;;
-        ;; 2. Do not depend on color-theme, or el-get will install color-theme.
-        ;; Instead, install color-theme by package.el
-        (:name color-theme-tangotango
-         :depends ()
-         :autoloads nil
-         :compile ())
         (:name color-theme-empty-void
          :website "http://www.emacswiki.org/emacs/color-theme-empty-void.el"
          :description "The Empty Void color theme, by mtvoid (based on sunburst)"
