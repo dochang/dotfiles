@@ -170,17 +170,6 @@
          :description "Color theme based on the Inkpot theme. Ported and tweaked by Per Vognsen."
          ;; :depends (color-theme)
          :type emacswiki)
-        ;; This theme is a fork of `color-theme-wombat+`.  We won't use the
-        ;; original fork since the site is too slow.
-        ;;
-        ;; [[http://jaderholm.com/color-themes/color-theme-wombat+.el]]
-        ;; [[http://jaderholm.com/color-themes/color-theme-wombat+.el.sept2013]]
-        (:name color-theme-wombat-dark
-         :website "https://github.com/leoncamel/color-theme-wombat-dark"
-         :description "wombat with improvements and many more faces"
-         ;; :depends (color-theme)
-         :type github
-         :pkgname "leoncamel/color-theme-wombat-dark")
         ;; There are 5 versions of Color Theme Zenburn.
         ;;
         ;; [[http://www.emacswiki.org/emacs/ColorThemeZenburn]]
