@@ -1,5 +1,5 @@
 (req-package df-mode
   :ensure nil
-  :el-get t
+  :quelpa (df-mode :fetcher github :repo "emacsmirror/df-mode")
   :init
   (setq df-interval 10))

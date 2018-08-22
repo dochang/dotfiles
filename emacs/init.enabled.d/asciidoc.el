@@ -4,4 +4,4 @@
 
 (req-package asciidoc
   :ensure nil
-  :el-get t)
+  :quelpa (asciidoc :fetcher github :repo "metaperl/asciidoc-el"))

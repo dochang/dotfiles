@@ -54,23 +54,12 @@
 ;;   - 7 - 9 will be "eval-after-load".
 
 (setq el-get-sources
-      `((:name vcard-mode
-         :website "https://github.com/dochang/vcard-mode#readme"
-         :description "A major mode to edit vCard files in Emacs"
-         :type github
-         :pkgname "dochang/vcard-mode"
-         :before (add-to-list 'auto-mode-alist '("\\.vc\\(f\\|ard\\)\\'" . vcard-mode)))
-        (:name lua2-mode
+      `((:name lua2-mode
          :website "http://www.enyo.de/fw/software/lua-emacs/lua2-mode.html"
          :description "A semantic highlighting extension for lua-mode"
          ;; :depends (lua-mode)
          :type http
          :url "http://www.enyo.de/fw/software/lua-emacs/lua2-mode.el")
-        (:name lua-block
-         :website "https://raw.github.com/emacsmirror/emacswiki.org/master/lua-block.el"
-         :description "highlight matching block"
-         ;; :depends (lua-mode)
-         :type emacswiki)
         (:name yaml-path
          :website "https://github.com/craig-ludington/yaml-path"
          :description "Extends yaml-mode to display the path of the current yaml element in the message area."
@@ -247,37 +236,8 @@
          :type http
          :url "https://raw.github.com/bbatsov/zenburn-emacs/0c46ca823dd007241c48778d38b80ac8bde6d5ee/color-theme-zenburn.el"
          :prepare (autoload 'color-theme-zenburn "color-theme-zenburn" nil t))
-        ;; The feature of `smarttabs' is `smart-tabs-mode'.
-        ;;
-        ;; Install my version because of [[https://github.com/jcsalomon/smarttabs/pull/28]]
-        (:name smarttabs
-         :pkgname "dochang/smarttabs"
-         :branch "keep-indent-setting"
-         :library smart-tabs-mode)
-        (:name df-mode
-         :website "http://www.emacswiki.org/emacs/download/df-mode.el"
-         :description "Minor mode to show space left on devices in the mode line "
-         :lazy nil
-         :type emacswiki
-         :features (df-mode))
         (:name groovy-emacs-mode
          :library groovy-mode)
-        ;; Chinese calendar support for anniversaries.
-        ;;
-        ;; - [[https://lists.gnu.org/archive/html/emacs-orgmode/2009-05/msg00135.html]]
-        ;; - [[http://permalink.gmane.org/gmane.emacs.sources/3252]]
-        ;; - [[https://github.com/leoliu/cal-china-plus]]
-        ;;
-        ;; Has been merged into Emacs 25.1
-        (:name cal-china-plus
-         :website "https://github.com/leoliu/cal-china-plus"
-         :description "extra stuff for cal-china"
-         :builtin "25.1"
-         :type github
-         :pkgname "leoliu/cal-china-plus"
-         :library ,(if (version< emacs-version "25.1")
-                       'cal-china-plus
-                     'cal-china))
         (:name dictionary
          :lazy nil
          :autoloads "dictionary-init"

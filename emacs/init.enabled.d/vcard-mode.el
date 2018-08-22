@@ -1,4 +1,4 @@
 (req-package vcard-mode
   :ensure nil
-  :el-get t
+  :quelpa (vcard-mode :fetcher github :repo "dochang/vcard-mode")
   :mode ("\\.vc\\(f\\|ard\\)\\'" . vcard-mode))
