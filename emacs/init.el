@@ -592,6 +592,18 @@ The call stack:
 (require 'use-package nil 'noerror)
 
 
+(use-package quelpa
+  :demand t
+  :ensure t
+  :init
+  (setq quelpa-upgrade-p nil)
+  ;; If `quelpa-upgrade-p' is `t', Emacs tries to upgrade quelpa packages when
+  ;; the `use-package' macro is evaluated.  This causes Emacs connects to
+  ;; remote sites every time it starts.  We can't wait for it.  Upgrade quelpa
+  ;; packages manually please.
+  (setq quelpa-update-melpa-p nil))
+
+
 (use-package req-package
   :demand t
   :ensure t)
