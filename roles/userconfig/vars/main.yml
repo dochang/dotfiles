@@ -91,6 +91,7 @@ envs:
       - flow-language-server
       - vscode-html-languageserver-bin
       - bash-language-server
+      - dockerfile-language-server-nodejs
   goenv:
     versions:
       - 1.10.3
