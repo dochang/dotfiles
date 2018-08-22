@@ -31,6 +31,7 @@
     dest: '~/.emacs.d/init.d/'
     src: 'emacs/init.enabled.d/'
     partial: no
+    delete: yes
 
 - name: install emacs init template files
   template:
