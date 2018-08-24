@@ -570,7 +570,7 @@ The call stack:
     (dolist (map maps)
       (let* ((from (car map))
              (to (cdr map))
-             (to-pkg (first (cdr (assq to package-archive-contents)))))
+             (to-pkg (car (cdr (assq to package-archive-contents)))))
         (setq packages (seq-remove (lambda (pkg)
                                      (eq (package-desc-name pkg) from))
                                    packages))
