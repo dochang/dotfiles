@@ -21,7 +21,14 @@
   ;; ```
   ;;
   ;; Use el-get instead.
-  :el-get t
+  :el-get-bundle (color-theme-blackboard
+                  :website "https://github.com/jasonblewis/color-theme-blackboard"
+                  :description "Blackboard Colour Theme for Emacs."
+                  :depends ()
+                   ;; Do not depend on color-theme, or el-get will install
+                   ;; color-theme.  Instead, install color-theme by package.el.
+                  :type github
+                  :pkgname "jasonblewis/color-theme-blackboard")
   :commands (color-theme-blackboard)
   :init
   (add-to-list '**color-themes** 'color-theme-blackboard))

@@ -117,25 +117,6 @@
          :type http
          :url "https://raw.github.com/ruby/ruby/trunk/misc/rdoc-mode.el"
          :prepare (add-to-list 'auto-mode-alist '("\\.rdoc\\'" . rdoc-mode)))
-        ;; There are 2 versions of `color-theme-blackboard'.
-        ;;
-        ;; 1. JD Huntington
-        ;;
-        ;;     [[http://blog.jdhuntington.com/2008/11/emacs-color-theme-blackboard.html]]
-        ;;     [[http://jdhuntington.com/paste/color-theme-blackboard.el.html]]
-        ;;
-        ;; 2. Jason Lewis <jason@dickson.st>
-        ;;
-        ;;     [[https://github.com/jasonblewis/color-theme-blackboard]]
-        ;;
-        ;; The 2nd version just add a copyright information and a `provide' for
-        ;; the 1st one.  We use it.
-        (:name color-theme-blackboard
-         :website "https://github.com/jasonblewis/color-theme-blackboard"
-         :description "Blackboard Colour Theme for Emacs."
-         ;; :depends (color-theme)
-         :type github
-         :pkgname "jasonblewis/color-theme-blackboard")
         (:name color-theme-hober2
          :website "http://edward.oconnor.cx/config/elisp/color-theme-hober2.el"
          :description "Edward O'Connor's second color theme."
@@ -154,22 +135,6 @@
         (:name color-theme-tango
          :depends ()              ; color-theme
          :website "http://www.emacswiki.org/emacs/color-theme-tango.el")
-        (:name color-theme-empty-void
-         :website "http://www.emacswiki.org/emacs/color-theme-empty-void.el"
-         :description "The Empty Void color theme, by mtvoid (based on sunburst)"
-         ;; :depends (color-theme)
-         :type emacswiki)
-        ;; There are 2 versions on EmacsWiki.
-        ;;
-        ;; 1. [[http://www.emacswiki.org/emacs/ColorThemeInkpot]]
-        ;; 2. [[http://www.emacswiki.org/emacs/color-theme-inkpot.el]]
-        ;;
-        ;; They're the same.  Version 2 just add description and copyright.
-        (:name color-theme-inkpot
-         :website "http://www.emacswiki.org/emacs/ColorThemeInkpot"
-         :description "Color theme based on the Inkpot theme. Ported and tweaked by Per Vognsen."
-         ;; :depends (color-theme)
-         :type emacswiki)
         ;; There are 5 versions of Color Theme Zenburn.
         ;;
         ;; [[http://www.emacswiki.org/emacs/ColorThemeZenburn]]
