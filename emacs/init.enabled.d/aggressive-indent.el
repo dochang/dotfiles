@@ -8,4 +8,6 @@
   ;; `electric-newline-and-maybe-indent' (`C-j').  If `electric-indent-mode' is
   ;; t, `electric-newline-and-maybe-indent' just inserts a newline, no
   ;; indenting.
+  (add-to-list 'aggressive-indent-excluded-modes 'dockerfile-mode)
+  ;; aggressive-indent-mode will break the indentation in dockerfile-mode.
   )
