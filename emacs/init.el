@@ -500,8 +500,6 @@
     (flyspell-prog-mode))
   (when (require 'indent-guide nil 'noerror)
     (indent-guide-mode 1))
-  (when (require 'aggressive-indent nil 'noerror)
-    (aggressive-indent-mode 1))
   (when (require 'pangu-spacing nil 'noerror)
     (pangu-spacing-mode 1))
   ;; Do not insert tabs in indentation by default.
@@ -733,6 +731,8 @@ The call stack:
   (wrap-region-global-mode 1)
   (smartparens-global-strict-mode 1)
   (show-smartparens-global-mode 1)
+  (when (require 'aggressive-indent nil 'noerror)
+    (global-aggressive-indent-mode 1))
   (exec-path-from-shell-initialize)
   ;; IMPORTANT: Define `flyspell-delayed-commands' before loading `dashboard'.
   ;;
