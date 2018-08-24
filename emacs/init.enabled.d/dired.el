@@ -33,13 +33,8 @@
 (req-package dired
   :ensure nil
   :hook (dired-mode . $dired-mode-hook)
-  :init
-  ;; Emacs runs `dired-load-hook' right after loading `dired', even before
-  ;; `eval-after-load'. We have to config it before loading `dired'.
-  ;;
-  ;; When `:demand t', the execution order of `use-package' is:
-  ;;
-  ;; :init
-  ;; (require 'dired)
-  ;; :hook
-  (add-hook 'dired-load-hook '$dired-load-hook))
+  :config
+  ($dired-load-hook)
+  ;; Adding `$dired-load-hook' into `dired-load-hook' has no effect.  dired is
+  ;; an essential package which may be loaded during the startup.
+  )
