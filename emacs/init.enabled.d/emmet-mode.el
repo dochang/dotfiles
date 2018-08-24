@@ -3,6 +3,7 @@
          ("C-j" . nil))
   :hook (css-mode
          handlebars-mode
-         mustache-mode)
+         mustache-mode
+         sgml-mode)
   :init
   (setq emmet-move-cursor-between-quotes t))
