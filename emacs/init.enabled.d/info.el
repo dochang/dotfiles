@@ -1,13 +1,8 @@
 ;;; Info
 
-(defun $Info-mode-hook ()
-  (scroll-lock-mode 1))
-
 (defvar **default-Info-default-directory-list** Info-default-directory-list)
 
 (req-package info
-
-  :hook (Info-mode . $Info-mode-hook)
 
   :init
 
