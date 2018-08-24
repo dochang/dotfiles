@@ -27,12 +27,8 @@
   (require 'dired+)
   (dired-async-mode 1))
 
-(defun $dired-mode-hook ()
-  (dired-omit-mode -1))
-
 (req-package dired
   :ensure nil
-  :hook (dired-mode . $dired-mode-hook)
   :config
   ($dired-load-hook)
   ;; Adding `$dired-load-hook' into `dired-load-hook' has no effect.  dired is
