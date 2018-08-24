@@ -7,5 +7,4 @@
   (whitespace-mode 1))
 
 (req-package conf-mode
-  :init
-  (add-hook 'conf-mode-hook '$conf-mode-hook))
+  :hook (conf-mode . $conf-mode-hook))

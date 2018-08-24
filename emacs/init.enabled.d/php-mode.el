@@ -10,5 +10,4 @@
          ("\\.phtml\\'" . php-mode)
          ("Amkfile" . php-mode)
          ("\\.amk$" . php-mode))
-  :init
-  (add-hook 'php-mode-hook '$php-mode-hook))
+  :hook (php-mode . $php-mode-hook))

@@ -6,5 +6,4 @@
   ($lisp-mode-common-hook))
 
 (req-package clojure-mode
-  :init
-  (add-hook 'clojure-mode-hook '$clojure-mode-hook))
+  :hook (clojure-mode . $clojure-mode-hook))

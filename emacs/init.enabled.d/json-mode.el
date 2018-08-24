@@ -8,5 +8,4 @@
 (req-package json-mode
   :mode (("\\.bowerrc\\'" . json-mode)
          ("\\.babelrc\\'" . json-mode))
-  :init
-  (add-hook 'json-mode-hook '$json-mode-hook))
+  :hook (json-mode . $json-mode-hook))

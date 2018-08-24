@@ -4,5 +4,4 @@
 
 (req-package rjsx-mode
   :mode "\\.jsx?\\'"
-  :init
-  (add-hook 'rjsx-mode-hook '$rjsx-mode-hook))
+  :hook (rjsx-mode . $rjsx-mode-hook))

@@ -4,5 +4,4 @@
   ($run-prog-mode-hook))
 
 (req-package haskell-mode
-  :init
-  (add-hook 'haskell-mode-hook '$haskell-mode-hook))
+  :hook (haskell-mode . $haskell-mode-hook))

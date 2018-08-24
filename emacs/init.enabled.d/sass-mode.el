@@ -9,5 +9,4 @@
   (rainbow-mode 1))
 
 (req-package sass-mode
-  :init
-  (add-hook 'sass-mode-hook '$sass-mode-hook))
+  :hook (sass-mode . $sass-mode-hook))

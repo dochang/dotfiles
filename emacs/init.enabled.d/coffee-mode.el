@@ -7,6 +7,6 @@
   ($camel-case-mode 1))
 
 (req-package coffee-mode
+  :hook (coffee-mode . $coffee-mode-hook)
   :init
-  (setq coffee-tab-width 2)
-  (add-hook 'coffee-mode-hook '$coffee-mode-hook))
+  (setq coffee-tab-width 2))

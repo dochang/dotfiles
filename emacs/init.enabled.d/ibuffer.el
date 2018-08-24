@@ -22,5 +22,4 @@
 
 (req-package ibuffer
   :bind ("C-x C-b" . ibuffer)
-  :init
-  (add-hook 'ibuffer-mode-hook '$ibuffer-mode-hook))
+  :hook (ibuffer-mode . $ibuffer-mode-hook))

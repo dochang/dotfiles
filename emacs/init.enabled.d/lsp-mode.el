@@ -1,4 +1,4 @@
 (req-package lsp-mode
+  :hook (lsp-after-open . lsp-enable-imenu)
   :init
-  (autoload 'lsp-enable-imenu "lsp-imenu" nil t)
-  (add-hook 'lsp-after-open-hook 'lsp-enable-imenu))
+  (autoload 'lsp-enable-imenu "lsp-imenu" nil t))

@@ -15,5 +15,4 @@
 
 (req-package livescript-mode
   :mode ("Slakefile\\'" . livescript-mode)
-  :init
-  (add-hook 'livescript-mode-hook '$livescript-mode-hook))
+  :hook (livescript-mode . $livescript-mode-hook))

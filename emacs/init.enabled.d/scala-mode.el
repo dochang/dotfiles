@@ -10,5 +10,4 @@
     (flymake-mode 1)))
 
 (req-package scala-mode
-  :init
-  (add-hook 'scala-mode-hook '$scala-mode-hook))
+  :hook (scala-mode . $scala-mode-hook))

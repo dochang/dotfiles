@@ -6,7 +6,6 @@
   (text-scale-set -10))
 
 (req-package sublimity
-  :init
-  (add-hook 'sublimity-map-setup-hook '$sublimity-map-setup-hook)
+  :hook (sublimity-map-setup . $sublimity-map-setup-hook)
   :config
   (sublimity-mode -1))

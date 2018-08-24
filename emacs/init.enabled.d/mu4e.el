@@ -9,6 +9,8 @@
 (req-package mu4e
   :ensure nil
 
+  :hook (mu4e-compose-mode . $mu4e-compose-mode-hook)
+
   :init
   (setq mu4e-maildir (expand-file-name (or (getenv "MAILDIR")) "~/Maildir"))
   (setq mu4e-attachment-dir (expand-file-name "~/Downloads/"))
@@ -25,7 +27,6 @@
   (setq mu4e-compose-format-flowed nil)
   (setq mu4e-context-policy 'ask)
   (setq mu4e-compose-context-policy 'ask)
-  (add-hook 'mu4e-compose-mode-hook '$mu4e-compose-mode-hook)
 
   :config
   (setq mu4e-contexts

@@ -1,1 +1,2 @@
-(req-package flycheck-rust)
+(req-package flycheck-rust
+  :hook (flycheck-mode . flycheck-rust-setup))

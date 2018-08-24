@@ -6,5 +6,4 @@
 
 (req-package erlang
   :mode ("\\.erl$" . erlang-mode)
-  :init
-  (add-hook 'erlang-mode-hook '$erlang-mode-hook))
+  :hook (erlang-mode . $erlang-mode-hook))

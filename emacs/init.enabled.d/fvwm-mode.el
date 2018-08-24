@@ -8,5 +8,4 @@
 (req-package fvwm-mode
   :mode (("\\.fvwm2rc\\'" . fvwm-mode)
          ("/\\.fvwm/config\\'" . fvwm-mode))
-  :init
-  (add-hook 'fvwm-mode-hook '$fvwm-mode-hook))
+  :hook (fvwm-mode . $fvwm-mode-hook))

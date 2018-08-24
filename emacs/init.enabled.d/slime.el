@@ -25,4 +25,12 @@
   ;;   a meta package which loads a combination of the most popular
   ;;   packages.
   (setq slime-contribs '(slime-fancy slime-asdf slime-indentation))
+  ;; Emacs runs `slime-load-hook' right after loading `slime', even before
+  ;; `eval-after-load'. We have to config it before loading `slime'.
+  ;;
+  ;; When `:demand t', the execution order of `use-package' is:
+  ;;
+  ;; :init
+  ;; (require 'slime)
+  ;; :hook
   (add-hook 'slime-load-hook '$slime-load-hook))

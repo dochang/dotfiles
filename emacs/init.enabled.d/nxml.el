@@ -6,8 +6,7 @@
   (setq indent-tabs-mode nil))
 
 (req-package nxml
-  :init
-  (add-hook 'nxml-mode-hook '$nxml-mode-hook)
+  :hook (nxml-mode . $nxml-mode-hook)
   :config
   ;; Make nXML indentation variables safe as file local variables if
   ;; their values satisfy the predicate `integerp'.

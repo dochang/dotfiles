@@ -7,8 +7,8 @@
   (lua-block-mode 1))
 
 (req-package lua-mode
+  :hook (lua-mode . $lua-mode-hook)
   :init
   (setq lua-indent-level 2)
-  (add-hook 'lua-mode-hook '$lua-mode-hook)
   :config
   (require 'lua2-mode nil t))

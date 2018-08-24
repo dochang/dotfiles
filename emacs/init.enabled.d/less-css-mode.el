@@ -10,7 +10,7 @@
   (rainbow-mode 1))
 
 (req-package less-css-mode
+  :hook (less-css-mode . $less-css-mode-hook)
   :init
   ;; Don't compile after saving.
-  (setq less-css-compile-at-save nil)
-  (add-hook 'less-css-mode-hook '$less-css-mode-hook))
+  (setq less-css-compile-at-save nil))

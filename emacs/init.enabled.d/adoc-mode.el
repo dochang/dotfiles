@@ -5,7 +5,6 @@
   :require asciidoc
   :mode (("\\.adoc\\'" . adoc-mode)
          ("\\.asciidoc\\'" . adoc-mode))
-  :init
-  (add-hook 'adoc-mode-hook '$adoc-mode-hook)
+  :hook (adoc-mode . $adoc-mode-hook)
   :config
   ($load-asciidoc adoc-mode-map))

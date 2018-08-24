@@ -3,6 +3,7 @@
 
 (req-package js2-mode
   :require js
+  :hook (js2-mode . $js2-mode-hook)
   :init
   ;; NOTE: This variable only takes effect on Emacs < 25.0.  For Emacs >= 25.0,
   ;; see `js-indent-level' in `js-mode'.
@@ -18,5 +19,4 @@
   ;; Do not warn about missing semicolon.
   ;;
   ;; Because it does NOT recognize object literals!
-  (setq js2-strict-missing-semi-warning nil)
-  (add-hook 'js2-mode-hook '$js2-mode-hook))
+  (setq js2-strict-missing-semi-warning nil))

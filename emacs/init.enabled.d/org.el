@@ -226,6 +226,12 @@
          ("C-c a" . org-agenda)
          ("C-c c" . org-capture))
 
+  :hook ((org-mode . $org-mode-hook)
+         (org-capture-after-finalize . $org-capture-after-finalize-hook)
+         (org-agenda-finalize . $org-agenda-finalize-hook)
+         (org-after-refile-insert . $org-after-refile-insert-hook)
+         (org-archive . $org-archive-hook))
+
   :init
 
   ;; They have to be set before org.el is loaded.
@@ -251,16 +257,12 @@
     ("o" org-open-at-point-global "open at point global")
     ("q" nil "quit"))
 
-  (add-hook 'org-mode-hook '$org-mode-hook)
-
-  (add-hook 'org-capture-after-finalize-hook '$org-capture-after-finalize-hook)
-
-  (add-hook 'org-agenda-finalize-hook '$org-agenda-finalize-hook)
-
-  (add-hook 'org-after-refile-insert-hook '$org-after-refile-insert-hook)
-
-  (add-hook 'org-archive-hook '$org-archive-hook)
-
-  ;; Emacs runs `org-load-hook' right after loading `org', before
+  ;; Emacs runs `org-load-hook' right after loading `org', even before
   ;; `eval-after-load'.  We have to config it before loading `org'.
+  ;;
+  ;; When `:demand t', the execution order of `use-package' is:
+  ;;
+  ;; :init
+  ;; (require 'org)
+  ;; :hook
   (add-hook 'org-load-hook '$org-load-hook))

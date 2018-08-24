@@ -6,8 +6,10 @@
 (defvar **default-Info-default-directory-list** Info-default-directory-list)
 
 (req-package info
+
+  :hook (Info-mode . $Info-mode-hook)
+
   :init
-  (add-hook 'Info-mode-hook '$Info-mode-hook)
 
   ;; Put "~/local/share/info" before other dirs.
   ;;

@@ -12,5 +12,4 @@
   ;; `C-c C-p' is ok, because it's defined in a major mode keymap.
   :bind (:map yaml-mode-map
          ("C-c C-p" . yaml-path/path))
-  :init
-  (add-hook 'yaml-mode-hook '$yaml-mode-hook))
+  :hook (yaml-mode . $yaml-mode-hook))

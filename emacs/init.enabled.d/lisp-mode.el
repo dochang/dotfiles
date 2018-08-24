@@ -96,10 +96,11 @@ Lisp function does not specify a special indentation."
 
 (req-package lisp-mode
   :ensure nil
+
+  :hook (lisp-mode . $lisp-mode-hook)
+
   :init
   (setq lisp-indent-function '$lisp-indent-function)
 
   ;; Use `fill-column' when filling docstrings.
-  (setq emacs-lisp-docstring-fill-column t)
-
-  (add-hook 'lisp-mode-hook '$lisp-mode-hook))
+  (setq emacs-lisp-docstring-fill-column t))

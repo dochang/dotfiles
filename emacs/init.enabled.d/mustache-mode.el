@@ -10,5 +10,4 @@
   :mode (("\\.mustache$" . mustache-mode)
          ;; For Hogan.js
          ("\\.\\(hjs\\|hogan\\)$" . mustache-mode))
-  :init
-  (add-hook 'mustache-mode-hook '$mustache-mode-hook))
+  :hook (mustache-mode . $mustache-mode-hook))

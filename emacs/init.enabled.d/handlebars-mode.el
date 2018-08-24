@@ -5,5 +5,4 @@
   (emmet-mode 1))
 
 (req-package handlebars-mode
-  :init
-  (add-hook 'handlebars-mode-hook '$handlebars-mode-hook))
+  :hook (handlebars-mode . $handlebars-mode-hook))

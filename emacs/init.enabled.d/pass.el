@@ -5,5 +5,4 @@
   (view-mode -1))
 
 (req-package pass
-  :init
-  (add-hook 'pass-mode-hook '$pass-mode-hook))
+  :hook (pass-mode . $pass-mode-hook))

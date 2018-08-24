@@ -6,5 +6,4 @@
 
 (req-package readme-debian
   :ensure nil
-  :init
-  (add-hook 'readme-debian-mode-hook '$readme-debian-mode-hook))
+  :hook (readme-debian-mode . $readme-debian-mode-hook))

@@ -5,5 +5,4 @@
 
 (req-package help-mode
   :ensure nil
-  :init
-  (add-hook 'help-mode-hook '$help-mode-hook))
+  :hook (help-mode . $help-mode-hook))

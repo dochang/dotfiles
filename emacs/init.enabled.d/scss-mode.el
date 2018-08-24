@@ -8,7 +8,7 @@
   (rainbow-mode 1))
 
 (req-package scss-mode
+  :hook (scss-mode . $scss-mode-hook)
   :init
   ;; Don't compile after saving.
-  (setq scss-compile-at-save nil)
-  (add-hook 'scss-mode-hook '$scss-mode-hook))
+  (setq scss-compile-at-save nil))

@@ -23,5 +23,4 @@
     (setq indent-tabs-mode nil)))
 
 (req-package markdown-mode
-  :init
-  (add-hook 'markdown-mode-hook '$markdown-mode-hook))
+  :hook (markdown-mode . $markdown-mode-hook))

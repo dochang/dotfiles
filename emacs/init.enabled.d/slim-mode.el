@@ -5,5 +5,4 @@
   ($run-prog-mode-hook))
 
 (req-package slim-mode
-  :init
-  (add-hook 'slim-mode-hook '$slim-mode-hook))
+  :hook (slim-mode . $slim-mode-hook))

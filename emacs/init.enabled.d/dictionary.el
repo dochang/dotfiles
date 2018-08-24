@@ -10,10 +10,10 @@
   :bind (("C-c d" . $hydra-dictionary/body)
          :map dictionary-mode-map
          ("DEL" . scroll-down))
+  :hook (dictionary-mode . $dictionary-mode-hook)
   :init
   (setq dictionary-use-single-buffer t)
   (setq dictionary-tooltip-dictionary "!")
-  (add-hook 'dictionary-mode-hook '$dictionary-mode-hook)
   (defhydra $hydra-dictionary (:color teal)
     "dictionary"
     ("s" dictionary-search "search")

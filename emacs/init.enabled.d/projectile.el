@@ -3,6 +3,4 @@
     (go-set-project)))
 
 (req-package projectile
-  :init
-  (add-hook 'projectile-after-switch-project-hook
-            '$projectile-after-switch-project-hook))
+  :hook (projectile-after-switch-project . $projectile-after-switch-project-hook))

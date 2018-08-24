@@ -4,5 +4,4 @@
   (setq-local tab-always-indent nil))
 
 (req-package dns-mode
-  :init
-  (add-hook 'dns-mode-hook '$dns-mode-hook))
+  :hook (dns-mode . $dns-mode-hook))

@@ -8,5 +8,4 @@
 
 (req-package dockerfile-mode
   :mode ("Dockerfile\\'" . dockerfile-mode)
-  :init
-  (add-hook 'dockerfile-mode-hook '$dockerfile-mode-hook))
+  :hook (dockerfile-mode . $dockerfile-mode-hook))

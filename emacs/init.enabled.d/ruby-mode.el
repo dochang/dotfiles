@@ -14,5 +14,4 @@
          ("config\\.ru\\'" . ruby-mode)
          ;; For Rake
          ("\\.rake\\'" . ruby-mode))
-  :init
-  (add-hook 'ruby-mode-hook '$ruby-mode-hook))
+  :hook (ruby-mode . $ruby-mode-hook))

@@ -4,5 +4,4 @@
   (aggressive-indent-mode -1))
 
 (req-package python
-  :init
-  (add-hook 'python-mode-hook '$python-mode-hook))
+  :hook (python-mode . $python-mode-hook))

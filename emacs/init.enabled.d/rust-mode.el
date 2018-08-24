@@ -6,6 +6,6 @@
   (cargo-minor-mode 1))
 
 (req-package rust-mode
+  :hook (rust-mode . $rust-mode-hook)
   :init
-  (setq rust-format-on-save t)
-  (add-hook 'rust-mode-hook '$rust-mode-hook))
+  (setq rust-format-on-save t))

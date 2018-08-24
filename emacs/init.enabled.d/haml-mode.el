@@ -5,5 +5,4 @@
   ($run-prog-mode-hook))
 
 (req-package haml-mode
-  :init
-  (add-hook 'haml-mode-hook '$haml-mode-hook))
+  :hook (haml-mode . $haml-mode-hook))

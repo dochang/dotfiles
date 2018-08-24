@@ -27,8 +27,8 @@
   :bind (:map go-mode-map
          ("M-." . godef-jump)
          ("M-*" . pop-tag-mark))
+  :hook (go-mode . $go-mode-hook)
   :init
   (setq gofmt-command
         (cond ((executable-find "goimports") "goimports")
-              (t "gofmt")))
-  (add-hook 'go-mode-hook '$go-mode-hook))
+              (t "gofmt"))))

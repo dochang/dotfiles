@@ -5,5 +5,4 @@
   ($run-prog-mode-hook))
 
 (req-package elixir-mode
-  :init
-  (add-hook 'elixir-mode-hook '$elixir-mode-hook))
+  :hook (elixir-mode . $elixir-mode-hook))

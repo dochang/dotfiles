@@ -10,8 +10,8 @@
   (set (make-local-variable 'view-read-only) nil))
 
 (req-package ledger-mode
+  :hook ((ledger-mode . $ledger-mode-hook)
+         (ledger-reconcile-mode . $ledger-reconcile-mode-hook))
   :init
   ;; Do not highlight transaction under point.
-  (setq ledger-highlight-xact-under-point nil)
-  (add-hook 'ledger-mode-hook '$ledger-mode-hook)
-  (add-hook 'ledger-reconcile-mode-hook '$ledger-reconcile-mode-hook))
+  (setq ledger-highlight-xact-under-point nil))

@@ -22,5 +22,4 @@
       (super-save-advise-trigger-commands))))
 
 (req-package copyright
-  :init
-  (add-hook 'before-save-hook 'copyright-update))
+  :hook (before-save . copyright-update))

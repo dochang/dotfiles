@@ -5,5 +5,4 @@
   ($run-prog-mode-hook))
 
 (req-package jade-mode
-  :init
-  (add-hook 'jade-mode-hook '$jade-mode-hook))
+  :hook (jade-mode . $jade-mode-hook))

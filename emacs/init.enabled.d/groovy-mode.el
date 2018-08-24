@@ -10,5 +10,4 @@
 (req-package groovy-mode
   ;; Also edit gradle files by `groovy-mode'.
   :mode ("\\.gradle\\'" . groovy-mode)
-  :init
-  (add-hook 'groovy-mode-hook '$groovy-mode-hook))
+  :hook (groovy-mode . $groovy-mode-hook))

@@ -7,5 +7,4 @@
   (setq indent-tabs-mode t))
 
 (req-package make-mode
-  :init
-  (add-hook 'makefile-mode-hook '$makefile-mode-hook))
+  :hook (makefile-mode . $makefile-mode-hook))

@@ -12,6 +12,8 @@
   :bind (:map sh-mode-map
          ("C-j" . reindent-then-newline-and-indent))
 
+  :hook (sh-mode . $sh-mode-hook)
+
   :init
   ;; Indentation
   ;; [[https://keramida.wordpress.com/2008/08/08/tweaking-shell-script-indentation-in-gnu-emacs/]]
@@ -21,7 +23,6 @@
   (setq sh-indent-for-case-alt '+)
   ;; Use `/bin/sh` for shell scripts.
   (setq sh-shell-file "/bin/sh")
-  (add-hook 'sh-mode-hook '$sh-mode-hook)
 
   :config
   (setq sh-alias-alist (cons (cons 'zsh5 'zsh)

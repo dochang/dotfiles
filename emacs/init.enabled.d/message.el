@@ -20,6 +20,8 @@ return value of `message-unique-id'."
 (req-package message
   :ensure nil
 
+  :hook (message-setup-hook . $message-setup-hook)
+
   :init
 
   ;; Set domain part of Message-Ids to a fully qualified domain name.
@@ -49,6 +51,4 @@ return value of `message-unique-id'."
 
   ;; Use the From: header for the envelope-from when sending mail with
   ;; sendmail.  Do not use `user-mail-address'.
-  (setq message-sendmail-envelope-from 'header)
-
-  (add-hook 'message-setup-hook '$message-setup-hook))
+  (setq message-sendmail-envelope-from 'header))

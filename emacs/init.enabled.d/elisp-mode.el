@@ -29,6 +29,8 @@
 
   :mode ("Cask\\'" . emacs-lisp-mode)
 
+  :hook (emacs-lisp-mode . $emacs-lisp-mode-hook)
+
   :init
   ;; Paredit always inserts a space when I insert "(" after ",@".  Change the
   ;; syntax descriptor of "@" from "_" to "'" will solve this problem.
@@ -38,8 +40,6 @@
   ;;   - `paredit-space-for-delimiter-p'
   ;;   - `emacs-lisp-mode-syntax-table'
   (modify-syntax-entry ?@ "'   " emacs-lisp-mode-syntax-table)
-
-  (add-hook 'emacs-lisp-mode-hook '$emacs-lisp-mode-hook)
 
   ;; Do not limit the output when evaluating.
   (setq eval-expression-print-length nil)

@@ -6,5 +6,4 @@
   (rainbow-mode 1))
 
 (req-package stylus-mode
-  :init
-  (add-hook 'stylus-mode-hook '$stylus-mode-hook))
+  :hook (stylus-mode . $stylus-mode-hook))
