@@ -2,12 +2,7 @@
 ;; [[http://immerrr.github.com/lua-mode/]]
 ;; [[https://github.com/immerrr/lua-mode]]
 
-(defun $lua-mode-hook ()
-  ($run-prog-mode-hook)
-  (lua-block-mode 1))
-
 (req-package lua-mode
-  :hook (lua-mode . $lua-mode-hook)
   :init
   (setq lua-indent-level 2)
   :config

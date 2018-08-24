@@ -5,5 +5,6 @@
 (req-package lua-block
   :ensure nil
   :quelpa (lua-block :fetcher github :repo "emacsmirror/lua-block")
+  :hook (lua-mode . lua-block-mode)
   :init
   (setq lua-block-highlight-toggle t))
