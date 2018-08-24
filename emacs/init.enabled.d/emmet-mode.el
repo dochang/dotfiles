@@ -2,6 +2,7 @@
   :bind (:map emmet-mode-keymap
          ("C-j" . nil))
   :hook (css-mode
-         handlebars-mode)
+         handlebars-mode
+         mustache-mode)
   :init
   (setq emmet-move-cursor-between-quotes t))
