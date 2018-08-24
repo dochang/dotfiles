@@ -1,9 +1,5 @@
-(defun $js2-mode-hook ()
-  ($js-mode-common-hook))
-
 (req-package js2-mode
   :require js
-  :hook (js2-mode . $js2-mode-hook)
   :init
   ;; NOTE: This variable only takes effect on Emacs < 25.0.  For Emacs >= 25.0,
   ;; see `js-indent-level' in `js-mode'.
