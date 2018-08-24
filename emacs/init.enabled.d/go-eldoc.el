@@ -1,1 +1,2 @@
-(req-package go-eldoc)
+(req-package go-eldoc
+  :hook (go-mode . go-eldoc-setup))
