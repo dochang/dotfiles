@@ -3,7 +3,7 @@
 (defun $sh-mode-hook ()
   (cond ((string-match "[.]zsh\\>" buffer-file-name)
          (sh-set-shell "zsh")))
-  ($prog-mode-hook*)
+  ($run-prog-mode-hook)
   (setq indent-tabs-mode t))
 
 (req-package sh-script

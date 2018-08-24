@@ -3,7 +3,7 @@
 ;; - [[https://github.com/Groovy-Emacs-Modes/groovy-emacs-modes]]
 
 (defun $groovy-mode-hook ()
-  ($prog-mode-hook*)
+  ($run-prog-mode-hook)
   ($camel-case-mode 1)
   (groovy-electric-mode 1))
 

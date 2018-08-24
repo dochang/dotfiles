@@ -1,7 +1,7 @@
 ;;; Haskell Mode
 
 (defun $haskell-mode-hook ()
-  ($prog-mode-hook*))
+  ($run-prog-mode-hook))
 
 (req-package haskell-mode
   :init

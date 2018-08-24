@@ -2,7 +2,7 @@
 
 ;; Xmodmap Generic Mode
 (defun $xmodmap-generic-mode-hook ()
-  ($prog-mode-hook*))
+  ($run-prog-mode-hook))
 
 (req-package generic-x
   :ensure nil

@@ -1,7 +1,7 @@
 ;;; JS Mode
 
 (defun $js-mode-common-hook ()
-  ($prog-mode-hook*)
+  ($run-prog-mode-hook)
   ($camel-case-mode 1)
   (prettier-js-mode 1))
 

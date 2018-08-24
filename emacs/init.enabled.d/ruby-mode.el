@@ -1,7 +1,7 @@
 ;;; Ruby Mode
 
 (defun $ruby-mode-hook ()
-  ($prog-mode-hook*)
+  ($run-prog-mode-hook)
   (inf-ruby-minor-mode)
   (ruby-block-mode 1))
 

@@ -2,7 +2,7 @@
 ;; [[https://github.com/brianc/jade-mode]]
 
 (defun $jade-mode-hook ()
-  ($prog-mode-hook*))
+  ($run-prog-mode-hook))
 
 (req-package jade-mode
   :init

@@ -3,7 +3,7 @@
   (smart-tabs-insinuate 'c 'c++ 'java))
 
 (defun $c-mode-common-hook ()
-  ($prog-mode-hook*)
+  ($run-prog-mode-hook)
   ;; Fix the indentation for anonymous class in java-mode.
   ;;
   ;; [[https://stackoverflow.com/a/7619497]]

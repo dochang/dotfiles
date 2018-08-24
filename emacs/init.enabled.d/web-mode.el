@@ -3,7 +3,7 @@
 ;; [[https://github.com/fxbois/web-mode]]
 
 (defun $web-mode-hook ()
-  ($prog-mode-hook*)
+  ($run-prog-mode-hook)
   (cond ((and buffer-file-name
               (string-match "\\.jsx?\\'" buffer-file-name))
          ($js-mode-common-hook)))

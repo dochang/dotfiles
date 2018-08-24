@@ -1,7 +1,7 @@
 ;;; README.Debian Mode
 
 (defun $readme-debian-mode-hook ()
-  ($prog-mode-hook*)
+  ($run-prog-mode-hook)
   (remove-hook 'write-contents-functions 'readme-debian-update-timestamp t))
 
 (req-package readme-debian

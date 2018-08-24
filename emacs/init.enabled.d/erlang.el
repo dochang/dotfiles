@@ -2,7 +2,7 @@
 ;; [[http://melpa.milkbox.net/#/erlang]]
 
 (defun $erlang-mode-hook ()
-  ($prog-mode-hook*))
+  ($run-prog-mode-hook))
 
 (req-package erlang
   :mode ("\\.erl$" . erlang-mode)

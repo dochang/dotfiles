@@ -1,7 +1,7 @@
 ;;; Makefile Mode
 
 (defun $makefile-mode-hook ()
-  ($prog-mode-hook*)
+  ($run-prog-mode-hook)
   ;; aggressive-indent-mode will break the indentation.  Disable it.
   (aggressive-indent-mode -1)
   (setq indent-tabs-mode t))

@@ -3,7 +3,7 @@
 ;; [[http://www.lair.be/projects_fvwm-mode.php]]
 
 (defun $fvwm-mode-hook ()
-  ($prog-mode-hook*))
+  ($run-prog-mode-hook))
 
 (req-package fvwm-mode
   :mode (("\\.fvwm2rc\\'" . fvwm-mode)

@@ -2,7 +2,7 @@
 ;; [[https://github.com/ejmr/php-mode]]
 
 (defun $php-mode-hook ()
-  ($prog-mode-hook*)
+  ($run-prog-mode-hook)
   ($camel-case-mode 1))
 
 (req-package php-mode

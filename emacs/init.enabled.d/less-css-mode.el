@@ -3,10 +3,10 @@
 ;; [[https://github.com/purcell/less-css-mode]]
 
 (defun $less-css-mode-hook ()
-  ;; No need to eval `$prog-mode-hook' if `less-css-mode' is derived from
+  ;; No need to run `prog-mode-hook' if `less-css-mode' is derived from
   ;; `css-mode'.
   (unless (derived-mode-p 'css-mode)
-    ($prog-mode-hook*))
+    ($run-prog-mode-hook))
   (rainbow-mode 1))
 
 (req-package less-css-mode

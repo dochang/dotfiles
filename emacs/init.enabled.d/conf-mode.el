@@ -1,7 +1,7 @@
 ;;; Conf Mode
 
-;; `conf-mode' isn't derived from `prog-mode'.  Don't call
-;; `$prog-mode-hook'.
+;; `conf-mode' isn't a derived mode of `prog-mode'.  Don't run
+;; `prog-mode-hook'.
 (defun $conf-mode-hook ()
   (linum-mode 1)
   (whitespace-mode 1))

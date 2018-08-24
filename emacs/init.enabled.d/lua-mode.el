@@ -3,7 +3,7 @@
 ;; [[https://github.com/immerrr/lua-mode]]
 
 (defun $lua-mode-hook ()
-  ($prog-mode-hook*)
+  ($run-prog-mode-hook)
   (lua-block-mode 1))
 
 (req-package lua-mode

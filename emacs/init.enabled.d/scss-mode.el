@@ -2,10 +2,9 @@
 ;; [[https://github.com/antonj/scss-mode]]
 
 (defun $scss-mode-hook ()
-  ;; No need to eval `$prog-mode-hook' if `scss-mode' is derived from
-  ;; `css-mode'.
+  ;; No need to run `prog-mode-hook' if `scss-mode' is derived from `css-mode'.
   (unless (derived-mode-p 'css-mode)
-    ($prog-mode-hook*))
+    ($run-prog-mode-hook))
   (rainbow-mode 1))
 
 (req-package scss-mode

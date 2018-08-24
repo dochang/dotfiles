@@ -2,7 +2,7 @@
 ;; [[http://golang.org/misc/emacs/]]
 
 (defun $go-mode-hook ()
-  ($prog-mode-hook*)
+  ($run-prog-mode-hook)
   ($camel-case-mode 1)
   (setq indent-tabs-mode t)
   (when (require 'go-eldoc nil 'noerror)

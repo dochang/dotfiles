@@ -1,7 +1,7 @@
 ;;; JSON Mode
 
 (defun $json-mode-hook ()
-  ($prog-mode-hook*)
+  ($run-prog-mode-hook)
   ;; prettier doesn't support JSON.  Disable it.
   (prettier-js-mode -1))
 

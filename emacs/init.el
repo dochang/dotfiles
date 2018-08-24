@@ -512,12 +512,12 @@
 
 (add-hook 'prog-mode-hook '$prog-mode-hook)
 
-(defun $prog-mode-hook* ()
+(defun $run-prog-mode-hook ()
   "Put this function into a hook of any programming related mode,
-to ensure that `$prog-mode-hook' could be executed even if the
+to ensure that `prog-mode-hook' could be executed even if the
 major mode isn't derived from `prog-mode'."
   (unless (derived-mode-p 'prog-mode)
-    ($prog-mode-hook)))
+    (run-mode-hooks 'prog-mode-hook)))
 
 
 ;;; CamelCase Mode
@@ -530,7 +530,7 @@ major mode isn't derived from `prog-mode'."
 
 ;;; Lisp Common Mode
 (defun $lisp-mode-common-hook ()
-  ($prog-mode-hook*))
+  ($run-prog-mode-hook))
 
 
 (load (locate-user-emacs-file "bootstrap"))

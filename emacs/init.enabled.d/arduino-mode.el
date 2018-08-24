@@ -1,4 +1,4 @@
 (defun $arduino-mode-hook ()
-  ($prog-mode-hook*))
+  ($run-prog-mode-hook))
 
 (req-package arduino-mode)
