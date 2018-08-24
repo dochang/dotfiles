@@ -174,7 +174,6 @@
   (org-edna-load))
 
 (defun $org-mode-hook ()
-  (linum-mode 1)
   (setq truncate-lines nil))
 
 ;; https://emacs.stackexchange.com/questions/477/how-do-i-automatically-save-org-mode-buffers
