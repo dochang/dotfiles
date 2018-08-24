@@ -1,1 +1,2 @@
-(req-package rainbow-mode)
+(req-package rainbow-mode
+  :hook (css-mode))
