@@ -217,7 +217,9 @@
 
 (defvar **org-timer**)
 
-(req-package org-plus-contrib
+(req-package org
+  :ensure org-plus-contrib
+
   :mode ("/\\.notes\\'" . org-mode)
   ;; Edit `org-default-notes-file' in org-mode.
 
