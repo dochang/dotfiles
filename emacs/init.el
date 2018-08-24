@@ -577,6 +577,29 @@ major mode isn't derived from `prog-mode'."
 (load (locate-user-emacs-file "bootstrap"))
 
 
+(define-advice update-directory-autoloads (:around (fn &rest r) dont-update-time-stamp-and-copyright)
+  "This functions runs `before-save-hook'.  Since updating autoloads is a
+background operation, we must skip the hooks which modify the file and keep the
+file unmodified.
+
+The call stack:
+
+`package-install'
+-> `package-download-transaction'
+-> `package-install-from-archive'
+-> `package-unpack'
+-> `package--make-autoloads-and-stuff'
+-> `package-generate-autoloads'
+-> `update-directory-autoloads'
+-> `save-buffer'
+-> `basic-save-buffer'
+-> `before-save-hook'
+"
+  (let ((time-stamp-active nil)
+        (copyright-update nil))
+    (apply fn r)))
+
+
 (setq use-package-always-defer t)
 (unless (package-installed-p 'use-package)
   (package-install 'use-package))
