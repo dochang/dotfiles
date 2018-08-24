@@ -11,5 +11,6 @@
   (add-to-list 'aggressive-indent-excluded-modes 'special-mode)
   (add-to-list 'aggressive-indent-excluded-modes 'dockerfile-mode)
   (add-to-list 'aggressive-indent-excluded-modes 'makefile-mode)
+  (add-to-list 'aggressive-indent-excluded-modes 'python-mode)
   ;; aggressive-indent-mode will break the indentation in these modes.
   )
