@@ -1,5 +1,4 @@
 (defun $kotlin-mode-hook ()
-  ($run-prog-mode-hook)
   ($camel-case-mode 1)
   (setq indent-tabs-mode nil))
 

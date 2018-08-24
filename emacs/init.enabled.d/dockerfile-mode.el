@@ -2,7 +2,6 @@
 ;; [[https://github.com/spotify/dockerfile-mode]]
 
 (defun $dockerfile-mode-hook ()
-  ($run-prog-mode-hook)
   ;; aggressive-indent-mode will break the indentation.  Disable it.
   (aggressive-indent-mode -1))
 

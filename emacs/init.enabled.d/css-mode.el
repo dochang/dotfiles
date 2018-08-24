@@ -1,7 +1,6 @@
 ;;; CSS Mode
 
 (defun $css-mode-hook ()
-  ($run-prog-mode-hook)
   (emmet-mode 1)
   (rainbow-mode 1))
 

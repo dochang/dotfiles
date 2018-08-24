@@ -10,7 +10,6 @@
 ;; See [[https://github.com/gkz/LiveScript/wiki/Projects-supporting-LiveScript#editor-support]]
 
 (defun $livescript-mode-hook ()
-  ($run-prog-mode-hook)
   ($camel-case-mode 1))
 
 (req-package livescript-mode

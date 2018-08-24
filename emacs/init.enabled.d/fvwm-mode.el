@@ -2,10 +2,6 @@
 ;; [[http://www.emacswiki.org/FvwmMode]]
 ;; [[http://www.lair.be/projects_fvwm-mode.php]]
 
-(defun $fvwm-mode-hook ()
-  ($run-prog-mode-hook))
-
 (req-package fvwm-mode
   :mode (("\\.fvwm2rc\\'" . fvwm-mode)
-         ("/\\.fvwm/config\\'" . fvwm-mode))
-  :hook (fvwm-mode . $fvwm-mode-hook))
+         ("/\\.fvwm/config\\'" . fvwm-mode)))

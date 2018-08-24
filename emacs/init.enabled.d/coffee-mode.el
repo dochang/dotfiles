@@ -3,7 +3,6 @@
 ;; [[https://github.com/defunkt/coffee-mode]]
 
 (defun $coffee-mode-hook ()
-  ($run-prog-mode-hook)
   ($camel-case-mode 1))
 
 (req-package coffee-mode
