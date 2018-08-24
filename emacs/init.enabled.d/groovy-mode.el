@@ -3,9 +3,7 @@
 ;; - [[https://github.com/Groovy-Emacs-Modes/groovy-emacs-modes]]
 
 (defun $groovy-mode-hook ()
-  ($run-prog-mode-hook)
-  ($camel-case-mode 1)
-  (groovy-electric-mode 1))
+  ($camel-case-mode 1))
 
 (req-package groovy-mode
   ;; Also edit gradle files by `groovy-mode'.
