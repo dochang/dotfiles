@@ -1,9 +1,7 @@
 ;;; YAML Mode
 
 (defun $yaml-mode-hook ()
-  ($run-prog-mode-hook)
-  ;; aggressive-indent-mode will break the indentation.  Disable it.
-  (aggressive-indent-mode -1))
+  ($run-prog-mode-hook))
 
 (req-package yaml-mode
   :mode (("\\.yamllint\\'" . yaml-mode))
