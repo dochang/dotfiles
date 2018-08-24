@@ -3,11 +3,9 @@
 ;; [[https://github.com/fxbois/web-mode]]
 
 (defun $web-mode-hook ()
-  ($run-prog-mode-hook)
   (cond ((and buffer-file-name
               (string-match "\\.jsx?\\'" buffer-file-name))
          ($js-mode-common-hook)))
-  (emmet-mode 1)
   ($camel-case-mode 1))
 
 (req-package web-mode

@@ -4,6 +4,7 @@
   :hook (css-mode
          handlebars-mode
          mustache-mode
-         sgml-mode)
+         sgml-mode
+         web-mode)
   :init
   (setq emmet-move-cursor-between-quotes t))
