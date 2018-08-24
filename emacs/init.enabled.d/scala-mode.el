@@ -1,7 +1,6 @@
 ;;; Scala Mode
 
 (defun $scala-mode-hook ()
-  ($run-prog-mode-hook)
   ($camel-case-mode 1)
   ;; Flycheck is too strict for `*.sbt'.  Use flymake instead.
   (when (or (null buffer-file-name)
