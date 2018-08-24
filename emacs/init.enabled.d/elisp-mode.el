@@ -13,16 +13,12 @@
 
 (defun $emacs-lisp-mode-hook ()
   ($lisp-mode-common-hook)
-  (form-feed-mode 1)
   ;; Flycheck is too strict for my `.emacs' now.  Use flymake instead.
   (when (or (null buffer-file-name)
             ($init-file-p buffer-file-name)
             (not ($file-name-match "\\.el\\'" buffer-file-name)))
     (flycheck-mode -1)
-    (flymake-mode 1))
-  ;; Eldoc Mode
-  ;; [[info:emacs#Lisp%20Doc]]
-  (eldoc-mode 1))
+    (flymake-mode 1)))
 
 (req-package elisp-mode
   :ensure nil
