@@ -6,9 +6,6 @@
 ;;;    sending messages inside emacs.  It's the preferred mode used by
 ;;;    gnus.  However it can be used independently from gnus.
 
-(defun $message-setup-hook ()
-  (flyspell-mode 1))
-
 (define-advice message-unique-id (:filter-return (unique-id) by-uuid)
   "Return an UUID if available.  Otherwise, return the original
 return value of `message-unique-id'."
@@ -19,8 +16,6 @@ return value of `message-unique-id'."
 
 (req-package message
   :ensure nil
-
-  :hook (message-setup-hook . $message-setup-hook)
 
   :init
 
