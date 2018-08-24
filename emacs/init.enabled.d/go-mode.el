@@ -16,10 +16,12 @@
   (mapc (lambda (cmdline)
           (let ((gofmt-command (car cmdline))
                 (gofmt-args (cdr cmdline)))
-            (when (executable-find gofmt-command)
-              (gofmt-before-save))))
-        '(("goimports")
-          ("gofmt" "-s"))))
+            (gofmt-before-save)))
+        (cl-remove-if-not (lambda (cmdline)
+                            (let ((gofmt-command (car cmdline)))
+                              (executable-find gofmt-command)))
+                          '(("goimports")
+                            ("gofmt" "-s")))))
 
 (req-package go-mode
   :bind (:map go-mode-map
