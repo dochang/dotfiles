@@ -30,7 +30,7 @@
     "TPPS/2 IBM TrackPoint": {
       "desc": "ThinkPad trackpoint",
       "properties": [
-        ["libinput Accel Speed", "-0.5"]
+        ["libinput Accel Speed", "-1"]
       ]
     }
   }
