@@ -4,6 +4,7 @@
 ;; [[http://ergoemacs.org/emacs/emacs_iswitch_vs_ido.html]]
 
 (req-package ido
+  :hook (emacs-startup . ido-mode)
   :init
   (setq ido-confirm-unique-completion t)
   ;; Disable automatic file search in ido mode

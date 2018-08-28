@@ -1,1 +1,2 @@
-(req-package undo-tree)
+(req-package undo-tree
+  :hook (emacs-startup . global-undo-tree-mode))

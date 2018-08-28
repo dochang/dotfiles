@@ -1,4 +1,5 @@
 (req-package aggressive-indent
+  :hook (emacs-startup . global-aggressive-indent-mode)
   :init
   (setq aggressive-indent-dont-electric-modes t)
   ;; `electric-indent-mode' should be disabled.  Otherwise the variable

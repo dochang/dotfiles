@@ -7,4 +7,5 @@
          (cadr (assq pkg package-archive-contents))
          (funcall fn pkg))))
 
-(req-package auto-package-update)
+(req-package auto-package-update
+  :hook (emacs-startup . auto-package-update-maybe))

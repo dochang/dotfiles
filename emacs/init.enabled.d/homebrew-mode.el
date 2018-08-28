@@ -1,4 +1,5 @@
 (req-package homebrew-mode
+  :hook (emacs-startup . global-homebrew-mode)
   :init
   (cond ((eq system-type 'gnu/linux)
          ;; Install Linuxbrew into /home/linuxbrew

@@ -1,1 +1,2 @@
-(req-package company)
+(req-package company
+  :hook (emacs-startup . global-company-mode))

@@ -1,1 +1,2 @@
-(req-package focus-autosave-mode)
+(req-package focus-autosave-mode
+  :hook emacs-startup)

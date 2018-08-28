@@ -728,46 +728,14 @@ The call stack:
 
 (defun $after-init-hook ()
   (req-package-finish)
-  (auto-package-update-maybe)
-  ;; Special Mode
-  ;;
-  ;; Emacs has deleted `z' binding in GIT#0d4505d & GIT#82dffff .  We
-  ;; restore it here.
-  (unless (lookup-key special-mode-map "z")
-    (define-key special-mode-map "z" 'kill-this-buffer))
-  ;; Scroll Lock Mode
-  (global-set-key [Scroll_Lock] 'scroll-lock-mode)
   ;; Midnight Mode
   ;; [[info:emacs#Kill%20Buffer]]
   (require 'midnight nil t)
-  ;; Auto Revert Mode
-  (global-auto-revert-mode 1)
   (tool-bar-mode -1)
   (set-scroll-bar-mode 'left)
   (blink-cursor-mode -1)
   (mouse-avoidance-mode 'exile)
-  (column-number-mode 1)
   (display-time)
-  ;; Which Function Mode
-  (which-function-mode 1)
-  ;; Enable Font-Lock Mode Globally.
-  (global-font-lock-mode 1)
-  ;; Highlight matching parenthesis
-  (show-paren-mode 1)
-  (global-undo-tree-mode 1)
-  (global-fringe-current-line-mode 1)
-  (which-key-mode 1)
-  (which-key-setup-side-window-right)
-  (when (require 'auth-source-pass nil 'noerror)
-    (auth-source-pass-enable))
-  (focus-autosave-mode 1)
-  (super-save-mode 1)
-  (smart-mark-mode 1)
-  (editorconfig-mode 1)
-  (df-mode 1)
-  (when (require 'cnfonts nil 'noerror)
-    (cnfonts-enable))
-  (ido-mode 1)
   (require 'uniquify)
   (require 'generic-x)
   ;; Load MMM Mode autoloads & default settings
@@ -778,16 +746,6 @@ The call stack:
   ;; Disable by default since it doesn't work well in some modes such as
   ;; `yaml-mode'.
   (electric-indent-mode -1)
-  (global-homebrew-mode 1)
-  (beginend-global-mode 1)
-  (auto-insert-mode 1)
-  (global-company-mode 1)
-  (projectile-mode 1)
-  (wrap-region-global-mode 1)
-  (smartparens-global-strict-mode 1)
-  (show-smartparens-global-mode 1)
-  (when (require 'aggressive-indent nil 'noerror)
-    (global-aggressive-indent-mode 1))
   (exec-path-from-shell-initialize)
   ;; IMPORTANT: Define `flyspell-delayed-commands' before loading `dashboard'.
   ;;

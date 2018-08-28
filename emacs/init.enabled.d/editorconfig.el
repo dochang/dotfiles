@@ -1,4 +1,5 @@
 (req-package editorconfig
+  :hook (emacs-startup . editorconfig-mode)
   :init
   (setq editorconfig-get-properties-function
         'editorconfig-core-get-properties-hash)
