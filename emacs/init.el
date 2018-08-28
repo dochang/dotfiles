@@ -625,6 +625,13 @@ The call stack:
   :ensure t)
 
 
+(use-package use-package-el-get
+  :demand t
+  :ensure t
+  :config
+  (use-package-el-get-setup))
+
+
 (defvar use-package-el-get-bundle-keyword :el-get-bundle)
 
 ;; Insert `:el-get-bundle' keyword after `:unless' so that el-get-bundle only
