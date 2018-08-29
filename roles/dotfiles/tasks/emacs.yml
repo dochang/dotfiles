@@ -19,12 +19,14 @@
     - themes
 
 - name: install emacs site files
-  copy:
-    dest: '~/.emacs.d/{{ item | relpath("emacs") }}'
-    src: '{{ item }}'
-  with_fileglob:
-    - emacs/site-lisp/*.el
-    - emacs/themes/*.el
+  synchronize:
+    dest: '~/.emacs.d/{{ item }}/'
+    src: 'emacs/{{ item }}/'
+    partial: no
+    delete: yes
+  with_items:
+    - site-lisp
+    - themes
 
 - name: install emacs enabled init files
   synchronize:
