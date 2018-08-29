@@ -694,11 +694,9 @@ The call stack:
 
 (use-package load-dir
   :demand t
-  :ensure t)
-
-
-(let ((load-dirs (locate-user-emacs-file "init.d")))
-  (load-dirs))
+  :ensure t
+  :init
+  (setq load-dirs (locate-user-emacs-file "init.d")))
 
 
 (setq **custom-themes**
@@ -730,10 +728,8 @@ The call stack:
 ;;(package-initialize)
 
 
-(load "~/.emacs_local.el" t)
-
-
 (defun $after-init-hook ()
+  (load "~/.emacs_local.el" t)
   (req-package-finish)
   (el-get)
   ;; I have to put `(el-get)' after `(req-package-finish)', because I install
