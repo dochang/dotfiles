@@ -477,31 +477,6 @@
 
 ;;; Prog Mode
 (defun $prog-mode-hook ()
-  (when (require 'linum nil 'noerror)
-    (linum-mode 1))
-  ;; Enable Whitespace mode.
-  (when (require 'whitespace nil 'noerror)
-    (whitespace-mode 1))
-  ;; Disable Fill-Column-Indicator mode.
-  ;;
-  ;; fci-mode has many issues [1].  DO NOT enable it.
-  ;;
-  ;; [1] https://github.com/alpaker/Fill-Column-Indicator/issues
-  (when (require 'fci-mode nil 'noerror)
-    (fci-mode -1))
-  ;; Enable Rainbow-Delimiters mode.
-  (when (require 'rainbow-delimiters nil 'noerror)
-    (rainbow-delimiters-mode))
-  (when (require 'flycheck nil 'noerror)
-    (flycheck-mode 1))
-  ;; Enable Flyspell Prog Mode.  This invokes `(flyspell-mode 1)'.
-  ;; Eval `(flyspell-mode -1)' to disable it.
-  (when (require 'flyspell nil 'noerror)
-    (flyspell-prog-mode))
-  (when (require 'indent-guide nil 'noerror)
-    (indent-guide-mode 1))
-  (when (require 'pangu-spacing nil 'noerror)
-    (pangu-spacing-mode 1))
   ;; Do not insert tabs in indentation by default.
   ;;
   ;; NOTE: Setting `indent-tabs-mode' to `t' does NOT mean "pressing `TAB'
