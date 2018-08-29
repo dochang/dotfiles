@@ -135,36 +135,6 @@
         (:name color-theme-tango
          :depends ()              ; color-theme
          :website "http://www.emacswiki.org/emacs/color-theme-tango.el")
-        ;; There are 5 versions of Color Theme Zenburn.
-        ;;
-        ;; [[http://www.emacswiki.org/emacs/ColorThemeZenburn]]
-        ;;
-        ;; 1. [[https://github.com/bbatsov/zenburn-emacs]]
-        ;; 2. [[https://github.com/djcb/elisp/blob/master/themes/zenburn-theme.el]]
-        ;; 3. [[http://www.emacswiki.org/emacs/zenburn.el]]
-        ;; 4. [[https://github.com/dbrock/zenburn-el]]
-        ;; 5. [[https://github.com/bbatsov/zenburn-emacs/blob/0c46ca823dd007241c48778d38b80ac8bde6d5ee/color-theme-zenburn.el]]
-        ;;
-        ;;
-        ;; - 1-2 are for custom theme.
-        ;; - 4-5 are for color theme.
-        ;; - 2 is too old.
-        ;; - 3 is an old version of 1.
-        ;; - 4 supports more packages than 5.
-        ;;
-        ;; Conclusion: use 1 & 4.
-        ;;
-        ;; Installation methods:
-        ;;
-        ;; - For custom theme: (package-install 'zenburn-theme)
-        ;; - For color theme: (el-get-install 'zenburn)
-        (:name zenburn
-         :website "https://github.com/dbrock/zenburn-el"
-         :description "The zenburn color theme for GNU Emacs (for color theme)"
-         ;; :depends (color-theme)
-         :type github
-         :pkgname "dbrock/zenburn-el"
-         :prepare (autoload 'color-theme-zenburn "color-theme-zenburn" nil t))
         ;; Edit download url to avoid conflict with zenburn-theme on MELPA.
         ;; Install this will only install the color theme version.  Install the
         ;; custom theme version from MELPA.
