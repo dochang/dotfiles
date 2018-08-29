@@ -54,14 +54,7 @@
 ;;   - 7 - 9 will be "eval-after-load".
 
 (setq el-get-sources
-      `((:name yaml-path
-         :website "https://github.com/craig-ludington/yaml-path"
-         :description "Extends yaml-mode to display the path of the current yaml element in the message area."
-         :type github
-         :pkgname "craig-ludington/yaml-path"
-         :prepare (autoload 'yaml-path/path "yaml-path"
-                    "Display the path to the current YAML element in the message area." t))
-        ;; coffee-mode has configured `auto-mode-alist' in autoload code.  Do
+      `(;; coffee-mode has configured `auto-mode-alist' in autoload code.  Do
         ;; not do it in `:post-init' again.  Also, `coffee-js-mode` has been
         ;; removed.  So delete all `:post-init' code.
         (:name coffee-mode
