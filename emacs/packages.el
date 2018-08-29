@@ -54,13 +54,7 @@
 ;;   - 7 - 9 will be "eval-after-load".
 
 (setq el-get-sources
-      `((:name lua2-mode
-         :website "http://www.enyo.de/fw/software/lua-emacs/lua2-mode.html"
-         :description "A semantic highlighting extension for lua-mode"
-         ;; :depends (lua-mode)
-         :type http
-         :url "http://www.enyo.de/fw/software/lua-emacs/lua2-mode.el")
-        (:name yaml-path
+      `((:name yaml-path
          :website "https://github.com/craig-ludington/yaml-path"
          :description "Extends yaml-mode to display the path of the current yaml element in the message area."
          :type github
