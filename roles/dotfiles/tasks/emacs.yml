@@ -25,15 +25,9 @@
     partial: no
     delete: yes
   with_items:
+    - init.d
     - site-lisp
     - themes
-
-- name: install emacs enabled init files
-  synchronize:
-    dest: '~/.emacs.d/init.d/'
-    src: 'emacs/init.enabled.d/'
-    partial: no
-    delete: yes
 
 - name: install emacs init template files
   template:
