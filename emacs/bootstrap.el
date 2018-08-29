@@ -21,8 +21,6 @@
         (goto-char (point-max))
         (eval-print-last-sexp)))))
 
-(el-get)
-
 (unless (require 'package nil 'noerror)
   (el-get 'sync 'package))
 

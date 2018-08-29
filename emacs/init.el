@@ -733,6 +733,19 @@ The call stack:
 (load "~/.emacs_local.el" t)
 
 
+(defun $after-init-hook ()
+  (req-package-finish)
+  (el-get)
+  ;; I have to put `(el-get)' after `(req-package-finish)', because I install
+  ;; some packages by `el-get-bundle', if I run `(el-get)' first, `(el-get)'
+  ;; would raise an error as `el-get' doesn't know the local recipes at that
+  ;; time.
+  ;;
+  ;; https://github.com/dimitri/el-get/issues/2232
+  ;; https://github.com/dimitri/el-get/issues/2532
+  )
+
+
 ;; `$after-init-hook' should be added at the end because it should be
 ;; run after `color-theme-backup-original-values'.
-(add-hook 'after-init-hook 'req-package-finish t)
+(add-hook 'after-init-hook '$after-init-hook t)
