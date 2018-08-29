@@ -93,12 +93,6 @@
          :website "https://raw.github.com/emacsmirror/emacswiki.org/master/ri.el"
          :description "Ruby Documentation Lookup"
          :type emacswiki)
-        (:name color-theme-hober2
-         :website "http://edward.oconnor.cx/config/elisp/color-theme-hober2.el"
-         :description "Edward O'Connor's second color theme."
-         ;; :depends (color-theme)
-         :type http
-         :url "http://edward.oconnor.cx/config/elisp/color-theme-hober2.el")
         (:name hober2-theme
          :website "http://edward.oconnor.cx/config/elisp/hober2-theme.el"
          :description "Edward O'Connor's second theme."
