@@ -93,15 +93,6 @@
          :website "https://raw.github.com/emacsmirror/emacswiki.org/master/ri.el"
          :description "Ruby Documentation Lookup"
          :type emacswiki)
-        (:name hober2-theme
-         :website "http://edward.oconnor.cx/config/elisp/hober2-theme.el"
-         :description "Edward O'Connor's second theme."
-         :type http
-         :url "http://edward.oconnor.cx/config/elisp/hober2-theme.el"
-         :autoloads nil
-         :compile ()
-         :prepare (when (boundp 'custom-theme-load-path)
-                    (add-to-list 'custom-theme-load-path default-directory)))
         (:name color-theme-tango
          :depends ()              ; color-theme
          :website "http://www.emacswiki.org/emacs/color-theme-tango.el")
