@@ -1,4 +1,5 @@
 (req-package mmm-defaults
-  :ensure nil
+  :ensure mmm-mode
+  :hook (emacs-startup . (lambda () (require 'mmm-defaults)))
   :config
   (setq mmm-global-mode 'maybe))

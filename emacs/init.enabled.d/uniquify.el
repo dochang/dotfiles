@@ -3,5 +3,6 @@
 
 (req-package uniquify
   :ensure nil
+  :hook (emacs-startup . (lambda () (require 'uniquify)))
   :init
   (setq uniquify-buffer-name-style 'post-forward))

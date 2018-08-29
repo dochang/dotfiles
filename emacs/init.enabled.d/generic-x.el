@@ -6,7 +6,8 @@
 
 (req-package generic-x
   :ensure nil
-  :hook (xmodmap-generic-mode . $xmodmap-generic-mode-hook)
+  :hook ((emacs-startup . (lambda () (require 'generic-x)))
+         (xmodmap-generic-mode . $xmodmap-generic-mode-hook))
   :init
   ;; `generic-extras-enable-list' has to be set *before* loading
   ;; `generic-x'

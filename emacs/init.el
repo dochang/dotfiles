@@ -733,48 +733,6 @@ The call stack:
 (load "~/.emacs_local.el" t)
 
 
-(defun $after-init-hook ()
-  (req-package-finish)
-  ;; Midnight Mode
-  ;; [[info:emacs#Kill%20Buffer]]
-  (require 'midnight nil t)
-  (tool-bar-mode -1)
-  (set-scroll-bar-mode 'left)
-  (blink-cursor-mode -1)
-  (mouse-avoidance-mode 'exile)
-  (display-time)
-  (require 'uniquify)
-  (require 'generic-x)
-  ;; Load MMM Mode autoloads & default settings
-  (require 'mmm-auto)
-  (require 'mmm-defaults)
-  ;; Use X Window to prevent RSI.
-  (type-break-mode -1)
-  ;; Disable by default since it doesn't work well in some modes such as
-  ;; `yaml-mode'.
-  (electric-indent-mode -1)
-  (exec-path-from-shell-initialize)
-  (require 'dashboard)
-  (when (string= server-name "systemd")
-    (atomic-chrome-start-server))
-  (unless (bound-and-true-p **org-timer**)
-    (setq **org-timer** (run-at-time nil 3600 'org-agenda-to-appt)))
-  (appt-activate 1)
-  (unless **theme-initialized**
-    ($theme-initialize))
-  ($set-theme)
-  (unless (daemonp)
-    (server-start)
-    ;; Setup initial frame if emacs isn't running as daemon.
-    ;;
-    ;; We have to run `after-make-frame-functions' in `run-at-time'.  Setting
-    ;; font directly doesn't take effect.  I don't know why.
-    ;;
-    ;; Pass `(selected-frame)' as argument to `after-make-frame-functions'
-    ;; because the local variable bindings made by Emacs Lisp are dynamic
-    ;; binding, by default.  We must pass the initial frame.
-    (run-at-time 1 nil 'run-hook-with-args 'after-make-frame-functions (selected-frame))))
-
 ;; `$after-init-hook' should be added at the end because it should be
 ;; run after `color-theme-backup-original-values'.
-(add-hook 'after-init-hook '$after-init-hook t)
+(add-hook 'after-init-hook 'req-package-finish t)
