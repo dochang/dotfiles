@@ -42,7 +42,7 @@
   with_fileglob:
     - emacs/init.template.d/*.el
 
-- name: install emacs disabled init files
+- name: remove emacs disabled init files
   file:
     name: '~/.emacs.d/init.d/{{ item | basename }}'
     state: absent
