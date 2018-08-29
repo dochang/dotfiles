@@ -88,6 +88,7 @@
         ;; Add website information.
         (:name textile-mode
          :website "https://github.com/juba/textile-mode")
+        ;; ri is deprecated.  Use yari instead.
         (:name ri
          :website "https://raw.github.com/emacsmirror/emacswiki.org/master/ri.el"
          :description "Ruby Documentation Lookup"
@@ -132,7 +133,7 @@
         ;;
         ;; [1] http://www.erlang.org/download/contrib/erlang.el
         (:name erlang-mode
-         :website "http://melpa.milkbox.net/#/erlang"
+         :website "https://melpa.org/#/erlang"
          :description "Major mode for editing and running Erlang"
          :type elpa)
         (:name elixir
@@ -152,9 +153,6 @@
         ;; Install dependencies via `package'
         (:name cnfonts
          :depends ())
-        ;; `json' has been included with Emacs since February 2008.
-        (:name json
-         :builtin "24")
         (:name noflet
          :library noflet)
         ;; Install my version because of [[https://github.com/nicferrier/curl-url-retrieve/pull/2]]
