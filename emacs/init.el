@@ -531,9 +531,6 @@ major mode isn't derived from `prog-mode'."
   ($run-prog-mode-hook))
 
 
-(load (locate-user-emacs-file "bootstrap"))
-
-
 (define-advice update-directory-autoloads (:around (fn &rest r) dont-update-time-stamp-and-copyright)
   "This functions runs `before-save-hook'.  Since updating autoloads is a
 background operation, we must skip the hooks which modify the file and keep the
@@ -580,123 +577,16 @@ The call stack:
     packages))
 
 
-(setq use-package-always-defer t)
-(setq use-package-always-ensure t)
-;; Install packages after `(req-package-finish)'.
-;;
-;; https://github.com/edvorg/req-package/issues/51#issuecomment-362154387
-(unless (package-installed-p 'use-package)
-  (package-install 'use-package))
-(require 'use-package nil 'noerror)
-
-
-(use-package quelpa
-  :demand t
-  :ensure t
-  :init
-  (setq quelpa-upgrade-p nil)
-  ;; If `quelpa-upgrade-p' is `t', Emacs tries to upgrade quelpa packages when
-  ;; the `use-package' macro is evaluated.  This causes Emacs connects to
-  ;; remote sites every time it starts.  We can't wait for it.  Upgrade quelpa
-  ;; packages manually please.
-  (setq quelpa-update-melpa-p nil))
-
-(define-advice quelpa-build--build-single-file-package (:around (fn &rest r) dont-update-time-stamp-and-copyright)
-  "This function runs `before-save-hook'.  Since installing package is a
-background operation, we must skip the hooks which modify the file and keep the
-file unmodified.
-
-The call stack:
-
-`quelpa'
--> `quelpa-build--build-single-file-package'
--> `write-file'
--> `save-buffer'
--> `basic-save-buffer'
--> `before-save-hook'
-"
-  (let ((time-stamp-active nil)
-        (copyright-update nil))
-    (apply fn r)))
-
-
-(use-package quelpa-use-package
-  :demand t
-  :ensure t)
-
-
-(use-package use-package-el-get
-  :demand t
-  :ensure t
-  :config
-  (use-package-el-get-setup))
-
-
-(defvar use-package-el-get-bundle-keyword :el-get-bundle)
-
-;; Insert `:el-get-bundle' keyword after `:unless' so that el-get-bundle only
-;; runs if either `:if', `:when', `:unless' or `:requires' are satisfied
-(defun use-package-el-get-bundle-set-keyword ()
-  (unless (member use-package-el-get-bundle-keyword use-package-keywords)
-    (setq use-package-keywords
-          (let* ((pos (cl-position :unless use-package-keywords))
-                 (head (cl-subseq use-package-keywords 0 (+ 1 pos)))
-                 (tail (nthcdr (+ 1 pos) use-package-keywords)))
-            (append head (list use-package-el-get-bundle-keyword) tail)))))
-
-(defun use-package-normalize/:el-get-bundle (name-symbol keyword args)
-  "use-package :el-get-bundle keyword handler"
-  (let ((arg (car args)))
-    (pcase arg
-      ((or `nil `t) (list name-symbol))
-      ((pred symbolp) args)
-      ((pred consp)
-       (cond
-        ((string-match "^:" (symbol-name (car arg)))
-         (cons name-symbol arg))
-        ((symbolp (car arg)) args)))
-      (_ (use-package-error
-          ":el-get-bundle wants a package name or boolean value or an el-get-bundle recipe")))))
-
-(defun use-package-handler/:el-get-bundle (name-symbol keyword args rest state)
-  "use-package :el-get-bundle keyword handler"
-  (let ((body (use-package-process-keywords name-symbol rest state)))
-    ;; This happens at macro expansion time, not when the expanded code is
-    ;; compiled or evaluated.
-    (if args
-        (use-package-concat
-         `((unless (package-installed-p ',name-symbol)
-             ;; DO NOT check `el-get-package-installed-p', always call
-             ;; `el-get-bundle'.  `(el-get)' requires the local recipe even if
-             ;; the package has been installed.
-             (el-get-bundle ,@(car args))))
-         body)
-      body)))
-
-(define-advice use-package-handler/:ensure
-    (:around (fn name-symbol keyword ensure rest &rest r) el-get-bundle-override-:ensure)
-  (apply fn
-         name-symbol
-         keyword
-         (if (plist-member rest :el-get-bundle)
-             nil
-           ensure)
-         rest
-         r))
-
-(use-package-el-get-bundle-set-keyword)
-
-
-(use-package req-package
-  :demand t
-  :ensure t)
-
-
-(use-package load-dir
-  :demand t
-  :ensure t
-  :init
-  (setq load-dirs (locate-user-emacs-file "init.d")))
+(mapc 'load
+      (mapcar 'locate-user-emacs-file
+              '("bootstrap"
+                "use-package"
+                "quelpa"
+                "quelpa-use-package"
+                "use-package-el-get"
+                "use-package-el-get-bundle"
+                "req-package"
+                "load-dir")))
 
 
 (setq **custom-themes**
