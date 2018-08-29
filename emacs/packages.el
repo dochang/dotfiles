@@ -92,18 +92,6 @@
          :website "https://raw.github.com/emacsmirror/emacswiki.org/master/ri.el"
          :description "Ruby Documentation Lookup"
          :type emacswiki)
-        ;; There are 2 versions.
-        ;;
-        ;;  1. [[https://github.com/ruby/ruby/blob/trunk/misc/rdoc-mode.el]]
-        ;;  2. [[https://github.com/jwiegley/ruby-mode/blob/master/rdoc-mode.el]]
-        ;;
-        ;; 1 is newer than 2.
-        (:name rdoc-mode
-         :website "https://github.com/ruby/ruby/blob/trunk/misc/rdoc-mode.el"
-         :description "Major mode for RDoc editing"
-         :type http
-         :url "https://raw.github.com/ruby/ruby/trunk/misc/rdoc-mode.el"
-         :prepare (add-to-list 'auto-mode-alist '("\\.rdoc\\'" . rdoc-mode)))
         (:name color-theme-hober2
          :website "http://edward.oconnor.cx/config/elisp/color-theme-hober2.el"
          :description "Edward O'Connor's second color theme."
