@@ -6,13 +6,11 @@
 ;;;    sending messages inside emacs.  It's the preferred mode used by
 ;;;    gnus.  However it can be used independently from gnus.
 
-(define-advice message-unique-id (:filter-return (unique-id) by-uuid)
+(define-advice message-unique-id (:before-until () by-uuid)
   "Return an UUID if available.  Otherwise, return the original
 return value of `message-unique-id'."
   (let ((uuid ($uuid)))
-    (if ($uuidgen-p uuid)
-        uuid
-      unique-id)))
+    (and ($uuidgen-p uuid) uuid)))
 
 (req-package message
   :ensure nil
