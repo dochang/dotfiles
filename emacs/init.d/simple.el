@@ -3,6 +3,12 @@
 
   :hook (emacs-startup . column-number-mode)
 
+  :init
+
+  ;; Don't delete trailing lines when calling `delete-trailing-whitespace' on
+  ;; the entire buffer.
+  (setq delete-trailing-lines nil)
+
   :config
 
   ;; Special Mode

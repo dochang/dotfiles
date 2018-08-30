@@ -59,20 +59,6 @@
 (setq custom-file (locate-user-emacs-file ".emacs-custom.el"))
 
 
-;;; Customizing `safe-local-variable-values`.
-(defvar **default-safe-local-variable-values**
-  (copy-alist safe-local-variable-values))
-
-(setq safe-local-variable-values
-      (cons (cons 'buffer-auto-save-file-name nil)
-            **default-safe-local-variable-values**))
-
-
-;;; Disable auto save recovery record.
-;;; [[info:emacs#Recover]]
-(setq auto-save-list-file-prefix nil)
-
-
 ;;; * Mail Config
 ;;;
 ;;; ** How to compute the mail address?
@@ -248,88 +234,9 @@
       (expand-file-name file dir))))
 
 
-;;; Avoid killing emacs by mistake
-(setq confirm-kill-emacs 'yes-or-no-p)
-
-
 ;;; System Environment
 ;; Git cannot detect if it's run in Emacs.
 (setenv "GIT_PAGER" "")
-
-
-;;; Set fill column to 79
-;; A line begins at column 0 in Emacs.  79 is the last column on an 80-width
-;; screen.  Do not occupy column 79, leave it for filling.
-;;
-;; This setting will make Emacs fill the following paragraphs like this:
-;;
-;; ----------------------------------------------------------------------------
-
-;; This program is free software: you can redistribute it and/or modify it
-;; under the terms of the GNU General Public License as published by the Free
-;; Software Foundation, either version 3 of the License, or (at your option)
-;; any later version.
-
-;; This program is distributed in the hope that it will be useful, but WITHOUT
-;; ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
-;; FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for
-;; more details.
-
-;; You should have received a copy of the GNU General Public License along with
-;; this program.  If not, see <http://www.gnu.org/licenses/>.
-
-;; ----------------------------------------------------------------------------
-
-(setq-default fill-column 79)
-
-
-;;; Disable `indent-tabs-mode'.
-;; `web-mode' changes indentation settings if `indent-tabs-mode' is non-nil.
-;; To prevent it, set the default value of `indent-tabs-mode' to `nil'.
-(setq-default indent-tabs-mode nil)
-
-
-;;; Cut & Paste, Kill Ring, Clipboard, Selection
-;;; [[info:emacs#Cut%20and%20Paste]]
-(setq select-enable-primary t
-      select-enable-clipboard t)
-
-
-;;; Don't add the final newline globally.
-;;;
-;;; Use editorconfig to force Emacs to add the final newline in certain files.
-;;;
-;;; [[info:emacs#Customize%20Save]]
-(setq require-final-newline nil
-      mode-require-final-newline nil)
-
-
-;;; Don't delete trailing lines when calling `delete-trailing-whitespace' on
-;;; the entire buffer.
-(setq delete-trailing-lines nil)
-
-
-;;; Disable backup when saving.
-;;; [[info:emacs#Backup]]
-(setq make-backup-files nil)
-(setq version-control nil)
-
-
-;;; Keep point at the same screen position after scrolling.
-;;; [[info:emacs#Scrolling]]
-(setq scroll-preserve-screen-position t)
-
-
-;;; UI Configuration
-(setq-default cursor-in-non-selected-windows nil
-              indicate-buffer-boundaries 'left
-              indicate-empty-lines t)
-
-(setq mouse-yank-at-point t
-      display-time-24hr-format t
-      display-time-day-and-date t
-      visible-bell t
-      inhibit-startup-screen t)
 
 
 (load (locate-user-emacs-file "theme"))
