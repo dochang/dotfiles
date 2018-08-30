@@ -461,20 +461,6 @@
 (add-hook 'after-make-frame-functions '$after-make-frame-functions t)
 
 
-;;; Garbage ls/gcc output
-;;; [[http://www.emacswiki.org/emacs/AnsiColor]]
-(add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
-
-
-;;; Comparing Files in Unified Format
-;;; [[info:emacs#Comparing%20Files]]
-(setq diff-switches "-u")
-
-
-;;; Use `fill-column' for `comment-indent'.
-(setq comment-fill-column nil)
-
-
 ;;; Prog Mode
 (defun $prog-mode-hook ()
   ;; Do not insert tabs in indentation by default.
