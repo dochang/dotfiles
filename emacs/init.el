@@ -424,6 +424,11 @@
   (interactive)
   (unless frame
     (setq frame (selected-frame)))
+  ;; When `after-make-frame-functions' runs this function, the `frame'
+  ;; parameter is not `(selected-frame)'.  Because when
+  ;; `after-make-frame-functions' running, the X window manager has not
+  ;; switched the focus to the new Emacs frame.  At that time,
+  ;; `(selected-frame)' is still the old frame, and `frame' is the new frame.
   (when (display-graphic-p frame)
     (unless (featurep 'cnfonts)
       ;; If `cnfonts' is not installed, run the following setup.
