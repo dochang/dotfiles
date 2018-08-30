@@ -1,5 +1,7 @@
 - include_tasks: dotdir.yml
   with_items:
+    - src: 'emacs/theme.el'
+      dest: '~/.emacs.d/theme.el'
     - src: 'emacs/packages.el'
       dest: '~/.emacs.d/packages.el'
     - src: 'emacs/bootstrap.el'
