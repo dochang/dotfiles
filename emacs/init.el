@@ -97,7 +97,7 @@
                         (let ((uuid-len 36))
                           (substring output 0 uuid-len)))
                       ($andp '$uuidgen-p))
-                     "uuid"))
+                     "uuidgen"))
         ((require 'uuidgen nil t)
          (uuidgen-4))))
 
