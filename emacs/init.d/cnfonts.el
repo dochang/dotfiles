@@ -4,6 +4,12 @@
 ;; [[http://www.newsmth.net/nForum/#!article/Emacs/108473]]
 ;; [[http://baohaojun.github.io/perfect-emacs-chinese-font.html]]
 ;; [[http://zhuoqiang.me/torture-emacs.html]]
+
+;; https://github.com/tumashu/cnfonts/issues/94
+(define-advice cnfonts-set-font-first-time (:override (&optional frame) fix-issue-94)
+  (let ((cnfonts-use-cache t))
+    (cnfonts-set-font-with-saved-step frame)))
+
 (req-package cnfonts
   :commands (cnfonts-edit-profile
              cnfonts-regenerate-profile
