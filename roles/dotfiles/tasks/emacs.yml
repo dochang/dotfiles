@@ -47,10 +47,10 @@
 
 - name: install emacs init template files
   template:
-    dest: '~/.emacs.d/init.d/{{ item | basename }}'
-    src: '{{ item }}'
-  with_fileglob:
-    - emacs/init.template.d/*.el
+    dest: '~/.emacs.d/init.d/{{ item }}.el'
+    src: 'emacs/init.d/{{ item }}.el'
+  with_items:
+    - emacs
 
 - name: remove emacs disabled init files
   file:

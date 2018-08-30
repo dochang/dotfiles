@@ -1,5 +1,17 @@
+## The first matched rule wins.
+
+- emacs.el
+# These files contains Ansible templates.  Do not deploy them by rsync and do
+# not delete them.
+
 + *.el
 # Include *.el
+
++ .rsync-filter
+# Include .rsync-filter
+#
+# To prevent excluded files from being deleted on the receiving side.  We have
+# to include this file in the transfer.
 
 - .*
 # Exclude .*
