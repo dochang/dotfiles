@@ -9,6 +9,9 @@
 
   :init
 
+  (setq user-full-name (or (getenv "NAME") "{{ dotfiles_emacs_name }}"))
+  (setq user-mail-address (or (getenv "EMAIL") "{{ dotfiles_emacs_email }}"))
+
   ;; Disable auto save recovery record.
   ;; [[info:emacs#Recover]]
   (setq auto-save-list-file-prefix nil)
