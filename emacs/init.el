@@ -79,27 +79,27 @@
 
 (defun $uuid ()
   "Return an UUID."
-  (cond ((seq-reduce '$funcall-when
-                     (list
-                      ($andp 'file-readable-p)
-                      (lambda (uuid-file)
-                        (with-temp-buffer
-                          (let ((uuid-len 36))
-                            (and (<= uuid-len (nth 1 (insert-file-contents uuid-file)))
-                                 (buffer-substring (point-min) (+ (point-min) uuid-len))))))
-                      ($andp '$uuidgen-p))
-                     "/proc/sys/kernel/random/uuid"))
-        ((seq-reduce '$funcall-when
-                     (list
-                      'executable-find
-                      'shell-command-to-string
-                      (lambda (output)
-                        (let ((uuid-len 36))
-                          (substring output 0 uuid-len)))
-                      ($andp '$uuidgen-p))
-                     "uuidgen"))
-        ((require 'uuidgen nil t)
-         (uuidgen-4))))
+  (or (seq-reduce '$funcall-when
+                  (list
+                   ($andp 'file-readable-p)
+                   (lambda (uuid-file)
+                     (with-temp-buffer
+                       (let ((uuid-len 36))
+                         (and (<= uuid-len (nth 1 (insert-file-contents uuid-file)))
+                              (buffer-substring (point-min) (+ (point-min) uuid-len))))))
+                   ($andp '$uuidgen-p))
+                  "/proc/sys/kernel/random/uuid")
+      (seq-reduce '$funcall-when
+                  (list
+                   'executable-find
+                   'shell-command-to-string
+                   (lambda (output)
+                     (let ((uuid-len 36))
+                       (substring output 0 uuid-len)))
+                   ($andp '$uuidgen-p))
+                  "uuidgen")
+      (and (require 'uuidgen nil t)
+           (uuidgen-4))))
 
 (defun $uuidgen-p (s)
   "Is S an ID created by UUIDGEN?"
