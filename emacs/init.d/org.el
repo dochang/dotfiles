@@ -231,7 +231,10 @@
          (org-capture-after-finalize . $org-capture-after-finalize-hook)
          (org-agenda-finalize . $org-agenda-finalize-hook)
          (org-after-refile-insert . $org-after-refile-insert-hook)
-         (org-archive . $org-archive-hook))
+         (org-archive . $org-archive-hook)
+         (emacs-startup . (lambda ()
+                            (unless (bound-and-true-p **org-timer**)
+                              (setq **org-timer** (run-at-time nil 3600 'org-agenda-to-appt))))))
 
   :init
 
