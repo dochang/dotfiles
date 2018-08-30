@@ -57,6 +57,8 @@
 ;;; Specify custom file, but not load it.
 ;;; [[info:emacs#Saving%20Customizations]]
 (setq custom-file (locate-user-emacs-file ".emacs-custom.el"))
+;; As init file may use write customization to `custom-file', we have to set
+;; this variable at the beginning.
 
 
 ;;; * Mail Config
