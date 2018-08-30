@@ -335,16 +335,6 @@
 (load (locate-user-emacs-file "theme"))
 
 
-;;; Prog Mode
-(defun $prog-mode-hook ()
-  ;; Do not insert tabs in indentation by default.
-  ;;
-  ;; NOTE: Setting `indent-tabs-mode' to `t' does NOT mean "pressing `TAB'
-  ;; inserts a `\t'".
-  (setq indent-tabs-mode nil))
-
-(add-hook 'prog-mode-hook '$prog-mode-hook)
-
 (defun $run-prog-mode-hook ()
   "Put this function into a hook of any programming related mode,
 to ensure that `prog-mode-hook' could be executed even if the
