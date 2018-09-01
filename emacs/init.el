@@ -57,8 +57,6 @@ immediately.  Do not return unwanted file from `load-history'."
               load-elt (and loads (car loads)))))
     load-elt))
 
-(load (locate-user-emacs-file "packages") t)
-
 (defun $clean-up-user-packages ()
   (interactive)
   (mapc (lambda (pkg)
