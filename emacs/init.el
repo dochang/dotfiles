@@ -331,6 +331,11 @@ The call stack:
   ;;
   ;; https://github.com/dimitri/el-get/issues/2232
   ;; https://github.com/dimitri/el-get/issues/2532
+  (dashboard-setup-startup-hook)
+  ;; Load dashboard in `after-init-hook'.
+  ;;
+  ;; `dashboard-setup-startup-hook' needs to configure `after-init-hook' and
+  ;; `emacs-startup-hook'.
   )
 
 
