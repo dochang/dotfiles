@@ -35,6 +35,7 @@
   (setq scroll-preserve-screen-position t)
 
   ;; UI Configuration
+  (setq-default cursor-type 'bar)
   (setq-default cursor-in-non-selected-windows nil)
   (setq-default indicate-buffer-boundaries 'left)
   (setq-default indicate-empty-lines t)
