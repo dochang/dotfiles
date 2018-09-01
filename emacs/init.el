@@ -9,6 +9,54 @@
 
 (random t)
 
+(defun $skipp (abs-file)
+  (member (file-name-directory abs-file)
+          (list
+           (file-name-as-directory
+            (expand-file-name user-emacs-directory))
+           (file-name-as-directory
+            (expand-file-name "init.d" user-emacs-directory)))))
+
+(define-advice do-after-load-evaluation (:around (fn abs-file) skip)
+  "Do not run `eval-after-load' code for some files.
+
+Why do I need this?  Some config files may have the same names as library
+files.  When a config file is loaded, this function will trigger some code in
+`after-load-alist'.  But at that time the library file has not been loaded.  It
+will cause errors since some variables or functions have not been defined.
+
+Case 1: org and flyspell
+
+org will insert a function into `flyspell-delayed-commands' after `flyspell'
+loaded.
+
+Case 2: sendmail
+
+Some functions, such as `magit-status' and `list-packages', will require
+`mailabbrev', which defines key bindings in `mail-mode-map' after `sendmail'
+loaded.
+
+It's safe to just skip such files."
+  (unless (and (stringp abs-file)
+               ($skipp abs-file))
+    (funcall fn abs-file)))
+
+(define-advice load-history-filename-element (:override (file-regexp) skip)
+  "Do not run `eval-after-load' code for some files.
+
+If the file has been loaded.  `eval-after-load' will execute the code
+immediately.  Do not return unwanted file from `load-history'."
+  (let* ((loads load-history)
+         (load-elt (and loads (car loads))))
+    (save-match-data
+      (while (and loads
+                  (or (null (car load-elt))
+                      (not (string-match file-regexp (car load-elt)))
+                      ($skipp (car load-elt))))
+        (setq loads (cdr loads)
+              load-elt (and loads (car loads)))))
+    load-elt))
+
 (load (locate-user-emacs-file "packages") t)
 
 (defun $clean-up-user-packages ()
