@@ -2,7 +2,7 @@
 
 (defmacro $browse-url-define-incognito-function (browser-name browser-args)
   (declare (indent nil))
-  (let ((fname (intern (format "%s/incognito" browser-name))))
+  (let ((fname (intern (format "$%s/incognito" browser-name))))
     `(defun ,fname (url &optional new-window)
        (interactive (browse-url-interactive-arg "URL: "))
        (let ((,browser-args
