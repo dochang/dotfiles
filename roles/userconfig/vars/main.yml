@@ -27,6 +27,7 @@ envs:
       - speedtest-cli
       - httpstat
       - caniusepython3
+      - autorandr
       - ansible
       - netaddr
       # needed by Ansible `ipaddr` filter
