@@ -53,6 +53,9 @@
     - wget
     - curl
     - emacs-lucid
+    - emacs25-common-non-dfsg
+    # Install emacs documentation explicitly because it's a standalone package
+    # from non-free section.
     - aspell
     - ssh-askpass
     - chromium
