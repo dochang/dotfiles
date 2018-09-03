@@ -173,9 +173,6 @@
   (setq org-archive-location "%s_archive::datetree/")
   (org-edna-load))
 
-(defun $org-mode-hook ()
-  (setq truncate-lines nil))
-
 ;; https://emacs.stackexchange.com/questions/477/how-do-i-automatically-save-org-mode-buffers
 (defun $org-capture-after-finalize-hook ()
   (org-save-all-org-buffers))
@@ -227,8 +224,7 @@
          ("C-c a" . org-agenda)
          ("C-c c" . org-capture))
 
-  :hook ((org-mode . $org-mode-hook)
-         (org-capture-after-finalize . $org-capture-after-finalize-hook)
+  :hook ((org-capture-after-finalize . $org-capture-after-finalize-hook)
          (org-agenda-finalize . $org-agenda-finalize-hook)
          (org-after-refile-insert . $org-after-refile-insert-hook)
          (org-archive . $org-archive-hook)
