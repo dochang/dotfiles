@@ -173,43 +173,11 @@
   (setq org-archive-location "%s_archive::datetree/")
   (org-edna-load))
 
-;; https://emacs.stackexchange.com/questions/477/how-do-i-automatically-save-org-mode-buffers
-(defun $org-capture-after-finalize-hook ()
+(defun $org-save-all-org-buffers (&rest args)
+  "Ignore all arguments so that this function can be used as advice."
   (org-save-all-org-buffers))
 
-(define-advice org-capture (:after (&rest r) org-save-all-org-buffers)
-  (org-save-all-org-buffers))
-
-;; https://emacs.stackexchange.com/questions/477/how-do-i-automatically-save-org-mode-buffers
-(defun $org-agenda-finalize-hook ()
-  (org-save-all-org-buffers))
-
-(define-advice org-agenda (:after (&rest r) org-save-all-org-buffers)
-  (org-save-all-org-buffers))
-
-(defun $org-after-refile-insert-hook ()
-  (org-save-all-org-buffers))
-
-(define-advice org-refile (:after (&rest r) org-save-all-org-buffers)
-  (org-save-all-org-buffers))
-
-(defun $org-archive-hook ()
-  (org-save-all-org-buffers))
-
-(define-advice org-archive-subtree-default (:after (&rest r) org-save-all-org-buffers)
-  (org-save-all-org-buffers))
-
-(define-advice org-archive-subtree-default-with-confirmation (:after (&rest r) org-save-all-org-buffers)
-  (org-save-all-org-buffers))
-
-(define-advice org-archive-subtree (:after (&rest r) org-save-all-org-buffers)
-  (org-save-all-org-buffers))
-
-(define-advice org-archive-to-archive-sibling (:after (&rest r) org-save-all-org-buffers)
-  (org-save-all-org-buffers))
-
-(define-advice org-archive-set-tag (:after (&rest r) org-save-all-org-buffers)
-  (org-save-all-org-buffers))
+(advice-add 'org-refile :after #'$org-save-all-org-buffers)
 
 (defvar **org-timer**)
 
@@ -219,15 +187,9 @@
   :mode ("/\\.notes\\'" . org-mode)
   ;; Edit `org-default-notes-file' in org-mode.
 
-  :bind (("C-c o" . $hydra-org/body)
-         ;; Bind the following keys for convenience.
-         ("C-c a" . org-agenda)
-         ("C-c c" . org-capture))
+  :bind (("C-c o" . $hydra-org/body))
 
-  :hook ((org-capture-after-finalize . $org-capture-after-finalize-hook)
-         (org-agenda-finalize . $org-agenda-finalize-hook)
-         (org-after-refile-insert . $org-after-refile-insert-hook)
-         (org-archive . $org-archive-hook)
+  :hook ((org-after-refile-insert . org-save-all-org-buffers)
          (emacs-startup . (lambda ()
                             (unless (bound-and-true-p **org-timer**)
                               (setq **org-timer** (run-at-time nil 3600 'org-agenda-to-appt))))))
