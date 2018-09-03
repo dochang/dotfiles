@@ -16,8 +16,7 @@
   (add-to-list 'org-modules 'org-id)
   ;; Track habits.
   (add-to-list 'org-modules 'org-habit)
-  (add-to-list 'org-export-backends 'md)
-  (org-edna-load))
+  (add-to-list 'org-export-backends 'md))
 
 ;; Emacs runs `org-load-hook' right after loading `org', even before
 ;; `eval-after-load'.  Also, the `:init' section of `org' may be ran after
