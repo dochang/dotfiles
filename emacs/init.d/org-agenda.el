@@ -19,6 +19,12 @@
 
   :init
 
+  ;; Show only the first future repeat of repeated entries.
+  (setq org-agenda-show-future-repeats 'next)
+
+  ;; Show a repeated entry at its latest repeat date, not its base date.
+  (setq org-agenda-prefer-last-repeat t)
+
   ;; Show deadline delay only after deadline in agenda.  Hide scheduled delay.
   (setq org-agenda-skip-scheduled-delay-if-deadline 'post-deadline)
 

@@ -10,19 +10,10 @@
         (make-directory dir t)))
     (write-region "" nil org-agenda-files t nil nil 'excl))
   (org-clock-persistence-insinuate)
-  ;; Use `fundamental-mode' in `#+BEGIN_COMMENT' ... `#+END_COMMENT'.
-  (setq org-edit-src-region-extra
-        '(("^[ \t]*#\\+begin_comment.*\n" "\n[ \t]*#\\+end_comment" "fundamental")
-          ("<comment>[ \t]*\n?" "\n?[ \t]*</comment>" "fundamental")))
   ;; [[info:org#Handling%20links]]
   ;;
-  ;; We must load `org-id' before using `org-store-link' since
-  ;; `org-link-to-org-use-id' depends on `org-id'.
-  ;;
-  ;; See `org-link-to-org-use-id'.
+  ;; We must load `org-id' before using `org-store-link'.
   (add-to-list 'org-modules 'org-id)
-  ;; Show only one occurrence of a repeating timestamp in the agenda.
-  (setq org-agenda-repeating-timestamp-show-all nil)
   ;; Track habits.
   (add-to-list 'org-modules 'org-habit)
   (add-to-list 'org-export-backends 'md)
