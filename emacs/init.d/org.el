@@ -19,6 +19,18 @@
   (add-to-list 'org-export-backends 'md)
   (org-edna-load))
 
+;; Emacs runs `org-load-hook' right after loading `org', even before
+;; `eval-after-load'.  Also, the `:init' section of `org' may be ran after
+;; `org' loaded.  So we have to add the hook function to `org-load-hook' once
+;; this file loaded.
+;;
+;; When `:demand t', the execution order of `use-package' is:
+;;
+;; :init
+;; (require 'org)
+;; :hook
+(add-hook 'org-load-hook '$org-load-hook)
+
 (defun $org-save-all-org-buffers (&rest args)
   "Ignore all arguments so that this function can be used as advice."
   (org-save-all-org-buffers))
@@ -145,14 +157,4 @@
     ("l" org-store-link "store link")
     ("L" org-insert-link-global "insert link global")
     ("o" org-open-at-point-global "open at point global")
-    ("q" nil "quit"))
-
-  ;; Emacs runs `org-load-hook' right after loading `org', even before
-  ;; `eval-after-load'.  We have to config it before loading `org'.
-  ;;
-  ;; When `:demand t', the execution order of `use-package' is:
-  ;;
-  ;; :init
-  ;; (require 'org)
-  ;; :hook
-  (add-hook 'org-load-hook '$org-load-hook))
+    ("q" nil "quit")))

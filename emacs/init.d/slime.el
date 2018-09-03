@@ -18,19 +18,22 @@
   (add-hook 'cl-indent:load-hook '$define-cl-indents)
   (setq slime-asdf-collect-notes nil))
 
+;; Emacs runs `slime-load-hook' right after loading `slime', even before
+;; `eval-after-load'.  Also, the `:init' section of `slime' may be ran after
+;; `slime' loaded.  So we have to add the hook function to `slime-load-hook'
+;; once this file loaded.
+;;
+;; When `:demand t', the execution order of `use-package' is:
+;;
+;; :init
+;; (require 'slime)
+;; :hook
+(add-hook 'slime-load-hook '$slime-load-hook)
+
 (req-package slime
   :init
   ;; * slime-fancy
   ;;
   ;;   a meta package which loads a combination of the most popular
   ;;   packages.
-  (setq slime-contribs '(slime-fancy slime-asdf slime-indentation))
-  ;; Emacs runs `slime-load-hook' right after loading `slime', even before
-  ;; `eval-after-load'. We have to config it before loading `slime'.
-  ;;
-  ;; When `:demand t', the execution order of `use-package' is:
-  ;;
-  ;; :init
-  ;; (require 'slime)
-  ;; :hook
-  (add-hook 'slime-load-hook '$slime-load-hook))
+  (setq slime-contribs '(slime-fancy slime-asdf slime-indentation)))
