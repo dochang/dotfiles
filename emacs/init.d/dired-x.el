@@ -1,6 +1,6 @@
 (req-package dired-x
   :ensure nil
-  :require dired
+  :after dired
   :commands (dired-omit-mode)
   :init
   (setq dired-guess-shell-alist-user
@@ -9,4 +9,5 @@
                   "\\.\\(flv\\|rmvb\\|wmv\\|mp4\\|3gp\\)$"
                   "\\.\\(ogg\\|mp3\\)$"
                   "\\.\\(xbm\\|p[bgpn]m\\)$"
-                  "\\.\\(jpe?g\\|gif\\|tif\\|png\\)$"))))
+                  "\\.\\(jpe?g\\|gif\\|tif\\|png\\)$")))
+  (require 'dired-x))

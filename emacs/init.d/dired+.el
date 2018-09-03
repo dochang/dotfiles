@@ -1,5 +1,7 @@
 (req-package dired+
-  :require dired
+  :after (dired dired-x git-annex dired-filetype-face)
+  ;; Load it after any other dired extensions, so that its key binding
+  ;; overrides others.
   :ensure nil
   :quelpa (dired+
            :fetcher url
@@ -12,4 +14,5 @@
   ;;
   ;; [1]: https://github.com/emacsmirror/emacswiki.org/blob/master/dired%2b.el
   ;; [2]: https://github.com/emacsmirror/dired-plus
-  )
+  :init
+  (require 'dired+))

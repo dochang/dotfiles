@@ -2,6 +2,11 @@
 ;; [[http://www.gnu.org/software/emms/]]
 
 (req-package emms
+  :require dired
+
+  :bind (:map dired-mode-map
+         ("E" . emms-play-dired))
+
   :init
   ;; Do not save playlist for EMMS.
   (setq emms-history-file nil)
