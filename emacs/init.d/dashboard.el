@@ -1,4 +1,10 @@
+(defun $dashboard-mode-hook ()
+  "Do not wrap lines in `dashboard-mode'."
+  (visual-line-mode -1)
+  (toggle-truncate-lines 1))
+
 (req-package dashboard
+  :hook ((dashboard-mode . $dashboard-mode-hook))
   :init
   (setq dashboard-items '((agenda)))
   :config
