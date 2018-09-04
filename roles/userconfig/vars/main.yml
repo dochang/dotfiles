@@ -150,6 +150,7 @@ go_packages:
 
 rust_packages:
   - cargo-update
+  - cargo-deb
   - cargo-vendor
   - ripgrep
   - xsv
