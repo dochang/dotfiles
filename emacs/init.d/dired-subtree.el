@@ -1,5 +1,5 @@
 (req-package dired-subtree
-  :require dired
+  :after dired
   :bind (:map dired-mode-map
          ("i" . dired-subtree-insert)
          (";" . dired-subtree-remove)))

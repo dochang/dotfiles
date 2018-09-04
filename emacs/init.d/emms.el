@@ -2,7 +2,7 @@
 ;; [[http://www.gnu.org/software/emms/]]
 
 (req-package emms
-  :require dired
+  :after dired
 
   :bind (:map dired-mode-map
          ("E" . emms-play-dired))

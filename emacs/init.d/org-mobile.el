@@ -2,8 +2,8 @@
 
   :ensure org-plus-contrib
 
-  :require org
-  ;; `:require' is required because `org-mobile-inbox-for-pull' depends on
+  :after org
+  ;; `:after' is required because `org-mobile-inbox-for-pull' depends on
   ;; `org-directory', which must be set before setting
   ;; `org-mobile-inbox-for-pull'.
 
