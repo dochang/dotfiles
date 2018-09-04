@@ -7,7 +7,7 @@ UXTerm*scrollBar: true
 UXTerm*font: -misc-fixed-medium-r-normal-*-18-120-100-100-c-90-iso10646-1
 emacs.FontBackend: xft
 ! **WARNING** If you use urxvtd, remember to restart it.
-Rxvt.font: xft:DejaVu Sans Mono,xft:Droid Sans Mono,xft:WenQuanYi Micro Hei Mono
+Rxvt.font: xft:DejaVu Sans Mono:size=14,xft:Noto Sans Mono,xft:WenQuanYi Micro Hei Mono
 Rxvt.background: Black
 Rxvt.foreground: White
 ! when receiving logs of lines, only scroll once a whole screen height
