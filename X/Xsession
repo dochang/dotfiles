@@ -44,6 +44,12 @@ xset b off
 
 xx-autostart
 
+if command -v autorandr >/dev/null 2>&1 ; then
+	autorandr --change
+elif command -v xx-randr >/dev/null 2>&1 ; then
+	xx-randr
+fi
+
 STARTUP="${X_WINDOW_MANAGER:-x-window-manager}"
 
 STARTUP="env SHELL=$(getent passwd $LOGNAME | cut -d: -f7) $STARTUP"
