@@ -53,6 +53,7 @@
     - src: 'cmucl/cmucl-init.lisp'
     - src: 'prettier/prettierrc'
     - src: 'pam/pam_environment'
+    - src: 'hyper/hyper.js'
 
 - include_tasks: dotdir.yml
   with_items:
