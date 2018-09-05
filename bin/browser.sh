@@ -12,10 +12,15 @@ firefox
 chromium --incognito
 chromium
 conkeror
+clipboard
 EOF
 	fi
 }
 
 browser="$(select_browser)"
 
-[ x"$browser" = x ] || exec env "BROWSER=$browser" sensible-browser "$@"
+if [ x"$browser" = x"clipboard" -o x"$browser" = x ]; then
+	echo "$@" | xclip -selection clipboard
+else
+	exec env "BROWSER=$browser" sensible-browser "$@"
+fi
