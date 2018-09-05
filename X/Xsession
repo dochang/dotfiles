@@ -42,13 +42,13 @@ xsetroot -cursor_name left_ptr
 # http://www.debian-administration.org/articles/110
 xset b off
 
-xx-autostart
-
 if command -v autorandr >/dev/null 2>&1 ; then
 	autorandr --change
 elif command -v xx-randr >/dev/null 2>&1 ; then
 	xx-randr
 fi
+
+xx-autostart
 
 STARTUP="${X_WINDOW_MANAGER:-x-window-manager}"
 
