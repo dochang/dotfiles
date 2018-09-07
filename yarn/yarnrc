@@ -5,6 +5,7 @@ registry {{ dotfiles_yarn_registry | to_json }}
 # A mirror may not have scoped packages.  Use upstream.
 "@types:registry" "https://registry.npmjs.org/"
 "@sindresorhus:registry" "https://registry.npmjs.org/"
+"@sailshq:registry" "https://registry.npmjs.org/"
 
 ## prefix
 # This setting controls the output of `yarn global bin`.
