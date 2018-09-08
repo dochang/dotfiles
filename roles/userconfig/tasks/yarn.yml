@@ -9,4 +9,4 @@
   notify:
     - nodenv rehash
   with_items:
-    - '{{ envs.nodenv.packages }}'
+    - '{{ envs.nodenv.yarn_packages }}'

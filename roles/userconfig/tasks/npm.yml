@@ -11,5 +11,4 @@
     - nodenv rehash
   with_nested:
     - '{{ envs.nodenv.versions }}'
-    -
-      - npm
+    - '{{ envs.nodenv.npm_packages }}'
