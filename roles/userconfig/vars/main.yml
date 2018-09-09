@@ -92,6 +92,7 @@ envs:
       - diff-so-fancy
       - prettier
       - eclint
+      - lerna
       - git-stats
       - lebab
       - nativefier
