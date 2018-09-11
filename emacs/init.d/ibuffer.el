@@ -15,5 +15,11 @@
 ;;
 ;;    run when executing `ibuffer' even if "*Ibuffer*" exists.
 
+(defun $ibuffer-mode-hook ()
+  ;; Do not wrap lines in `ibuffer-mode'.
+  (visual-line-mode -1)
+  (toggle-truncate-lines 1))
+
 (req-package ibuffer
-  :bind ("C-x C-b" . ibuffer))
+  :bind ("C-x C-b" . ibuffer)
+  :hook ((ibuffer-mode . $ibuffer-mode-hook)))
