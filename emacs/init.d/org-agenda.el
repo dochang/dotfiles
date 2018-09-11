@@ -2,7 +2,7 @@
 (advice-add 'org-agenda :after #'$org-save-all-org-buffers)
 
 (defun $org-agenda-mode-hook ()
-  "Do not wrap lines in `org-agenda-mode'."
+  ;; Do not wrap lines in `org-agenda-mode'.
   (visual-line-mode -1)
   (toggle-truncate-lines 1))
 

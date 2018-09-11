@@ -1,5 +1,5 @@
 (defun $dashboard-mode-hook ()
-  "Do not wrap lines in `dashboard-mode'."
+  ;; Do not wrap lines in `dashboard-mode'.
   (visual-line-mode -1)
   (toggle-truncate-lines 1))
 
