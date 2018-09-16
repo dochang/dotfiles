@@ -3,10 +3,22 @@
 shopt -s nullglob globstar
 
 typeit=0
-if [[ $1 == "--type" ]]; then
-        typeit=1
-        shift
-fi
+otp=0
+
+while [ $# -gt 0 ]; do
+	case "$1" in
+	--type)
+		typeit=1
+                ;;
+	--otp)
+		otp=1
+		;;
+	*)
+		break
+		;;
+	esac
+	shift
+done
 
 prefix=${PASSWORD_STORE_DIR-~/.password-store}
 password_files=( "$prefix"/**/*.gpg )
@@ -17,9 +29,15 @@ password=$(printf '%s\n' "${password_files[@]}" | rofi -dmenu "$@")
 
 [[ -n $password ]] || exit
 
-if [[ $typeit -eq 0 ]]; then
-        pass show -c "$password" 2>/dev/null
+if [[ $otp -eq 0 ]]; then
+	pass_cmd="pass show"
 else
-        pass show "$password" | { read -r pass; printf %s "$pass"; } |
-                xdotool type --clearmodifiers --file -
+	pass_cmd="pass otp code"
+fi
+
+if [[ $typeit -eq 0 ]]; then
+	eval "$pass_cmd --clip $password" 2>/dev/null
+else
+	eval "$pass_cmd $password" | { read -r pass; printf %s "$pass"; } |
+		xdotool type --clearmodifiers --file -
 fi
