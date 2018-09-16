@@ -158,6 +158,7 @@ rust_packages:
   - cargo-update
   - cargo-deb
   - cargo-vendor
+  - cargo-ensure-installed
   - ripgrep
   - xsv
   - fd-find
