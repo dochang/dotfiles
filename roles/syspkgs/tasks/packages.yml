@@ -98,6 +98,7 @@
     - bluetooth
     - blueman
     - pass
+    - oathtool
     - unzip
     - socat
     - git-remote-gcrypt
