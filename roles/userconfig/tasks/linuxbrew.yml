@@ -42,8 +42,8 @@
     - dochang/binary/jid
     - dochang/binary/hugo
     - dochang/binary/arduino
-    - dochang/binary/go
-    - dochang/binary/yarn
+    - go
+    - yarn
     - dochang/binary/whalebrew
     - dochang/binary/wuzz
     - dochang/binary/peco
@@ -52,9 +52,9 @@
     - dochang/binary/git-annex
     - dochang/binary/lnav
     - yank
-    - dochang/binary/pandoc
+    - pandoc
     - dochang/binary/flarectl
     - git-extras
-    - dochang/binary/restic
-    - dochang/binary/git-sizer
+    - restic
+    - git-sizer
     - the_silver_searcher
