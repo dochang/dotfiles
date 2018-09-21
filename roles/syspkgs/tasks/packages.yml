@@ -104,7 +104,6 @@
     - git-remote-gcrypt
     - git-crypt
     - progress
-    - silversearcher-ag
     - editorconfig
     - jq
     - jo
