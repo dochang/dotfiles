@@ -10,5 +10,5 @@
   :commands (todotxt)
   :mode ("/todo.txt\\'" . todotxt-mode)
   :hook (todotxt-mode . $todotxt-mode-hook)
-  :init
-  (setq todotxt-file (expand-file-name "~/todo/todo.txt")))
+  :custom
+  (todotxt-file (expand-file-name "~/todo/todo.txt")))

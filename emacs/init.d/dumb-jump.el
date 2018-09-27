@@ -1,9 +1,11 @@
 (req-package dumb-jump
   :bind (("C-c j" . $hydra-dumb-jump/body))
 
-  :init
+  :custom
 
-  (setq dumb-jump-default-project "~/src")
+  (dumb-jump-default-project "~/src")
+
+  :init
 
   (defhydra $hydra-dumb-jump (:color teal)
     "Dumb Jump"

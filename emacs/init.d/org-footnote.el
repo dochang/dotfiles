@@ -1,6 +1,6 @@
 (req-package org-footnote
   :ensure org-plus-contrib
-  :init
+  :custom
   ;; Place footnotes locally at the end of the current outline node.
-  (setq org-footnote-section nil)
+  (org-footnote-section nil)
   )

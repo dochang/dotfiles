@@ -11,22 +11,22 @@
 
   :hook (mu4e-compose-mode . $mu4e-compose-mode-hook)
 
-  :init
-  (setq mu4e-maildir (expand-file-name (or (getenv "MAILDIR")) "~/Maildir"))
-  (setq mu4e-attachment-dir (expand-file-name "~/Downloads/"))
-  (setq mu4e-change-filenames-when-moving t)
+  :custom
+  (mu4e-maildir (expand-file-name (or (getenv "MAILDIR")) "~/Maildir"))
+  (mu4e-attachment-dir (expand-file-name "~/Downloads/"))
+  (mu4e-change-filenames-when-moving t)
   ;; Change the filename when moving messages to different folders.
   ;;
   ;; http://isync.sourceforge.net/mbsync.html#RECOMMENDATIONS
-  (setq mu4e-update-interval nil)
+  (mu4e-update-interval nil)
   ;; Don't update mu automatically.
-  (setq mu4e-view-show-addresses t)
-  (setq mu4e-headers-date-format "%F")
-  (setq mu4e-headers-time-format "%T%z")
-  (setq mu4e-headers-long-date-format "%FT%T%z")
-  (setq mu4e-compose-format-flowed nil)
-  (setq mu4e-context-policy 'ask)
-  (setq mu4e-compose-context-policy 'ask)
+  (mu4e-view-show-addresses t)
+  (mu4e-headers-date-format "%F")
+  (mu4e-headers-time-format "%T%z")
+  (mu4e-headers-long-date-format "%FT%T%z")
+  (mu4e-compose-format-flowed nil)
+  (mu4e-context-policy 'ask)
+  (mu4e-compose-context-policy 'ask)
 
   :config
   (setq mu4e-contexts

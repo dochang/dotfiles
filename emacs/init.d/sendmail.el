@@ -59,20 +59,20 @@
 
 (req-package sendmail
 
-  :init
+  :custom
 
-  (setq mail-from-style 'angles)
+  (mail-from-style 'angles)
 
   ;; Insert BCC to self in messages to be sent.
-  (setq mail-self-blind t)
+  (mail-self-blind t)
 
   ;; Use the From: header for the envelope-from when sending mail.  Do not
   ;; use `user-mail-address'.
-  (setq mail-specify-envelope-from t)
-  (setq mail-envelope-from 'header)
+  (mail-specify-envelope-from t)
+  (mail-envelope-from 'header)
 
   ;; Send mail using `sendmail'.
   ;; [[info:emacs#Mail%20Sending]]
-  (setq send-mail-function 'sendmail-send-it)
+  (send-mail-function 'sendmail-send-it)
 
   )

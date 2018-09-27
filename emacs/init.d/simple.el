@@ -77,21 +77,21 @@
          ;; See the definition of `visual-line-mode' for details.
          )
 
-  :init
+  :custom
 
   ;; `compose-mail' will warn if `mail-self-blind' &
   ;; `compose-mail-user-agent-warnings' are both set to `t'.
   ;;
   ;; Suppress this warning.
-  (setq compose-mail-user-agent-warnings nil)
+  (compose-mail-user-agent-warnings nil)
 
   ;; Use `message-user-agent' for mail composition.
   ;; [[info:emacs#Mail%20Methods]]
-  (setq mail-user-agent 'message-user-agent)
+  (mail-user-agent 'message-user-agent)
 
   ;; Don't delete trailing lines when calling `delete-trailing-whitespace' on
   ;; the entire buffer.
-  (setq delete-trailing-lines nil)
+  (delete-trailing-lines nil)
 
   :config
 

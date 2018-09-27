@@ -5,8 +5,8 @@
   ;; `dired-listing-switches', which must be set before setting
   ;; `find-ls-subdir-switches'.
 
-  :init
-  (setq find-ls-option '("-exec ls -lhAd {} +" . "-lhAd"))
+  :custom
+  (find-ls-option '("-exec ls -lhAd {} +" . "-lhAd"))
   ;; `find-ls-option' defaults to '("-ls" . "-dilsb").  Because
   ;; `-ls' quotes non-printable characters in file names using
   ;; C-like backslash escapes, We have to pass custom parameters

@@ -51,101 +51,103 @@
                             (unless (bound-and-true-p **org-timer**)
                               (setq **org-timer** (run-at-time nil 3600 'org-agenda-to-appt))))))
 
-  :init
+  :custom
 
   ;; They have to be set before org.el is loaded.
   ;; To make the change effective, restart emacs.
-  (setq org-enforce-todo-dependencies t
-        org-enforce-todo-checkbox-dependencies t)
+  (org-enforce-todo-dependencies t)
+  (org-enforce-todo-checkbox-dependencies t)
 
   ;; This variable needs to be set before org is loaded.  If you
   ;; need to make a change while Emacs is running, use the customize
   ;; interface or run the following code after updating it:
   ;;
   ;;   (when (featurep 'org-element) (load "org-element" t t))
-  (setq org-list-allow-alphabetical t)
+  (org-list-allow-alphabetical t)
 
-  (setq org-directory (expand-file-name "~/org"))
+  (org-directory (expand-file-name "~/org"))
 
   ;; Skip non-reachable files in `org-agenda-files'.
-  (setq org-agenda-skip-unavailable-files t)
+  (org-agenda-skip-unavailable-files t)
 
-  (setq org-agenda-files (locate-user-emacs-file "org-agenda-files"))
+  (org-agenda-files (locate-user-emacs-file "org-agenda-files"))
 
   ;; Insert the first line setting Org-mode in an empty file if the
   ;; filename doesn't automatically trigger Org-mode.
-  (setq org-insert-mode-line-in-empty-file t)
+  (org-insert-mode-line-in-empty-file t)
 
   ;; Don't split the line at the cursor position when creating a new
   ;; headline/item
-  (setq org-M-RET-may-split-line '((headline . nil) (item . nil) (default . t)))
+  (org-M-RET-may-split-line '((headline . nil) (item . nil) (default . t)))
 
   ;; Fontify code in code blocks.
-  (setq org-src-fontify-natively t)
+  (org-src-fontify-natively t)
 
   ;; Store relative pathname in links for files in the current directory and
   ;; subdirectories of it.  Store absolute pathname in links for other files.
-  (setq org-link-file-path-type 'adaptive)
+  (org-link-file-path-type 'adaptive)
 
   ;; Leave a blank line before new heading/item.
-  (setq org-blank-before-new-entry '((heading . auto) (plain-list-item . auto)))
+  (org-blank-before-new-entry '((heading . auto) (plain-list-item . auto)))
 
   ;; Adjust the level when yanking subtrees.
-  (setq org-yank-adjusted-subtrees t)
+  (org-yank-adjusted-subtrees t)
 
   ;; Make `C-a' & `C-e' behave specially in headlines & items.
-  (setq org-special-ctrl-a/e t)
+  (org-special-ctrl-a/e t)
 
   ;; Make `C-k' behave specially in headlines.
-  (setq org-special-ctrl-k t)
+  (org-special-ctrl-k t)
 
   ;; Turn on `org-indent-mode' on startup.
-  (setq org-startup-indented t)
+  (org-startup-indented t)
 
   ;; Record a note when entering each TODO state.
-  (setq org-todo-keywords '((type "NEXT(n@)" "TODO(t@)" "|" "DONE(d@)")))
+  (org-todo-keywords '((type "NEXT(n@)" "TODO(t@)" "|" "DONE(d@)")))
 
   ;; Insert state change notes into the drawer "LOGBOOK".
-  (setq org-log-into-drawer t)
+  (org-log-into-drawer t)
 
   ;; Prompt for a note when a task moves to the DONE state.
-  (setq org-log-done 'note)
+  (org-log-done 'note)
 
   ;; Record a note when clocking out of an item.
-  (setq org-log-note-clock-out t)
+  (org-log-note-clock-out t)
 
   ;; Record when the deadline date of a tasks is modified.
-  (setq org-log-redeadline 'note)
+  (org-log-redeadline 'note)
 
   ;; Record when the scheduling date of a tasks is modified.
-  (setq org-log-reschedule 'note)
+  (org-log-reschedule 'note)
 
   ;; Prompt for a note when a task is refiled.
-  (setq org-log-refile 'note)
+  (org-log-refile 'note)
 
   ;; Don't remove the ID properties from clones of a subtree.  Inherit
   ;; the ID property with a new ID instead.
-  (setq org-clone-delete-id nil)
+  (org-clone-delete-id nil)
 
   ;; Allow to create new nodes as refile targets with confirmation.
-  (setq org-refile-allow-creating-parent-nodes 'confirm)
+  (org-refile-allow-creating-parent-nodes 'confirm)
 
   ;; Allow to refile entries to the top level in the file.
-  (setq org-refile-use-outline-path 'file)
+  (org-refile-use-outline-path 'file)
 
   ;; Set targets for refiling entries.
-  (setq org-refile-targets
-        '((nil . (:maxlevel . 3))
-          (org-default-notes-file . (:maxlevel . 3))
-          (org-agenda-files . (:maxlevel . 3))))
+  (org-refile-targets
+   '((nil . (:maxlevel . 3))
+     (org-default-notes-file . (:maxlevel . 3))
+     (org-agenda-files . (:maxlevel . 3))))
 
   ;; Do not limit date range.
-  (setq org-read-date-force-compatible-dates nil)
+  (org-read-date-force-compatible-dates nil)
 
   ;; Search agenda archives additionally.
-  (setq org-agenda-text-search-extra-files '(agenda-archives))
+  (org-agenda-text-search-extra-files '(agenda-archives))
 
-  (setq org-archive-location "%s_archive::datetree/")
+  (org-archive-location "%s_archive::datetree/")
+
+  :init
 
   (defhydra $hydra-org (:color teal)
     "org"

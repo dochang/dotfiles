@@ -34,10 +34,10 @@
     (list "luac" (list "-p" local-file))))
 
 (req-package flymake
-  :init
-  (setq flymake-gui-warnings-enabled nil)
+  :custom
+  (flymake-gui-warnings-enabled nil)
   ;; Log messages with level <= 1 (WARNING)
-  (setq flymake-log-level 1)
+  (flymake-log-level 1)
   :config
   (add-to-list 'flymake-allowed-file-name-masks
                '("Rexfile\\'" flymake-perl-init))

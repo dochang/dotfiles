@@ -11,9 +11,10 @@
          :map dictionary-mode-map
          ("DEL" . scroll-down))
   :hook (dictionary-mode . $dictionary-mode-hook)
+  :custom
+  (dictionary-use-single-buffer t)
+  (dictionary-tooltip-dictionary "!")
   :init
-  (setq dictionary-use-single-buffer t)
-  (setq dictionary-tooltip-dictionary "!")
   (defhydra $hydra-dictionary (:color teal)
     "dictionary"
     ("s" dictionary-search "search")

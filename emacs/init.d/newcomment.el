@@ -1,6 +1,6 @@
 (req-package newcomment
   :ensure nil
-  :init
+  :custom
   ;; Use `fill-column' for `comment-indent'.
-  (setq comment-fill-column nil)
+  (comment-fill-column nil)
   )

@@ -5,9 +5,9 @@
 
 (req-package ido
   :hook (emacs-startup . ido-mode)
-  :init
-  (setq ido-confirm-unique-completion t)
+  :custom
+  (ido-confirm-unique-completion t)
   ;; Disable automatic file search in ido mode
   ;;
   ;; [[http://stackoverflow.com/a/18089076]]
-  (setq ido-auto-merge-work-directories-length -1))
+  (ido-auto-merge-work-directories-length -1))

@@ -5,8 +5,8 @@
 
 (req-package dashboard
   :hook ((dashboard-mode . $dashboard-mode-hook))
-  :init
-  (setq dashboard-items '((agenda)))
+  :custom
+  (dashboard-items '((agenda)))
   :config
   (dashboard-insert-startupify-lists)
   ;; `dashboard-setup-startup-hook' wants to setup `after-init-hook' and

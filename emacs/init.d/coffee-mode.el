@@ -7,5 +7,5 @@
 
 (req-package coffee-mode
   :hook (coffee-mode . $coffee-mode-hook)
-  :init
-  (setq coffee-tab-width 2))
+  :custom
+  (coffee-tab-width 2))

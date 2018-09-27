@@ -3,7 +3,7 @@
 
 (req-package indent-guide
   :hook (prog-mode . indent-guide-mode)
-  :init
+  :custom
   ;; DO NOT draw all guide lines.  It's very slow when there're too many
   ;; levels.
-  (setq indent-guide-recursive nil))
+  (indent-guide-recursive nil))

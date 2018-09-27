@@ -3,6 +3,6 @@
 ;; [[https://github.com/purcell/less-css-mode]]
 
 (req-package less-css-mode
-  :init
+  :custom
   ;; Don't compile after saving.
-  (setq less-css-compile-at-save nil))
+  (less-css-compile-at-save nil))

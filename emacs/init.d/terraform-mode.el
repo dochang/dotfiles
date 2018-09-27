@@ -1,3 +1,3 @@
 (req-package terraform-mode
-  :init
-  (setq terraform-indent-level 4))
+  :custom
+  (terraform-indent-level 4))

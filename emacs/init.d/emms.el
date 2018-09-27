@@ -7,10 +7,10 @@
   :bind (:map dired-mode-map
          ("E" . emms-play-dired))
 
-  :init
+  :custom
   ;; Do not save playlist for EMMS.
-  (setq emms-history-file nil)
-  (setq emms-player-mpd-music-directory "~/media/music/")
+  (emms-history-file nil)
+  (emms-player-mpd-music-directory "~/media/music/")
 
   :config
   (make-directory emms-directory 'parents)

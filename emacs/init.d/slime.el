@@ -31,9 +31,9 @@
 (add-hook 'slime-load-hook '$slime-load-hook)
 
 (req-package slime
-  :init
+  :custom
   ;; * slime-fancy
   ;;
   ;;   a meta package which loads a combination of the most popular
   ;;   packages.
-  (setq slime-contribs '(slime-fancy slime-asdf slime-indentation)))
+  (slime-contribs '(slime-fancy slime-asdf slime-indentation)))

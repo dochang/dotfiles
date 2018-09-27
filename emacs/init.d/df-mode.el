@@ -2,5 +2,5 @@
   :ensure nil
   :quelpa (df-mode :fetcher github :repo "emacsmirror/df-mode")
   :hook emacs-startup
-  :init
-  (setq df-interval 10))
+  :custom
+  (df-interval 10))

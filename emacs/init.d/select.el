@@ -1,7 +1,7 @@
 (req-package select
-  :init
+  :custom
   ;; Cut & Paste, Kill Ring, Clipboard, Selection
   ;; [[info:emacs#Cut%20and%20Paste]]
-  (setq select-enable-primary t
-        select-enable-clipboard t)
+  (select-enable-primary t)
+  (select-enable-clipboard t)
   )

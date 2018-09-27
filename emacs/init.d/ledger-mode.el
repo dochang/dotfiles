@@ -8,6 +8,6 @@
 
 (req-package ledger-mode
   :hook ((ledger-reconcile-mode . $ledger-reconcile-mode-hook))
-  :init
+  :custom
   ;; Do not highlight transaction under point.
-  (setq ledger-highlight-xact-under-point nil))
+  (ledger-highlight-xact-under-point nil))

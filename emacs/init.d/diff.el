@@ -1,5 +1,5 @@
 (req-package diff
-  :init
+  :custom
   ;; Comparing Files in Unified Format
   ;; [[info:emacs#Comparing%20Files]]
-  (setq diff-switches "-u"))
+  (diff-switches "-u"))

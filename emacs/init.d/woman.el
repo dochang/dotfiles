@@ -8,18 +8,19 @@
 (defvar **default-woman-manpath**)
 
 (req-package woman
-  :init
+
+  :custom
 
   ;; Use most of the frame width.
   ;; Override the value of `woman-fill-column'.
   ;; [[info:woman#Formatting%20Options]
-  (setq woman-fill-frame t)
+  (woman-fill-frame t)
 
   ;; Don't use a dedicated frame for displaying woman mode.
-  (setq woman-use-own-frame nil)
+  (woman-use-own-frame nil)
 
   ;; Unset `woman-locale' if locale is not "C".
-  (setq woman-locale nil)
+  (woman-locale nil)
 
   :config
   (unless (boundp '**default-woman-path**)

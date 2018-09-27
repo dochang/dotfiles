@@ -2,6 +2,6 @@
 ;; [[https://github.com/antonj/scss-mode]]
 
 (req-package scss-mode
-  :init
+  :custom
   ;; Don't compile after saving.
-  (setq scss-compile-at-save nil))
+  (scss-compile-at-save nil))

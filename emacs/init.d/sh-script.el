@@ -13,15 +13,15 @@
 
   :hook (sh-mode . $sh-mode-hook)
 
-  :init
+  :custom
   ;; Indentation
   ;; [[https://keramida.wordpress.com/2008/08/08/tweaking-shell-script-indentation-in-gnu-emacs/]]
-  (setq sh-indentation tab-width)
-  (setq sh-basic-offset tab-width)
-  (setq sh-indent-for-case-label 0)
-  (setq sh-indent-for-case-alt '+)
+  (sh-indentation tab-width)
+  (sh-basic-offset tab-width)
+  (sh-indent-for-case-label 0)
+  (sh-indent-for-case-alt '+)
   ;; Use `/bin/sh` for shell scripts.
-  (setq sh-shell-file "/bin/sh")
+  (sh-shell-file "/bin/sh")
 
   :config
   (setq sh-alias-alist (cons (cons 'zsh5 'zsh)

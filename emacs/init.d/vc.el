@@ -1,9 +1,9 @@
 ;;; VC Mode
 
 (req-package vc
-  :init
+  :custom
   ;; Disable VC Mode
-  (setq vc-handled-backends '())
+  (vc-handled-backends '())
   ;; Don't ask if visiting a symlink to a file under version control.
   ;; Follow it.
-  (setq vc-follow-symlinks t))
+  (vc-follow-symlinks t))

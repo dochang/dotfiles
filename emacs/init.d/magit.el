@@ -5,6 +5,6 @@
 
 (req-package magit
   :bind (("C-c g" . magit-status))
-  :init
+  :custom
   ;; Don't pop a new window.
-  (setq magit-status-buffer-switch-function 'switch-to-buffer))
+  (magit-status-buffer-switch-function 'switch-to-buffer))

@@ -7,14 +7,14 @@
 
   :hook ((emacs-startup . $emacs-startup-hook))
 
-  :init
+  :custom
 
-  (setq user-full-name (or (getenv "NAME") "{{ dotfiles_emacs_name }}"))
-  (setq user-mail-address (or (getenv "EMAIL") "{{ dotfiles_emacs_email }}"))
+  (user-full-name (or (getenv "NAME") "{{ dotfiles_emacs_name }}"))
+  (user-mail-address (or (getenv "EMAIL") "{{ dotfiles_emacs_email }}"))
 
   ;; Disable auto save recovery record.
   ;; [[info:emacs#Recover]]
-  (setq auto-save-list-file-prefix nil)
+  (auto-save-list-file-prefix nil)
 
   ;; Set fill column to 79
   ;;
@@ -22,26 +22,26 @@
   ;; screen.  Do not occupy column 79, leave it for filling.
   ;;
   ;; This setting will make Emacs fill the paragraphs at the bottom as is.
-  (setq-default fill-column 79)
+  (fill-column 79)
 
   ;; Disable `indent-tabs-mode'.
   ;;
   ;; `web-mode' changes indentation settings if `indent-tabs-mode' is non-nil.
   ;; To prevent it, set the default value of `indent-tabs-mode' to `nil'.
-  (setq-default indent-tabs-mode nil)
+  (indent-tabs-mode nil)
 
   ;; Keep point at the same screen position after scrolling.
   ;; [[info:emacs#Scrolling]]
-  (setq scroll-preserve-screen-position t)
+  (scroll-preserve-screen-position t)
 
   ;; UI Configuration
-  (setq-default cursor-type 'bar)
-  (setq-default cursor-in-non-selected-windows nil)
-  (setq-default indicate-buffer-boundaries 'left)
-  (setq-default indicate-empty-lines t)
+  (cursor-type 'bar)
+  (cursor-in-non-selected-windows nil)
+  (indicate-buffer-boundaries 'left)
+  (indicate-empty-lines t)
 
-  (setq visible-bell t)
-  (setq inhibit-startup-screen t)
+  (visible-bell t)
+  (inhibit-startup-screen t)
 
   )
 

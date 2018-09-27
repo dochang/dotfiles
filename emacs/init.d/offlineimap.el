@@ -2,6 +2,6 @@
 ;;; [[http://julien.danjou.info/projects/emacs-packages#offlineimap]]
 
 (req-package offlineimap
-  :init
+  :custom
   ;; Display the action as a text instead of a single symbol.
-  (setq offlineimap-mode-line-style 'text))
+  (offlineimap-mode-line-style 'text))

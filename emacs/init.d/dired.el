@@ -5,6 +5,6 @@
 
 (req-package dired
   :ensure nil
-  :init
-  (setq dired-listing-switches "-lhA")
-  (setq dired-dwim-target t))
+  :custom
+  (dired-listing-switches "-lhA")
+  (dired-dwim-target t))

@@ -1,6 +1,6 @@
 ;;; Checking and Correcting Spelling
 
 (req-package ispell
-  :init
+  :custom
   ;; Use aspell for spell-checking.
-  (setq ispell-program-name "aspell"))
+  (ispell-program-name "aspell"))

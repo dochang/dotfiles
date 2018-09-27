@@ -46,7 +46,7 @@ to use when highlighting the day in the calendar."
       ($diary-chinese-date (number-sequence 3 12) day)))
 
 (req-package calendar
-  :init
-  (setq calendar-chinese-all-holidays-flag t
-        calendar-mark-holidays-flag t
-        calendar-week-start-day 1))
+  :custom
+  (calendar-chinese-all-holidays-flag t)
+  (calendar-mark-holidays-flag t)
+  (calendar-week-start-day 1))

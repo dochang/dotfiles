@@ -20,12 +20,12 @@
          ;; "\\.djhtml\\'"
          "\\.html?\\'")
   :hook (web-mode . $web-mode-hook)
-  :init
-  (setq web-mode-code-indent-offset 2)
-  (setq web-mode-markup-indent-offset 2)
-  (setq web-mode-css-indent-offset 2)
-  (setq web-mode-sql-indent-offset 2)
-  (setq web-mode-comment-formats
-        '(("java"       . "//")
-          ("javascript" . "//")
-          ("php"        . "//"))))
+  :custom
+  (web-mode-code-indent-offset 2)
+  (web-mode-markup-indent-offset 2)
+  (web-mode-css-indent-offset 2)
+  (web-mode-sql-indent-offset 2)
+  (web-mode-comment-formats
+   '(("java"       . "//")
+     ("javascript" . "//")
+     ("php"        . "//"))))

@@ -24,7 +24,7 @@
          ("M-." . godef-jump)
          ("M-*" . pop-tag-mark))
   :hook (go-mode . $go-mode-hook)
-  :init
-  (setq gofmt-command
-        (cond ((executable-find "goimports") "goimports")
-              (t "gofmt"))))
+  :custom
+  (gofmt-command
+   (cond ((executable-find "goimports") "goimports")
+         (t "gofmt"))))

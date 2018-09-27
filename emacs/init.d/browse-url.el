@@ -42,5 +42,5 @@
 
 (req-package browse-url
   :commands (browse-url-interactive-arg)
-  :init
-  (setq browse-url-browser-function '$browse-url-default-browser))
+  :custom
+  (browse-url-browser-function '$browse-url-default-browser))

@@ -1,6 +1,6 @@
 ;;; Man
 
 (req-package man
-  :init
+  :custom
   ;; Make the manpage the current buffer in the current window
-  (setq Man-notify-method 'pushy))
+  (Man-notify-method 'pushy))

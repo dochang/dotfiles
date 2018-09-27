@@ -1,4 +1,4 @@
 (req-package mouse
   :ensure nil
-  :init
-  (setq mouse-yank-at-point t))
+  :custom
+  (mouse-yank-at-point t))

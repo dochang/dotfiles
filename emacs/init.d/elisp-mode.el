@@ -38,6 +38,12 @@
          ;; bind the key to `electric-newline-and-maybe-indent' explicitly.
          )
 
+  :custom
+
+  ;; Do not limit the output when evaluating.
+  (eval-expression-print-length nil)
+  (eval-expression-print-level nil)
+
   :init
   ;; Paredit always inserts a space when I insert "(" after ",@".  Change the
   ;; syntax descriptor of "@" from "_" to "'" will solve this problem.
@@ -48,6 +54,4 @@
   ;;   - `emacs-lisp-mode-syntax-table'
   (modify-syntax-entry ?@ "'   " emacs-lisp-mode-syntax-table)
 
-  ;; Do not limit the output when evaluating.
-  (setq eval-expression-print-length nil)
-  (setq eval-expression-print-level nil))
+  )

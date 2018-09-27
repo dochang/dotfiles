@@ -6,5 +6,5 @@
          mustache-mode
          sgml-mode
          web-mode)
-  :init
-  (setq emmet-move-cursor-between-quotes t))
+  :custom
+  (emmet-move-cursor-between-quotes t))

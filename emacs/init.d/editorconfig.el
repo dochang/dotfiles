@@ -1,8 +1,8 @@
 (req-package editorconfig
   :hook (emacs-startup . editorconfig-mode)
-  :init
-  (setq editorconfig-get-properties-function
-        'editorconfig-core-get-properties-hash)
+  :custom
+  (editorconfig-get-properties-function
+   'editorconfig-core-get-properties-hash)
   :config
   (add-to-list 'editorconfig-indentation-alist
                '(nxml-mode nxml-child-indent nxml-attribute-indent))

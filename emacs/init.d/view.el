@@ -10,6 +10,6 @@
          ("j" . View-scroll-line-forward)
          ("b" . View-scroll-page-backward)
          ("f" . View-scroll-page-forward))
-  :init
+  :custom
   ;; Enter View mode when a buffer become read-only.
-  (setq view-read-only t))
+  (view-read-only t))
