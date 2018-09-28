@@ -34,7 +34,8 @@
       :depends ()
       :library mb-url))
 
-(advice-add 'url-http :override 'mb-url-http-curl)
+(setq mb-url-http-backend 'mb-url-http-curl)
+(advice-add 'url-http :around 'mb-url-http-around-advice)
 
 (unless (package-installed-p 'mb-url)
   (unless (assq 'mb-url package-archive-contents)
