@@ -23,4 +23,6 @@
     (setq indent-tabs-mode nil)))
 
 (req-package markdown-mode
-  :hook (markdown-mode . $markdown-mode-hook))
+  :hook (markdown-mode . $markdown-mode-hook)
+  :custom
+  (markdown-unordered-list-item-prefix "  - "))
