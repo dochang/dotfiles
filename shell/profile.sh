@@ -192,6 +192,13 @@ export NODE_BUILD_MIRROR_URL
 export LINUXBREW_ROOT
 prepend_to_env ${LINUXBREW_ROOT}/sbin PATH
 prepend_to_env ${LINUXBREW_ROOT}/bin PATH
+# Enable `HOMEBREW_DEVELOPER`
+#
+# I have to enable this variable because I don't want to clone the taps as
+# shallow.  I can pass `--full` but it's boring.
+#
+# https://github.com/Linuxbrew/brew/blob/1.7.6/Library/Homebrew/cmd/tap.rb#L62
+export HOMEBREW_DEVELOPER=1
 
 ## For anyenv
 : ${ANYENV_ROOT:="${HOME}/.anyenv"}

@@ -26,6 +26,12 @@
   homebrew_tap:
     tap: '{{ item }}'
     state: present
+  environment:
+    HOMEBREW_DEVELOPER: 1
+    # I have to enable this variable because I don't want to clone the taps as
+    # shallow.  I can pass `--full` but it's boring.
+    #
+    # https://github.com/Linuxbrew/brew/blob/1.7.6/Library/Homebrew/cmd/tap.rb#L62
   with_items:
     - beeftornado/rmtree
     - dochang/binary
