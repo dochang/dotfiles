@@ -42,11 +42,6 @@ if ! { [ x"$(get_shell)" = xsh ] && [ -n "${ZSH_VERSION}" ] && expr "$-" : '.*i'
 	alias grep="$(get_alias grep) --color=auto"
 	alias ag='ag --pager ${PAGER:-less}'
 
-	## thefuck
-	command -v thefuck >/dev/null 2>&1 && {
-		eval "$(thefuck --alias)"
-	}
-
 	is_function () {
 		type $1 | grep -E ' is (.* )?function' >/dev/null 2>&1
 	}
@@ -62,6 +57,11 @@ if ! { [ x"$(get_shell)" = xsh ] && [ -n "${ZSH_VERSION}" ] && expr "$-" : '.*i'
 	}
 	! is_function rbenv && [ -x "$(rbenv root)/plugins/rbenv-usergems/bin/rbenv-usergems-init" ] && {
 		eval "$(rbenv usergems-init - $(get_shell))"
+	}
+
+	## thefuck
+	command -v thefuck >/dev/null 2>&1 && {
+		eval "$(thefuck --alias)"
 	}
 
 	# https://transfer.sh/
