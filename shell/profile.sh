@@ -52,7 +52,7 @@ export LESSCHARSET
 
 
 [ -z "$LESSOPEN" ] && [ -z "$LESSCLOSE" ] \
-	&& command -v lesspipe >/dev/null 2>&1 \
+	&& is_command lesspipe \
 	&& eval "$(lesspipe)"
 ## For less input pre-processor
 
@@ -204,10 +204,10 @@ export HOMEBREW_DEVELOPER=1
 : ${ANYENV_ROOT:="${HOME}/.anyenv"}
 export ANYENV_ROOT
 prepend_to_env ${ANYENV_ROOT}/bin PATH
-command -v anyenv >/dev/null 2>&1 && eval "$(anyenv init - $(get_shell))"
+is_command anyenv && eval "$(anyenv init - $(get_shell))"
 
 ## For pyenv
-command -v pyenv >/dev/null 2>&1 && {
+is_command pyenv && {
 	{ pyenv commands | grep virtualenv-init ; } >/dev/null 2>&1 || eval "$(pyenv virtualenv-init - $(get_shell))"
 	case "$(get_shell)" in
 	bash|zsh|ksh)
@@ -218,7 +218,7 @@ command -v pyenv >/dev/null 2>&1 && {
 }
 
 ## For rbenv-usergems
-command -v rbenv >/dev/null 2>&1 && [ -x "$(rbenv root)/plugins/rbenv-usergems/bin/rbenv-usergems-init" ] && {
+is_command rbenv && [ -x "$(rbenv root)/plugins/rbenv-usergems/bin/rbenv-usergems-init" ] && {
 	eval "$(rbenv usergems-init - $(get_shell))"
 }
 
@@ -289,7 +289,7 @@ export CLOUDSDK_HOME
 [ -r "${CLOUDSDK_HOME}/path.$(get_shell).inc" ] && . "${CLOUDSDK_HOME}/path.$(get_shell).inc"
 
 ## For yarn
-if command -v yarn >/dev/null 2>&1; then
+if is_command yarn; then
 	: ${YARN_GLOBAL_BIN:="$(yarn global bin)"}
 else
 	: ${YARN_GLOBAL_BIN:="${HOME}/.yarn/bin"}
@@ -316,7 +316,7 @@ case "$(get_shell)" in
 bash|zsh|ksh)
 
 	## direnv
-	command -v direnv >/dev/null 2>&1 && {
+	is_command direnv && {
 		eval "$(direnv hook $(get_shell))"
 	}
 
