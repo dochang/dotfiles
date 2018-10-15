@@ -11,7 +11,7 @@ export LANG
 
 : ${EMACS_SERVER_FILE:=systemd}
 export EMACS_SERVER_FILE
-: ${EDITOR:=xx-editor}
+: ${EDITOR:={{ dotfiles_editor }}}
 export EDITOR
 : ${ALTERNATE_EDITOR:=""}
 export ALTERNATE_EDITOR
