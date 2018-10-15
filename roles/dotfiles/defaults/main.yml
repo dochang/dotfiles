@@ -5,6 +5,7 @@ dotfiles_email: dochang@gmail.com
 dotfiles_mailuser: dochang
 dotfiles_mailhost: localhost
 dotfiles_maildir: /srv/sync/maildir
+dotfiles_password_store_dir: '${HOME}/.password-store'
 dotfiles_git_credential: dochang
 dotfiles_git_user_name: '{{ dotfiles_name }}'
 dotfiles_git_user_email: '{{ dotfiles_email }}'

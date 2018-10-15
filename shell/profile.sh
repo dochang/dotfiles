@@ -175,7 +175,7 @@ export WHALEBREW_INSTALL_PATH
 prepend_to_env ${WHALEBREW_INSTALL_PATH} PATH
 
 ## For pass
-: ${PASSWORD_STORE_DIR:=/srv/sync/private/password-store}
+: ${PASSWORD_STORE_DIR:={{ dotfiles_password_store_dir | default("${HOME}/.password-store") }}}
 export PASSWORD_STORE_DIR
 : ${PASSWORD_STORE_ENABLE_EXTENSIONS:=true}
 export PASSWORD_STORE_ENABLE_EXTENSIONS
