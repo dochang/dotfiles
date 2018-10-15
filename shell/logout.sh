@@ -1,4 +1,4 @@
-{% include "get_shell.sh" %}
+{% include "functions.sh" %}
 
 # DO NOT `source` it when the shell is invoked as `sh`.
 if [ x"$(get_shell)" != xsh ] ; then

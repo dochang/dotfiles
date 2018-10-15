@@ -1,4 +1,4 @@
-{% include "get_shell.sh" %}
+{% include "functions.sh" %}
 
 ## If `sh` links to `zsh`, and is invoked as a "non-login, non-interactive"
 ## shell, this file should be skipped.
@@ -41,10 +41,6 @@ if ! { [ x"$(get_shell)" = xsh ] && [ -n "${ZSH_VERSION}" ] && expr "$-" : '.*i'
 
 	alias grep="$(get_alias grep) --color=auto"
 	alias ag='ag --pager ${PAGER:-less}'
-
-	is_function () {
-		type $1 | grep -E ' is (.* )?function' >/dev/null 2>&1
-	}
 
 	## Define `*env` functions if the shell is invoked as non-login.
 	command -v anyenv >/dev/null 2>&1 && ! is_function anyenv && eval "$(anyenv init - $(get_shell))"

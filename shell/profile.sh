@@ -1,4 +1,4 @@
-{% include "get_shell.sh" %}
+{% include "functions.sh" %}
 
 : ${ENV:=~/.shrc}
 export ENV
