@@ -55,10 +55,16 @@ if ! { [ x"$(get_shell)" = xsh ] && [ -n "${ZSH_VERSION}" ] && expr "$-" : '.*i'
 		eval "$(rbenv usergems-init - $(get_shell))"
 	}
 
-	## thefuck
-	command -v thefuck >/dev/null 2>&1 && {
-		eval "$(thefuck --alias)"
-	}
+	case "$(get_shell)" in
+	bash|zsh)
+
+		## thefuck
+		command -v thefuck >/dev/null 2>&1 && {
+			eval "$(thefuck --alias)"
+		}
+
+		;;
+	esac
 
 	# https://transfer.sh/
 	# https://gist.github.com/nl5887/a511f172d3fb3cd0e42d
