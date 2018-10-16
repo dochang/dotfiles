@@ -101,6 +101,7 @@ envs:
       - vscode-css-languageserver-bin
       - bash-language-server
       - dockerfile-language-server-nodejs
+      - vue-language-server
   goenv:
     versions:
       - 1.10.3
