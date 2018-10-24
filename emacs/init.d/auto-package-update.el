@@ -8,4 +8,6 @@
          (funcall fn pkg))))
 
 (req-package auto-package-update
-  :hook (emacs-startup . auto-package-update-maybe))
+  :hook (emacs-startup . auto-package-update-maybe)
+  :custom
+  (auto-package-update-delete-old-versions t))
