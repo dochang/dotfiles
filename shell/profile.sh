@@ -83,42 +83,15 @@ append_to_env ${HOME}/bin PATH
 export BROWSER
 : ${LEDGER_FILE:=${HOME}/org/ledger.dat}
 export LEDGER_FILE
-: ${http_proxy:=http://127.0.0.1:8118}
+: ${http_proxy:={{ dotfiles_http_proxy }}}
 export http_proxy
 # Dropbox doesn't check `all_proxy`, use `http_proxy` instead.
-: ${https_proxy:=$http_proxy}
+: ${https_proxy:={{ dotfiles_https_proxy }}}
 export https_proxy
 # Dropbox doesn't check `all_proxy` & `http_proxy` when accessing https URLs in
 # `dropbox.py start -i`, use `https_proxy` instead.
 #
 # http://askubuntu.com/questions/69434/cant-complete-dropbox-installation-from-behind-proxy#comment-553429
-
-___no_proxy () {
-	printf "localhost,127.*.*.*,10.*.*.*,192.168.*.*"
-	printf ",$(seq -f '172.%g.*.*' -s , 16 31)"
-	# https://github.com/docker/docker/pull/10133
-	# https://github.com/docker/docker/pull/9951
-	# https://github.com/docker/docker/issues/10192
-	# https://github.com/docker/docker/issues/10224
-	printf ",/var/run/docker.sock"
-	printf ",lvh.me,vcap.me,localtest.me"
-	printf ",qq.com,wechat.com,tencent.com,weiyun.com"
-	printf ",sinaapp.com,sinaimg.cn"
-	printf ",youku.com,tudou.com,tudouui.com,tdimg.com"
-	printf ",baidupcs.com,baidu.com,bdstatic.com,bdimg.com,tiebaimg.com"
-	printf ",360.cn,yunpan.cn,sohu.com,sina.com.cn,douban.com,163.com"
-	printf ",taobao.com,tmall.com,etao.com,tbcdn.cn,mmstat.com"
-	printf ",alipay.com,alimama.com,aliyun.com,yunos.com,alicdn.com"
-	printf ",jd.com,360buyimg.com,3.cn"
-	printf ",z.cn,amazon.cn"
-	printf ",acfun.*,bilibili.*,hdslb.com,acgvideo.com,tucao.*"
-	printf ",ourdvsss.com"
-	case "$(hostname --domain)" in
-	genee.cn|geneegroup.com)
-		printf ",genee.cn,geneegroup.com,genee.in"
-		;;
-	esac
-}
 
 : ${no_proxy:="$(___no_proxy)"}
 export no_proxy

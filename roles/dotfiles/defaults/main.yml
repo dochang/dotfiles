@@ -1,5 +1,7 @@
 ---
 dotfiles_repo: 'https://github.com/dochang/dotfiles.git'
+dotfiles_http_proxy: ''
+dotfiles_https_proxy: ''
 dotfiles_editor: vi
 dotfiles_name: 'Desmond O. Chang'
 dotfiles_email: dochang@gmail.com
