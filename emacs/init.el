@@ -282,7 +282,6 @@ The call stack:
               '("bootstrap"
                 "use-package"
                 "quelpa"
-                "quelpa-use-package"
                 "req-package"
                 "load-dir")))
 
