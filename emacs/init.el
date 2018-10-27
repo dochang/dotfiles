@@ -284,7 +284,6 @@ The call stack:
                 "quelpa"
                 "quelpa-use-package"
                 "use-package-el-get"
-                "use-package-el-get-bundle"
                 "req-package"
                 "load-dir")))
 
