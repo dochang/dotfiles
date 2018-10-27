@@ -281,7 +281,6 @@ The call stack:
       (mapcar 'locate-user-emacs-file
               '("bootstrap"
                 "use-package"
-                "quelpa"
                 "req-package"
                 "load-dir")))
 

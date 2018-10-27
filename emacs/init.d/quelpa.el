@@ -1,4 +1,5 @@
-(use-package quelpa
+(req-package quelpa
+  :force t
   :demand t
   :ensure t
   :init

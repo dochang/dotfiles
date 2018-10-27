@@ -8,8 +8,6 @@
       dest: '~/.emacs.d/bootstrap.el'
     - src: 'emacs/use-package.el'
       dest: '~/.emacs.d/use-package.el'
-    - src: 'emacs/quelpa.el'
-      dest: '~/.emacs.d/quelpa.el'
     - src: 'emacs/req-package.el'
       dest: '~/.emacs.d/req-package.el'
     - src: 'emacs/load-dir.el'
