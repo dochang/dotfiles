@@ -283,7 +283,6 @@ The call stack:
                 "use-package"
                 "quelpa"
                 "quelpa-use-package"
-                "use-package-el-get"
                 "req-package"
                 "load-dir")))
 

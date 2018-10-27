@@ -12,8 +12,6 @@
       dest: '~/.emacs.d/quelpa.el'
     - src: 'emacs/quelpa-use-package.el'
       dest: '~/.emacs.d/quelpa-use-package.el'
-    - src: 'emacs/use-package-el-get.el'
-      dest: '~/.emacs.d/use-package-el-get.el'
     - src: 'emacs/req-package.el'
       dest: '~/.emacs.d/req-package.el'
     - src: 'emacs/load-dir.el'

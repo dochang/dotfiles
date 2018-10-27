@@ -1,4 +1,5 @@
-(use-package use-package-el-get
+(req-package use-package-el-get
+  :force t
   :demand t
   :ensure t
   :config
