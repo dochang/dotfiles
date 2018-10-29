@@ -5,7 +5,7 @@
   ($run-prog-mode-hook))
 
 (req-package generic-x
-  :ensure nil
+  :ensure (generic-x :pin :built-in)
 
   :hook ((emacs-startup . (lambda () (require 'generic-x)))
          (xmodmap-generic-mode . $xmodmap-generic-mode-hook))

@@ -7,7 +7,7 @@
   (eww-browse-url (concat "file://" (mu4e~write-body-to-html msg))))
 
 (req-package mu4e
-  :ensure nil
+  :ensure (mu4e :pin :external)
 
   :hook (mu4e-compose-mode . $mu4e-compose-mode-hook)
 

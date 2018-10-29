@@ -1,2 +1,2 @@
 (req-package devscripts
-  :ensure nil)
+  :ensure (devscripts :pin :external))

@@ -1,5 +1,5 @@
 (req-package darkclean-theme
-  :ensure nil
+  :ensure (darkclean-theme :pin :quelpa)
   :quelpa (darkclean-theme
            :fetcher github
            :repo "Ferk/emacs.d"

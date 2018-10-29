@@ -8,7 +8,7 @@
 ;; 1 supports more packages than 2.
 
 (req-package zenburn
-  :ensure nil
+  :ensure (zenburn :pin :quelpa)
   :quelpa (zenburn :fetcher github :repo "dbrock/zenburn-el")
   :init
   (add-to-list '**color-themes** 'color-theme-zenburn))

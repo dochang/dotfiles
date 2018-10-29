@@ -3,7 +3,7 @@
 ;; Install my version because of [[https://github.com/jcsalomon/smarttabs/pull/28]]
 
 (req-package smart-tabs-mode
-  :ensure nil
+  :ensure (smart-tabs-mode :pin :quelpa)
   :quelpa (smart-tabs-mode
            :fetcher github
            :repo "dochang/smarttabs"

@@ -1,5 +1,5 @@
 (req-package cflow
-  :ensure nil
+  :ensure (cflow :pin :el-get)
   :el-get t
   ;; The repo size of cflow is small, but the git repo has a module, gnulib,
   ;; which is a big repo.  We can't `git clone` cflow via quelpa, because it

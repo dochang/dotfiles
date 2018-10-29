@@ -1,7 +1,7 @@
 ;;; Appointments
 
 (req-package appt
-  :ensure nil
+  :ensure (appt :pin :built-in)
   :hook (emacs-startup . appt-activate)
   :custom
   (appt-audible nil)

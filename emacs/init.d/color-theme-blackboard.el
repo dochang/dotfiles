@@ -1,5 +1,5 @@
 (req-package color-theme-blackboard
-  :ensure nil
+  :ensure (color-theme-blackboard :pin :el-get-bundle)
   ;; There are 2 versions of `color-theme-blackboard'.
   ;;
   ;; 1. JD Huntington

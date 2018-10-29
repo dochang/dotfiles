@@ -1,4 +1,4 @@
 (req-package mouse
-  :ensure nil
+  :ensure (mouse :pin :built-in)
   :custom
   (mouse-yank-at-point t))

@@ -95,7 +95,7 @@ Lisp function does not specify a special indentation."
   ($lisp-mode-common-hook))
 
 (req-package lisp-mode
-  :ensure nil
+  :ensure (lisp-mode :pin :built-in)
 
   :hook (lisp-mode . $lisp-mode-hook)
 

@@ -1,4 +1,4 @@
 ;;; Help Mode
 
 (req-package help-mode
-  :ensure nil)
+  :ensure (help-mode :pin :built-in))

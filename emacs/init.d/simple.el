@@ -1,5 +1,5 @@
 (req-package simple
-  :ensure nil
+  :ensure (simple :pin :built-in)
 
   :hook ((emacs-startup . column-number-mode)
          (emacs-startup . global-visual-line-mode)

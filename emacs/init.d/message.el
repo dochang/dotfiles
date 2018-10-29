@@ -13,7 +13,7 @@ return value of `message-unique-id'."
     (and ($uuidgen-p uuid) uuid)))
 
 (req-package message
-  :ensure nil
+  :ensure (message :pin :built-in)
 
   :custom
 

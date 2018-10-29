@@ -8,5 +8,5 @@
 
 (when (version< emacs-version "25.1")
   (req-package cal-china-plus
-    :ensure nil
+    :ensure (cal-china-plus :pin :quelpa)
     :quelpa (cal-china-plus :fetcher github :repo "leoliu/cal-china-plus")))

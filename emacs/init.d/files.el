@@ -1,6 +1,6 @@
 (req-package files
 
-  :ensure nil
+  :ensure (files :pin :built-in)
 
   :custom
 

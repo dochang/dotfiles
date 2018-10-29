@@ -1,5 +1,5 @@
 (req-package dired-async
-  :ensure nil
+  :ensure async
   :after dired
   :init
   (dired-async-mode))

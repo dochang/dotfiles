@@ -8,5 +8,5 @@
   (setq indent-tabs-mode nil))
 
 (req-package prog-mode
-  :ensure nil
+  :ensure (prog-mode :pin :built-in)
   :hook (prog-mode . $prog-mode-hook))

@@ -21,7 +21,7 @@
     (flymake-mode 1)))
 
 (req-package elisp-mode
-  :ensure nil
+  :ensure (elisp-mode :pin :built-in)
 
   :mode ("Cask\\'" . emacs-lisp-mode)
 

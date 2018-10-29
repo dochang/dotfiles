@@ -1,5 +1,5 @@
 (req-package color-theme-empty-void
-  :ensure nil
+  :ensure (color-theme-empty-void :pin :el-get-bundle)
   :el-get-bundle (color-theme-empty-void
                   :website "http://www.emacswiki.org/emacs/color-theme-empty-void.el"
                   :description "The Empty Void color theme, by mtvoid (based on sunburst)"

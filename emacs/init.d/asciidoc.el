@@ -11,7 +11,7 @@
   ;;
   ;; No need to specify `:after' since we call `eval-after-load' explicitly.
 
-  :ensure nil
+  :ensure (asciidoc :pin :quelpa)
 
   :quelpa (asciidoc :fetcher github :repo "metaperl/asciidoc-el")
 

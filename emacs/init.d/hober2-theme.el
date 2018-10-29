@@ -3,7 +3,7 @@
 ;; http://tess.oconnor.cx/config/
 
 (req-package hober2-theme
-  :ensure nil
+  :ensure (hober2-theme :pin :quelpa)
   :quelpa (hober2-theme
            :fetcher url
            :url "http://edward.oconnor.cx/config/elisp/hober2-theme.el")

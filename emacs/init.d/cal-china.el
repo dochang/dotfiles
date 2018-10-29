@@ -1,2 +1,2 @@
 (req-package cal-china
-  :ensure nil)
+  :ensure (cal-china :pin :built-in))

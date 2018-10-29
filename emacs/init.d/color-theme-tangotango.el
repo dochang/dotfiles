@@ -1,5 +1,5 @@
 (req-package color-theme-tangotango
-  :ensure nil
+  :ensure (color-theme-tangotango :pin :quelpa)
   :quelpa (color-theme-tangotango
            :fetcher github
            :repo "juba/color-theme-tangotango")

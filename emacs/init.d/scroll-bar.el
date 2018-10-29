@@ -1,3 +1,3 @@
 (req-package scroll-bar
-  :ensure nil
+  :ensure (scroll-bar :pin :built-in)
   :hook (emacs-startup . (lambda () (set-scroll-bar-mode 'left))))

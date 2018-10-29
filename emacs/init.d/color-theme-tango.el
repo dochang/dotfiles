@@ -1,5 +1,5 @@
 (req-package color-theme-tango
-  :ensure nil
+  :ensure (color-theme-tango :pin :el-get)
   :el-get t
   ;; Unable to use :el-get-bundle here.  color-theme-tango depends on
   ;; color-theme in the original el-get recipes.  el-get-bundle merge the

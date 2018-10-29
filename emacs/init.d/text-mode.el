@@ -1,4 +1,4 @@
 ;;; Text Mode
 
 (req-package text-mode
-  :ensure nil)
+  :ensure (text-mode :pin :built-in))

@@ -4,7 +4,7 @@
 ;; http://tess.oconnor.cx/config/
 
 (req-package color-theme-hober2
-  :ensure nil
+  :ensure (color-theme-hober2 :pin :quelpa)
   :quelpa (color-theme-hober2
            :fetcher url
            :url "http://edward.oconnor.cx/elisp/color-theme-hober2.el")

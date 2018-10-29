@@ -1,5 +1,5 @@
 (req-package dream-theme
-  :ensure nil
+  :ensure (dream-theme :pin :el-get-bundle)
   ;; We can't install it via quelpa due to this error:
   ;;
   ;; ```

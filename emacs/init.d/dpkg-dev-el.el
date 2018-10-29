@@ -1,2 +1,2 @@
 (req-package dpkg-dev-el
-  :ensure nil)
+  :ensure (dpkg-dev-el :pin :external))

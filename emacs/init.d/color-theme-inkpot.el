@@ -1,5 +1,5 @@
 (req-package color-theme-inkpot
-  :ensure nil
+  :ensure (color-theme-inkpot :pin :el-get-bundle)
   ;; There are 2 versions on EmacsWiki.
   ;;
   ;; 1. [[http://www.emacswiki.org/emacs/ColorThemeInkpot]]

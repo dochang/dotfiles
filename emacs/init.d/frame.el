@@ -37,7 +37,7 @@
 
 
 (req-package frame
-  :ensure nil
+  :ensure (frame :pin :built-in)
   :hook (emacs-startup . (lambda () (blink-cursor-mode -1)))
   :init
   (add-hook 'after-make-frame-functions '$set-font))

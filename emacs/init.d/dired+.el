@@ -2,7 +2,7 @@
   :after (dired dired-x git-annex dired-filetype-face)
   ;; Load it after any other dired extensions, so that its key binding
   ;; overrides others.
-  :ensure nil
+  :ensure (dired+ :pin :quelpa)
   :quelpa (dired+
            :fetcher url
            :url "https://raw.github.com/emacsmirror/emacswiki.org/master/dired+.el")

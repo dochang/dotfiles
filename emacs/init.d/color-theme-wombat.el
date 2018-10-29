@@ -1,5 +1,5 @@
 (req-package color-theme-wombat
-  :ensure nil
+  :ensure (color-theme-wombat :pin :quelpa)
   :quelpa (color-theme-wombat
            :fetcher github
            :repo "jasonblewis/color-theme-wombat")

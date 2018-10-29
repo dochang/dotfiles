@@ -1,5 +1,5 @@
 (req-package dired-x
-  :ensure nil
+  :ensure (dired-x :pin :built-in)
   :after dired
   :commands (dired-omit-mode)
   :custom

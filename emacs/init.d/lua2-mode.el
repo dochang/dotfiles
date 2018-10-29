@@ -1,5 +1,5 @@
 (req-package lua2-mode
-  :ensure nil
+  :ensure (lua2-mode :pin :el-get-bundle)
   :el-get-bundle (lua2-mode
                   :website "http://www.enyo.de/fw/software/lua-emacs/lua2-mode.html"
                   :description "A semantic highlighting extension for lua-mode"

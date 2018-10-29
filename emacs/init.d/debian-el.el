@@ -1,2 +1,2 @@
 (req-package debian-el
-  :ensure nil)
+  :ensure (debian-el :pin :external))

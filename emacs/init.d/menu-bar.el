@@ -1,6 +1,6 @@
 (req-package menu-bar
   :after dired
-  :ensure nil
+  :ensure (menu-bar :pin :built-in)
   :commands (kill-this-buffer)
   :init
   ;; use "K" to kill dired buffer.

@@ -5,7 +5,7 @@
 ;; [[http://jaderholm.com/color-themes/color-theme-wombat+.el.sept2013]]
 
 (req-package color-theme-wombat-dark
-  :ensure nil
+  :ensure (color-theme-wombat-dark :pin :quelpa)
   :quelpa (color-theme-wombat-dark
            :fetcher github
            :repo "leoncamel/color-theme-wombat-dark")
