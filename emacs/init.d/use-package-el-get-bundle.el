@@ -39,15 +39,4 @@
          body)
       body)))
 
-(define-advice use-package-handler/:ensure
-    (:around (fn name-symbol keyword ensure rest &rest r) el-get-bundle-override-:ensure)
-  (apply fn
-         name-symbol
-         keyword
-         (if (plist-member rest :el-get-bundle)
-             nil
-           ensure)
-         rest
-         r))
-
 (use-package-el-get-bundle-set-keyword)
