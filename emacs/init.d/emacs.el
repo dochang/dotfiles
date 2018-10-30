@@ -34,6 +34,13 @@
   ;; [[info:emacs#Scrolling]]
   (scroll-preserve-screen-position t)
 
+  ;; [[info:emacs#Auto%20Scrolling][info:emacs#Auto Scrolling]]
+  ;; [[https://www.emacswiki.org/emacs/SmoothScrolling]]
+  ;; [[https://stackoverflow.com/q/3631220]]
+  ;; [[https://www.emacswiki.org/emacs/Scrolling]]
+  (scroll-conservatively 9999)
+  (scroll-margin 4)
+
   ;; UI Configuration
   (cursor-type 'bar)
   (cursor-in-non-selected-windows nil)
