@@ -1,5 +1,13 @@
 ---
 
+# https://github.com/rubygems/rubygems/issues/1668#issuecomment-233343395
+# https://stackoverflow.com/a/40150951
+- name: Update installed gems
+  command: '{{ item }}'
+  with_items:
+    - gem update --system
+    - gem update
+
 - name: Install utils
   gem:
     name: '{{ item.1 }}'
