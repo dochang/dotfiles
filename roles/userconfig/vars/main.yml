@@ -155,6 +155,7 @@ go_packages:
   - github.com/JamesClonk/vultr
   - github.com/spolu/warp/client/cmd/warp
   - github.com/github/git-sizer
+  - github.com/jedisct1/piknik
 
 rust_packages:
   - cargo-update
