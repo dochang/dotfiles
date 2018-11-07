@@ -62,5 +62,4 @@
     - dochang/binary/flarectl
     - git-extras
     - restic
-    - git-sizer
     - the_silver_searcher

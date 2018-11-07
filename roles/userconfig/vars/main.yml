@@ -154,6 +154,7 @@ go_packages:
   - github.com/google/gops
   - github.com/JamesClonk/vultr
   - github.com/spolu/warp/client/cmd/warp
+  - github.com/github/git-sizer
 
 rust_packages:
   - cargo-update
