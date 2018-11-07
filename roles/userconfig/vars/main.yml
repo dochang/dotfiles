@@ -41,11 +41,10 @@ envs:
       #
       # https://github.com/ansible/ansible-container/issues/919#issuecomment-401142364
       - molecule
-      # Do not install pbr and ansible-lint explicitly
+      # Do not install pbr, ansible-lint and yamllint explicitly
       #
-      # molecule locks on the dependencies of pbr, ansible-lint and PyYAML.  Do
-      # not install them explicitly.
-      - yamllint
+      # molecule locks on the dependencies of pbr, ansible-lint, PyYAML and
+      # yamllint.  Do not install them explicitly.
     packages2:
       - ansible-bundle
     packages3:
