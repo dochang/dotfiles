@@ -36,10 +36,10 @@ envs:
       - cryptography
       # needed by Ansible Vault
       # https://docs.ansible.com/ansible/latest/user_guide/vault.html#speeding-up-vault-operations
-      - git+https://github.com/ansible/ansible-container.git@develop
+      - git+https://github.com/ansible/ansible-container.git@develop#egg=ansible-container[docker]
       # Workaround of `ImportError: No module named 'pip.req'`
       #
-      # https://github.com/ansible/ansible-container/issues/919#issuecomment-401142364
+      # https://github.com/ansible/ansible-container/issues/919#issuecomment-433524170
       - molecule
       # Do not install pbr, ansible-lint and yamllint explicitly
       #
