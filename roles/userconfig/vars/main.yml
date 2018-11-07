@@ -82,8 +82,6 @@ envs:
       - yrm
       # Even it's YARN registry manager, it depends on npm.
       - gitbook-cli
-      - strapi@alpha
-      # https://github.com/strapi/strapi/issues/1798
     yarn_packages:
       - yo
       - json
