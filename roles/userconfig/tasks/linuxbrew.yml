@@ -6,11 +6,31 @@
     get_attributes: yes
   register: linuxbrew_home_stat
 
+- name: set linuxbrew_prefix
+  set_fact:
+    linuxbrew_prefix: /home/linuxbrew/.linuxbrew
+  when: linuxbrew_home_stat.writeable
+
+- name: set linuxbrew_prefix
+  set_fact:
+    linuxbrew_prefix: '~/.linuxbrew'
+  when: not linuxbrew_home_stat.writeable
+
+- name: set linuxbrew_repository
+  set_fact:
+    linuxbrew_repository: '{{ linuxbrew_prefix }}/Homebrew'
+
 - name: install Linuxbrew
   git:
-    dest: '{{ linuxbrew_home_stat.writeable | ternary("/home/linuxbrew/.linuxbrew", "~/.linuxbrew") }}'
+    dest: '{{ linuxbrew_repository }}'
     repo: https://github.com/Linuxbrew/brew.git
     update: no
+
+- name: symlink bin/brew
+  file:
+    path: '{{ linuxbrew_prefix }}/bin/brew'
+    src: '{{ linuxbrew_repository }}/bin/brew'
+    state: link
 
 - name: install vendor dependencies
   command: 'brew vendor-install {{ item }}'
