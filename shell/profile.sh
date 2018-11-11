@@ -202,10 +202,9 @@ prepend_to_env ${HOME}/.cask/bin PATH
 prepend_to_env ${HOME}/.cabal/bin PATH
 
 ## For Go
-: ${GOPATH:="${HOME}"}
-export GOPATH
-# https://github.com/golang/go/wiki/GOPATH
-prepend_to_env $(echo $GOPATH | sed -e 's|:|/bin:|g ; s|$|/bin|g') PATH
+: ${GOBIN:="${HOME}/bin"}
+export GOBIN
+prepend_to_env ${GOBIN} PATH
 # Set global GOROOT
 : ${GOROOT:="${LINUXBREW_ROOT}/opt/go"}
 export GOROOT
