@@ -10,7 +10,7 @@
     GOPATH: '~'
     CGO_ENABLED: 0
   with_items:
-    - '{{ envs.go_packages }}'
+    - '{{ envs.go_get_packages }}'
 
 - name: Install go linters
   command: >-
