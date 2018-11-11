@@ -19,7 +19,7 @@
 # Some units require X so do NOT enable all units.
 - name: enable systemd user unit files
   systemd:
-    user: yes
+    scope: user
     name: '{{ item }}'
     enabled: yes
   with_items:
