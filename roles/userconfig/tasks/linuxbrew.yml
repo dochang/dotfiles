@@ -61,24 +61,12 @@
     name: '{{ item }}'
     state: '{{ pkg_state }}'
   with_items:
-    - heroku
-    - proxychains-ng
-    - dochang/binary/ipfs
-    - dochang/binary/terraform
-    - dochang/binary/jid
-    - dochang/binary/hugo
-    - dochang/binary/arduino
-    - go
-    - yarn
-    - dochang/binary/whalebrew
-    - dochang/binary/wuzz
-    - dochang/binary/peco
-    - dochang/binary/sift
-    - dochang/binary/git-annex
-    - dochang/binary/lnav
-    - yank
-    - pandoc
     - dochang/binary/flarectl
+    - dochang/binary/git-annex
     - git-extras
+    - go
+    - pandoc
+    - rclone
     - restic
     - the_silver_searcher
+    - yarn
