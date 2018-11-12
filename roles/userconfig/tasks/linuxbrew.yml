@@ -55,11 +55,18 @@
   with_items:
     - beeftornado/rmtree
     - dochang/binary
+    - dochang/tap
 
 - name: install/upgrade Linuxbrew packages
   homebrew:
     name: '{{ item }}'
     state: '{{ pkg_state }}'
+  environment:
+    HOMEBREW_DEVELOPER: 1
+    # I have to enable this variable because I don't want to clone the taps as
+    # shallow.  I can pass `--full` but it's boring.
+    #
+    # https://github.com/Linuxbrew/brew/blob/1.7.6/Library/Homebrew/cmd/tap.rb#L62
   with_items:
     - dochang/binary/flarectl
     - dochang/binary/git-annex
@@ -70,3 +77,33 @@
     - restic
     - the_silver_searcher
     - yarn
+    - dep
+    - govendor
+    - go-bindata
+    # The original project is deprecated.  The original author has deleted its
+    # account.  The user `jteeuwen` is a newly registered user. [1]
+    #
+    # [1]: https://github.com/jteeuwen/go-bindata/issues/5
+    #
+    # Active, notable forks are:
+    #
+    #  1. https://github.com/kevinburke/go-bindata
+    #  2. https://github.com/go-bindata/go-bindata
+    #  3. https://github.com/tmthrgd/go-bindata
+    #  4. https://github.com/lestrrat-go/bindata
+    #
+    # We use 1 because Homebrew and Linuxbrew use it.
+    - direnv
+    - devd
+    - modd
+    - git-appraise
+    - doctl
+    - vultr
+    - warp
+    - git-sizer
+    - piknik
+    - dochang/tap/croc
+    - dochang/tap/deplist
+    - dochang/tap/godef
+    - dochang/tap/gopkgs
+    - dochang/tap/gops

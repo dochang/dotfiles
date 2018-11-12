@@ -118,42 +118,18 @@ env_versions:
 
 go_get_packages:
   # dependency management / vendor management
-  - github.com/golang/dep/cmd/dep
   - golang.org/x/vgo
   - github.com/FiloSottile/gvt
   - github.com/dpw/vendetta
   - github.com/gomatic/git-freeze
-  - github.com/kardianos/govendor
   # dev tools
   - golang.org/x/tools/cmd/goimports
   - golang.org/x/tools/cmd/gomvpkg
   - golang.org/x/tools/cmd/gorename
-  - github.com/kevinburke/go-bindata/go-bindata
-  # The original project is deprecated.  The original author has deleted its
-  # account.  The user `jteeuwen` is a newly registered user. [1]
-  #
-  # [1]: https://github.com/jteeuwen/go-bindata/issues/5
-  #
-  # Active, notable forks are:
-  #
-  #  1. https://github.com/kevinburke/go-bindata
-  #  2. https://github.com/go-bindata/go-bindata
-  #  3. https://github.com/tmthrgd/go-bindata
-  #  4. https://github.com/lestrrat-go/bindata
-  #
-  # We use 1 because Homebrew and Linuxbrew use it.
   - github.com/elazarl/go-bindata-assetfs/go-bindata-assetfs
   - github.com/alecthomas/gometalinter
   - github.com/shurcooL/binstale
   - golang.org/x/tools/cmd/guru
-  - github.com/uudashr/gopkgs/cmd/gopkgs
-  # There are 3 variants of gopkgs:
-  #
-  #  1. https://github.com/uudashr/gopkgs
-  #  2. https://github.com/haya14busa/gopkgs
-  #  3. https://github.com/tpng/gopkgs
-  #
-  # We use 1 because it supports Go modules.
   - github.com/mdempsky/gocode
   # The official repository is [1]. Go modules support is being added in [2].
   #
@@ -166,21 +142,11 @@ go_get_packages:
   # [3]: https://github.com/mdempsky/gocode/issues/46#issuecomment-427282575
   - github.com/sourcegraph/go-langserver
   # utils
-  - github.com/direnv/direnv
   - github.com/joho/godotenv/cmd/godotenv
-  - github.com/cortesi/devd/cmd/devd
-  - github.com/cortesi/modd/cmd/modd
-  - github.com/google/git-appraise/git-appraise
   - github.com/homburg/git-get
-  - github.com/digitalocean/doctl/cmd/doctl
   - github.com/bradleyfalzon/revgrep/cmd/revgrep
   - github.com/aybabtme/humanlog/cmd/humanlog
   - github.com/gchaincl/httplab/cmd/httplab
-  - github.com/google/gops
-  - github.com/JamesClonk/vultr
-  - github.com/spolu/warp/client/cmd/warp
-  - github.com/github/git-sizer
-  - github.com/jedisct1/piknik
 
 rust_packages:
   - cargo-update
