@@ -11,12 +11,3 @@
     CGO_ENABLED: 0
   with_items:
     - '{{ envs.go_get_packages }}'
-
-- name: Install go linters
-  command: >-
-    gometalinter --install
-    {{ (pkg_state == "latest") | ternary("--update", "") }}
-  environment:
-    GOROOT: '~/.linuxbrew/opt/go'
-    GOPATH: '~'
-    CGO_ENABLED: 0

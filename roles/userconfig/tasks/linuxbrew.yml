@@ -107,3 +107,4 @@
     - dochang/tap/godef
     - dochang/tap/gopkgs
     - dochang/tap/gops
+    - dochang/binary/gometalinter

@@ -127,7 +127,6 @@ go_get_packages:
   - golang.org/x/tools/cmd/gomvpkg
   - golang.org/x/tools/cmd/gorename
   - github.com/elazarl/go-bindata-assetfs/go-bindata-assetfs
-  - github.com/alecthomas/gometalinter
   - github.com/shurcooL/binstale
   - golang.org/x/tools/cmd/guru
   - github.com/mdempsky/gocode
