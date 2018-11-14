@@ -6,8 +6,7 @@
     {{ (pkg_state == "latest") | ternary("-u", "") }}
     {{ item }}
   environment:
-    GOROOT: '~/.linuxbrew/opt/go'
-    GOPATH: '~'
+    GOENV_VERSION: system
     CGO_ENABLED: 0
   with_items:
     - '{{ envs.go_get_packages }}'
