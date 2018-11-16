@@ -56,6 +56,20 @@
     - beeftornado/rmtree
     - dochang/binary
     - dochang/tap
+    - xtaniguchimasaya/fonts
+
+# https://github.com/xtaniguchimasaya/homebrew-fonts#working-with-fontconfig
+# https://dev.to/xtaniguchimasaya/linuxbrew-as-a-font-manager-5af2
+- name: ensure {{ linuxbrew_prefix }}/share/fonts present
+  file:
+    path: '{{ linuxbrew_prefix }}/share/fonts'
+    state: directory
+
+- name: symlink fonts directory
+  file:
+    path: '~/.fonts'
+    src: '{{ linuxbrew_prefix }}/share/fonts'
+    state: link
 
 - name: install/upgrade Linuxbrew packages
   homebrew:
