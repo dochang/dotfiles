@@ -5,4 +5,8 @@
 ;; [2]: https://orgmode.org/manual/Clean-view.html#FOOT144
 
 (req-package adaptive-wrap
-  :hook (org-mode . adaptive-wrap-prefix-mode))
+  ;; :hook (org-mode . adaptive-wrap-prefix-mode)
+  ;;
+  ;; Sadly we have to disable `adaptive-wrap-prefix-mode' in `org-mode' because
+  ;; it's very slow on huge files.
+  )
