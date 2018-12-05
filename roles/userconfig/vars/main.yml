@@ -29,6 +29,7 @@ envs:
       - httpstat
       - caniusepython3
       - autorandr
+      - codespell
       - ansible
       - netaddr
       # needed by Ansible `ipaddr` filter
