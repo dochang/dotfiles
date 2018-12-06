@@ -12,6 +12,14 @@ prompt_debian_setup "$@"
 
 
 ### Completion
+
+# For brew zsh completion
+#
+# https://github.com/Linuxbrew/brew/blob/master/docs/Shell-Completion.md#configuring-completions-in-zsh
+if type brew &>/dev/null; then
+	FPATH=$(brew --prefix)/share/zsh/site-functions:$FPATH
+fi
+
 autoload -Uz compinit
 compinit
 

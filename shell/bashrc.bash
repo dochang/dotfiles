@@ -28,3 +28,12 @@ export BASH_IT_THEME
 # Customize to your needs...
 
 {% include "shrc.sh" %}
+
+# For brew bash completion
+#
+# https://github.com/Linuxbrew/brew/blob/master/docs/Shell-Completion.md#configuring-completions-in-bash
+if type brew &>/dev/null; then
+	for completion_file in $(brew --prefix)/etc/bash_completion.d/*; do
+		source "$completion_file"
+	done
+fi
