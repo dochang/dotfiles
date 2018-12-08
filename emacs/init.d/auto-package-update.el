@@ -32,6 +32,9 @@
         (apply fn r))))
 
 (req-package auto-package-update
-  :hook (emacs-startup . auto-package-update-maybe)
+  ;; :hook (emacs-startup . auto-package-update-maybe)
+  ;;
+  ;; Don't run `auto-package-update-maybe' at startup.  I don't want to wait
+  ;; for it at startup.
   :custom
   (auto-package-update-delete-old-versions t))
