@@ -1,0 +1,4 @@
+[Desktop Entry]
+Type=Application
+Name=nm-applet
+Exec=xx-daemon nm-applet --background --make-pidfile --oknodo --start
