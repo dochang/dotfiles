@@ -2,4 +2,4 @@
   (ignore-errors (apply fn r)))
 
 (req-package prettier-js
-  :hook ((js-mode) . prettier-js-mode))
+  :hook ((js-mode typescript-mode) . prettier-js-mode))
