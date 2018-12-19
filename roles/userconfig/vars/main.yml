@@ -97,6 +97,7 @@ envs:
       - lebab
       - nativefier
       - typescript
+      - tslint
       - flow-language-server
       - vscode-html-languageserver-bin
       - vscode-css-languageserver-bin
