@@ -96,6 +96,7 @@ envs:
       - git-stats
       - lebab
       - nativefier
+      - typescript
       - flow-language-server
       - vscode-html-languageserver-bin
       - vscode-css-languageserver-bin
