@@ -1,0 +1,5 @@
+---
+
+- name: add rustup components
+  command: 'rustup component add {{ item }}'
+  loop: '{{ rustup_components }}'

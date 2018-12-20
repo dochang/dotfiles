@@ -46,6 +46,10 @@
   tags:
     - go
 
+- import_tasks: rustup.yml
+  tags:
+    - rust
+
 - import_tasks: cargo.yml
   tags:
     - cargo

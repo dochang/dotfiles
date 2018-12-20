@@ -151,6 +151,14 @@ go_get_packages:
   - github.com/aybabtme/humanlog/cmd/humanlog
   - github.com/gchaincl/httplab/cmd/httplab
 
+rustup_components:
+  - rustfmt
+  # https://github.com/rust-lang/rustfmt#quick-start
+  - rls-preview rust-analysis rust-src
+  # https://github.com/rust-lang/rls#step-2-install-the-rls
+  - clippy
+  # https://github.com/rust-lang/rust-clippy#step-2-install-clippy
+
 rust_packages:
   - cargo-update
   - cargo-deb
