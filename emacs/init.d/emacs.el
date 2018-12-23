@@ -38,8 +38,21 @@
   ;; [[https://www.emacswiki.org/emacs/SmoothScrolling]]
   ;; [[https://stackoverflow.com/q/3631220]]
   ;; [[https://www.emacswiki.org/emacs/Scrolling]]
-  (scroll-conservatively 9999)
   (scroll-margin 4)
+  (scroll-conservatively scroll-margin)
+  ;; Why not set it to a big number like 9999?  Because it will cause
+  ;; `search-forward' doesn't recenter the point if it moves off screen.  I
+  ;; found this problem when I tried to revert a dired buffer.
+  ;;
+  ;; The call stack:
+  ;;
+  ;; `revert-buffer'
+  ;; -> `revert-buffer-function'
+  ;; -> `dired-revert'
+  ;; -> `dired-restore-positions'
+  ;; -> `dired-goto-file'
+  ;; -> `dired-goto-file-1'
+  ;; -> `search-forward'
 
   ;; UI Configuration
   (cursor-type 'bar)
