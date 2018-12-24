@@ -14,6 +14,29 @@
   with_fileglob:
     - systemd/user/*.service
 
+- name: ensure emacs "drop-in" systemd directory present
+  file:
+    path: '~/.config/systemd/user/emacs.service.d'
+    state: directory
+
+- name: install emacs "drop-in" systemd config files
+  synchronize:
+    dest: '~/.config/systemd/user/emacs.service.d/'
+    src: systemd/user/emacs.service.d/
+    partial: no
+    delete: yes
+  notify:
+    - reload systemd user daemon
+
+- name: install deprecated systemd user unit files
+  template:
+    dest: '~/.config/systemd/user/emacs.service'
+    src: systemd/user/emacs.service.deprecated
+    mode: '600'
+  notify:
+    - reload systemd user daemon
+  when: '"/usr/lib/systemd/user/emacs.service" is not exists'
+
 - meta: flush_handlers
 
 # Some units require X so do NOT enable all units.

@@ -3,17 +3,10 @@ Description=emacs
 
 [Service]
 Type=forking
-# Explicitly set XMODIFIERS
-#
-# https://wiki.archlinux.org/index.php/fcitx#Emacs_Daemon
-Environment="LC_CTYPE=zh_CN.UTF-8" "XMODIFIERS=@im=fcitx"
 ExecStart=/bin/sh -l -c 'exec emacs --daemon=systemd'
 ExecStop=/bin/sh -l -c 'exec emacsclient --server-file=systemd --eval "(kill-emacs)"'
 Restart=always
 WorkingDirectory=~
-# Sometimes Emacs daemon upgrades ELPA packages during start-up.  This may take
-# a long time.  Disable TimeoutStartSec.
-TimeoutStartSec=infinity
 
 [Install]
 WantedBy=default.target
