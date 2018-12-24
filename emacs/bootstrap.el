@@ -27,23 +27,27 @@
 (setq package-enable-at-startup nil)
 (package-initialize)
 
-(or (require 'mb-url nil 'noerror)
-    (el-get 'sync 'mb-url)
-    (el-get-bundle! mb-url in dochang/mb-url
-      :branch "master"
-      :depends ()
-      :library mb-url))
+;; The URL package now supports HTTPS over proxies supporting CONNECT.  We
+;; don't need mb-url any more.
+(when (version< emacs-version "26")
 
-(setq mb-url-http-backend 'mb-url-http-curl)
-(advice-add 'url-http :around 'mb-url-http-around-advice)
+  (or (require 'mb-url nil 'noerror)
+      (el-get 'sync 'mb-url)
+      (el-get-bundle! mb-url in dochang/mb-url
+        :branch "master"
+        :depends ()
+        :library mb-url))
 
-(unless (package-installed-p 'mb-url)
-  (unless (assq 'mb-url package-archive-contents)
-    (package-refresh-contents))
-  (package-install 'mb-url))
-;; If mb-url has not been installed, I believe the archive contents are empty.
-;; If mb-url cannot be installed, clear the archive.
+  (setq mb-url-http-backend 'mb-url-http-curl)
+  (advice-add 'url-http :around 'mb-url-http-around-advice)
 
-;; Delete el-get bootstrap mb-url
-(when (el-get-package-installed-p 'mb-url)
-  (el-get-remove 'mb-url))
+  (unless (package-installed-p 'mb-url)
+    (unless (assq 'mb-url package-archive-contents)
+      (package-refresh-contents))
+    (package-install 'mb-url))
+  ;; If mb-url has not been installed, I believe the archive contents are empty.
+  ;; If mb-url cannot be installed, clear the archive.
+
+  ;; Delete el-get bootstrap mb-url
+  (when (el-get-package-installed-p 'mb-url)
+    (el-get-remove 'mb-url)))
