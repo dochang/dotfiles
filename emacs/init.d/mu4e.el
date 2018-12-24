@@ -12,7 +12,7 @@
   :hook (mu4e-compose-mode . $mu4e-compose-mode-hook)
 
   :custom
-  (mu4e-maildir (expand-file-name (or (getenv "MAILDIR") "~/Maildir")))
+  (mu4e-maildir (expand-file-name (or (getenv "MAILDIR") "{{ dotfiles_maildir }}")))
   (mu4e-attachment-dir (expand-file-name "~/Downloads/"))
   (mu4e-change-filenames-when-moving t)
   ;; Change the filename when moving messages to different folders.

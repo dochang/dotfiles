@@ -43,6 +43,7 @@
     src: 'emacs/init.d/{{ item }}.el'
   with_items:
     - emacs
+    - mu4e
 
 - name: remove emacs disabled init files
   file:

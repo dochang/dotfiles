@@ -1,6 +1,7 @@
 ## The first matched rule wins.
 
 - emacs.el
+- mu4e.el
 # These files contains Ansible templates.  Do not deploy them by rsync and do
 # not delete them.
 
