@@ -158,4 +158,5 @@
     ("l" org-store-link "store link")
     ("L" org-insert-link-global "insert link global")
     ("o" org-open-at-point-global "open at point global")
-    ("q" nil "quit")))
+    ("q" nil "quit")
+    ("r" org-randomnote "random note")))
