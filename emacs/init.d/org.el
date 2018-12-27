@@ -155,6 +155,7 @@
     ("b" org-iswitchb "iswitchb")
     ("c" org-capture "capture")
     ("C" cfw:open-org-calendar "calendar")
+    ("i" org-cliplink "cliplink")
     ("l" org-store-link "store link")
     ("L" org-insert-link-global "insert link global")
     ("o" org-open-at-point-global "open at point global")
