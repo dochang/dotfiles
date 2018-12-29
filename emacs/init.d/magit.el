@@ -6,5 +6,6 @@
 (req-package magit
   :bind (("C-c g" . magit-status))
   :custom
+  (magit-status-show-hashes-in-headers t)
   ;; Don't pop a new window.
   (magit-display-buffer-function 'magit-display-buffer-same-window-except-diff-v1))
