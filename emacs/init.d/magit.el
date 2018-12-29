@@ -7,4 +7,4 @@
   :bind (("C-c g" . magit-status))
   :custom
   ;; Don't pop a new window.
-  (magit-status-buffer-switch-function 'switch-to-buffer))
+  (magit-display-buffer-function 'magit-display-buffer-same-window-except-diff-v1))
