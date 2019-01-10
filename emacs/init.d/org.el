@@ -1,5 +1,17 @@
 ;;; Org
 
+(defun $org-mode-hook ()
+  ;; `visual-line-mode-map' and `smartparens-strict-mode-map' overrides
+  ;; `org-mode-map'.  Rebind some org-mode commands.
+  (mapc (lambda (map)
+          (local-set-key (car map) (cdr map)))
+        (mapcar (lambda (map)
+                  (cons (kbd (car map)) (cdr map)))
+                '(("C-a" . org-beginning-of-line)
+                  ("C-d" . org-delete-char)
+                  ("C-e" . org-end-of-line)
+                  ("C-k" . org-kill-line)))))
+
 (defun $org-load-hook ()
   ;; `org-cycle-hide-drawers` doesn't work if `org-agenda-files`
   ;; doesn't exist.  It would cause org mode cannot expand headings.
@@ -47,6 +59,7 @@
   :bind (("C-c o" . $hydra-org/body))
 
   :hook ((org-after-refile-insert . org-save-all-org-buffers)
+         (org-mode . $org-mode-hook)
          (emacs-startup . (lambda ()
                             (unless (bound-and-true-p **org-timer**)
                               (setq **org-timer** (run-at-time nil 3600 'org-agenda-to-appt))))))
