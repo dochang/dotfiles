@@ -5,6 +5,7 @@
     "extended map"
     ("c" mc/edit-lines "edit multiple lines")
     ("l" multi-line "multi-line")
+    ("p" poporg-dwim "poporg")
     ("e" emms-play-dired "play in dired")
     ("r" dired-rsync "rsync in dired")
     ("=" er/expand-region "expand region")
