@@ -3,6 +3,7 @@
   :config
   (defhydra $hydra-extended (:color teal)
     "extended map"
+    ("M-o" ace-window "ace-window")
     ("c" mc/edit-lines "edit multiple lines")
     ("l" multi-line "multi-line")
     ("p" poporg-dwim "poporg")
