@@ -48,6 +48,20 @@
 
 (advice-add 'org-refile :after #'$org-save-all-org-buffers)
 
+(defun $org-fix-header-line-format ()
+  (if (bound-and-true-p org-table-sticky-header-mode)
+      (progn
+        (setq org-table-sticky-header--old-header-line-format
+              (if (bound-and-true-p org-sticky-header-mode)
+                  org-sticky-header-header-line-format
+                nil))
+        (save-match-data
+          (org-table-sticky-header--fetch-header)))
+    (setq header-line-format
+          (if (bound-and-true-p org-sticky-header-mode)
+              org-sticky-header-header-line-format
+            nil))))
+
 (defvar **org-timer**)
 
 (req-package org
