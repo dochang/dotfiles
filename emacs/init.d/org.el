@@ -174,6 +174,8 @@
 
   (org-archive-location "%s_archive::datetree/")
 
+  (org-deadline-warning-days 1)
+
   :init
 
   (defhydra $hydra-org (:color teal)
