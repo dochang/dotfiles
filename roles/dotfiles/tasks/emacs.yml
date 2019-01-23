@@ -44,6 +44,7 @@
   with_items:
     - emacs
     - mu4e
+    - holidays
 
 - name: remove emacs disabled init files
   file:

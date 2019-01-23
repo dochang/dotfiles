@@ -41,6 +41,7 @@ dotfiles_emacs_package_archives:
   #
   # - id: SC
   #   location: http://joseito.republika.pl/sunrise-commander/
+dotfiles_emacs_holiday_other_holidays: []
 dotfiles_i3status_netdev_type: wireless
 dotfiles_i3status_netdev: wlan0
 dotfiles_i3status_vm_enabled: yes
