@@ -85,6 +85,7 @@ immediately.  Do not return unwanted file from `load-history'."
 (setq load-path
       (apply 'append
              ($subdirs-to-list "~/local/share/emacs/site-lisp/")
+             ($subdirs-to-list "{{ dotfiles_linuxbrew_prefix }}/share/emacs/site-lisp/")
              **default-load-path**
              ;; Enable contributed extensions to org-mode on Debian
              (list "/usr/share/org-mode/lisp")
