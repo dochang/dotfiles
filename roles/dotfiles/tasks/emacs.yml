@@ -45,6 +45,7 @@
     - emacs
     - mu4e
     - holidays
+    - homebrew-mode
 
 - name: remove emacs disabled init files
   file:

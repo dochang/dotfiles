@@ -5,7 +5,7 @@
          ;; Install Linuxbrew into /home/linuxbrew
          ;;
          ;; https://github.com/Linuxbrew/brew/issues/762
-         (setq homebrew-prefix "/home/linuxbrew/.linuxbrew")
+         (setq homebrew-prefix "{{ dotfiles_linuxbrew_prefix }}")
          (setq homebrew-cache-dir "~/.cache/Homebrew"))
         ((eq system-type 'darwin)
          (setq homebrew-prefix "/usr/local")

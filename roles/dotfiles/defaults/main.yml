@@ -12,6 +12,7 @@ dotfiles_password_store_dir: '${HOME}/.password-store'
 dotfiles_git_credential: dochang
 dotfiles_git_user_name: '{{ dotfiles_name }}'
 dotfiles_git_user_email: '{{ dotfiles_email }}'
+dotfiles_linuxbrew_prefix: /home/linuxbrew/.linuxbrew
 dotfiles_emacs_name: '{{ dotfiles_name }}'
 dotfiles_emacs_email: '{{ dotfiles_email }}'
 dotfiles_emacs_package_archives:
