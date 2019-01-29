@@ -125,3 +125,7 @@
     - ripgrep
     - xsv
     - shellcheck
+    - editorconfig
+    - progress
+    - jq
+    - jo
