@@ -8,4 +8,7 @@
          ;; For Rack
          ("config\\.ru\\'" . ruby-mode)
          ;; For Rake
-         ("\\.rake\\'" . ruby-mode)))
+         ("\\.rake\\'" . ruby-mode)
+         ;; For Homebrew
+         ("Brewfile\\'" . ruby-mode)
+         ))
