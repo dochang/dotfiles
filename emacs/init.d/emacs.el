@@ -26,8 +26,14 @@
 
   ;; Disable `indent-tabs-mode'.
   ;;
-  ;; `web-mode' changes indentation settings if `indent-tabs-mode' is non-nil.
-  ;; To prevent it, set the default value of `indent-tabs-mode' to `nil'.
+  ;; Do not insert tabs in indentation by default.
+  ;;
+  ;; Also, `web-mode' changes indentation settings if `indent-tabs-mode' is
+  ;; non-nil.  To prevent it, set the default value of `indent-tabs-mode' to
+  ;; `nil'.
+  ;;
+  ;; NOTE: Setting `indent-tabs-mode' to `t' does NOT mean "pressing `TAB'
+  ;; inserts a `\t'".
   (indent-tabs-mode nil)
 
   ;; Keep point at the same screen position after scrolling.

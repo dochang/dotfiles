@@ -3,7 +3,6 @@
 
 (defun $go-mode-hook ()
   ($camel-case-mode 1)
-  (setq indent-tabs-mode t)
   (set (make-local-variable 'company-backends) '(company-go))
   (add-hook 'before-save-hook '$gofmt-before-save 'append 'local))
 

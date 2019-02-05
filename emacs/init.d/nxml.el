@@ -2,8 +2,7 @@
 
 (defun $nxml-mode-hook ()
   ($run-prog-mode-hook)
-  ($camel-case-mode 1)
-  (setq indent-tabs-mode nil))
+  ($camel-case-mode 1))
 
 (req-package nxml
   :hook (nxml-mode . $nxml-mode-hook)

@@ -16,11 +16,10 @@
   ;; Because loading autoloads is the final step of package initialization, any
   ;; configuration will be overriden.  This code has to be here rather than in
   ;; `eval-after-load'.
-  (if ($file-name-match "\\.text\\'" buffer-file-name)
-      (progn
-        ($markdown-reset-auto-mode-alist)
-        (set-auto-mode t))
-    (setq indent-tabs-mode nil)))
+  (when ($file-name-match "\\.text\\'" buffer-file-name)
+    (progn
+      ($markdown-reset-auto-mode-alist)
+      (set-auto-mode t))))
 
 (req-package markdown-mode
   :hook (markdown-mode . $markdown-mode-hook)

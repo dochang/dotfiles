@@ -1,6 +1,5 @@
 (defun $kotlin-mode-hook ()
-  ($camel-case-mode 1)
-  (setq indent-tabs-mode nil))
+  ($camel-case-mode 1))
 
 (req-package kotlin-mode
   ;; For Kotlin script

@@ -2,8 +2,7 @@
 
 (defun $sh-mode-hook ()
   (cond ((string-match "[.]zsh\\>" buffer-file-name)
-         (sh-set-shell "zsh")))
-  (setq indent-tabs-mode t))
+         (sh-set-shell "zsh"))))
 
 (req-package sh-script
   :mode ("\\.zsh\\'" . sh-mode)
@@ -16,8 +15,6 @@
   :custom
   ;; Indentation
   ;; [[https://keramida.wordpress.com/2008/08/08/tweaking-shell-script-indentation-in-gnu-emacs/]]
-  (sh-indentation tab-width)
-  (sh-basic-offset tab-width)
   (sh-indent-for-case-label 0)
   (sh-indent-for-case-alt '+)
   ;; Use `/bin/sh` for shell scripts.
