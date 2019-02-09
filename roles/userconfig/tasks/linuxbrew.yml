@@ -129,3 +129,4 @@
     - progress
     - jq
     - jo
+    - shfmt
