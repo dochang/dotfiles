@@ -64,8 +64,7 @@ envs:
       - 2.3.8                   # 2019-03-31
     packages:
       - bundler
-      - rubocop
-      # For Emacs flycheck
+      - rufo
       - solargraph
       - travis
       - itamae
