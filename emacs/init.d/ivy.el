@@ -7,5 +7,5 @@
          ;; https://github.com/abo-abo/swiper/issues/86
          )
   :custom
-  (ivy-use-virtual-buffers t)
+  (ivy-use-virtual-buffers nil)
   (ivy-count-format "(%d/%d) "))
