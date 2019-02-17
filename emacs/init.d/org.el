@@ -176,6 +176,16 @@
 
   (org-deadline-warning-days 1)
 
+  ;; Complete the outline path in one step.
+  ;;
+  ;; When use a completion package like ido or ivy, this variable must be set
+  ;; to nil.
+  ;;
+  ;; https://github.com/abo-abo/swiper/issues/444#issuecomment-286693939
+  ;; https://github.com/syl20bnr/spacemacs/issues/3094#issuecomment-142061734
+  ;; https://github.com/abo-abo/swiper/issues/1254
+  (org-outline-path-complete-in-steps nil)
+
   :init
 
   (defhydra $hydra-org (:color teal)
