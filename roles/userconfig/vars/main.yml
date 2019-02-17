@@ -99,7 +99,6 @@ envs:
       - typescript
       - tslint
       - javascript-typescript-langserver
-      - flow-language-server
       - vscode-html-languageserver-bin
       - vscode-css-languageserver-bin
       - bash-language-server
