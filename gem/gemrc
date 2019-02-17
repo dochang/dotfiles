@@ -5,4 +5,4 @@
 - {{ dotfiles_gem_source | default("https://rubygems.org/") }}
 :update_sources: true
 :verbose: true
-install: "--env-shebang"
+install: "--env-shebang --document=yri"
