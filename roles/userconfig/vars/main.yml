@@ -98,7 +98,7 @@ envs:
       - nativefier
       - typescript
       - tslint
-      - javascript-typescript-langserver
+      - typescript-language-server
       - vscode-html-languageserver-bin
       - vscode-css-languageserver-bin
       - bash-language-server
