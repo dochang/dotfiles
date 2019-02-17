@@ -158,7 +158,7 @@
   (org-refile-allow-creating-parent-nodes 'confirm)
 
   ;; Allow to refile entries to the top level in the file.
-  (org-refile-use-outline-path 'file)
+  (org-refile-use-outline-path 'full-file-path)
 
   ;; Set targets for refiling entries.
   (org-refile-targets
