@@ -46,6 +46,10 @@ envs:
       #
       # molecule locks on the dependencies of pbr, ansible-lint, PyYAML and
       # yamllint.  Do not install them explicitly.
+      - git+https://github.com/timothycrosley/isort.git@develop#egg=isort[requirements,pipfile,pyproject]
+      # Stable version is too old.
+      #
+      # https://github.com/timothycrosley/isort/issues/760
     packages2:
       - ansible-bundle
     packages3:
