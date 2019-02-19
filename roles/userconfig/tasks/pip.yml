@@ -1,9 +1,9 @@
 ---
-
 - name: Install utils
   pip:
     name: '{{ item.1 }}'
     state: '{{ pkg_state }}'
+    executable: pip
   environment:
     PYENV_VERSION: '{{ item.0 }}'
   notify:
@@ -17,6 +17,7 @@
   pip:
     name: '{{ item.1 }}'
     state: '{{ pkg_state }}'
+    executable: pip
   environment:
     PYENV_VERSION: '{{ item.0 }}'
   notify:
@@ -31,6 +32,7 @@
   pip:
     name: '{{ item.1 }}'
     state: '{{ pkg_state }}'
+    executable: pip
   environment:
     PYENV_VERSION: '{{ item.0 }}'
   notify:
