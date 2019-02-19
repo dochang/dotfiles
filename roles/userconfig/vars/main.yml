@@ -53,6 +53,7 @@ envs:
       # For flycheck, also install pyflakes, mccabe, pycodestyle for python-language-server.
       - python-language-server
       - pyls-isort
+      - autoflake
     version_limited_packages:
       - package: black
         match: '^(3\.6\.|3\.7\.)'
