@@ -50,6 +50,9 @@ envs:
       # Stable version is too old.
       #
       # https://github.com/timothycrosley/isort/issues/760
+    version_limited_packages:
+      - package: black
+        match: '^(3\.6\.|3\.7\.)'
     packages2:
       - ansible-bundle
     packages3:

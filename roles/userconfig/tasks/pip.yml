@@ -12,6 +12,20 @@
     - '{{ envs.pyenv.versions }}'
     - '{{ envs.pyenv.packages }}'
 
+- name: Install version limited packages
+  pip:
+    name: '{{ item.1.package }}'
+    state: '{{ pkg_state }}'
+    executable: pip
+  environment:
+    PYENV_VERSION: '{{ item.0 }}'
+  notify:
+    - pyenv rehash
+  with_nested:
+    - '{{ envs.pyenv.versions }}'
+    - '{{ envs.pyenv.version_limited_packages }}'
+  when: 'item.0 is match(item.1.match)'
+
 # These utils currently supports Python 2 only.
 - name: Install Python 2 utils
   pip:
