@@ -18,7 +18,6 @@ envs:
       - virtualenv
       - virtualenvwrapper
       - twine
-      - python-language-server[all]
       - httpie
       # https://github.com/requests/requests/issues/4246#issuecomment-356336986
       - pyOpenSSL
@@ -50,8 +49,14 @@ envs:
       # Stable version is too old.
       #
       # https://github.com/timothycrosley/isort/issues/760
+      - flake8
+      # For flycheck, also install pyflakes, mccabe, pycodestyle for python-language-server.
+      - python-language-server
+      - pyls-isort
     version_limited_packages:
       - package: black
+        match: '^(3\.6\.|3\.7\.)'
+      - package: pyls-black
         match: '^(3\.6\.|3\.7\.)'
     packages2:
       - ansible-bundle
