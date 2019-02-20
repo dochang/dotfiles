@@ -1,6 +1,6 @@
 (req-package format-all
 
-  :hook (prog-mode . format-all-mode)
+  :hook ((prog-mode conf-mode) . format-all-mode)
 
   :config
 
