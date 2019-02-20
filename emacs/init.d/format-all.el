@@ -32,4 +32,12 @@
                       executable)))
            format-all-format-table)
 
+  ;; toml
+  (puthash 'prettier
+           "npm install --global prettier prettier-plugin-toml"
+           format-all-install-table)
+  (puthash 'toml-mode
+           `((prettier . ,(lambda () "toml")))
+           format-all-mode-table)
+
   )
