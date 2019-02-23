@@ -1,5 +1,4 @@
 ---
-
 - name: retrieve status of /home/linuxbrew
   stat:
     path: /home/linuxbrew
@@ -23,7 +22,7 @@
 - name: install Linuxbrew
   git:
     dest: '{{ linuxbrew_repository }}'
-    repo: https://github.com/Linuxbrew/brew.git
+    repo: https://github.com/Homebrew/brew.git
     update: no
 
 - name: symlink bin/brew
@@ -51,7 +50,7 @@
     # I have to enable this variable because I don't want to clone the taps as
     # shallow.  I can pass `--full` but it's boring.
     #
-    # https://github.com/Linuxbrew/brew/blob/1.7.6/Library/Homebrew/cmd/tap.rb#L62
+    # https://github.com/Homebrew/brew/blob/1.7.6/Library/Homebrew/cmd/tap.rb#L62
   with_items:
     - beeftornado/rmtree
     - dochang/binary
@@ -80,7 +79,7 @@
     # I have to enable this variable because I don't want to clone the taps as
     # shallow.  I can pass `--full` but it's boring.
     #
-    # https://github.com/Linuxbrew/brew/blob/1.7.6/Library/Homebrew/cmd/tap.rb#L62
+    # https://github.com/Homebrew/brew/blob/1.7.6/Library/Homebrew/cmd/tap.rb#L62
   with_items:
     - dochang/binary/flarectl
     - dochang/binary/git-annex

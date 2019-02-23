@@ -170,7 +170,7 @@ prepend_to_env ${LINUXBREW_ROOT}/bin PATH
 # I have to enable this variable because I don't want to clone the taps as
 # shallow.  I can pass `--full` but it's boring.
 #
-# https://github.com/Linuxbrew/brew/blob/1.7.6/Library/Homebrew/cmd/tap.rb#L62
+# https://github.com/Homebrew/brew/blob/1.7.6/Library/Homebrew/cmd/tap.rb#L62
 export HOMEBREW_DEVELOPER=1
 
 ## For anyenv

@@ -31,7 +31,7 @@ export BASH_IT_THEME
 
 # For brew bash completion
 #
-# https://github.com/Linuxbrew/brew/blob/master/docs/Shell-Completion.md#configuring-completions-in-bash
+# https://github.com/Homebrew/brew/blob/master/docs/Shell-Completion.md#configuring-completions-in-bash
 if type brew &>/dev/null; then
 	for completion_file in $(brew --prefix)/etc/bash_completion.d/*; do
 		source "$completion_file"
