@@ -151,10 +151,10 @@ go_packages:
   - golang.org/x/tools/cmd/goimports
   - golang.org/x/tools/cmd/gomvpkg
   - golang.org/x/tools/cmd/gorename
-  - github.com/elazarl/go-bindata-assetfs/go-bindata-assetfs
+  - github.com/elazarl/go-bindata-assetfs/go-bindata-assetfs@master
   - github.com/shurcooL/binstale
   - golang.org/x/tools/cmd/guru
-  - github.com/stamblerre/gocode
+  - github.com/stamblerre/gocode@master
   # The official repository is [1]. Go modules support is being added in [2].
   #
   # So we use [2] for now.
@@ -183,14 +183,14 @@ go_packages:
   #
   # We use 1 because it supports Go modules.
   - github.com/google/gops
-  - github.com/oxequa/realize
-  - github.com/ahmetb/govvv
+  - github.com/oxequa/realize@master
+  - github.com/ahmetb/govvv@master
   # utils
   - github.com/myitcv/gobin
-  - github.com/joho/godotenv/cmd/godotenv
+  - github.com/joho/godotenv/cmd/godotenv@master
   - github.com/homburg/git-get
   - github.com/bradleyfalzon/revgrep/cmd/revgrep
-  - github.com/aybabtme/humanlog/cmd/humanlog
+  - github.com/aybabtme/humanlog/cmd/humanlog@master
   - github.com/astaxie/bat@master
 
 rustup_components:
