@@ -135,7 +135,14 @@ env_versions:
   - name: goenv
     versions: '{{ envs.goenv.versions }}'
 
-go_get_packages:
+go_legacy_packages:
+  # dependency management / vendor management
+  # dev tools
+  - github.com/sourcegraph/go-langserver
+  # utils
+  - github.com/gchaincl/httplab/cmd/httplab
+
+go_packages:
   # dependency management / vendor management
   - golang.org/x/vgo
   - github.com/FiloSottile/gvt
@@ -158,18 +165,6 @@ go_get_packages:
   # [1]: https://github.com/mdempsky/gocode
   # [2]: https://github.com/stamblerre/gocode
   # [3]: https://github.com/mdempsky/gocode/issues/46#issuecomment-427282575
-  - github.com/sourcegraph/go-langserver
-  # utils
-  - github.com/myitcv/gobin
-  - github.com/joho/godotenv/cmd/godotenv
-  - github.com/homburg/git-get
-  - github.com/bradleyfalzon/revgrep/cmd/revgrep
-  - github.com/aybabtme/humanlog/cmd/humanlog
-  - github.com/gchaincl/httplab/cmd/httplab
-
-gobin_packages:
-  # dependency management / vendor management
-  # dev tools
   - github.com/saibing/bingo
   - github.com/cespare/deplist
   # There are 2 variants:
@@ -190,6 +185,11 @@ gobin_packages:
   # We use 1 because it supports Go modules.
   - github.com/google/gops
   # utils
+  - github.com/myitcv/gobin
+  - github.com/joho/godotenv/cmd/godotenv
+  - github.com/homburg/git-get
+  - github.com/bradleyfalzon/revgrep/cmd/revgrep
+  - github.com/aybabtme/humanlog/cmd/humanlog
 
 rustup_components:
   - rustfmt

@@ -9,11 +9,11 @@
     CGO_ENABLED: 0
     GO111MODULE: off
   with_items:
-    - '{{ envs.go_get_packages }}'
+    - '{{ envs.go_legacy_packages }}'
 
 - name: Install go mod utils
   command: >-
-    gobin
+    go get
     {{ (pkg_state == "latest") | ternary("-u", "") }}
     {{ item }}
   environment:
@@ -21,4 +21,4 @@
     CGO_ENABLED: 0
     GO111MODULE: on
   with_items:
-    - '{{ envs.gobin_packages }}'
+    - '{{ envs.go_packages }}'
