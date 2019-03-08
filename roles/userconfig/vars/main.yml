@@ -166,6 +166,30 @@ go_get_packages:
   - github.com/aybabtme/humanlog/cmd/humanlog
   - github.com/gchaincl/httplab/cmd/httplab
 
+gobin_packages:
+  # dependency management / vendor management
+  # dev tools
+  - github.com/saibing/bingo
+  - github.com/cespare/deplist
+  # There are 2 variants:
+  #
+  #  1. https://github.com/cespare/deplist
+  #  2. https://github.com/markbates/deplist
+  #
+  # We use 1 because it requires less dependencies.
+  - github.com/rogpeppe/godef
+  - github.com/rogpeppe/gohack
+  - github.com/uudashr/gopkgs/cmd/gopkgs@master
+  # There are 3 variants:
+  #
+  #  1. https://github.com/uudashr/gopkgs
+  #  2. https://github.com/haya14busa/gopkgs
+  #  3. https://github.com/tpng/gopkgs
+  #
+  # We use 1 because it supports Go modules.
+  - github.com/google/gops
+  # utils
+
 rustup_components:
   - rustfmt
   # https://github.com/rust-lang/rustfmt#quick-start

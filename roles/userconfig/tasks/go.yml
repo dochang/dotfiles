@@ -1,5 +1,4 @@
 ---
-
 - name: Install utils
   command: >-
     go get
@@ -10,3 +9,15 @@
     CGO_ENABLED: 0
   with_items:
     - '{{ envs.go_get_packages }}'
+
+- name: Install go mod utils
+  command: >-
+    gobin
+    {{ (pkg_state == "latest") | ternary("-u", "") }}
+    {{ item }}
+  environment:
+    GOENV_VERSION: system
+    CGO_ENABLED: 0
+    GO111MODULE: on
+  with_items:
+    - '{{ envs.gobin_packages }}'
