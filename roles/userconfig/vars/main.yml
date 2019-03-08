@@ -138,7 +138,6 @@ env_versions:
 go_legacy_packages:
   # dependency management / vendor management
   # dev tools
-  - github.com/sourcegraph/go-langserver
   # utils
   - github.com/gchaincl/httplab/cmd/httplab
 
