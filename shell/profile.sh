@@ -214,6 +214,10 @@ export GOROOT
 export CGO_ENABLED=0
 # https://golang.org/cmd/go/#hdr-Vendor_Directories
 export GO15VENDOREXPERIMENT=1
+# Since Go 1.12 [1], we can always set `GO111MODULE=on`.
+#
+# [1]: https://golang.org/doc/go1.12#modules
+export GO111MODULE=on
 
 ## For Rust
 # https://github.com/rust-lang-nursery/rustup.rs#environment-variables
