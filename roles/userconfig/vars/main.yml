@@ -191,6 +191,7 @@ go_packages:
   - github.com/homburg/git-get
   - github.com/bradleyfalzon/revgrep/cmd/revgrep
   - github.com/aybabtme/humanlog/cmd/humanlog
+  - github.com/astaxie/bat@master
 
 rustup_components:
   - rustfmt
