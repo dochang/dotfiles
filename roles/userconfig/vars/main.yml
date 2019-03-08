@@ -86,10 +86,10 @@ envs:
     # prettier-ignore
     versions:
       # https://github.com/nodejs/Release#release-schedule
-      - 11.10.0            # 2019-06 Current
-      - 10.15.1            # 2021-04 LTS
-      - 8.15.0             # 2019-12 LTS
-      - 6.16.0             # 2019-04 Maintenance
+      - 11.11.0            # 2019-06 Current
+      - 10.15.3            # 2021-04 LTS
+      - 8.15.1             # 2019-12 LTS
+      - 6.17.0             # 2019-04 Maintenance
     npm_packages:
       - npm
       - npm-run
