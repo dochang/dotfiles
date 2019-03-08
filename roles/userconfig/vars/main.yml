@@ -184,6 +184,7 @@ go_packages:
   # We use 1 because it supports Go modules.
   - github.com/google/gops
   - github.com/oxequa/realize
+  - github.com/ahmetb/govvv
   # utils
   - github.com/myitcv/gobin
   - github.com/joho/godotenv/cmd/godotenv
