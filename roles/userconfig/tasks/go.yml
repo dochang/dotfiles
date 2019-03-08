@@ -7,6 +7,7 @@
   environment:
     GOENV_VERSION: system
     CGO_ENABLED: 0
+    GO111MODULE: off
   with_items:
     - '{{ envs.go_get_packages }}'
 

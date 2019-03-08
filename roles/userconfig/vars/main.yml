@@ -160,6 +160,7 @@ go_get_packages:
   # [3]: https://github.com/mdempsky/gocode/issues/46#issuecomment-427282575
   - github.com/sourcegraph/go-langserver
   # utils
+  - github.com/myitcv/gobin
   - github.com/joho/godotenv/cmd/godotenv
   - github.com/homburg/git-get
   - github.com/bradleyfalzon/revgrep/cmd/revgrep
