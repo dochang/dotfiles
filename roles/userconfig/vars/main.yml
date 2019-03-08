@@ -154,12 +154,12 @@ go_packages:
   - github.com/elazarl/go-bindata-assetfs/go-bindata-assetfs
   - github.com/shurcooL/binstale
   - golang.org/x/tools/cmd/guru
-  - github.com/mdempsky/gocode
+  - github.com/stamblerre/gocode
   # The official repository is [1]. Go modules support is being added in [2].
   #
-  # Because [2] will be merged into [1] finally.  We use [1].
+  # So we use [2] for now.
   #
-  # See [3] for details.
+  # But note that [2] will be merged into [1] finally.  See [3] for details.
   #
   # [1]: https://github.com/mdempsky/gocode
   # [2]: https://github.com/stamblerre/gocode
