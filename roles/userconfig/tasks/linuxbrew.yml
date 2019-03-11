@@ -55,7 +55,7 @@
     - beeftornado/rmtree
     - dochang/binary
     - dochang/tap
-    - xtaniguchimasaya/fonts
+    - Linuxbrew/fonts
 
 # https://github.com/xtaniguchimasaya/homebrew-fonts#working-with-fontconfig
 # https://dev.to/xtaniguchimasaya/linuxbrew-as-a-font-manager-5af2
