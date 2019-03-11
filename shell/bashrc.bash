@@ -5,6 +5,12 @@
 [ -r /etc/bash_completion ] && . /etc/bash_completion
 
 
+# sdkman-init.sh
+#
+# This comment is used to prevent sdkman install script from inserting init
+# snippet.
+
+
 
 
 #### BASH IT !!!!

@@ -288,6 +288,14 @@ export GIT_GET_PATH
 : ${GIT_GET_HOST:="github.com"}
 export GIT_GET_HOST
 
+## For [SDKMAN!][1]
+##
+## [1]: https://sdkman.io/
+: ${SDKMAN_DIR:="${HOME}/.sdkman"}
+export SDKMAN_DIR
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+[ -s "$SDKMAN_DIR/bin/sdkman-init.sh" ] && . "$SDKMAN_DIR/bin/sdkman-init.sh"
+
 case "$(get_shell)" in
 bash|zsh|ksh)
 

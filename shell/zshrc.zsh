@@ -31,6 +31,12 @@ compdef gpg2=gpg
 [ ! -r ${NENV_ROOT}/completions/zsh/_nenv ] || . ${NENV_ROOT}/completions/zsh/_nenv
 
 
+# sdkman-init.sh
+#
+# This comment is used to prevent sdkman install script from inserting init
+# snippet.
+
+
 
 
 #### OH MY ZSH !!!!
