@@ -53,8 +53,6 @@
     # https://github.com/Homebrew/brew/blob/1.7.6/Library/Homebrew/cmd/tap.rb#L62
   with_items:
     - beeftornado/rmtree
-    - dochang/binary
-    - dochang/tap
     - Linuxbrew/fonts
 
 # https://github.com/xtaniguchimasaya/homebrew-fonts#working-with-fontconfig
