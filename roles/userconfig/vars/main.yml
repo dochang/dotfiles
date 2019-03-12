@@ -208,3 +208,11 @@ cargo_packages:
   - cargo-ensure-installed
   - fd-find
   - hexyl
+
+sdkman_packages:
+  - candidate: kotlin
+    version: 1.3.21
+  - candidate: java
+    version: 11.0.2-open
+  - candidate: java
+    version: 8.0.201-oracle

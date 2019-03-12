@@ -1,0 +1,6 @@
+---
+- name: Install SDKMAN packages
+  command: >-
+    sdk install {{ item.candidate }} {{ item.version }}
+  with_items:
+    - '{{ sdkman_packages }}'
