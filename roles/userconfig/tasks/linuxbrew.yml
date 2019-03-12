@@ -124,3 +124,9 @@
     - jo
     - shfmt
     - shyiko/ktlint/ktlint
+    - aelesbao/tools/git-recursive
+    - translate-shell
+    - format-udf
+    - hr
+    - sshrc
+    - dochang/tap/git-issue

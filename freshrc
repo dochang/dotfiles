@@ -21,29 +21,13 @@ fresh bin --bin
 # Extra
 # =====
 
-fresh Russell91/sshrc sshrc --bin
-
 fresh majutsushi/urxvt-font-size font-size --file="~/.urxvt/ext/font-size"
 
 fresh https://git.zx2c4.com/password-store contrib/dmenu/passmenu --bin
 
-fresh LuRsT/hr hr --bin
-
 fresh holman/spaceman-diff spaceman-diff --bin
 
-fresh JElchison/format-udf format-udf.sh --bin
-
 fresh tumf/ansible-unit-test ansible-role-test-init --bin
-
-fresh technomancy/leiningen bin/lein --bin --ref=origin/stable
-
-fresh dspinellis/gi gi.sh --bin="~/bin/gi"
-
-fresh soimort/translate-shell trans --bin --ref=origin/gh-pages
-
-fresh Fakerr/git-recall git-recall --bin
-
-fresh aelesbao/git-recursive git-recursive --bin
 
 fresh antonlindstrom/passpwn passpwn --bin
 

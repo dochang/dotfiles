@@ -119,6 +119,7 @@ envs:
       - bash-language-server
       - dockerfile-language-server-nodejs
       - vue-language-server
+      - git-recall
   goenv:
     versions:
       - 1.11.5
@@ -216,3 +217,5 @@ sdkman_packages:
     version: 11.0.2-open
   - candidate: java
     version: 8.0.201-oracle
+  - candidate: leiningen
+    version: 2.9.1
