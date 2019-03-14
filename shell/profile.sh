@@ -163,8 +163,6 @@ export NODE_BUILD_MIRROR_URL
 # https://github.com/Linuxbrew/brew/issues/762
 : ${LINUXBREW_ROOT:="/home/linuxbrew/.linuxbrew"}
 export LINUXBREW_ROOT
-prepend_to_env ${LINUXBREW_ROOT}/sbin PATH
-prepend_to_env ${LINUXBREW_ROOT}/bin PATH
 # Enable `HOMEBREW_DEVELOPER`
 #
 # I have to enable this variable because I don't want to clone the taps as
@@ -172,6 +170,7 @@ prepend_to_env ${LINUXBREW_ROOT}/bin PATH
 #
 # https://github.com/Homebrew/brew/blob/1.7.6/Library/Homebrew/cmd/tap.rb#L62
 export HOMEBREW_DEVELOPER=1
+[ -x "${LINUXBREW_ROOT}/bin/brew" ] && eval "$("${LINUXBREW_ROOT}/bin/brew" shellenv)"
 
 ## For anyenv
 : ${ANYENV_ROOT:="${HOME}/.anyenv"}
