@@ -23,7 +23,6 @@ envs:
       - bumplus
       - qrcode
       - speedtest-cli
-      - httpstat
       - caniusepython3
       - autorandr
       - codespell
@@ -192,6 +191,7 @@ go_packages:
   - github.com/bradleyfalzon/revgrep/cmd/revgrep
   - github.com/aybabtme/humanlog/cmd/humanlog@master
   - github.com/astaxie/bat@master
+  - github.com/davecheney/httpstat@master
 
 rustup_components:
   - rustfmt
