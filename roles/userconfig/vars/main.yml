@@ -192,6 +192,8 @@ go_packages:
   - github.com/aybabtme/humanlog/cmd/humanlog@master
   - github.com/astaxie/bat@master
   - github.com/davecheney/httpstat@master
+  - github.com/rs/jaggr
+  - github.com/rs/jplot
 
 rustup_components:
   - rustfmt
