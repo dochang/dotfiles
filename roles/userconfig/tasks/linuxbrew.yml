@@ -114,7 +114,6 @@
     - git-sizer
     - piknik
     - dochang/tap/croc
-    - dochang/binary/gometalinter
     - ripgrep
     - xsv
     - shellcheck
