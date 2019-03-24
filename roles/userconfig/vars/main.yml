@@ -195,6 +195,7 @@ go_packages:
   - github.com/davecheney/httpstat@master
   - github.com/rs/jaggr
   - github.com/rs/jplot
+  - github.com/cloudflare/cloudflare-go/cmd/flarectl@master
 
 rustup_components:
   - rustfmt

@@ -79,7 +79,6 @@
     #
     # https://github.com/Homebrew/brew/blob/1.7.6/Library/Homebrew/cmd/tap.rb#L62
   with_items:
-    - dochang/binary/flarectl
     - dochang/binary/git-annex
     - git-extras
     - go
