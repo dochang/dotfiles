@@ -40,4 +40,16 @@
            `((prettier . ,(lambda () "toml")))
            format-all-mode-table)
 
+  ;; jsonnet
+  (puthash 'jsonnet "jsonnet" format-all-executable-table)
+  (puthash 'jsonnet "brew install jsonnet" format-all-install-table)
+  (puthash 'jsonnet-mode
+           `((jsonnet . ,(lambda () "jsonnet")))
+           format-all-mode-table)
+  (puthash 'jsonnet
+           (lambda (executable mode-result)
+             (ignore mode-result)
+             (format-all-buffer-easy executable "fmt" "-"))
+           format-all-format-table)
+
   )
