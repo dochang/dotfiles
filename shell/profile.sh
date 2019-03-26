@@ -170,6 +170,8 @@ export LINUXBREW_ROOT
 #
 # https://github.com/Homebrew/brew/blob/1.7.6/Library/Homebrew/cmd/tap.rb#L62
 export HOMEBREW_DEVELOPER=1
+# Sometimes it is too slow to update Homebrew taps.  Only update taps manually.
+export HOMEBREW_NO_AUTO_UPDATE=1
 [ -x "${LINUXBREW_ROOT}/bin/brew" ] && eval "$("${LINUXBREW_ROOT}/bin/brew" shellenv)"
 
 ## For anyenv
