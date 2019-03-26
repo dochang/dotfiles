@@ -9,11 +9,11 @@ export ENV
 export LANG
 
 
-: ${EMACS_SERVER_FILE:=systemd}
+: ${EMACS_SERVER_FILE:=default}
 export EMACS_SERVER_FILE
 : ${EDITOR:={{ dotfiles_editor }}}
 export EDITOR
-: ${ALTERNATE_EDITOR:=""}
+: ${ALTERNATE_EDITOR:="emacs --daemon=default"}
 export ALTERNATE_EDITOR
 ## [[info:emacs#emacsclient%20Options]]
 ##
