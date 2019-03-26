@@ -323,7 +323,7 @@ mode "command" {
         bindsym Mod1+Return exec i3-sensible-terminal
 
         # start editor
-        bindsym Mod1+e exec xx-editor
+        bindsym Mod1+e exec "emacsclient -c"
 
         # start a web browser
         bindsym XF86HomePage exec browser.sh
