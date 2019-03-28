@@ -12,7 +12,7 @@
 
 # https://www.vultr.com/faq/#downloadspeedtests
 : "${VULTR_TEST_TYPE:=1000MB}"
-: "${VULTR_REGIONS:=fra-de ams-nl par-fr lon-gb sgp hnd-jp nj-us il-us ga-us wa-us fl-us tx-us sjo-ca-us lax-ca-us syd-au}"
+: "${VULTR_REGIONS:=fra-de ams-nl par-fr lon-gb sgp hnd-jp nj-us tor-ca il-us ga-us wa-us fl-us tx-us sjo-ca-us lax-ca-us syd-au}"
 [ "${VULTR_REGIONS}" = - ] && VULTR_REGIONS=
 
 unset http_proxy
