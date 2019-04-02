@@ -62,10 +62,7 @@ envs:
       - you-get
       - linode-cli
       - HTTPolice
-      - git+https://github.com/timothycrosley/isort.git@develop#egg=isort[requirements,pipfile,pyproject]
-      # Stable version is too old.
-      #
-      # https://github.com/timothycrosley/isort/issues/760
+      - isort[requirements,pipfile,pyproject]
       - pyls-isort
   rbenv:
     # prettier-ignore
