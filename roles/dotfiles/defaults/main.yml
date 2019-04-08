@@ -63,3 +63,4 @@ dotfiles_cargo_config:
 dotfiles_arduinoide_preferences:
   - line: 'editor.linenumbers=true'
     regexp: 'editor\.linenumbers='
+dotfiles_maven_mirrors: []

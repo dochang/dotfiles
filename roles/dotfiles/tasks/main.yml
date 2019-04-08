@@ -66,6 +66,7 @@
     - src: 'bundle/config'
     - src: 'cargo/config'
     - src: 'proxychains/proxychains.conf'
+    - src: 'm2/settings.xml'
 
 - include_tasks: dotxdg.yml
   with_items:
