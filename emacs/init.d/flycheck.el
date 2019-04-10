@@ -1,7 +1,7 @@
 (req-package flycheck
   :hook (prog-mode . flycheck-mode)
   :custom
-  (flycheck-disabled-checkers '(ruby-rubocop))
+  (flycheck-disabled-checkers '())
   :config
   (flycheck-yamllint-setup)
   (flycheck-package-setup)
