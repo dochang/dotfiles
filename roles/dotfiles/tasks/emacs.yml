@@ -32,6 +32,7 @@
     src: 'emacs/{{ item }}/'
     partial: no
     delete: yes
+    times: no
   with_items:
     - init.d
     - site-lisp
