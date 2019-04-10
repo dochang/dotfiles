@@ -1,3 +1,4 @@
+#jinja2: trim_blocks: "true", lstrip_blocks: "false"
 
 
 ;;; Packages
@@ -5,9 +6,9 @@
 
 (setq package-archives
       '(
-{% for archive in dotfiles_emacs_package_archives %}
+        {% for archive in dotfiles_emacs_package_archives %}
         ({{ archive.id | to_json }} . {{ archive.location | to_json }})
-{% endfor %}
+        {% endfor %}
         ))
 
 

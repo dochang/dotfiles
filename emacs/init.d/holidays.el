@@ -1,3 +1,4 @@
+#jinja2: trim_blocks: "true", lstrip_blocks: "false"
 (req-package holidays
   :ensure (holidays :pin :built-in)
   :custom
