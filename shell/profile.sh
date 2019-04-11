@@ -26,6 +26,8 @@ export SSH_ASKPASS
 : ${SUDO_ASKPASS:=/usr/bin/ssh-askpass}
 export SUDO_ASKPASS
 ## sudo requires an absolute path to program for SUDO_ASKPASS.
+: ${GIT_ASKPASS:=pass-askpass}
+export GIT_ASKPASS
 GPG_TTY=$(tty)
 export GPG_TTY
 
