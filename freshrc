@@ -8,7 +8,7 @@
 #
 # See http://freshshell.com/readme for documentation.
 
-fresh freshshell/fresh bin/fresh --bin
+fresh freshshell/fresh bin/fresh --bin --ref=2660d3d6505c67914c5b8aa7b0bf5d578b371005
 
 # Basic
 # =====
