@@ -51,7 +51,11 @@ if ! { [ x"$(get_shell)" = xsh ] && [ -n "${ZSH_VERSION}" ] && expr "$-" : '.*i'
 			;;
 		esac
 	}
-	! is_function rbenv && [ -x "$(rbenv root)/plugins/rbenv-usergems/bin/rbenv-usergems-init" ] && {
+	is_command rbenv && {
+		! is_function rbenv
+	} && {
+		[ -x "$(rbenv root)/plugins/rbenv-usergems/bin/rbenv-usergems-init" ]
+	} && {
 		eval "$(rbenv usergems-init - $(get_shell))"
 	}
 
