@@ -4,7 +4,7 @@
 
 set -e
 
-MIRRORSITE="{{ aptsource_debian_uri }}"
+MIRRORSITE="{{ dotfiles_pbuilder_mirrorsite }}"
 
 DEBOOTSTRAP="qemu-debootstrap"
 

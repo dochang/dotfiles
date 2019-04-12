@@ -64,3 +64,4 @@ dotfiles_arduinoide_preferences:
   - line: 'editor.linenumbers=true'
     regexp: 'editor\.linenumbers='
 dotfiles_maven_mirrors: []
+dotfiles_pbuilder_mirrorsite: 'http://deb.debian.org/debian'
