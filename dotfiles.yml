@@ -84,7 +84,6 @@
               - src: 'mime-support/mailcap'
               - src: 'quilt/quiltrc'
               - src: 'dput/dput.cf'
-              - src: 'tig/tigrc'
               - src: 'wget/wgetrc'
               - src: 'xmodmap/xmodmaprc'
               - src: 'most/mostrc'
@@ -138,6 +137,7 @@
               - src: 'rofi/'
               - src: 'xx-input/'
               - src: 'autostart/'
+              - src: 'tig/'
           - type: syncs
             src2dest:
               src: '^emacs/(.*)$'
