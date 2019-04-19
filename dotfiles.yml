@@ -146,16 +146,13 @@
               - src: 'emacs/site-lisp/'
               - src: 'emacs/themes/'
               - src: 'emacs/init.d/'
-          - type: files
+          - type: globs
             module: template
             src2dest:
               src: '^emacs/init.d/(.*)$'
               dest: '.emacs.d/init.d/\1'
-            files:
-              - src: 'emacs/init.d/emacs.el'
-              - src: 'emacs/init.d/mu4e.el'
-              - src: 'emacs/init.d/holidays.el'
-              - src: 'emacs/init.d/homebrew-mode.el'
+            globs:
+              - src: 'emacs/init.d/*.tmpl.el'
           - type: globs
             state: absent
             src2dest:
