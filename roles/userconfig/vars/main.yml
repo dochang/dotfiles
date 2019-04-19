@@ -116,6 +116,7 @@ envs:
       - dockerfile-language-server-nodejs
       - vue-language-server
       - git-recall
+      - npm-install-peers
   goenv:
     versions:
       - 1.11.5
