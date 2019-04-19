@@ -156,7 +156,7 @@
           - type: globs
             state: absent
             src2dest:
-              src: '^emacs/init.disabled.d/(.*)$'
+              src: '^emacs/init.d/(.*)$'
               dest: '.emacs.d/init.d/\1'
             globs:
-              - src: 'emacs/init.disabled.d/*.el'
+              - src: 'emacs/init.d/*.disabled.el'
