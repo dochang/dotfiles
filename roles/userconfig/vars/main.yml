@@ -212,6 +212,7 @@ cargo_packages:
   - cargo-ensure-installed
   - fd-find
   - hexyl
+  - ripgrep
 
 sdkman_packages:
   - candidate: kotlin
