@@ -160,3 +160,8 @@
               dest: '.emacs.d/init.d/\1'
             globs:
               - src: 'emacs/init.d/*.disabled.el'
+          - type: globs
+            module: copy
+            mode: '700'
+            globs:
+              - src: 'bin/*'
