@@ -297,7 +297,11 @@ export GIT_GET_HOST
 : ${SDKMAN_DIR:="${HOME}/.sdkman"}
 export SDKMAN_DIR
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-[ -s "$SDKMAN_DIR/bin/sdkman-init.sh" ] && . "$SDKMAN_DIR/bin/sdkman-init.sh"
+case "$(get_shell)" in
+bash|zsh)
+	[ -s "$SDKMAN_DIR/bin/sdkman-init.sh" ] && . "$SDKMAN_DIR/bin/sdkman-init.sh"
+	;;
+esac
 
 case "$(get_shell)" in
 bash|zsh|ksh)
