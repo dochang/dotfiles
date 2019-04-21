@@ -1,0 +1,5 @@
+---
+- include_tasks: sync.yml
+  loop: '{{ outer_item.syncs }}'
+  loop_control:
+    loop_var: entry

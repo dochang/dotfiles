@@ -1,4 +1,11 @@
 ---
+dotfiles_home: '~'
+dotfiles_xdg_config_home: '{{ "/".join([dotfiles_home, ".config"]) }}'
+dotfiles_dotfiles: []
+dotfiles_default_src2dest:
+  src: '^(.*)$'
+  dest: '\1'
+
 dotfiles_repo: 'https://github.com/dochang/dotfiles.git'
 dotfiles_http_proxy: ''
 dotfiles_https_proxy: ''
@@ -30,12 +37,10 @@ dotfiles_emacs_package_archives:
   #
   # - id: marmalade
   #   location: https://marmalade-repo.org/packages/
-
   # Disable the following archives.  Their packages are too old.
   #
   # - id: ELPA
   #   location: http://tromey.com/elpa/
-
   # Disable it
   #
   # https://github.com/escherdragon/sunrise-commander/issues/57

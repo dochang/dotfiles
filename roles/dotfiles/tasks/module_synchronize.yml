@@ -1,0 +1,12 @@
+---
+- name: sync files
+  synchronize:
+    dest: '{{ fulldest }}'
+    src: '{{ entry.src }}'
+    partial: false
+    delete: true
+    times: false
+    rsync_opts:
+      - '--chmod={{ mode }}'
+      - '--size-only'
+  notify: '{{ entry.notify | default(omit) }}'

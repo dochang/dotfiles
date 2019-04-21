@@ -1,0 +1,7 @@
+---
+- include_tasks: tree.yml
+  vars:
+    tree_item_src: '{{ tree_item.src | regex_replace("/*$") }}'
+  loop: '{{ outer_item.trees }}'
+  loop_control:
+    loop_var: tree_item

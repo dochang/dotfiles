@@ -1,0 +1,5 @@
+---
+- include_tasks: glob.yml
+  loop: '{{ outer_item.globs }}'
+  loop_control:
+    loop_var: glob_item

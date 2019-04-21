@@ -1,0 +1,9 @@
+---
+- name: set src
+  set_fact:
+    src: '{{ "/".join([tree_item_src, item.path]) }}'
+
+- include_tasks: file.yml
+  vars:
+    entry: '{{ tree_item | combine({ "src": src }) }}'
+  when: (tree_item.pattern is not defined) or (src is search(tree_item.pattern))

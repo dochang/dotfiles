@@ -1,0 +1,7 @@
+---
+- name: install file
+  copy:
+    dest: '{{ fulldest }}'
+    src: '{{ entry.src }}'
+    mode: '{{ mode }}'
+  notify: '{{ entry.notify | default(omit) }}'

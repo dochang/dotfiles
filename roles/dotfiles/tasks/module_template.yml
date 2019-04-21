@@ -1,0 +1,7 @@
+---
+- name: install file
+  template:
+    dest: '{{ fulldest }}'
+    src: '{{ entry.src }}'
+    mode: '{{ mode }}'
+  notify: '{{ entry.notify | default(omit) }}'

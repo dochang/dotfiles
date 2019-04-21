@@ -1,0 +1,7 @@
+---
+- include_tasks: '{{ outer_item.type | mandatory }}.yml'
+  vars:
+    default_src2dest: '{{ outer_item.src2dest | default(dotfiles_default_src2dest) }}'
+    default_module: '{{ outer_item.module | default("file") }}'
+    default_state: '{{ outer_item.state | default("file") }}'
+    default_mode: '{{ outer_item.mode | default("600") }}'

@@ -1,0 +1,7 @@
+---
+- name: install file
+  file:
+    path: '{{ fulldest }}'
+    state: '{{ state }}'
+    mode: '{{ mode }}'
+  notify: '{{ entry.notify | default(omit) }}'

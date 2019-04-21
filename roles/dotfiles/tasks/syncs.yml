@@ -1,0 +1,4 @@
+---
+- include_tasks: syncs_mode.yml
+  vars:
+    default_mode: '{{ outer_item.mode | default("D700,F600") }}'

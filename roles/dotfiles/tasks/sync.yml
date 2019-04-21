@@ -1,0 +1,38 @@
+---
+- name: set src2dest
+  set_fact:
+    src2dest: '{{ entry.src2dest | default(default_src2dest) }}'
+
+- name: set prefix & dest
+  set_fact:
+    prefix: '{{ outer_item.prefix | default(dotfiles_home) | expanduser }}'
+    dest: '{{ entry.src | regex_replace(src2dest.src, src2dest.dest) }}'
+
+- name: set full dest
+  set_fact:
+    fulldest: '{{ ("/".join([prefix, dest])) | expanduser }}'
+    # https://github.com/pallets/jinja/issues/367#issuecomment-55356520
+
+- name: set full dest dir
+  set_fact:
+    fulldest_dir: '{{ (entry.src is directory) | ternary(fulldest, (fulldest | dirname)) }}'
+
+- name: set state & mode
+  set_fact:
+    state: '{{ entry.state | default(default_state) }}'
+    mode: '{{ entry.mode | default(default_mode) }}'
+
+- name: create directory
+  file:
+    path: '{{ fulldest_dir }}'
+    state: directory
+    mode: '{{ (fulldest_dir == prefix) | ternary("755", "700") }}'
+  when: state != 'absent'
+
+- include_tasks: 'module_synchronize.yml'
+  when: state != 'absent'
+
+- include_tasks: 'module_file.yml'
+  vars:
+    mode: '{{ (entry.src is directory) | ternary("700", "600") }}'
+  when: state == 'absent'

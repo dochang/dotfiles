@@ -1,0 +1,8 @@
+---
+- name: set src
+  set_fact:
+    src: '{{ item | relpath(playbook_dir) }}'
+
+- include_tasks: file.yml
+  vars:
+    entry: '{{ glob_item | combine({ "src": src }) }}'

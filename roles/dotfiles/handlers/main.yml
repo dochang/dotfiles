@@ -1,9 +1,16 @@
 ---
+- name: set lesskey facts
+  set_fact:
+    lesskey_output: '{{ "/".join([dotfiles_home, ".less"]) | expanduser }}'
+    lesskey_input: '{{ "/".join([dotfiles_home, ".lesskey"]) | expanduser }}'
+  listen: 'lesskey'
 
-- name: exec lesskey
-  command: lesskey
+- name: run lesskey
+  command: lesskey --output={{ lesskey_output | quote }} {{ lesskey_input | quote }}
+  listen: 'lesskey'
 
-- name: reload systemd user daemon
-  systemd:
-    user: yes
-    daemon_reload: yes
+- name: chmod .less
+  file:
+    path: '{{ lesskey_output }}'
+    mode: '600'
+  listen: 'lesskey'

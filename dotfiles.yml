@@ -2,5 +2,164 @@
 - hosts: all
 
   roles:
-
     - role: dotfiles
+      vars:
+        dotfiles_dotfiles:
+          - type: files
+            module: template
+            src2dest:
+              src: '^([^/]*)/([^.]*)\..*$'
+              dest: '.\2'
+            files:
+              - src: 'shell/inputrc'
+                src2dest:
+                  src: '^(.*)$'
+                  dest: '.inputrc'
+              - src: 'shell/profile.sh'
+              - src: 'shell/shrc.sh'
+              - src: 'shell/bash_profile.bash'
+              - src: 'shell/bashrc.bash'
+              - src: 'shell/bash_logout.bash'
+              - src: 'shell/zprofile.zsh'
+              - src: 'shell/zshrc.zsh'
+              - src: 'shell/zlogout.zsh'
+          - type: files
+            module: template
+            src2dest:
+              src: '^([^/]*)/(.*)$'
+              dest: '.\2'
+            files:
+              - src: 'nix/nix-channels'
+              - src: 'npm/npmrc'
+              - src: 'gem/gemrc'
+              - src: 'yarn/yarnrc'
+              - src: 'pbuilder/pbuilderrc'
+          - type: files
+            module: copy
+            src2dest:
+              src: '^(.*)$'
+              dest: '.\1'
+            files:
+              - src: 'gnupg/gpg.conf'
+          - type: files
+            module: copy
+            prefix: '{{ dotfiles_xdg_config_home }}'
+            files:
+              - src: 'common-lisp/config.lisp'
+          - type: globs
+            module: template
+            src2dest:
+              src: '^(.*)$'
+              dest: '.\1'
+            globs:
+              - src: 'bundle/*'
+              - src: 'cargo/*'
+              - src: 'm2/*'
+          - type: globs
+            module: template
+            prefix: '{{ dotfiles_xdg_config_home }}'
+            globs:
+              - src: 'git/*'
+              - src: 'i3status/*'
+              - src: 'pip/*'
+          - type: globs
+            module: template
+            src2dest:
+              src: '^emacs/(.*)$'
+              dest: '.emacs.d/\1'
+            globs:
+              - src: 'emacs/*.el'
+          - type: syncs
+            src2dest:
+              src: '^([^/]*)/(.*)$'
+              dest: '.\2'
+            syncs:
+              - src: 'vim/vimrc'
+              - src: 'tmux/tmux.conf'
+              - src: 'X/Xresources'
+              - src: 'X/Xsession'
+                mode: '700'
+              - src: 'gtk-2.0/gtkrc-2.0'
+              - src: 'keynav/keynavrc'
+              - src: 'mime-support/mailcap'
+              - src: 'quilt/quiltrc'
+              - src: 'dput/dput.cf'
+              - src: 'tig/tigrc'
+              - src: 'wget/wgetrc'
+              - src: 'xmodmap/xmodmaprc'
+              - src: 'most/mostrc'
+              - src: 'sshrc/sshrc'
+              - src: 'ansible/ansible.cfg'
+              - src: 'pypi/pypirc'
+              - src: 'git-buildpackage/gbp.conf'
+              - src: 'common-lisp/common-lisp.lisp'
+              - src: 'common-lisp/asdf.lisp'
+                src2dest:
+                  src: '^([^/]*)/(.*)$'
+                  dest: '\2'
+              - src: 'swank/swank.lisp'
+              - src: 'sbcl/sbclrc'
+              - src: 'clisp/clisprc.lisp'
+              - src: 'ccl/ccl-init.lisp'
+              - src: 'ecl/eclrc'
+              - src: 'cmucl/cmucl-init.lisp'
+              - src: 'prettier/prettierrc'
+              - src: 'pam/pam_environment'
+              - src: 'hyper/hyper.js'
+              - src: 'less/lesskey'
+                notify:
+                  - lesskey
+              - src: 'less/lessfilter'
+                mode: '700'
+              - src: 'gnus/gnus.el'
+          - type: syncs
+            src2dest:
+              src: '^(.*)$'
+              dest: '.\1'
+            syncs:
+              - src: 'mplayer/'
+              - src: 'fvwm/'
+              - src: 'nixpkgs/'
+              - src: 'proxychains/'
+          - type: syncs
+            prefix: '{{ dotfiles_xdg_config_home }}'
+            syncs:
+              - src: 'aria2/'
+              - src: 'thefuck/'
+              - src: 'i3/'
+              - src: 'gtk-3.0/'
+              - src: 'zathura/'
+              - src: 'conky/'
+              - src: 'mpv/'
+              - src: 'mpd/'
+              - src: 'molecule/'
+              - src: 'xx-randr/'
+                mode: '700'
+              - src: 'rofi/'
+              - src: 'xx-input/'
+              - src: 'autostart/'
+          - type: syncs
+            src2dest:
+              src: '^emacs/(.*)$'
+              dest: '.emacs.d/\1'
+            syncs:
+              - src: 'emacs/site-lisp/'
+              - src: 'emacs/themes/'
+              - src: 'emacs/init.d/'
+          - type: files
+            module: template
+            src2dest:
+              src: '^emacs/init.d/(.*)$'
+              dest: '.emacs.d/init.d/\1'
+            files:
+              - src: 'emacs/init.d/emacs.el'
+              - src: 'emacs/init.d/mu4e.el'
+              - src: 'emacs/init.d/holidays.el'
+              - src: 'emacs/init.d/homebrew-mode.el'
+          - type: globs
+            state: absent
+            src2dest:
+              src: '^emacs/init.disabled.d/(.*)$'
+              dest: '.emacs.d/init.d/\1'
+            globs:
+              - src: 'emacs/init.disabled.d/*.el'

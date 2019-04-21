@@ -1,0 +1,5 @@
+---
+- include_tasks: file.yml
+  loop: '{{ outer_item.files }}'
+  loop_control:
+    loop_var: entry
