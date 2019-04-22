@@ -19,5 +19,7 @@
 ;;
 ;; https://github.com/edvorg/req-package/issues/51#issuecomment-362154387
 (unless (package-installed-p 'use-package)
+  (unless (assq 'use-package package-archive-contents)
+    (package-refresh-contents))
   (package-install 'use-package))
 (require 'use-package nil 'noerror)
