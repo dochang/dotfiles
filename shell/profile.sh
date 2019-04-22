@@ -184,7 +184,9 @@ is_command anyenv && eval "$(anyenv init - $(get_shell))"
 
 ## For pyenv
 is_command pyenv && {
-	{ pyenv commands | grep virtualenv-init ; } >/dev/null 2>&1 || eval "$(pyenv virtualenv-init - $(get_shell))"
+	{ pyenv commands | grep -q virtualenv-init ; } && {
+		eval "$(pyenv virtualenv-init - $(get_shell))"
+	}
 	case "$(get_shell)" in
 	bash|zsh|ksh)
 		# virtualenvwrapper depends on pbr.
