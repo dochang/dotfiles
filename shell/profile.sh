@@ -196,8 +196,10 @@ is_command pyenv && {
 }
 
 ## For rbenv-usergems
-is_command rbenv && [ -x "$(rbenv root)/plugins/rbenv-usergems/bin/rbenv-usergems-init" ] && {
-	eval "$(rbenv usergems-init - $(get_shell))"
+is_command rbenv && {
+	{ rbenv commands | grep -q usergems-init ; } && {
+		eval "$(rbenv usergems-init - $(get_shell))"
+	}
 }
 
 ## For Cask
