@@ -1,1 +1,8 @@
-{{ rustup_cargo_default_config | combine(rustup_cargo_config) | to_toml(sort_keys=True) }}
+[source]
+{% for src, tbl in dotfiles_cargo_source.items() %}
+
+[source.{{ src }}]
+{% for key, val in tbl.items() %}
+{{ key }} = {{ val | to_json }}
+{% endfor %}
+{% endfor %}
