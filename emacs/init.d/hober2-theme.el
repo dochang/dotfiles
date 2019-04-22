@@ -1,12 +1,13 @@
 ;; https://www.emacswiki.org/emacs/ColorThemeCollection
 ;; http://edward.oconnor.cx/config/elisp/hober2-theme.el
 ;; http://tess.oconnor.cx/config/
+;; https://github.com/articuluxe/hober2-theme
 
 (req-package hober2-theme
   :ensure (hober2-theme :pin :quelpa)
   :quelpa (hober2-theme
-           :fetcher url
-           :url "http://edward.oconnor.cx/config/elisp/hober2-theme.el")
+           :fetcher github
+           :repo "articuluxe/hober2-theme")
   :init
   (let ((load-file-name (locate-library "hober2-theme")))
     (when (and (boundp 'custom-theme-load-path) load-file-name)
