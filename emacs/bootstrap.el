@@ -25,6 +25,12 @@
   (el-get 'sync 'package))
 
 (setq package-enable-at-startup nil)
+(require 'dired-x nil 'noerror)
+;; `dired+' reads the value of `dired-omit-files' on initializing.  This
+;; variable is defined in `dired-x'.  So `dired-x' must be loaded right before
+;; `package-initialize'.
+;;
+;; https://github.com/emacsmirror/emacswiki.org/blob/a7f52e3fbd07765dc3042a1799b2310bfc88663b/dired%2B.el#L2195
 (package-initialize)
 
 ;; The URL package now supports HTTPS over proxies supporting CONNECT.  We
