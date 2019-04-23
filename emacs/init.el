@@ -316,7 +316,6 @@ The call stack:
 
 
 (defun $after-init-hook ()
-  (load "~/.emacs_local.el" t)
   (req-package-finish)
   (el-get)
   ;; I have to put `(el-get)' after `(req-package-finish)', because I install
@@ -337,3 +336,5 @@ The call stack:
 ;; `$after-init-hook' should be added at the end because it should be
 ;; run after `color-theme-backup-original-values'.
 (add-hook 'after-init-hook '$after-init-hook t)
+
+(load "~/.emacs_local.el" t)
