@@ -1,6 +1,6 @@
 ;;; Directory Local Variables
 ;;; For more information see (info "(emacs) Directory Variables")
 
-((emacs-lisp-mode
-  (flycheck-disabled-checkers . (emacs-lisp
-                                 emacs-lisp-checkdoc))))
+(("elpa" . ((nil . ((no-byte-compile . t)))))
+ ;; https://emacs.stackexchange.com/a/36847
+ )

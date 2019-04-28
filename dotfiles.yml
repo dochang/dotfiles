@@ -69,6 +69,13 @@
               dest: '.emacs.d/\1'
             globs:
               - src: 'emacs/*.el'
+          - type: files
+            module: copy
+            src2dest:
+              src: '^emacs/(.*)$'
+              dest: '.emacs.d/\1'
+            files:
+              - src: 'emacs/.dir-locals.el'
           - type: syncs
             src2dest:
               src: '^([^/]*)/(.*)$'
