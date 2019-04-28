@@ -7,6 +7,7 @@
   (set (make-local-variable 'view-read-only) nil))
 
 (req-package dictionary
+  :require hydra
   :bind (("C-c d" . $hydra-dictionary/body)
          :map dictionary-mode-map
          ("DEL" . scroll-down))

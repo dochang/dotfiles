@@ -1,4 +1,7 @@
 (req-package bln-mode
+
+  :require hydra
+
   :bind (("C-c b" . $hydra-bln/body))
 
   :init

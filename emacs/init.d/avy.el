@@ -1,5 +1,7 @@
 (req-package avy
 
+  :require hydra
+
   :hook (emacs-startup . avy-setup-default)
 
   :init

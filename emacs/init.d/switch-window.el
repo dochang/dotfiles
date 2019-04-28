@@ -1,4 +1,7 @@
 (req-package switch-window
+
+  :require hydra
+
   :bind (("C-c w" . $hydra-switch-window/body))
 
   :custom

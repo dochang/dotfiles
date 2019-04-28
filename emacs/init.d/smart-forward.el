@@ -1,5 +1,7 @@
 (req-package smart-forward
 
+  :require hydra
+
   :bind (("C-c f" . $hydra-smart-forward/body))
 
   :commands (smart-forward

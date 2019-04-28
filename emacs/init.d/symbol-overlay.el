@@ -1,4 +1,5 @@
 (req-package symbol-overlay
+  :require hydra
   :bind (:map symbol-overlay-map
          ("M-n" . symbol-overlay-switch-forward)
          ("M-p" . symbol-overlay-switch-backward)

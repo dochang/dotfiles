@@ -1,4 +1,7 @@
 (req-package dumb-jump
+
+  :require hydra
+
   :bind (("C-c j" . $hydra-dumb-jump/body))
 
   :custom

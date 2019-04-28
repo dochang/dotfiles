@@ -1,5 +1,7 @@
 (req-package lorem-ipsum
 
+  :require hydra
+
   :bind (("C-c l" . $hydra-lorem-ipsum/body))
 
   :init
