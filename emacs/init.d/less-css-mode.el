@@ -10,5 +10,6 @@
   ;; Don't compile after saving.
   (less-css-compile-at-save nil)
   :init
-  (when (version< emacs-version "26")
+  (when (and (version< emacs-version "26")
+             (not (package-installed-p 'less-css-mode)))
     (package-install 'less-css-mode)))
