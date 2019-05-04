@@ -202,6 +202,15 @@ is_command rbenv && {
 	}
 }
 
+## For goenv
+#
+# goenv overrides `GOPATH` to avoid mixing multiple versions of golang packages
+# at `GOPATH` when using different versions of golang.  To change `GOPATH`, do
+# not set `GOPATH`, set `GOENV_GOPATH_PREFIX` instead.
+#
+# https://github.com/syndbg/goenv/blob/master/ENVIRONMENT_VARIABLES.md
+# https://github.com/syndbg/goenv/issues/72#issuecomment-478011438
+
 ## For Cask
 prepend_to_env ${HOME}/.cask/bin PATH
 
