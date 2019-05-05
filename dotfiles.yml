@@ -55,6 +55,7 @@
               - src: 'bundle/*'
               - src: 'cargo/*'
               - src: 'm2/*'
+              - src: 'gradle/init.d/*'
           - type: globs
             module: template
             prefix: '{{ dotfiles_xdg_config_home }}'
