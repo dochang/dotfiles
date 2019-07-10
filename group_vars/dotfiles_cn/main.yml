@@ -1,0 +1,57 @@
+---
+dotfiles_emacs_package_archives:
+  - id: gnu
+    location: https://elpa.emacs-china.org/gnu/
+  - id: melpa
+    location: https://elpa.emacs-china.org/melpa/
+  - id: org
+    location: https://elpa.emacs-china.org/org/
+  - id: melpa-stable
+    location: https://elpa.emacs-china.org/melpa-stable/
+
+  # Downloading marmalade archive will cause Emacs hangs at 100% CPU usage.
+  # Disable it for now.  See nicferrier/elmarmalade#106 .
+  #
+  # - id: marmalade
+  #   location: https://elpa.emacs-china.org/marmalade/
+
+  # Disable the following archives.  Their packages are too old.
+  #
+  # - id: ELPA
+  #   location: http://tromey.com/elpa/
+
+  - id: SC
+    location: https://elpa.emacs-china.org/sunrise-commander/
+dotfiles_pip_index_url: https://pypi.doubanio.com/simple
+dotfiles_npm_registry: https://npmreg.mirrors.ustc.edu.cn/
+dotfiles_npm_disturl: https://mirrors.ustc.edu.cn/node
+dotfiles_node_build_mirror_url: https://mirrors.ustc.edu.cn/node
+dotfiles_yarn_registry: https://npmreg.mirrors.ustc.edu.cn/
+dotfiles_gem_source: https://gems.ruby-china.com
+# Reduce transfer from ustc mirror.
+#
+# dotfiles_gem_source: https://mirrors.ustc.edu.cn/rubygems/
+dotfiles_rustup_dist_server: https://mirrors.ustc.edu.cn/rust-static
+dotfiles_rustup_update_root: https://mirrors.ustc.edu.cn/rust-static/rustup
+# https://lug.ustc.edu.cn/wiki/mirrors/help/rust-crates
+# http://doc.crates.io/source-replacement.html
+dotfiles_cargo_source:
+  crates-io:
+    replace-with: ustc
+  ustc:
+    registry: https://mirrors.ustc.edu.cn/crates.io-index
+dotfiles_maven_mirrors:
+  # https://www.jianshu.com/p/7fe6c7ab74f6
+  # https://help.aliyun.com/document_detail/102512.html
+  # http://mirrors.163.com/.help/maven.html
+  - id: aliyunmaven
+    mirrorOf: '*'
+    name: Aliyun Maven
+    url: https://maven.aliyun.com/repository/public
+dotfiles_pbuilder_mirrorsite: 'https://mirrors.ustc.edu.cn/debian'
+dotfiles_gradle_repos:
+  - type: mavenLocal
+  - type: maven
+    name: aliyunmaven
+    url: https://maven.aliyun.com/repository/public/
+  - type: mavenCentral
