@@ -1,0 +1,253 @@
+---
+dotfiles_misc:
+  - type: files
+    module: template
+    src2dest:
+      src: '^([^/]*)/(.*)$'
+      dest: '.\2'
+    files:
+      - src: 'nix/nix-channels'
+  - type: syncs
+    src2dest:
+      src: '^([^/]*)/(.*)$'
+      dest: '.\2'
+    syncs:
+      - src: 'sshrc/sshrc'
+  - type: syncs
+    src2dest:
+      src: '^(.*)$'
+      dest: '.\1'
+    syncs:
+      - src: 'nixpkgs/'
+      - src: 'proxychains/'
+dotfiles_shell:
+  - type: files
+    module: template
+    src2dest:
+      src: '^([^/]*)/([^.]*)\..*$'
+      dest: '.\2'
+    files:
+      - src: 'shell/inputrc'
+        src2dest:
+          src: '^(.*)$'
+          dest: '.inputrc'
+      - src: 'shell/profile.sh'
+      - src: 'shell/shrc.sh'
+      - src: 'shell/bash_profile.bash'
+      - src: 'shell/bashrc.bash'
+      - src: 'shell/bash_logout.bash'
+      - src: 'shell/zprofile.zsh'
+      - src: 'shell/zshrc.zsh'
+      - src: 'shell/zlogout.zsh'
+dotfiles_emacs:
+  - type: globs
+    module: template
+    src2dest:
+      src: '^emacs/(.*)$'
+      dest: '.emacs.d/\1'
+    globs:
+      - src: 'emacs/*.el'
+  - type: files
+    module: copy
+    src2dest:
+      src: '^emacs/(.*)$'
+      dest: '.emacs.d/\1'
+    files:
+      - src: 'emacs/.dir-locals.el'
+  - type: syncs
+    src2dest:
+      src: '^emacs/(.*)$'
+      dest: '.emacs.d/\1'
+    syncs:
+      - src: 'emacs/site-lisp/'
+      - src: 'emacs/themes/'
+      - src: 'emacs/init.d/'
+  - type: globs
+    module: template
+    src2dest:
+      src: '^emacs/init.d/(.*)$'
+      dest: '.emacs.d/init.d/\1'
+    globs:
+      - src: 'emacs/init.d/*.tmpl.el'
+  - type: globs
+    state: absent
+    src2dest:
+      src: '^emacs/init.d/(.*)$'
+      dest: '.emacs.d/init.d/\1'
+    globs:
+      - src: 'emacs/init.d/*.disabled.el'
+  - type: syncs
+    src2dest:
+      src: '^([^/]*)/(.*)$'
+      dest: '.\2'
+    syncs:
+      - src: 'gnus/gnus.el'
+dotfiles_common_lisp:
+  - type: files
+    module: copy
+    prefix: '{{ dotfiles_xdg_config_home }}'
+    files:
+      - src: 'common-lisp/config.lisp'
+  - type: syncs
+    src2dest:
+      src: '^([^/]*)/(.*)$'
+      dest: '.\2'
+    syncs:
+      - src: 'common-lisp/common-lisp.lisp'
+      - src: 'common-lisp/asdf.lisp'
+        src2dest:
+          src: '^([^/]*)/(.*)$'
+          dest: '\2'
+      - src: 'swank/swank.lisp'
+      - src: 'sbcl/sbclrc'
+      - src: 'clisp/clisprc.lisp'
+      - src: 'ccl/ccl-init.lisp'
+      - src: 'ecl/eclrc'
+      - src: 'cmucl/cmucl-init.lisp'
+dotfiles_server_only:
+  - type: syncs
+    src2dest:
+      src: '^([^/]*)/(.*)$'
+      dest: '.\2'
+    syncs:
+      - src: 'tmux/tmux.conf'
+      - src: 'wget/wgetrc'
+      - src: 'most/mostrc'
+      - src: 'less/lesskey'
+        notify:
+          - lesskey
+      - src: 'less/lessfilter'
+        mode: '700'
+  - type: syncs
+    prefix: '{{ dotfiles_xdg_config_home }}'
+    syncs:
+      - src: 'aria2/'
+dotfiles_server: '{{ dotfiles_shell + dotfiles_server_only }}'
+dotfiles_dev_only:
+  - type: files
+    module: copy
+    src2dest:
+      src: '^(.*)$'
+      dest: '.\1'
+    files:
+      - src: 'gnupg/gpg.conf'
+  - type: files
+    module: template
+    src2dest:
+      src: '^([^/]*)/(.*)$'
+      dest: '.\2'
+    files:
+      - src: 'npm/npmrc'
+      - src: 'gem/gemrc'
+      - src: 'yarn/yarnrc'
+      - src: 'pbuilder/pbuilderrc'
+  - type: globs
+    module: template
+    src2dest:
+      src: '^(.*)$'
+      dest: '.\1'
+    globs:
+      - src: 'bundle/*'
+      - src: 'cargo/*'
+      - src: 'm2/*'
+      - src: 'gradle/init.d/*'
+  - type: globs
+    module: template
+    prefix: '{{ dotfiles_xdg_config_home }}'
+    globs:
+      - src: 'git/*'
+      - src: 'pip/*'
+  - type: syncs
+    src2dest:
+      src: '^([^/]*)/(.*)$'
+      dest: '.\2'
+    syncs:
+      - src: 'vim/vimrc'
+      - src: 'quilt/quiltrc'
+      - src: 'dput/dput.cf'
+      - src: 'pypi/pypirc'
+      - src: 'git-buildpackage/gbp.conf'
+      - src: 'prettier/prettierrc'
+      - src: 'ansible/ansible.cfg'
+  - type: syncs
+    prefix: '{{ dotfiles_xdg_config_home }}'
+    syncs:
+      - src: 'thefuck/'
+      - src: 'molecule/'
+      - src: 'tig/'
+  - type: files
+    module: copy
+    mode: '700'
+    files:
+      - src: 'bin/e'
+      - src: 'bin/git-credential-pass'
+      - src: 'bin/git-detect-http-backend'
+      - src: 'bin/pass-askpass'
+      - src: 'bin/pingen'
+      - src: 'bin/v'
+dotfiles_dev: '{{ dotfiles_server + dotfiles_emacs + dotfiles_common_lisp + dotfiles_dev_only }}'
+dotfiles_desktop_only:
+  - type: globs
+    module: template
+    prefix: '{{ dotfiles_xdg_config_home }}'
+    globs:
+      - src: 'i3status/*'
+  - type: syncs
+    src2dest:
+      src: '^([^/]*)/(.*)$'
+      dest: '.\2'
+    syncs:
+      - src: 'X/Xresources'
+      - src: 'X/Xsession'
+        mode: '700'
+      - src: 'gtk-2.0/gtkrc-2.0'
+      - src: 'keynav/keynavrc'
+      - src: 'xmodmap/xmodmaprc'
+      - src: 'hyper/hyper.js'
+      - src: 'pam/pam_environment'
+      - src: 'mime-support/mailcap'
+  - type: syncs
+    src2dest:
+      src: '^(.*)$'
+      dest: '.\1'
+    syncs:
+      - src: 'mplayer/'
+      - src: 'fvwm/'
+  - type: syncs
+    prefix: '{{ dotfiles_xdg_config_home }}'
+    syncs:
+      - src: 'i3/'
+      - src: 'gtk-3.0/'
+      - src: 'zathura/'
+      - src: 'conky/'
+      - src: 'mpv/'
+      - src: 'mpd/'
+      - src: 'xx-randr/'
+        mode: '700'
+      - src: 'rofi/'
+      - src: 'xx-input/'
+      - src: 'autostart/'
+  - type: files
+    module: copy
+    mode: '700'
+    files:
+      - src: 'bin/banish-pointer.sh'
+      - src: 'bin/browser.sh'
+      - src: 'bin/display-upstream-package-from-paf'
+      - src: 'bin/json2xrandr'
+      - src: 'bin/mixer.sh'
+      - src: 'bin/passrofi'
+      - src: 'bin/rofi_run'
+      - src: 'bin/run-or-raise.sh'
+      - src: 'bin/vps-speed-test.sh'
+      - src: 'bin/xconfirm.sh'
+      - src: 'bin/xlock.sh'
+      - src: 'bin/xrandr2json'
+      - src: 'bin/X.sh'
+      - src: 'bin/xx-autostart'
+      - src: 'bin/xx-daemon'
+      - src: 'bin/xx-editor'
+      - src: 'bin/xx-input'
+      - src: 'bin/xx-randr'
+dotfiles_desktop: '{{ dotfiles_dev + dotfiles_desktop_only }}'
+dotfiles_all: '{{ dotfiles_desktop + dotfiles_misc }}'
