@@ -21,7 +21,12 @@ if type brew &>/dev/null; then
 fi
 
 autoload -Uz compinit
-compinit
+compinit -u
+# Because `$(brew --prefix)` may be group writable for multi-users, `compaudit`
+# considers `$(brew --prefix)/share/zsh/site-functions` insecure.  Load those
+# completions without asking by `compinit -u`.
+#
+# http://zsh.sourceforge.net/Doc/Release/Completion-System.html#Use-of-compinit
 
 ## https://unix.stackexchange.com/a/188951
 compdef gpg2=gpg
