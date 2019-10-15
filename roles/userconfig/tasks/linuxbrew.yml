@@ -129,3 +129,4 @@
     - sshrc
     - dochang/tap/git-issue
     - jsonnet
+    - golangci/tap/golangci-lint

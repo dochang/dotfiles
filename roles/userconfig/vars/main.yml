@@ -182,7 +182,6 @@ go_packages:
   - github.com/google/gops
   - github.com/oxequa/realize@master
   - github.com/ahmetb/govvv@master
-  - github.com/golangci/golangci-lint/cmd/golangci-lint
   - github.com/sqs/goreturns
   # utils
   - github.com/myitcv/gobin
