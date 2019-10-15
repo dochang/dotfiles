@@ -4,5 +4,4 @@
   (flycheck-disabled-checkers '())
   :config
   (flycheck-yamllint-setup)
-  (flycheck-package-setup)
-  (flycheck-gometalinter-setup))
+  (flycheck-package-setup))
