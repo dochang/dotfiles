@@ -8,4 +8,4 @@
   ;; So we have to put the modified recipe in `el-get-sources'.
   :commands (color-theme-tango)
   :init
-  (add-to-list '**color-themes** 'color-theme-tango))
+  (setq **color-themes** ($add-theme **color-themes** 'color-theme-tango)))

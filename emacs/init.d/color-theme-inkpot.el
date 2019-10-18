@@ -19,4 +19,4 @@
                   :type emacswiki)
   :commands (color-theme-inkpot)
   :init
-  (add-to-list '**color-themes** 'color-theme-inkpot))
+  (setq **color-themes** ($add-theme **color-themes** 'color-theme-inkpot)))

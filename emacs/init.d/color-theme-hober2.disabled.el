@@ -13,4 +13,4 @@
                   :url "https://github.com/genehack/emacs-lisp/raw/master/color-theme-hober2.el")
   :commands (color-theme-hober2)
   :init
-  (add-to-list '**color-themes** 'color-theme-hober2))
+  (setq **color-themes** ($add-theme **color-themes** 'color-theme-hober2)))

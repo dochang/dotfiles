@@ -1,3 +1,3 @@
 (req-package metalheart-theme
   :init
-  (add-to-list '**custom-themes** 'metalheart))
+  (setq **custom-themes** ($add-theme **custom-themes** 'metalheart)))

@@ -1,11 +1,16 @@
 (req-package kaolin-themes
-  :init
-  (add-to-list '**custom-themes** 'kaolin-aurora)
-  (add-to-list '**custom-themes** 'kaolin-bubblegum)
-  (add-to-list '**custom-themes** 'kaolin-dark)
-  (add-to-list '**custom-themes** 'kaolin-eclipse)
-  (add-to-list '**custom-themes** 'kaolin-galaxy)
-  (add-to-list '**custom-themes** 'kaolin-mono-dark)
-  (add-to-list '**custom-themes** 'kaolin-ocean)
-  (add-to-list '**custom-themes** 'kaolin-temple)
-  (add-to-list '**custom-themes** 'kaolin-valley-dark))
+  :custom
+  (**custom-themes**
+   (cl-remove-duplicates
+    (append **custom-themes**
+            '((kaolin-aurora)
+              (kaolin-bubblegum)
+              (kaolin-dark)
+              (kaolin-eclipse)
+              (kaolin-galaxy)
+              (kaolin-mono-dark)
+              (kaolin-ocean)
+              (kaolin-temple)
+              (kaolin-valley-dark))
+            '())
+    :key 'car)))

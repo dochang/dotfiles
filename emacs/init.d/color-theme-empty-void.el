@@ -9,4 +9,4 @@
                   :type emacswiki)
   :commands (color-theme-empty-void)
   :init
-  (add-to-list '**color-themes** 'color-theme-empty-void))
+  (setq **color-themes** ($add-theme **color-themes** 'color-theme-empty-void)))

@@ -1,3 +1,3 @@
 (req-package northcode-theme
   :init
-  (add-to-list '**custom-themes** 'northcode))
+  (setq **custom-themes** ($add-theme **custom-themes** 'northcode)))

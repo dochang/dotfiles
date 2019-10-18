@@ -1,3 +1,3 @@
 (req-package soothe-theme
   :init
-  (add-to-list '**custom-themes** 'soothe))
+  (setq **custom-themes** ($add-theme **custom-themes** 'soothe)))

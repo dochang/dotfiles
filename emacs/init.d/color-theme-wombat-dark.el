@@ -11,4 +11,4 @@
            :repo "leoncamel/color-theme-wombat-dark")
   :commands (color-theme-wombat-dark)
   :init
-  (add-to-list '**color-themes** 'color-theme-wombat-dark))
+  (setq **color-themes** ($add-theme **color-themes** 'color-theme-wombat-dark)))

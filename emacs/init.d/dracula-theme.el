@@ -1,3 +1,3 @@
 (req-package dracula-theme
   :init
-  (add-to-list '**custom-themes** 'dracula))
+  (setq **custom-themes** ($add-theme **custom-themes** 'dracula)))

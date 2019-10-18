@@ -288,17 +288,17 @@ The call stack:
       (delete-dups
        (append **custom-themes**
                ;; built-in
-               '(wombat tsdh-dark tango-dark manoj-dark deeper-blue)
+               '((wombat) (tsdh-dark) (tango-dark) (manoj-dark) (deeper-blue))
                '())))
 
 (setq **color-themes**
       (delete-dups
        (append **color-themes**
                ;; built-in
-               '(color-theme-tty-dark
-                 color-theme-dark-laptop
-                 color-theme-hober
-                 color-theme-midnight)
+               '((color-theme-tty-dark . (lambda () t))
+                 (color-theme-dark-laptop)
+                 (color-theme-hober)
+                 (color-theme-midnight))
                '())))
 
 

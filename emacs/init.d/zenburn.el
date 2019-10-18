@@ -11,4 +11,4 @@
   :ensure (zenburn :pin :quelpa)
   :quelpa (zenburn :fetcher github :repo "dbrock/zenburn-el")
   :init
-  (add-to-list '**color-themes** 'color-theme-zenburn))
+  (setq **color-themes** ($add-theme **color-themes** 'color-theme-zenburn)))

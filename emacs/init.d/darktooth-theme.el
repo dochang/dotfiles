@@ -1,3 +1,3 @@
 (req-package darktooth-theme
   :init
-  (add-to-list '**custom-themes** 'darktooth))
+  (setq **custom-themes** ($add-theme **custom-themes** 'darktooth)))

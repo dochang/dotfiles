@@ -9,12 +9,34 @@
 
 (defvar **color-themes** '())
 
-(defun $theme-list ()
-  (cond ((eq **theme-engine** 'custom-theme)
-         **custom-themes**)
-        ((eq **theme-engine** 'color-theme)
-         **color-themes**)
-        (t '())))
+(defun $add-theme (themes theme &optional pred override)
+  (let ((entry (assq theme themes)))
+    (cond ((and entry override)
+           (cons (cons theme pred)
+                 (assq-delete-all theme themes)))
+          ((null entry)
+           (cons (cons theme pred) themes)))))
+
+(defun $theme-list (&optional display)
+  (seq-reduce
+   (lambda (result entry)
+     (let* ((theme (car entry))
+            (pred (cdr entry))
+            (match (cond ((null pred)
+                          t)
+                         ((consp pred)
+                          (memq (framep-on-display display) pred))
+                         (t
+                          (funcall pred display)))))
+       (if match
+           (cons theme result)
+         result)))
+   (cond ((eq **theme-engine** 'custom-theme)
+          **custom-themes**)
+         ((eq **theme-engine** 'color-theme)
+          **color-themes**)
+         (t '()))
+   '()))
 
 (defvar **theme-initialized** nil)
 
@@ -43,8 +65,8 @@
 
 (defvar **theme-selector** '$random-elt)
 
-(defun $select-theme ()
-  (funcall **theme-selector** ($theme-list)))
+(defun $select-theme (&optional display)
+  (funcall **theme-selector** ($theme-list display)))
 
 (defvar **theme** nil)
 

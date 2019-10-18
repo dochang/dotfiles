@@ -5,4 +5,4 @@
            :repo "jasonblewis/color-theme-wombat")
   :commands (color-theme-wombat)
   :init
-  (add-to-list '**color-themes** 'color-theme-wombat))
+  (setq **color-themes** ($add-theme **color-themes** 'color-theme-wombat)))

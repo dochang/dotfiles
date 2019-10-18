@@ -1,3 +1,3 @@
 (req-package monochrome-theme
   :init
-  (add-to-list '**custom-themes** 'monochrome))
+  (setq **custom-themes** ($add-theme **custom-themes** 'monochrome)))

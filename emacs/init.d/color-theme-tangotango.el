@@ -5,4 +5,4 @@
            :repo "juba/color-theme-tangotango")
   :commands (color-theme-tangotango)
   :init
-  (add-to-list '**color-themes** 'color-theme-tangotango))
+  (setq **color-themes** ($add-theme **color-themes** 'color-theme-tangotango)))

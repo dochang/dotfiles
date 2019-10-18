@@ -1,3 +1,3 @@
 (req-package zeno-theme
   :init
-  (add-to-list '**custom-themes** 'zeno))
+  (setq **custom-themes** ($add-theme **custom-themes** 'zeno)))

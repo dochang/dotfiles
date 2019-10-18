@@ -31,4 +31,4 @@
                   :pkgname "jasonblewis/color-theme-blackboard")
   :commands (color-theme-blackboard)
   :init
-  (add-to-list '**color-themes** 'color-theme-blackboard))
+  (setq **color-themes** ($add-theme **color-themes** 'color-theme-blackboard)))

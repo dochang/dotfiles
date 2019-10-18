@@ -1,3 +1,3 @@
 (req-package tangotango-theme
   :init
-  (add-to-list '**custom-themes** 'tangotango))
+  (setq **custom-themes** ($add-theme **custom-themes** 'tangotango)))

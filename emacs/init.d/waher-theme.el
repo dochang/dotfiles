@@ -1,3 +1,3 @@
 (req-package waher-theme
   :init
-  (add-to-list '**custom-themes** 'waher))
+  (setq **custom-themes** ($add-theme **custom-themes** 'waher)))
