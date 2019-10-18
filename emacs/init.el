@@ -208,9 +208,6 @@ immediately.  Do not return unwanted file from `load-history'."
 (setenv "GIT_PAGER" "")
 
 
-(load (locate-user-emacs-file "theme"))
-
-
 (defun $run-prog-mode-hook ()
   "Put this function into a hook of any programming related mode,
 to ensure that `prog-mode-hook' could be executed even if the
@@ -283,7 +280,8 @@ The call stack:
               '("bootstrap"
                 "use-package"
                 "req-package"
-                "load-dir")))
+                "load-dir"
+                "theme")))
 
 
 (setq **custom-themes**
