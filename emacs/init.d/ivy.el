@@ -7,5 +7,6 @@
          ;; https://github.com/abo-abo/swiper/issues/86
          )
   :custom
+  (ivy-display-style (if (or (daemonp) (display-graphic-p)) 'fancy nil))
   (ivy-use-virtual-buffers nil)
   (ivy-count-format "(%d/%d) "))
