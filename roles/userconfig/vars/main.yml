@@ -42,8 +42,6 @@ envs:
       # molecule locks on the dependencies of pbr, ansible-lint, PyYAML and
       # yamllint.  Do not install them explicitly.
       - flake8
-      # For flycheck, also install pyflakes, mccabe, pycodestyle for python-language-server.
-      - python-language-server
       - autoflake
     version_limited_packages:
       - package: black
@@ -61,6 +59,8 @@ envs:
       - HTTPolice
       - isort[requirements,pipfile,pyproject]
       - pyls-isort
+      # For flycheck, also install pyflakes, mccabe, pycodestyle for python-language-server.
+      - python-language-server[all]
   rbenv:
     # prettier-ignore
     versions:
