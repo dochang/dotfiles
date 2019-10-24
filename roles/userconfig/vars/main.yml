@@ -19,8 +19,6 @@ envs:
       - virtualenvwrapper
       - twine
       - httpie
-      # https://github.com/requests/requests/issues/4246#issuecomment-356336986
-      - pyOpenSSL
       - bumplus
       - qrcode
       - speedtest-cli
