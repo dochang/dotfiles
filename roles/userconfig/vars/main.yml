@@ -47,9 +47,9 @@ envs:
       - autoflake
     version_limited_packages:
       - package: black
-        match: '^(3\.6\.|3\.7\.)'
+        match: '^(3\.6\.|3\.7\.|3\.8\.)'
       - package: pyls-black
-        match: '^(3\.6\.|3\.7\.)'
+        match: '^(3\.6\.|3\.7\.|3\.8\.)'
     packages2:
       - ansible-bundle
     packages3:
