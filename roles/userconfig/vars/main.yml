@@ -17,7 +17,6 @@ envs:
       - pip-autoremove
       - virtualenv
       - virtualenvwrapper
-      - twine
       - httpie
       - bumplus
       - qrcode
@@ -42,6 +41,8 @@ envs:
       - package: black
         match: '^(3\.6\.|3\.7\.|3\.8\.)'
       - package: pyls-black
+        match: '^(3\.6\.|3\.7\.|3\.8\.)'
+      - package: twine
         match: '^(3\.6\.|3\.7\.|3\.8\.)'
     packages3:
       - thefuck
