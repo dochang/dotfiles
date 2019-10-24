@@ -36,11 +36,6 @@ envs:
       # Workaround of `ImportError: No module named 'pip.req'`
       #
       # https://github.com/ansible/ansible-container/issues/919#issuecomment-433524170
-      - molecule
-      # Do not install pbr, ansible-lint and yamllint explicitly
-      #
-      # molecule locks on the dependencies of pbr, ansible-lint, PyYAML and
-      # yamllint.  Do not install them explicitly.
       - flake8
       - autoflake
     version_limited_packages:
@@ -61,6 +56,11 @@ envs:
       - pyls-isort
       # For flycheck, also install pyflakes, mccabe, pycodestyle for python-language-server.
       - python-language-server[all]
+      - molecule
+      # Do not install pbr, ansible-lint and yamllint explicitly
+      #
+      # molecule locks on the dependencies of pbr, ansible-lint, PyYAML and
+      # yamllint.  Do not install them explicitly.
   rbenv:
     # prettier-ignore
     versions:
