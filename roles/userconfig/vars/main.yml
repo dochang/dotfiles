@@ -6,10 +6,11 @@ envs:
     # prettier-ignore
     versions:
       # https://en.wikipedia.org/wiki/CPython#Version_history
-      - 3.7.2                   # 2023-06-27
-      - 3.6.8                   # 2021-12-23
-      - 3.5.6                   # 2020-09-13
-      - 2.7.16                  # 2020-01-01
+      - 3.8.0                   # 2024-10
+      - 3.7.5                   # 2023-06-27
+      - 3.6.9                   # 2021-12-23
+      - 3.5.7                   # 2020-09-13
+      - 2.7.17                  # 2020-01-01
     packages:
       - pip
       - pipenv
@@ -68,10 +69,8 @@ envs:
     # prettier-ignore
     versions:
       # https://en.wikipedia.org/wiki/Ruby_(programming_language)#Table_of_versions
-      - 2.6.1
-      - 2.5.3
-      - 2.4.5
-      - 2.3.8                   # 2019-03-31
+      - 2.6.5
+      - 2.5.7
     packages:
       - bundler
       - rufo
@@ -82,10 +81,10 @@ envs:
     # prettier-ignore
     versions:
       # https://github.com/nodejs/Release#release-schedule
-      - 11.11.0            # 2019-06 Current
-      - 10.15.3            # 2021-04 LTS
-      - 8.15.1             # 2019-12 LTS
-      - 6.17.0             # 2019-04 Maintenance
+      - 13.0.1             # 2020-06-01 Current
+      - 12.13.0            # 2022-04-30 Active LTS
+      - 10.17.0            # 2021-04-30 Active LTS
+      - 8.16.2             # 2019-12-31 Maintenance LTS
     npm_packages:
       - npm
       - npm-run
@@ -119,8 +118,8 @@ envs:
       - npm-install-peers
   goenv:
     versions:
-      - 1.11.5
-      - 1.10.8
+      - 1.13.3
+      - 1.12.12
 
 env_versions:
   - name: pyenv
