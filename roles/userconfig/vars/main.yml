@@ -75,7 +75,6 @@ envs:
       - bundler
       - rufo
       - solargraph
-      - travis
       - itamae
   nodenv:
     # prettier-ignore
