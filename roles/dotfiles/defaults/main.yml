@@ -82,3 +82,4 @@ dotfiles_gradle_repos:
   # https://docs.gradle.org/current/dsl/org.gradle.api.artifacts.dsl.RepositoryHandler.html#org.gradle.api.artifacts.dsl.RepositoryHandler:mavenLocal(org.gradle.api.Action)
   - type: mavenLocal
   - type: mavenCentral
+dotfiles_goproxy: 'https://proxy.golang.org,direct'

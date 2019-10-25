@@ -234,6 +234,8 @@ export GO15VENDOREXPERIMENT=1
 #
 # [1]: https://golang.org/doc/go1.12#modules
 export GO111MODULE=on
+: ${GOPROXY:={{ dotfiles_goproxy | default("https://proxy.golang.org,direct") }}}
+export GOPROXY
 
 ## For Rust
 # https://github.com/rust-lang-nursery/rustup.rs#environment-variables
