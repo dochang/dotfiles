@@ -157,6 +157,7 @@ dotfiles_dev_only:
     globs:
       - src: 'git/*'
       - src: 'pip/*'
+      - src: 'go/*'
   - type: syncs
     src2dest:
       src: '^([^/]*)/(.*)$'
