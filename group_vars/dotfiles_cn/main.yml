@@ -56,3 +56,6 @@ dotfiles_gradle_repos:
     url: https://maven.aliyun.com/repository/public/
   - type: mavenCentral
 dotfiles_goproxy: 'https://goproxy.cn,direct'
+# https://golang.org/cmd/go/#hdr-Module_authentication_failures
+# https://github.com/golang/go/issues/31755#issuecomment-527611727
+dotfiles_gosumdb: 'sum.golang.google.cn'
