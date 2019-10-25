@@ -236,6 +236,8 @@ export GO15VENDOREXPERIMENT=1
 export GO111MODULE=on
 : ${GOPROXY:={{ dotfiles_goproxy | default("https://proxy.golang.org,direct") }}}
 export GOPROXY
+: ${GOSUMDB:={{ dotfiles_gosumdb | default("sum.golang.org") }}}
+export GOSUMDB
 
 ## For Rust
 # https://github.com/rust-lang-nursery/rustup.rs#environment-variables

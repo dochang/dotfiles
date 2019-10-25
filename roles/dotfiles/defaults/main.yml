@@ -83,3 +83,4 @@ dotfiles_gradle_repos:
   - type: mavenLocal
   - type: mavenCentral
 dotfiles_goproxy: 'https://proxy.golang.org,direct'
+dotfiles_gosumdb: 'sum.golang.org'
