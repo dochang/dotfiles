@@ -55,3 +55,4 @@ dotfiles_gradle_repos:
     name: aliyunmaven
     url: https://maven.aliyun.com/repository/public/
   - type: mavenCentral
+dotfiles_goproxy: 'https://goproxy.cn,direct'
