@@ -123,13 +123,20 @@ env_versions:
   - name: goenv
     versions: '{{ envs.goenv.versions }}'
 
-go_legacy_packages:
+go_vendor_packages:
   # dependency management / vendor management
   # dev tools
+  - github.com/oxequa/realize
   # utils
   - github.com/gchaincl/httplab/cmd/httplab
 
-go_packages:
+go_module_packages:
+  # dependency management / vendor management
+  # dev tools
+  # utils
+  - github.com/davecheney/httpstat
+
+go_gobin_packages:
   # dependency management / vendor management
   - golang.org/x/vgo
   - github.com/FiloSottile/gvt
@@ -162,7 +169,7 @@ go_packages:
   # We use 1 because it requires less dependencies.
   - github.com/rogpeppe/godef
   - github.com/rogpeppe/gohack
-  - github.com/uudashr/gopkgs/cmd/gopkgs@master
+  - github.com/uudashr/gopkgs/cmd/gopkgs
   # There are 3 variants:
   #
   #  1. https://github.com/uudashr/gopkgs
@@ -171,7 +178,6 @@ go_packages:
   #
   # We use 1 because it supports Go modules.
   - github.com/google/gops
-  - github.com/oxequa/realize@master
   - github.com/ahmetb/govvv@master
   - github.com/sqs/goreturns
   # utils
@@ -181,7 +187,6 @@ go_packages:
   - github.com/bradleyfalzon/revgrep/cmd/revgrep
   - github.com/aybabtme/humanlog/cmd/humanlog@master
   - github.com/astaxie/bat@master
-  - github.com/davecheney/httpstat@master
   - github.com/rs/jaggr
   - github.com/rs/jplot
   - github.com/cloudflare/cloudflare-go/cmd/flarectl@master

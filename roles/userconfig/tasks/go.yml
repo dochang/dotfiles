@@ -1,5 +1,15 @@
 ---
-- name: Install utils
+- name: Install gobin
+  command: >-
+    go get
+    {{ (pkg_state == "latest") | ternary("-u", "") }}
+    github.com/myitcv/gobin
+  environment:
+    GOENV_VERSION: system
+    CGO_ENABLED: 0
+    GO111MODULE: off
+
+- name: Install go vendor based utils
   command: >-
     go get
     {{ (pkg_state == "latest") | ternary("-u", "") }}
@@ -9,9 +19,9 @@
     CGO_ENABLED: 0
     GO111MODULE: off
   with_items:
-    - '{{ envs.go_legacy_packages }}'
+    - '{{ envs.go_vendor_packages }}'
 
-- name: Install go mod utils
+- name: Install go module based utils
   command: >-
     go get
     {{ (pkg_state == "latest") | ternary("-u", "") }}
@@ -21,4 +31,16 @@
     CGO_ENABLED: 0
     GO111MODULE: on
   with_items:
-    - '{{ envs.go_packages }}'
+    - '{{ envs.go_module_packages }}'
+
+- name: Install go module based utils by gobin
+  command: >-
+    gobin
+    {{ (pkg_state == "latest") | ternary("-u", "") }}
+    {{ item }}
+  environment:
+    GOENV_VERSION: system
+    CGO_ENABLED: 0
+    GO111MODULE: on
+  with_items:
+    - '{{ envs.go_gobin_packages }}'
