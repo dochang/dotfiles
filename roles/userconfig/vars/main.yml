@@ -138,7 +138,6 @@ go_module_packages:
 
 go_gobin_packages:
   # dependency management / vendor management
-  - golang.org/x/vgo
   - github.com/FiloSottile/gvt
   - github.com/dpw/vendetta
   - github.com/gomatic/git-freeze
