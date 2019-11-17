@@ -175,6 +175,10 @@ export HOMEBREW_DEVELOPER=1
 # Sometimes it is too slow to update Homebrew taps.  Only update taps manually.
 export HOMEBREW_NO_AUTO_UPDATE=1
 [ -x "${LINUXBREW_ROOT}/bin/brew" ] && eval "$("${LINUXBREW_ROOT}/bin/brew" shellenv)"
+# Setting `MANPATH` & `INFOPATH` does not work correctly if they are unset
+# originally.  Unset them.
+unset MANPATH
+unset INFOPATH
 
 ## For anyenv
 : ${ANYENV_ROOT:="${HOME}/.anyenv"}
