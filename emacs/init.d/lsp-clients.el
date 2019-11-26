@@ -1,5 +1,5 @@
 (req-package lsp-clients
   :ensure lsp-mode
-  :after lsp
+  :after lsp-mode
   :init
   (require 'lsp-clients))

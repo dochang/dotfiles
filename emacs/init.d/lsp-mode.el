@@ -1,7 +1,7 @@
 (define-advice lsp--suggest-project-root (:after-until (&optional args) fallback-to-default-directory)
   default-directory)
 
-(req-package lsp
+(req-package lsp-mode
   :ensure lsp-mode
   :hook (prog-mode . lsp)
   :custom
