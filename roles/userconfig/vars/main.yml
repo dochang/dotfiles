@@ -158,7 +158,6 @@ go_gobin_packages:
   # [1]: https://github.com/mdempsky/gocode
   # [2]: https://github.com/stamblerre/gocode
   # [3]: https://github.com/mdempsky/gocode/issues/46#issuecomment-427282575
-  - github.com/saibing/bingo
   - github.com/cespare/deplist
   # There are 2 variants:
   #
@@ -179,6 +178,8 @@ go_gobin_packages:
   - github.com/google/gops
   - github.com/ahmetb/govvv@master
   - github.com/sqs/goreturns
+  - golang.org/x/tools/gopls@latest
+  # https://github.com/golang/tools/blob/master/gopls/doc/user.md#installation
   # utils
   - github.com/myitcv/gobin
   - github.com/joho/godotenv/cmd/godotenv@master
