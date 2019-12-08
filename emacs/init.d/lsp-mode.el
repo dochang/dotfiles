@@ -3,7 +3,7 @@
 
 (req-package lsp-mode
   :ensure lsp-mode
-  :hook (prog-mode . lsp)
+  :hook (prog-mode . lsp-deferred)
   :custom
   (lsp-auto-guess-root t)
   ;; https://github.com/emacs-lsp/lsp-python/issues/28#issuecomment-437599058
