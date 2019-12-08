@@ -59,6 +59,18 @@ export LESSCHARSET
 ## For less input pre-processor
 
 
+# Do not verify the insecure directories for completions.
+#
+# https://github.com/robbyrussell/oh-my-zsh/blob/master/lib/compfix.zsh
+#
+# `ZSH_DISABLE_COMPFIX` must be assigned in `.profile`.  When we launch zsh in
+# an X terminal emulator, zsh may not be invoked with `-l`.  Since we rarely
+# use zsh to launch X, we must ensure `ZSH_DISABLE_COMPFIX` defined in any
+# shell besides zsh.
+: ${ZSH_DISABLE_COMPFIX:=true}
+export ZSH_DISABLE_COMPFIX
+
+
 is_in_env () {
 	eval "expr \":\$${2}:\" : \".*:${1}:\" > /dev/null"
 }
