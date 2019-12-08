@@ -3,8 +3,7 @@
 
 (defun $go-mode-hook ()
   ($camel-case-mode 1)
-  (set (make-local-variable 'company-backends) '(company-go))
-  (add-hook 'before-save-hook '$gofmt-before-save 'append 'local))
+  (set (make-local-variable 'company-backends) '(company-go)))
 
 (defun $gofmt-before-save ()
   (interactive)
