@@ -1,5 +1,12 @@
 {
   "keyboards": {
+    "MOSART Semi. 2.4G Keyboard Mouse": {
+      "desc": "Mofii 2.4G Keyboard Mouse Suite, made by MosArt Semiconductor in Taiwan, PRC",
+      "options": [
+        "ctrl:nocaps",
+        "altwin:swap_alt_win"
+      ]
+    },
     "HID 0188:6796": {
       "desc": "Noppoo Choc Mini",
       "options": ["altwin:swap_alt_win"]
