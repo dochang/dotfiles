@@ -8,6 +8,6 @@
 ;; :init
 ;; (require 'org)
 ;; :hook
-(add-hook 'org-load-hook 'org-edna-load)
+(add-hook 'org-load-hook 'org-edna-mode)
 
 (req-package org-edna)
