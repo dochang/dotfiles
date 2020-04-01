@@ -211,6 +211,10 @@ is_command pyenv && {
 	esac
 }
 
+## For pipenv
+# https://pipenv.pypa.io/en/latest/install/#virtualenv-mapping-caveat
+export PIPENV_VENV_IN_PROJECT=1
+
 ## For rbenv-usergems
 is_command rbenv && {
 	{ rbenv commands | grep -q usergems-init ; } && {
