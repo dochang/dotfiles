@@ -4,13 +4,6 @@
 
   :config
 
-  (format-all--pushhash 'yaml-mode
-                        `(prettier . ,(lambda () "yaml"))
-                        format-all--mode-table)
-  ;; Use prettier to format yaml files instead of yq.
-  ;;
-  ;; https://github.com/mikefarah/yq/issues/25
-
   ;; Add isort for python-mode
   ;;
   ;; Note, currently format-all doesn't support multiple formatters for one
