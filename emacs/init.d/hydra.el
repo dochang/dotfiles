@@ -12,4 +12,5 @@
     ("r" dired-rsync "rsync in dired")
     ("o" clm/toggle-command-log-buffer "Toggle the command log window")
     ("=" er/expand-region "expand region")
-    ("s" $hydra-symbol-overlay/body "symbol overlay")))
+    ("s" $hydra-symbol-overlay/body "symbol overlay")
+    ("t" ascii-table "ascii table")))
