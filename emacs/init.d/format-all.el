@@ -25,24 +25,4 @@
                       executable)))
            format-all--format-table)
 
-  ;; toml
-  (puthash 'prettier
-           "npm install --global prettier prettier-plugin-toml"
-           format-all--install-table)
-  (format-all--pushhash 'toml-mode
-                        `(prettier . ,(lambda () "toml"))
-                        format-all--mode-table)
-
-  ;; jsonnet
-  (puthash 'jsonnet "jsonnet" format-all--executable-table)
-  (puthash 'jsonnet "brew install jsonnet" format-all--install-table)
-  (format-all--pushhash 'jsonnet-mode
-                        `(jsonnet . ,(lambda () "jsonnet"))
-                        format-all--mode-table)
-  (puthash 'jsonnet
-           (lambda (executable mode-result)
-             (ignore mode-result)
-             (format-all--buffer-easy executable "fmt" "-"))
-           format-all--format-table)
-
   )
