@@ -11,7 +11,10 @@
   ;; the `use-package' macro is evaluated.  This causes Emacs connects to
   ;; remote sites every time it starts.  We can't wait for it.  Upgrade quelpa
   ;; packages manually please.
-  (setq quelpa-update-melpa-p nil))
+  (setq quelpa-update-melpa-p nil)
+  ;; Do not update MELPA git repo every time quelpa initialized.  Only update
+  ;; the repo on `quelpa-upgrade' or `quelpa-self-upgrade'.
+  )
 
 (define-advice quelpa-build--build-single-file-package (:around (fn &rest r) dont-update-time-stamp-and-copyright)
   "This function runs `before-save-hook'.  Since installing package is a
