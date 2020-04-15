@@ -5,15 +5,15 @@
   :demand t
   ;; ensure: Ensure the package installed when the form loaded.
   :ensure t
-  :init
-  (setq quelpa-upgrade-p nil)
+  :custom
+  (quelpa-upgrade-p nil)
   ;; If `quelpa-upgrade-p' is `t', Emacs tries to upgrade quelpa packages when
   ;; the `use-package' macro is evaluated.  This causes Emacs connects to
   ;; remote sites every time it starts.  We can't wait for it.  Upgrade quelpa
   ;; packages manually please.
-  (setq quelpa-self-upgrade-p t)
+  (quelpa-self-upgrade-p t)
   ;; Upgrade quelpa itself when doing a `quelpa-upgrade-all'.
-  (setq quelpa-update-melpa-p nil)
+  (quelpa-update-melpa-p nil)
   ;; Do not update MELPA git repo every time quelpa initialized.  Only update
   ;; the repo on `quelpa-upgrade' or `quelpa-self-upgrade'.
   )
