@@ -5,8 +5,7 @@
     src: '{{ entry.src }}'
     partial: false
     delete: true
-    times: false
+    times: true
     rsync_opts:
       - '--chmod={{ mode }}'
-      - '--size-only'
   notify: '{{ entry.notify | default(omit) }}'
