@@ -22,4 +22,13 @@
               (format "isort --apply - | black -q %s -"
                       (if (format-all--buffer-extension-p "pyi") "--pyi" "")))))
 
+  (define-format-all-formatter goimports-gofmt
+    (:executable "/bin/sh")
+    (:install
+     (macos "brew install go")
+     (windows "scoop install go")
+     "go get golang.org/x/tools/cmd/goimports")
+    (:languages "Go")
+    (:format (format-all--buffer-easy executable "-c" "goimports | gofmt -s")))
+
   )

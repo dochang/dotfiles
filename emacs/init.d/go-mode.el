@@ -3,6 +3,8 @@
 
 (defun $go-mode-hook ()
   ($camel-case-mode 1)
+  ;; (add-hook 'before-save-hook '$gofmt-before-save 'append 'local)
+  ;; Format source code by format-all.
   (set (make-local-variable 'company-backends) '(company-go)))
 
 (defun $gofmt-before-save ()
