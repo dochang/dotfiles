@@ -1,0 +1,1 @@
+(req-package nginx-mode)
