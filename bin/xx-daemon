@@ -6,6 +6,9 @@ uid="$(id -u)"
 pidfile_dir="${XDG_RUNTIME_DIR:-/run/user/${uid}}"
 pidfile="${name}-${uid}-${DISPLAY}.pid"
 
+PATH="/usr/local/sbin:/usr/sbin:/sbin:$PATH"
+# Ensure that we can access `start-stop-daemon`.
+
 # Avoid `which`.  Use `command -v` instead.
 #
 # https://unix.stackexchange.com/a/85250
