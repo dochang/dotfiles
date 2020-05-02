@@ -122,6 +122,11 @@ dotfiles_server_only:
     prefix: '{{ dotfiles_xdg_config_home }}'
     syncs:
       - src: 'aria2/'
+  - type: globs
+    module: template
+    prefix: '{{ dotfiles_xdg_config_home }}'
+    globs:
+      - src: 'git/*'
 dotfiles_server: '{{ dotfiles_shell + dotfiles_server_only }}'
 dotfiles_dev_only:
   - type: files
@@ -155,7 +160,6 @@ dotfiles_dev_only:
     module: template
     prefix: '{{ dotfiles_xdg_config_home }}'
     globs:
-      - src: 'git/*'
       - src: 'pip/*'
       - src: 'go/*'
   - type: syncs
