@@ -87,7 +87,6 @@ append_to_env () {
 	fi
 }
 
-PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/local/games:/usr/games"
 export PATH
 prepend_to_env ${HOME}/.local/bin PATH
 prepend_to_env ${HOME}/local/bin PATH
@@ -151,10 +150,9 @@ prepend_to_env ${ANDROID_HOME}/tools/bin PATH
 prepend_to_env ${ANDROID_HOME}/platform-tools PATH
 
 ## nix
-# Expand HOME for Nix installer check.
-if [ -e "{{ ansible_env.HOME }}/.nix-profile/etc/profile.d/nix.sh" ]; then
-	. "{{ ansible_env.HOME }}/.nix-profile/etc/profile.d/nix.sh"
-fi
+# https://nixos.org/nix/manual/#idm140737322470304
+: ${NIX_REMOTE:=daemon}
+export NIX_REMOTE
 
 ## whalebrew
 : ${WHALEBREW_INSTALL_PATH:="${HOME}/bin"}
