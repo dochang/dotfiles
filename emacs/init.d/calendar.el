@@ -28,24 +28,24 @@ to use when highlighting the day in the calendar."
                  ;; See `calendar-chinese-from-absolute-for-diary' for details.
                  )
       (and
-       (or (and (listp dd) (memq d dd))
+       (or (and (listp dd) (memql d dd))
            (equal d dd)
            (eq dd t))
-       (or (and (listp dm) (memq m dm))
+       (or (and (listp dm) (memql m dm))
            (equal m dm)
            (eq dm t))
        (or (not dy)
-           (and (listp dy) (memq y dy))
+           (and (listp dy) (memql y dy))
            (equal y dy)
            (eq dy t))
        (cons mark entry)))))
 
 (defun $diary-chinese-hair-cutting-date (day)
-  (or ($diary-chinese-date 1 '())
+  (or ($diary-chinese-date '(1 1.5) '())
       ($diary-chinese-date 2 (list 8 day))
       ;; 8 = 2 + 6.  Must cut hair in [2-2, 2-6]. My hair will be too long
       ;; after 2-7.
-      ($diary-chinese-date (number-sequence 3 12) day)))
+      ($diary-chinese-date (number-sequence 2.5 12.5 0.5) day)))
 
 (req-package calendar
   :custom
