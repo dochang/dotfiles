@@ -12,7 +12,7 @@
 
 # https://www.vultr.com/faq/#downloadspeedtests
 : "${VULTR_TEST_TYPE:=1000MB}"
-: "${VULTR_REGIONS:=fra-de ams-nl par-fr lon-gb sgp hnd-jp nj-us tor-ca il-us ga-us wa-us fl-us tx-us sjo-ca-us lax-ca-us syd-au}"
+: "${VULTR_REGIONS:=fra-de par-fr ams-nl lon-gb nj-us sgp tor-ca sel-kor il-us ga-us fl-us hnd-jp tx-us wa-us sjo-ca-us lax-ca-us syd-au}"
 [ "${VULTR_REGIONS}" = - ] && VULTR_REGIONS=
 
 unset http_proxy
@@ -24,13 +24,13 @@ download() {
 }
 
 {
-	for region in $LINODE_REGIONS ; do
+	for region in $LINODE_REGIONS; do
 		download "LINODE:${region}" "http://speedtest.${region}.linode.com/${LINODE_TEST_TYPE}-${region}.bin"
 	done
-	for region in $DO_REGIONS ; do
+	for region in $DO_REGIONS; do
 		download "DO:${region}" "http://speedtest-${region}.digitalocean.com/${DO_TEST_TYPE}.test"
 	done
-	for region in $VULTR_REGIONS ; do
+	for region in $VULTR_REGIONS; do
 		download "VULTR:${region}" "http://${region}-ping.vultr.com/vultr.com.${VULTR_TEST_TYPE}.bin"
 	done
 } | sort --numeric-sort -r
