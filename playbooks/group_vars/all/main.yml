@@ -100,3 +100,8 @@ dotfiles_gradle_repos:
   - type: mavenCentral
 dotfiles_goproxy: 'https://proxy.golang.org,direct'
 dotfiles_gosumdb: 'sum.golang.org'
+dotfiles_electron_mirror: https://github.com/electron/electron/releases/download/
+dotfiles_electron_custom_dir: '{{ "v{{ version }}" }}'
+# https://www.electronjs.org/docs/latest/tutorial/installation#mirror
+# https://github.com/electron/get/blob/a0d0ea97850950a8a5a21a510cd4d9514af66a64/src/artifact-utils.ts#L47
+# https://github.com/electron/get/blob/a0d0ea97850950a8a5a21a510cd4d9514af66a64/src/artifact-utils.ts#L4

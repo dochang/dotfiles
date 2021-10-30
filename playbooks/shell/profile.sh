@@ -224,6 +224,15 @@ export NODE_BUILD_MIRROR_URL
 : ${SASS_BINARY_SITE:={{ dotfiles_sass_binary_site | default("https://github.com/sass/node-sass/releases/download") }}}
 export SASS_BINARY_SITE
 
+## For Electron
+# https://www.electronjs.org/docs/latest/tutorial/installation#mirror
+# https://github.com/electron/get/blob/a0d0ea97850950a8a5a21a510cd4d9514af66a64/src/artifact-utils.ts#L47
+# https://github.com/electron/get/blob/a0d0ea97850950a8a5a21a510cd4d9514af66a64/src/artifact-utils.ts#L4
+: ${ELECTRON_MIRROR:={{ dotfiles_electron_mirror | default("https://github.com/electron/electron/releases/download/") }}}
+export ELECTRON_MIRROR
+: ${ELECTRON_CUSTOM_DIR:='{{ dotfiles_electron_custom_dir | default("v{{ version }}") }}'}
+export ELECTRON_CUSTOM_DIR
+
 ## Linuxbrew
 # Install Linuxbrew into `/home/linuxbrew/`.
 #

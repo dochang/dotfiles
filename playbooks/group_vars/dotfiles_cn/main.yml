@@ -76,3 +76,8 @@ dotfiles_goproxy: 'https://goproxy.cn,direct'
 # https://golang.org/cmd/go/#hdr-Module_authentication_failures
 # https://github.com/golang/go/issues/31755#issuecomment-527611727
 dotfiles_gosumdb: 'sum.golang.google.cn'
+dotfiles_electron_mirror: http://npmmirror.com/mirrors/electron/
+dotfiles_electron_custom_dir: '{{ "{{ version }}" }}'
+# https://www.electronjs.org/docs/latest/tutorial/installation#mirror
+# https://npmmirror.com/
+# https://npmmirror.com/mirrors/
