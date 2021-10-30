@@ -11,7 +11,7 @@
 xdo_opts=''
 pattern_given=''
 
-while [ "$#" -gt 0 ] ; do
+while [ "$#" -gt 0 ]; do
 	expr x"$1" : x-- >/dev/null || pattern_given=yes
 	xdo_opts="$xdo_opts '$1'"
 	shift
@@ -20,7 +20,7 @@ done
 
 [ x"$pattern_given" = x ] && echo "No pattern !!!" && exit 1
 
-while [ x"$1" = x-- ] ; do
+while [ x"$1" = x-- ]; do
 	shift
 done
 

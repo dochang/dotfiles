@@ -7,13 +7,13 @@
 # Customization
 export XLOCKER="i3lock -c 000000"
 
-if [ -z "$XMODIFIERS" ] ; then
+if [ -z "$XMODIFIERS" ]; then
 	# `im-config` is not installed.
 	export XMODIFIERS="@im=fcitx"
 	export GTK_IM_MODULE=xim
 	export QT_IM_MODULE=xim
-	if command -v anthy-dic-tool > /dev/null && [ -r ~/.anthy/private-dic.src ] ; then
-		anthy-dic-tool --load --utf8 < ~/.anthy/private-dic.src
+	if command -v anthy-dic-tool >/dev/null && [ -r ~/.anthy/private-dic.src ]; then
+		anthy-dic-tool --load --utf8 <~/.anthy/private-dic.src
 	fi
 	fcitx -d
 fi
@@ -26,9 +26,9 @@ xsetroot -cursor_name left_ptr
 # http://www.debian-administration.org/articles/110
 xset b off
 
-if command -v autorandr >/dev/null 2>&1 ; then
+if command -v autorandr >/dev/null 2>&1; then
 	autorandr --change
-elif command -v xx-randr >/dev/null 2>&1 ; then
+elif command -v xx-randr >/dev/null 2>&1; then
 	xx-randr
 fi
 

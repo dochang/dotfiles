@@ -3,11 +3,9 @@
 : ${ENV:=~/.shrc}
 export ENV
 
-
 ### Locale Settings
 : ${LANG:=en_US.UTF-8}
 export LANG
-
 
 : ${EMACS_SERVER_FILE:=default}
 export EMACS_SERVER_FILE
@@ -20,7 +18,6 @@ export ALTERNATE_EDITOR
 ## If the Emacs server is not running, an empty string makes
 ## emacsclient run `emacs --daemon' and try to connect to it.
 
-
 : ${SSH_ASKPASS:=ssh-askpass}
 export SSH_ASKPASS
 : ${SUDO_ASKPASS:=/usr/bin/ssh-askpass}
@@ -31,12 +28,10 @@ export GIT_ASKPASS
 GPG_TTY=$(tty)
 export GPG_TTY
 
-
 unset MAILCHECK
 # https://manpages.debian.org/stable/zsh-common/zshparam.1.en.html#PARAMETERS_USED_BY_THE_SHELL
 # https://www.gnu.org/software/bash/manual/html_node/Bash-Variables.html
 # https://man7.org/linux/man-pages/man1/dash.1.html#ENVIRONMENT
-
 
 : ${EMAIL:={{ dotfiles_email }}}
 export EMAIL
@@ -46,10 +41,8 @@ export MAILUSER
 : ${MAILHOST:={{ dotfiles_mailhost }}}
 export MAILHOST
 
-
 : ${MAILDIR:={{ dotfiles_maildir }}}
 export MAILDIR
-
 
 : ${LESS:=-Ri}
 export LESS
@@ -58,12 +51,10 @@ export LESS
 : ${LESSCHARSET:=utf-8}
 export LESSCHARSET
 
-
-[ -z "$LESSOPEN" ] && [ -z "$LESSCLOSE" ] \
-	&& is_command lesspipe \
-	&& eval "$(lesspipe)"
+[ -z "$LESSOPEN" ] && [ -z "$LESSCLOSE" ] &&
+	is_command lesspipe &&
+	eval "$(lesspipe)"
 ## For less input pre-processor
-
 
 # Do not verify the insecure directories for completions.
 #
@@ -76,7 +67,6 @@ export LESSCHARSET
 : ${ZSH_DISABLE_COMPFIX:=true}
 export ZSH_DISABLE_COMPFIX
 
-
 # For bash completions
 #
 # https://github.com/scop/bash-completion/blob/b12639a6becec13a0a2c06173ba40fb3bbe972e1/CHANGES#L1686
@@ -85,32 +75,30 @@ export ZSH_DISABLE_COMPFIX
 : ${XDG_DATA_DIRS:=/usr/local/share:/usr/share}
 export XDG_DATA_DIRS
 
-
 # For ncurses terminal definitions
 : ${TERMINFO_DIRS:=/usr/local/share/terminfo:/usr/share/terminfo}
 export TERMINFO_DIRS
 
-
-is_in_env () {
+is_in_env() {
 	eval "expr \":\$${2}:\" : \".*:${1}:\" > /dev/null"
 }
 
-prepend_to_env () {
+prepend_to_env() {
 	eval "$2=\"${1}\${${2}:+:\$${2}}\""
 }
 
-prepend_to_env_if_not_exist () {
-	if ! is_in_env $1 $2 ; then
+prepend_to_env_if_not_exist() {
+	if ! is_in_env $1 $2; then
 		eval "$2=\"${1}\${${2}:+:\$${2}}\""
 	fi
 }
 
-append_to_env () {
+append_to_env() {
 	eval "$2=\"\${${2}:+\$${2}:}${1}\""
 }
 
-append_to_env_if_not_exist () {
-	if ! is_in_env $1 $2 ; then
+append_to_env_if_not_exist() {
+	if ! is_in_env $1 $2; then
 		eval "$2=\"\${${2}:+\$${2}:}${1}\""
 	fi
 }
@@ -154,12 +142,14 @@ export EMACSLOADPATH
 ## For fresh
 # https://github.com/freshshell/fresh
 case "$(get_shell)" in
-bash|zsh|ksh)
+bash | zsh | ksh)
 	[ -r ~/.fresh/build/shell.sh ] && . ~/.fresh/build/shell.sh
 	;;
 *)
 	# A temp fix for sh, dash, etc.
-	__FRESH_BIN_PATH__=$HOME/bin; expr ":$PATH:" : ".*:$__FRESH_BIN_PATH__:" >/dev/null || export PATH="$__FRESH_BIN_PATH__:$PATH"; unset __FRESH_BIN_PATH__
+	__FRESH_BIN_PATH__=$HOME/bin
+	expr ":$PATH:" : ".*:$__FRESH_BIN_PATH__:" >/dev/null || export PATH="$__FRESH_BIN_PATH__:$PATH"
+	unset __FRESH_BIN_PATH__
 	export FRESH_PATH="$HOME/.fresh"
 	;;
 esac
@@ -207,7 +197,6 @@ is_command nix-env && {
 	EMACSLOADPATH="$HOME/.nix-profile/share/emacs/site-lisp:$EMACSLOADPATH"
 	# Do not use `prepend_to_env` because `EMACSLOADPATH` may be empty.
 }
-
 
 ## whalebrew
 : ${WHALEBREW_INSTALL_PATH:="${HOME}/bin"}
@@ -311,13 +300,13 @@ export PYTHON_BUILD_MIRROR_URL_SKIP_CHECKSUM
 
 ## For pyenv
 is_command pyenv && {
-	{ pyenv commands | grep -q virtualenv-init ; } && {
+	{ pyenv commands | grep -q virtualenv-init; } && {
 		eval "$(pyenv virtualenv-init - $(get_shell))"
 	}
 	case "$(get_shell)" in
-	bash|zsh|ksh)
+	bash | zsh | ksh)
 		# virtualenvwrapper depends on pbr.
-		! { pip list | grep '^pbr ' ; } >/dev/null 2>&1 || pyenv virtualenvwrapper 2>/dev/null
+		! { pip list | grep '^pbr '; } >/dev/null 2>&1 || pyenv virtualenvwrapper 2>/dev/null
 		;;
 	esac
 }
@@ -328,7 +317,7 @@ export PIPENV_VENV_IN_PROJECT=1
 
 ## For rbenv-usergems
 is_command rbenv && {
-	{ rbenv commands | grep -q usergems-init ; } && {
+	{ rbenv commands | grep -q usergems-init; } && {
 		eval "$(rbenv usergems-init - $(get_shell))"
 	}
 }
@@ -386,9 +375,9 @@ export RUSTUP_UPDATE_ROOT
 [ -r "${HOME}/.cargo/env" ] && . "${HOME}/.cargo/env"
 : ${CARGO_HOME:="${HOME}/.cargo"}
 export CARGO_HOME
-if [ -n "${CARGO_INSTALL_ROOT}" ] ; then
+if [ -n "${CARGO_INSTALL_ROOT}" ]; then
 	prepend_to_env ${CARGO_INSTALL_ROOT}/bin PATH
-elif [ -n "${CARGO_HOME}" ] ; then
+elif [ -n "${CARGO_HOME}" ]; then
 	prepend_to_env ${CARGO_HOME}/bin PATH
 fi
 
@@ -475,13 +464,13 @@ export GITGET_SCHEME
 export SDKMAN_DIR
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 case "$(get_shell)" in
-bash|zsh)
+bash | zsh)
 	[ -s "$SDKMAN_DIR/bin/sdkman-init.sh" ] && . "$SDKMAN_DIR/bin/sdkman-init.sh"
 	;;
 esac
 
 case "$(get_shell)" in
-bash|zsh|ksh)
+bash | zsh | ksh)
 
 	## direnv
 	is_command direnv && {
@@ -515,10 +504,9 @@ is_command systemctl && [ x"$(systemctl --user is-system-running)" != xoffline ]
 	systemctl --user import-environment HOME PATH http_proxy https_proxy no_proxy
 }
 
-
-if [ x"$(get_shell)" = xsh ] ; then
-	if expr "$-" : '.*i' > /dev/null ; then
-		if [ -n "${ZSH_VERSION}" ] ; then
+if [ x"$(get_shell)" = xsh ]; then
+	if expr "$-" : '.*i' >/dev/null; then
+		if [ -n "${ZSH_VERSION}" ]; then
 			[ -z "${ENV}" ] || [ ! -r "${ENV}" ] || . "${ENV}"
 		fi
 	fi

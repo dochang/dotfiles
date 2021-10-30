@@ -1,6 +1,6 @@
 #!/bin/sh
 
-select_browser () {
+select_browser() {
 	if [ x"$DISPLAY" = x ]; then
 		echo w3m
 	else

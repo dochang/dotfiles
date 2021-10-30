@@ -2,8 +2,8 @@
 
 ## If `sh` links to `zsh`, and is invoked as a "non-login, non-interactive"
 ## shell, this file should be skipped.
-if ! { [ x"$(get_shell)" = xsh ] && [ -n "${ZSH_VERSION}" ] && expr "$-" : '.*i' > /dev/null ; } ; then
-	is_alias () {
+if ! { [ x"$(get_shell)" = xsh ] && [ -n "${ZSH_VERSION}" ] && expr "$-" : '.*i' >/dev/null; }; then
+	is_alias() {
 		local pat
 		case "$(get_shell)" in
 		bash)
@@ -11,17 +11,18 @@ if ! { [ x"$(get_shell)" = xsh ] && [ -n "${ZSH_VERSION}" ] && expr "$-" : '.*i'
 			;;
 		*)
 			pat="$1 is an alias for "
+			;;
 		esac
 		expr "$(type $1 2>/dev/null)" : "$pat" >/dev/null
 	}
 
-	get_alias () {
+	get_alias() {
 		local a
 		a=$(alias $1 2>/dev/null | sed 's/^alias \+//')
 		if [ -z "$a" ]; then
 			echo "$1"
 		else
-			( eval "$a ; echo \$$1" )
+			(eval "$a ; echo \$$1")
 		fi
 	}
 
@@ -46,7 +47,7 @@ if ! { [ x"$(get_shell)" = xsh ] && [ -n "${ZSH_VERSION}" ] && expr "$-" : '.*i'
 	is_command anyenv && ! is_function anyenv && eval "$(anyenv init - $(get_shell))"
 	is_command pyenv && {
 		case "$(get_shell)" in
-		bash|zsh|ksh)
+		bash | zsh | ksh)
 			pyenv virtualenvwrapper 2>/dev/null
 			;;
 		esac
@@ -60,7 +61,7 @@ if ! { [ x"$(get_shell)" = xsh ] && [ -n "${ZSH_VERSION}" ] && expr "$-" : '.*i'
 	}
 
 	case "$(get_shell)" in
-	bash|zsh)
+	bash | zsh)
 
 		## thefuck
 		is_command thefuck && {
@@ -74,42 +75,38 @@ if ! { [ x"$(get_shell)" = xsh ] && [ -n "${ZSH_VERSION}" ] && expr "$-" : '.*i'
 	# https://gist.github.com/nl5887/a511f172d3fb3cd0e42d
 	transfer() {
 		# check arguments
-		if [ $# -eq 0 ];
-		then
+		if [ $# -eq 0 ]; then
 			echo "No arguments specified. Usage:\necho transfer /tmp/test.md\ncat /tmp/test.md | transfer test.md"
 			return 1
 		fi
 
 		# get temporarily filename, output is written to this file show progress can be showed
-		tmpfile=$( mktemp -t transferXXX )
+		tmpfile=$(mktemp -t transferXXX)
 
 		# upload stdin or file
 		file=$1
 
-		if tty -s;
-		then
+		if tty -s; then
 			basefile=$(basename "$file" | sed -e 's/[^a-zA-Z0-9._-]/-/g')
 
-			if [ ! -e $file ];
-			then
+			if [ ! -e $file ]; then
 				echo "File $file doesn't exists."
 				return 1
 			fi
 
-			if [ -d $file ];
-			then
+			if [ -d $file ]; then
 				# zip directory and transfer
-				zipfile=$( mktemp -t transferXXX.zip )
-				cd $(dirname $file) && zip -r -q - $(basename $file) >> $zipfile
-				curl --progress-bar --upload-file "$zipfile" "https://transfer.sh/$basefile.zip" >> $tmpfile
+				zipfile=$(mktemp -t transferXXX.zip)
+				cd $(dirname $file) && zip -r -q - $(basename $file) >>$zipfile
+				curl --progress-bar --upload-file "$zipfile" "https://transfer.sh/$basefile.zip" >>$tmpfile
 				rm -f $zipfile
 			else
 				# transfer file
-				curl --progress-bar --upload-file "$file" "https://transfer.sh/$basefile" >> $tmpfile
+				curl --progress-bar --upload-file "$file" "https://transfer.sh/$basefile" >>$tmpfile
 			fi
 		else
 			# transfer pipe
-			curl --progress-bar --upload-file "-" "https://transfer.sh/$file" >> $tmpfile
+			curl --progress-bar --upload-file "-" "https://transfer.sh/$file" >>$tmpfile
 		fi
 
 		# cat output link

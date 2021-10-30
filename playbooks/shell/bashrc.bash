@@ -7,14 +7,10 @@ if [ -r /usr/share/bash-completion/bash_completion ]; then
 	. /usr/share/bash-completion/bash_completion
 fi
 
-
 # sdkman-init.sh
 #
 # This comment is used to prevent sdkman install script from inserting init
 # snippet.
-
-
-
 
 #### BASH IT !!!!
 

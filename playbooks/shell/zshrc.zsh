@@ -2,14 +2,13 @@
 autoload -Uz promptinit
 promptinit
 
-prompt_debian_setup () {
+prompt_debian_setup() {
 	PS1='%n@%m:%0~%(#.#.%%) '
 	PS2="> "
-	prompt_opts=( cr percent )
+	prompt_opts=(cr percent)
 }
 
 prompt_debian_setup "$@"
-
 
 ### Completion
 
@@ -37,18 +36,13 @@ compinit -u
 ## https://unix.stackexchange.com/a/188951
 compdef gpg2=gpg
 
-
 ### For nenv completion
 [ ! -r ${NENV_ROOT}/completions/zsh/_nenv ] || . ${NENV_ROOT}/completions/zsh/_nenv
-
 
 # sdkman-init.sh
 #
 # This comment is used to prevent sdkman install script from inserting init
 # snippet.
-
-
-
 
 #### OH MY ZSH !!!!
 
@@ -113,7 +107,6 @@ is_alias gvt && unalias gvt
 setopt INTERACTIVE_COMMENTS
 setopt NO_BEEP
 
-
 ### Key bindings
 
 ## Standard key bindings
@@ -127,7 +120,6 @@ bindkey -e
 bindkey "^U" backward-kill-line
 
 bindkey "\el" down-case-word
-
 
 ### History
 HISTFILE=~/.zhistory

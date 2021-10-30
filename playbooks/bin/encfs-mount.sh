@@ -15,5 +15,5 @@ fi
 command -v encfs >/dev/null
 ! mountpoint -q "$dst" || exit 0
 test -d "$src"
-{ test -d "$dst" || mkdir "$dst" ; }
+{ test -d "$dst" || mkdir "$dst"; }
 encfs --idle=720 --extpass="$extpass" "$src" "$dst"

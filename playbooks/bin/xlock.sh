@@ -1,11 +1,11 @@
 #!/bin/sh
 
 case x"$1" in
-x-y|x--yes)
+x-y | x--yes)
 	reply=yes
 	;;
 *)
-	reply="$(rofi -normal-window -dmenu -i -p 'Lock the computer? (Press yes)' < /dev/null)"
+	reply="$(rofi -normal-window -dmenu -i -p 'Lock the computer? (Press yes)' </dev/null)"
 	;;
 esac
 
