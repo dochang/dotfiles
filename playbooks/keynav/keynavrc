@@ -1,0 +1,96 @@
+# -*- mode: conf -*-
+
+### Default bindings
+
+clear
+ctrl+semicolon start
+Escape end
+ctrl+bracketleft end
+q record ~/.keynav_macros
+shift+at playback
+a history-back
+h cut-left
+j cut-down
+k cut-up
+l cut-right
+alt+h move-left
+alt+j move-down
+alt+k move-up
+alt+l move-right
+space warp,click 1,end
+Return warp,click 1,end
+semicolon warp,end
+w warp
+## "windowzoom" makes keynav crash in clfswm.  Disable it.
+#t windowzoom
+c cursorzoom 300 300
+e end
+1 click 1
+2 click 2
+3 click 3
+ctrl+h cut-left
+ctrl+j cut-down
+ctrl+k cut-up
+ctrl+l cut-right
+y cut-left,cut-up
+u cut-right,cut-up
+b cut-left,cut-down
+n cut-right,cut-down
+alt+y move-left,move-up
+alt+u move-right,move-up
+alt+b move-left,move-down
+alt+n move-right,move-down
+ctrl+y cut-left,cut-up
+ctrl+u cut-right,cut-up
+ctrl+b cut-left,cut-down
+ctrl+n cut-right,cut-down
+
+
+### User bindings
+
+## For one hand using
+# If we start keynav with binding `ctrl+grave`, keynav will crash and X will
+# report a message like this:
+#
+#     X Error of failed request:  BadAccess (attempt to access private resource denied)
+#       Major opcode of failed request:  33 (X_GrabKey)
+#       Serial number of failed request:  25
+#       Current serial number in output stream:  33
+#
+# It seems that a certain process is grabbing `ctrl+grave`, so don't bind it.
+#
+# ctrl+grave start
+ctrl+alt+z start
+
+## Wheeling.
+4 click 4
+5 click 5
+
+## Dragging.  Likewise, 1 is the left button.
+6 drag 1
+7 drag 2
+8 drag 3
+alt+6 drag 1 alt
+shift+6 drag 1 shift
+shift+alt+6 drag 1 shift+alt
+### Dragging for libvte-based terminal emulators.
+ctrl+shift+6 drag 1 ctrl+shift
+ctrl+shift+h move-left
+ctrl+shift+j move-down
+ctrl+shift+k move-up
+ctrl+shift+l move-right
+
+## Enable arrow keys.
+Left cut-left
+Down cut-down
+Up cut-up
+Right cut-right
+alt+Left move-left
+alt+Down move-down
+alt+Up move-up
+alt+Right move-right
+
+ctrl+g end
+
+ctrl+alt+r restart
+ctrl+alt+x quit

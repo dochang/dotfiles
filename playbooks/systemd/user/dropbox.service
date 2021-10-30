@@ -1,0 +1,8 @@
+[Unit]
+Description=Dropbox
+
+[Service]
+Type=forking
+ExecStart=/bin/sh -l -c 'exec dropbox.py start'
+ExecStop=/bin/sh -l -c 'exec dropbox.py stop'
+Restart=on-failure

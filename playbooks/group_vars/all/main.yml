@@ -1,0 +1,102 @@
+---
+dotfiles_http_proxy: ''
+dotfiles_https_proxy: ''
+dotfiles_editor: vi
+dotfiles_name: 'Wade Zhang'
+dotfiles_email: dochang@gmail.com
+dotfiles_mailuser: dochang
+dotfiles_mailhost: localhost
+dotfiles_maildir: /srv/sync/maildir
+dotfiles_password_store_dir: '${HOME}/.password-store'
+dotfiles_git_credential: dochang
+dotfiles_git_user_name: '{{ dotfiles_name }}'
+dotfiles_git_user_email: '{{ dotfiles_email }}'
+dotfiles_linuxbrew_prefix: /home/linuxbrew/.linuxbrew
+dotfiles_homebrew_bottle_domain: https://linuxbrew.bintray.com
+dotfiles_homebrew_brew_git_remote: https://github.com/Homebrew/brew
+dotfiles_homebrew_core_git_remote: https://github.com/Homebrew/linuxbrew-core
+dotfiles_emacs_name: '{{ dotfiles_name }}'
+dotfiles_emacs_email: '{{ dotfiles_email }}'
+dotfiles_emacs_package_archives:
+  - id: gnu
+    location: https://elpa.gnu.org/packages/
+  - id: nongnu
+    location: https://elpa.nongnu.org/nongnu/
+  - id: melpa
+    location: https://melpa.org/packages/
+  - id: org
+    location: https://orgmode.org/elpa/
+  - id: melpa-stable
+    location: https://stable.melpa.org/packages/
+
+  # Downloading marmalade archive will cause Emacs hangs at 100% CPU usage.
+  # Disable it for now.  See nicferrier/elmarmalade#106 .
+  #
+  # - id: marmalade
+  #   location: https://marmalade-repo.org/packages/
+  # Disable the following archives.  Their packages are too old.
+  #
+  # - id: ELPA
+  #   location: http://tromey.com/elpa/
+  # Disable it
+  #
+  # https://github.com/escherdragon/sunrise-commander/issues/57
+  #
+  # - id: SC
+  #   location: http://joseito.republika.pl/sunrise-commander/
+dotfiles_emacs_holiday_other_holidays: []
+dotfiles_emacs_email_list:
+  - name: '{{ dotfiles_emacs_name }}'
+    email: '{{ dotfiles_emacs_email }}'
+dotfiles_i3status_netdev_type: wireless
+dotfiles_i3status_netdev: wlan0
+dotfiles_i3status_cpu_temperature_enabled: true
+dotfiles_i3status_cpu_temperature_index: 0
+dotfiles_i3status_volume_enabled: true
+dotfiles_i3status_volume_mixer: master
+dotfiles_nix_nixpkgs_channel_url: https://nixos.org/channels/nixpkgs-unstable
+dotfiles_guix_default_channel_url: https://git.savannah.gnu.org/git/guix.git
+dotfiles_python_build_mirror_url: https://pyenv.github.io/pythons
+dotfiles_python_build_mirror_url_skip_checksum: ''
+# - With mirror set and "skip checksum" set, download from mirror of the official source ("www.python.org/ftp/python")
+# - With mirror unset and "skip checksum" unset, download from "pyenv mirror" ("https://pyenv.github.io/pythons")
+# - With mirror set and "skip checksum" unset, download from mirror of "pyenv mirror" ("https://pyenv.github.io/pythons")
+dotfiles_pip_index_url: https://pypi.org/simple
+dotfiles_npm_registry: https://registry.npmjs.org/
+dotfiles_npm_disturl: https://nodejs.org/dist
+# https://github.com/nodejs/node-gyp/blob/v7.0.0/lib/process-release.js#L22
+dotfiles_nodejs_org_mirror: https://nodejs.org/dist
+# https://github.com/nodejs/node-gyp/blob/v7.0.0/lib/process-release.js#L65-L67
+dotfiles_node_build_mirror_url: https://nodejs.org/dist
+# https://github.com/nodejs/node-gyp/blob/v7.0.0/lib/process-release.js#L76
+dotfiles_sass_binary_site: https://github.com/sass/node-sass/releases/download
+# https://github.com/sass/node-sass/blob/v4.14.1/lib/extensions.js#L247
+dotfiles_yarn_registry: https://registry.yarnpkg.com
+dotfiles_gem_source:
+  'BUNDLE_MIRROR__HTTPS://RUBYGEMS__ORG/': 'https://rubygems.org/'
+dotfiles_rustup_dist_server: https://static.rust-lang.org
+dotfiles_rustup_update_root: https://static.rust-lang.org/rustup
+# https://github.com/rust-lang/cargo/blob/master/src/cargo/sources/registry/mod.rs#L185
+# https://github.com/rust-lang/cargo/blob/master/src/cargo/sources/config.rs#L48
+dotfiles_cargo_source:
+  crates-io:
+    registry: https://github.com/rust-lang/crates.io-index
+dotfiles_arduinoide_preferences:
+  - line: 'editor.linenumbers=true'
+    regexp: 'editor\.linenumbers='
+dotfiles_maven_mirrors: []
+dotfiles_pbuilder_mirrorsite: 'http://deb.debian.org/debian'
+dotfiles_gradle_repos:
+  # https://docs.gradle.org/current/dsl/org.gradle.api.artifacts.repositories.MavenArtifactRepository.html
+  # https://docs.gradle.org/current/dsl/org.gradle.api.artifacts.dsl.RepositoryHandler.html
+  # https://docs.gradle.org/current/dsl/org.gradle.api.artifacts.dsl.RepositoryHandler.html#org.gradle.api.artifacts.dsl.RepositoryHandler:maven(groovy.lang.Closure)
+  # https://docs.gradle.org/current/dsl/org.gradle.api.artifacts.dsl.RepositoryHandler.html#org.gradle.api.artifacts.dsl.RepositoryHandler:maven(org.gradle.api.Action)
+  # https://docs.gradle.org/current/dsl/org.gradle.api.artifacts.dsl.RepositoryHandler.html#org.gradle.api.artifacts.dsl.RepositoryHandler:mavenCentral()
+  # https://docs.gradle.org/current/dsl/org.gradle.api.artifacts.dsl.RepositoryHandler.html#org.gradle.api.artifacts.dsl.RepositoryHandler:mavenCentral(java.util.Map)
+  # https://docs.gradle.org/current/dsl/org.gradle.api.artifacts.dsl.RepositoryHandler.html#org.gradle.api.artifacts.dsl.RepositoryHandler:mavenCentral(org.gradle.api.Action)
+  # https://docs.gradle.org/current/dsl/org.gradle.api.artifacts.dsl.RepositoryHandler.html#org.gradle.api.artifacts.dsl.RepositoryHandler:mavenLocal()
+  # https://docs.gradle.org/current/dsl/org.gradle.api.artifacts.dsl.RepositoryHandler.html#org.gradle.api.artifacts.dsl.RepositoryHandler:mavenLocal(org.gradle.api.Action)
+  - type: mavenLocal
+  - type: mavenCentral
+dotfiles_goproxy: 'https://proxy.golang.org,direct'
+dotfiles_gosumdb: 'sum.golang.org'

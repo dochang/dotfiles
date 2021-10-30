@@ -1,0 +1,363 @@
+---
+- hosts: dotfiles_dev
+
+  module_defaults:
+    ansible.builtin.file:
+      mode: 'u=rwX,o-w'
+    ansible.builtin.copy:
+      mode: 'u=rwX,o-w'
+    ansible.builtin.template:
+      mode: 'u=rwX,o-w'
+    ansible.posix.synchronize:
+      partial: false
+      delete: true
+      times: true
+      rsync_opts:
+        - '--chmod="Du=rwX,o-w,Fu=rwX,o-w"'
+
+  tasks:
+    - name: Ansible
+      block:
+        - name: Sync ansible files
+          ansible.posix.synchronize:
+            dest: '{{ dotfiles_home }}/.ansible.cfg'
+            src: ansible/ansible.cfg
+      tags:
+        - ansible
+
+    - name: Bundler
+      block:
+        - name: Ensure `.bundle` present
+          ansible.builtin.file:
+            path: '{{ dotfiles_home }}/.bundle'
+            state: directory
+        - name: Deploy bundler files
+          ansible.builtin.template:
+            src: '{{ item | relpath(playbook_dir) }}'
+            dest: '{{ dotfiles_home }}/.{{ item | relpath(playbook_dir) }}'
+          with_ansible.builtin.fileglob:
+            - bundle/*
+      tags:
+        - bundler
+        - bundle
+        - ruby
+
+    - name: Cargo
+      block:
+        - name: Ensure `.cargo` present
+          ansible.builtin.file:
+            path: '{{ dotfiles_home }}/.cargo'
+            state: directory
+        - name: Deploy cargo files
+          ansible.builtin.template:
+            src: '{{ item | relpath(playbook_dir) }}'
+            dest: '{{ dotfiles_home }}/.{{ item | relpath(playbook_dir) }}'
+          with_ansible.builtin.fileglob:
+            - cargo/*
+      tags:
+        - cargo
+        - rust
+
+    - name: CCL
+      block:
+        - name: Sync ccl files
+          ansible.posix.synchronize:
+            dest: '{{ dotfiles_home }}/.ccl-init.lisp'
+            src: ccl/ccl-init.lisp
+      tags:
+        - ccl
+        - common-lisp
+        - lisp
+
+    - name: CLisp
+      block:
+        - name: Sync clisp files
+          ansible.posix.synchronize:
+            dest: '{{ dotfiles_home }}/.clisprc.lisp'
+            src: clisp/clisprc.lisp
+      tags:
+        - clisp
+        - common-lisp
+        - lisp
+
+    - name: CMUCL
+      block:
+        - name: Sync cmucl files
+          ansible.posix.synchronize:
+            dest: '{{ dotfiles_home }}/.cmucl-init.lisp'
+            src: cmucl/cmucl-init.lisp
+      tags:
+        - cmucl
+        - common-lisp
+        - lisp
+
+    - name: Common Lisp
+      block:
+        - name: Sync common-lisp common files
+          ansible.posix.synchronize:
+            dest: '{{ dotfiles_xdg_config_home }}'
+            src: common-lisp
+        - name: Deploy `common-lisp/common-lisp.lisp`
+          ansible.builtin.copy:
+            dest: '{{ dotfiles_home }}/.common-lisp.lisp'
+            src: common-lisp/common-lisp.lisp
+        - name: Deploy `common-lisp/asdf.lisp`
+          ansible.builtin.copy:
+            dest: '{{ dotfiles_home }}/asdf.lisp'
+            src: common-lisp/asdf.lisp
+      tags:
+        - common-lisp-common
+        - common-lisp
+        - lisp-common
+        - lisp
+
+    - name: dput
+      block:
+        - name: Sync dput files
+          ansible.posix.synchronize:
+            dest: '{{ dotfiles_home }}/.dput.cf'
+            src: dput/dput.cf
+      tags:
+        - dput
+
+    - name: ECL
+      block:
+        - name: Sync ecl files
+          ansible.posix.synchronize:
+            dest: '{{ dotfiles_home }}/.eclrc'
+            src: ecl/eclrc
+      tags:
+        - ecl
+        - common-lisp
+        - lisp
+
+    - name: Import Emacs tasks
+      ansible.builtin.import_tasks: emacs.yml
+
+    - name: Gem
+      block:
+        - name: Deploy gem files
+          ansible.builtin.template:
+            dest: '{{ dotfiles_home }}/.gemrc'
+            src: gem/gemrc
+      tags:
+        - gem
+        - ruby
+
+    - name: Git
+      block:
+        - name: Ensure `git` present
+          ansible.builtin.file:
+            path: '{{ dotfiles_xdg_config_home }}/git'
+            state: directory
+        - name: Deploy git files
+          ansible.builtin.template:
+            dest: '{{ dotfiles_xdg_config_home }}/{{ item | relpath(playbook_dir) }}'
+            src: '{{ item | relpath(playbook_dir) }}'
+          with_ansible.builtin.fileglob:
+            - git/*
+      tags:
+        - git
+
+    - name: git-buildpackage
+      block:
+        - name: Sync git-buildpackage files
+          ansible.posix.synchronize:
+            dest: '{{ dotfiles_home }}/.gbp.conf'
+            src: git-buildpackage/gbp.conf
+      tags:
+        - git-buildpackage
+
+    - name: Go
+      block:
+        - name: Ensure `go` present
+          ansible.builtin.file:
+            path: '{{ dotfiles_xdg_config_home }}/go'
+            state: directory
+        - name: Deploy go files
+          ansible.builtin.template:
+            dest: '{{ dotfiles_xdg_config_home }}/{{ item | relpath(playbook_dir) }}'
+            src: '{{ item | relpath(playbook_dir) }}'
+          with_ansible.builtin.fileglob:
+            - go/*
+      tags:
+        - go
+
+    - name: Gradle
+      block:
+        - name: Ensure `gradle/init.d` present
+          ansible.builtin.file:
+            path: '{{ dotfiles_home }}/.gradle/init.d'
+            state: directory
+        - name: Deploy gradle files
+          ansible.builtin.template:
+            dest: '{{ dotfiles_home }}/.{{ item | relpath(playbook_dir ) }}'
+            src: '{{ item | relpath(playbook_dir) }}'
+          with_ansible.builtin.fileglob:
+            - gradle/init.d/*
+      tags:
+        - gradle
+        - java
+        - android
+
+    - name: m2
+      block:
+        - name: Ensure `.m2` present
+          ansible.builtin.file:
+            path: '{{ dotfiles_home }}/.m2'
+            state: directory
+        - name: Deploy m2 files
+          ansible.builtin.template:
+            dest: '{{ dotfiles_home }}/.{{ item | relpath(playbook_dir) }}'
+            src: '{{ item | relpath(playbook_dir) }}'
+          with_ansible.builtin.fileglob:
+            - m2/*
+      tags:
+        - m2
+        - maven
+        - java
+
+    - name: molecule
+      block:
+        - name: Sync molecule files
+          ansible.posix.synchronize:
+            dest: '{{ dotfiles_xdg_config_home }}'
+            src: molecule
+      tags:
+        - molecule
+        - ansible
+
+    - name: NPM
+      block:
+        - name: Deploy npm files
+          ansible.builtin.template:
+            dest: '{{ dotfiles_home }}/.npmrc'
+            src: npm/npmrc
+      tags:
+        - npm
+        - node
+        - nodejs
+        - js
+        - javascript
+
+    - name: pbuilder
+      block:
+        - name: Sync pbuilder files
+          ansible.builtin.template:
+            dest: '{{ dotfiles_home }}/.pbuilderrc'
+            src: pbuilder/pbuilderrc
+      tags:
+        - pbuilder
+
+    - name: Pip
+      block:
+        - name: Ensure `pip` present
+          ansible.builtin.file:
+            path: '{{ dotfiles_xdg_config_home }}/pip'
+            state: directory
+        - name: Sync pip files
+          ansible.builtin.template:
+            dest: '{{ dotfiles_xdg_config_home }}/{{ item | relpath(playbook_dir) }}'
+            src: '{{ item | relpath(playbook_dir) }}'
+          with_ansible.builtin.fileglob:
+            - pip/*
+      tags:
+        - pip
+        - python
+
+    - name: Prettier
+      block:
+        - name: Sync prettier files
+          ansible.posix.synchronize:
+            dest: '{{ dotfiles_home }}/.prettierrc'
+            src: prettier/prettierrc
+      tags:
+        - prettier
+
+    - name: PyPI
+      block:
+        - name: Sync pypi files
+          ansible.posix.synchronize:
+            dest: '{{ dotfiles_home }}/.pypirc'
+            src: pypi/pypirc
+      tags:
+        - pypi
+        - python
+
+    - name: Quilt
+      block:
+        - name: Sync quilt files
+          ansible.posix.synchronize:
+            dest: '{{ dotfiles_home }}/.quiltrc'
+            src: quilt/quiltrc
+      tags:
+        - quilt
+
+    - name: SBCL
+      block:
+        - name: Sync sbcl files
+          ansible.posix.synchronize:
+            dest: '{{ dotfiles_home }}/.sbclrc'
+            src: sbcl/sbclrc
+      tags:
+        - sbcl
+        - common-lisp
+        - lisp
+
+    - name: Swank
+      block:
+        - name: Sync swank files
+          ansible.posix.synchronize:
+            dest: '{{ dotfiles_home }}/.swank.lisp'
+            src: swank/swank.lisp
+      tags:
+        - swank
+        - common-lisp
+        - lisp
+
+    - name: tig
+      block:
+        - name: Sync tig files
+          ansible.posix.synchronize:
+            dest: '{{ dotfiles_xdg_config_home }}'
+            src: tig
+      tags:
+        - tig
+
+    - name: Vim
+      block:
+        - name: Sync vim files
+          ansible.posix.synchronize:
+            dest: '{{ dotfiles_home }}/.vimrc'
+            src: vim/vimrc
+      tags:
+        - vim
+
+    - name: Yarn
+      block:
+        - name: Deploy yarn files
+          ansible.builtin.template:
+            dest: '{{ dotfiles_home }}/.yarnrc'
+            src: yarn/yarnrc
+      tags:
+        - yarn
+        - node
+        - nodejs
+        - js
+        - javascript
+
+    - name: bin
+      block:
+        - name: Ensure `bin` present
+          ansible.builtin.file:
+            path: '{{ dotfiles_home }}/bin'
+            state: directory
+        - name: Deploy bin files
+          ansible.builtin.copy:
+            dest: '{{ dotfiles_home }}/{{ item }}'
+            src: '{{ item }}'
+          with_ansible.builtin.list:
+            - bin/e
+            - bin/v
+      tags:
+        - bin

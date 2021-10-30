@@ -1,0 +1,13 @@
+# -*- mode: sh -*-
+
+: ${TERMINAL:=x-terminal-emulator}
+export TERMINAL
+
+: ${X_WINDOW_MANAGER:=x-window-manager}
+export X_WINDOW_MANAGER
+
+: ${XLOCKER:=slock}
+export XLOCKER
+
+: ${BROWSER:=chromium -incognito:conkeror:$TERMINAL -e www-browser "%s":www-browser}
+export BROWSER

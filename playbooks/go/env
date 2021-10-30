@@ -1,0 +1,25 @@
+{#
+Set default values of Go environment variables.
+
+Available from Go 1.13 [1].
+
+[1]: https://golang.org/doc/go1.13#go-command
+#}
+{#
+Disable CGO by default.
+
+https://golang.org/cmd/cgo/
+#}
+CGO_ENABLED=0
+{#
+https://golang.org/cmd/go/#hdr-Vendor_Directories
+#}
+GO15VENDOREXPERIMENT=1
+{#
+Since Go 1.12 [1], we can always set `GO111MODULE=on`.
+
+[1]: https://golang.org/doc/go1.12#modules
+#}
+GO111MODULE=on
+GOPROXY={{ dotfiles_goproxy | default("https://proxy.golang.org,direct") }}
+GOSUMDB={{ dotfiles_gosumdb | default("sum.golang.org") }}

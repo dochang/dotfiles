@@ -1,0 +1,4 @@
+# Follow style of vimperator source code
+[*.js]
+indent_style = space
+indent_size = 4

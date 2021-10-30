@@ -1,0 +1,54 @@
+#!/usr/bin/env python
+
+import random
+import argparse
+
+DEFAULT_PIN_LENGTH = 6
+SEGMENT_LENGTH = 6
+
+
+class PinPartGenerator(object):
+
+    def __init__(self, length):
+        self.length = length
+        self.format_str = '{{0:0>{0:d}d}}'.format(self.length)
+        self.stop = 10 ** self.length
+
+    def __call__(self):
+        return self.format_str.format(random.randrange(self.stop))
+
+
+def main():
+    random.seed()
+
+    parser = argparse.ArgumentParser(
+        description='Pin Password Generator',
+    )
+    parser.add_argument(
+        'pin_len',
+        action='store',
+        nargs='?',
+        default=DEFAULT_PIN_LENGTH,
+        type=int,
+        help='pin password length',
+        metavar='pin_length',
+    )
+    args = parser.parse_args()
+
+    len = args.pin_len
+    pin = ''
+
+    pin_segment_generator = PinPartGenerator(SEGMENT_LENGTH)
+    while len >= SEGMENT_LENGTH:
+        pin += pin_segment_generator()
+        len -= SEGMENT_LENGTH
+
+    if len > 0:
+        pin_tail_generator = PinPartGenerator(len)
+        pin += pin_tail_generator()
+
+    print(pin)
+
+
+if __name__ == '__main__':
+    main()

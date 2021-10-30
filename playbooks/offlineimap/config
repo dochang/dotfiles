@@ -1,0 +1,32 @@
+# -*- mode: conf -*-
+
+[DEFAULT]
+usecompression = yes
+
+[general]
+accounts = dochangATgmailDOTcom
+ui = ttyui
+# timeout in 60s
+socktimeout = 60
+pythonfile = ~/.config/offlineimap/config.py
+
+
+[Account dochangATgmailDOTcom]
+localrepository = dochang@gmail.com_local
+remoterepository = dochang@gmail.com_remote
+status_backend = sqlite
+synclabels = no
+utf8foldernames = yes
+
+[Repository dochang@gmail.com_local]
+type = GmailMaildir
+localfolders = ~/Maildir/dochang@gmail.com
+
+[Repository dochang@gmail.com_remote]
+type = Gmail
+remoteusereval = get_remotepass('imap/dochang@gmail.com/user')
+remotepasseval = get_remotepass('imap/dochang@gmail.com/password')
+# No SSL verification is done without certs even if ssl = yes
+sslcacertfile = /etc/ssl/certs/ca-certificates.crt
+# Do not create any folders on the remote repository.
+createfolders = False

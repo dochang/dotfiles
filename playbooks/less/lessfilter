@@ -1,0 +1,8 @@
+#!/bin/sh
+
+if [ -d "$1" ] ; then
+	ls -lhA "$1"
+	exit 0
+fi
+
+exit 1

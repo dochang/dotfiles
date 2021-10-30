@@ -1,0 +1,264 @@
+---
+- hosts: dotfiles_desktop
+
+  module_defaults:
+    ansible.builtin.file:
+      mode: 'u=rwX,o-w'
+    ansible.builtin.copy:
+      mode: 'u=rwX,o-w'
+    ansible.builtin.template:
+      mode: 'u=rwX,o-w'
+    ansible.posix.synchronize:
+      partial: false
+      delete: true
+      times: true
+      rsync_opts:
+        - '--chmod="Du=rwX,o-w,Fu=rwX,o-w"'
+
+  tasks:
+    - name: Autostart
+      block:
+        - name: Sync autostart files
+          ansible.posix.synchronize:
+            dest: '{{ dotfiles_xdg_config_home }}'
+            src: autostart
+      tags:
+        - autostart
+
+    - name: Conky
+      block:
+        - name: Sync conky files
+          ansible.posix.synchronize:
+            dest: '{{ dotfiles_xdg_config_home }}'
+            src: conky
+      tags:
+        - conky
+
+    - name: Import Emacs tasks
+      ansible.builtin.import_tasks: emacs.yml
+
+    - name: FVWM
+      block:
+        - name: Ensure `.fvwm` present
+          ansible.builtin.file:
+            path: '{{ dotfiles_home }}/.fvwm'
+            state: directory
+        - name: Sync fvwm files
+          ansible.posix.synchronize:
+            dest: '{{ dotfiles_home }}/.fvwm/'
+            src: fvwm/
+      tags:
+        - fvwm
+
+    - name: GTK 2.0
+      block:
+        - name: Sync gtk-2.0 files
+          ansible.posix.synchronize:
+            dest: '{{ dotfiles_home }}/.gtkrc-2.0'
+            src: gtk-2.0/gtkrc-2.0
+      tags:
+        - gtk-2.0
+        - gtk2
+        - gtk
+
+    - name: GTK 3.0
+      block:
+        - name: Sync gtk-3.0 files
+          ansible.posix.synchronize:
+            dest: '{{ dotfiles_xdg_config_home }}'
+            src: gtk-3.0
+      tags:
+        - gtk-3.0
+        - gtk3
+        - gtk
+
+    - name: Hyper
+      block:
+        - name: Sync hyper files
+          ansible.posix.synchronize:
+            dest: '{{ dotfiles_home }}/.hyper.js'
+            src: hyper/hyper.js
+      tags:
+        - hyper
+
+    - name: i3
+      block:
+        - name: Sync i3 files
+          ansible.posix.synchronize:
+            dest: '{{ dotfiles_xdg_config_home }}'
+            src: i3
+      tags:
+        - i3
+
+    - name: i3status
+      block:
+        - name: Ensure `i3status` present
+          ansible.builtin.file:
+            path: '{{ dotfiles_xdg_config_home }}/i3status'
+            state: directory
+        - name: Sync i3status files
+          ansible.builtin.template:
+            dest: '{{ dotfiles_xdg_config_home }}/{{ item | relpath(playbook_dir) }}'
+            src: '{{ item | relpath(playbook_dir) }}'
+          with_ansible.builtin.fileglob:
+            - i3status/*
+      tags:
+        - i3status
+        - i3
+
+    - name: keynav
+      block:
+        - name: Sync keynav files
+          ansible.posix.synchronize:
+            dest: '{{ dotfiles_home }}/.keynavrc'
+            src: keynav/keynavrc
+      tags:
+        - keynav
+
+    - name: MPlayer
+      block:
+        - name: Ensure `.mplayer` present
+          ansible.builtin.file:
+            path: '{{ dotfiles_home }}/.mplayer'
+            state: directory
+        - name: Deploy mplayer files
+          ansible.posix.synchronize:
+            dest: '{{ dotfiles_home }}/.mplayer/'
+            src: mplayer/
+      tags:
+        - mplayer
+
+    - name: MPV
+      block:
+        - name: Sync mpv files
+          ansible.posix.synchronize:
+            dest: '{{ dotfiles_xdg_config_home }}'
+            src: mpv
+      tags:
+        - mpv
+
+    - name: Rofi
+      block:
+        - name: Sync rofi files
+          ansible.posix.synchronize:
+            dest: '{{ dotfiles_xdg_config_home }}'
+            src: rofi
+      tags:
+        - rofi
+
+    - name: X
+      block:
+        - name: Sync X files
+          ansible.posix.synchronize:
+            dest: '{{ dotfiles_home }}/.{{ item | basename }}'
+            src: '{{ item }}'
+          with_ansible.builtin.list:
+            - X/Xresources
+            - X/xsessionrc
+        - name: Sync X executables
+          ansible.posix.synchronize:
+            dest: '{{ dotfiles_home }}/.{{ item | basename }}'
+            src: '{{ item }}'
+            rsync_opts:
+              - '--chmod="Du=rwx,o-w,Fu=rwx,o-w"'
+          with_ansible.builtin.list:
+            - X/xsession
+            - X/xinitrc
+        - name: Ensure `.Xsession.d` present
+          ansible.builtin.file:
+            path: '{{ dotfiles_home }}/.Xsession.d'
+            state: directory
+        - name: Sync `X/Xsession.d` files
+          ansible.posix.synchronize:
+            dest: '{{ dotfiles_home }}/.Xsession.d/'
+            src: X/Xsession.d/
+      tags:
+        - X
+        - x
+        - x11
+        - xorg
+        - xwindow
+
+    - name: xmodmap
+      block:
+        - name: Sync xmodmap files
+          ansible.builtin.synchronize:
+            dest: '{{ dotfiles_home }}/.xmodmaprc'
+            src: xmodmap/xmodmaprc
+      tags:
+        - xmodmap
+        - X
+        - x
+        - x11
+        - xorg
+        - xwindow
+
+    - name: xx-input
+      block:
+        - name: Sync xx-input files
+          ansible.builtin.synchronize:
+            dest: '{{ dotfiles_xdg_config_home }}'
+            src: xx-input
+      tags:
+        - xx-input
+        - X
+        - x
+        - x11
+        - xorg
+        - xwindow
+
+    - name: xx-randr
+      block:
+        - name: Sync xx-randr files
+          ansible.builtin.synchronize:
+            dest: '{{ dotfiles_xdg_config_home }}'
+            src: xx-randr
+            rsync_opts:
+              - '--chmod="Du=rwx,o-w,Fu=rwx,o-w"'
+      tags:
+        - xx-randr
+        - X
+        - x
+        - x11
+        - xorg
+        - xwindow
+
+    - name: Zathura
+      block:
+        - name: Sync zathura files
+          ansible.posix.synchronize:
+            dest: '{{ dotfiles_xdg_config_home }}'
+            src: zathura
+      tags:
+        - zathura
+
+    - name: bin
+      block:
+        - name: Ensure `bin` present
+          ansible.builtin.file:
+            path: '{{ dotfiles_home }}/bin'
+            state: directory
+        - name: Deploy bin files
+          ansible.builtin.copy:
+            dest: '{{ dotfiles_home }}/{{ item }}'
+            src: '{{ item }}'
+          with_ansible.builtin.list:
+            - bin/banish-pointer.sh
+            - bin/browser.sh
+            - bin/json2xrandr
+            - bin/mixer.sh
+            - bin/pass-askpass
+            - bin/passrofi
+            - bin/rofi_run
+            - bin/run-or-raise.sh
+            - bin/xconfirm.sh
+            - bin/xlock.sh
+            - bin/xrandr2json
+            - bin/X.sh
+            - bin/xx-autostart
+            - bin/xx-daemon
+            - bin/xx-editor
+            - bin/xx-input
+            - bin/xx-randr
+      tags:
+        - bin

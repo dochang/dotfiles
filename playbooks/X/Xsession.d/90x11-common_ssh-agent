@@ -1,0 +1,17 @@
+# -*- mode: sh -*-
+
+STARTSSH=
+SSHAGENT=ssh-agent
+SSHAGENTARGS=
+
+if command -v "$SSHAGENT" >/dev/null 2>&1 && [ -z "$SSH_AUTH_SOCK" ] && [ -z "$SSH2_AUTH_SOCK" ]; then
+	STARTSSH=yes
+	if command -v ssh-add1 >/dev/null 2>&1 && cmp -s "$(command -v "$SSHAGENT" 2>&1)" "$(command -v ssh-agent2 2>&1)"; then
+		# use ssh-agent2's ssh-agent1 compatibility mode
+		SSHAGENTARGS=-1
+	fi
+fi
+
+if [ -n "$STARTSSH" ]; then
+	STARTUP="$SSHAGENT $SSHAGENTARGS ${TMPDIR:+env TMPDIR=$TMPDIR} $STARTUP"
+fi

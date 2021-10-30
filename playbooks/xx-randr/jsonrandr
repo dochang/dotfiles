@@ -1,0 +1,81 @@
+#!/usr/bin/env python
+
+from __future__ import unicode_literals
+
+import json
+import sys
+
+
+def get_preferred(query):
+    return query.get('preferred') or query['modes'][0]
+
+
+def is_connected(query, output):
+    if output in query:
+        if 'connected' in query[output]:
+            return query[output]['connected']
+    return False
+
+
+def generate_size(output_query):
+    preferred = get_preferred(output_query)
+    keys = ('name', 'width', 'height', 'interlaced', 'rate')
+    return {k: preferred[k] for k in keys if k in preferred}
+
+
+def generate_pos(output, config):
+    lvds1 = config['LVDS1']
+    if output == 'LVDS1':
+        return {
+            'x': 0,
+            'y': 0,
+        }
+    if 'HDMI1' in config:
+        hdmi1 = config['HDMI1']
+        if output == 'HDMI1':
+            return {
+                'x': lvds1['width'],
+                'y': lvds1['height'],
+            }
+        elif output == 'VIRTUAL1':
+            return {
+                'x': lvds1['width'] - hdmi1['width'],
+                'y': lvds1['width'] + hdmi1['height'],
+            }
+    elif output == 'VIRTUAL1':
+        return {
+            'x': 0,
+            'y': lvds1['height'],
+        }
+
+
+def get_config(query):
+    config = {}
+
+    for output in ('LVDS1', 'HDMI1'):
+        if not is_connected(query, output):
+            continue
+        size = generate_size(query[output])
+        if size:
+            config[output] = size
+
+    for output in config:
+        pos = generate_pos(output, config)
+        if pos:
+            config[output].update(pos)
+
+    for output in query:
+        if output not in config:
+            config[output] = None
+
+    return config
+
+
+def main():
+    query = json.load(sys.stdin)
+    config = get_config(query)
+    json.dump(config, sys.stdout)
+
+
+if __name__ == '__main__':
+    main()

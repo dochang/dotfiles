@@ -1,0 +1,17 @@
+## The first matched rule wins.
+
++ .rsync-filter
+# Include .rsync-filter
+#
+# To prevent excluded files from being deleted on the receiving side.  We have
+# to include this file in the transfer.
+
+- .*
+# Exclude .*
+
+-C
+# Exclude VCS files
+
+- common-lisp.lisp
+- asdf.lisp
+# These files will be copied into HOME.

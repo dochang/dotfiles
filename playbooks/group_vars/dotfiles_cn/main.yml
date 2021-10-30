@@ -1,0 +1,78 @@
+---
+dotfiles_homebrew_bottle_domain: https://mirrors.tuna.tsinghua.edu.cn/linuxbrew-bottles
+dotfiles_homebrew_brew_git_remote: https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/brew.git
+dotfiles_homebrew_core_git_remote: https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-core.git
+# https://mirrors.tuna.tsinghua.edu.cn/help/homebrew/
+dotfiles_emacs_package_archives:
+  - id: gnu
+    location: https://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/
+  - id: nongnu
+    location: https://mirrors.tuna.tsinghua.edu.cn/elpa/nongnu/
+  - id: melpa
+    location: https://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/
+  - id: org
+    location: https://mirrors.tuna.tsinghua.edu.cn/elpa/org/
+  # - id: melpa-stable
+  #   location: https://mirrors.tuna.tsinghua.edu.cn/elpa/melpa-stable/
+
+  # Downloading marmalade archive will cause Emacs hangs at 100% CPU usage.
+  # Disable it for now.  See nicferrier/elmarmalade#106 .
+  #
+  # - id: marmalade
+  #   location: https://mirrors.tuna.tsinghua.edu.cn/elpa/marmalade/
+
+  # Disable the following archives.  Their packages are too old.
+  #
+  # - id: ELPA
+  #   location: http://tromey.com/elpa/
+
+  # - id: SC
+  #   location: https://mirrors.tuna.tsinghua.edu.cn/elpa/sunrise-commander/
+dotfiles_nix_nixpkgs_channel_url: https://mirrors.tuna.tsinghua.edu.cn/nix-channels/nixpkgs-unstable
+dotfiles_guix_default_channel_url: https://mirror.sjtu.edu.cn/git/guix.git
+dotfiles_python_build_mirror_url: https://npm.taobao.org/mirrors/python/
+dotfiles_python_build_mirror_url_skip_checksum: '1'
+dotfiles_pip_index_url: https://pypi.doubanio.com/simple
+dotfiles_npm_registry: https://registry.npm.taobao.org
+dotfiles_npm_disturl: https://npm.taobao.org/mirrors/node
+dotfiles_nodejs_org_mirror: https://npm.taobao.org/mirrors/node
+dotfiles_node_build_mirror_url: https://npm.taobao.org/mirrors/node
+dotfiles_sass_binary_site: https://npm.taobao.org/mirrors/node-sass
+# https://npm.taobao.org/mirrors
+dotfiles_yarn_registry: https://registry.npm.taobao.org
+dotfiles_gem_source:
+  'BUNDLE_MIRROR__HTTPS://RUBYGEMS__ORG/': 'https://gems.ruby-china.com/'
+# Reduce transfer from ustc mirror.
+#
+# dotfiles_gem_source:
+#   'BUNDLE_MIRROR__HTTPS://RUBYGEMS__ORG/': 'https://mirrors.ustc.edu.cn/rubygems/'
+dotfiles_rustup_dist_server: https://mirrors.tuna.tsinghua.edu.cn/rustup
+dotfiles_rustup_update_root: https://mirrors.tuna.tsinghua.edu.cn/rustup/rustup
+# https://mirrors.tuna.tsinghua.edu.cn/help/rustup/
+# https://mirrors.tuna.tsinghua.edu.cn/help/crates.io-index.git/
+# https://doc.crates.io/source-replacement.html
+# https://doc.rust-lang.org/cargo/reference/source-replacement.html
+dotfiles_cargo_source:
+  crates-io:
+    replace-with: tuna
+  tuna:
+    registry: https://mirrors.tuna.tsinghua.edu.cn/git/crates.io-index.git
+dotfiles_maven_mirrors:
+  # https://www.jianshu.com/p/7fe6c7ab74f6
+  # https://help.aliyun.com/document_detail/102512.html
+  # http://mirrors.163.com/.help/maven.html
+  - id: aliyunmaven
+    mirrorOf: central,jcenter
+    name: Aliyun Maven
+    url: https://maven.aliyun.com/repository/public
+dotfiles_pbuilder_mirrorsite: 'https://mirrors.ustc.edu.cn/debian'
+dotfiles_gradle_repos:
+  - type: mavenLocal
+  - type: maven
+    name: aliyunmaven
+    url: https://maven.aliyun.com/repository/public/
+  - type: mavenCentral
+dotfiles_goproxy: 'https://goproxy.cn,direct'
+# https://golang.org/cmd/go/#hdr-Module_authentication_failures
+# https://github.com/golang/go/issues/31755#issuecomment-527611727
+dotfiles_gosumdb: 'sum.golang.google.cn'

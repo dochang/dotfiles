@@ -1,0 +1,46 @@
+#!/usr/bin/env bash
+
+shopt -s nullglob globstar
+
+typeit=0
+otp=0
+
+while [ $# -gt 0 ]; do
+	case "$1" in
+	--type)
+		typeit=1
+		;;
+	--otp)
+		otp=1
+		;;
+	*)
+		break
+		;;
+	esac
+	shift
+done
+
+prefix=${PASSWORD_STORE_DIR-~/.password-store}
+password_files=("$prefix"/**/*.gpg)
+password_files=("${password_files[@]#"$prefix"/}")
+password_files=("${password_files[@]%.gpg}")
+
+password=$(printf '%s\n' "${password_files[@]}" | rofi -normal-window -dmenu "$@")
+
+[[ -n $password ]] || exit
+
+if [[ $otp -eq 0 ]]; then
+	pass_cmd="pass show"
+else
+	pass_cmd="pass otp code"
+fi
+
+if [[ $typeit -eq 0 ]]; then
+	eval "$pass_cmd --clip $password" 2>/dev/null
+else
+	eval "$pass_cmd $password" | {
+		read -r pass
+		printf %s "$pass"
+	} |
+		xdotool type --clearmodifiers --file -
+fi

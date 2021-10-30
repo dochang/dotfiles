@@ -1,0 +1,12 @@
+[Unit]
+Description=emacs
+
+[Service]
+Type=forking
+ExecStart=/bin/sh -l -c 'exec emacs --daemon=systemd'
+ExecStop=/bin/sh -l -c 'exec emacsclient --server-file=systemd --eval "(kill-emacs)"'
+Restart=always
+WorkingDirectory=~
+
+[Install]
+WantedBy=default.target

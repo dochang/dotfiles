@@ -1,0 +1,3 @@
+{
+  "ignore": ["playbooks/clisp/clisprc.lisp", "playbooks/cmucl/cmucl-init.lisp"]
+}

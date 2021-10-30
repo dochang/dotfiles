@@ -1,0 +1,8 @@
+# https://specifications.freedesktop.org/autostart-spec/autostart-spec-latest.html
+# https://specifications.freedesktop.org/desktop-entry-spec/desktop-entry-spec-latest.html
+# https://superuser.com/a/759891
+# https://superuser.com/a/755959
+[Desktop Entry]
+Type=Application
+Name=Xwrits
+Exec=xx-daemon xwrits --background --make-pidfile --oknodo --start -- +multiscreen +breakclock +cheat +clock +idle +mouse +top

@@ -1,0 +1,3 @@
+source! ~/.vimperatorrc.local
+
+" vim: set ft=vimperator:

@@ -1,0 +1,23 @@
+## The first matched rule wins.
+
+- *.tmpl.el
+# These files contains Ansible templates.  Do not deploy them by rsync and do
+# not delete them.
+
+- *.disabled.el
+# These files contains disabled configurations.  Ensure them not installed.
+
++ *.el
+# Include *.el
+
++ .rsync-filter
+# Include .rsync-filter
+#
+# To prevent excluded files from being deleted on the receiving side.  We have
+# to include this file in the transfer.
+
+- .*
+# Exclude .*
+
+-C
+# Exclude VCS files

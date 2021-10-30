@@ -1,0 +1,49 @@
+---
+- name: Emacs
+  block:
+    - name: Ensure `.emacs.d` present
+      ansible.builtin.file:
+        path: '{{ dotfiles_home }}/.emacs.d'
+        state: directory
+    - name: Deploy `.emacs.d/*.el`
+      ansible.builtin.template:
+        dest: '{{ dotfiles_home }}/{{ item | relpath(playbook_dir) | regex_replace("^emacs/(.*)$", ".emacs.d/\1") }}'
+        src: '{{ item | relpath(playbook_dir) }}'
+      with_ansible.builtin.fileglob:
+        - emacs/*.el
+    - name: Deploy `.emacs.d/.dir-locals.el`
+      ansible.builtin.copy:
+        dest: '{{ dotfiles_home }}/.emacs.d/.dir-locals.el'
+        src: emacs/.dir-locals.emacsd.el
+    - name: Sync emacs files
+      ansible.posix.synchronize:
+        dest: '{{ dotfiles_home }}/.emacs.d/'
+        src: '{{ item }}'
+      with_ansible.builtin.list:
+        - emacs/site-lisp
+        - emacs/themes
+        - emacs/cnfonts
+    - name: Sync `emacs/init.d` files
+      ansible.posix.synchronize:
+        dest: '{{ dotfiles_home }}/.emacs.d'
+        src: emacs/init.d
+        times: false
+        checksum: true
+    - name: Deploy emacs init.d template files
+      ansible.builtin.template:
+        dest: '{{ dotfiles_home }}/{{ item | relpath(playbook_dir) | regex_replace("^emacs/(.*)$", ".emacs.d/\1") }}'
+        src: '{{ item | relpath(playbook_dir) }}'
+      with_ansible.builtin.fileglob:
+        - emacs/init.d/*.tmpl.el
+    - name: Delete emacs init.d disabled files
+      ansible.builtin.file:
+        path: '{{ dotfiles_home }}/{{ item | relpath(playbook_dir) | regex_replace("^emacs/(.*)$", ".emacs.d/\1") }}'
+        state: absent
+      with_ansible.builtin.fileglob:
+        - emacs/init.d/*.disabled.el
+    - name: Sync gnus files
+      ansible.posix.synchronize:
+        dest: '{{ dotfiles_home }}/.gnus.el'
+        src: gnus/gnus.el
+  tags:
+    - emacs

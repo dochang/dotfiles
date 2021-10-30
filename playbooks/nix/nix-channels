@@ -1,0 +1,1 @@
+{{ dotfiles_nix_nixpkgs_channel_url }} nixpkgs

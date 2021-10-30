@@ -1,0 +1,14 @@
+# -*- mode: conf -*-
+# Write your default config options here!
+
+
+# Don't display OSD messages.
+osdlevel=0
+
+
+# Enable fullscreen
+fs=yes
+
+
+# Audio mixer config
+softvol=yes

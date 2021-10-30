@@ -1,0 +1,24 @@
+---
+APPLY_FIXES: none
+SHOW_ELAPSED_TIME: true
+IGNORE_GITIGNORED_FILES: true
+DISABLE:
+  - SPELL
+FILEIO_REPORTER: true
+ANSIBLE_DIRECTORY: ''
+ANSIBLE_ANSIBLE_LINT_CLI_LINT_MODE: project
+ANSIBLE_ANSIBLE_LINT_CONFIG_FILE: LINTER_DEFAULT
+ADDITIONAL_EXCLUDED_DIRECTORIES:
+  - conkeror
+  - gradle
+  - hyper
+  - m2
+  - offlineimap
+  - shell
+  - vimperator
+  - bin
+  # Well, some are not ready, some are templates.
+DISABLE_LINTERS:
+  - COPYPASTE_JSCPD
+  # Too slow to enable it.
+EDITORCONFIG_EDITORCONFIG_CHECKER_CLI_LINT_MODE: project

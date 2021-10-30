@@ -1,0 +1,5 @@
+# -*- mode: conf -*-
+
+# use visible bell
+# http://www.debian-administration.org/articles/110
+set bell-style visible

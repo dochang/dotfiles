@@ -1,0 +1,19 @@
+playbooks/emacs/cnfonts/v4/gnu-linux/default.el no-smart-quotes!skip
+playbooks/i3/config no-smart-quotes!skip
+playbooks/i3/config.default no-smart-quotes!skip
+playbooks/offlineimap/config.py future-import-boilerplate!skip
+playbooks/offlineimap/config.py metaclass-boilerplate!skip
+playbooks/offlineimap/config.py pep8!skip
+playbooks/shell/functions.sh shellcheck!skip
+playbooks/shell/logout.sh shellcheck!skip
+playbooks/shell/profile.sh shellcheck!skip
+playbooks/shell/shrc.sh shellcheck!skip
+playbooks/X/xinitrc shebang!skip
+playbooks/X/xsession shebang!skip
+playbooks/bin/pass-askpass shebang!skip
+playbooks/bin/banish-pointer.sh shellcheck!skip
+playbooks/bin/browser.sh shellcheck!skip
+playbooks/bin/encfs-mount.sh shellcheck!skip
+playbooks/bin/mixer.sh shellcheck!skip
+playbooks/bin/run-or-raise.sh shellcheck!skip
+.drone.yml yamllint!skip # yamllint in Ansible 2.11 only supports single document

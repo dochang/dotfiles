@@ -1,0 +1,28 @@
+# -*- mode: conf -*-
+
+[general]
+accounts = weiyi.zhang@geneegroup.com
+ui = Blinkenlights
+# timeout in 60s
+socktimeout = 60
+pythonfile = ~/.config/offlineimap/config.py
+
+
+[Account weiyi.zhang@geneegroup.com]
+localrepository = weiyi.zhang@geneegroup.com_local
+remoterepository = weiyi.zhang@geneegroup.com_remote
+
+[Repository weiyi.zhang@geneegroup.com_local]
+type = Maildir
+localfolders = ~/Maildir/weiyi.zhang@geneegroup.com
+
+[Repository weiyi.zhang@geneegroup.com_remote]
+type = IMAP
+remotehosteval = get_remotepass('imap/weiyi.zhang@geneegroup.com/host')
+ssl = no
+remoteusereval = get_remotepass('imap/weiyi.zhang@geneegroup.com/user')
+remotepasseval = get_remotepass('imap/weiyi.zhang@geneegroup.com/password')
+# No SSL verification is done without certs even if ssl = yes
+sslcacertfile = /etc/ssl/certs/ca-certificates.crt
+# Do not create any folders on the remote repository.
+createfolders = False

@@ -1,0 +1,396 @@
+# Global Settings
+# ===============
+
+set $mod Mod4
+
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+
+# Font for window titles. Will also be used by the bar unless a different font
+# is used in the bar {} block below. ISO 10646 = Unicode
+#
+#     font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
+#
+# The font above is very space-efficient, that is, it looks good, sharp and
+# clear in small sizes. However, if you need a lot of unicode glyphs or
+# right-to-left text rendering, you should instead use pango for rendering and
+# chose a FreeType font, such as:
+#
+#     font pango:DejaVu Sans Mono 10
+#
+font pango:DejaVu Sans Mono 10
+
+focus_follows_mouse no
+
+# For gpg-agent & pinentry
+popup_during_fullscreen leave_fullscreen
+
+workspace_layout tabbed
+
+for_window [class="XWrits"] floating enable
+
+for_window [class="Dropbox"] floating enable
+
+for_window [class="Pinentry"] floating enable
+
+for_window [class="Rofi"] floating enable
+
+for_window [class="Firefox" window_role="About"] floating enable
+
+# Disable mouse warping entirely.
+mouse_warping none
+
+# Basic Bindings
+# ==============
+
+# reload the configuration file
+bindsym $mod+Ctrl+r reload
+
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Ctrl+Mod1+r exec "xconfirm.sh 'i3-msg restart' 'Do you want to restart?'"
+
+# exit i3 (logs you out of your X session)
+bindsym $mod+Ctrl+x exec "xconfirm.sh 'i3-msg exit' 'Do you want to exit?'"
+
+# kill focused window
+bindsym $mod+Ctrl+q kill
+
+bindsym $mod+Shift+colon exec i3-input
+
+# start rofi (a program launcher)
+bindsym $mod+Shift+exclam exec rofi_run
+
+bindsym XF86ScreenSaver exec "xlock.sh"
+bindsym $mod+Ctrl+l exec "xlock.sh"
+
+# Layout
+# ======
+
+# change focus
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# move focused window
+bindsym $mod+Mod1+h move left
+bindsym $mod+Mod1+j move down
+bindsym $mod+Mod1+k move up
+bindsym $mod+Mod1+l move right
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Mod1+Left move left
+bindsym $mod+Mod1+Down move down
+bindsym $mod+Mod1+Up move up
+bindsym $mod+Mod1+Right move right
+
+# focus the parent container
+bindsym $mod+Shift+6 focus parent
+
+# focus the child container
+bindsym $mod+v focus child
+
+# change container layout (stacked, tabbed, toggle split)
+bindsym $mod+w layout tabbed
+bindsym $mod+s layout stacking
+bindsym $mod+e layout toggle split
+
+# toggle tiling / floating
+bindsym $mod+Mod1+space floating toggle
+
+# change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+
+# In i3, `$mod+bar` (`$mod+|`) is equivalent to `$mod+backslash`
+# (`$mod+\`).  If they are both bound, `$mod+backslash` will take
+# effect.  To bind `$mod+bar` rather than `$mod+backslash` clearly,
+# use `$mod+Shift+bar` instead.
+#
+# split in horizontal orientation
+bindsym $mod+Shift+bar split h
+# split in vertical orientation
+bindsym $mod+minus split v
+
+# Workspace
+# =========
+
+# switch to workspace
+bindsym $mod+F1 workspace 1
+bindsym $mod+F2 workspace 2
+bindsym $mod+F3 workspace 3
+bindsym $mod+F4 workspace 4
+bindsym $mod+F5 workspace 5
+bindsym $mod+F6 workspace 6
+bindsym $mod+F7 workspace 7
+bindsym $mod+F8 workspace 8
+
+# move focused container to workspace
+bindsym $mod+Mod1+F1 move container to workspace 1
+bindsym $mod+Mod1+F2 move container to workspace 2
+bindsym $mod+Mod1+F3 move container to workspace 3
+bindsym $mod+Mod1+F4 move container to workspace 4
+bindsym $mod+Mod1+F5 move container to workspace 5
+bindsym $mod+Mod1+F6 move container to workspace 6
+bindsym $mod+Mod1+F7 move container to workspace 7
+bindsym $mod+Mod1+F8 move container to workspace 8
+
+# switch to workspace, shortcuts
+bindsym $mod+1 workspace 1
+bindsym $mod+2 workspace 2
+bindsym $mod+3 workspace 3
+bindsym $mod+4 workspace 4
+bindsym $mod+5 workspace 5
+bindsym $mod+6 workspace 6
+bindsym $mod+7 workspace 7
+bindsym $mod+8 workspace 8
+
+# move focused container to workspace, alternative form
+bindsym $mod+Mod1+1 move container to workspace 1
+bindsym $mod+Mod1+2 move container to workspace 2
+bindsym $mod+Mod1+3 move container to workspace 3
+bindsym $mod+Mod1+4 move container to workspace 4
+bindsym $mod+Mod1+5 move container to workspace 5
+bindsym $mod+Mod1+6 move container to workspace 6
+bindsym $mod+Mod1+7 move container to workspace 7
+bindsym $mod+Mod1+8 move container to workspace 8
+
+# Miscellaneous
+# =============
+
+# start a terminal
+bindsym $mod+Return exec i3-sensible-terminal
+
+# start a web browser
+bindsym XF86HomePage exec browser.sh
+
+# enter fullscreen mode for the focused container
+bindsym $mod+F11 fullscreen
+bindsym $mod+f fullscreen
+
+# banish pointer
+bindsym $mod+b exec "banish-pointer.sh"
+
+bindsym XF86AudioLowerVolume exec "mixer.sh 5%-"
+bindsym XF86AudioRaiseVolume exec "mixer.sh 5%+"
+bindsym XF86AudioMute        exec "mixer.sh toggle"
+
+bindsym Mod1+XF86AudioLowerVolume exec "mixer.sh 1%-"
+bindsym Mod1+XF86AudioRaiseVolume exec "mixer.sh 1%+"
+
+bindsym $mod+comma exec "mixer.sh 5%-"
+bindsym $mod+period exec "mixer.sh 5%+"
+bindsym $mod+slash exec "mixer.sh toggle"
+
+# $mod+<  /  $mod+>
+bindsym $mod+Shift+comma exec "mixer.sh 1%-"
+bindsym $mod+Shift+period exec "mixer.sh 1%+"
+
+# $mod+Mod1+,  /  $mod+Mod1+.
+bindsym $mod+Mod1+comma exec "mixer.sh 1%-"
+bindsym $mod+Mod1+period exec "mixer.sh 1%+"
+
+
+# Command Mode
+# ============
+
+# https://faq.i3wm.org/question/2559/can-bindings-have-multiple-keys/
+
+bindsym Ctrl+Shift+Escape mode "command"
+bindsym $mod+Escape mode "command"
+
+mode "command" {
+        bindsym Escape mode "default"
+        bindsym Ctrl+g mode "default"
+
+        # DO NOT `set $mod Mod1` here!!!  `$mod` is global in i3!!!
+
+        # reload the configuration file
+        bindsym Ctrl+r mode "default" ; reload
+
+        # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+        bindsym Ctrl+Mod1+r exec "xconfirm.sh 'i3-msg restart' 'Do you want to restart?'"
+
+        # exit i3 (logs you out of your X session)
+        bindsym Ctrl+x exec "xconfirm.sh 'i3-msg exit' 'Do you want to exit?'"
+
+        # kill focused window
+        bindsym Ctrl+q kill
+
+        bindsym Shift+colon exec i3-input
+
+        # start rofi (a program launcher)
+        bindsym Shift+exclam exec rofi_run
+
+        bindsym XF86ScreenSaver exec "xlock.sh"
+        bindsym Ctrl+l exec "xlock.sh"
+
+        # change focus
+        bindsym h focus left
+        bindsym j focus down
+        bindsym k focus up
+        bindsym l focus right
+
+        # alternatively, you can use the cursor keys:
+        bindsym Left focus left
+        bindsym Down focus down
+        bindsym Up focus up
+        bindsym Right focus right
+
+        # move focused window
+        bindsym Mod1+h move left
+        bindsym Mod1+j move down
+        bindsym Mod1+k move up
+        bindsym Mod1+l move right
+
+        # alternatively, you can use the cursor keys:
+        bindsym Mod1+Left move left
+        bindsym Mod1+Down move down
+        bindsym Mod1+Up move up
+        bindsym Mod1+Right move right
+
+        # focus the parent container
+        bindsym Shift+6 focus parent
+
+        # focus the child container
+        bindsym v focus child
+
+        # change container layout (stacked, tabbed, toggle split)
+        bindsym w layout tabbed
+        bindsym s layout stacking
+        bindsym e layout toggle split
+
+        # toggle tiling / floating
+        bindsym Mod1+space floating toggle
+
+        # change focus between tiling / floating windows
+        bindsym space focus mode_toggle
+
+        # In i3, `bar` (`|`) is equivalent to `backslash`
+        # (`\`).  If they are both bound, `backslash` will take
+        # effect.  To bind `bar` rather than `backslash` clearly,
+        # use `Shift+bar` instead.
+        #
+        # split in horizontal orientation
+        bindsym Shift+bar split h
+        # split in vertical orientation
+        bindsym minus split v
+
+        # switch to workspace
+        bindsym F1 workspace 1
+        bindsym F2 workspace 2
+        bindsym F3 workspace 3
+        bindsym F4 workspace 4
+        bindsym F5 workspace 5
+        bindsym F6 workspace 6
+        bindsym F7 workspace 7
+        bindsym F8 workspace 8
+
+        # move focused container to workspace
+        bindsym Mod1+F1 move container to workspace 1
+        bindsym Mod1+F2 move container to workspace 2
+        bindsym Mod1+F3 move container to workspace 3
+        bindsym Mod1+F4 move container to workspace 4
+        bindsym Mod1+F5 move container to workspace 5
+        bindsym Mod1+F6 move container to workspace 6
+        bindsym Mod1+F7 move container to workspace 7
+        bindsym Mod1+F8 move container to workspace 8
+
+        # switch to workspace, shortcuts
+        bindsym 1 workspace 1
+        bindsym 2 workspace 2
+        bindsym 3 workspace 3
+        bindsym 4 workspace 4
+        bindsym 5 workspace 5
+        bindsym 6 workspace 6
+        bindsym 7 workspace 7
+        bindsym 8 workspace 8
+
+        # move focused container to workspace, alternative form
+        bindsym Mod1+1 move container to workspace 1
+        bindsym Mod1+2 move container to workspace 2
+        bindsym Mod1+3 move container to workspace 3
+        bindsym Mod1+4 move container to workspace 4
+        bindsym Mod1+5 move container to workspace 5
+        bindsym Mod1+6 move container to workspace 6
+        bindsym Mod1+7 move container to workspace 7
+        bindsym Mod1+8 move container to workspace 8
+
+        # start a terminal
+        bindsym Mod1+Return exec i3-sensible-terminal
+
+        # start editor
+        bindsym Mod1+e exec "emacsclient -c"
+
+        # start a web browser
+        bindsym XF86HomePage exec browser.sh
+
+        # enter fullscreen mode for the focused container
+        bindsym F11 fullscreen
+        bindsym f fullscreen
+
+        # banish pointer
+        bindsym b exec "banish-pointer.sh"
+
+        bindsym XF86AudioLowerVolume exec "mixer.sh 5%-"
+        bindsym XF86AudioRaiseVolume exec "mixer.sh 5%+"
+        bindsym XF86AudioMute        exec "mixer.sh toggle"
+
+        bindsym Mod1+XF86AudioLowerVolume exec "mixer.sh 1%-"
+        bindsym Mod1+XF86AudioRaiseVolume exec "mixer.sh 1%+"
+
+        bindsym comma exec "mixer.sh 5%-"
+        bindsym period exec "mixer.sh 5%+"
+        bindsym slash exec "mixer.sh toggle"
+
+        # <  /  >
+        bindsym Shift+comma exec "mixer.sh 1%-"
+        bindsym Shift+period exec "mixer.sh 1%+"
+
+        # Mod1+,  /  Mod1+.
+        bindsym Mod1+comma exec "mixer.sh 1%-"
+        bindsym Mod1+period exec "mixer.sh 1%+"
+
+        bindsym r mode "resize"
+}
+
+# Resize mode
+# ===========
+
+# resize window (you can also use the mouse for that)
+mode "resize" {
+        # These bindings trigger as soon as you enter the resize mode
+
+        # Pressing left will shrink the window’s width.
+        # Pressing right will grow the window’s width.
+        # Pressing up will shrink the window’s height.
+        # Pressing down will grow the window’s height.
+        bindsym h resize shrink width 10 px or 10 ppt
+        bindsym j resize grow height 10 px or 10 ppt
+        bindsym k resize shrink height 10 px or 10 ppt
+        bindsym l resize grow width 10 px or 10 ppt
+
+        # same bindings, but for the arrow keys
+        bindsym Left resize shrink width 10 px or 10 ppt
+        bindsym Down resize grow height 10 px or 10 ppt
+        bindsym Up resize shrink height 10 px or 10 ppt
+        bindsym Right resize grow width 10 px or 10 ppt
+
+        # back to normal: Enter or Escape
+        bindsym Return mode "command"
+        bindsym Escape mode "command"
+        bindsym Ctrl+g mode "command"
+}
+
+bar {
+        status_command exec i3status
+        # handle signals
+        #
+        # https://i3wm.org/docs/userguide.html#status_command
+        tray_output primary
+}

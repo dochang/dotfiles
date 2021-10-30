@@ -1,0 +1,47 @@
+#!/bin/sh -l
+# -*- mode: sh -*-
+
+# `.xsession` has to be invoked by `/bin/sh -l`, because `/bin/sh`
+# loaded environment variables with `-l`.
+
+# Customization
+export XLOCKER="i3lock -c 000000"
+
+if [ -z "$XMODIFIERS" ] ; then
+	# `im-config` is not installed.
+	export XMODIFIERS="@im=fcitx"
+	export GTK_IM_MODULE=xim
+	export QT_IM_MODULE=xim
+	if command -v anthy-dic-tool > /dev/null && [ -r ~/.anthy/private-dic.src ] ; then
+		anthy-dic-tool --load --utf8 < ~/.anthy/private-dic.src
+	fi
+	fcitx -d
+fi
+
+xx-input
+
+xsetroot -cursor_name left_ptr
+
+# turn off system beep
+# http://www.debian-administration.org/articles/110
+xset b off
+
+if command -v autorandr >/dev/null 2>&1 ; then
+	autorandr --change
+elif command -v xx-randr >/dev/null 2>&1 ; then
+	xx-randr
+fi
+
+xx-autostart
+
+STARTUP="${X_WINDOW_MANAGER:-x-window-manager}"
+
+STARTUP="env SHELL=$(getent passwd $LOGNAME | cut -d: -f7) $STARTUP"
+# `SHELL` should be `/bin/sh` until now since `/bin/sh` is invoked
+# with `-l`.  Here it will be overridden by getting the login shell
+# from `getent`.  According to `login(1)`, the user's name should be
+# taken from `$LOGNAME`.
+
+STARTUP="~/bin/X.sh $STARTUP"
+
+eval "$STARTUP"

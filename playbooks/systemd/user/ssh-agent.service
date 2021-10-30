@@ -1,0 +1,15 @@
+# https://wiki.archlinux.org/index.php/SSH_keys#Start_ssh-agent_with_systemd_user
+# https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=850323
+[Unit]
+Description=SSH key agent
+Documentation=man:ssh-agent(1)
+
+[Service]
+Type=simple
+# Do not create socket by systemd.  Because ssh-agent automatically creates and
+# removes the socket file and we can't disable that.
+Environment=SSH_AUTH_SOCK=%t/ssh-agent.socket
+ExecStart=/usr/bin/ssh-agent -D -a $SSH_AUTH_SOCK
+
+[Install]
+WantedBy=default.target

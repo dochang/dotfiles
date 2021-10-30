@@ -1,0 +1,290 @@
+---
+- hosts: all
+
+  module_defaults:
+    ansible.builtin.file:
+      mode: 'u=rwX,o-w'
+    ansible.builtin.copy:
+      mode: 'u=rwX,o-w'
+    ansible.builtin.template:
+      mode: 'u=rwX,o-w'
+    ansible.posix.synchronize:
+      partial: false
+      delete: true
+      times: true
+      rsync_opts:
+        - '--chmod="Du=rwX,o-w,Fu=rwX,o-w"'
+
+  pre_tasks:
+    - block:
+        - name: Set `dotfiles_home`
+          ansible.builtin.set_fact:
+            dotfiles_home: '{{ dotfiles_prefix | default(ansible_env["HOME"], true) | default("~", true) | expanduser }}'
+
+        - name: Set `dotfiles_xdg_config_home`
+          ansible.builtin.set_fact:
+            dotfiles_xdg_config_home: '{{ ansible_env["XDG_CONFIG_HOME"] | default(((dotfiles_home, ".config") | path_join), true) }}'
+
+        - name: Ensure `dotfiles_home` and `dotfiles_xdg_config_home` present
+          ansible.builtin.file:
+            path: '{{ item }}'
+            mode: '{{ omit }}'
+            state: directory
+          with_ansible.builtin.list:
+            - '{{ dotfiles_home }}'
+            - '{{ dotfiles_xdg_config_home }}'
+      tags:
+        - always
+
+  tasks:
+    - name: Aria2
+      block:
+        - name: Sync aria2 files
+          ansible.posix.synchronize:
+            dest: '{{ dotfiles_xdg_config_home }}'
+            src: aria2
+      tags:
+        - aria2
+
+    - name: GnuPG
+      block:
+        - name: Ensure `.gnupg` present
+          ansible.builtin.file:
+            path: '{{ dotfiles_home }}/.gnupg'
+            state: directory
+        - name: Deploy gnupg files
+          ansible.builtin.copy:
+            dest: '{{ dotfiles_home }}/.{{ item }}'
+            src: '{{ item }}'
+          with_ansible.builtin.list:
+            - gnupg/gpg.conf
+            - gnupg/gpg-agent.conf
+      tags:
+        - gnupg
+        - gpg
+
+    - name: Guix
+      block:
+        - name: Ensure `guix` present
+          ansible.builtin.file:
+            path: '{{ dotfiles_xdg_config_home }}/guix'
+            state: directory
+        - name: Deploy guix files
+          ansible.builtin.template:
+            dest: '{{ dotfiles_xdg_config_home }}/{{ item | relpath(playbook_dir) }}'
+            src: '{{ item | relpath(playbook_dir) }}'
+          with_ansible.builtin.fileglob:
+            - guix/*
+      tags:
+        - guix
+
+    - name: less
+      block:
+        - name: Sync .lesskey
+          ansible.posix.synchronize:
+            dest: '{{ dotfiles_home }}/.lesskey'
+            src: less/lesskey
+          notify:
+            - lesskey
+        - name: Sync .lessfilter
+          ansible.posix.synchronize:
+            dest: '{{ dotfiles_home }}/.lessfilter'
+            src: less/lessfilter
+            rsync_opts:
+              - '--chmod="Du=rwx,o-w,Fu=rwx,o-w"'
+      tags:
+        - less
+
+    - name: mime-support
+      block:
+        - name: Sync mime-support files
+          ansible.posix.synchronize:
+            dest: '{{ dotfiles_home }}/.mailcap'
+            src: mime-support/mailcap
+      tags:
+        - mime-support
+        - mime
+        - mailcap
+
+    - name: most
+      block:
+        - name: Sync most files
+          ansible.posix.synchronize:
+            dest: '{{ dotfiles_home }}/.mostrc'
+            src: most/mostrc
+      tags:
+        - most
+
+    - name: MPD
+      block:
+        - name: Sync mpd files
+          ansible.posix.synchronize:
+            dest: '{{ dotfiles_xdg_config_home }}'
+            src: mpd
+      tags:
+        - mpd
+
+    - name: Nix
+      block:
+        - name: Deploy nix files
+          ansible.builtin.template:
+            dest: '{{ dotfiles_home }}/.nix-channels'
+            src: nix/nix-channels
+      tags:
+        - nix
+
+    - name: Nixpkgs
+      block:
+        - name: Ensure `.nixpkgs` present
+          ansible.builtin.file:
+            path: '{{ dotfiles_home }}/.nixpkgs'
+            state: directory
+        - name: Deploy nixpkgs files
+          ansible.posix.synchronize:
+            dest: '{{ dotfiles_home }}/.nixpkgs/'
+            src: nixpkgs/
+      tags:
+        - nixpkgs
+        - nix
+
+    - name: PAM
+      block:
+        - name: Sync pam files
+          ansible.posix.synchronize:
+            dest: '{{ dotfiles_home }}/.pam_environment'
+            src: pam/pam_environment
+      tags:
+        - pam
+
+    - name: ProxyChains
+      block:
+        - name: Ensure `proxychains` present
+          ansible.builtin.file:
+            path: '{{ dotfiles_home }}/.proxychains'
+            state: directory
+        - name: Sync proxychains files
+          ansible.posix.synchronize:
+            dest: '{{ dotfiles_home }}/.proxychains/'
+            src: proxychains/
+      tags:
+        - proxychains
+
+    - name: Readline
+      block:
+        - name: Sync readline files
+          ansible.posix.synchronize:
+            dest: '{{ dotfiles_home }}/.inputrc'
+            src: readline/inputrc
+      tags:
+        - readline
+        - sh
+        - shell
+        - dash
+        - bash
+        - zsh
+
+    - name: sh
+      block:
+        - name: Deploy sh files
+          ansible.builtin.template:
+            dest: '{{ dotfiles_home }}/{{ item | regex_replace("^([^/]*)/([^.]*)\..*$", ".\2") }}'
+            src: '{{ item }}'
+          with_ansible.builtin.list:
+            - shell/profile.sh
+            - shell/shrc.sh
+          tags:
+            - sh
+            - shell
+            - dash
+        - name: Deploy bash files
+          ansible.builtin.template:
+            dest: '{{ dotfiles_home }}/{{ item | regex_replace("^([^/]*)/([^.]*)\..*$", ".\2") }}'
+            src: '{{ item }}'
+          with_ansible.builtin.list:
+            - shell/bash_profile.bash
+            - shell/bashrc.bash
+            - shell/bash_logout.bash
+          tags:
+            - sh
+            - shell
+            - bash
+        - name: Deploy zsh files
+          ansible.builtin.template:
+            dest: '{{ dotfiles_home }}/{{ item | regex_replace("^([^/]*)/([^.]*)\..*$", ".\2") }}'
+            src: '{{ item }}'
+          with_ansible.builtin.list:
+            - shell/zprofile.zsh
+            - shell/zshrc.zsh
+            - shell/zlogout.zsh
+          tags:
+            - sh
+            - shell
+            - zsh
+
+    - name: sshrc
+      block:
+        - name: Sync sshrc files
+          ansible.posix.synchronize:
+            dest: '{{ dotfiles_home }}/.sshrc'
+            src: sshrc/sshrc
+      tags:
+        - sshrc
+
+    - name: thefuck
+      block:
+        - name: Sync thefuck files
+          ansible.posix.synchronize:
+            dest: '{{ dotfiles_xdg_config_home }}'
+            src: thefuck
+      tags:
+        - thefuck
+
+    - name: tmux
+      block:
+        - name: Sync tmux files
+          ansible.posix.synchronize:
+            dest: '{{ dotfiles_home }}/.tmux.conf'
+            src: tmux/tmux.conf
+      tags:
+        - tmux
+
+    - name: Wget
+      block:
+        - name: Sync wget files
+          ansible.posix.synchronize:
+            dest: '{{ dotfiles_home }}/.wgetrc'
+            src: wget/wgetrc
+      tags:
+        - wget
+
+    - name: bin
+      block:
+        - name: Ensure `bin` present
+          ansible.builtin.file:
+            path: '{{ dotfiles_home }}/bin'
+            state: directory
+        - name: Deploy bin files
+          ansible.builtin.copy:
+            dest: '{{ dotfiles_home }}/{{ item }}'
+            src: '{{ item }}'
+          with_ansible.builtin.list:
+            - bin/display-upstream-package-from-paf
+            - bin/pingen
+            - bin/vps-speed-test.sh
+      tags:
+        - bin
+
+  handlers:
+    - name: run `lesskey`
+      ansible.builtin.command: 'lesskey --output={{ (dotfiles_home, ".less") | path_join | quote }} {{ (dotfiles_home, ".lesskey") | path_join | quote }}'
+      listen: lesskey
+
+    - name: chmod `.less`
+      ansible.builtin.file:
+        path: '{{ dotfiles_home }}/.less'
+        state: file
+      listen: lesskey
+
+- import_playbook: desktop.yml
+
+- import_playbook: dev.yml

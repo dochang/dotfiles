@@ -1,0 +1,47 @@
+"""""""""""""""""""""""""""""""""""""""
+"" To get help, type :help <keyword> ""
+"""""""""""""""""""""""""""""""""""""""
+
+
+set nocompatible
+"" Make vim less vi-compatible
+
+
+set background=dark
+"" Force vim to use light colors for syntax highlight.
+"" This option does NOT change the background color.
+"" This option has to be set before syntax command.
+
+
+"""" Syntax highlighting
+
+if has("syntax")
+	syntax enable
+endif
+"" If vim has syntax highlighting support, enable it.
+""
+"" Use `enable` rather than `on` because `enable` will keep the
+"" current color settings.
+""
+"" To enable syntax highlighting only for specific files, use:
+""
+""     :syntax manual
+
+
+if v:version >= 703 && has("syntax")
+	set colorcolumn=81
+endif
+"" Highlight columns specified by ColorColumn.
+"" It's useful for wrapping text.
+
+
+set paste
+"" Avoid unexpected indentations when pasting.
+
+
+set ruler
+"" Show line and column number of the cursor position.
+
+
+set visualbell
+"" Use visual bell instead of beeping.

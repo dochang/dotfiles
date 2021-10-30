@@ -1,0 +1,27 @@
+## Registries
+# https://github.com/yarnpkg/yarn/issues/3700#issuecomment-312872253
+# https://docs.microsoft.com/en-us/vsts/package/npm/scopes
+registry = {{ dotfiles_npm_registry | default("https://registry.npmjs.org/") }}
+# A mirror may not have scoped packages.  Use upstream.
+@types:registry = https://registry.npmjs.org/
+@sindresorhus:registry = https://registry.npmjs.org/
+@sailshq:registry = https://registry.npmjs.org/
+
+## For node-gyp
+# https://stackoverflow.com/questions/18503373/how-to-set-tarball-url-of-node-gyp-via-environment-variable
+# https://github.com/nodejs/node-gyp/blob/v7.0.0/lib/process-release.js#L22
+# https://github.com/nodejs/node-gyp/blob/v7.0.0/lib/process-release.js#L65-L67
+disturl = {{ dotfiles_npm_disturl | default("https://nodejs.org/dist") }}
+
+## For node-sass
+# https://github.com/sass/node-sass#binary-configuration-parameters
+# https://github.com/sass/node-sass/blob/v4.14.1/lib/extensions.js#L247
+sass_binary_site = {{ dotfiles_sass_binary_site | default("https://github.com/sass/node-sass/releases/download") }}
+
+## prefix
+# This setting controls the output of `npm prefix -g`.
+#
+# https://docs.npmjs.com/cli/v7/commands/npm-prefix
+#
+# Note: in order to use `~`, you must append a path separator: `~/`.
+prefix = ~/.npm-packages

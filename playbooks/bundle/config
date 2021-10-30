@@ -1,0 +1,4 @@
+---
+{% for key, val in dotfiles_gem_source.items() %}
+{{ key }}: {{ val }}
+{% endfor %}

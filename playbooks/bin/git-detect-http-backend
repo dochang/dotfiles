@@ -1,0 +1,14 @@
+#!/bin/sh
+
+is_smart_content_type() {
+	curl --location --silent --include "$1/info/refs?service=git-upload-pack" | grep --quiet --text '^Content-Type: application/x-git'
+}
+
+for repo; do
+	repo=$(echo $repo | sed 's|/*$||')
+	if is_smart_content_type "$repo"; then
+		echo "$repo Smart"
+	else
+		echo "$repo Dumb"
+	fi
+done

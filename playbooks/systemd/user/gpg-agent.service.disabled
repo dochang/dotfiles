@@ -1,0 +1,12 @@
+[Unit]
+Description=gpg-agent
+
+[Service]
+Type=forking
+ExecStart=/bin/sh -l -c 'gpg-agent 2>/dev/null || exec gpg-agent --daemon'
+# For GnuPG 1.x
+ExecStartPost=/bin/sh -l -c 'exec systemctl --user set-environment GPG_AGENT_INFO=${GNUPGHOME:-$HOME/.gnupg}/S.gpg-agent:0:1'
+Restart=on-failure
+
+[Install]
+WantedBy=default.target

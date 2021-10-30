@@ -1,0 +1,13 @@
+#!/bin/sh
+
+main() {
+	7z x -so -ssc- "$1" App/AppInfo/installer.ini | grep 'Download.*URL' | cut -f 2 -d =
+	# Note the option `-ssc-`.  Some paf packages use
+	# `App/AppInfo/installer.ini` but some use `App/AppInfo/Installer.ini`.
+	# They are different file name in 7z file.  So we unset sensitive case
+	# mode here.
+}
+
+for paf; do
+	main "$paf"
+done
