@@ -1,5 +1,9 @@
 (req-package aggressive-indent
-  :hook (emacs-startup . global-aggressive-indent-mode)
+  ;; :hook (emacs-startup . global-aggressive-indent-mode)
+  ;;
+  ;; aggressive-indent-mode is unneeded since format-all and emacs-lsp are
+  ;; released.  Enable it on demand for the modes which don't support
+  ;; format-all and LSP formatting.
   :init
   (setq aggressive-indent-dont-electric-modes t)
   ;; `electric-indent-mode' should be disabled.  Otherwise the variable
