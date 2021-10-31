@@ -23,21 +23,6 @@
               (format "isort --apply - | black -q %s -"
                       (if (format-all--buffer-extension-p "pyi") "--pyi" "")))))
 
-  (define-format-all-formatter goimports-gofmt
-    (:executable "/bin/sh")
-    (:install
-     (macos "brew install go")
-     (windows "scoop install go")
-     "go get golang.org/x/tools/cmd/goimports")
-    (:languages "Go")
-    (:format (format-all--buffer-easy executable "-c" "goimports | gofmt -s")))
-  ;; This formatter is wrong.  When formatting invalid code, `goimports'
-  ;; outputs nothing and exits with non-zero.  But `gofmt' treats empty input
-  ;; as valid code then exits with zero.  This breaks
-  ;; `format-all--buffer-easy'.
-
-  (remhash "Go" format-all--language-table)
-
   (define-format-all-formatter shfmt
     (:executable "shfmt")
     (:install
