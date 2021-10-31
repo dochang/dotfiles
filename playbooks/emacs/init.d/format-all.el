@@ -23,12 +23,4 @@
               (format "isort --apply - | black -q %s -"
                       (if (format-all--buffer-extension-p "pyi") "--pyi" "")))))
 
-  (define-format-all-formatter shfmt
-    (:executable "shfmt")
-    (:install
-     (macos "brew install shfmt")
-     (windows "scoop install shfmt"))
-    (:languages "Shell")
-    (:format (format-all--buffer-easy executable)))
-
   )
