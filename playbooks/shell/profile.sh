@@ -510,7 +510,7 @@ export NO_AT_BRIDGE=1
 
 # WSL does not run systemd and dbus, do this check before importing env vars.
 is_command systemctl && [ x"$(systemctl --user is-system-running)" != xoffline ] && {
-	systemctl --user import-environment HOME PATH http_proxy https_proxy no_proxy
+	systemctl --user import-environment HOME PATH no_proxy
 }
 
 if [ x"$(get_shell)" = xsh ]; then
