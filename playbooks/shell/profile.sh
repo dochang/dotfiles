@@ -104,9 +104,6 @@ append_to_env_if_not_exist() {
 }
 
 export PATH
-prepend_to_env ${HOME}/.local/bin PATH
-prepend_to_env ${HOME}/local/bin PATH
-append_to_env ${HOME}/bin PATH
 
 : ${BROWSER:=browser.sh}
 export BROWSER
@@ -488,6 +485,10 @@ bash | zsh | ksh)
 
 	;;
 esac
+
+prepend_to_env ${HOME}/.local/bin PATH
+prepend_to_env ${HOME}/local/bin PATH
+append_to_env ${HOME}/bin PATH
 
 ## For Xapian with mu
 # https://github.com/djcb/mu/issues/544
