@@ -12,7 +12,7 @@
              cnfonts-next-profile
              cnfonts-increase-fontsize
              cnfonts-decrease-fontsize)
-  :hook (emacs-startup . cnfonts-enable)
+  :hook (emacs-startup . cnfonts-mode)
   :init
   (setq cnfonts-personal-fontnames
         '(
