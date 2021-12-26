@@ -146,6 +146,15 @@
       tags:
         - rofi
 
+    - name: sxhkd
+      block:
+        - name: Sync sxhkd files
+          ansible.posix.synchronize:
+            dest: "{{ dotfiles_xdg_config_home }}"
+            src: sxhkd
+      tags:
+        - sxhkd
+
     - name: X
       block:
         - name: Sync X files
