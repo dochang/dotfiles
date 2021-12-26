@@ -3,11 +3,11 @@
 
   module_defaults:
     ansible.builtin.file:
-      mode: 'u=rwX,o-w'
+      mode: "u=rwX,o-w"
     ansible.builtin.copy:
-      mode: 'u=rwX,o-w'
+      mode: "u=rwX,o-w"
     ansible.builtin.template:
-      mode: 'u=rwX,o-w'
+      mode: "u=rwX,o-w"
     ansible.posix.synchronize:
       partial: false
       delete: true
@@ -20,7 +20,7 @@
       block:
         - name: Sync autostart files
           ansible.posix.synchronize:
-            dest: '{{ dotfiles_xdg_config_home }}'
+            dest: "{{ dotfiles_xdg_config_home }}"
             src: autostart
       tags:
         - autostart
@@ -29,7 +29,7 @@
       block:
         - name: Sync conky files
           ansible.posix.synchronize:
-            dest: '{{ dotfiles_xdg_config_home }}'
+            dest: "{{ dotfiles_xdg_config_home }}"
             src: conky
       tags:
         - conky
@@ -41,11 +41,11 @@
       block:
         - name: Ensure `.fvwm` present
           ansible.builtin.file:
-            path: '{{ dotfiles_home }}/.fvwm'
+            path: "{{ dotfiles_home }}/.fvwm"
             state: directory
         - name: Sync fvwm files
           ansible.posix.synchronize:
-            dest: '{{ dotfiles_home }}/.fvwm/'
+            dest: "{{ dotfiles_home }}/.fvwm/"
             src: fvwm/
       tags:
         - fvwm
@@ -54,7 +54,7 @@
       block:
         - name: Sync gtk-2.0 files
           ansible.posix.synchronize:
-            dest: '{{ dotfiles_home }}/.gtkrc-2.0'
+            dest: "{{ dotfiles_home }}/.gtkrc-2.0"
             src: gtk-2.0/gtkrc-2.0
       tags:
         - gtk-2.0
@@ -65,7 +65,7 @@
       block:
         - name: Sync gtk-3.0 files
           ansible.posix.synchronize:
-            dest: '{{ dotfiles_xdg_config_home }}'
+            dest: "{{ dotfiles_xdg_config_home }}"
             src: gtk-3.0
       tags:
         - gtk-3.0
@@ -76,7 +76,7 @@
       block:
         - name: Sync hyper files
           ansible.posix.synchronize:
-            dest: '{{ dotfiles_home }}/.hyper.js'
+            dest: "{{ dotfiles_home }}/.hyper.js"
             src: hyper/hyper.js
       tags:
         - hyper
@@ -85,7 +85,7 @@
       block:
         - name: Sync i3 files
           ansible.posix.synchronize:
-            dest: '{{ dotfiles_xdg_config_home }}'
+            dest: "{{ dotfiles_xdg_config_home }}"
             src: i3
       tags:
         - i3
@@ -94,12 +94,12 @@
       block:
         - name: Ensure `i3status` present
           ansible.builtin.file:
-            path: '{{ dotfiles_xdg_config_home }}/i3status'
+            path: "{{ dotfiles_xdg_config_home }}/i3status"
             state: directory
         - name: Sync i3status files
           ansible.builtin.template:
-            dest: '{{ dotfiles_xdg_config_home }}/{{ item | relpath(playbook_dir) }}'
-            src: '{{ item | relpath(playbook_dir) }}'
+            dest: "{{ dotfiles_xdg_config_home }}/{{ item | relpath(playbook_dir) }}"
+            src: "{{ item | relpath(playbook_dir) }}"
           with_ansible.builtin.fileglob:
             - i3status/*
       tags:
@@ -110,7 +110,7 @@
       block:
         - name: Sync keynav files
           ansible.posix.synchronize:
-            dest: '{{ dotfiles_home }}/.keynavrc'
+            dest: "{{ dotfiles_home }}/.keynavrc"
             src: keynav/keynavrc
       tags:
         - keynav
@@ -119,11 +119,11 @@
       block:
         - name: Ensure `.mplayer` present
           ansible.builtin.file:
-            path: '{{ dotfiles_home }}/.mplayer'
+            path: "{{ dotfiles_home }}/.mplayer"
             state: directory
         - name: Deploy mplayer files
           ansible.posix.synchronize:
-            dest: '{{ dotfiles_home }}/.mplayer/'
+            dest: "{{ dotfiles_home }}/.mplayer/"
             src: mplayer/
       tags:
         - mplayer
@@ -132,7 +132,7 @@
       block:
         - name: Sync mpv files
           ansible.posix.synchronize:
-            dest: '{{ dotfiles_xdg_config_home }}'
+            dest: "{{ dotfiles_xdg_config_home }}"
             src: mpv
       tags:
         - mpv
@@ -141,7 +141,7 @@
       block:
         - name: Sync rofi files
           ansible.posix.synchronize:
-            dest: '{{ dotfiles_xdg_config_home }}'
+            dest: "{{ dotfiles_xdg_config_home }}"
             src: rofi
       tags:
         - rofi
@@ -150,15 +150,15 @@
       block:
         - name: Sync X files
           ansible.posix.synchronize:
-            dest: '{{ dotfiles_home }}/.{{ item | basename }}'
-            src: '{{ item }}'
+            dest: "{{ dotfiles_home }}/.{{ item | basename }}"
+            src: "{{ item }}"
           with_ansible.builtin.list:
             - X/Xresources
             - X/xsessionrc
         - name: Sync X executables
           ansible.posix.synchronize:
-            dest: '{{ dotfiles_home }}/.{{ item | basename }}'
-            src: '{{ item }}'
+            dest: "{{ dotfiles_home }}/.{{ item | basename }}"
+            src: "{{ item }}"
             rsync_opts:
               - '--chmod="Du=rwx,o-w,Fu=rwx,o-w"'
           with_ansible.builtin.list:
@@ -166,11 +166,11 @@
             - X/xinitrc
         - name: Ensure `.Xsession.d` present
           ansible.builtin.file:
-            path: '{{ dotfiles_home }}/.Xsession.d'
+            path: "{{ dotfiles_home }}/.Xsession.d"
             state: directory
         - name: Sync `X/Xsession.d` files
           ansible.posix.synchronize:
-            dest: '{{ dotfiles_home }}/.Xsession.d/'
+            dest: "{{ dotfiles_home }}/.Xsession.d/"
             src: X/Xsession.d/
       tags:
         - X
@@ -183,7 +183,7 @@
       block:
         - name: Sync xmodmap files
           ansible.builtin.synchronize:
-            dest: '{{ dotfiles_home }}/.xmodmaprc'
+            dest: "{{ dotfiles_home }}/.xmodmaprc"
             src: xmodmap/xmodmaprc
       tags:
         - xmodmap
@@ -197,7 +197,7 @@
       block:
         - name: Sync xx-input files
           ansible.builtin.synchronize:
-            dest: '{{ dotfiles_xdg_config_home }}'
+            dest: "{{ dotfiles_xdg_config_home }}"
             src: xx-input
       tags:
         - xx-input
@@ -211,7 +211,7 @@
       block:
         - name: Sync xx-randr files
           ansible.builtin.synchronize:
-            dest: '{{ dotfiles_xdg_config_home }}'
+            dest: "{{ dotfiles_xdg_config_home }}"
             src: xx-randr
             rsync_opts:
               - '--chmod="Du=rwx,o-w,Fu=rwx,o-w"'
@@ -227,7 +227,7 @@
       block:
         - name: Sync zathura files
           ansible.posix.synchronize:
-            dest: '{{ dotfiles_xdg_config_home }}'
+            dest: "{{ dotfiles_xdg_config_home }}"
             src: zathura
       tags:
         - zathura
@@ -236,12 +236,12 @@
       block:
         - name: Ensure `bin` present
           ansible.builtin.file:
-            path: '{{ dotfiles_home }}/bin'
+            path: "{{ dotfiles_home }}/bin"
             state: directory
         - name: Deploy bin files
           ansible.builtin.copy:
-            dest: '{{ dotfiles_home }}/{{ item }}'
-            src: '{{ item }}'
+            dest: "{{ dotfiles_home }}/{{ item }}"
+            src: "{{ item }}"
           with_ansible.builtin.list:
             - bin/banish-pointer.sh
             - bin/browser.sh
