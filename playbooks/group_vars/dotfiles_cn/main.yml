@@ -31,7 +31,7 @@ dotfiles_emacs_package_archives:
 dotfiles_nix_nixpkgs_channel_url: https://mirrors.tuna.tsinghua.edu.cn/nix-channels/nixpkgs-unstable
 dotfiles_guix_default_channel_url: https://mirror.sjtu.edu.cn/git/guix.git
 dotfiles_python_build_mirror_url: https://npm.taobao.org/mirrors/python/
-dotfiles_python_build_mirror_url_skip_checksum: '1'
+dotfiles_python_build_mirror_url_skip_checksum: "1"
 dotfiles_pip_index_url: https://pypi.doubanio.com/simple
 dotfiles_npm_registry: https://registry.npm.taobao.org
 dotfiles_npm_disturl: https://npm.taobao.org/mirrors/node
@@ -41,7 +41,7 @@ dotfiles_sass_binary_site: https://npm.taobao.org/mirrors/node-sass
 # https://npm.taobao.org/mirrors
 dotfiles_yarn_registry: https://registry.npm.taobao.org
 dotfiles_gem_source:
-  'BUNDLE_MIRROR__HTTPS://RUBYGEMS__ORG/': 'https://gems.ruby-china.com/'
+  "BUNDLE_MIRROR__HTTPS://RUBYGEMS__ORG/": "https://gems.ruby-china.com/"
 # Reduce transfer from ustc mirror.
 #
 # dotfiles_gem_source:
@@ -65,17 +65,17 @@ dotfiles_maven_mirrors:
     mirrorOf: central,jcenter
     name: Aliyun Maven
     url: https://maven.aliyun.com/repository/public
-dotfiles_pbuilder_mirrorsite: 'https://mirrors.ustc.edu.cn/debian'
+dotfiles_pbuilder_mirrorsite: "https://mirrors.ustc.edu.cn/debian"
 dotfiles_gradle_repos:
   - type: mavenLocal
   - type: maven
     name: aliyunmaven
     url: https://maven.aliyun.com/repository/public/
   - type: mavenCentral
-dotfiles_goproxy: 'https://goproxy.cn,direct'
+dotfiles_goproxy: "https://goproxy.cn,direct"
 # https://golang.org/cmd/go/#hdr-Module_authentication_failures
 # https://github.com/golang/go/issues/31755#issuecomment-527611727
-dotfiles_gosumdb: 'sum.golang.google.cn'
+dotfiles_gosumdb: "sum.golang.google.cn"
 dotfiles_electron_mirror: http://npmmirror.com/mirrors/electron/
 dotfiles_electron_custom_dir: '{{ "{{ version }}" }}'
 # https://www.electronjs.org/docs/latest/tutorial/installation#mirror
