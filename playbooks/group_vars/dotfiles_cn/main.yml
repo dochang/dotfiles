@@ -10,22 +10,20 @@ dotfiles_emacs_package_archives:
     location: https://mirrors.tuna.tsinghua.edu.cn/elpa/nongnu/
   - id: melpa
     location: https://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/
-  - id: org
-    location: https://mirrors.tuna.tsinghua.edu.cn/elpa/org/
-  # - id: melpa-stable
-  #   location: https://mirrors.tuna.tsinghua.edu.cn/elpa/melpa-stable/
+  - id: melpa-stable
+    location: https://mirrors.tuna.tsinghua.edu.cn/elpa/melpa-stable/
 
   # Downloading marmalade archive will cause Emacs hangs at 100% CPU usage.
   # Disable it for now.  See nicferrier/elmarmalade#106 .
   #
   # - id: marmalade
   #   location: https://mirrors.tuna.tsinghua.edu.cn/elpa/marmalade/
-
+  #
   # Disable the following archives.  Their packages are too old.
   #
   # - id: ELPA
   #   location: http://tromey.com/elpa/
-
+  #
   # - id: SC
   #   location: https://mirrors.tuna.tsinghua.edu.cn/elpa/sunrise-commander/
 dotfiles_nix_nixpkgs_channel_url: https://mirrors.tuna.tsinghua.edu.cn/nix-channels/nixpkgs-unstable

@@ -24,8 +24,6 @@ dotfiles_emacs_package_archives:
     location: https://elpa.nongnu.org/nongnu/
   - id: melpa
     location: https://melpa.org/packages/
-  - id: org
-    location: https://orgmode.org/elpa/
   - id: melpa-stable
     location: https://stable.melpa.org/packages/
 
