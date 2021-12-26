@@ -1,6 +1,6 @@
 (req-package org-mobile
 
-  :ensure org-plus-contrib
+  :ensure org
 
   :after org
   ;; `:after' is required because `org-mobile-inbox-for-pull' depends on

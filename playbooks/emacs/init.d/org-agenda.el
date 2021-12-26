@@ -8,7 +8,7 @@
 
 (req-package org-agenda
 
-  :ensure org-plus-contrib
+  :ensure org
 
   :bind (("C-c a" . org-agenda)
          ;; For user convenience.

@@ -1,5 +1,5 @@
 (req-package org-src
-  :ensure org-plus-contrib
+  :ensure org
   :init
   ;; Preserve leading whitespace characters on export and when
   ;; switching between the org buffer and the language mode edit

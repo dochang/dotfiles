@@ -89,8 +89,6 @@
 (defvar **org-timer**)
 
 (req-package org
-  :ensure org-plus-contrib
-
   :require hydra
 
   :mode ("/\\.notes\\'" . org-mode)

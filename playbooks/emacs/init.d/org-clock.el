@@ -1,5 +1,5 @@
 (req-package org-clock
-  :ensure org-plus-contrib
+  :ensure org
   :init
   ;; Also insert clocking info into the drawer "LOGBOOK".
   (setq org-clock-into-drawer t)

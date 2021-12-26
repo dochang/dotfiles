@@ -6,7 +6,7 @@
 
 (req-package org-capture
 
-  :ensure org-plus-contrib
+  :ensure org
 
   :bind (("C-c c" . org-capture)
          ;; For user convenience.

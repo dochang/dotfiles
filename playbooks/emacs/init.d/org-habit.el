@@ -1,6 +1,6 @@
 (req-package org-habit
 
-  :ensure org-plus-contrib
+  :ensure org
 
   :init
 

@@ -7,5 +7,5 @@
         org-archive-set-tag))
 
 (req-package org-archive
-  :ensure org-plus-contrib
+  :ensure org
   :hook (org-archive . org-save-all-org-buffers))
