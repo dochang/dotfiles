@@ -1,10 +1,11 @@
 XTerm*metaSendsEscape: true
 XTerm*loginShell: true
 XTerm*scrollBar: true
+XTerm*font: xft:DejaVu Sans Mono:size=14,xft:Noto Sans Mono,xft:WenQuanYi Micro Hei Mono
 UXTerm*metaSendsEscape: true
 UXTerm*loginShell: true
 UXTerm*scrollBar: true
-UXTerm*font: -misc-fixed-medium-r-normal-*-18-120-100-100-c-90-iso10646-1
+UXTerm*font: xft:DejaVu Sans Mono:size=14,xft:Noto Sans Mono,xft:WenQuanYi Micro Hei Mono
 emacs.FontBackend: xft
 ! **WARNING** If you use urxvtd, remember to restart it.
 Rxvt.font: xft:DejaVu Sans Mono:size=14,xft:Noto Sans Mono,xft:WenQuanYi Micro Hei Mono
@@ -61,6 +62,26 @@ XTerm*color13: #cf9ebe
 XTerm*color14: #71bebe
 XTerm*color15: #ffffff
 XTerm*cursorColor: magenta
+
+UXTerm*background: #000010
+UXTerm*foreground: #ffffff
+UXTerm*color0: #000000
+UXTerm*color1: #9e1828
+UXTerm*color2: #aece92
+UXTerm*color3: #968a38
+UXTerm*color4: #414171
+UXTerm*color5: #963c59
+UXTerm*color6: #418179
+UXTerm*color7: #bebebe
+UXTerm*color8: #666666
+UXTerm*color9: #cf6171
+UXTerm*color10: #c5f779
+UXTerm*color11: #fff796
+UXTerm*color12: #4186be
+UXTerm*color13: #cf9ebe
+UXTerm*color14: #71bebe
+UXTerm*color15: #ffffff
+UXTerm*cursorColor: magenta
 
 Rxvt*background: #000010
 Rxvt*foreground: Wheat
