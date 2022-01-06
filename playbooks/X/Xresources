@@ -2,10 +2,18 @@ XTerm*metaSendsEscape: true
 XTerm*loginShell: true
 XTerm*scrollBar: true
 XTerm*font: xft:DejaVu Sans Mono:size=14,xft:Noto Sans Mono,xft:WenQuanYi Micro Hei Mono
+XTerm*selectToClipboard: CLIPBOARD
+XTerm*VT100*Translations: #override \n\
+  Ctrl Shift <Key>V:    insert-selection(CLIPBOARD) \n\
+  Ctrl Shift <Key>C:    copy-selection(CLIPBOARD)
 UXTerm*metaSendsEscape: true
 UXTerm*loginShell: true
 UXTerm*scrollBar: true
 UXTerm*font: xft:DejaVu Sans Mono:size=14,xft:Noto Sans Mono,xft:WenQuanYi Micro Hei Mono
+UXTerm*selectToClipboard: CLIPBOARD
+UXTerm*VT100*Translations: #override \n\
+  Ctrl Shift <Key>V:    insert-selection(CLIPBOARD) \n\
+  Ctrl Shift <Key>C:    copy-selection(CLIPBOARD)
 emacs.FontBackend: xft
 ! **WARNING** If you use urxvtd, remember to restart it.
 Rxvt.font: xft:DejaVu Sans Mono:size=14,xft:Noto Sans Mono,xft:WenQuanYi Micro Hei Mono
