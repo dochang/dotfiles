@@ -74,11 +74,18 @@ dotfiles_gem_source:
   "BUNDLE_MIRROR__HTTPS://RUBYGEMS__ORG/": "https://rubygems.org/"
 dotfiles_rustup_dist_server: https://static.rust-lang.org
 dotfiles_rustup_update_root: https://static.rust-lang.org/rustup
+# https://doc.rust-lang.org/cargo/reference/source-replacement.html
 # https://github.com/rust-lang/cargo/blob/master/src/cargo/sources/registry/mod.rs#L185
 # https://github.com/rust-lang/cargo/blob/master/src/cargo/sources/config.rs#L48
 dotfiles_cargo_source:
   crates-io:
     registry: https://github.com/rust-lang/crates.io-index
+# https://doc.rust-lang.org/cargo/reference/registries.html
+dotfiles_cargo_registries: {}
+# https://doc.rust-lang.org/cargo/reference/config.html#net
+dotfiles_cargo_net:
+  git-fetch-with-cli: true
+  # https://doc.rust-lang.org/cargo/reference/config.html#netgit-fetch-with-cli
 dotfiles_arduinoide_preferences:
   - line: "editor.linenumbers=true"
     regexp: 'editor\.linenumbers='

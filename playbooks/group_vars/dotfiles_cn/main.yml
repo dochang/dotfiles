@@ -44,17 +44,21 @@ dotfiles_gem_source:
 #
 # dotfiles_gem_source:
 #   'BUNDLE_MIRROR__HTTPS://RUBYGEMS__ORG/': 'https://mirrors.ustc.edu.cn/rubygems/'
-dotfiles_rustup_dist_server: https://mirrors.tuna.tsinghua.edu.cn/rustup
-dotfiles_rustup_update_root: https://mirrors.tuna.tsinghua.edu.cn/rustup/rustup
-# https://mirrors.tuna.tsinghua.edu.cn/help/rustup/
-# https://mirrors.tuna.tsinghua.edu.cn/help/crates.io-index.git/
+dotfiles_rustup_dist_server: https://rsproxy.cn
+dotfiles_rustup_update_root: https://rsproxy.cn/rustup
+# https://rsproxy.cn/
 # https://doc.crates.io/source-replacement.html
 # https://doc.rust-lang.org/cargo/reference/source-replacement.html
 dotfiles_cargo_source:
   crates-io:
-    replace-with: tuna
+    replace-with: rsproxy
+  rsproxy:
+    registry: https://rsproxy.cn/crates.io-index
   tuna:
     registry: https://mirrors.tuna.tsinghua.edu.cn/git/crates.io-index.git
+dotfiles_cargo_registries:
+  rsproxy:
+    index: https://rsproxy.cn/crates.io-index
 dotfiles_maven_mirrors:
   # https://www.jianshu.com/p/7fe6c7ab74f6
   # https://help.aliyun.com/document_detail/102512.html
