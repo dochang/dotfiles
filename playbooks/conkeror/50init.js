@@ -62,7 +62,7 @@ remove_hook("download_added_hook", open_download_buffer_automatically);
 
 //// Content Handlers
 /// http://conkeror.org/ContentHandlers
-external_content_handlers.set("image/*", "sxiv -f");
+external_content_handlers.set("image/*", "nsxiv -f");
 
 
 //// Load url in new buffer
