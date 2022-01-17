@@ -278,6 +278,7 @@ unset GUIX_PROFILE_BAK
 # DO NOT source `/etc/profile.d/guix.sh` to push `${_GUIX_PROFILE}/bin` into
 # `$PATH`.  That script reset `_GUIX_PROFILE` and `GUIX_PROFILE`.
 INFOPATH="${_GUIX_PROFILE}/share/info:$INFOPATH"
+export INFOPATH
 # Do not use `prepend_to_env` because `INFOPATH` may be empty.
 prepend_to_env ${GUIX_PROFILE}/share XDG_DATA_DIRS
 # Since `/etc/profile.d/guix.sh` is not sourced and
