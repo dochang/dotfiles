@@ -67,7 +67,11 @@
   (setq-default indicate-empty-lines t)
 
   (setq visible-bell t)
-  (setq inhibit-startup-screen t)
+  (setq inhibit-startup-screen nil)
+  (setq initial-buffer-choice (lambda () (get-buffer "*dashboard*")))
+  ;; Show Dashboard in frame after frame created.
+  ;;
+  ;; https://github.com/emacs-dashboard/emacs-dashboard#emacs-daemon
 
   )
 
