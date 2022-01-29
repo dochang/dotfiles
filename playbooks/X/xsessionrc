@@ -1,5 +1,8 @@
 # -*- mode: sh -*-
 
+ALTERNATE_EDITOR="{{ dotfiles_alternate_graphic_editor }}"
+export ALTERNATE_EDITOR
+
 : ${TERMINAL:=x-terminal-emulator}
 export TERMINAL
 

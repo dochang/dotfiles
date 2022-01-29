@@ -2,7 +2,8 @@
 dotfiles_http_proxy: ""
 dotfiles_https_proxy: ""
 dotfiles_editor: emacsclient
-dotfiles_alternate_editor: vi
+dotfiles_alternate_editor: vim
+dotfiles_alternate_graphic_editor: gvim
 dotfiles_name: "Wade Zhang"
 dotfiles_email: dochang@gmail.com
 dotfiles_mailuser: dochang
