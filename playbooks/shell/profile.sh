@@ -9,9 +9,9 @@ export LANG
 
 : ${EMACS_SERVER_FILE:=default}
 export EMACS_SERVER_FILE
-: ${EDITOR:={{ dotfiles_editor }}}
+: ${EDITOR:="{{ dotfiles_editor }}"}
 export EDITOR
-: ${ALTERNATE_EDITOR:="emacs --daemon=default"}
+: ${ALTERNATE_EDITOR:="{{ dotfiles_alternate_editor }}"}
 export ALTERNATE_EDITOR
 ## [[info:emacs#emacsclient%20Options]]
 ##
