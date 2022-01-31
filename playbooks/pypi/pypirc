@@ -3,11 +3,11 @@
 [distutils]
 index-servers =
   pypi
-  pypitest
+  testpypi
 
-[pypitest]
+[testpypi]
 repository = https://test.pypi.org/legacy/
-username = dochang
+username = __token__
 
 [pypi]
-username = dochang
+username = __token__
