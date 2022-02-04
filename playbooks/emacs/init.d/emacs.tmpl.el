@@ -16,13 +16,18 @@
   ;; [[info:emacs#Recover]]
   (setq auto-save-list-file-prefix nil)
 
-  ;; Set fill column to 79
+  ;; Set fill column to 78
   ;;
   ;; A line begins at column 0 in Emacs.  79 is the last column on an 80-width
   ;; screen.  Do not occupy column 79, leave it for filling.
   ;;
   ;; This setting will make Emacs fill the paragraphs at the bottom as is.
-  (setq-default fill-column 79)
+  ;;
+  ;; Why 78?  Because I found that it will not break the text of MIT license
+  ;; at [1].
+  ;;
+  ;; [1]: https://choosealicense.com/licenses/mit/
+  (setq-default fill-column 78)
 
   ;; Disable `indent-tabs-mode'.
   ;;
@@ -87,7 +92,7 @@
 ;; FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for
 ;; more details.
 
-;; You should have received a copy of the GNU General Public License along with
-;; this program.  If not, see <http://www.gnu.org/licenses/>.
+;; You should have received a copy of the GNU General Public License along
+;; with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 ;; ----------------------------------------------------------------------------
