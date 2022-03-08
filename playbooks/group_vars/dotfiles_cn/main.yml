@@ -28,16 +28,16 @@ dotfiles_emacs_package_archives:
   #   location: https://mirrors.tuna.tsinghua.edu.cn/elpa/sunrise-commander/
 dotfiles_nix_nixpkgs_channel_url: https://mirrors.tuna.tsinghua.edu.cn/nix-channels/nixpkgs-unstable
 dotfiles_guix_default_channel_url: https://mirror.sjtu.edu.cn/git/guix.git
-dotfiles_python_build_mirror_url: https://npm.taobao.org/mirrors/python/
+dotfiles_python_build_mirror_url: https://npmmirror.com/mirrors/python/
 dotfiles_python_build_mirror_url_skip_checksum: "1"
 dotfiles_pip_index_url: https://pypi.doubanio.com/simple
-dotfiles_npm_registry: https://registry.npm.taobao.org
-dotfiles_npm_disturl: https://npm.taobao.org/mirrors/node
-dotfiles_nodejs_org_mirror: https://npm.taobao.org/mirrors/node
-dotfiles_node_build_mirror_url: https://npm.taobao.org/mirrors/node
-dotfiles_sass_binary_site: https://npm.taobao.org/mirrors/node-sass
-# https://npm.taobao.org/mirrors
-dotfiles_yarn_registry: https://registry.npm.taobao.org
+dotfiles_npm_registry: https://registry.npmmirror.com
+dotfiles_npm_disturl: https://npmmirror.com/mirrors/node
+dotfiles_nodejs_org_mirror: https://npmmirror.com/mirrors/node
+dotfiles_node_build_mirror_url: https://npmmirror.com/mirrors/node
+dotfiles_sass_binary_site: https://npmmirror.com/mirrors/node-sass
+# https://npmmirror.com/mirrors
+dotfiles_yarn_registry: https://registry.npmmirror.com
 dotfiles_gem_source:
   "BUNDLE_MIRROR__HTTPS://RUBYGEMS__ORG/": "https://gems.ruby-china.com/"
 # Reduce transfer from ustc mirror.
