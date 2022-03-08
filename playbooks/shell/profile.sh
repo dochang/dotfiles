@@ -230,6 +230,12 @@ export ELECTRON_MIRROR
 : ${ELECTRON_CUSTOM_DIR:='{{ dotfiles_electron_custom_dir | default("v{{ version }}") }}'}
 export ELECTRON_CUSTOM_DIR
 
+## For Puppeteer
+# https://github.com/puppeteer/puppeteer/blob/main/docs/api.md#environment-variables
+# https://github.com/puppeteer/puppeteer/commit/945a826a0b53bb7325fdb86c998f812b16032c37
+: ${PUPPETEER_DOWNLOAD_HOST:={{ dotfiles_puppeteer_download_host | default("https://storage.googleapis.com") }}}
+export PUPPETEER_DOWNLOAD_HOST
+
 ## Linuxbrew
 # Install Linuxbrew into `/home/linuxbrew/`.
 #

@@ -112,3 +112,6 @@ dotfiles_electron_custom_dir: '{{ "v{{ version }}" }}'
 # https://www.electronjs.org/docs/latest/tutorial/installation#mirror
 # https://github.com/electron/get/blob/a0d0ea97850950a8a5a21a510cd4d9514af66a64/src/artifact-utils.ts#L47
 # https://github.com/electron/get/blob/a0d0ea97850950a8a5a21a510cd4d9514af66a64/src/artifact-utils.ts#L4
+dotfiles_puppeteer_download_host: https://storage.googleapis.com
+# https://github.com/puppeteer/puppeteer/blob/main/docs/api.md#environment-variables
+# https://github.com/puppeteer/puppeteer/commit/945a826a0b53bb7325fdb86c998f812b16032c37

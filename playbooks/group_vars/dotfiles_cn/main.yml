@@ -83,3 +83,4 @@ dotfiles_electron_custom_dir: '{{ "{{ version }}" }}'
 # https://www.electronjs.org/docs/latest/tutorial/installation#mirror
 # https://npmmirror.com/
 # https://npmmirror.com/mirrors/
+dotfiles_puppeteer_download_host: https://npmmirror.com/mirrors
