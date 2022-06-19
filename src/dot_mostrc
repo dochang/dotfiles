@@ -1,0 +1,11 @@
+% -*- mode: conf; comment-start: "%"; comment-start-skip: "%+\\s *" -*-
+
+% vi-like scroll keybinding
+unsetkey "j"
+setkey "down" "j"
+unsetkey "k"
+setkey "up" "k"
+unsetkey "h"
+setkey "column_left" "h"
+unsetkey "l"
+setkey "column_right" "l"
