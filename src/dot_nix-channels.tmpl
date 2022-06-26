@@ -1,0 +1,5 @@
+{{ if eq .dotfiles.area "cn" -}}
+https://mirrors.tuna.tsinghua.edu.cn/nix-channels/nixpkgs-unstable nixpkgs
+{{ else -}}
+https://nixos.org/channels/nixpkgs-unstable nixpkgs
+{{ end -}}
