@@ -6,4 +6,5 @@
 .config/gtk-3.0
 .hyper.js
 .config/i3
+.config/i3status
 {{ end }}
