@@ -1,6 +1,12 @@
+{{/* -*- mode: sh; sh-shell: bash; -*- */}}
 {{- $roleData := .dotfiles.roleData.default -}}
 {{- $areaData := .dotfiles.areaData.default -}}
 {{- if eq .dotfiles.area "cn" -}}
 {{- $areaData = .dotfiles.areaData.cn -}}
 {{- end -}}
 {{- template "profile.sh" dict "chezmoi" .chezmoi "dotfiles" .dotfiles "roleData" $roleData "areaData" $areaData -}}
+
+if expr "$-" : '.*i' >/dev/null; then
+	[ -r ~/.bashrc ] && . ~/.bashrc
+fi
+## `. ~/.bashrc` only if `bash` is invoked as an "interactive" shell.
