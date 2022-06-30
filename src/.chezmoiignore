@@ -8,4 +8,5 @@
 .config/i3
 .config/i3status
 .keynavrc
+.mplayer
 {{ end }}
