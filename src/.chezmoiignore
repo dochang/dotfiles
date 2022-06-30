@@ -7,4 +7,5 @@
 .hyper.js
 .config/i3
 .config/i3status
+.keynavrc
 {{ end }}
