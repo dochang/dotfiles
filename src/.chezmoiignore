@@ -9,4 +9,5 @@
 .config/i3status
 .keynavrc
 .mplayer
+.config/mpv
 {{ end }}
