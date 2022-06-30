@@ -1,0 +1,25 @@
+# -*- mode: sh -*-
+
+if [ -z "$STARTUP" ]; then
+	for STARTUPFILE in "$USERXSESSION" "$ALTUSERXSESSION"; do
+		if [ -e "$x" ]; then
+			if [ -x "$STARTUPFILE" ]; then
+				STARTUP="$STARTUPFILE"
+			else
+				shell=${SHELL:-sh}
+				STARTUP="$shell $STARTUPFILE"
+			fi
+			break
+		fi
+	done
+fi
+
+if [ -z "$STARTUP" ]; then
+	if [ -x /usr/bin/x-session-manager ]; then
+		STARTUP=x-session-manager
+	elif [ -x /usr/bin/x-window-manager ]; then
+		STARTUP=x-window-manager
+	elif [ -x /usr/bin/x-terminal-emulator ]; then
+		STARTUP=x-terminal-emulator
+	fi
+fi

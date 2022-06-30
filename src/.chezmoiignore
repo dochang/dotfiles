@@ -13,4 +13,9 @@
 .config/mpv
 .config/rofi
 .config/sxhkd
+.Xresources
+.xsessionrc
+.xsession
+.xinitrc
+.Xsession.d
 {{ end }}

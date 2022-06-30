@@ -1,0 +1,128 @@
+! -*- mode: conf-xdefaults; -*-
+XTerm*metaSendsEscape: true
+XTerm*loginShell: true
+XTerm*scrollBar: true
+XTerm*font: xft:DejaVu Sans Mono:size=14,xft:Noto Sans Mono,xft:WenQuanYi Micro Hei Mono
+XTerm*selectToClipboard: CLIPBOARD
+XTerm*VT100*Translations: #override \n\
+  Ctrl <Key> +:       larger-vt-font() \n\
+  Ctrl <Key> -:       smaller-vt-font() \n\
+  Ctrl Shift <Key>V:    insert-selection(CLIPBOARD) \n\
+  Ctrl Shift <Key>C:    copy-selection(CLIPBOARD)
+UXTerm*metaSendsEscape: true
+UXTerm*loginShell: true
+UXTerm*scrollBar: true
+UXTerm*font: xft:DejaVu Sans Mono:size=14,xft:Noto Sans Mono,xft:WenQuanYi Micro Hei Mono
+UXTerm*selectToClipboard: CLIPBOARD
+UXTerm*VT100*Translations: #override \n\
+  Ctrl <Key> +:       larger-vt-font() \n\
+  Ctrl <Key> -:       smaller-vt-font() \n\
+  Ctrl Shift <Key>V:    insert-selection(CLIPBOARD) \n\
+  Ctrl Shift <Key>C:    copy-selection(CLIPBOARD)
+emacs.FontBackend: xft
+! **WARNING** If you use urxvtd, remember to restart it.
+Rxvt.font: xft:DejaVu Sans Mono:size=14,xft:Noto Sans Mono,xft:WenQuanYi Micro Hei Mono
+Rxvt.background: Black
+Rxvt.foreground: White
+! when receiving logs of lines, only scroll once a whole screen height
+! of lines has been read, resulting in fewer updates while still
+! displaying every received line
+Rxvt.jumpScroll: true
+! blank the pointer when a key is pressed or after a set number of
+! seconds of inactivity.
+Rxvt.pointerBlank: true
+! save 8192 lines in the scrollback buffer.
+Rxvt.saveLines: 8192
+Rxvt.scrollBar: true
+! scroll to bottom when a non-special key is pressed.
+Rxvt.scrollTtyKeypress: true
+! disable ISO 14755 support
+Rxvt.iso14755: false
+Rxvt.iso14755_52: false
+! Enable extensions
+URxvt.perl-ext-common: default,font-size
+URxvt.font-size.step: 4
+URxvt.keysym.C-Up:     perl:font-size:increase
+URxvt.keysym.C-Down:   perl:font-size:decrease
+URxvt.keysym.C-M-Up:   perl:font-size:incglobal
+URxvt.keysym.C-M-Down: perl:font-size:decglobal
+URxvt.keysym.C-+:      perl:font-size:increase
+URxvt.keysym.C--:      perl:font-size:decrease
+URxvt.keysym.C-M-+:    perl:font-size:incglobal
+URxvt.keysym.C-M--:    perl:font-size:decglobal
+URxvt.keysym.C-=:      perl:font-size:reset
+URxvt.keysym.C-M-=:    perl:font-size:reset
+
+!!! Zenburn-like color scheme for XTerm & Rxvt
+!!! http://dotfiles.org/~jbromley/.Xresources
+
+XTerm*background: #000010
+XTerm*foreground: #ffffff
+XTerm*color0: #000000
+XTerm*color1: #9e1828
+XTerm*color2: #aece92
+XTerm*color3: #968a38
+XTerm*color4: #414171
+XTerm*color5: #963c59
+XTerm*color6: #418179
+XTerm*color7: #bebebe
+XTerm*color8: #666666
+XTerm*color9: #cf6171
+XTerm*color10: #c5f779
+XTerm*color11: #fff796
+XTerm*color12: #4186be
+XTerm*color13: #cf9ebe
+XTerm*color14: #71bebe
+XTerm*color15: #ffffff
+XTerm*cursorColor: magenta
+
+UXTerm*background: #000010
+UXTerm*foreground: #ffffff
+UXTerm*color0: #000000
+UXTerm*color1: #9e1828
+UXTerm*color2: #aece92
+UXTerm*color3: #968a38
+UXTerm*color4: #414171
+UXTerm*color5: #963c59
+UXTerm*color6: #418179
+UXTerm*color7: #bebebe
+UXTerm*color8: #666666
+UXTerm*color9: #cf6171
+UXTerm*color10: #c5f779
+UXTerm*color11: #fff796
+UXTerm*color12: #4186be
+UXTerm*color13: #cf9ebe
+UXTerm*color14: #71bebe
+UXTerm*color15: #ffffff
+UXTerm*cursorColor: magenta
+
+Rxvt*background: #000010
+Rxvt*foreground: Wheat
+Rxvt*cursorColor: magenta
+Rxvt*colorUL: #c5f779
+Rxvt*underlineColor: #c5f779
+Rxvt*color0: #000000
+Rxvt*color1: #9e1828
+Rxvt*color2: #aece92
+Rxvt*color3: #968a38
+Rxvt*color4: #414171
+Rxvt*color5: #963c59
+Rxvt*color6: #418179
+Rxvt*color7: #bebebe
+Rxvt*color8: #666666
+Rxvt*color9: #cf6171
+Rxvt*color10: #c5f779
+Rxvt*color11: #fff796
+Rxvt*color12: #4186be
+Rxvt*color13: #cf9ebe
+Rxvt*color14: #71bebe
+Rxvt*color15: #ffffff
+
+
+! SshAskpass
+!
+! https://lists.mindrot.org/pipermail/openssh-unix-dev/2003-July/018627.html
+! http://article.gmane.org/gmane.network.openssh.devel/6797
+SshAskpass*grabKeyboard: false
+SshAskpass*grabPointer: false
+SshAskpass*grabServer: false

@@ -1,0 +1,6 @@
+# -*- mode: sh -*-
+
+#Source user defined xsessionrc (locales and other environment variables)
+if [ -r "$USERXSESSIONRC" ]; then
+	. "$USERXSESSIONRC"
+fi
