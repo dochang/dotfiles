@@ -1,0 +1,6 @@
+{{- $roleData := .dotfiles.roleData.default -}}
+{{- $areaData := .dotfiles.areaData.default -}}
+{{- if eq .dotfiles.area "cn" -}}
+{{- $areaData = .dotfiles.areaData.cn -}}
+{{- end -}}
+{{- template "profile.sh" dict "chezmoi" .chezmoi "dotfiles" .dotfiles "roleData" $roleData "areaData" $areaData -}}
