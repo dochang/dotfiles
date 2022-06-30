@@ -3,4 +3,5 @@
 .config/conky
 .fvwm
 .gtkrc-2.0
+.config/gtk-3.0
 {{ end }}
