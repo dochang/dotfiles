@@ -1,3 +1,4 @@
+.config/rofi/config
 {{ if not (has "desktop" .dotfiles.roles) }}
 .config/autostart
 .config/conky
@@ -10,4 +11,5 @@
 .keynavrc
 .mplayer
 .config/mpv
+.config/rofi
 {{ end }}

@@ -1,0 +1,10 @@
+/*-*- mode: css; -*-*/
+/* https://github.com/davatorium/rofi/wiki/Themes#emacs */
+
+configuration {
+	m: "-2";
+	kb-accept-entry: "KP_Enter";
+	kb-accept-custom: "Control+Return,Control+j,Control+m,Return";
+	kb-row-tab: "Alt+Tab";
+	kb-row-select: "Tab,Control+space";
+}
