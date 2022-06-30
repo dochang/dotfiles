@@ -1,4 +1,4 @@
-{{ template "functions.sh" }}
+{{- template "functions.sh" -}}
 
 ## If `sh` links to `zsh`, and is invoked as a "non-login, non-interactive"
 ## shell, this file should be skipped.
