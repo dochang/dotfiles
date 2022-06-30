@@ -20,4 +20,5 @@
 .Xsession.d
 .xmodmaprc
 .config/xx-input
+.config/xx-randr
 {{ end }}
