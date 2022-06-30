@@ -12,4 +12,5 @@
 .mplayer
 .config/mpv
 .config/rofi
+.config/sxhkd
 {{ end }}
