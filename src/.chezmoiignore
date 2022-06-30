@@ -21,4 +21,5 @@
 .xmodmaprc
 .config/xx-input
 .config/xx-randr
+.config/zathura
 {{ end }}
