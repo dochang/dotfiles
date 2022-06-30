@@ -1,0 +1,331 @@
+# -*- mode: fvwm; -*-
+
+
+#############
+# Variables #
+#############
+
+
+SetEnv DebianMenuHook "/etc/X11/fvwm/menudefs.hook"
+
+
+### Setup image paths
+ImagePath $FVWM_USERDIR/themes/current/images:$FVWM_USERDIR/images:+
+ImagePath +:/usr/share/icons:/usr/share/pixmaps:/usr/share/icons/wm-icons
+ImagePath +:/usr/X11R6/include/X11/pixmaps/:/usr/X11R6/include/X11/bitmaps/
+ImagePath +:/usr/include/X11/bitmaps/
+
+
+### Define only 1 virtual desktop.
+DesktopName 0 Main
+### Define the virtual desktop size to 1x1.
+DesktopSize 1 1
+
+
+
+
+################
+# Key bindings #
+################
+
+DestroyFunc FuncBindKeysBasic
+AddToFunc FuncBindKeysBasic
+# Use Mod-Tab to navigate windows.
++ I Key Tab A $0 WindowList
++ I Key Tab A S$0 WindowList OnlyListSkip, NoDeskSort, SelectOnRelease
+# Cycle windows.
++ I Key Prior A $0 Prev FuncSelectWindow
++ I Key Next A $0 Next FuncSelectWindow
+# Display menu
++ I Key Escape A S Menu MenuFvwmRoot
++ I Key Menu A $0 Menu MenuFvwmRoot
++ I Key Help A $0 Popup MenuFvwmRoot
++ I Key F1 A $0 Popup MenuFvwmRoot
+# Mod + b = Move the mouse to the bottom left corner.
++ I Key b A $0 FuncBanishMouse
+# Volume
++ I Key XF86AudioRaiseVolume A A Exec exec mixer.sh 5%+
++ I Key XF86AudioLowerVolume A A Exec exec mixer.sh 5%-
++ I Key XF86AudioMute        A A Exec exec mixer.sh toggle
+# Mod + Mouse Button 1 = Move
+# Mod + Mouse Button 3 = Resize
++ I Mouse 1 WTSF $0 FuncRaiseAndMouseX Move
++ I Mouse 3 WTSF $0 FuncRaiseAndMouseX Resize direction SouthEast warptoborder
+
+
+DestroyFunc FuncBindKeys
+AddToFunc FuncBindKeys
++ I FuncBindKeysBasic 4
++ I Key Tab A M -
+
+
+
+
+#############
+# Functions #
+#############
+
+
+### Do not warp mouse to window when selecting an item from the window
+### list pop-up menu.
+DestroyFunc WindowListFunc
+AddToFunc WindowListFunc
++ I Iconify off
++ I FlipFocus
++ I Raise
+
+
+### Select current window.
+DestroyFunc FuncSelectWindow
+AddToFunc   FuncSelectWindow
++ I Focus
++ I Raise
+
+
+### Raise the window and handle mouse event.
+DestroyFunc FuncRaiseAndMouseX
+AddToFunc FuncRaiseAndMouseX
++ I Raise
++ M $*
+
+
+DestroyFunc FuncBanishMouse
+AddToFunc FuncBanishMouse
++ I WindowId root 1 WarpToWindow 0 100
+
+
+### Grow
+DestroyFunc FuncGrow
+AddToFunc FuncGrow
++ I Maximize $0 $1 grow grow
+
+
+### Fullscreen
+DestroyFunc FuncFullscreen
+AddToFunc FuncFullscreen
++ I Maximize $0 $1
+
+
+### Lock
+DestroyFunc FuncLock
+AddToFunc FuncLock
++ I Exec exec slock
+
+
+### Touchpad
+###
+### From SYNAPTICS(4) manpage:
+###
+### Option "TouchpadOff" "integer"
+###        Switch off the touchpad.  Valid values are:
+###
+###        0   Touchpad is enabled
+###        1   Touchpad is switched off
+###        2   Only tapping and scrolling is switched off
+###        Property: "Synaptics Off"
+DestroyFunc FuncTouchpad
+AddToFunc FuncTouchpad
++ I Exec exec synclient TouchpadOff=$[0]
+
+
+### Run or raise whatever
+DestroyFunc FuncRunOrRaise
+AddToFunc FuncRunOrRaise
++ I Next ($0) FuncSelectWindow
++ I TestRc (NoMatch) Exec exec $[1-]
+
+
+DestroyFunc FuncRunOrRaiseEmacs
+AddToFunc FuncRunOrRaiseEmacs
++ I FuncRunOrRaise "Emacs" emacsclient -c
+
+
+DestroyFunc FuncRunOrRaiseConkeror
+AddToFunc FuncRunOrRaiseConkeror
++ I FuncRunOrRaise "Conkeror" conkeror
+
+
+
+####################
+# The 'Run' Dialog #
+####################
+DestroyModuleConfig ModuleRunDialog: *
+*ModuleRunDialog:   WarpPointer
+*ModuleRunDialog:   Line          center
+*ModuleRunDialog:   Text          "Run ..."
+*ModuleRunDialog:   Line          left
+*ModuleRunDialog:   Text          "Command:"
+### command is limited to 80 characters, which should be enough (there's no <TAB> expansion in here!)
+*ModuleRunDialog:   Input         Command 80  ""
+*ModuleRunDialog:   Line          center
+*ModuleRunDialog:   Button        quit        "OK"  ^M
+*ModuleRunDialog:   Command       Exec exec $(Command)
+*ModuleRunDialog:   Button        quit        "Cancel"        ^[
+*ModuleRunDialog:   Command       Nop
+
+
+
+########################
+# The 'Confirm' Dialog #
+########################
+DestroyFunc FuncModuleConfirmDialog
+AddToFunc FuncModuleConfirmDialog
++ I DestroyModuleConfig $0: *
++ I *$0: GrabServer
++ I *$0: Line center
++ I *$0: Text "$[1] - Are you sure?"
++ I *$0: Line expand
++ I *$0: Button quit "OK" ^M
++ I *$0: Command $[2-]
++ I *$0: Button quit "Cancel" ^[
++ I *$0: Command Nop
+
+FuncModuleConfirmDialog ModuleConfirmLockDialog "Lock" FuncLock
+FuncModuleConfirmDialog ModuleConfirmRestartDialog "Restart" Restart
+FuncModuleConfirmDialog ModuleConfirmQuitDialog "Quit" Quit
+
+
+
+#########
+# Menus #
+#########
+
+
+### The Root Menu
+DestroyMenu MenuFvwmRoot
+AddToMenu   MenuFvwmRoot "$[gt.Builtin Menu]" Title
++ "   $[gt.Switch to...]" WindowList
++ "   $[gt.Issue fvwm commands]" Module FvwmConsole
++ "" Nop
++ "&A. $[gt.Applications]" Popup MenuFvwmApplications
+Test (R $[DebianMenuHook]) + "&M. $[gt.Debian Menu]" Popup "/Debian"
++ "&W. $[gt.Window Operations]" Popup MenuFvwmWindowOps
++ "" Nop
++ "&M. $[gt.Xmodmap]" Exec exec xmodmap ~/.xmodmaprc
++ "&T. $[gt.Touchpad]" Popup MenuTouchpad
++ "   $[gt.Banish pointer]" FuncBanishMouse
++ "   $[gt.Lock]" Module FvwmForm ModuleConfirmLockDialog
++ "&R. $[gt.Restart fvwm]" Module FvwmForm ModuleConfirmRestartDialog
++ "&X. $[gt.Exit fvwm]" Module FvwmForm ModuleConfirmQuitDialog
+
+
+### The Applications Menu
+DestroyMenu MenuFvwmApplications
+AddToMenu   MenuFvwmApplications
++ "&1. Rxvt" Exec exec urxvtcd
++ "&2. Emacs Client" FuncRunOrRaiseEmacs
++ "&3. Conkeror" FuncRunOrRaiseConkeror
++ "&4. Chromium" Exec exec chromium
++ "&5. Chromium Incognito" Exec exec chromium --incognito
++ "&6. Alsa Mixer GUI" Exec exec alsamixergui
++ "   $[gt.More&...]" Module FvwmForm ModuleRunDialog
+
+
+### This defines all window operations.
+DestroyMenu MenuFvwmWindowMoreOps
+AddToMenu   MenuFvwmWindowMoreOps
++ "$[gt.Window Operations]" Title
++ "$[gt.&Move]"             Move
++ "$[gt.&Resize]"           Resize
++ "$[gt.(De)&Iconify]"      Iconify
++ "$[gt.(De)&Fullscreen]"   FuncFullscreen
++ "$[gt.(Un)Ma&ximize]"     FuncGrow
++ "$[gt.(Un)Shade]"         WindowShade
++ "$[gt.(Un)Stick]"         Stick
++ "$[gt.R&aise]"            Raise
++ "$[gt.&Lower]"            Lower
++ "" Nop
++ "$[gt.&Delete]"           Delete
++ "$[gt.&Close]"            Close
++ "$[gt.Destroy]"           Destroy
++ "" Nop
++ "$[gt.Move to Page]"      Popup MenuFvwmWindowMove
++ "$[gt.Group Operations]"  Popup MenuFvwmWindowGroupOps
++ "$[gt.Window Style]"      Popup MenuFvwmWindowStyle
++ "$[gt.Maximize Window]"   Popup MenuFvwmWindowMaximize
++ "$[gt.Refresh Window]"    Popup MenuFvwmWindowRefresh
++ "$[gt.Rearrange All]"     Popup MenuFvwmRearrangeWindows
++ "$[gt.Window Utility]"    Popup MenuFvwmWindowUtility
++ "" Nop
++ "$[gt.Identify]"          Module FvwmIdent
++ "$[gt.Switch to...]"      WindowList
+
+
+### This defines basic window operations.
+DestroyMenu MenuFvwmWindowOps
+AddToMenu   MenuFvwmWindowOps
++       "$[gt.&Move]" Move
++     "$[gt.&Resize]" Resize
++    "$[gt.&Iconify]" Iconify
++ "$[gt.&Fullscreen]" FuncFullscreen
++   "$[gt.Ma&ximize]" FuncGrow
++      "$[gt.R&aise]" RaiseLower
++ "" Nop
++      "$[gt.&Close]" Close
++ "" Nop
++    "$[gt.Identify]" Module FvwmIdent
++    "$[gt.More&...]" Menu MenuFvwmWindowMoreOps This 0 0
+
+
+### Touchpad Menu
+DestroyMenu MenuTouchpad
+AddToMenu MenuTouchpad
++ "&0. $[gt.On]" FuncTouchpad 0
++ "&1. $[gt.Off]" FuncTouchpad 1
++ "&2. $[gt.Only tapping and scrolling off]" FuncTouchpad 2
+
+
+
+
+##########
+# Styles #
+##########
+
+
+### No title bar, width of borders and handles is 4 (HandleWidth
+### overrides BorderWidth).
+Style * !Title, HandleWidth 2
+
+
+### Raise a window when clicking into the window itself, not just the
+### border.
+Style * MouseFocusClickRaises
+
+
+### Give the focus to a window when it is clicked in.
+Style * ClickToFocus
+
+
+################
+# The Dock Bar #
+################
+DestroyModuleConfig ModuleDockBar: *
+*ModuleDockBar: Geometry 200x100
+#*ModuleDockBar: Rows 8
+*ModuleDockBar: Columns 2
+*ModuleDockBar: Frame 1
+*ModuleDockBar: (Swallow(UseOld) "Inline" "Module FvwmPager Inline 0 0")
+*ModuleDockBar: (Swallow(UseOld,NoHints,Respawn) "xclock" `Exec exec xclock`)
+
+
+Style ModuleDockBar WindowListSkip, NeverFocus, !Borders
+
+
+### Never Focus Conky.
+Style Conky NeverFocus
+
+
+### Be executed when starting and restarting, before InitFunction and
+### RestartFunction.
+DestroyFunc StartFunction
+AddToFunc StartFunction
++ I FuncBindKeys
++ I Module FvwmButtons ModuleDockBar
++ I Test (R $[DebianMenuHook]) Read $[DebianMenuHook]
+
+
+### Be executed when starting, after StartFunction
+DestroyFunc InitFunction
+AddToFunc InitFunction
++ I FuncTouchpad 1
++ I Exec exec conky

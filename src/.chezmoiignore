@@ -1,4 +1,5 @@
 {{ if not (has "desktop" .dotfiles.roles) }}
 .config/autostart
 .config/conky
+.fvwm
 {{ end }}
