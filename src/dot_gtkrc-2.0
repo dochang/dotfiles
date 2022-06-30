@@ -1,0 +1,6 @@
+# https://www.emacswiki.org/emacs/Mozilla#toc9
+# https://wiki.archlinux.org/index.php/GTK%2B#Emacs_keybindings
+# https://developer.gnome.org/gtk2/stable/GtkSettings.html#GtkSettings--gtk-key-theme-name
+
+include "/usr/share/themes/Emacs/gtk-2.0-key/gtkrc"
+gtk-key-theme-name = "Emacs"
