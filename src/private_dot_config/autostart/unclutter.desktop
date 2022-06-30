@@ -1,0 +1,4 @@
+[Desktop Entry]
+Type=Application
+Name=unclutter
+Exec=xx-daemon unclutter --background --make-pidfile --oknodo --start -- -idle 1 -root
