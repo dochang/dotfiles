@@ -37,4 +37,5 @@ asdf.lisp
 .eclrc
 .gemrc
 .config/git
+.gbp.conf
 {{ end }}
