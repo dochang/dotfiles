@@ -27,4 +27,7 @@
 .ansible.cfg
 .bundle
 .cargo
+.ccl-init.lisp
+.clisprc.lisp
+.cmucl-init.lisp
 {{ end }}
