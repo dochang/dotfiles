@@ -36,4 +36,5 @@ asdf.lisp
 .dput.cf
 .eclrc
 .gemrc
+.config/git
 {{ end }}

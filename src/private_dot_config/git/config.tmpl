@@ -1,0 +1,31 @@
+{{- /* -*- mode: web; -*- */ -}}
+{{- $roleData := .dotfiles.roleData.default -}}
+{{- $areaData := .dotfiles.areaData.default -}}
+{{- if eq .dotfiles.area "cn" -}}
+{{- $areaData = mergeOverwrite .dotfiles.areaData.cn -}}
+{{- end -}}
+[user]
+	name = {{ $roleData.gitUserName }}
+	email = {{ $roleData.gitUserEmail }}
+[color]
+	ui = auto
+[rebase]
+	autosquash = true
+[core]
+	pager = "less -+XF --RAW-CONTROL-CHARS --chop-long-lines"
+	## Git sets `LESS` to `FRX` if `LESS` is not set.  Unset `-X` and `-F`.
+	##
+	## Unset `-X` to clear the screen when less exits.
+	##
+	## Unset `-F` to cause less not to exit even if the content
+	## can be displayed on one screen.
+[credential]
+	helper = cache --timeout=3600
+[alias]
+	ignore-for = "!gi() { a=$(IFS=, eval 'echo \"$*\"') ; api=\"curl -sSL http://www.gitignore.io/api/$a\" ; case \"$a\" in list) api=\"$api | tr , '\\\\n'\" ;; esac ; eval \"$api | $(git config core.pager)\" ; } ; gi"
+[diff "spaceman-diff"]
+	command = spaceman-diff
+[sendemail]
+	bcc = {{ $roleData.gitUserEmail }}
+[include]
+	path = config_local
