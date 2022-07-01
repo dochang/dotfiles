@@ -33,4 +33,6 @@
 .config/common-lisp
 .common-lisp.lisp
 asdf.lisp
+.dput.cf
+.eclrc
 {{ end }}
