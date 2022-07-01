@@ -41,4 +41,5 @@ asdf.lisp
 .config/go
 .gradle
 .m2
+.config/molecule
 {{ end }}
