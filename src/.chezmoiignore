@@ -35,4 +35,5 @@
 asdf.lisp
 .dput.cf
 .eclrc
+.gemrc
 {{ end }}

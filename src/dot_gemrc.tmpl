@@ -5,6 +5,16 @@
 {{- end -}}
 {{- $gemSource := $areaData.gemSource -}}
 ---
-{{ range $key, $val := $gemSource -}}
-{{ $key }}: {{ $val }}
+:backtrace: false
+:bulk_threshold: 1000
+{{- if $gemSource }}
+:sources:
+{{- range $key, $val := $gemSource }}
+- {{ $val | quote }}
+{{- end }}
+{{ else }}
+:sources: []
 {{ end -}}
+:update_sources: true
+:verbose: true
+install: "--env-shebang --document=yri"
