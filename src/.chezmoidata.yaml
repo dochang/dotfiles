@@ -50,6 +50,14 @@ dotfiles:
       # https://github.com/rust-lang/cargo/blob/master/src/cargo/sources/config.rs#L48
       gemSource:
         "BUNDLE_MIRROR__HTTPS://RUBYGEMS__ORG/": "https://rubygems.org/"
+      cargoSource:
+        "crates-io":
+          registry: "https://github.com/rust-lang/crates.io-index"
+      # https://doc.rust-lang.org/cargo/reference/source-replacement.html
+      # https://github.com/rust-lang/cargo/blob/master/src/cargo/sources/registry/mod.rs#L185
+      # https://github.com/rust-lang/cargo/blob/master/src/cargo/sources/config.rs#L48
+      cargoRegistries: {}
+      # https://doc.rust-lang.org/cargo/reference/registries.html
     cn:
       nodejsOrgMirror: "https://npmmirror.com/mirrors/node"
       nodeBuildMirrorURL: "https://npmmirror.com/mirrors/node"
@@ -82,3 +90,18 @@ dotfiles:
       #
       # dotfiles_gem_source:
       #   'BUNDLE_MIRROR__HTTPS://RUBYGEMS__ORG/': 'https://mirrors.ustc.edu.cn/rubygems/'
+      cargoSource:
+        "crates-io":
+          registry: ""
+          replace-with: rsproxy
+        rsproxy:
+          registry: "https://rsproxy.cn/crates.io-index"
+        tuna:
+          registry: "https://mirrors.tuna.tsinghua.edu.cn/git/crates.io-index.git"
+      # https://rsproxy.cn/
+      # https://doc.crates.io/source-replacement.html
+      # https://doc.rust-lang.org/cargo/reference/source-replacement.html
+      cargoRegistries:
+        rsproxy:
+          index: "https://rsproxy.cn/crates.io-index"
+      # https://doc.rust-lang.org/cargo/reference/registries.html

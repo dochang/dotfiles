@@ -1,0 +1,28 @@
+{{- /* -*- mode: web; -*- */ -}}
+{{- $areaData := .dotfiles.areaData.default -}}
+{{- if eq .dotfiles.area "cn" -}}
+{{- $areaData = mergeOverwrite $areaData .dotfiles.areaData.cn -}}
+{{- end -}}
+{{- $cargoSource := $areaData.cargoSource -}}
+{{- $cargoRegistries := $areaData.cargoRegistries -}}
+[net]
+# https://doc.rust-lang.org/cargo/reference/config.html#net
+git-fetch-with-cli = true
+# https://doc.rust-lang.org/cargo/reference/config.html#netgit-fetch-with-cli
+
+[source]
+{{ range $key, $val := $cargoSource }}
+[source.{{ $key }}]
+{{- range $k, $v := $val }}
+{{- if $v }}
+{{ $k }} = {{ $v | quote }}
+{{- end }}
+{{- end }}
+{{ end }}
+[registries]
+{{ range $key, $val := $cargoRegistries }}
+[registries.{{ $key }}]
+{{- range $k, $v := $val }}
+{{ $k }} = {{ $v | quote }}
+{{- end }}
+{{ end -}}

@@ -26,4 +26,5 @@
 {{ if not (has "dev" .dotfiles.roles) }}
 .ansible.cfg
 .bundle
+.cargo
 {{ end }}
