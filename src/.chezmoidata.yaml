@@ -48,6 +48,8 @@ dotfiles:
       # https://doc.rust-lang.org/cargo/reference/source-replacement.html
       # https://github.com/rust-lang/cargo/blob/master/src/cargo/sources/registry/mod.rs#L185
       # https://github.com/rust-lang/cargo/blob/master/src/cargo/sources/config.rs#L48
+      gemSource:
+        "BUNDLE_MIRROR__HTTPS://RUBYGEMS__ORG/": "https://rubygems.org/"
     cn:
       nodejsOrgMirror: "https://npmmirror.com/mirrors/node"
       nodeBuildMirrorURL: "https://npmmirror.com/mirrors/node"
@@ -74,3 +76,9 @@ dotfiles:
       # https://rsproxy.cn/
       # https://doc.crates.io/source-replacement.html
       # https://doc.rust-lang.org/cargo/reference/source-replacement.html
+      gemSource:
+        "BUNDLE_MIRROR__HTTPS://RUBYGEMS__ORG/": "https://gems.ruby-china.com/"
+      # Reduce transfer from ustc mirror.
+      #
+      # dotfiles_gem_source:
+      #   'BUNDLE_MIRROR__HTTPS://RUBYGEMS__ORG/': 'https://mirrors.ustc.edu.cn/rubygems/'

@@ -1,0 +1,10 @@
+{{- /* -*- mode: web; -*- */ -}}
+---
+{{- $areaData := .dotfiles.areaData.default -}}
+{{- if eq .dotfiles.area "cn" -}}
+{{- $areaData = mergeOverwrite $areaData .dotfiles.areaData.cn -}}
+{{- end -}}
+{{- $gemSource := $areaData.gemSource -}}
+{{ range keys $gemSource }}
+{{ . }}: {{ index $gemSource . }}
+{{ end -}}
