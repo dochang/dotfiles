@@ -40,4 +40,5 @@ asdf.lisp
 .gbp.conf
 .config/go
 .gradle
+.m2
 {{ end }}
