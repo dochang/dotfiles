@@ -23,6 +23,8 @@ git-fetch-with-cli = true
 {{ range $key, $val := $cargoRegistries }}
 [registries.{{ $key }}]
 {{- range $k, $v := $val }}
+{{- if $v }}
 {{ $k }} = {{ $v | quote }}
+{{- end }}
 {{- end }}
 {{ end -}}
