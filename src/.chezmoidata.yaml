@@ -71,6 +71,9 @@ dotfiles:
       # https://docs.gradle.org/current/dsl/org.gradle.api.artifacts.dsl.RepositoryHandler.html#org.gradle.api.artifacts.dsl.RepositoryHandler:mavenLocal()
       # https://docs.gradle.org/current/dsl/org.gradle.api.artifacts.dsl.RepositoryHandler.html#org.gradle.api.artifacts.dsl.RepositoryHandler:mavenLocal(org.gradle.api.Action)
       mavenMirrors: []
+      npmRegistry: "https://registry.npmjs.org/"
+      npmDisturl: "https://nodejs.org/dist"
+      # https://github.com/nodejs/node-gyp/blob/v7.0.0/lib/process-release.js#L22
     cn:
       nodejsOrgMirror: "https://npmmirror.com/mirrors/node"
       nodeBuildMirrorURL: "https://npmmirror.com/mirrors/node"
@@ -132,3 +135,5 @@ dotfiles:
       # https://www.jianshu.com/p/7fe6c7ab74f6
       # https://help.aliyun.com/document_detail/102512.html
       # http://mirrors.163.com/.help/maven.html
+      npmRegistry: "https://registry.npmmirror.com"
+      npmDisturl: "https://npmmirror.com/mirrors/node"
