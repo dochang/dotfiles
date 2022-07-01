@@ -38,4 +38,5 @@ asdf.lisp
 .gemrc
 .config/git
 .gbp.conf
+.config/go
 {{ end }}
