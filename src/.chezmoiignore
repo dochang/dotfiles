@@ -30,4 +30,7 @@
 .ccl-init.lisp
 .clisprc.lisp
 .cmucl-init.lisp
+.config/common-lisp
+.common-lisp.lisp
+asdf.lisp
 {{ end }}
