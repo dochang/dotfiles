@@ -5,6 +5,6 @@
 {{- $areaData = mergeOverwrite $areaData .dotfiles.areaData.cn -}}
 {{- end -}}
 {{- $gemSource := $areaData.gemSource -}}
-{{ range keys $gemSource }}
-{{ . }}: {{ index $gemSource . }}
+{{ range $key, $val := $gemSource }}
+{{ $key }}: {{ $val }}
 {{ end -}}
