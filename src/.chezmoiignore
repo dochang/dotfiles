@@ -23,3 +23,6 @@
 .config/xx-randr
 .config/zathura
 {{ end }}
+{{ if not (has "dev" .dotfiles.roles) }}
+.ansible.cfg
+{{ end }}
