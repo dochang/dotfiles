@@ -1,0 +1,44 @@
+{{- /* -*- mode: web; -*- */ -}}
+{{- $areaData := .dotfiles.areaData.default -}}
+{{- if eq .dotfiles.area "cn" -}}
+{{- $areaData = mergeOverwrite $areaData .dotfiles.areaData.cn -}}
+{{- end -}}
+{{- $gradleRepos := $areaData.gradleRepos -}}
+// https://docs.gradle.org/current/userguide/directory_layout.html
+// https://docs.gradle.org/current/userguide/init_scripts.html
+// https://docs.gradle.org/current/userguide/declaring_repositories.html
+// https://docs.gradle.org/current/userguide/repository_types.html#repository_types
+// https://docs.gradle.org/current/dsl/org.gradle.api.artifacts.dsl.RepositoryHandler.html
+
+allprojects {
+    buildscript {
+        repositories {
+            {{- range $repo := $gradleRepos }}
+            {{- if eq $repo.type "maven" }}
+            maven {
+                {{- if $repo.name }}
+                name = {{ $repo.name | quote }}
+                {{- end }}
+                url = uri({{ $repo.url | quote }})
+            }
+            {{- else }}
+            {{ $repo.type }}()
+            {{- end }}
+            {{- end }}
+        }
+    }
+    repositories {
+        {{- range $repo := $gradleRepos }}
+        {{- if eq $repo.type "maven" }}
+        maven {
+            {{- if $repo.name }}
+            name = {{ $repo.name | quote }}
+            {{- end }}
+            url = uri({{ $repo.url | quote }})
+        }
+        {{- else }}
+        {{ $repo.type }}()
+        {{- end }}
+        {{- end }}
+    }
+}

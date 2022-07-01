@@ -39,4 +39,5 @@ asdf.lisp
 .config/git
 .gbp.conf
 .config/go
+.gradle
 {{ end }}
