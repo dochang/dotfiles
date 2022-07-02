@@ -77,6 +77,31 @@ dotfiles:
       pbuilderMirrorsite: "http://deb.debian.org/debian"
       pipIndexURL: "https://pypi.org/simple"
       yarnRegistry: "https://registry.yarnpkg.com"
+      emacsPackageArchives:
+        - id: gnu
+          location: https://elpa.gnu.org/packages/
+        - id: nongnu
+          location: https://elpa.nongnu.org/nongnu/
+        - id: melpa
+          location: https://melpa.org/packages/
+        - id: melpa-stable
+          location: https://stable.melpa.org/packages/
+
+        # Downloading marmalade archive will cause Emacs hangs at 100% CPU usage.
+        # Disable it for now.  See nicferrier/elmarmalade#106 .
+        #
+        # - id: marmalade
+        #   location: https://marmalade-repo.org/packages/
+        # Disable the following archives.  Their packages are too old.
+        #
+        # - id: ELPA
+        #   location: http://tromey.com/elpa/
+        # Disable it
+        #
+        # https://github.com/escherdragon/sunrise-commander/issues/57
+        #
+        # - id: SC
+        #   location: http://joseito.republika.pl/sunrise-commander/
     cn:
       nodejsOrgMirror: "https://npmmirror.com/mirrors/node"
       nodeBuildMirrorURL: "https://npmmirror.com/mirrors/node"
@@ -143,3 +168,25 @@ dotfiles:
       pbuilderMirrorsite: "https://mirrors.ustc.edu.cn/debian"
       pipIndexURL: "https://pypi.doubanio.com/simple"
       yarnRegistry: "https://registry.npmmirror.com"
+      emacsPackageArchives:
+        - id: gnu
+          location: https://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/
+        - id: nongnu
+          location: https://mirrors.tuna.tsinghua.edu.cn/elpa/nongnu/
+        - id: melpa
+          location: https://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/
+        - id: melpa-stable
+          location: https://mirrors.tuna.tsinghua.edu.cn/elpa/stable-melpa/
+        # Downloading marmalade archive will cause Emacs hangs at 100% CPU usage.
+        # Disable it for now.  See nicferrier/elmarmalade#106 .
+        #
+        # - id: marmalade
+        #   location: https://mirrors.tuna.tsinghua.edu.cn/elpa/marmalade/
+        #
+        # Disable the following archives.  Their packages are too old.
+        #
+        # - id: ELPA
+        #   location: http://tromey.com/elpa/
+        #
+        # - id: SC
+        #   location: https://mirrors.tuna.tsinghua.edu.cn/elpa/sunrise-commander/
