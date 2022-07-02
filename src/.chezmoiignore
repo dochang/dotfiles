@@ -47,4 +47,5 @@ asdf.lisp
 .config/pip
 .prettierrc
 .pypirc
+.quiltrc
 {{ end }}
