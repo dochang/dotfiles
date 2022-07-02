@@ -52,4 +52,5 @@ asdf.lisp
 .swank.lisp
 .config/tig
 .vimrc
+.yarnrc
 {{ end }}

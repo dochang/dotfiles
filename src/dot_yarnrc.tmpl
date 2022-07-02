@@ -1,0 +1,18 @@
+{{- /* -*- mode: web; -*- */ -}}
+{{- $areaData := .dotfiles.areaData.default -}}
+{{- if eq .dotfiles.area "cn" -}}
+{{- $areaData = mergeOverwrite $areaData .dotfiles.areaData.cn -}}
+{{- end -}}
+{{- $yarnRegistry := $areaData.yarnRegistry -}}
+## Registries
+# https://github.com/yarnpkg/yarn/issues/3700#issuecomment-312872253
+# https://github.com/yarnpkg/yarn/issues/2322#issue-197206678
+registry {{ $yarnRegistry | quote }}
+
+## prefix
+# This setting controls the output of `yarn global bin`.
+#
+# https://yarnpkg.com/en/docs/cli/global#defining-install-location
+#
+# Note: in order to use `~`, you must append a path separator: `~/`.
+prefix "~/.yarn"

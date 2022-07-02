@@ -76,6 +76,7 @@ dotfiles:
       # https://github.com/nodejs/node-gyp/blob/v7.0.0/lib/process-release.js#L22
       pbuilderMirrorsite: "http://deb.debian.org/debian"
       pipIndexURL: "https://pypi.org/simple"
+      yarnRegistry: "https://registry.yarnpkg.com"
     cn:
       nodejsOrgMirror: "https://npmmirror.com/mirrors/node"
       nodeBuildMirrorURL: "https://npmmirror.com/mirrors/node"
@@ -141,3 +142,4 @@ dotfiles:
       npmDisturl: "https://npmmirror.com/mirrors/node"
       pbuilderMirrorsite: "https://mirrors.ustc.edu.cn/debian"
       pipIndexURL: "https://pypi.doubanio.com/simple"
+      yarnRegistry: "https://registry.npmmirror.com"
