@@ -56,4 +56,5 @@ asdf.lisp
 {{ end }}
 {{ if not (or (has "desktop" .dotfiles.roles) (has "dev" .dotfiles.roles)) }}
 .gnus.el
+.emacs.d
 {{ end }}
