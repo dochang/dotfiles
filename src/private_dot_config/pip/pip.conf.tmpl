@@ -1,0 +1,9 @@
+{{- /* -*- mode: web; -*- */ -}}
+{{- $areaData := .dotfiles.areaData.default -}}
+{{- if eq .dotfiles.area "cn" -}}
+{{- $areaData = mergeOverwrite $areaData .dotfiles.areaData.cn -}}
+{{- end -}}
+{{- $pipIndexURL := $areaData.pipIndexURL -}}
+[global]
+# https://pip.pypa.io/en/stable/reference/pip_wheel/#index-url
+index-url = {{ $pipIndexURL }}

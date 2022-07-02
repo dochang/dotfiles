@@ -44,4 +44,5 @@ asdf.lisp
 .config/molecule
 .npmrc
 .pbuilderrc
+.config/pip
 {{ end }}
