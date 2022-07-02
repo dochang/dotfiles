@@ -1,0 +1,13 @@
+# https://packaging.python.org/guides/migrating-to-pypi-org/#uploading
+
+[distutils]
+index-servers =
+  pypi
+  testpypi
+
+[testpypi]
+repository = https://test.pypi.org/legacy/
+username = __token__
+
+[pypi]
+username = __token__

@@ -46,4 +46,5 @@ asdf.lisp
 .pbuilderrc
 .config/pip
 .prettierrc
+.pypirc
 {{ end }}
