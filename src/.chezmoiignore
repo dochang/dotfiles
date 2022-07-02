@@ -48,4 +48,5 @@ asdf.lisp
 .prettierrc
 .pypirc
 .quiltrc
+.sbclrc
 {{ end }}
