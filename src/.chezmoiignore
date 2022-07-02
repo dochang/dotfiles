@@ -54,3 +54,6 @@ asdf.lisp
 .vimrc
 .yarnrc
 {{ end }}
+{{ if not (or (has "desktop" .dotfiles.roles) (has "dev" .dotfiles.roles)) }}
+.gnus.el
+{{ end }}
