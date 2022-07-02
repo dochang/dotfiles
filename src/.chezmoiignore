@@ -49,4 +49,5 @@ asdf.lisp
 .pypirc
 .quiltrc
 .sbclrc
+.swank.lisp
 {{ end }}
