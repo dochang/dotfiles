@@ -1,0 +1,12 @@
+#!/bin/sh
+
+#### Inspired by https://github.com/kilobyte/e
+
+name=$(echo $1 | cut --delimiter=: --fields=1)
+line=$(echo $1 | cut --only-delimited --delimiter=: --fields=2)
+
+if [ x"$line" = x ]; then
+	exec sensible-editor "$name"
+else
+	exec sensible-editor "+$line" "$name"
+fi
