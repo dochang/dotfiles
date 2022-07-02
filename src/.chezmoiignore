@@ -42,4 +42,6 @@ asdf.lisp
 .gradle
 .m2
 .config/molecule
+.npmrc
+.pbuilderrc
 {{ end }}
