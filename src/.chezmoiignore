@@ -50,4 +50,5 @@ asdf.lisp
 .quiltrc
 .sbclrc
 .swank.lisp
+.config/tig
 {{ end }}

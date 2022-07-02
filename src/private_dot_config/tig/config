@@ -1,0 +1,4 @@
+bind generic Backspace move-page-up
+set main-view-commit-title-graph = v2
+set main-view-commit-title-refs = yes
+set commit-order = topo
