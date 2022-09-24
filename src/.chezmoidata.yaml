@@ -24,6 +24,7 @@ dotfiles:
           email: dochang@gmail.com
   areaData:
     default:
+      guixDefaultChannelURL: "https://git.savannah.gnu.org/git/guix.git"
       nodejsOrgMirror: "https://nodejs.org/dist"
       # https://github.com/nodejs/node-gyp/blob/v7.0.0/lib/process-release.js#L65-L67
       nodeBuildMirrorURL: "https://nodejs.org/dist"
@@ -108,6 +109,7 @@ dotfiles:
         # - id: SC
         #   location: http://joseito.republika.pl/sunrise-commander/
     cn:
+      guixDefaultChannelURL: "https://mirror.sjtu.edu.cn/git/guix.git"
       nodejsOrgMirror: "https://npmmirror.com/mirrors/node"
       nodeBuildMirrorURL: "https://npmmirror.com/mirrors/node"
       sassBinarySite: "https://npmmirror.com/mirrors/node-sass"

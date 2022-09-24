@@ -1,0 +1,24 @@
+{{- /* -*- mode: web; -*- */ -}}
+{{- $areaData := .dotfiles.areaData.default -}}
+{{- if eq .dotfiles.area "cn" -}}
+{{- $areaData = mergeOverwrite $areaData .dotfiles.areaData.cn -}}
+{{- end -}}
+{{- $guixDefaultChannelURL := $areaData.guixDefaultChannelURL -}}
+(use-modules (guix ci))
+
+(append
+ (let* ((local-filename (string-append (dirname (current-filename))
+                                       "/channels_local.scm"))
+        (local-channels (and (file-exists? local-filename)
+                             (load local-filename))))
+   (if (list? local-channels) local-channels '()))
+ (cons*
+  (channel-with-substitutes-available
+   (channel
+    (inherit %default-guix-channel)
+    (url "{{ $guixDefaultChannelURL }}"))
+   "https://ci.guix.gnu.org"
+   ;; The API required by `channel-with-substitutes-available' only exists
+   ;; on Guix CI Server.
+   )
+  (delq %default-guix-channel %default-channels)))
