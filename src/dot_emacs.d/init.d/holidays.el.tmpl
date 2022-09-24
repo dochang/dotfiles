@@ -1,0 +1,11 @@
+{{- /* -*- mode: web; -*- */ -}}
+{{- $roleData := .dotfiles.roleData.default -}}
+(req-package holidays
+  :ensure (holidays :pin :built-in)
+  :init
+  (setq holiday-other-holidays
+        '(
+          {{- range $holiday := $roleData.emacsHolidayOtherHolidays }}
+          {{ $holiday }}
+          {{- end }}
+          )))

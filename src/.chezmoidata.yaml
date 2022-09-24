@@ -17,6 +17,11 @@ dotfiles:
       gitCredential: dochang
       gitUserName: Wade Zhang
       gitUserEmail: dochang@gmail.com
+      emacsHolidayOtherHolidays: []
+      linuxbrewPrefix: /home/linuxbrew/.linuxbrew
+      emacsEmailList:
+        - name: 'a'
+          email: 's'
   areaData:
     default:
       nodejsOrgMirror: "https://nodejs.org/dist"

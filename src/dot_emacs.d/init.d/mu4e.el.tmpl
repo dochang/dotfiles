@@ -1,4 +1,5 @@
-#jinja2: trim_blocks: "true", lstrip_blocks: "false"
+{{- /* -*- mode: web; -*- */ -}}
+{{- $roleData := .dotfiles.roleData.default -}}
 (defun $mu4e-compose-mode-hook ()
   (save-excursion
     (let ((bcc-addr (message-field-value "From")))
@@ -13,7 +14,7 @@
   :hook (mu4e-compose-mode . $mu4e-compose-mode-hook)
 
   :init
-  (setq mu4e-maildir (expand-file-name (or (getenv "MAILDIR") "{{ dotfiles_maildir }}")))
+  (setq mu4e-maildir (expand-file-name (or (getenv "MAILDIR") "{{ $roleData.maildir }}")))
   (setq mu4e-attachment-dir (expand-file-name "~/Downloads/"))
   (setq mu4e-change-filenames-when-moving t)
   ;; Change the filename when moving messages to different folders.
@@ -32,20 +33,20 @@
   :config
   (setq mu4e-contexts
         (list
-         {% for x in dotfiles_emacs_email_list %}
+         {{- range $x := $roleData.emacsEmailList }}
          (make-mu4e-context
-          :name "{{ x.email }}"
-          :enter-func (lambda () (mu4e-message "Entering context {{ x.email }}"))
-          :leave-func (lambda () (mu4e-message "Leaving context {{ x.email }}"))
+          :name "{{ $x.email }}"
+          :enter-func (lambda () (mu4e-message "Entering context {{ $x.email }}"))
+          :leave-func (lambda () (mu4e-message "Leaving context {{ $x.email }}"))
           :match-func (lambda (msg)
                         (or (null msg)
                             (mu4e-message-contact-field-matches
-                             msg '(:from :to :cc :bcc) "{{ x.email }}")))
-          :vars '((user-mail-address . "{{ x.email }}")
-                  (user-full-name . "{{ x.name }}")
+                             msg '(:from :to :cc :bcc) "{{ $x.email }}")))
+          :vars '((user-mail-address . "{{ $x.email }}")
+                  (user-full-name . "{{ $x.name }}")
                   (mu4e-compose-signature . nil)
                   (mu4e-compose-format-flowed . nil)))
-         {% endfor %}
+         {{- end }}
          ))
   (setq mu4e-user-mail-address-list
         (delq nil

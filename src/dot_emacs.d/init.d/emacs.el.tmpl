@@ -1,3 +1,5 @@
+{{- /* -*- mode: web; -*- */ -}}
+{{- $roleData := .dotfiles.roleData.default -}}
 (defun $emacs-startup-hook ()
   (unless **theme-initialized**
     ($theme-initialize))
@@ -9,8 +11,8 @@
 
   :init
 
-  (setq user-full-name (or (getenv "NAME") "{{ dotfiles_emacs_name }}"))
-  (setq user-mail-address (or (getenv "EMAIL") "{{ dotfiles_emacs_email }}"))
+  (setq user-full-name (or (getenv "NAME") "{{ $roleData.name }}"))
+  (setq user-mail-address (or (getenv "EMAIL") "{{ $roleData.email }}"))
 
   ;; Disable auto save recovery record.
   ;; [[info:emacs#Recover]]
