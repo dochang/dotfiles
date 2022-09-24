@@ -1,5 +1,33 @@
 .config/rofi/config
-{{ if not (has "desktop" .dotfiles.roles) }}
+{{ if not (has "default" .dotfiles.roles) }}
+.config/aria2
+.gnupg/gpg.conf
+.gnupg/gpg-agent.conf
+.config/guix
+.lesskey
+.lessfilter
+lesskey.sh
+.mailcap
+.mostrc
+.config/mpd
+.nix-channels
+.nixpkgs
+.pam_environment
+.inputrc
+.profile
+.shrc
+.bash_profile
+.bashrc
+.bash_logout
+.zprofile
+.zshrc
+.zlogout
+.config/thefuck
+.tmux.conf
+.wgetrc
+bin
+{{ end }}
+{{ if not (and (has "default" .dotfiles.roles) (has "desktop" .dotfiles.roles)) }}
 .config/autostart
 .config/conky
 .fvwm
@@ -23,7 +51,7 @@
 .config/xx-randr
 .config/zathura
 {{ end }}
-{{ if not (has "dev" .dotfiles.roles) }}
+{{ if not (and (has "default" .dotfiles.roles) (has "dev" .dotfiles.roles)) }}
 .ansible.cfg
 .bundle
 .cargo
@@ -54,7 +82,7 @@ asdf.lisp
 .vimrc
 .yarnrc
 {{ end }}
-{{ if not (or (has "desktop" .dotfiles.roles) (has "dev" .dotfiles.roles)) }}
+{{ if not (and (has "default" .dotfiles.roles) (or (has "desktop" .dotfiles.roles) (has "dev" .dotfiles.roles))) }}
 .gnus.el
 .emacs.d
 {{ end }}
