@@ -25,6 +25,7 @@ dotfiles:
   areaData:
     default:
       guixDefaultChannelURL: "https://git.savannah.gnu.org/git/guix.git"
+      nixNixpkgsChannelURL: "https://nixos.org/channels/nixpkgs-unstable"
       nodejsOrgMirror: "https://nodejs.org/dist"
       # https://github.com/nodejs/node-gyp/blob/v7.0.0/lib/process-release.js#L65-L67
       nodeBuildMirrorURL: "https://nodejs.org/dist"
@@ -110,6 +111,7 @@ dotfiles:
         #   location: http://joseito.republika.pl/sunrise-commander/
     cn:
       guixDefaultChannelURL: "https://mirror.sjtu.edu.cn/git/guix.git"
+      nixNixpkgsChannelURL: "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/nixpkgs-unstable"
       nodejsOrgMirror: "https://npmmirror.com/mirrors/node"
       nodeBuildMirrorURL: "https://npmmirror.com/mirrors/node"
       sassBinarySite: "https://npmmirror.com/mirrors/node-sass"

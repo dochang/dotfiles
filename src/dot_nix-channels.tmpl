@@ -1,5 +1,7 @@
-{{ if eq .dotfiles.area "cn" -}}
-https://mirrors.tuna.tsinghua.edu.cn/nix-channels/nixpkgs-unstable nixpkgs
-{{ else -}}
-https://nixos.org/channels/nixpkgs-unstable nixpkgs
-{{ end -}}
+{{- /* -*- mode: web; -*- */ -}}
+{{- $areaData := .dotfiles.areaData.default -}}
+{{- if eq .dotfiles.area "cn" -}}
+{{- $areaData = mergeOverwrite $areaData .dotfiles.areaData.cn -}}
+{{- end -}}
+{{- $nixNixpkgsChannelURL := $areaData.nixNixpkgsChannelURL -}}
+{{ $nixNixpkgsChannelURL }} nixpkgs
