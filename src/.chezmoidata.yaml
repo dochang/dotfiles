@@ -20,8 +20,8 @@ dotfiles:
       emacsHolidayOtherHolidays: []
       linuxbrewPrefix: /home/linuxbrew/.linuxbrew
       emacsEmailList:
-        - name: 'a'
-          email: 's'
+        - name: Wade Zhang
+          email: dochang@gmail.com
   areaData:
     default:
       nodejsOrgMirror: "https://nodejs.org/dist"
