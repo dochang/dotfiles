@@ -24,7 +24,9 @@ lesskey.sh
 .config/thefuck
 .tmux.conf
 .wgetrc
-bin
+bin/display-upstream-package-from-paf
+bin/pingen
+bin/vps-speed-test.sh
 {{ end }}
 {{ if not (and (has "default" .dotfiles.roles) (has "desktop" .dotfiles.roles)) }}
 .config/autostart
@@ -49,6 +51,23 @@ bin
 .config/xx-input
 .config/xx-randr
 .config/zathura
+bin/banish-pointer.sh
+bin/browser.sh
+bin/json2xrandr
+bin/mixer.sh
+bin/pass-askpass
+bin/passrofi
+bin/rofi_run
+bin/run-or-raise.sh
+bin/xconfirm.sh
+bin/xlock.sh
+bin/xrandr2json
+bin/X.sh
+bin/xx-autostart
+bin/xx-daemon
+bin/xx-editor
+bin/xx-input
+bin/xx-randr
 {{ end }}
 {{ if not (and (has "default" .dotfiles.roles) (has "dev" .dotfiles.roles)) }}
 .ansible.cfg
@@ -80,6 +99,8 @@ asdf.lisp
 .config/tig
 .vimrc
 .yarnrc
+bin/e
+bin/v
 {{ end }}
 {{ if not (and (has "default" .dotfiles.roles) (or (has "desktop" .dotfiles.roles) (has "dev" .dotfiles.roles))) }}
 .gnus.el
