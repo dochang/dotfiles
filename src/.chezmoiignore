@@ -1,4 +1,3 @@
-.config/rofi/config
 {{ if not (has "default" .dotfiles.roles) }}
 .config/aria2
 .gnupg/gpg.conf
