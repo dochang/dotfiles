@@ -356,7 +356,7 @@ prepend_to_env ${HOME}/.cask/bin PATH
 prepend_to_env ${HOME}/.cabal/bin PATH
 
 ## For Go
-: ${GOBIN:="${HOME}/bin"}
+: ${GOBIN:="${HOME}/go/bin"}
 export GOBIN
 prepend_to_env ${GOBIN} PATH
 # Set global GOROOT
