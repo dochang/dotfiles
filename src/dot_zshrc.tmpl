@@ -124,3 +124,11 @@ compdef gpg2=gpg
 
 ## For nenv completion
 [ ! -r ${NENV_ROOT}/completions/zsh/_nenv ] || . ${NENV_ROOT}/completions/zsh/_nenv
+
+## For asdf zsh completion
+##
+## https://asdf-vm.com/guide/getting-started.html#_3-install-asdf
+# append completions to fpath
+fpath=(${ASDF_DIR}/completions $fpath)
+# initialise completions with ZSH's compinit
+autoload -Uz compinit && compinit

@@ -299,6 +299,16 @@ EMACSLOADPATH="${GUIX_PROFILE}/share/emacs/site-lisp:${EMACSLOADPATH}"
 #
 # Also, do not use `prepend_to_env` because `EMACSLOADPATH` may be empty.
 
+## For asdf
+# https://asdf-vm.com/guide/getting-started.html#_3-install-asdf
+: ${ASDF_DIR:="${HOME}/.asdf"}
+export ASDF_DIR
+: ${ASDF_DATA_DIR:="${HOME}/.asdf"}
+export ASDF_DATA_DIR
+if [ -f "${ASDF_DIR}/asdf.sh" ]; then
+	. "${ASDF_DIR}/asdf.sh"
+fi
+
 ## For anyenv
 : ${ANYENV_ROOT:="${HOME}/.anyenv"}
 export ANYENV_ROOT

@@ -73,3 +73,10 @@ if [ -r "${GUIX_PROFILE}/share/bash-completion/bash_completion" ]; then
 	# Bind `BASH_COMPLETION_COMPAT_DIR` for loading Guix own completions.
 	. "${GUIX_PROFILE}/share/bash-completion/bash_completion"
 fi
+
+# For asdf bash completion
+#
+# https://asdf-vm.com/guide/getting-started.html#_3-install-asdf
+if [ -r "${ASDF_DIR}/completions/asdf.bash" ]; then
+	. "${ASDF_DIR}/completions/asdf.bash"
+fi
