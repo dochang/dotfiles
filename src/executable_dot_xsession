@@ -15,7 +15,7 @@ if [ -z "$XMODIFIERS" ]; then
 	if command -v anthy-dic-tool >/dev/null && [ -r ~/.anthy/private-dic.src ]; then
 		anthy-dic-tool --load --utf8 <~/.anthy/private-dic.src
 	fi
-	fcitx -d
+	fcitx5 -d
 fi
 
 xx-input
