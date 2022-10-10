@@ -2,5 +2,5 @@
 
 (req-package ispell
   :init
-  ;; Use aspell for spell-checking.
-  (setq ispell-program-name "aspell"))
+  ;; Use Enchant 2 for spell-checking.
+  (setq ispell-program-name "enchant-2"))
