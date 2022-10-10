@@ -131,8 +131,17 @@ export REPORTTIME
 ## For Emacs
 : ${EMACS_DIR:=$HOME/.emacs.d}
 export EMACS_DIR
-EMACSLOADPATH="$HOME/local/share/emacs/site-lisp:${EMACSLOADPATH}:/usr/share/org-mode/lisp:${EMACS_DIR}/site-lisp"
+for sitedir in "$HOME/.local/share/emacs/site-lisp"; do
+	[ ! -d "$sitedir" ] || expr ":${EMACSLOADPATH}:" : ".*:${sitedir}:" > /dev/null || {
+		EMACSLOADPATH="${sitedir}${EMACSLOADPATH:+:}${EMACSLOADPATH}"
+	}
+done
 # Enable contributed extensions to org-mode on Debian
+for sitedir in "/usr/share/org-mode/lisp" "${EMACS_DIR}/site-lisp"; do
+	[ ! -d "$sitedir" ] || expr ":${EMACSLOADPATH}:" : ".*:${sitedir}:" > /dev/null || {
+		EMACSLOADPATH="${EMACSLOADPATH}${EMACSLOADPATH:+:}${sitedir}"
+	}
+done
 export EMACSLOADPATH
 # Do not use `prepend_to_env` because `EMACSLOADPATH` may be empty.
 
@@ -190,10 +199,13 @@ is_command nix-env && {
 	# For ncurses terminal definitions
 	prepend_to_env ${HOME}/.nix-profile/share/terminfo TERMINFO_DIRS
 	# https://github.com/NixOS/nixpkgs/issues/23402#issuecomment-284980534
-
-	EMACSLOADPATH="$HOME/.nix-profile/share/emacs/site-lisp:$EMACSLOADPATH"
-	# Do not use `prepend_to_env` because `EMACSLOADPATH` may be empty.
 }
+for sitedir in "$HOME/.nix-profile/share/emacs/site-lisp"; do
+	[ ! -d "$sitedir" ] || expr ":${EMACSLOADPATH}:" : ".*:${sitedir}:" > /dev/null || {
+		EMACSLOADPATH="${sitedir}${EMACSLOADPATH:+:}${EMACSLOADPATH}"
+		# Do not use `prepend_to_env` because `EMACSLOADPATH` may be empty.
+	}
+done
 
 ## whalebrew
 : ${WHALEBREW_INSTALL_PATH:="${HOME}/bin"}
@@ -258,8 +270,12 @@ export HOMEBREW_DEVELOPER=1
 # Sometimes it is too slow to update Homebrew taps.  Only update taps manually.
 export HOMEBREW_NO_AUTO_UPDATE=1
 [ -x "${LINUXBREW_ROOT}/bin/brew" ] && eval "$("${LINUXBREW_ROOT}/bin/brew" shellenv)"
-EMACSLOADPATH="${LINUXBREW_ROOT}/share/emacs/site-lisp:${EMACSLOADPATH}"
-# Do not use `prepend_to_env` because `EMACSLOADPATH` may be empty.
+for sitedir in "${LINUXBREW_ROOT}/share/emacs/site-lisp"; do
+	[ ! -d "$sitedir" ] || expr ":${EMACSLOADPATH}:" : ".*:${sitedir}:" > /dev/null || {
+		EMACSLOADPATH="${sitedir}${EMACSLOADPATH:+:}${EMACSLOADPATH}"
+		# Do not use `prepend_to_env` because `EMACSLOADPATH` may be empty.
+	}
+done
 
 # Setting `MANPATH` & `INFOPATH` does not work correctly if they are unset
 # originally.  Unset them.
@@ -293,11 +309,15 @@ prepend_to_env ${GUIX_PROFILE}/share XDG_DATA_DIRS
 if [ -f "${GUIX_PROFILE}/etc/profile" ]; then
 	. "${GUIX_PROFILE}/etc/profile"
 fi
-EMACSLOADPATH="${GUIX_PROFILE}/share/emacs/site-lisp:${EMACSLOADPATH}"
-# Guix only set `EMACSLOADPATH` if Emacs is installed by Guix.  In case of
-# using external Emacs, set `EMACSLOADPATH` manually.
-#
-# Also, do not use `prepend_to_env` because `EMACSLOADPATH` may be empty.
+for sitedir in "${GUIX_PROFILE}/share/emacs/site-lisp"; do
+	[ ! -d "$sitedir" ] || expr ":${EMACSLOADPATH}:" : ".*:${sitedir}:" > /dev/null || {
+		EMACSLOADPATH="${sitedir}${EMACSLOADPATH:+:}${EMACSLOADPATH}"
+		# Guix only set `EMACSLOADPATH` if Emacs is installed by Guix.  In case of
+		# using external Emacs, set `EMACSLOADPATH` manually.
+		#
+		# Also, do not use `prepend_to_env` because `EMACSLOADPATH` may be empty.
+	}
+done
 
 ## For asdf
 # https://asdf-vm.com/guide/getting-started.html#_3-install-asdf
