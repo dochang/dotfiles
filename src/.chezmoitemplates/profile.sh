@@ -369,9 +369,6 @@ prepend_to_env ${HOME}/.cabal/bin PATH
 : ${GOBIN:="${HOME}/go/bin"}
 export GOBIN
 prepend_to_env ${GOBIN} PATH
-# Set global GOROOT
-: ${GOROOT:="${GUIX_PROFILE}/lib/go"}
-export GOROOT
 # Disable CGO by default.
 #
 # https://golang.org/cmd/cgo/
