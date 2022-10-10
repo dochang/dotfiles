@@ -27,6 +27,7 @@ lesskey.sh
 bin/display-upstream-package-from-paf
 bin/pingen
 bin/vps-speed-test.sh
+.asdfrc
 {{ end }}
 {{ if not (and (has "default" .dotfiles.roles) (has "desktop" .dotfiles.roles)) }}
 .config/autostart
