@@ -11,35 +11,6 @@ prompt_debian_setup() {
 
 prompt_debian_setup "$@"
 
-### Completion
-
-# For brew zsh completion
-#
-# https://github.com/Homebrew/brew/blob/master/docs/Shell-Completion.md#configuring-completions-in-zsh
-if type brew &>/dev/null; then
-	FPATH=$(brew --prefix)/share/zsh/site-functions:$FPATH
-fi
-
-# For nix zsh completion
-FPATH=/nix/var/nix/profiles/default/share/zsh/site-functions:$FPATH
-
-# For Guix zsh completion
-FPATH="${_GUIX_PROFILE:-${XDG_CONFIG_HOME:-$HOME/.config}/guix/current}/share/zsh/site-functions:$FPATH"
-
-autoload -Uz compinit
-compinit -u
-# Because `$(brew --prefix)` may be group writable for multi-users, `compaudit`
-# considers `$(brew --prefix)/share/zsh/site-functions` insecure.  Load those
-# completions without asking by `compinit -u`.
-#
-# http://zsh.sourceforge.net/Doc/Release/Completion-System.html#Use-of-compinit
-
-## https://unix.stackexchange.com/a/188951
-compdef gpg2=gpg
-
-### For nenv completion
-[ ! -r ${NENV_ROOT}/completions/zsh/_nenv ] || . ${NENV_ROOT}/completions/zsh/_nenv
-
 # sdkman-init.sh
 #
 # This comment is used to prevent sdkman install script from inserting init
@@ -124,3 +95,32 @@ bindkey "\el" down-case-word
 
 ### History
 HISTFILE=~/.zhistory
+
+### Completion
+
+# For brew zsh completion
+#
+# https://github.com/Homebrew/brew/blob/master/docs/Shell-Completion.md#configuring-completions-in-zsh
+if type brew &>/dev/null; then
+	FPATH=$(brew --prefix)/share/zsh/site-functions:$FPATH
+fi
+
+# For nix zsh completion
+FPATH=/nix/var/nix/profiles/default/share/zsh/site-functions:$FPATH
+
+# For Guix zsh completion
+FPATH="${_GUIX_PROFILE:-${XDG_CONFIG_HOME:-$HOME/.config}/guix/current}/share/zsh/site-functions:$FPATH"
+
+autoload -Uz compinit
+compinit -u
+# Because `$(brew --prefix)` may be group writable for multi-users, `compaudit`
+# considers `$(brew --prefix)/share/zsh/site-functions` insecure.  Load those
+# completions without asking by `compinit -u`.
+#
+# http://zsh.sourceforge.net/Doc/Release/Completion-System.html#Use-of-compinit
+
+## https://unix.stackexchange.com/a/188951
+compdef gpg2=gpg
+
+## For nenv completion
+[ ! -r ${NENV_ROOT}/completions/zsh/_nenv ] || . ${NENV_ROOT}/completions/zsh/_nenv
