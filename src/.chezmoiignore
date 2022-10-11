@@ -69,6 +69,7 @@ bin/xx-daemon
 bin/xx-editor
 bin/xx-input
 bin/xx-randr
+bin/xx-volctl
 {{ end }}
 {{ if not (and (has "default" .dotfiles.roles) (has "dev" .dotfiles.roles)) }}
 .ansible.cfg

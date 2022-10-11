@@ -1,0 +1,33 @@
+#!/bin/sh
+
+TARGET=@DEFAULT_SINK@
+
+case "$1" in
+-)
+	pactl set-sink-volume $TARGET -1%
+	;;
++)
+	pactl set-sink-volume $TARGET +1%
+	;;
+--)
+	pactl set-sink-volume $TARGET -5%
+	;;
+++)
+	pactl set-sink-volume $TARGET +5%
+	;;
+'=')
+	# https://en.wikipedia.org/wiki/Power_symbol
+	pactl set-sink-mute $TARGET 0
+	;;
+'/')
+	# https://en.wikipedia.org/wiki/Power_symbol
+	pactl set-sink-mute $TARGET 1
+	;;
+'!')
+	pactl set-sink-mute $TARGET toggle
+	;;
+*)
+	echo "Invalid argument: $1" >&2
+	exit 1
+	;;
+esac
