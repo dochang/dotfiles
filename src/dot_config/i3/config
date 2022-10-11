@@ -176,24 +176,24 @@ bindsym $mod+f fullscreen
 # banish pointer
 bindsym $mod+b exec "banish-pointer.sh"
 
-bindsym XF86AudioLowerVolume exec "mixer.sh 5%-"
-bindsym XF86AudioRaiseVolume exec "mixer.sh 5%+"
-bindsym XF86AudioMute        exec "mixer.sh toggle"
+bindsym XF86AudioLowerVolume exec "xx-volctl --"
+bindsym XF86AudioRaiseVolume exec "xx-volctl ++"
+bindsym XF86AudioMute        exec "xx-volctl !"
 
-bindsym Mod1+XF86AudioLowerVolume exec "mixer.sh 1%-"
-bindsym Mod1+XF86AudioRaiseVolume exec "mixer.sh 1%+"
+bindsym Mod1+XF86AudioLowerVolume exec "xx-volctl -"
+bindsym Mod1+XF86AudioRaiseVolume exec "xx-volctl +"
 
-bindsym $mod+comma exec "mixer.sh 5%-"
-bindsym $mod+period exec "mixer.sh 5%+"
-bindsym $mod+slash exec "mixer.sh toggle"
+bindsym $mod+comma exec "xx-volctl --"
+bindsym $mod+period exec "xx-volctl ++"
+bindsym $mod+slash exec "xx-volctl !"
 
 # $mod+<  /  $mod+>
-bindsym $mod+Shift+comma exec "mixer.sh 1%-"
-bindsym $mod+Shift+period exec "mixer.sh 1%+"
+bindsym $mod+Shift+comma exec "xx-volctl -"
+bindsym $mod+Shift+period exec "xx-volctl +"
 
 # $mod+Mod1+,  /  $mod+Mod1+.
-bindsym $mod+Mod1+comma exec "mixer.sh 1%-"
-bindsym $mod+Mod1+period exec "mixer.sh 1%+"
+bindsym $mod+Mod1+comma exec "xx-volctl -"
+bindsym $mod+Mod1+period exec "xx-volctl +"
 
 
 # Command Mode
@@ -337,24 +337,24 @@ mode "command" {
         # banish pointer
         bindsym b exec "banish-pointer.sh"
 
-        bindsym XF86AudioLowerVolume exec "mixer.sh 5%-"
-        bindsym XF86AudioRaiseVolume exec "mixer.sh 5%+"
-        bindsym XF86AudioMute        exec "mixer.sh toggle"
+        bindsym XF86AudioLowerVolume exec "xx-volctl --"
+        bindsym XF86AudioRaiseVolume exec "xx-volctl ++"
+        bindsym XF86AudioMute        exec "xx-volctl !"
 
-        bindsym Mod1+XF86AudioLowerVolume exec "mixer.sh 1%-"
-        bindsym Mod1+XF86AudioRaiseVolume exec "mixer.sh 1%+"
+        bindsym Mod1+XF86AudioLowerVolume exec "xx-volctl -"
+        bindsym Mod1+XF86AudioRaiseVolume exec "xx-volctl +"
 
-        bindsym comma exec "mixer.sh 5%-"
-        bindsym period exec "mixer.sh 5%+"
-        bindsym slash exec "mixer.sh toggle"
+        bindsym comma exec "xx-volctl --"
+        bindsym period exec "xx-volctl ++"
+        bindsym slash exec "xx-volctl !"
 
         # <  /  >
-        bindsym Shift+comma exec "mixer.sh 1%-"
-        bindsym Shift+period exec "mixer.sh 1%+"
+        bindsym Shift+comma exec "xx-volctl -"
+        bindsym Shift+period exec "xx-volctl +"
 
         # Mod1+,  /  Mod1+.
-        bindsym Mod1+comma exec "mixer.sh 1%-"
-        bindsym Mod1+period exec "mixer.sh 1%+"
+        bindsym Mod1+comma exec "xx-volctl -"
+        bindsym Mod1+period exec "xx-volctl +"
 
         bindsym r mode "resize"
 }
