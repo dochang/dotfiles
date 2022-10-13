@@ -16,12 +16,27 @@
   :init
   (setq cnfonts-personal-fontnames
         '(
-          ("DejaVu Sans Mono" "Liberation Mono" "Noto Sans Mono" "Droid Sans Fallback")
+          ;; 英文字体
+          ("Noto Sans Mono CJK" "Noto Sans Mono" "Droid Sans Fallback"
+           "DejaVu Sans Mono" "Liberation Mono")
+          ;; 中文字体
           ("Noto Sans Mono CJK SC" "Noto Sans Mono CJK TC"
            "Noto Sans Mono CJK JP" "Noto Sans Mono CJK KR"
            "WenQuanYi Micro Hei Mono" "WenQuanYi Micro Hei"
            "HanaMinA" "Droid Sans Fallback")
-          ("HanaMinB")
+          ;; EXT-B 字体
+          ("HanaMinB"
+           "Hanazono Mincho" "Hanazono Mincho A" "Hanazono Mincho B"
+           "Hanazono Mincho C" "Hanazono Mincho Ex" "Hanazono Mincho Ex A1"
+           "Hanazono Mincho Ex A2" "Hanazono Mincho Ex B" "Hanazono Mincho Ex C"
+           "Hanazono Mincho I")
+          ;; Symbol 字符字体
+          ("Noto Sans Mono CJK SC" "Noto Sans Mono CJK TC"
+           "Noto Sans Mono CJK JP" "Noto Sans Mono CJK KR"
+           "Noto Color Emoji" "Noto Emoji" "OpenMoji" "Symbola")
+          ;; Emacs 社区配置中，用于装饰的字符使用的字体
+          ("Noto Sans Mono CJK SC" "Noto Sans Mono CJK TC"
+           "Noto Sans Mono CJK JP" "Noto Sans Mono CJK KR")
           )
         )
   (setq cnfonts-profiles '("default"))
