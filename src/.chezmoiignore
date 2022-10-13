@@ -70,6 +70,7 @@ bin/xx-editor
 bin/xx-input
 bin/xx-randr
 bin/xx-volctl
+.config/fontconfig
 {{ end }}
 {{ if not (and (has "default" .dotfiles.roles) (has "dev" .dotfiles.roles)) }}
 .ansible.cfg
