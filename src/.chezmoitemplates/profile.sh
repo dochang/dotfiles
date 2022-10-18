@@ -379,9 +379,11 @@ is_command rbenv && {
 # https://github.com/syndbg/goenv/issues/72#issuecomment-478011438
 
 # goenv prepend `PATH` only if the shims is not in `PATH`.  But others prepend
-# their paths unconditionally.  So `.profile` is invoked many times, goenv
+# their paths unconditionally.  So if `.profile` is invoked many times, goenv
 # shims will be overridden by others.  Force to prepend it here.
-PATH="$GOENV_ROOT/shims:$PATH"
+[ -z "$GOENV_ROOT" ] || {
+	PATH="$GOENV_ROOT/shims:$PATH"
+}
 
 ## For Cask
 prepend_to_env ${HOME}/.cask/bin PATH
