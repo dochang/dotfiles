@@ -104,6 +104,7 @@ asdf.lisp
 .yarnrc
 bin/e
 bin/v
+.config/gup
 {{ end }}
 {{ if not (and (has "default" .dotfiles.roles) (or (has "desktop" .dotfiles.roles) (has "dev" .dotfiles.roles))) }}
 .gnus.el
