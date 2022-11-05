@@ -15,8 +15,8 @@
   ;; switched the focus to the new Emacs frame.  At that time,
   ;; `(selected-frame)' is still the old frame, and `frame' is the new frame.
   (when (display-graphic-p frame)
-    (unless (featurep 'cnfonts)
-      ;; If `cnfonts' is not installed, run the following setup.
+    (unless (bound-and-true-p cnfonts-mode)
+      ;; Unless `cnfonts' is installed and activated, run the following setup.
       ;;
       ;; `face-font-rescale-alist' has to be set when setting the font
       ;; configuration.
