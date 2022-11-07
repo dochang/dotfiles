@@ -1,5 +1,0 @@
-# -*- mode: yaml; -*-
----
-semi: false
-singleQuote: true
-trailingComma: all

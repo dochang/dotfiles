@@ -94,7 +94,6 @@ asdf.lisp
 .npmrc
 .pbuilderrc
 .config/pip
-.prettierrc
 .pypirc
 .quiltrc
 .sbclrc
