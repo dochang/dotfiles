@@ -9,7 +9,9 @@
     },
     "HID 0188:6796": {
       "desc": "Noppoo Choc Mini",
-      "options": ["altwin:swap_alt_win"]
+      "options": [
+        "altwin:swap_alt_win"
+      ]
     },
     "SINO WEALTH USB KEYBOARD": {
       "desc": "B.O.W HW098A",
@@ -39,6 +41,14 @@
       "properties": [
         ["libinput Scroll Method Enabled", "0", "0", "1"],
         ["libinput Accel Speed", "-0.5"]
+      ]
+    },
+    "SYNA8006:00 06CB:CD8B Touchpad": {
+      "desc": "Thinkpad touchpad",
+      "properties": [
+        ["libinput Natural Scrolling Enabled", "1"],
+        ["libinput Disable While Typing Enabled", "1"],
+        ["libinput Scroll Method Enabled", "1", "0", "0"]
       ]
     },
     "TPPS/2 IBM TrackPoint": {
