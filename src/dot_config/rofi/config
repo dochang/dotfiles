@@ -1,9 +1,7 @@
 rofi.monitor: -2
-rofi.kb-accept-entry: KP_Enter
-rofi.kb-accept-custom: Control+Return,Control+j,Control+m,Return
-rofi.kb-row-select: Tab,Control+space
-! I don't know how to unbind a key, rebind to another key for now
-rofi.kb-row-tab: Alt+Tab
+rofi.kb-accept-entry: Control+m,Return,KP_Enter
+rofi.kb-accept-custom: Control+Return,Control+j
+rofi.kb-row-select: Control+space,Alt+slash
 
 # Local Variables:
 # mode: conf-xdefaults

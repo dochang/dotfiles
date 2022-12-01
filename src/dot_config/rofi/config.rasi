@@ -3,8 +3,7 @@
 
 configuration {
 	m: "-2";
-	kb-accept-entry: "KP_Enter";
-	kb-accept-custom: "Control+Return,Control+j,Control+m,Return";
-	kb-row-tab: "Alt+Tab";
-	kb-row-select: "Tab,Control+space";
+	kb-accept-entry: "Control+m,Return,KP_Enter";
+	kb-accept-custom: "Control+Return,Control+j";
+	kb-row-select: "Control+space,Alt+slash";
 }
