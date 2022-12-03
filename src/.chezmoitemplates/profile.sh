@@ -252,8 +252,8 @@ export PUPPETEER_DOWNLOAD_HOST
 # Install Linuxbrew into `/home/linuxbrew/`.
 #
 # https://github.com/Linuxbrew/brew/issues/762
-: ${LINUXBREW_ROOT:="/home/linuxbrew/.linuxbrew"}
-export LINUXBREW_ROOT
+: ${HOMEBREW_ROOT:="/home/linuxbrew/.linuxbrew"}
+export HOMEBREW_ROOT
 : ${HOMEBREW_BOTTLE_DOMAIN:={{ .areaData.homebrewBottleDomain }}}
 export HOMEBREW_BOTTLE_DOMAIN
 : ${HOMEBREW_BREW_GIT_REMOTE:={{ .areaData.homebrewBrewGitRemote }}}
@@ -269,8 +269,8 @@ export HOMEBREW_CORE_GIT_REMOTE
 export HOMEBREW_DEVELOPER=1
 # Sometimes it is too slow to update Homebrew taps.  Only update taps manually.
 export HOMEBREW_NO_AUTO_UPDATE=1
-[ -x "${LINUXBREW_ROOT}/bin/brew" ] && eval "$("${LINUXBREW_ROOT}/bin/brew" shellenv)"
-for sitedir in "${LINUXBREW_ROOT}/share/emacs/site-lisp"; do
+[ -x "${HOMEBREW_ROOT}/bin/brew" ] && eval "$("${HOMEBREW_ROOT}/bin/brew" shellenv)"
+for sitedir in "${HOMEBREW_ROOT}/share/emacs/site-lisp"; do
 	[ ! -d "$sitedir" ] || expr ":${EMACSLOADPATH}:" : ".*:${sitedir}:" >/dev/null || {
 		EMACSLOADPATH="${sitedir}${EMACSLOADPATH:+:}${EMACSLOADPATH}"
 		# Do not use `prepend_to_env` because `EMACSLOADPATH` may be empty.
@@ -476,7 +476,7 @@ prepend_to_env ${NPM_PREFIX}/bin PATH
 ## For [arduino-mk][1]
 ##
 ## [1]: https://github.com/sudar/Arduino-Makefile
-: ${ARDUINO_DIR:="${LINUXBREW_ROOT}/opt/arduino"}
+: ${ARDUINO_DIR:="${HOMEBREW_ROOT}/opt/arduino"}
 export ARDUINO_DIR
 prepend_to_env ${ARDUINO_DIR} PATH
 

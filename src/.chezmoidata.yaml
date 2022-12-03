@@ -40,9 +40,9 @@ dotfiles:
       puppeteerDownloadHost: "https://storage.googleapis.com"
       # https://github.com/puppeteer/puppeteer/blob/main/docs/api.md#environment-variables
       # https://github.com/puppeteer/puppeteer/commit/945a826a0b53bb7325fdb86c998f812b16032c37
-      homebrewBottleDomain: "https://linuxbrew.bintray.com"
+      homebrewBottleDomain: "https://ghcr.io/v2/homebrew/core"
       homebrewBrewGitRemote: "https://github.com/Homebrew/brew"
-      homebrewCoreGitRemote: "https://github.com/Homebrew/linuxbrew-core"
+      homebrewCoreGitRemote: "https://github.com/Homebrew/homebrew-core"
       pythonBuildMirrorURL: "https://pyenv.github.io/pythons"
       pythonBuildMirrorURLSkipChecksum: ""
       # - With mirror set and "skip checksum" set, download from mirror of the official source ("www.python.org/ftp/python")
@@ -122,7 +122,7 @@ dotfiles:
       # https://npmmirror.com/
       # https://npmmirror.com/mirrors/
       puppeteerDownloadHost: "https://npmmirror.com/mirrors"
-      homebrewBottleDomain: "https://mirrors.tuna.tsinghua.edu.cn/linuxbrew-bottles"
+      homebrewBottleDomain: "https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles"
       homebrewBrewGitRemote: "https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/brew.git"
       homebrewCoreGitRemote: "https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-core.git"
       # https://mirrors.tuna.tsinghua.edu.cn/help/homebrew/
