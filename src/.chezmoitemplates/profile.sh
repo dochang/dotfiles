@@ -132,13 +132,13 @@ export REPORTTIME
 : ${EMACS_DIR:=$HOME/.emacs.d}
 export EMACS_DIR
 for sitedir in "$HOME/.local/share/emacs/site-lisp"; do
-	[ ! -d "$sitedir" ] || expr ":${EMACSLOADPATH}:" : ".*:${sitedir}:" > /dev/null || {
+	[ ! -d "$sitedir" ] || expr ":${EMACSLOADPATH}:" : ".*:${sitedir}:" >/dev/null || {
 		EMACSLOADPATH="${sitedir}${EMACSLOADPATH:+:}${EMACSLOADPATH}"
 	}
 done
 # Enable contributed extensions to org-mode on Debian
 for sitedir in "/usr/share/org-mode/lisp" "${EMACS_DIR}/site-lisp"; do
-	[ ! -d "$sitedir" ] || expr ":${EMACSLOADPATH}:" : ".*:${sitedir}:" > /dev/null || {
+	[ ! -d "$sitedir" ] || expr ":${EMACSLOADPATH}:" : ".*:${sitedir}:" >/dev/null || {
 		EMACSLOADPATH="${EMACSLOADPATH}${EMACSLOADPATH:+:}${sitedir}"
 	}
 done
@@ -201,7 +201,7 @@ is_command nix-env && {
 	# https://github.com/NixOS/nixpkgs/issues/23402#issuecomment-284980534
 }
 for sitedir in "$HOME/.nix-profile/share/emacs/site-lisp"; do
-	[ ! -d "$sitedir" ] || expr ":${EMACSLOADPATH}:" : ".*:${sitedir}:" > /dev/null || {
+	[ ! -d "$sitedir" ] || expr ":${EMACSLOADPATH}:" : ".*:${sitedir}:" >/dev/null || {
 		EMACSLOADPATH="${sitedir}${EMACSLOADPATH:+:}${EMACSLOADPATH}"
 		# Do not use `prepend_to_env` because `EMACSLOADPATH` may be empty.
 	}
@@ -271,7 +271,7 @@ export HOMEBREW_DEVELOPER=1
 export HOMEBREW_NO_AUTO_UPDATE=1
 [ -x "${LINUXBREW_ROOT}/bin/brew" ] && eval "$("${LINUXBREW_ROOT}/bin/brew" shellenv)"
 for sitedir in "${LINUXBREW_ROOT}/share/emacs/site-lisp"; do
-	[ ! -d "$sitedir" ] || expr ":${EMACSLOADPATH}:" : ".*:${sitedir}:" > /dev/null || {
+	[ ! -d "$sitedir" ] || expr ":${EMACSLOADPATH}:" : ".*:${sitedir}:" >/dev/null || {
 		EMACSLOADPATH="${sitedir}${EMACSLOADPATH:+:}${EMACSLOADPATH}"
 		# Do not use `prepend_to_env` because `EMACSLOADPATH` may be empty.
 	}
@@ -310,7 +310,7 @@ if [ -f "${GUIX_PROFILE}/etc/profile" ]; then
 	. "${GUIX_PROFILE}/etc/profile"
 fi
 for sitedir in "${GUIX_PROFILE}/share/emacs/site-lisp"; do
-	[ ! -d "$sitedir" ] || expr ":${EMACSLOADPATH}:" : ".*:${sitedir}:" > /dev/null || {
+	[ ! -d "$sitedir" ] || expr ":${EMACSLOADPATH}:" : ".*:${sitedir}:" >/dev/null || {
 		EMACSLOADPATH="${sitedir}${EMACSLOADPATH:+:}${EMACSLOADPATH}"
 		# Guix only set `EMACSLOADPATH` if Emacs is installed by Guix.  In case of
 		# using external Emacs, set `EMACSLOADPATH` manually.
