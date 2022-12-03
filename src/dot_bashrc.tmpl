@@ -56,7 +56,7 @@ export BASH_IT_RELOAD_LEGACY=1
 # For brew bash completion
 #
 # https://github.com/Homebrew/brew/blob/master/docs/Shell-Completion.md#configuring-completions-in-bash
-if type brew &>/dev/null; then
+if type brew &>/dev/null && [ -d "$(brew --prefix)/etc/bash_completion.d/" ]; then
 	for completion_file in $(brew --prefix)/etc/bash_completion.d/*; do
 		source "$completion_file"
 	done
