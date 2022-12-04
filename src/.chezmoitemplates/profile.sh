@@ -362,6 +362,13 @@ is_command pyenv && {
 # https://pipenv.pypa.io/en/latest/install/#virtualenv-mapping-caveat
 export PIPENV_VENV_IN_PROJECT=1
 
+## For GEM
+if is_command gem; then
+	: ${GEM_HOME:="${HOME}/.gem-packages"}
+fi
+export GEM_HOME
+prepend_to_env_if_not_exist ${GEM_HOME}/bin PATH
+
 ## For rbenv-usergems
 is_command rbenv && {
 	{ rbenv commands | grep -q usergems-init; } && {
