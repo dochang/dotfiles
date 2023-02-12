@@ -27,6 +27,13 @@
         "altwin:swap_alt_win"
       ]
     },
+    "HAILUCK CO.,LTD Duet 7 USB Composite Device": {
+      "desc": "Lenovo Yoga Duet 2020 built-in keyboard",
+      "options": [
+        "ctrl:nocaps",
+        "altwin:swap_alt_win"
+      ]
+    },
     "AT Translated Set 2 keyboard": {
       "desc": "ThinkPad built-in keyboard",
       "options": [
