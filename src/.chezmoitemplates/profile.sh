@@ -556,11 +556,6 @@ export WINEARCH=win32
 # https://bugzilla.redhat.com/show_bug.cgi?id=1056820#c1
 export NO_AT_BRIDGE=1
 
-# WSL does not run systemd and dbus, do this check before importing env vars.
-is_command systemctl && [ x"$(systemctl --user is-system-running)" != xoffline ] && {
-	systemctl --user import-environment HOME PATH no_proxy
-}
-
 if [ x"$(get_shell)" = xsh ]; then
 	if expr "$-" : '.*i' >/dev/null; then
 		if [ -n "${ZSH_VERSION}" ]; then
