@@ -5,26 +5,51 @@
 {{- end -}}
 {{- $guixDefaultChannelURL := $areaData.guixDefaultChannelURL -}}
 (use-modules (guix ci)
-             (ice-9 match))
+             (ice-9 match)
+             (srfi srfi-26)
+             (srfi srfi-1))
 
-(let* ((local-filename (string-append (dirname (current-filename))
-                                      "/channels_local.scm"))
-       (local-channels (and (file-exists? local-filename)
-                            (load local-filename)))
-       (channels (cons*
-                  (channel-with-substitutes-available
-                   (channel
-                    (inherit %default-guix-channel)
-                    (url "{{ $guixDefaultChannelURL }}"))
-                   "https://ci.guix.gnu.org"
-                   ;; The API required by `channel-with-substitutes-available' only exists
-                   ;; on Guix CI Server.
-                   )
-                  (delq %default-guix-channel %default-channels))))
-  (match local-channels
-    ((? procedure?)
-     (local-channels channels))
-    ((? channel?)
-     (cons local-channels channels))
-    (((? channel?) ...)
-     (append local-channels channels))))
+(((match-lambda
+    ((? unspecified?)
+     ;; An empty file returns an unspecified value.
+     ;;
+     ;; https://stackoverflow.com/a/28912442
+     identity)
+    (#f
+     ;; When local file does not exist.
+     identity)
+    ((? procedure? local-proc)
+     local-proc)
+    ((? channel? local-channel)
+     (cut cons local-channel <>))
+    ((and ((? channel?) ...) local-channels)
+     (cut append local-channels <>)))
+  ((lambda (local-filename)
+     (and local-filename
+          (file-exists? local-filename)
+          (load local-filename)))
+   (and=> (current-filename)
+          (lambda (fname)
+            (string-append (dirname fname) "/channels_local.scm")))))
+ (map-in-order
+  (lambda (chan)
+    (cond
+     ((guix-channel? chan)
+      (fold
+       (lambda (proc chan)
+         (or (and proc (proc chan)) chan))
+       chan
+       (list
+        (lambda (chan)
+          (channel
+           (inherit chan)
+           (url "{{ $guixDefaultChannelURL }}")))
+        (and
+         (defined? 'channel-with-substitutes-available)
+         (cut channel-with-substitutes-available
+              <>
+              "https://ci.guix.gnu.org"
+              ;; The API required by `c-w-s-a' only exists on Guix CI Server.
+              )))))
+     (else chan)))
+  %default-channels))
