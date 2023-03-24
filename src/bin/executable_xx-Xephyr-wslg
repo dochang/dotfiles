@@ -1,0 +1,10 @@
+#!/bin/sh
+
+Xephyr -nolisten unix -listen tcp -resizeable "$@"
+# Explicitly specify `-listen tcp`.
+#
+# WSL mount `/tmp/.X11-unix/` readonly and I can't fix its permission to 1777,
+# so Xephyr cannot create socket `/tmp/.X11-unix/X<:display>`.  Use TCP
+# instead.
+#
+# https://github.com/microsoft/WSL/issues/9303
