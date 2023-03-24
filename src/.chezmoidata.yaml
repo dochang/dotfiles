@@ -5,6 +5,7 @@ dotfiles:
     default:
       httpProxy: ""
       httpsProxy: ""
+      pager: less
       editor: emacsclient
       alternateEditor: vim
       alternateGraphicEditor: gvim

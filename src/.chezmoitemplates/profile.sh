@@ -7,6 +7,9 @@ export ENV
 : ${LANG:=en_US.UTF-8}
 export LANG
 
+: ${PAGER:="{{ .roleData.pager }}"}
+export PAGER
+
 : ${EMACS_SERVER_FILE:=default}
 export EMACS_SERVER_FILE
 : ${EDITOR:="{{ .roleData.editor }}"}
