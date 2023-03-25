@@ -50,6 +50,14 @@
         ["libinput Accel Speed", "-0.5"]
       ]
     },
+    "HAILUCK CO.,LTD Duet 7 USB Composite Device Touchpad": {
+      "desc": "Lenovo Yoga Duet 2020 built-in touchpad",
+      "properties": [
+        ["libinput Natural Scrolling Enabled", "1"],
+        ["libinput Disable While Typing Enabled", "1"],
+        ["libinput Scroll Method Enabled", "1", "0", "0"]
+      ]
+    },
     "SYNA8006:00 06CB:CD8B Touchpad": {
       "desc": "Thinkpad touchpad",
       "properties": [
