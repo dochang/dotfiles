@@ -9,26 +9,26 @@
 # libinput(4)
 
 from __future__ import absolute_import, division, print_function
+
 __metaclass__ = type
 
-import os
 import json
+import os
 import re
 import subprocess
 import sys
 
-
-TRACKPOINT_NAME = 'TPPS/2 IBM TrackPoint'
-TOUCHPAD_NAME = 'SynPS/2 Synaptics TouchPad'
+TRACKPOINT_NAME = "TPPS/2 IBM TrackPoint"
+TOUCHPAD_NAME = "SynPS/2 Synaptics TouchPad"
 
 
 def load_config():
     # https://stackoverflow.com/a/4028943
-    home_dir = os.path.expanduser('~')
-    default_xdg_config_dir = os.path.join(home_dir, '.config')
-    xdg_config_dir = os.getenv('XDG_CONFIG_DIR', default_xdg_config_dir)
-    conf_dir = os.path.join(xdg_config_dir, 'xx-input')
-    conf_file = os.path.join(conf_dir, 'config.json')
+    home_dir = os.path.expanduser("~")
+    default_xdg_config_dir = os.path.join(home_dir, ".config")
+    xdg_config_dir = os.getenv("XDG_CONFIG_DIR", default_xdg_config_dir)
+    conf_dir = os.path.join(xdg_config_dir, "xx-input")
+    conf_file = os.path.join(conf_dir, "config.json")
     try:
         with open(conf_file) as f:
             config = json.load(f)
@@ -60,10 +60,10 @@ class Device:
         return subprocess.call(*args)
 
     def disable(self, osmgr):
-        osmgr.runner.call(['xinput', '--disable', str(self.dev_id)])
+        osmgr.runner.call(["xinput", "--disable", str(self.dev_id)])
 
     def config(self, osmgr, config):
-        raise RuntimeError('You are not supposed to be here')
+        raise RuntimeError("You are not supposed to be here")
 
 
 class Keyboard(Device):
@@ -78,24 +78,24 @@ class Keyboard(Device):
             #
             # Also, do not set the keyboard in VM.
             return
-        keyboards = config.get('keyboards') or {}
+        keyboards = config.get("keyboards") or {}
         if self.name in keyboards:
-            cmd = ['setxkbmap', '-device', str(self.dev_id)]
-            opts = keyboards[self.name].get('options') or []
+            cmd = ["setxkbmap", "-device", str(self.dev_id)]
+            opts = keyboards[self.name].get("options") or []
             if opts:
                 for opt in opts:
-                    cmd.append('-option')
+                    cmd.append("-option")
                     cmd.append(opt)
                 osmgr.runner.call(cmd)
 
 
 class Pointer(Device):
     def config(self, osmgr, config):
-        pointers = config.get('pointers') or {}
+        pointers = config.get("pointers") or {}
         if self.name in pointers:
-            properties = pointers[self.name].get('properties') or []
+            properties = pointers[self.name].get("properties") or []
             for prop in properties:
-                cmd = ['xinput', '--set-prop', str(self.dev_id)]
+                cmd = ["xinput", "--set-prop", str(self.dev_id)]
                 cmd.extend(prop)
                 osmgr.runner.call(cmd)
 
@@ -107,12 +107,12 @@ class OSManager:
         self.touchpad_ids = []
         try:
             output = self.runner.check_output(
-                ['hostnamectl'],
+                ["hostnamectl"],
                 stderr=subprocess.STDOUT,
                 # Print error message on STDOUT instead of STDERR.
                 universal_newlines=True,
             )
-            self.vm = 'Chassis: vm\n' in output
+            self.vm = "Chassis: vm\n" in output
         except subprocess.CalledProcessError:
             self.vm = True
             # If `hostnamectl` returns non-zero, it means systemd is not
@@ -124,10 +124,11 @@ class OSManager:
         self.has_trackpoint = False
         self.touchpad_ids = []
         pattern = re.compile(
-            '^[^A-Za-z0-9]*([^\t]+)\tid=(\d+)\t\[([^ ]+) +([^ ]+) +\((\d+)\)\]'
+            "^[^A-Za-z0-9]*([^\t]+)\tid=(\d+)\t\[([^ ]+) +([^ ]+) +\((\d+)\)\]"
         )
-        output = self.runner.check_output(['xinput', '--list', '--short'],
-                                          universal_newlines=True)
+        output = self.runner.check_output(
+            ["xinput", "--list", "--short"], universal_newlines=True
+        )
         for line in output.splitlines():
             m = re.match(pattern, line)
             if not m:
@@ -138,22 +139,22 @@ class OSManager:
             dev_type = m.group(4)
             attach_to = int(m.group(5))
             init_args = {
-                'name': name,
-                'dev_id': dev_id,
-                'use': use,
-                'dev_type': dev_type,
-                'attach_to': attach_to,
+                "name": name,
+                "dev_id": dev_id,
+                "use": use,
+                "dev_type": dev_type,
+                "attach_to": attach_to,
             }
-            if dev_type == 'keyboard':
+            if dev_type == "keyboard":
                 device = Keyboard(**init_args)
-            elif dev_type == 'pointer':
+            elif dev_type == "pointer":
                 device = Pointer(**init_args)
                 if not self.has_trackpoint and device.name == TRACKPOINT_NAME:
                     self.has_trackpoint = True
                 elif device.name == TOUCHPAD_NAME:
                     self.touchpad_ids.append(device.dev_id)
             else:
-                m = 'Unsupported device: {name} id={dev_id} type={dev_type}\n'
+                m = "Unsupported device: {name} id={dev_id} type={dev_type}\n"
                 sys.stderr.write(m.format(**init_args))
                 continue
             devices[dev_id] = device
@@ -173,5 +174,5 @@ def main():
             devices[touchpad_id].disable(osmgr)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()
