@@ -4,41 +4,47 @@
       "desc": "Mofii 2.4G Keyboard Mouse Suite, made by MosArt Semiconductor in Taiwan, PRC",
       "options": [
         "ctrl:nocaps",
-        "altwin:swap_alt_win"
+        "compose:ralt",
+        "altwin:swap_lalt_lwin"
       ]
     },
     "HID 0188:6796": {
       "desc": "Noppoo Choc Mini",
       "options": [
-        "altwin:swap_alt_win"
+        "compose:ralt",
+        "altwin:swap_lalt_lwin"
       ]
     },
     "SINO WEALTH USB KEYBOARD": {
       "desc": "B.O.W HW098A",
       "options": [
         "ctrl:nocaps",
-        "altwin:swap_alt_win"
+        "compose:ralt",
+        "altwin:swap_lalt_lwin"
       ]
     },
     "Lenovo TrackPoint Keyboard II": {
       "desc": "ThinkPad TrackPoint Keyboard II",
       "options": [
         "ctrl:nocaps",
-        "altwin:swap_alt_win"
+        "compose:ralt",
+        "altwin:swap_lalt_lwin"
       ]
     },
     "HAILUCK CO.,LTD Duet 7 USB Composite Device": {
       "desc": "Lenovo Yoga Duet 2020 built-in keyboard",
       "options": [
         "ctrl:nocaps",
-        "altwin:swap_alt_win"
+        "compose:ralt",
+        "altwin:swap_lalt_lwin"
       ]
     },
     "AT Translated Set 2 keyboard": {
       "desc": "ThinkPad built-in keyboard",
       "options": [
         "ctrl:nocaps",
-        "altwin:swap_alt_win"
+        "compose:ralt",
+        "altwin:swap_lalt_lwin"
       ]
     }
   },
