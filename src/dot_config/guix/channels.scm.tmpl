@@ -52,4 +52,9 @@
               ;; The API required by `c-w-s-a' only exists on Guix CI Server.
               )))))
      (else chan)))
-  %default-channels))
+  (cons
+   (channel
+    (name 'sheepfold)
+    (branch "master")
+    (url "https://github.com/dochang/sheepfold.git"))
+   %default-channels)))
