@@ -281,9 +281,14 @@ for sitedir in "${HOMEBREW_ROOT}/share/emacs/site-lisp"; do
 done
 
 # Setting `MANPATH` & `INFOPATH` does not work correctly if they are unset
-# originally.  Unset them.
-unset MANPATH
-unset INFOPATH
+# originally.  Reset them.
+#
+# Set `/usr/share/{man,info}` & `/usr/local/share/{man,info}` explicitly.
+# Some package managers, such as Guix, remove them from the default value.
+MANPATH=/usr/local/share/man:/usr/share/man:
+export MANPATH
+INFOPATH=/usr/local/share/info:/usr/share/info:
+export INFOPATH
 
 ## For Guix
 : ${_GUIX_PROFILE:=${XDG_CONFIG_HOME:-$HOME/.config}/guix/current}
