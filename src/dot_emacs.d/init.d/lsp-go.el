@@ -5,6 +5,7 @@
   (setq lsp-clients-go-format-tool
         (cond ((executable-find "goimports") "goimports")
               (t "gofmt")))
+  (setq lsp-go-use-gofumpt t)
   :config
   (lsp-register-custom-settings
    '(
