@@ -530,6 +530,13 @@ bash | zsh)
 	;;
 esac
 
+## For eget
+##
+## https://github.com/zyedidia/eget
+: ${EGET_BIN:="${HOME}/bin"}
+export EGET_BIN
+append_to_env "${EGET_BIN}" PATH
+
 case "$(get_shell)" in
 bash | zsh | ksh)
 
