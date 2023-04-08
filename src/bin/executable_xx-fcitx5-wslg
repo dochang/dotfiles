@@ -1,0 +1,9 @@
+#!/bin/sh
+
+fcitx5 --disable=wayland "$@"
+# Disable wayland support in wslg.
+#
+# https://github.com/microsoft/wslg/issues/117
+# https://askubuntu.com/a/1389040
+# https://yanqiyu.info/2021/06/29/wslg-gpu/#%E8%BE%93%E5%85%A5%E6%B3%95
+# https://9to5tutorial.com/wslg-and-fcitx5-use-wayland-as-disable#code_3
