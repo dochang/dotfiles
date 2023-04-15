@@ -64,6 +64,12 @@
         ["libinput Scroll Method Enabled", "1", "0", "0"]
       ]
     },
+    "MOSART Semi. 2.4G Wireless Mouse": {
+      "desc": "Perixx PERIPAD-704 Wireless Trackpad",
+      "properties": [
+        ["libinput Natural Scrolling Enabled", "1"]
+      ]
+    },
     "SYNA8006:00 06CB:CD8B Touchpad": {
       "desc": "Thinkpad touchpad",
       "properties": [
