@@ -14,4 +14,8 @@
     (:format (format-all--buffer-easy
               executable "-q" "-")))
 
+  (setq format-all-default-formatters
+        (cons '("Lua" stylua)
+              (assoc-delete-all "Lua" format-all-default-formatters)))
+
   )
