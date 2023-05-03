@@ -110,6 +110,9 @@ dotfiles:
         #
         # - id: SC
         #   location: http://joseito.republika.pl/sunrise-commander/
+      rubyBuildMirrorURL: "https://cache.ruby-lang.org/pub/ruby/"
+      # https://github.com/rbenv/ruby-build/blob/b57c7a8570336743469b66faa40dbf4aedd7001e/bin/ruby-build#L1524-L1534
+      # https://github.com/rbenv/ruby-build/blob/b57c7a8570336743469b66faa40dbf4aedd7001e/bin/ruby-build#L369-L375
     cn:
       guixDefaultChannelURL: "https://mirror.sjtu.edu.cn/git/guix.git"
       nixNixpkgsChannelURL: "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/nixpkgs-unstable"
@@ -200,3 +203,5 @@ dotfiles:
         #
         # - id: SC
         #   location: https://mirrors.tuna.tsinghua.edu.cn/elpa/sunrise-commander/
+      rubyBuildMirrorURL: "https://cache.ruby-china.com/pub/ruby/"
+      # https://ruby-china.org/wiki/ruby-mirror

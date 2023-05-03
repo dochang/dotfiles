@@ -370,6 +370,10 @@ is_command pyenv && {
 # https://pipenv.pypa.io/en/latest/install/#virtualenv-mapping-caveat
 export PIPENV_VENV_IN_PROJECT=1
 
+## For ruby-build
+: ${RUBY_BUILD_MIRROR_URL:={{ .areaData.rubyBuildMirrorURL }}}
+export RUBY_BUILD_MIRROR_URL
+
 ## For GEM
 if is_command gem; then
 	: ${GEM_HOME:="${HOME}/.gem-packages"}
