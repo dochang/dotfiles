@@ -445,6 +445,9 @@ if [ -n "${CARGO_INSTALL_ROOT}" ]; then
 elif [ -n "${CARGO_HOME}" ]; then
 	prepend_to_env ${CARGO_HOME}/bin PATH
 fi
+: ${CARGO_INSTALL_OPTS:=--locked}
+export CARGO_INSTALL_OPTS
+# https://github.com/nabijaczleweli/cargo-update/issues/191#issuecomment-1242471355
 
 ## For scala
 : ${SCALA_HOME:="${HOME}/opt/scala"}
