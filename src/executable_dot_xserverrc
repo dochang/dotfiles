@@ -1,3 +1,3 @@
 #!/bin/sh
 
-exec X -nolisten tcp "$@"
+exec "${X_SERVER:-/usr/bin/X}" -nolisten tcp "$@"
