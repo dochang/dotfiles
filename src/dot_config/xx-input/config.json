@@ -1,5 +1,11 @@
 {
   "keyboards": {
+    "HHKB-Hybrid_1 Keyboard": {
+      "desc": "HHKB Professional HYBRID",
+      "options": [
+        "compose:ralt"
+      ]
+    },
     "MOSART Semi. 2.4G Keyboard Mouse": {
       "desc": "Mofii 2.4G Keyboard Mouse Suite, made by MosArt Semiconductor in Taiwan, PRC",
       "options": [
