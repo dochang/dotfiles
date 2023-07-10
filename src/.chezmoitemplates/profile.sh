@@ -341,11 +341,7 @@ export ASDF_DIR
 : ${ASDF_DATA_DIR:="${HOME}/.asdf"}
 export ASDF_DATA_DIR
 if [ -f "${ASDF_DIR}/asdf.sh" ]; then
-	case "$(get_shell)" in
-	bash | zsh | ksh)
-		. "${ASDF_DIR}/asdf.sh"
-		;;
-	esac
+	. "${ASDF_DIR}/asdf.sh"
 fi
 
 ## For anyenv
