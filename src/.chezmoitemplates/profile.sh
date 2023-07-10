@@ -317,6 +317,13 @@ prepend_to_env ${GUIX_PROFILE}/share XDG_DATA_DIRS
 if [ -f "${GUIX_PROFILE}/etc/profile" ]; then
 	. "${GUIX_PROFILE}/etc/profile"
 fi
+if [ -d "${GUIX_PROFILE}/etc/profile.d" ]; then
+	for i in "${GUIX_PROFILE}/etc/profile.d"/*.sh; do
+		if [ -r "$i" ]; then
+			. "$i"
+		fi
+	done
+fi
 for sitedir in "${GUIX_PROFILE}/share/emacs/site-lisp"; do
 	[ ! -d "$sitedir" ] || expr ":${EMACSLOADPATH}:" : ".*:${sitedir}:" >/dev/null || {
 		EMACSLOADPATH="${sitedir}${EMACSLOADPATH:+:}${EMACSLOADPATH}"
