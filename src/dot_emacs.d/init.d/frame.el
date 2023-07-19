@@ -2,6 +2,17 @@
 ;;;
 ;;; 01234567890123456789012345678901234567890123456789012345678901234567890123456789
 ;;; 零一二三四五六七八九零一二三四五六七八九零一二三四五六七八九零一二三四五六七八九
+;;; あいうえおアイウエオあいうえおアイウエオあいうえおアイウエオあいうえおアイウエオ
+;;; 영일이삼사오육칠팔구영일이삼사오육칠팔구영일이삼사오육칠팔구영일이삼사오육칠팔구
+;;;
+;;; https://github.com/tumashu/cnfonts/blob/v1.1.1/cnfonts-ui.el#L408-L425
+;;;
+;;; | More haste, less speed. |
+;;; | 为天地立心，为生民立命；|
+;;; | 𠄀𠄁𠄂𠄃𠄄𠄅𠄆𠄇𠄈𠄉𠄀。|
+;;; > αβχδεφγηιϕκλνοπθρστυʌɯʊ <
+;;; > ❶➓Ⓐ⓾⊕⊡←∀
+
 
 
 ;;; Font Configuration
@@ -17,23 +28,13 @@
   (when (display-graphic-p frame)
     (unless (bound-and-true-p cnfonts-mode)
       ;; Unless `cnfonts' is installed and activated, run the following setup.
-      ;;
-      ;; `face-font-rescale-alist' has to be set when setting the font
-      ;; configuration.
-      ;;
-      ;; Setting it during loading `.emacs' raises the following error if Emacs
-      ;; is running in daemon mode or with `-nw' option:
-      ;;
-      ;;     set-face-attribute: Font not available: #<font-spec nil nil nil nil nil nil nil nil nil nil nil nil nil>
-      ;;
-      (add-to-list 'face-font-rescale-alist '("-Droid Sans Fallback-" . 1.25))
-      (add-to-list 'face-font-rescale-alist '("-WenQuanYi Micro Hei Mono-" . 1.25))
-      (add-to-list 'face-font-rescale-alist '("-文泉驿等宽微米黑-" . 1.25))
-      (set-frame-font "DejaVu Sans Mono-11" t (list frame))
-      (dolist (script '(han kana hangul symbol cjk-misc bopomofo))
-        ;; There're no hangul characters in `fonts-droid` on Debian.  Use
-        ;; `ttf-wqy-microhei` instead.
-        (set-fontset-font nil script "WenQuanYi Micro Hei Mono-11" frame)))))
+      (set-frame-font "Sarasa Fixed SC" t (list frame))
+      (dolist (script '(han kana hangul cjk-misc bopomofo gb18030))
+        (set-fontset-font nil script "Sarasa Fixed SC" frame))
+      (dolist (script '(hangul nil))
+        (set-fontset-font nil script "HanaMinB" frame 'append))
+      (dolist (script '(symbol phonetic))
+        (set-fontset-font nil script "Sarasa Fixed SC" frame 'append)))))
 
 
 (req-package frame
