@@ -179,7 +179,7 @@ dotfiles:
       npmRegistry: "https://registry.npmmirror.com"
       npmDisturl: "https://npmmirror.com/mirrors/node"
       pbuilderMirrorsite: "https://mirrors.ustc.edu.cn/debian"
-      pipIndexURL: "https://pypi.doubanio.com/simple"
+      pipIndexURL: "https://pypi.tuna.tsinghua.edu.cn/simple"
       yarnRegistry: "https://registry.npmmirror.com"
       emacsPackageArchives:
         - id: gnu
