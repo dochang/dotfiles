@@ -257,12 +257,16 @@ export PUPPETEER_DOWNLOAD_HOST
 # https://github.com/Linuxbrew/brew/issues/762
 : ${HOMEBREW_ROOT:="/home/linuxbrew/.linuxbrew"}
 export HOMEBREW_ROOT
+: ${HOMEBREW_API_DOMAIN:={{ .areaData.homebrewAPIDomain }}}
+export HOMEBREW_API_DOMAIN
 : ${HOMEBREW_BOTTLE_DOMAIN:={{ .areaData.homebrewBottleDomain }}}
 export HOMEBREW_BOTTLE_DOMAIN
 : ${HOMEBREW_BREW_GIT_REMOTE:={{ .areaData.homebrewBrewGitRemote }}}
 export HOMEBREW_BREW_GIT_REMOTE
 : ${HOMEBREW_CORE_GIT_REMOTE:={{ .areaData.homebrewCoreGitRemote }}}
 export HOMEBREW_CORE_GIT_REMOTE
+: ${HOMEBREW_PIP_INDEX_URL:={{ .areaData.homebrewPipIndexURL }}}
+export HOMEBREW_PIP_INDEX_URL
 # Enable `HOMEBREW_DEVELOPER`
 #
 # I have to enable this variable because I don't want to clone the taps as
