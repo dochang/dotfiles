@@ -1,0 +1,12 @@
+# XCompose(5)
+# https://manpages.debian.org/man/XCompose
+# https://wiki.debian.org/XCompose
+
+include "%L"
+# "${XDG_DATA_DIRS}/X11/locale/<localemapping>/Compose"
+
+# HANYU PINYIN
+<Multi_key> <minus> <quotedbl> <U> : "Ǖ" U01D5 # LATIN CAPITAL LETTER U WITH DIAERESIS AND MACRON
+<Multi_key> <minus> <quotedbl> <u> : "ǖ" U01D6 # LATIN SMALL LETTER U WITH DIAERESIS AND MACRON
+<Multi_key> <v> <quotedbl> <U> : "Ǚ" U01D9 # LATIN CAPITAL LETTER U WITH DIAERESIS AND CARON
+<Multi_key> <v> <quotedbl> <u> : "ǚ" U01DA # LATIN SMALL LETTER U WITH DIAERESIS AND CARON
