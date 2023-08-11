@@ -15,7 +15,8 @@
               executable "-q" "-")))
 
   (setq format-all-default-formatters
-        (cons '("Lua" stylua)
-              (assoc-delete-all "Lua" format-all-default-formatters)))
+        (append '(("Lua" stylua)
+                  ("TOML" taplo-fmt))
+                format-all-default-formatters))
 
   )
