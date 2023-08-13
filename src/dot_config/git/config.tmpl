@@ -23,6 +23,7 @@
 	helper = cache --timeout=3600
 [alias]
 	ignore-for = "!gi() { a=$(IFS=, eval 'echo \"$*\"') ; api=\"curl -sSL http://www.gitignore.io/api/$a\" ; case \"$a\" in list) api=\"$api | tr , '\\\\n'\" ;; esac ; eval \"$api | $(git config core.pager)\" ; } ; gi"
+	ignore = "!gi() { curl -sL https://www.toptal.com/developers/gitignore/api/$@ ; printf '\n' ;}; gi"
 [diff "spaceman-diff"]
 	command = spaceman-diff
 [sendemail]
