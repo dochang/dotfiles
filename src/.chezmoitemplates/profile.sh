@@ -374,6 +374,11 @@ is_command pyenv && {
 # https://pipenv.pypa.io/en/latest/install/#virtualenv-mapping-caveat
 export PIPENV_VENV_IN_PROJECT=1
 
+## For poetry
+# https://github.com/arcesium/poetry-plugin-pypi-mirror/#environment-variable-example
+: ${POETRY_PYPI_MIRROR_URL:={{ .areaData.poetryPYPIMirrorURL }}}
+export POETRY_PYPI_MIRROR_URL
+
 ## For ruby-build
 : ${RUBY_BUILD_MIRROR_URL:={{ .areaData.rubyBuildMirrorURL }}}
 export RUBY_BUILD_MIRROR_URL
