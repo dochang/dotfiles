@@ -1,0 +1,4 @@
+(define uim-pref-suppress-dot-uim-warning-dialog? #t)
+(define enabled-im-list '(anthy-utf8 latin m17n-zh-pinyin m17n-zh-py m17n-ja-anthy m17n-math-latex m17n-unicode m17n-eo-plena py pyunihan ipa-x-sampa))
+(define uim-xim-use-xft-font? #t)
+(define uim-xim-xft-font-name "sans-serif")
