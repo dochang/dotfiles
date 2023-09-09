@@ -568,6 +568,14 @@ prepend_to_env ${HOME}/.local/bin PATH
 prepend_to_env ${HOME}/local/bin PATH
 append_to_env ${HOME}/bin PATH
 
+: ${MINICONDA3_ROOT:="${HOME}/miniconda3"}
+if [ -f "${MINICONDA3_ROOT}/etc/profile.d/conda.sh" ]; then
+	. "${MINICONDA3_ROOT}/etc/profile.d/conda.sh"
+else
+	prepend_to_env ${MINICONDA3_ROOT}/condabin PATH
+	prepend_to_env ${MINICONDA3_ROOT}/bin PATH
+fi
+
 ## For Xapian with mu
 # https://github.com/djcb/mu/issues/544
 export XAPIAN_CJK_NGRAM=1

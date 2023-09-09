@@ -117,6 +117,9 @@ dotfiles:
       # https://github.com/rbenv/ruby-build/blob/b57c7a8570336743469b66faa40dbf4aedd7001e/bin/ruby-build#L1524-L1534
       # https://github.com/rbenv/ruby-build/blob/b57c7a8570336743469b66faa40dbf4aedd7001e/bin/ruby-build#L369-L375
       poetryPYPIMirrorURL: "https://pypi.org/simple"
+      # https://docs.conda.io/projects/conda/en/stable/user-guide/configuration/use-condarc.html
+      # https://docs.conda.io/projects/conda/en/stable/configuration.html
+      conda: {}
     cn:
       guixDefaultChannelURL: "https://mirror.sjtu.edu.cn/git/guix.git"
       nixNixpkgsChannelURL: "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/nixpkgs-unstable"
@@ -212,3 +215,20 @@ dotfiles:
       rubyBuildMirrorURL: "https://cache.ruby-china.com/pub/ruby/"
       # https://ruby-china.org/wiki/ruby-mirror
       poetryPYPIMirrorURL: "https://pypi.tuna.tsinghua.edu.cn/simple/"
+      # https://mirrors.tuna.tsinghua.edu.cn/help/anaconda/
+      conda:
+        channels:
+          - defaults
+        defaultChannels:
+          - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main
+          - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/r
+          - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/msys2
+        customChannels:
+          conda-forge: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
+          msys2: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
+          bioconda: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
+          menpo: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
+          pytorch: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
+          pytorch-lts: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
+          simpleitk: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
+          deepmodeling: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud

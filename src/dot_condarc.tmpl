@@ -1,0 +1,33 @@
+{{- /* -*- mode: web; -*- */ -}}
+{{- $areaData := .dotfiles.areaData.default -}}
+{{- if eq .dotfiles.area "cn" -}}
+{{- $areaData = mergeOverwrite $areaData .dotfiles.areaData.cn -}}
+{{- end -}}
+{{- $conda := $areaData.conda -}}
+auto_activate_base: false
+# https://github.com/conda/conda/issues/8169#issuecomment-501232839
+# https://stackoverflow.com/q/54429210
+# https://apple.stackexchange.com/a/390023
+# https://stackoverflow.com/a/57587606
+# https://saturncloud.io/blog/how-to-remove-base-from-terminal-prompt-after-updating-conda-a-guide/#step-2-deactivate-auto-activation-of-conda-environment
+show_channel_urls: true
+{{- if $conda }}
+{{- if $conda.channels }}
+channels:
+{{- range $val := $conda.channels }}
+  - {{ $val }}
+{{- end }}
+{{- end }}
+{{- if $conda.defaultChannels }}
+default_channels:
+{{- range $val := $conda.defaultChannels }}
+  - {{ $val }}
+{{- end }}
+{{- end }}
+{{- if $conda.customChannels }}
+custom_channels:
+{{- range $key, $val := $conda.customChannels }}
+  {{ $key }}: {{ $val }}
+{{- end }}
+{{- end }}
+{{- end }}
