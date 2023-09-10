@@ -1,0 +1,1 @@
+(setup (:package kotlin-mode))

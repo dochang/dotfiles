@@ -1,3 +1,4 @@
+.emacs.d
 {{ if not (has "default" .dotfiles.roles) }}
 .config/aria2
 .gnupg/gpg.conf
@@ -107,5 +108,5 @@ bin/v
 {{ end }}
 {{ if not (and (has "default" .dotfiles.roles) (or (has "desktop" .dotfiles.roles) (has "dev" .dotfiles.roles))) }}
 .gnus.el
-.emacs.d
+.config/emacs
 {{ end }}

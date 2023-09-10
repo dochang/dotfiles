@@ -1,0 +1,1 @@
+(setup (:package clojure-mode))

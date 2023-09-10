@@ -1,0 +1,36 @@
+{{- /* -*- mode: web; -*- */ -}}
+{{- $areaData := .dotfiles.areaData.default -}}
+{{- if eq .dotfiles.area "cn" -}}
+{{- $areaData = mergeOverwrite $areaData .dotfiles.areaData.cn -}}
+{{- end -}}
+{{- $emacsPackageArchives := $areaData.emacsPackageArchives -}}
+{{- $roleData := .dotfiles.roleData.default -}}
+
+(defvar **defaults** '())
+
+(defvar **globals**
+  '(
+    (package-archives . (
+        {{- range $archive := $emacsPackageArchives }}
+        ({{ $archive.id | quote }} . {{ $archive.location | quote }})
+        {{- end }}
+    ))
+    (homebrew-prefix . "{{ $roleData.linuxbrewPrefix }}")
+    (holiday-other-holidays . (
+          {{- range $holiday := $roleData.emacsHolidayOtherHolidays }}
+          {{ $holiday }}
+          {{- end }}
+    ))
+    (user-full-name . "{{ $roleData.name }}")
+    (user-mail-address . "{{ $roleData.email }}")
+    (maildir . "{{ $roleData.maildir }}")
+    (emacs-mail-list . (
+         {{- range $x := $roleData.emacsEmailList }}
+         (
+           (user-mail-address . "{{ $x.email }}")
+           (user-full-name . "{{ $x.name }}")
+         )
+         {{- end }}
+    ))
+  )
+)
