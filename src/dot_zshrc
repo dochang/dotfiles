@@ -1,0 +1,40 @@
+# -*- mode: sh; sh-shell: zsh; -*-
+# shellcheck source=/dev/null
+
+export SXELO=zsh
+
+setopt INTERACTIVE_COMMENTS
+setopt NO_BEEP
+
+. "${XDG_CONFIG_HOME:-${HOME}/.config}/sxelo/sxelo.sh"
+sxelo_init_once sh zsh
+
+### Key bindings
+## Standard key bindings
+# http://zsh.sourceforge.net/Doc/Release/Zsh-Line-Editor.html#Standard-Widgets
+
+## Select emacs-like key bindings
+bindkey -e
+
+## Bind `^U` to `backward-kill-line` rather than `kill-whole-line`.
+# http://stackoverflow.com/a/3483679
+bindkey "^U" backward-kill-line
+
+bindkey "\el" down-case-word
+
+### History
+HISTFILE=~/.zhistory
+
+### Completion
+autoload -Uz compinit
+compinit -u
+# Because `$(brew --prefix)` may be group writable for multi-users,
+# `compaudit` considers `$(brew --prefix)/share/zsh/site-functions` insecure.
+# Load those completions without asking by `compinit -u`.
+#
+# https://zsh.sourceforge.io/Doc/Release/Completion-System.html#index-completion-system_002c-initializing
+# http://zsh.sourceforge.net/Doc/Release/Completion-System.html#Use-of-compinit
+# https://stackoverflow.com/a/43544733
+# https://github.com/zsh-users/zsh-completions/issues/680#issuecomment-647037301
+# https://github.com/zsh-users/zsh/blob/zsh-5.9/Completion/compinit#L98
+# https://docs.brew.sh/Shell-Completion#configuring-completions-in-zsh

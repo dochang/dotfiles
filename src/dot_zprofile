@@ -1,0 +1,18 @@
+# -*- mode: sh; sh-shell: zsh; -*-
+# shellcheck source=/dev/null
+
+export SXELO=zsh
+
+source_if_exist() {
+	filepath="$1"
+	[ ! -f "$filepath" ] || . "$filepath"
+}
+
+source_if_exist "${HOME}/.env"
+source_if_exist "${HOME}/.env.${SXELO}"
+
+source_if_exist "${HOME}/.env.local"
+source_if_exist "${HOME}/.env.${SXELO}.local"
+
+. "${XDG_CONFIG_HOME:-${HOME}/.config}/sxelo/sxelo.sh"
+sxelo_init_once sh zsh

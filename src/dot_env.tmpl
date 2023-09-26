@@ -1,0 +1,185 @@
+{{- /* -*- mode: web; -*- */ -}}
+{{- $roleData := .dotfiles.roleData.default -}}
+{{- $areaData := .dotfiles.areaData.default -}}
+{{- if eq .dotfiles.area "cn" -}}
+{{- $areaData = mergeOverwrite .dotfiles.areaData.cn -}}
+{{- end -}}
+
+export XDG_CONFIG_HOME="${HOME}/.config"
+export XDG_DATA_HOME="${HOME}/.local/share"
+
+### Locale Settings
+export LANG=en_US.UTF-8
+
+export PAGER="{{ $roleData.pager }}"
+
+export EMACS_SERVER_FILE=default
+export EDITOR="{{ $roleData.editor }}"
+export ALTERNATE_EDITOR="{{ $roleData.alternateEditor }}"
+## [[info:emacs#emacsclient%20Options]]
+##
+## If the Emacs server is not running, an empty string makes
+## emacsclient run `emacs --daemon' and try to connect to it.
+
+export SSH_ASKPASS=ssh-askpass
+export GIT_ASKPASS=pass-askpass
+
+unset MAILCHECK
+# https://manpages.debian.org/stable/zsh-common/zshparam.1.en.html#PARAMETERS_USED_BY_THE_SHELL
+# https://www.gnu.org/software/bash/manual/html_node/Bash-Variables.html
+# https://man7.org/linux/man-pages/man1/dash.1.html#ENVIRONMENT
+
+export EMAIL="{{ $roleData.email }}"
+# For nullmailer
+export MAILUSER="{{ $roleData.mailuser }}"
+export MAILHOST="{{ $roleData.mailhost }}"
+
+export MAILDIR="{{ $roleData.maildir }}"
+
+export LESS=-Ri
+## Without `-R`, less cannot handle some control characters correctly,
+## such as colors.
+
+if command -v lesspipe >/dev/null 2>&1; then
+	eval "$(lesspipe)"
+fi
+## For less input pre-processor
+
+export BROWSER=browser.sh
+
+export REPORTTIME=1
+## Print timing statistics for commands whose combined user and system
+## execution times (in seconds) > 1.
+
+## For pass
+export PASSWORD_STORE_DIR="{{ $roleData.passwordStoreDir }}"
+export PASSWORD_STORE_ENABLE_EXTENSIONS=true
+
+## For node-gyp
+# https://github.com/nodejs/node-gyp/blob/v7.0.0/lib/process-release.js#L65-L67
+# https://github.com/nodejs/node-gyp/blob/v7.0.0/lib/process-release.js#L76
+export NODEJS_ORG_MIRROR="{{ $areaData.nodejsOrgMirror }}"
+
+## For node-build
+export NODE_BUILD_MIRROR_URL="{{ $areaData.nodeBuildMirrorURL }}"
+
+## For node-sass
+# https://github.com/sass/node-sass/blob/v4.14.1/lib/extensions.js#L247
+export SASS_BINARY_SITE="{{ $areaData.sassBinarySite }}"
+
+## For Electron
+# https://www.electronjs.org/docs/latest/tutorial/installation#mirror
+# https://github.com/electron/get/blob/a0d0ea97850950a8a5a21a510cd4d9514af66a64/src/artifact-utils.ts#L47
+# https://github.com/electron/get/blob/a0d0ea97850950a8a5a21a510cd4d9514af66a64/src/artifact-utils.ts#L4
+export ELECTRON_MIRROR="{{ $areaData.electronMirror }}"
+export ELECTRON_CUSTOM_DIR="{{ $areaData.electronCustomDir }}"
+
+## For Puppeteer
+# https://github.com/puppeteer/puppeteer/blob/main/docs/api.md#environment-variables
+# https://github.com/puppeteer/puppeteer/commit/945a826a0b53bb7325fdb86c998f812b16032c37
+export PUPPETEER_DOWNLOAD_HOST="{{ $areaData.puppeteerDownloadHost }}"
+
+## Linuxbrew
+# Install Linuxbrew into `/home/linuxbrew/`.
+#
+# https://github.com/Linuxbrew/brew/issues/762
+export HOMEBREW_ROOT="/home/linuxbrew/.linuxbrew"
+export HOMEBREW_API_DOMAIN="{{ $areaData.homebrewAPIDomain }}"
+export HOMEBREW_BOTTLE_DOMAIN="{{ $areaData.homebrewBottleDomain }}"
+export HOMEBREW_BREW_GIT_REMOTE="{{ $areaData.homebrewBrewGitRemote }}"
+export HOMEBREW_CORE_GIT_REMOTE="{{ $areaData.homebrewCoreGitRemote }}"
+export HOMEBREW_PIP_INDEX_URL="{{ $areaData.homebrewPipIndexURL }}"
+# Enable `HOMEBREW_DEVELOPER`
+#
+# I have to enable this variable because I don't want to clone the taps as
+# shallow.  I can pass `--full` but it's boring.
+#
+# https://github.com/Homebrew/brew/blob/1.7.6/Library/Homebrew/cmd/tap.rb#L62
+export HOMEBREW_DEVELOPER=1
+# Sometimes it is too slow to update Homebrew taps.  Only update taps manually.
+export HOMEBREW_NO_AUTO_UPDATE=1
+
+# Setting `MANPATH` & `INFOPATH` does not work correctly if they are unset
+# originally.  Reset them.
+#
+# Set `/usr/share/{man,info}` & `/usr/local/share/{man,info}` explicitly.
+# Some package managers, such as Guix, remove them from the default value.
+MANPATH=/usr/local/share/man:/usr/share/man:
+export MANPATH
+INFOPATH=/usr/local/share/info:/usr/share/info:
+export INFOPATH
+
+## For asdf
+# https://asdf-vm.com/guide/getting-started.html#_3-install-asdf
+export ASDF_DIR="${HOME}/.asdf"
+export ASDF_DATA_DIR="${HOME}/.asdf"
+
+## For anyenv
+export ANYENV_ROOT="${HOME}/.anyenv"
+
+## For python-build
+export PYTHON_BUILD_MIRROR_URL="{{ $areaData.pythonBuildMirrorURL }}"
+export PYTHON_BUILD_MIRROR_URL_SKIP_CHECKSUM="{{ $areaData.pythonBuildMirrorURLSkipChecksum }}"
+
+## For pipenv
+# https://pipenv.pypa.io/en/latest/install/#virtualenv-mapping-caveat
+export PIPENV_VENV_IN_PROJECT=1
+
+## For poetry
+# https://github.com/arcesium/poetry-plugin-pypi-mirror/#environment-variable-example
+export POETRY_PYPI_MIRROR_URL="{{ $areaData.poetryPYPIMirrorURL }}"
+
+## For ruby-build
+export RUBY_BUILD_MIRROR_URL="{{ $areaData.rubyBuildMirrorURL }}"
+
+## For Go
+export GOBIN="${HOME}/go/bin"
+# Disable CGO by default.
+#
+# https://golang.org/cmd/cgo/
+export CGO_ENABLED=0
+# https://golang.org/cmd/go/#hdr-Vendor_Directories
+export GO15VENDOREXPERIMENT=1
+# Since Go 1.12 [1], we can always set `GO111MODULE=on`.
+#
+# [1]: https://golang.org/doc/go1.12#modules
+export GO111MODULE=on
+export GOPROXY="{{ $areaData.goproxy }}"
+export GOSUMDB="{{ $areaData.gosumdb }}"
+
+## For Rust
+# https://github.com/rust-lang-nursery/rustup.rs#environment-variables
+export RUSTUP_HOME="${HOME}/.rustup"
+export RUSTUP_DIST_SERVER="{{ $areaData.rustupDistServer }}"
+export RUSTUP_UPDATE_ROOT="{{ $areaData.rustupUpdateRoot }}"
+export CARGO_HOME="${HOME}/.cargo"
+export CARGO_INSTALL_OPTS=--locked
+# https://github.com/nabijaczleweli/cargo-update/issues/191#issuecomment-1242471355
+
+## For git-get
+##
+## https://github.com/homburg/git-get
+## https://github.com/homburg/git-get#options
+export GIT_GET_PATH="${HOME}/src"
+export GIT_GET_HOST="github.com"
+## https://github.com/pietvanzoen/git-get
+## https://github.com/pietvanzoen/git-get#configuration
+export GIT_PATH="$HOME/src"
+export GIT_GET_DEFAULT_PREFIX="https://github.com/"
+## https://github.com/grdl/git-get
+## https://github.com/grdl/git-get#env-variables
+export GITGET_ROOT="$HOME/src"
+export GITGET_HOST=github.com
+export GITGET_SCHEME=https
+
+## For [SDKMAN!][1]
+##
+## [1]: https://sdkman.io/
+export SDKMAN_DIR="${HOME}/.sdkman"
+
+## For eget
+##
+## https://github.com/zyedidia/eget
+export EGET_BIN="${HOME}/bin"
+# DO NOT set default prefix by `target` in config or `--to` in args.  Because
+# eget treats the prefix as file if it does not exist.

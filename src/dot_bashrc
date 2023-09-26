@@ -1,0 +1,7 @@
+# -*- mode: sh; sh-shell: bash; -*-
+# shellcheck source=/dev/null
+
+export SXELO=bash
+
+. "${XDG_CONFIG_HOME:-${HOME}/.config}/sxelo/sxelo.sh"
+sxelo_init_once sh bash
