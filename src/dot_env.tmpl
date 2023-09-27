@@ -152,6 +152,10 @@ export GOSUMDB="{{ $areaData.gosumdb }}"
 export RUSTUP_HOME="${HOME}/.rustup"
 export RUSTUP_DIST_SERVER="{{ $areaData.rustupDistServer }}"
 export RUSTUP_UPDATE_ROOT="{{ $areaData.rustupUpdateRoot }}"
+export RUSTUP_INIT_SKIP_PATH_CHECK=yes
+# https://github.com/rust-lang/rustup/commit/774d0c0c5de34b850a3a23b3799705229a079c1f
+# https://github.com/rust-lang/rustup/issues/681
+# https://github.com/rust-lang/rustup/pull/705
 export CARGO_HOME="${HOME}/.cargo"
 export CARGO_INSTALL_OPTS=--locked
 # https://github.com/nabijaczleweli/cargo-update/issues/191#issuecomment-1242471355
