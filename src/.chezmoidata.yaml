@@ -67,6 +67,7 @@ dotfiles:
       # https://doc.rust-lang.org/cargo/reference/source-replacement.html
       # https://github.com/rust-lang/cargo/blob/master/src/cargo/sources/registry/mod.rs#L185
       # https://github.com/rust-lang/cargo/blob/master/src/cargo/sources/config.rs#L48
+      # https://doc.rust-lang.org/cargo/reference/config.html#source
       cargoRegistries: {}
       # https://doc.rust-lang.org/cargo/reference/registries.html
       gradleRepos:
@@ -159,17 +160,29 @@ dotfiles:
       cargoSource:
         "crates-io":
           registry: ""
-          replace-with: rsproxy
-        rsproxy:
-          registry: "https://rsproxy.cn/crates.io-index"
+          # Overriding `default`
+          replace-with: rsproxy-sparse
         tuna:
           registry: "https://mirrors.tuna.tsinghua.edu.cn/git/crates.io-index.git"
+        tuna-sparse:
+          registry: "sparse+https://mirrors.tuna.tsinghua.edu.cn/crates.io-index/"
+        rsproxy:
+          registry: "https://rsproxy.cn/crates.io-index"
+        rsproxy-sparse:
+          registry: "sparse+https://rsproxy.cn/index/"
       # https://rsproxy.cn/
       # https://doc.crates.io/source-replacement.html
       # https://doc.rust-lang.org/cargo/reference/source-replacement.html
+      # https://doc.rust-lang.org/cargo/reference/config.html#source
       cargoRegistries:
+        tuna:
+          index: "https://mirrors.tuna.tsinghua.edu.cn/git/crates.io-index.git"
+        tuna-sparse:
+          index: "sparse+https://mirrors.tuna.tsinghua.edu.cn/crates.io-index/"
         rsproxy:
           index: "https://rsproxy.cn/crates.io-index"
+        rsproxy-sparse:
+          index: "sparse+https://rsproxy.cn/index/"
       # https://doc.rust-lang.org/cargo/reference/registries.html
       gradleRepos:
         - type: mavenLocal
