@@ -118,7 +118,10 @@ dotfiles:
       poetryPYPIMirrorURL: "https://pypi.org/simple"
       # https://docs.conda.io/projects/conda/en/stable/user-guide/configuration/use-condarc.html
       # https://docs.conda.io/projects/conda/en/stable/configuration.html
-      conda: {}
+      conda:
+        channels:
+          - defaults
+          - conda-forge
     cn:
       guixDefaultChannelURL: "https://mirror.sjtu.edu.cn/git/guix.git"
       nixNixpkgsChannelURL: "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/nixpkgs-unstable"
@@ -230,6 +233,7 @@ dotfiles:
       conda:
         channels:
           - defaults
+          - conda-forge
         defaultChannels:
           - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main
           - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/r
