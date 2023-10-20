@@ -126,7 +126,7 @@ class OSManager:
         self.has_trackpoint = False
         self.touchpad_ids = []
         pattern = re.compile(
-            "^[^A-Za-z0-9]*([^\t]+)\tid=(\d+)\t\[([^ ]+) +([^ ]+) +\((\d+)\)\]"
+            r"^[^A-Za-z0-9]*([^\t]+)\tid=(\d+)\t\[([^ ]+) +([^ ]+) +\((\d+)\)\]"
         )
         output = self.runner.check_output(
             ["xinput", "--list", "--short"], universal_newlines=True
