@@ -21,6 +21,19 @@
 
       (:option treesit-auto-install 'prompt)
 
+      (setq treesit-auto-recipe-list
+            (append
+             (list
+              (make-treesit-auto-recipe
+               :lang 'lua
+               :ts-mode 'lua-ts-mode
+               :remap 'lua-mode
+               :url "https://github.com/MunifTanjim/tree-sitter-lua"
+               :ext "\\.lua\\'")
+              ;; https://lists.gnu.org/archive/html/emacs-devel/2023-07/msg00836.html
+              )
+             treesit-auto-recipe-list))
+
       )
 
     )
