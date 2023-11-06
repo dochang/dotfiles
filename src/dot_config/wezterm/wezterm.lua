@@ -20,5 +20,6 @@ config.font = wezterm.font_with_fallback({
     family = "DejaVu Sans Mono",
   },
 })
+config.font_size = 14.0
 
 return config
