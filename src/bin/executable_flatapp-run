@@ -1,0 +1,3 @@
+#!/bin/sh
+
+flatpak list --app --columns=application | tail -n +1 | rofi -normal-window -dmenu "$@" | xargs --no-run-if-empty echo flatpak run
