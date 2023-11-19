@@ -58,7 +58,8 @@ bindsym $mod+Ctrl+q kill
 bindsym $mod+Shift+colon exec i3-input
 
 # start rofi (a program launcher)
-bindsym $mod+Shift+exclam exec rofi_run
+bindsym $mod+Shift+exclam exec rofi -show run
+bindsym $mod+Shift+at exec rofi -show drun
 
 bindsym XF86ScreenSaver exec "xlock.sh"
 bindsym $mod+Ctrl+l exec "xlock.sh"
@@ -225,7 +226,8 @@ mode "command" {
         bindsym Shift+colon exec i3-input
 
         # start rofi (a program launcher)
-        bindsym Shift+exclam exec rofi_run
+        bindsym Shift+exclam exec rofi -show run
+        bindsym Shift+at exec rofi -show drun
 
         bindsym XF86ScreenSaver exec "xlock.sh"
         bindsym Ctrl+l exec "xlock.sh"
