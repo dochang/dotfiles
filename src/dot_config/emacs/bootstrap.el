@@ -31,6 +31,8 @@
 (setq quelpa-checkout-melpa-p nil)
 (setq quelpa-upgrade-p nil)
 (setq quelpa-self-upgrade-p t)
+(setq quelpa-upgrade-interval 7)
+;; Default value is nil, which means no upgrade.
 ($ensure-require 'quelpa)
 (add-hook 'emacs-startup-hook 'quelpa-upgrade-all-maybe)
 
