@@ -5,6 +5,7 @@ gradle 8.5
 java temurin-21.0.1+12.0.LTS
 kotlin 1.9.21
 kotlin-language-server 1.3.7
+leiningen 2.10.0
 lua 5.4.6
 lua-language-server 3.7.3
 nodejs 20.10.0
