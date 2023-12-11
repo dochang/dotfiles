@@ -5,6 +5,7 @@ gradle                  https://github.com/rfrancis/asdf-gradle.git             
 java                    https://github.com/halcyon/asdf-java.git                    97824a6
 kotlin                  https://github.com/asdf-community/asdf-kotlin.git           909fd5c
 kotlin-language-server  https://github.com/dochang/asdf-kotlin-language-server.git  22a3452
+leiningen               https://github.com/miorimmax/asdf-lein.git                  dfd8ab1
 lua                     https://github.com/Stratus3D/asdf-lua.git                   36fae6e
 lua-language-server     https://github.com/bellini666/asdf-lua-language-server.git  0cad5c3
 nodejs                  https://github.com/asdf-vm/asdf-nodejs.git                  c5b7c40
