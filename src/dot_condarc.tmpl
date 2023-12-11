@@ -19,6 +19,7 @@ channels:
 {{- end }}
 {{- end }}
 {{- if $conda.defaultChannels }}
+# https://docs.conda.io/projects/conda/en/stable/user-guide/configuration/mirroring.html
 default_channels:
 {{- range $val := $conda.defaultChannels }}
   - {{ $val }}

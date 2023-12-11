@@ -116,7 +116,7 @@ dotfiles:
       # https://github.com/rbenv/ruby-build/blob/b57c7a8570336743469b66faa40dbf4aedd7001e/bin/ruby-build#L1524-L1534
       # https://github.com/rbenv/ruby-build/blob/b57c7a8570336743469b66faa40dbf4aedd7001e/bin/ruby-build#L369-L375
       poetryPYPIMirrorURL: "https://pypi.org/simple"
-      # https://docs.conda.io/projects/conda/en/stable/user-guide/configuration/use-condarc.html
+      # https://docs.conda.io/projects/conda/en/stable/user-guide/configuration/use-condarc.html#channel-locations-channels
       # https://docs.conda.io/projects/conda/en/stable/configuration.html
       conda:
         channels:
