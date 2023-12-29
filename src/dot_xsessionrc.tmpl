@@ -19,3 +19,5 @@ export BROWSER
 
 : ${X_SERVER:=/usr/bin/X}
 export X_SERVER
+
+[ ! -f "${HOME}/.xsessionrc.local" ] || . "${HOME}/.xsessionrc.local"
