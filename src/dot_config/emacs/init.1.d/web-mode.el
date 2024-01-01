@@ -7,9 +7,18 @@
 
   (:hook $web-mode-hook)
 
+  (setq auto-mode-alist
+        (append '(("\\.\\(tmpl\\|mustache\\|hbs\\|ejs\\|eta\\|sqrl\\)\\'" . web-mode))
+                auto-mode-alist))
+
   (:when-loaded
 
     (:option web-mode-enable-engine-detection t)
+
+    (setq web-mode-engine-file-regexps
+          (append '(("ctemplate" . "\\.sqrl\\'")
+                    ("ejs" . "\\.eta\\'"))
+                  web-mode-engine-file-regexps))
 
     )
 
