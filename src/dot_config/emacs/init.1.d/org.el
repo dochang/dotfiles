@@ -15,7 +15,10 @@
       (cond
        ((and timestamp
              (stringp timestamp)
-             (string-match-p "\\[[0-9]\\{4\\}-[0-9]\\{2\\}-[0-9]\\{2\\} [A-Za-z]\\{3\\} [0-9]\\{2\\}:[0-9]\\{2\\}\\]" timestamp))
+             (or (string-match-p "\\[.+\\]" timestamp)
+                 (string-match-p "<.+>" timestamp))
+             ;; Must support i18n day name.
+             )
         timestamp)
        (create
         (setq timestamp (format-time-string (org-time-stamp-format 'long 'inactive)))
