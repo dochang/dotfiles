@@ -31,4 +31,13 @@ nil if `major-mode' is a json mode and `mode' is a js mode."
 
   (add-hook 'before-save-hook '$eglot-before-save-hook)
 
+  (:when-loaded
+
+    (setq eglot-server-programs
+          (append '(((toml-mode toml-ts-mode)
+                     . ("taplo" "lsp" "stdio")))
+                  eglot-server-programs))
+
+    )
+
   )
