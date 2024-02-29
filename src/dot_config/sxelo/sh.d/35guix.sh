@@ -37,8 +37,10 @@ if [ -d "${GUIX_PROFILE}/etc/profile.d" ]; then
 	done
 fi
 
-expr ":${EMACSLOADPATH}:" : ".*:${GUIX_PROFILE}/share/emacs/site-lisp:" >/dev/null || {
-	EMACSLOADPATH="${GUIX_PROFILE}/share/emacs/site-lisp${EMACSLOADPATH:+:}${EMACSLOADPATH}"
-}
+if [ -d "${GUIX_PROFILE}/share/emacs/site-lisp" ]; then
+	expr ":${EMACSLOADPATH}:" : ".*:${GUIX_PROFILE}/share/emacs/site-lisp:" >/dev/null || {
+		EMACSLOADPATH="${GUIX_PROFILE}/share/emacs/site-lisp${EMACSLOADPATH:+:}${EMACSLOADPATH}"
+	}
+fi
 # Guix only sets `EMACSLOADPATH` if Emacs is installed by Guix.  In case of
 # using external Emacs, set `EMACSLOADPATH` manually.
