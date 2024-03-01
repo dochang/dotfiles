@@ -9,5 +9,5 @@ leiningen 2.11.2
 lua 5.4.6
 lua-language-server 3.7.4
 nodejs 20.11.1
-python 3.12.2
+python system
 zig 0.11.0
