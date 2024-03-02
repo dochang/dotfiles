@@ -9,5 +9,6 @@ leiningen               https://github.com/miorimmax/asdf-lein.git              
 lua                     https://github.com/Stratus3D/asdf-lua.git                   0ea06ff
 lua-language-server     https://github.com/bellini666/asdf-lua-language-server.git  0cad5c3
 nodejs                  https://github.com/asdf-vm/asdf-nodejs.git                  c5b7c40
+pandoc                  https://github.com/Fbrisset/asdf-pandoc.git                 62b2556
 python                  https://github.com/asdf-community/asdf-python.git           5e277e2
 zig                     https://github.com/asdf-community/asdf-zig.git              5187697
