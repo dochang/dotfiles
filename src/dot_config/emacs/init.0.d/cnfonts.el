@@ -18,7 +18,7 @@
            "Noto Sans Mono CJK SC" "Droid Sans Fallback"
            "WenQuanYi Micro Hei Mono" "WenQuanYi Micro Hei")
           ;; EXT-B 字体
-          ("HanaMinB"
+          ("Jigmo2" "HanaMinB"
            "Hanazono Mincho" "Hanazono Mincho A" "Hanazono Mincho B"
            "Hanazono Mincho C" "Hanazono Mincho Ex" "Hanazono Mincho Ex A1"
            "Hanazono Mincho Ex A2" "Hanazono Mincho Ex B" "Hanazono Mincho Ex C"
