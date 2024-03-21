@@ -1,1 +1,0 @@
-PATH="${EGET_BIN}${PATH:+:}$PATH"

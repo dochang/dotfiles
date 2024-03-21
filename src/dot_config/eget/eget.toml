@@ -1,0 +1,34 @@
+[global]
+target = "~/local/bin"
+# Create directory before using eget.  Because eget treats `target` and `--to`
+# as a file if it does not exist.
+upgrade_only = true
+
+["zyedidia/eget"]
+
+["golangci/golangci-lint"]
+asset_filters = [".tar.gz"]
+
+["pinterest/ktlint"]
+asset_filters = ["ktlint"]
+
+["twpayne/chezmoi"]
+asset_filters = ["musl", ".tar.gz"]
+
+["tamasfe/taplo"]
+asset_filters = ["full"]
+
+["JohnnyMorganz/StyLua"]
+asset_filters = ["musl"]
+target = "~/local/bin/stylua"
+
+["ko1nksm/shdotenv"]
+asset_filters = [".tar.gz"]
+
+["BurntSushi/ripgrep"]
+target = "~/local/bin/rg"
+
+["zellij-org/zellij"]
+
+["https://raw.github.com/emacs-eldev/eldev/master/bin/eldev"]
+# https://emacs-eldev.github.io/eldev/#installation
