@@ -25,6 +25,19 @@ target = "~/local/bin/stylua"
 ["ko1nksm/shdotenv"]
 asset_filters = [".tar.gz"]
 
+["x-motemen/ghq"]
+
+["nao1215/gup"]
+asset_filters = [".tar.gz"]
+
+["rclone/rclone"]
+asset_filters = [".zip"]
+
+["restic/restic"]
+
+["mvdan/sh"]
+target = "~/local/bin/shfmt"
+
 ["BurntSushi/ripgrep"]
 target = "~/local/bin/rg"
 
