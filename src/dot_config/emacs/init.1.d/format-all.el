@@ -1,7 +1,7 @@
 (setup (:package format-all)
 
-  (:with-mode (prog-mode conf-mode text-mode)
-    (:hook format-all-mode))
+  ;; (:with-mode (prog-mode conf-mode text-mode)
+  ;;   (:hook format-all-mode))
 
   (:with-mode format-all-mode
     (:hook format-all-ensure-formatter))
