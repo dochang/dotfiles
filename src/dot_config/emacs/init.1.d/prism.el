@@ -11,7 +11,7 @@
                (when custom-enabled-themes
                  (prism-mode 1)))))
 
-    (:with-mode (python-mode sh-mode)
+    (:with-mode (python-base-mode sh-base-mode)
       (:hook (lambda ()
                (when custom-enabled-themes
                  (prism-mode -1)

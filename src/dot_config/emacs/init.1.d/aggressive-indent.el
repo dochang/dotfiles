@@ -1,7 +1,7 @@
 (setup (:package aggressive-indent)
 
   ;; (add-hook 'emacs-startup-hook 'global-aggressive-indent-mode)
-  (:with-mode (lisp-data-mode scheme-mode clojure-mode)
+  (:with-mode (lisp-data-mode scheme-mode clojure-mode clojure-ts-mode)
     (:hook aggressive-indent-mode))
   ;; aggressive-indent-mode is unneeded since format-all and emacs-lsp are
   ;; released.  Enable it on demand for the modes which don't support
@@ -24,7 +24,8 @@
             '(special-mode
               dockerfile-mode
               makefile-mode
-              python-mode
+              python-base-mode
+              yaml-ts-mode
               yaml-mode)
             aggressive-indent-excluded-modes)))
     ;; aggressive-indent-mode will break the indentation in these modes.

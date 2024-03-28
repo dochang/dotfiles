@@ -20,11 +20,11 @@
 
   (define-advice format-all-ensure-formatter (:before () set-default-formatter)
     (cond
-     ((derived-mode-p 'python-mode)
+     ((derived-mode-p 'python-base-mode)
       ($format-all-set-local-default-formatter "Python" '(black isort)))
-     ((derived-mode-p 'lua-mode)
+     ((derived-mode-p 'lua-mode 'lua-ts-mode)
       ($format-all-set-local-default-formatter "Lua" 'stylua))
-     ((derived-mode-p 'toml-mode)
+     ((derived-mode-p 'toml-mode 'toml-ts-mode)
       ($format-all-set-local-default-formatter "TOML" 'taplo-fmt))
      ))
 
