@@ -24,7 +24,9 @@
     (:option org-agenda-prefer-last-repeat t)
 
     ;; Show deadline delay only after deadline in agenda.  Hide scheduled delay.
-    (:option org-agenda-skip-scheduled-delay-if-deadline 'post-deadline)
+    (:option org-agenda-skip-scheduled-delay-if-deadline nil)
+    ;; `post-deadline' suppresses all delays before deadline.  The reason is
+    ;; not found.  Use nil instead.
 
     ;; Hide scheduled entry in agenda if the entry has been done.
     (:option org-agenda-skip-scheduled-if-done t)

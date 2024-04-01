@@ -216,7 +216,8 @@
 
     (:option org-archive-location "%s_archive::datetree/")
 
-    (:option org-deadline-warning-days 1)
+    (:option org-deadline-warning-days 0)
+    ;; For orgzly.
 
     ;; Complete the outline path in one step.
     ;;
