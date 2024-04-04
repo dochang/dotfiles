@@ -1,5 +1,0 @@
-#!/bin/sh
-
-# lesskey checksum {{ include "dot_lesskey" | sha256sum }}
-lesskey --output=.less .lesskey
-chmod --reference=.lesskey .less
