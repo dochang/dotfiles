@@ -1,3 +1,4 @@
+{{- /* -*- mode: web; -*- */ -}}
 [global]
 target = "~/local/bin"
 # Create directory before using eget.  Because eget treats `target` and `--to`
@@ -37,6 +38,9 @@ asset_filters = [".zip"]
 
 ["mvdan/sh"]
 target = "~/local/bin/shfmt"
+
+["srevinsaju/zap"]
+asset_filters = ["{{ .chezmoi.arch }}"]
 
 ["BurntSushi/ripgrep"]
 target = "~/local/bin/rg"
