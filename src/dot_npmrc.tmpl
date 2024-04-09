@@ -9,6 +9,7 @@
 {{- $electronMirror := $areaData.electronMirror -}}
 {{- $electronCustomDir := $areaData.electronCustomDir -}}
 {{- $puppeteerDownloadHost := $areaData.puppeteerDownloadHost -}}
+{{- $puppeteerDownloadBaseURL := $areaData.puppeteerDownloadBaseURL -}}
 ## Registries
 # https://github.com/yarnpkg/yarn/issues/3700#issuecomment-312872253
 # https://docs.microsoft.com/en-us/vsts/package/npm/scopes
@@ -34,8 +35,11 @@ electron_custom_dir = {{ $electronCustomDir | quote }}
 
 ## For Puppeteer
 # https://github.com/puppeteer/puppeteer/blob/main/docs/api.md#environment-variables
+# https://github.com/puppeteer/puppeteer/commit/9758cae029f90908c4b5340561d9c51c26aa2f21
+# https://github.com/puppeteer/puppeteer/pull/10130
 # https://github.com/puppeteer/puppeteer/commit/945a826a0b53bb7325fdb86c998f812b16032c37
 puppeteer_download_host = {{ $puppeteerDownloadHost }}
+puppeteer_download_base_url = {{ $puppeteerDownloadBaseURL }}
 
 ## prefix
 # This setting controls the output of `npm prefix -g`.

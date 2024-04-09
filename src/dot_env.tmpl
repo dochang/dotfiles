@@ -76,8 +76,11 @@ export ELECTRON_CUSTOM_DIR="{{ $areaData.electronCustomDir }}"
 
 ## For Puppeteer
 # https://github.com/puppeteer/puppeteer/blob/main/docs/api.md#environment-variables
+# https://github.com/puppeteer/puppeteer/commit/9758cae029f90908c4b5340561d9c51c26aa2f21
+# https://github.com/puppeteer/puppeteer/pull/10130
 # https://github.com/puppeteer/puppeteer/commit/945a826a0b53bb7325fdb86c998f812b16032c37
 export PUPPETEER_DOWNLOAD_HOST="{{ $areaData.puppeteerDownloadHost }}"
+export PUPPETEER_DOWNLOAD_BASE_URL="{{ $areaData.puppeteerDownloadBaseURL }}"
 
 ## Linuxbrew
 # Install Linuxbrew into `/home/linuxbrew/`.
