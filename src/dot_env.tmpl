@@ -40,11 +40,6 @@ export LESS=-Ri
 ## Without `-R`, less cannot handle some control characters correctly,
 ## such as colors.
 
-if command -v lesspipe >/dev/null 2>&1; then
-	eval "$(lesspipe)"
-fi
-## For less input pre-processor
-
 export BROWSER=browser.sh
 
 export REPORTTIME=1
