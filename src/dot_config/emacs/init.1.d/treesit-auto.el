@@ -19,7 +19,8 @@
 
     (:when-loaded
 
-      (:option treesit-auto-install 'prompt)
+      (:option treesit-auto-install t)
+      ;; Install tree-sitter grammars noninteractively.
 
       (setq treesit-auto-recipe-list
             (append
