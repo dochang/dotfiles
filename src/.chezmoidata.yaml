@@ -153,8 +153,9 @@ dotfiles:
       # https://golang.org/cmd/go/#hdr-Module_authentication_failures
       # https://github.com/golang/go/issues/31755#issuecomment-527611727
       gosumdb: "sum.golang.google.cn"
-      rustupDistServer: "https://rsproxy.cn"
-      rustupUpdateRoot: "https://rsproxy.cn/rustup"
+      rustupDistServer: "https://mirrors.tuna.tsinghua.edu.cn/rustup"
+      rustupUpdateRoot: "https://mirrors.tuna.tsinghua.edu.cn/rustup/rustup"
+      # https://mirror.tuna.tsinghua.edu.cn/help/rustup/
       # https://rsproxy.cn/
       # https://doc.crates.io/source-replacement.html
       # https://doc.rust-lang.org/cargo/reference/source-replacement.html
@@ -168,7 +169,7 @@ dotfiles:
         "crates-io":
           registry: ""
           # Overriding `default`
-          replace-with: rsproxy-sparse
+          replace-with: tuna-sparse
         tuna:
           registry: "https://mirrors.tuna.tsinghua.edu.cn/git/crates.io-index.git"
         tuna-sparse:
@@ -177,6 +178,8 @@ dotfiles:
           registry: "https://rsproxy.cn/crates.io-index"
         rsproxy-sparse:
           registry: "sparse+https://rsproxy.cn/index/"
+      # https://mirror.tuna.tsinghua.edu.cn/help/crates.io-index/
+      # https://mirror.tuna.tsinghua.edu.cn/help/crates.io-index.git/
       # https://rsproxy.cn/
       # https://doc.crates.io/source-replacement.html
       # https://doc.rust-lang.org/cargo/reference/source-replacement.html
