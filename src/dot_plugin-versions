@@ -4,7 +4,7 @@ golang                  https://github.com/asdf-community/asdf-golang.git       
 gradle                  https://github.com/rfrancis/asdf-gradle.git                 ffc271c
 java                    https://github.com/halcyon/asdf-java.git                    81e374e
 kotlin                  https://github.com/asdf-community/asdf-kotlin.git           76b018f
-kotlin-language-server  https://github.com/dochang/asdf-kotlin-language-server.git  9e84711
+kotlin-language-server  https://github.com/dochang/asdf-kotlin-language-server.git  d19a401
 leiningen               https://github.com/miorimmax/asdf-lein.git                  dfd8ab1
 lua                     https://github.com/Stratus3D/asdf-lua.git                   f0f1ed9
 lua-language-server     https://github.com/bellini666/asdf-lua-language-server.git  0cad5c3
