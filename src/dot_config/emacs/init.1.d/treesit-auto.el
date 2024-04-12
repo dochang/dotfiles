@@ -21,6 +21,19 @@
 
       (:option treesit-auto-install 'prompt)
 
+      (setq treesit-auto-recipe-list
+            (append
+             (list
+              (make-treesit-auto-recipe
+               :lang 'elisp
+               :ts-mode 'emacs-lisp-ts-mode
+               :remap 'emacs-lisp-mode
+               :url "https://github.com/Wilfred/tree-sitter-elisp"
+               :ext "\\(?:\\.rcp\\|\\.el\\|Cask\\|Project\\.ede\\|[:/\\]\\..*\\(?:emacs\\|gnus\\|viper\\)\\|\\`\\..*emacs\\|[:/]_emacs\\)\\'")
+              ;; https://github.com/Wilfred/tree-sitter-elisp
+              )
+             treesit-auto-recipe-list))
+
       )
 
     )
