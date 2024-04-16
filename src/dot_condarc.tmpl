@@ -12,20 +12,20 @@ auto_activate_base: false
 # https://saturncloud.io/blog/how-to-remove-base-from-terminal-prompt-after-updating-conda-a-guide/#step-2-deactivate-auto-activation-of-conda-environment
 show_channel_urls: true
 {{- if $conda }}
-{{- if $conda.channels }}
+{{- if and (hasKey $conda "channels") $conda.channels }}
 channels:
 {{- range $val := $conda.channels }}
   - {{ $val }}
 {{- end }}
 {{- end }}
-{{- if $conda.defaultChannels }}
+{{- if and (hasKey $conda "defaultChannels") $conda.defaultChannels }}
 # https://docs.conda.io/projects/conda/en/stable/user-guide/configuration/mirroring.html
 default_channels:
 {{- range $val := $conda.defaultChannels }}
   - {{ $val }}
 {{- end }}
 {{- end }}
-{{- if $conda.customChannels }}
+{{- if and (hasKey $conda "customChannels") $conda.customChannels }}
 custom_channels:
 {{- range $key, $val := $conda.customChannels }}
   {{ $key }}: {{ $val }}
