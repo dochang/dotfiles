@@ -123,8 +123,8 @@ dotfiles:
       # https://docs.conda.io/projects/conda/en/stable/configuration.html
       conda:
         channels:
-          - defaults
           - conda-forge
+          - defaults
     cn:
       guixDefaultChannelURL: "https://mirror.sjtu.edu.cn/git/guix.git"
       nixNixpkgsChannelURL: "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/nixpkgs-unstable"
@@ -241,8 +241,8 @@ dotfiles:
       # https://mirrors.tuna.tsinghua.edu.cn/help/anaconda/
       conda:
         channels:
-          - defaults
           - conda-forge
+          - defaults
         defaultChannels:
           - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main
           - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/r
