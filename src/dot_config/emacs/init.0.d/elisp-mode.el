@@ -4,8 +4,8 @@
 
   (:when-loaded
 
-    (:bind-into lisp-interaction-mode-map
-      "C-j" nil
+    (:with-map lisp-interaction-mode-map
+      (:bind "C-j" nil)
       ;; Emacs binds this key to `eval-print-last-sexp'.  I don't like this
       ;; binding.  I always print result by `C-u C-x C-e'.  Restore its binding
       ;; to `electric-newline-and-maybe-indent'.
