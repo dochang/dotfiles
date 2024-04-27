@@ -1,5 +1,5 @@
 asdf-plugin-manager 1.3.1
-clojure 1.11.2.1446
+clojure 1.11.3.1456
 golang 1.22.2
 gradle 8.7
 java temurin-21.0.3+9.0.LTS
@@ -7,9 +7,9 @@ kotlin 1.9.23
 kotlin-language-server 1.3.9
 leiningen 2.11.2
 lua 5.4.6
-lua-language-server 3.8.0
+lua-language-server 3.8.3
 nodejs 20.12.2
 pandoc 3.1.13
 python system
-zig 0.11.0
-zls 0.11.0
+zig 0.12.0
+zls 0.12.0
