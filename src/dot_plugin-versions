@@ -2,8 +2,8 @@ asdf-plugin-manager     https://github.com/asdf-community/asdf-plugin-manager.gi
 clojure                 https://github.com/asdf-community/asdf-clojure.git          490074c
 golang                  https://github.com/asdf-community/asdf-golang.git           652c592
 gradle                  https://github.com/rfrancis/asdf-gradle.git                 ffc271c
-java                    https://github.com/halcyon/asdf-java.git                    630e303
-kotlin                  https://github.com/asdf-community/asdf-kotlin.git           411460b
+java                    https://github.com/halcyon/asdf-java.git                    10af62d
+kotlin                  https://github.com/asdf-community/asdf-kotlin.git           005d0c7
 kotlin-language-server  https://github.com/dochang/asdf-kotlin-language-server.git  d19a401
 leiningen               https://github.com/miorimmax/asdf-lein.git                  dfd8ab1
 lua                     https://github.com/Stratus3D/asdf-lua.git                   f0f1ed9
