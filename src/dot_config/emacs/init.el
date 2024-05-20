@@ -68,9 +68,27 @@ major mode isn't derived from `prog-mode'."
 
   )
 
-(defun $local-config ()
-  (let ((local (expand-file-name "~/.emacs_local.el")))
-    (when (file-exists-p local)
-      (load-file local))))
+(defun $load-local-config (name)
+  (let ((local-path (expand-file-name name "~")))
+    (when (file-exists-p local-path)
+      (load-file local-path))))
+(mapc
+ (lambda (local-file)
+   (add-hook 'emacs-startup-hook
+             `(lambda ()
+                ($load-local-config ,(car local-file)))
+             (cdr local-file)))
+ (seq-reduce
+  (lambda (local-files local-name)
+    (let ((matchp (string-match "\\`\\.emacs_local_\\(.*\\)\\.el\\'" local-name)))
+      (if matchp
+          (cons (cons local-name
+                      (string-to-number (match-string 1 local-name)))
+                local-files)
+        local-files)))
+  (directory-files (expand-file-name "~"))
+  '()))
 
-(add-hook 'emacs-startup-hook '$local-config -99)
+(add-hook 'emacs-startup-hook
+          '(lambda ()
+             ($load-local-config ".emacs_local.el")))
