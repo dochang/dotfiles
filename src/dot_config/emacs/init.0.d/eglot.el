@@ -4,6 +4,10 @@
   (when (eglot-managed-p)
     (eglot-format-buffer)))
 
+;; https://github.com/golang/tools/blob/master/gopls/doc/emacs.md#organizing-imports-with-eglot
+(define-advice eglot-format-buffer (:before () organizing-imports)
+  (eglot-code-action-organize-imports (point-min) (point-max)))
+
 (define-advice eglot-ensure (:before-while () lookup-before-ensure)
   (and buffer-file-name (eglot--lookup-mode major-mode)))
 
