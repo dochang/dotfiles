@@ -55,7 +55,6 @@ bin/vps-speed-test.sh
 bin/banish-pointer.sh
 bin/browser.sh
 bin/json2xrandr
-bin/mixer.sh
 bin/pass-askpass
 bin/passrofi
 bin/rofi_run
