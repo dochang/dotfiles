@@ -9,6 +9,4 @@ x-y | x--yes)
 	;;
 esac
 
-[ -r ~/.config/X/env ] && . ~/.config/X/env
-
 [ x"$reply" = xyes ] && eval "${XLOCKER:-slock}"
