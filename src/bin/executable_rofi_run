@@ -1,2 +1,3 @@
 #!/bin/sh
-dmenu_path | rofi -normal-window -dmenu "$@" | ${SHELL:-"/bin/sh"} &
+
+dmenu_path | rofi -normal-window -dmenu "$@" | ${SHELL:-"/bin/sh"}
