@@ -1,4 +1,4 @@
 [Desktop Entry]
 Type=Application
 Name=keynav
-Exec=xx-daemon keynav --background --make-pidfile --oknodo --start
+Exec=o daemon keynav --background --make-pidfile --oknodo --start

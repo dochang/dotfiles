@@ -18,7 +18,7 @@ if [ -z "$XMODIFIERS" ]; then
 	fcitx5 -d
 fi
 
-xx-input
+o input
 
 xsetroot -cursor_name left_ptr
 
@@ -30,7 +30,7 @@ if command -v autorandr >/dev/null 2>&1; then
 	autorandr --change
 fi
 
-xx-autostart
+o autostart
 
 STARTUP="${X_WINDOW_MANAGER:-x-window-manager}"
 

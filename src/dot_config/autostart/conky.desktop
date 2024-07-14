@@ -1,4 +1,4 @@
 [Desktop Entry]
 Type=Application
 Name=Conky
-Exec=xx-daemon conky --background --make-pidfile --oknodo --start
+Exec=o daemon conky --background --make-pidfile --oknodo --start

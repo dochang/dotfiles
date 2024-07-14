@@ -177,24 +177,24 @@ bindsym $mod+f fullscreen
 # banish pointer
 bindsym $mod+b exec "o banish-pointer"
 
-bindsym XF86AudioLowerVolume exec "xx-volctl --"
-bindsym XF86AudioRaiseVolume exec "xx-volctl ++"
-bindsym XF86AudioMute        exec "xx-volctl !"
+bindsym XF86AudioLowerVolume exec "o volctl --"
+bindsym XF86AudioRaiseVolume exec "o volctl ++"
+bindsym XF86AudioMute        exec "o volctl !"
 
-bindsym Mod1+XF86AudioLowerVolume exec "xx-volctl -"
-bindsym Mod1+XF86AudioRaiseVolume exec "xx-volctl +"
+bindsym Mod1+XF86AudioLowerVolume exec "o volctl -"
+bindsym Mod1+XF86AudioRaiseVolume exec "o volctl +"
 
-bindsym $mod+comma exec "xx-volctl --"
-bindsym $mod+period exec "xx-volctl ++"
-bindsym $mod+slash exec "xx-volctl !"
+bindsym $mod+comma exec "o volctl --"
+bindsym $mod+period exec "o volctl ++"
+bindsym $mod+slash exec "o volctl !"
 
 # $mod+<  /  $mod+>
-bindsym $mod+Shift+comma exec "xx-volctl -"
-bindsym $mod+Shift+period exec "xx-volctl +"
+bindsym $mod+Shift+comma exec "o volctl -"
+bindsym $mod+Shift+period exec "o volctl +"
 
 # $mod+Mod1+,  /  $mod+Mod1+.
-bindsym $mod+Mod1+comma exec "xx-volctl -"
-bindsym $mod+Mod1+period exec "xx-volctl +"
+bindsym $mod+Mod1+comma exec "o volctl -"
+bindsym $mod+Mod1+period exec "o volctl +"
 
 
 # Command Mode
@@ -339,24 +339,24 @@ mode "command" {
         # banish pointer
         bindsym b exec "o banish-pointer"
 
-        bindsym XF86AudioLowerVolume exec "xx-volctl --"
-        bindsym XF86AudioRaiseVolume exec "xx-volctl ++"
-        bindsym XF86AudioMute        exec "xx-volctl !"
+        bindsym XF86AudioLowerVolume exec "o volctl --"
+        bindsym XF86AudioRaiseVolume exec "o volctl ++"
+        bindsym XF86AudioMute        exec "o volctl !"
 
-        bindsym Mod1+XF86AudioLowerVolume exec "xx-volctl -"
-        bindsym Mod1+XF86AudioRaiseVolume exec "xx-volctl +"
+        bindsym Mod1+XF86AudioLowerVolume exec "o volctl -"
+        bindsym Mod1+XF86AudioRaiseVolume exec "o volctl +"
 
-        bindsym comma exec "xx-volctl --"
-        bindsym period exec "xx-volctl ++"
-        bindsym slash exec "xx-volctl !"
+        bindsym comma exec "o volctl --"
+        bindsym period exec "o volctl ++"
+        bindsym slash exec "o volctl !"
 
         # <  /  >
-        bindsym Shift+comma exec "xx-volctl -"
-        bindsym Shift+period exec "xx-volctl +"
+        bindsym Shift+comma exec "o volctl -"
+        bindsym Shift+period exec "o volctl +"
 
         # Mod1+,  /  Mod1+.
-        bindsym Mod1+comma exec "xx-volctl -"
-        bindsym Mod1+period exec "xx-volctl +"
+        bindsym Mod1+comma exec "o volctl -"
+        bindsym Mod1+period exec "o volctl +"
 
         bindsym r mode "resize"
 }
