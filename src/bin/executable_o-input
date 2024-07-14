@@ -29,7 +29,7 @@ def load_config():
     home_dir = os.path.expanduser("~")
     default_xdg_config_dir = os.path.join(home_dir, ".config")
     xdg_config_dir = os.getenv("XDG_CONFIG_DIR", default_xdg_config_dir)
-    conf_dir = os.path.join(xdg_config_dir, "xx-input")
+    conf_dir = os.path.join(xdg_config_dir, "o-input")
     conf_file = os.path.join(conf_dir, "config.json")
     try:
         with open(conf_file) as f:
