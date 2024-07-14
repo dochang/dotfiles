@@ -25,7 +25,6 @@
 .tmux.conf
 .wgetrc
 bin/display-upstream-package-from-paf
-bin/pingen
 bin/vps-speed-test.sh
 .asdfrc
 {{ end }}
@@ -62,8 +61,6 @@ bin/o-xlock
 bin/o-X
 bin/o-autostart
 bin/o-daemon
-bin/o-editor
-bin/o-input
 bin/o-volctl
 bin/o-Xephyr-wslg
 bin/o-fcitx5-wslg
