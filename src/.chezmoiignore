@@ -48,7 +48,7 @@ bin/vps-speed-test.sh
 .xinitrc
 .Xsession.d
 .xmodmaprc
-.config/o-input
+.config/o
 .config/zathura
 bin/o-banish-pointer
 bin/o-browser
