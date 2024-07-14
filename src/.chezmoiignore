@@ -25,7 +25,6 @@
 .tmux.conf
 .wgetrc
 bin/display-upstream-package-from-paf
-bin/pingen
 bin/vps-speed-test.sh
 .asdfrc
 {{ end }}
@@ -49,22 +48,23 @@ bin/vps-speed-test.sh
 .xinitrc
 .Xsession.d
 .xmodmaprc
-.config/xx-input
+.config/o
 .config/zathura
-bin/banish-pointer.sh
-bin/browser.sh
+bin/o-banish-pointer
+bin/o-browser
 bin/pass-askpass
 bin/passrofi
 bin/rofi_run
-bin/run-or-raise.sh
-bin/xconfirm.sh
-bin/xlock.sh
-bin/X.sh
-bin/xx-autostart
-bin/xx-daemon
-bin/xx-editor
-bin/xx-input
-bin/xx-volctl
+bin/o-run-or-raise
+bin/o-xconfirm
+bin/o-xlock
+bin/o-X
+bin/o-autostart
+bin/o-daemon
+bin/o-volctl
+bin/o-Xephyr-wslg
+bin/o-fcitx5-wslg
+bin/o-mount-drvfs
 .config/fontconfig
 {{ end }}
 {{ if not (and (has "default" .dotfiles.roles) (has "dev" .dotfiles.roles)) }}

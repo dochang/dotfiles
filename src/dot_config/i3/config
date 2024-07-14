@@ -47,10 +47,10 @@ mouse_warping none
 bindsym $mod+Ctrl+r reload
 
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-bindsym $mod+Ctrl+Mod1+r exec "xconfirm.sh 'i3-msg restart' 'Do you want to restart?'"
+bindsym $mod+Ctrl+Mod1+r exec "o xconfirm 'i3-msg restart' 'Do you want to restart?'"
 
 # exit i3 (logs you out of your X session)
-bindsym $mod+Ctrl+x exec "xconfirm.sh 'i3-msg exit' 'Do you want to exit?'"
+bindsym $mod+Ctrl+x exec "o xconfirm 'i3-msg exit' 'Do you want to exit?'"
 
 # kill focused window
 bindsym $mod+Ctrl+q kill
@@ -61,8 +61,8 @@ bindsym $mod+Shift+colon exec i3-input
 bindsym $mod+Shift+exclam exec rofi -show run
 bindsym $mod+Shift+at exec rofi -show drun
 
-bindsym XF86ScreenSaver exec "xlock.sh"
-bindsym $mod+Ctrl+l exec "xlock.sh"
+bindsym XF86ScreenSaver exec "o xlock"
+bindsym $mod+Ctrl+l exec "o xlock"
 
 # Layout
 # ======
@@ -168,33 +168,33 @@ bindsym $mod+Mod1+8 move container to workspace 8
 bindsym $mod+Return exec i3-sensible-terminal
 
 # start a web browser
-bindsym XF86HomePage exec browser.sh
+bindsym XF86HomePage exec "o browser"
 
 # enter fullscreen mode for the focused container
 bindsym $mod+F11 fullscreen
 bindsym $mod+f fullscreen
 
 # banish pointer
-bindsym $mod+b exec "banish-pointer.sh"
+bindsym $mod+b exec "o banish-pointer"
 
-bindsym XF86AudioLowerVolume exec "xx-volctl --"
-bindsym XF86AudioRaiseVolume exec "xx-volctl ++"
-bindsym XF86AudioMute        exec "xx-volctl !"
+bindsym XF86AudioLowerVolume exec "o volctl --"
+bindsym XF86AudioRaiseVolume exec "o volctl ++"
+bindsym XF86AudioMute        exec "o volctl !"
 
-bindsym Mod1+XF86AudioLowerVolume exec "xx-volctl -"
-bindsym Mod1+XF86AudioRaiseVolume exec "xx-volctl +"
+bindsym Mod1+XF86AudioLowerVolume exec "o volctl -"
+bindsym Mod1+XF86AudioRaiseVolume exec "o volctl +"
 
-bindsym $mod+comma exec "xx-volctl --"
-bindsym $mod+period exec "xx-volctl ++"
-bindsym $mod+slash exec "xx-volctl !"
+bindsym $mod+comma exec "o volctl --"
+bindsym $mod+period exec "o volctl ++"
+bindsym $mod+slash exec "o volctl !"
 
 # $mod+<  /  $mod+>
-bindsym $mod+Shift+comma exec "xx-volctl -"
-bindsym $mod+Shift+period exec "xx-volctl +"
+bindsym $mod+Shift+comma exec "o volctl -"
+bindsym $mod+Shift+period exec "o volctl +"
 
 # $mod+Mod1+,  /  $mod+Mod1+.
-bindsym $mod+Mod1+comma exec "xx-volctl -"
-bindsym $mod+Mod1+period exec "xx-volctl +"
+bindsym $mod+Mod1+comma exec "o volctl -"
+bindsym $mod+Mod1+period exec "o volctl +"
 
 
 # Command Mode
@@ -215,10 +215,10 @@ mode "command" {
         bindsym Ctrl+r mode "default" ; reload
 
         # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-        bindsym Ctrl+Mod1+r exec "xconfirm.sh 'i3-msg restart' 'Do you want to restart?'"
+        bindsym Ctrl+Mod1+r exec "o xconfirm 'i3-msg restart' 'Do you want to restart?'"
 
         # exit i3 (logs you out of your X session)
-        bindsym Ctrl+x exec "xconfirm.sh 'i3-msg exit' 'Do you want to exit?'"
+        bindsym Ctrl+x exec "o xconfirm 'i3-msg exit' 'Do you want to exit?'"
 
         # kill focused window
         bindsym Ctrl+q kill
@@ -229,8 +229,8 @@ mode "command" {
         bindsym Shift+exclam exec rofi -show run
         bindsym Shift+at exec rofi -show drun
 
-        bindsym XF86ScreenSaver exec "xlock.sh"
-        bindsym Ctrl+l exec "xlock.sh"
+        bindsym XF86ScreenSaver exec "o xlock"
+        bindsym Ctrl+l exec "o xlock"
 
         # change focus
         bindsym h focus left
@@ -330,33 +330,33 @@ mode "command" {
         bindsym Mod1+e exec "emacsclient -c"
 
         # start a web browser
-        bindsym XF86HomePage exec browser.sh
+        bindsym XF86HomePage exec "o browser"
 
         # enter fullscreen mode for the focused container
         bindsym F11 fullscreen
         bindsym f fullscreen
 
         # banish pointer
-        bindsym b exec "banish-pointer.sh"
+        bindsym b exec "o banish-pointer"
 
-        bindsym XF86AudioLowerVolume exec "xx-volctl --"
-        bindsym XF86AudioRaiseVolume exec "xx-volctl ++"
-        bindsym XF86AudioMute        exec "xx-volctl !"
+        bindsym XF86AudioLowerVolume exec "o volctl --"
+        bindsym XF86AudioRaiseVolume exec "o volctl ++"
+        bindsym XF86AudioMute        exec "o volctl !"
 
-        bindsym Mod1+XF86AudioLowerVolume exec "xx-volctl -"
-        bindsym Mod1+XF86AudioRaiseVolume exec "xx-volctl +"
+        bindsym Mod1+XF86AudioLowerVolume exec "o volctl -"
+        bindsym Mod1+XF86AudioRaiseVolume exec "o volctl +"
 
-        bindsym comma exec "xx-volctl --"
-        bindsym period exec "xx-volctl ++"
-        bindsym slash exec "xx-volctl !"
+        bindsym comma exec "o volctl --"
+        bindsym period exec "o volctl ++"
+        bindsym slash exec "o volctl !"
 
         # <  /  >
-        bindsym Shift+comma exec "xx-volctl -"
-        bindsym Shift+period exec "xx-volctl +"
+        bindsym Shift+comma exec "o volctl -"
+        bindsym Shift+period exec "o volctl +"
 
         # Mod1+,  /  Mod1+.
-        bindsym Mod1+comma exec "xx-volctl -"
-        bindsym Mod1+period exec "xx-volctl +"
+        bindsym Mod1+comma exec "o volctl -"
+        bindsym Mod1+period exec "o volctl +"
 
         bindsym r mode "resize"
 }

@@ -6,7 +6,7 @@
 
 # Usage
 #
-#     run-or-raise.sh [xdotool options]* <pattern> [--] <command> [arguments]*
+#     o-run-or-raise [xdotool options]* <pattern> [--] <command> [arguments]*
 
 xdo_opts=''
 pattern_given=''
