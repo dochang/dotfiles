@@ -49,7 +49,7 @@ bin/vps-speed-test.sh
 .xinitrc
 .Xsession.d
 .xmodmaprc
-.config/xx-input
+.config/o-input
 .config/zathura
 bin/o-banish-pointer
 bin/o-browser
@@ -60,11 +60,14 @@ bin/o-run-or-raise
 bin/o-xconfirm
 bin/o-xlock
 bin/o-X
-bin/xx-autostart
-bin/xx-daemon
-bin/xx-editor
-bin/xx-input
-bin/xx-volctl
+bin/o-autostart
+bin/o-daemon
+bin/o-editor
+bin/o-input
+bin/o-volctl
+bin/o-Xephyr-wslg
+bin/o-fcitx5-wslg
+bin/o-mount-drvfs
 .config/fontconfig
 {{ end }}
 {{ if not (and (has "default" .dotfiles.roles) (has "dev" .dotfiles.roles)) }}
