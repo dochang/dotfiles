@@ -1,4 +1,4 @@
 [Desktop Entry]
 Type=Application
 Name=Xautolock
-Exec=xx-daemon xautolock --background --make-pidfile --oknodo --start -- -time 20 -locker "xlock.sh --yes"
+Exec=xx-daemon xautolock --background --make-pidfile --oknodo --start -- -time 20 -locker "o xlock --yes"

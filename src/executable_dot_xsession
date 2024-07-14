@@ -40,6 +40,6 @@ STARTUP="env SHELL=$(getent passwd $LOGNAME | cut -d: -f7) $STARTUP"
 # from `getent`.  According to `login(1)`, the user's name should be
 # taken from `$LOGNAME`.
 
-STARTUP="~/bin/X.sh $STARTUP"
+STARTUP="o X $STARTUP"
 
 eval "$STARTUP"
