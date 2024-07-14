@@ -50,24 +50,20 @@ bin/vps-speed-test.sh
 .Xsession.d
 .xmodmaprc
 .config/xx-input
-.config/xx-randr
 .config/zathura
 bin/banish-pointer.sh
 bin/browser.sh
-bin/json2xrandr
 bin/pass-askpass
 bin/passrofi
 bin/rofi_run
 bin/run-or-raise.sh
 bin/xconfirm.sh
 bin/xlock.sh
-bin/xrandr2json
 bin/X.sh
 bin/xx-autostart
 bin/xx-daemon
 bin/xx-editor
 bin/xx-input
-bin/xx-randr
 bin/xx-volctl
 .config/fontconfig
 {{ end }}
