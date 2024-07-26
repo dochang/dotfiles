@@ -10,7 +10,7 @@ main() {
 	password_files=("${password_files[@]#"$prefix"/}")
 	password_files=("${password_files[@]%.gpg}")
 
-	password_file=$(printf '%s\n' "${password_files[@]}" | rofi -normal-window -dmenu -mesg "$mesg")
+	password_file=$(printf '%s\n' "${password_files[@]}" | rofi -replace -normal-window -dmenu -mesg "$mesg")
 
 	[[ -n $password_file ]] || exit
 
