@@ -1,18 +1,20 @@
+{{- /* -*- mode: web; -*- */ -}}
+{{- $netdev := .dotfiles.netdev -}}
 general {
         output_format = "i3bar"
         colors = true
         interval = 1
 }
 
-order += "wireless wlan0"
+order += "wireless {{ $netdev }}"
 order += "load"
 order += "cpu_usage"
 order += "cpu_temperature 0"
 order += "battery 0"
-order += "volume master"
+order += "volume default"
 order += "time"
 
-wireless wlan0 {
+wireless {{ $netdev }} {
         format_up = "W: (%quality at %essid, %bitrate) %ip"
         format_down = "W: down"
 }
@@ -38,7 +40,7 @@ battery 0 {
         threshold_type = "time"
 }
 
-volume master {
+volume default {
         format = "♪: %volume"
 }
 

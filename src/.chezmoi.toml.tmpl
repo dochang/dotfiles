@@ -1,4 +1,7 @@
+{{- /* -*- mode: web; -*- */ -}}
+{{- $netdev := promptString "Network device" -}}
 [data.dotfiles]
 area = "default"
 # roles = ["default", "desktop", "dev"]
 roles = []
+netdev = {{ $netdev | quote }}
