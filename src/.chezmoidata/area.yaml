@@ -1,30 +1,6 @@
-dotfiles:
-  area: default
-  roles: []
-  roleData:
-    default:
-      httpProxy: ""
-      httpsProxy: ""
-      pager: less
-      editor: emacsclient
-      alternateEditor: vim
-      alternateGraphicEditor: gvim
-      name: Wade Zhang
-      email: dochang@gmail.com
-      mailuser: dochang
-      mailhost: localhost
-      maildir: /srv/sync/maildir
-      passwordStoreDir: "${HOME}/.password-store"
-      gitCredential: dochang
-      gitUserName: Wade Zhang
-      gitUserEmail: dochang@gmail.com
-      emacsHolidayOtherHolidays: []
-      linuxbrewPrefix: /home/linuxbrew/.linuxbrew
-      emacsEmailList:
-        - name: Wade Zhang
-          email: dochang@gmail.com
-  areaData:
-    default:
+data:
+  area:
+    unknown:
       guixDefaultChannelURL: "https://git.savannah.gnu.org/git/guix.git"
       nixNixpkgsChannelURL: "https://nixos.org/channels/nixpkgs-unstable"
       nodejsOrgMirror: "https://nodejs.org/dist"
