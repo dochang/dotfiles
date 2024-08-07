@@ -1,0 +1,85 @@
+data:
+  fontconfig:
+    cjk:
+      sarasa:
+        format: "Sarasa %s %s"
+        langList:
+          - name: zh-HK
+            fallback: SC
+            tag: HK
+          - name: zh-TW
+            fallback: SC
+            tag: TW
+          - name: ja
+            fallback: SC
+            tag: J
+          - name: ko
+            fallback: SC
+            tag: K
+        fontList:
+          - Gothic
+          - UI
+          - Mono
+          - Term
+          - Fixed
+          - Mono Slab
+          - Term Slab
+          - Fixed Slab
+      sourceHanSans:
+        format: "Source Han Sans%s"
+        langList:
+          - name: zh-HK
+            fallback: " SC"
+            tag: " HC"
+          - name: zh-TW
+            fallback: " SC"
+            tag: " TC"
+          - name: ja
+            fallback: " SC"
+            tag: ""
+          - name: ko
+            fallback: " SC"
+            tag: " K"
+          - name: zh-HK
+            fallback: " HW SC"
+            tag: " HW HC"
+          - name: zh-TW
+            fallback: " HW SC"
+            tag: " HW TC"
+          - name: ja
+            fallback: " HW SC"
+            tag: " HW"
+          - name: ko
+            fallback: " HW SC"
+            tag: " HW K"
+          - name: zh-HK
+            fallback: " CN"
+            tag: " HK"
+          - name: zh-TW
+            fallback: " CN"
+            tag: " TW"
+          - name: ja
+            fallback: " CN"
+            tag: " JP"
+          - name: ko
+            fallback: " CN"
+            tag: " KR"
+      noto:
+        format: "Noto %s CJK %s"
+        langList:
+          - name: zh-HK
+            fallback: SC
+            tag: HK
+          - name: zh-TW
+            fallback: SC
+            tag: TC
+          - name: ja
+            fallback: SC
+            tag: JP
+          - name: ko
+            fallback: SC
+            tag: KR
+        fontList:
+          - Sans
+          - Sans Mono
+          - Serif

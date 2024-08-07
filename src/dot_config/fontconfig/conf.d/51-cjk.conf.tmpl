@@ -1,0 +1,61 @@
+{{- /* -*- mode: web; -*- */ -}}
+{{- $sarasa := .data.fontconfig.cjk.sarasa -}}
+{{- $source := .data.fontconfig.cjk.sourceHanSans -}}
+{{- $noto := .data.fontconfig.cjk.noto -}}
+<?xml version="1.0"?>
+<!DOCTYPE fontconfig SYSTEM "urn:fontconfig:fonts.dtd">
+<fontconfig>
+  <its:rules xmlns:its="http://www.w3.org/2005/11/its" version="1.0">
+    <its:translateRule translate="no" selector="/fontconfig/*[not(self::description)]" />
+  </its:rules>
+
+  <!--
+      https://catcat.cc/post/2021-03-07/
+  -->
+{{- range $font := $sarasa.fontList -}}
+{{- range $lang := $sarasa.langList }}
+
+  <match target="pattern">
+    <test name="lang">
+      <string>{{ $lang.name }}</string>
+    </test>
+    <test name="family">
+      <string>{{ printf $sarasa.format $font $lang.fallback }}</string>
+    </test>
+    <edit name="family" binding="strong">
+      <string>{{ printf $sarasa.format $font $lang.tag }}</string>
+    </edit>
+  </match>
+{{- end -}}
+{{- end }}
+{{- range $lang := $source.langList }}
+
+  <match target="pattern">
+    <test name="lang">
+      <string>{{ $lang.name }}</string>
+    </test>
+    <test name="family">
+      <string>{{ printf $source.format $lang.fallback }}</string>
+    </test>
+    <edit name="family" binding="strong">
+      <string>{{ printf $source.format $lang.tag }}</string>
+    </edit>
+  </match>
+{{- end }}
+{{- range $font := $noto.fontList -}}
+{{- range $lang := $noto.langList }}
+
+  <match target="pattern">
+    <test name="lang">
+      <string>{{ $lang.name }}</string>
+    </test>
+    <test name="family">
+      <string>{{ printf $noto.format $font $lang.fallback }}</string>
+    </test>
+    <edit name="family" binding="strong">
+      <string>{{ printf $noto.format $font $lang.tag }}</string>
+    </edit>
+  </match>
+{{- end -}}
+{{- end }}
+</fontconfig>
