@@ -1,5 +1,5 @@
 {{- /* -*- mode: web; -*- */ -}}
-{{- $roleData := .dotfiles.roleData.default -}}
+{{- $roleData := .data.role.basic -}}
 (defun $emacs-startup-hook ()
   (unless **theme-initialized**
     ($theme-initialize))

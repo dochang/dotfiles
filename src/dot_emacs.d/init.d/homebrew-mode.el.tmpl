@@ -1,5 +1,5 @@
 {{- /* -*- mode: web; -*- */ -}}
-{{- $roleData := .dotfiles.roleData.default -}}
+{{- $roleData := .data.role.basic -}}
 (req-package homebrew-mode
   :hook (emacs-startup . global-homebrew-mode)
   :init

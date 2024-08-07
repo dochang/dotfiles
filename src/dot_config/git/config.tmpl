@@ -1,8 +1,8 @@
 {{- /* -*- mode: web; -*- */ -}}
-{{- $roleData := .dotfiles.roleData.default -}}
-{{- $areaData := .dotfiles.areaData.default -}}
-{{- if eq .dotfiles.area "cn" -}}
-{{- $areaData = mergeOverwrite .dotfiles.areaData.cn -}}
+{{- $roleData := .data.role.basic -}}
+{{- $areaData := .data.area.unknown -}}
+{{- if eq .props.area "cn" -}}
+{{- $areaData = mergeOverwrite .data.area.cn -}}
 {{- end -}}
 [user]
 	name = {{ $roleData.gitUserName }}

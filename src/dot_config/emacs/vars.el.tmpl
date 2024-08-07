@@ -1,10 +1,10 @@
 {{- /* -*- mode: web; -*- */ -}}
-{{- $areaData := .dotfiles.areaData.default -}}
-{{- if eq .dotfiles.area "cn" -}}
-{{- $areaData = mergeOverwrite $areaData .dotfiles.areaData.cn -}}
+{{- $areaData := .data.area.unknown -}}
+{{- if eq .props.area "cn" -}}
+{{- $areaData = mergeOverwrite $areaData .data.area.cn -}}
 {{- end -}}
 {{- $emacsPackageArchives := $areaData.emacsPackageArchives -}}
-{{- $roleData := .dotfiles.roleData.default -}}
+{{- $roleData := .data.role.basic -}}
 
 (defvar **defaults** '())
 
