@@ -42,6 +42,17 @@ export LESS=-Ri
 
 export BROWSER=o-browser
 
+## For Emacs & Chinese
+# http://code.google.com/p/ibus/issues/detail?id=458
+# https://bugs.launchpad.net/ubuntu/+source/emacs-snapshot/+bug/434730
+# http://debbugs.gnu.org/cgi-bin/bugreport.cgi?bug=1646
+# http://debbugs.gnu.org/cgi-bin/bugreport.cgi?bug=10867
+# http://stackoverflow.com/questions/7513231/ibus-couldnt-receive-data-from-agent
+export LC_CTYPE=zh_CN.UTF-8
+# https://www.gnu.org/software/libc/manual/html_node/Locale-Categories.html
+# https://stackoverflow.com/a/68470226
+export LC_COLLATE=zh_CN.UTF-8
+
 export REPORTTIME=1
 ## Print timing statistics for commands whose combined user and system
 ## execution times (in seconds) > 1.
