@@ -9,4 +9,4 @@ x-y | x--yes)
 	;;
 esac
 
-[ x"$reply" = xyes ] && eval "${XLOCKER:-slock}"
+[ x"$reply" = xyes ] && i3lock -c ffffff
