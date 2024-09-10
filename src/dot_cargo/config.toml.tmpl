@@ -1,7 +1,7 @@
 {{- /* -*- mode: web; -*- */ -}}
-{{- $areaData := .dotfiles.areaData.default -}}
-{{- if eq .dotfiles.area "cn" -}}
-{{- $areaData = mergeOverwrite $areaData .dotfiles.areaData.cn -}}
+{{- $areaData := .data.area.unknown -}}
+{{- if eq .props.area "cn" -}}
+{{- $areaData = mergeOverwrite $areaData .data.area.cn -}}
 {{- end -}}
 {{- $cargoSource := $areaData.cargoSource -}}
 {{- $cargoRegistries := $areaData.cargoRegistries -}}

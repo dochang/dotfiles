@@ -1,5 +1,5 @@
 {{- /* -*- mode: web; -*- */ -}}
-{{- $roleData := .dotfiles.roleData.default -}}
+{{- $roleData := .data.role.basic -}}
 (req-package holidays
   :ensure (holidays :pin :built-in)
   :init

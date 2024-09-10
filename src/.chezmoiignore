@@ -1,5 +1,5 @@
 .emacs.d
-{{ if not (has "default" .dotfiles.roles) }}
+{{ if not (has "basic" .props.roles) }}
 .config/aria2
 .gnupg/gpg.conf
 .gnupg/gpg-agent.conf
@@ -28,7 +28,7 @@ bin/display-upstream-package-from-paf
 bin/vps-speed-test.sh
 .asdfrc
 {{ end }}
-{{ if not (and (has "default" .dotfiles.roles) (has "desktop" .dotfiles.roles)) }}
+{{ if not (and (has "basic" .props.roles) (has "desktop" .props.roles)) }}
 .config/autostart
 .config/conky
 .fvwm
@@ -67,7 +67,7 @@ bin/o-fcitx5-wslg
 bin/o-mount-drvfs
 .config/fontconfig
 {{ end }}
-{{ if not (and (has "default" .dotfiles.roles) (has "dev" .dotfiles.roles)) }}
+{{ if not (and (has "basic" .props.roles) (has "dev" .props.roles)) }}
 .ansible.cfg
 .bundle
 .cargo
@@ -100,7 +100,7 @@ bin/e
 bin/v
 .config/gup
 {{ end }}
-{{ if not (and (has "default" .dotfiles.roles) (or (has "desktop" .dotfiles.roles) (has "dev" .dotfiles.roles))) }}
+{{ if not (and (has "basic" .props.roles) (or (has "desktop" .props.roles) (has "dev" .props.roles))) }}
 .gnus.el
 .config/emacs
 {{ end }}

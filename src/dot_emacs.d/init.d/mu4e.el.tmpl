@@ -1,5 +1,5 @@
 {{- /* -*- mode: web; -*- */ -}}
-{{- $roleData := .dotfiles.roleData.default -}}
+{{- $roleData := .data.role.basic -}}
 (defun $mu4e-compose-mode-hook ()
   (save-excursion
     (let ((bcc-addr (message-field-value "From")))

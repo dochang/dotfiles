@@ -1,7 +1,9 @@
 {{- /* -*- mode: web; -*- */ -}}
+{{- $areaList := list "unknown" "cn" -}}
+{{- $area := promptChoice "Area" $areaList -}}
 {{- $netdev := promptString "Network device" -}}
-[data.dotfiles]
-area = "default"
-# roles = ["default", "desktop", "dev"]
+[data.props]
+area = {{ $area | quote }}
+# roles = ["basic", "desktop", "dev"]
 roles = []
 netdev = {{ $netdev | quote }}
