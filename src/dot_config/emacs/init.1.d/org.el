@@ -26,6 +26,10 @@
         timestamp)))))
 
 (defun $org-mode-hook ()
+  (smartparens-mode -1)
+  ;; Disable smartparens-mode.  It notably retards org buffers.  The reason is
+  ;; still unknown.
+
   ;; `visual-line-mode-map' and `smartparens-strict-mode-map' overrides
   ;; `org-mode-map'.  Rebind some org-mode commands.
   (mapc (lambda (map)
