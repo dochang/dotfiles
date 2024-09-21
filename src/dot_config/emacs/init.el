@@ -72,6 +72,7 @@ major mode isn't derived from `prog-mode'."
   (let ((local-path (expand-file-name name "~")))
     (when (file-exists-p local-path)
       (load-file local-path))))
+
 (mapc
  (lambda (local-file)
    (add-hook 'emacs-startup-hook
