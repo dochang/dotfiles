@@ -36,7 +36,6 @@
 (setq quelpa-autoremove-p t)
 ;; Force to autoremove old package versions
 ($ensure-require 'quelpa)
-(add-hook 'emacs-startup-hook 'quelpa-upgrade-all-maybe)
 
 ;; https://github.com/dimitri/el-get
 ;; https://www.emacswiki.org/emacs/el-get
