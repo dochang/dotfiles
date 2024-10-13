@@ -1,3 +1,26 @@
 #!/bin/sh
 
+BASENAME=$(basename "$0")
+
+usage() {
+	cat <<EOF
+Usage: $BASENAME <drive> <mountpoint>
+
+Example: $BASENAME D: /mnt
+
+Run "mount --help" to see more options.
+EOF
+	exit 0
+}
+
+if [ $# -eq 0 ]; then
+	usage
+fi
+
+case "$1" in
+-h | --help | -help)
+	usage
+	;;
+esac
+
 sudo mount -o "uid=$(id -u),gid=$(id -g)" -t drvfs "$@"
