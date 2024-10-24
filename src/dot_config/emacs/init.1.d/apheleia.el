@@ -7,7 +7,9 @@
     (setf (alist-get 'zigfmt apheleia-formatters)
           '("zig" "fmt" "--stdin")
           (alist-get 'taplofmt apheleia-formatters)
-          '("taplo" "fmt" "-"))
+          '("taplo" "fmt" "-")
+          (alist-get 'sql-formatter apheleia-formatters)
+          '("sql-formatter"))
 
     (setf (alist-get 'zig-mode apheleia-mode-alist)
           'zigfmt
@@ -18,7 +20,9 @@
           (alist-get 'python-ts-mode apheleia-mode-alist)
           '(black isort)
           (alist-get 'python-mode apheleia-mode-alist)
-          '(black isort))
+          '(black isort)
+          (alist-get 'sql-mode apheleia-mode-alist)
+          'sql-formatter)
 
     )
 
