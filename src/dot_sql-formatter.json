@@ -1,0 +1,6 @@
+{
+  "keywordCase": "upper",
+  "dataTypeCase": "upper",
+  "newlineBeforeSemicolon": "true",
+  "denseOperators": "false"
+}
