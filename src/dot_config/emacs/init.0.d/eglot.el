@@ -39,6 +39,7 @@ nil if `major-mode' is a json mode and `mode' is a js mode."
 
     (setq eglot-server-programs
           (append '((kotlin-ts-mode "kotlin-language-server")
+                    (sql-mode "sqls")
                     ((toml-mode toml-ts-mode)
                      . ("taplo" "lsp" "stdio")))
                   eglot-server-programs))
