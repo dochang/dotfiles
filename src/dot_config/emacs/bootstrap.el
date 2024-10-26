@@ -15,7 +15,7 @@
     (package-refresh-contents)
     (package-install 'mb-url)
     (if (file-symlink-p mb-url-dir)
-	(delete-file mb-url-dir)
+        (delete-file mb-url-dir)
       (delete-directory mb-url-dir 'recursive))))
 
 (defun $ensure-require (feature &optional package)
