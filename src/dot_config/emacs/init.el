@@ -1,6 +1,12 @@
 ;;; -*- lexical-binding: t; -*-
 
 
+(let ((user-site-lisp-dir (locate-user-emacs-file "site-lisp")))
+  (when (file-directory-p user-site-lisp-dir)
+    (let ((default-directory user-site-lisp-dir))
+      (normal-top-level-add-subdirs-to-load-path))))
+
+
 (load (locate-user-emacs-file "bootstrap"))
 
 
