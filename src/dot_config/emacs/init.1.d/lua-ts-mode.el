@@ -1,7 +1,10 @@
 (setup lua-ts-mode
 
-  (unless (package-installed-p 'lua-ts-mode)
-    (package-vc-install "https://git.sr.ht/~johnmuhl/lua-ts-mode"))
+  (quelpa '(lua-ts-mode :fetcher url
+                        :url "https://git.savannah.gnu.org/cgit/emacs.git/plain/lisp/progmodes/lua-ts-mode.el")
+          :upgrade nil)
+  ;; https://lists.sr.ht/~emacs/emacs-devel/patches/44579
+  ;; https://lists.sr.ht/~emacs/emacs-devel/%3C20230911150314.55130-1-jm@pub.pink%3E
 
   (:when-loaded
 
