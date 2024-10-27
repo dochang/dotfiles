@@ -68,9 +68,7 @@ major mode isn't derived from `prog-mode'."
 (setup (:package load-dir)
 
   (setq load-dirs
-        (mapcar
-         (lambda (d) (expand-file-name (locate-user-emacs-file d)))
-         '("init.0.d" "init.1.d")))
+        (directory-files user-emacs-directory 'full "init\\..*\\.d"))
 
   )
 
