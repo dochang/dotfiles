@@ -1,3 +1,5 @@
+(setq package-install-upgrade-built-in t)
+
 (with-eval-after-load 'mb-url-http
   (setq mb-url-http-backend 'mb-url-http-curl)
   (advice-add 'url-http :around 'mb-url-http-around-advice))
