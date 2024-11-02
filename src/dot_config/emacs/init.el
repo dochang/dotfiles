@@ -77,23 +77,26 @@ major mode isn't derived from `prog-mode'."
     (when (file-exists-p local-path)
       (load-file local-path))))
 
+;; Load all ".emacs_local_*.el", which are ordered by hook depth.
 (mapc
  (lambda (local-file)
    (add-hook 'emacs-startup-hook
              `(lambda ()
                 ($load-local-config ,(car local-file)))
              (cdr local-file)))
- (seq-reduce
-  (lambda (local-files local-name)
-    (let ((matchp (string-match "\\`\\.emacs_local_\\(.*\\)\\.el\\'" local-name)))
-      (if matchp
-          (cons (cons local-name
-                      (string-to-number (match-string 1 local-name)))
-                local-files)
-        local-files)))
-  (directory-files (expand-file-name "~"))
-  '()))
+ (let ((match "\\`\\.emacs_local_\\(.*\\)\\.el\\'"))
+   (seq-reduce
+    (lambda (local-files local-name)
+      (let ((matchp (string-match match local-name)))
+        (if matchp
+            (cons (cons local-name
+                        (string-to-number (match-string 1 local-name)))
+                  local-files)
+          local-files)))
+    (directory-files (expand-file-name "~") nil match)
+    '())))
 
+;; Load ".emacs_local.el" as default hook depth
 (add-hook 'emacs-startup-hook
           '(lambda ()
              ($load-local-config ".emacs_local.el")))
