@@ -7,6 +7,20 @@
 (require 'package)
 (declare-function package-installed-p "ext:package")
 
+;; Some packages may be installed by external package managers and they are
+;; also dependencies of other ELPA packages.  It seems that ELPA packages are
+;; unable to load "external" packages.  That means those packages have to be
+;; installed from any ELPA source.
+;;
+;; Do not consider "external" packages as installed, so that `package-install'
+;; will install them from ELPA.
+;;
+;; Built-in packages are still considered as "installed".
+(define-advice package-installed-p (:around (fn package &optional min-version &rest args) exclude-external)
+  (and (funcall fn package min-version)
+       (or (package-built-in-p package min-version)
+           (package--user-installed-p package))))
+
 (if (package-installed-p 'mb-url)
     (require 'mb-url-http)
   (let ((mb-url-dir (expand-file-name (locate-user-emacs-file "bootstrap.d/mb-url"))))

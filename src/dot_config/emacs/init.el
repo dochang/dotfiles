@@ -30,29 +30,6 @@
           (ignore-errors (package-delete pkg)))
         (apply 'append (mapcar 'cddr package-alist))))
 
-(defun $package-user-installed-p (pkg)
-  "Return non-nil if PKG is in ELPA directory.
-
-If a package is installed as external or built-in, this function
-returns nil.
-
-If `package-archives' is modified, PKG may considered as
-obsolete, this function returns non-nil."
-  (and (package-installed-p pkg)
-       (package--user-installed-p pkg)))
-
-(defun $package-install-from-elpa (pkg)
-  "Install PKG if it's not installed from any ELPA source.
-
-It's impossible to `package-install' an external package from an
-ELPA source even if `package-install-upgrade-built-in' is true,
-because Emacs considers external packages are installed but not
-built-in."
-  (package--archives-initialize)
-  (let ((desc (cadr (assq pkg package-archive-contents))))
-    (when desc
-      (package-install desc))))
-
 
 (defun $run-prog-mode-hook ()
   "Put this function into a hook of any programming related mode,
