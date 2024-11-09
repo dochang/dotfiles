@@ -2,7 +2,7 @@ keybinds {
     locked {
         unbind "Ctrl g"
         // https://github.com/zellij-org/zellij/issues/418#issuecomment-1537037950
-        bind "Alt #" {
+        bind "Alt #" "Ctrl Alt g" {
             SwitchToMode "Normal"
         }
     }
