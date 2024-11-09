@@ -35,6 +35,9 @@
               )
              treesit-auto-recipe-list))
 
+      (setq treesit-auto-langs
+            (seq-map #'treesit-auto-recipe-lang treesit-auto-recipe-list))
+
       )
 
     )
