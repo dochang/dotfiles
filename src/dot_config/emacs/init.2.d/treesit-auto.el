@@ -38,6 +38,18 @@
       (setq treesit-auto-langs
             (seq-map #'treesit-auto-recipe-lang treesit-auto-recipe-list))
 
+      ;; Reset `global-treesit-auto-modes'.  Ensure that all modes in
+      ;; `treesit-auto-recipe-list' will enable `global-treesit-auto-mode'.
+      ;;
+      ;; Why overwrite it?  Why?  When?  How?
+      (setq global-treesit-auto-modes
+            (let ((modes '()))
+              (cl-loop for recipe in (treesit-auto--selected-recipes)
+                       do (push (treesit-auto-recipe-ts-mode recipe) modes)
+                       do (dolist (mode (ensure-list (treesit-auto-recipe-remap recipe)))
+                            (push mode modes))
+                       finally return modes)))
+
       )
 
     )
