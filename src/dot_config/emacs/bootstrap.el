@@ -7,6 +7,19 @@
 (require 'package)
 (declare-function package-installed-p "ext:package")
 
+(defun $package-user-installed-p (pkg)
+  "Return non-nil if PKG is a user-installed package.
+
+Check whether the package was installed into `package-user-dir'.
+
+`package--user-installed-p' only accepts a symbol.  Use this
+function instead."
+  (let* ((pkg-desc (if (package-desc-p pkg)
+                       pkg
+                     (cadr (assq package package-alist))))
+         (dir (package-desc-dir pkg-desc)))
+    (file-in-directory-p dir package-user-dir)))
+
 ;; Some packages may be installed by external package managers and they are
 ;; also dependencies of other ELPA packages.  It seems that ELPA packages are
 ;; unable to load "external" packages.  That means those packages have to be
@@ -16,10 +29,15 @@
 ;; will install them from ELPA.
 ;;
 ;; Built-in packages are still considered as "installed".
-(define-advice package-installed-p (:around (fn package &optional min-version &rest args) exclude-external)
+(define-advice package-installed-p (:around (fn package &optional min-version) ignore-external)
   (and (funcall fn package min-version)
        (or (package-built-in-p package min-version)
-           (package--user-installed-p package))))
+           ($package-user-installed-p package))))
+
+(define-advice package-delete (:around (fn pkg-desc &optional force nosave) ignore-external)
+  (when (and (package-installed-p pkg-desc)
+             ($package-user-installed-p pkg-desc))
+    (funcall fn pkg-desc force nosave)))
 
 (if (package-installed-p 'mb-url)
     (require 'mb-url-http)
