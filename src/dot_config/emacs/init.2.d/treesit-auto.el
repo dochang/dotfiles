@@ -32,6 +32,12 @@
                :url "https://github.com/Wilfred/tree-sitter-elisp"
                :ext "\\(?:\\.rcp\\|\\.el\\|Cask\\|Project\\.ede\\|[:/\\]\\..*\\(?:emacs\\|gnus\\|viper\\)\\|\\`\\..*emacs\\|[:/]_emacs\\)\\'")
               ;; https://github.com/Wilfred/tree-sitter-elisp
+              (make-treesit-auto-recipe
+               :lang 'kdl
+               :ts-mode 'kdl-ts-mode
+               :remap 'kdl-mode
+               :url "https://github.com/tree-sitter-grammars/tree-sitter-kdl"
+               :ext "\\.kdl\\'")
               )
              treesit-auto-recipe-list))
 

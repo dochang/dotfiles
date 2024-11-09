@@ -14,5 +14,7 @@
                  '(puppet-mode puppet-indent-level puppet-include-indent))
     (add-to-list 'editorconfig-indentation-alist
                  '(kdl-mode tab-width))
+    (add-to-list 'editorconfig-indentation-alist
+                 '(kdl-ts-mode kdl-ts-mode-indent-offset))
     )
   )
