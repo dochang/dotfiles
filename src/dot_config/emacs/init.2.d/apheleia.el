@@ -43,7 +43,9 @@
           (alist-get 'kdl-mode apheleia-mode-alist)
           'kdlfmt
           (alist-get 'kdl-ts-mode apheleia-mode-alist)
-          'kdlfmt)
+          'kdlfmt
+          (alist-get 'bats-mode apheleia-mode-alist)
+          'shfmt)
 
     )
 
