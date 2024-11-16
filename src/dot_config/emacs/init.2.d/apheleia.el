@@ -11,7 +11,22 @@
           (alist-get 'sql-formatter apheleia-formatters)
           '("sql-formatter")
           (alist-get 'kdlfmt apheleia-formatters)
-          '("kdlfmt" "format" "-"))
+          '("kdlfmt" "format" "-")
+          (alist-get 'shfmt apheleia-formatters)
+          '("shfmt" "--language-dialect" "auto"
+            (when buffer-file-name
+              (list "--filename" buffer-file-name))
+            ;; Use `buffer-file-name' instead of `(quote filepath)'.  A Form
+            ;; is only allowed to return either a string or a list of strings.
+            (when apheleia-formatters-respect-indent-level
+              (list "--indent"
+                    (number-to-string
+                     (cond
+                      (indent-tabs-mode 0)
+                      ((boundp 'sh-basic-offset)
+                       sh-basic-offset)
+                      (t 0)))))
+            "-"))
 
     (setf (alist-get 'zig-mode apheleia-mode-alist)
           'zigfmt
