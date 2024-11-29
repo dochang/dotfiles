@@ -14,6 +14,8 @@ XTerm*VT100*Translations: #override \n\
   Ctrl Shift <Key>C:    copy-selection(CLIPBOARD) \n\
   <Key>BackSpace: string(0x7f) \n\
   <Key>Delete:    string(0x1b) string("[3~")
+XTerm*backarrowKeyIsErase: true
+! https://unix.stackexchange.com/a/180106
 UXTerm*metaSendsEscape: true
 UXTerm*loginShell: true
 UXTerm*scrollBar: true
@@ -29,6 +31,8 @@ UXTerm*VT100*Translations: #override \n\
   Ctrl Shift <Key>C:    copy-selection(CLIPBOARD) \n\
   <Key>BackSpace: string(0x7f) \n\
   <Key>Delete:    string(0x1b) string("[3~")
+UXTerm*backarrowKeyIsErase: true
+! https://unix.stackexchange.com/a/180106
 emacs.FontBackend: xft
 ! **WARNING** If you use urxvtd, remember to restart it.
 Rxvt.font: xft:DejaVu Sans Mono:size=14,xft:Noto Sans Mono,xft:WenQuanYi Micro Hei Mono
