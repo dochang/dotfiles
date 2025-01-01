@@ -26,7 +26,9 @@
                       ((boundp 'sh-basic-offset)
                        sh-basic-offset)
                       (t 0)))))
-            "-"))
+            "-")
+          (alist-get 'google-java-format apheleia-formatters)
+          '("google-java-format" "--aosp" "-"))
 
     (setf (alist-get 'zig-mode apheleia-mode-alist)
           'zigfmt
