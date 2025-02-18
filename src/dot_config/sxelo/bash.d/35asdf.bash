@@ -1,6 +1,3 @@
-# https://asdf-vm.com/guide/getting-started.html#_3-install-asdf
+# https://asdf-vm.com/guide/getting-started.html
 
-if [ -r "${ASDF_DIR}/completions/asdf.bash" ]; then
-	# shellcheck source=/dev/null
-	. "${ASDF_DIR}/completions/asdf.bash"
-fi
+. <(asdf completion bash)

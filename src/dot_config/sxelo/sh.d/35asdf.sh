@@ -1,4 +1,3 @@
-if [ -f "${ASDF_DIR}/asdf.sh" ]; then
-	# shellcheck source=/dev/null
-	. "${ASDF_DIR}/asdf.sh"
-fi
+# https://asdf-vm.com/guide/getting-started.html
+
+PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"

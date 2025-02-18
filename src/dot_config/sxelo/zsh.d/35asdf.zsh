@@ -1,4 +1,4 @@
-# https://asdf-vm.com/guide/getting-started.html#_3-install-asdf
+# https://asdf-vm.com/guide/getting-started.html
 
 # append completions to fpath
-fpath=(${ASDF_DIR}/completions $fpath)
+fpath=(${ASDF_DATA_DIR:-$HOME/.asdf}/completions $fpath)
