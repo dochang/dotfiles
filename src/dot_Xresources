@@ -12,8 +12,10 @@ XTerm*VT100*Translations: #override \n\
   Ctrl <Key> -:       smaller-vt-font() \n\
   Ctrl Shift <Key>V:    insert-selection(CLIPBOARD) \n\
   Ctrl Shift <Key>C:    copy-selection(CLIPBOARD) \n\
+  ! Meta <Key>Backspace: string(0x1b) string(0x8) \n\
   <Key>BackSpace: string(0x7f) \n\
   <Key>Delete:    string(0x1b) string("[3~")
+! https://stackoverflow.com/q/77206200
 XTerm*backarrowKeyIsErase: true
 ! https://unix.stackexchange.com/a/180106
 XTerm*allowWindowOps: true
@@ -31,8 +33,10 @@ UXTerm*VT100*Translations: #override \n\
   Ctrl <Key> -:       smaller-vt-font() \n\
   Ctrl Shift <Key>V:    insert-selection(CLIPBOARD) \n\
   Ctrl Shift <Key>C:    copy-selection(CLIPBOARD) \n\
+  ! Meta <Key>Backspace: string(0x1b) string(0x8) \n\
   <Key>BackSpace: string(0x7f) \n\
   <Key>Delete:    string(0x1b) string("[3~")
+! https://stackoverflow.com/q/77206200
 UXTerm*backarrowKeyIsErase: true
 ! https://unix.stackexchange.com/a/180106
 UXTerm*allowWindowOps: true
