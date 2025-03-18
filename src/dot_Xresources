@@ -3,7 +3,7 @@ XTerm*metaSendsEscape: true
 XTerm*loginShell: true
 XTerm*scrollBar: true
 XTerm*font: xft:DejaVu Sans Mono:size=14,xft:Noto Sans Mono,xft:WenQuanYi Micro Hei Mono
-XTerm*selectToClipboard: CLIPBOARD
+XTerm*selectToClipboard: true
 XTerm*ttyModes: erase ^?
 ! https://www.hypexr.org/linux_ruboff.php#bsolution
 ! https://zellij.dev/documentation/compatibility.html#backspace-sending-ctrl-h-entering-into-move-mode
@@ -24,7 +24,7 @@ UXTerm*metaSendsEscape: true
 UXTerm*loginShell: true
 UXTerm*scrollBar: true
 UXTerm*font: xft:DejaVu Sans Mono:size=14,xft:Noto Sans Mono,xft:WenQuanYi Micro Hei Mono
-UXTerm*selectToClipboard: CLIPBOARD
+UXTerm*selectToClipboard: true
 UXTerm*ttyModes: erase ^?
 ! https://www.hypexr.org/linux_ruboff.php#bsolution
 ! https://zellij.dev/documentation/compatibility.html#backspace-sending-ctrl-h-entering-into-move-mode
