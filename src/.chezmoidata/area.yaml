@@ -4,22 +4,23 @@ data:
       guixDefaultChannelURL: "https://git.savannah.gnu.org/git/guix.git"
       nixNixpkgsChannelURL: "https://nixos.org/channels/nixpkgs-unstable"
       nodejsOrgMirror: "https://nodejs.org/dist"
-      # https://github.com/nodejs/node-gyp/blob/v7.0.0/lib/process-release.js#L65-L67
+      # https://github.com/nodejs/node-gyp/blob/v11.1.0/lib/process-release.js#L75
       nodeBuildMirrorURL: "https://nodejs.org/dist"
       # https://github.com/nodejs/node-gyp/blob/v7.0.0/lib/process-release.js#L76
       sassBinarySite: "https://github.com/sass/node-sass/releases/download"
-      # https://github.com/sass/node-sass/blob/v4.14.1/lib/extensions.js#L247
+      # https://github.com/sass/node-sass/blob/v9.0.0/lib/extensions.js#L248-L252
       electronMirror: "https://github.com/electron/electron/releases/download/"
       electronCustomDir: "v{{ version }}"
       # https://www.electronjs.org/docs/latest/tutorial/installation#mirror
-      # https://github.com/electron/get/blob/a0d0ea97850950a8a5a21a510cd4d9514af66a64/src/artifact-utils.ts#L47
-      # https://github.com/electron/get/blob/a0d0ea97850950a8a5a21a510cd4d9514af66a64/src/artifact-utils.ts#L4
-      puppeteerDownloadHost: "https://storage.googleapis.com"
-      puppeteerDownloadBaseURL: "https://edgedl.me.gvt1.com/edgedl/chrome/chrome-for-testing"
-      # https://github.com/puppeteer/puppeteer/blob/main/docs/api.md#environment-variables
-      # https://github.com/puppeteer/puppeteer/commit/9758cae029f90908c4b5340561d9c51c26aa2f21
-      # https://github.com/puppeteer/puppeteer/pull/10130
-      # https://github.com/puppeteer/puppeteer/commit/945a826a0b53bb7325fdb86c998f812b16032c37
+      # https://github.com/electron/get/blob/v4.0.0/src/artifact-utils.ts#L4
+      puppeteerFirefoxDownloadBaseURL: "https://archive.mozilla.org/pub/firefox/releases"
+      puppeteerChromeDownloadBaseURL: "https://storage.googleapis.com/chrome-for-testing-public"
+      puppeteerChromeHeadlessShellDownloadBaseURL: "https://storage.googleapis.com/chrome-for-testing-public"
+      # https://github.com/puppeteer/puppeteer/pull/12795
+      # https://github.com/puppeteer/puppeteer/commit/4d4b358dca34ab23df075efd08a62947e6feb98c
+      # https://pptr.dev/api/puppeteer.firefoxsettings/#downloadbaseurl
+      # https://pptr.dev/api/puppeteer.chromesettings/#downloadbaseurl
+      # https://pptr.dev/api/puppeteer.chromeheadlessshellsettings/#downloadbaseurl
       homebrewAPIDomain: "https://formulae.brew.sh/api"
       homebrewBottleDomain: "https://ghcr.io/v2/homebrew/core"
       homebrewBrewGitRemote: "https://github.com/Homebrew/brew"
@@ -61,8 +62,6 @@ data:
       # https://docs.gradle.org/current/dsl/org.gradle.api.artifacts.dsl.RepositoryHandler.html#org.gradle.api.artifacts.dsl.RepositoryHandler:mavenLocal(org.gradle.api.Action)
       mavenMirrors: []
       npmRegistry: "https://registry.npmjs.org/"
-      npmDisturl: "https://nodejs.org/dist"
-      # https://github.com/nodejs/node-gyp/blob/v7.0.0/lib/process-release.js#L22
       pbuilderMirrorsite: "http://deb.debian.org/debian"
       pipIndexURL: "https://pypi.org/simple"
       yarnRegistry: "https://registry.yarnpkg.com"
@@ -113,8 +112,9 @@ data:
       # https://www.electronjs.org/docs/latest/tutorial/installation#mirror
       # https://npmmirror.com/
       # https://npmmirror.com/mirrors/
-      puppeteerDownloadHost: "https://cdn.npmmirror.com/binaries/chrome-for-testing"
-      puppeteerDownloadBaseURL: "https://cdn.npmmirror.com/binaries/chrome-for-testing"
+      puppeteerFirefoxDownloadBaseURL: "https://archive.mozilla.org/pub/firefox/releases"
+      puppeteerChromeDownloadBaseURL: "https://cdn.npmmirror.com/binaries/chrome-for-testing"
+      puppeteerChromeHeadlessShellDownloadBaseURL: "https://cdn.npmmirror.com/binaries/chrome-for-testing"
       # https://github.com/cnpm/binary-mirror-config/commit/dec350b8595191ec1fb573bc697cb357f1eba951
       # https://github.com/cnpm/binary-mirror-config/pull/47/files
       homebrewAPIDomain: "https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles/api"
@@ -185,7 +185,6 @@ data:
       # https://help.aliyun.com/document_detail/102512.html
       # http://mirrors.163.com/.help/maven.html
       npmRegistry: "https://registry.npmmirror.com"
-      npmDisturl: "https://npmmirror.com/mirrors/node"
       pbuilderMirrorsite: "https://mirrors.ustc.edu.cn/debian"
       pipIndexURL: "https://pypi.tuna.tsinghua.edu.cn/simple"
       yarnRegistry: "https://registry.npmmirror.com"
