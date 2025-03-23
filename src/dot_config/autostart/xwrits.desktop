@@ -5,4 +5,4 @@
 [Desktop Entry]
 Type=Application
 Name=Xwrits
-Exec=o daemon xwrits --background --make-pidfile --oknodo --start -- +multiscreen +breakclock +cheat +clock +idle +mouse +top
+Exec=o daemon xwrits --background --make-pidfile --oknodo --start -- +multiscreen +breakclock +cheat +clock +idle +mouse +top +quota +minbreaktime=0
