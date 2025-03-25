@@ -32,7 +32,7 @@
       (dolist (script '(han kana hangul cjk-misc bopomofo gb18030))
         (set-fontset-font nil script "Sarasa Fixed SC" frame))
       (dolist (script '(hangul nil))
-        (set-fontset-font nil script "HanaMinB" frame 'append))
+        (set-fontset-font nil script "Jigmo2" frame 'append))
       (dolist (script '(symbol phonetic))
         (set-fontset-font nil script "Sarasa Fixed SC" frame 'append)))))
 

@@ -11,7 +11,7 @@ config.font = wezterm.font_with_fallback({
     family = "Noto Sans Mono CJK SC",
   },
   {
-    family = "HanaMinB",
+    family = "Jigmo2",
   },
   {
     family = "Noto Sans Mono",
