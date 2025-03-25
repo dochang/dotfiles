@@ -17,9 +17,8 @@
 ;; this variable at the beginning.
 
 
-;;; System Environment
-;; Git cannot detect if it's run in Emacs.
-(setenv "GIT_PAGER" "")
+;;; System Environment Variables
+;; Put any `setenv' here.
 
 
 (defvar package-alist)
