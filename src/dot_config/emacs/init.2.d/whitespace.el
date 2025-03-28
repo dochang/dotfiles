@@ -8,7 +8,7 @@
 
   (:when-loaded
 
-    (:option whitespace-style '(face trailing tabs lines-tail newline))
+    (setopt whitespace-style '(face trailing tabs lines-tail newline))
     ;; `tab-mark` hurts my eyes.  Do not include it.
 
     )

@@ -8,8 +8,8 @@
 
     (:when-loaded
 
-      (:option elisp-autofmt-style 'native)
-      (:option elisp-autofmt-format-quoted t)
+      (setopt elisp-autofmt-style 'native)
+      (setopt elisp-autofmt-format-quoted t)
 
       )
 

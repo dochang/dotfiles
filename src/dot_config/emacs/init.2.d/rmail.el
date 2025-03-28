@@ -1,7 +1,11 @@
 (setup (:package rmail)
 
-  (setq rmail-preserve-inbox t)
+  (:when-loaded
 
-  (setq rmail-mbox-format 'mboxrd)
+    (setopt rmail-preserve-inbox t)
+
+    (setopt rmail-mbox-format 'mboxrd)
+
+    )
 
   )

@@ -4,9 +4,9 @@
     (:hook display-line-numbers-mode))
 
   (:when-loaded
-    (:option display-line-numbers-type t)
-    (:option display-line-numbers-grow-only nil)
-    (:option display-line-numbers-current-absolute nil)
-    (:option display-line-numbers-widen nil))
+    (setopt display-line-numbers-type t)
+    (setopt display-line-numbers-grow-only nil)
+    (setopt display-line-numbers-current-absolute nil)
+    (setopt display-line-numbers-widen nil))
 
   )

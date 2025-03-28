@@ -16,7 +16,7 @@
 
   (:when-loaded
 
-    (:option lua-ts-indent-offset 2)
+    (setopt lua-ts-indent-offset 2)
     ;; http://lua-users.org/wiki/LuaStyleGuide
     ;; https://github.com/zaki/lua-style-guide
     ;; https://github.com/Olivine-Labs/lua-style-guide/

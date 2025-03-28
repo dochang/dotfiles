@@ -53,11 +53,19 @@
 
 (setup (:package rand-theme)
   (add-hook 'emacs-startup-hook '$set-theme)
-  (setq rand-theme-unwanted '(nil))
   (add-hook 'after-make-frame-functions
             (lambda (frame)
               (unless ($dark-theme-p)
                 ($set-theme))
               ($disable-bg-color-in-terminal frame)))
   ;; For the case that Emacs starts in terminal or daemon mode.
+
+  (:when-loaded
+
+    (setopt rand-theme-unwanted '(nil))
+    ;; Either `rand-theme-unwanted' or `rand-theme-wanted' needs to be set to
+    ;; non-nil.
+
+    )
+
   )

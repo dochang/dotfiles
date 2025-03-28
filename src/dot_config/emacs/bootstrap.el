@@ -1,7 +1,8 @@
-(setq package-install-upgrade-built-in t)
+(with-eval-after-load 'package
+  (setopt package-install-upgrade-built-in t))
 
 (with-eval-after-load 'mb-url-http
-  (setq mb-url-http-backend 'mb-url-http-curl)
+  (setopt mb-url-http-backend 'mb-url-http-curl)
   (advice-add 'url-http :around 'mb-url-http-around-advice))
 
 (require 'package)
@@ -61,14 +62,16 @@ function instead."
     (require feature)))
 
 ;; https://github.com/quelpa/quelpa
-(setq quelpa-update-melpa-p nil)
-(setq quelpa-checkout-melpa-p nil)
-(setq quelpa-upgrade-p nil)
-(setq quelpa-self-upgrade-p t)
-(setq quelpa-upgrade-interval 7)
-;; Default value is nil, which means no upgrade.
-(setq quelpa-autoremove-p t)
-;; Force to autoremove old package versions
+(with-eval-after-load 'quelpa
+  (setopt quelpa-update-melpa-p nil)
+  (setopt quelpa-checkout-melpa-p nil)
+  (setopt quelpa-upgrade-p nil)
+  (setopt quelpa-self-upgrade-p t)
+  (setopt quelpa-upgrade-interval 7)
+  ;; Default value is nil, which means no upgrade.
+  (setopt quelpa-autoremove-p t)
+  ;; Force to autoremove old package versions
+  )
 ($ensure-require 'quelpa)
 
 ;; https://github.com/dimitri/el-get

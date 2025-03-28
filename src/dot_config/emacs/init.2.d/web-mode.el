@@ -13,7 +13,7 @@
 
   (:when-loaded
 
-    (:option web-mode-enable-engine-detection t)
+    (setopt web-mode-enable-engine-detection t)
 
     (setq web-mode-engine-file-regexps
           (append '(("ctemplate" . "\\.sqrl\\'")

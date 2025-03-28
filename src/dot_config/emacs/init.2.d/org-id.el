@@ -5,8 +5,8 @@
 (setup org-id
   (:package org)
   (:when-loaded
-    (:option org-id-link-to-org-use-id 'create-if-interactive-and-no-custom-id)
-    (:option org-id-track-globally t)
+    (setopt org-id-link-to-org-use-id 'create-if-interactive-and-no-custom-id)
+    (setopt org-id-track-globally t)
     ;; Required by org-brain.
     )
   )

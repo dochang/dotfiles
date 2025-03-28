@@ -4,7 +4,7 @@
     (:hook org-sticky-header-mode))
 
   (:when-loaded
-    (:option org-sticky-header-full-path 'full)
+    (setopt org-sticky-header-full-path 'full)
     )
 
   )

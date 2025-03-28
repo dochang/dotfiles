@@ -7,9 +7,9 @@
 
     (emms-minimalistic)
 
-    (:require emms-playlist-mode)
+    (require 'emms-playlist-mode)
 
-    (:option emms-player-list '(emms-player-mpv))
+    (setopt emms-player-list '(emms-player-mpv))
 
     )
 

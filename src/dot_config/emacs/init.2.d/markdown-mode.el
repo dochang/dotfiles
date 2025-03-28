@@ -5,7 +5,7 @@
 
   (:when-loaded
 
-    (:option markdown-unordered-list-item-prefix "  - ")
+    (setopt markdown-unordered-list-item-prefix "  - ")
 
     )
 

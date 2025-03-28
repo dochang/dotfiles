@@ -1,5 +1,9 @@
 (setup (:package sly)
 
-  (setq sly-replace-slime t)
+  (:when-loaded
+
+    (setopt sly-replace-slime t)
+
+    )
 
   )

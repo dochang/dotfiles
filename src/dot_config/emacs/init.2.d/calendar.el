@@ -51,9 +51,9 @@ to use when highlighting the day in the calendar."
 
   (:when-loaded
 
-    (:option calendar-chinese-all-holidays-flag t)
-    (:option calendar-mark-holidays-flag t)
-    (:option calendar-week-start-day 1)
+    (setopt calendar-chinese-all-holidays-flag t)
+    (setopt calendar-mark-holidays-flag t)
+    (setopt calendar-week-start-day 1)
 
     )
 

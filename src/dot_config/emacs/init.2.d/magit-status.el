@@ -3,7 +3,7 @@
 
   (:when-loaded
 
-    (:option magit-status-show-hashes-in-headers t)
+    (setopt magit-status-show-hashes-in-headers t)
 
     )
 

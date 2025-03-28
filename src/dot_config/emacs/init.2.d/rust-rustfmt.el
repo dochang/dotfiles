@@ -3,7 +3,7 @@
 
   (:when-loaded
 
-    (:option rust-format-on-save t)
+    (setopt rust-format-on-save t)
 
     )
 

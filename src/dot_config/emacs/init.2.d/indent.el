@@ -1,6 +1,6 @@
 (setup emacs
 
-  (setq tab-always-indent 'complete)
+  (setopt tab-always-indent 'complete)
 
   (keymap-set indent-rigidly-map "<backtab>" 'indent-rigidly-left)
   (keymap-set indent-rigidly-map "<" 'indent-rigidly-left)

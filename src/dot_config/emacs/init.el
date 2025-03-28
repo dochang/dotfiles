@@ -12,7 +12,8 @@
 
 ;;; Specify custom file, but not load it.
 ;;; [[info:emacs#Saving%20Customizations]]
-(setq custom-file (locate-user-emacs-file ".emacs-custom.el"))
+(with-eval-after-load 'cus-edit
+  (setopt custom-file (locate-user-emacs-file ".emacs-custom.el")))
 ;; As init file may use write customization to `custom-file', we have to set
 ;; this variable at the beginning.
 
@@ -65,11 +66,9 @@ major mode isn't derived from `prog-mode'."
 
 
 (setup (:package load-dir)
-
-  (setq load-dirs
-        (directory-files user-emacs-directory 'full "init\\..*\\.d"))
-
-  )
+  (:when-loaded
+    (setopt load-dirs
+            (directory-files user-emacs-directory 'full "init\\..*\\.d"))))
 
 (defun $load-local-config (name)
   (let ((local-path (expand-file-name name "~")))

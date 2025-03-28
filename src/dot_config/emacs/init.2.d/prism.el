@@ -25,9 +25,9 @@
 
   (:when-loaded
 
-    (:option prism-comments t)
+    (setopt prism-comments t)
 
-    (:option prism-parens t)
+    (setopt prism-parens t)
 
     )
 

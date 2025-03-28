@@ -4,48 +4,54 @@
 
   (:when-loaded
 
-    (setf (alist-get 'taplofmt apheleia-formatters)
-          '("taplo" "fmt" "-")
-          (alist-get 'sql-formatter apheleia-formatters)
-          '("sql-formatter")
-          (alist-get 'kdlfmt apheleia-formatters)
-          '("kdlfmt" "format" "-")
-          (alist-get 'shfmt apheleia-formatters)
-          '("shfmt" "--language-dialect" "auto"
-            (when buffer-file-name
-              (list "--filename" buffer-file-name))
-            ;; Use `buffer-file-name' instead of `(quote filepath)'.  A Form
-            ;; is only allowed to return either a string or a list of strings.
-            (when apheleia-formatters-respect-indent-level
-              (list "--indent"
-                    (number-to-string
-                     (cond
-                      (indent-tabs-mode 0)
-                      ((boundp 'sh-basic-offset)
-                       sh-basic-offset)
-                      (t 0)))))
-            "-")
-          (alist-get 'google-java-format apheleia-formatters)
-          '("google-java-format" "--aosp" "-"))
+    (setopt apheleia-formatters
+            (seq-reduce
+             (lambda (formatters formatter)
+               (setq formatters
+                     (cons formatter
+                           (seq-remove (lambda (x) (eq (car x) (car formatter)))
+                                       formatters))))
+             '(
+               (taplofmt "taplo" "fmt" "-")
+               (sql-formatter "sql-formatter")
+               (kdlfmt "kdlfmt" "format" "-")
+               (shfmt "shfmt" "--language-dialect" "auto"
+                      (when buffer-file-name
+                        (list "--filename" buffer-file-name))
+                      ;; Use `buffer-file-name' instead of `(quote filepath)'.  A Form
+                      ;; is only allowed to return either a string or a list of strings.
+                      (when apheleia-formatters-respect-indent-level
+                        (list "--indent"
+                              (number-to-string
+                               (cond
+                                (indent-tabs-mode 0)
+                                ((boundp 'sh-basic-offset)
+                                 sh-basic-offset)
+                                (t 0)))))
+                      "-")
+               (google-java-format "google-java-format" "--aosp" "-")
+               )
+             apheleia-formatters))
 
-    (setf (alist-get 'toml-ts-mode apheleia-mode-alist)
-          'taplofmt
-          (alist-get 'toml-mode apheleia-mode-alist)
-          'taplofmt
-          (alist-get 'python-ts-mode apheleia-mode-alist)
-          '(black isort)
-          (alist-get 'python-mode apheleia-mode-alist)
-          '(black isort)
-          (alist-get 'sql-mode apheleia-mode-alist)
-          'sql-formatter
-          (alist-get 'kdl-mode apheleia-mode-alist)
-          'kdlfmt
-          (alist-get 'kdl-ts-mode apheleia-mode-alist)
-          'kdlfmt
-          (alist-get 'sh-mode apheleia-mode-alist)
-          'shfmt
-          (alist-get 'bats-mode apheleia-mode-alist)
-          'shfmt)
+    (setopt apheleia-mode-alist
+            (seq-reduce
+             (lambda (alist elem)
+               (setq alist
+                     (cons elem
+                           (seq-remove (lambda (x) (eq (car x) (car elem)))
+                                       alist))))
+             '(
+               (toml-ts-mode . taplofmt)
+               (toml-mode . taplofmt)
+               (python-ts-mode black isort)
+               (python-mode black isort)
+               (sql-mode . sql-formatter)
+               (kdl-mode . kdlfmt)
+               (kdl-ts-mode . kdlfmt)
+               (sh-mode . shfmt)
+               (bats-mode . shfmt)
+               )
+             apheleia-mode-alist))
 
     )
 

@@ -4,6 +4,6 @@
     (:hook repeat-help-mode))
 
   (:when-loaded
-    (:option repeat-help-auto t))
+    (setopt repeat-help-auto t))
 
   )

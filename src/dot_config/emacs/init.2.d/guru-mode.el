@@ -2,6 +2,10 @@
 
   (add-hook 'emacs-startup-hook 'guru-global-mode)
 
-  (setq guru-warn-only nil)
+  (:when-loaded
+
+    (setopt guru-warn-only nil)
+
+    )
 
   )

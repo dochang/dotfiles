@@ -2,7 +2,7 @@
 
   (:when-loaded
 
-    (:option mouse-yank-at-point t)
+    (setopt mouse-yank-at-point t)
 
     )
 

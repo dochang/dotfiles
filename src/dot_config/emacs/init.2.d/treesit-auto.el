@@ -19,7 +19,7 @@
 
     (:when-loaded
 
-      (:option treesit-auto-install t)
+      (setopt treesit-auto-install t)
       ;; Install tree-sitter grammars noninteractively.
 
       (setq treesit-auto-recipe-list
@@ -41,8 +41,8 @@
               )
              treesit-auto-recipe-list))
 
-      (setq treesit-auto-langs
-            (seq-map #'treesit-auto-recipe-lang treesit-auto-recipe-list))
+      (setopt treesit-auto-langs
+              (seq-map #'treesit-auto-recipe-lang treesit-auto-recipe-list))
 
       ;; Reset `global-treesit-auto-modes'.  Ensure that all modes in
       ;; `treesit-auto-recipe-list' will enable `global-treesit-auto-mode'.

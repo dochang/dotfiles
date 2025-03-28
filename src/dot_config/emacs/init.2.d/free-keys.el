@@ -1,8 +1,12 @@
 (setup (:package free-keys)
 
-  (setq free-keys-modifiers
-        '(""
-          "C" "M"
-          "C-M"))
+  (:when-loaded
+
+    (setopt free-keys-modifiers
+            '(""
+              "C" "M"
+              "C-M"))
+
+    )
 
   )

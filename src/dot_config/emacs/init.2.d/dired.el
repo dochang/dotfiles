@@ -10,17 +10,17 @@
     (:with-mode (dired-mode)
       (:hook dired-hide-details-mode))
 
-    (:option dired-listing-switches "-lhA")
+    (setopt dired-listing-switches "-lhA")
 
-    (:option dired-dwim-target t)
+    (setopt dired-dwim-target t)
 
-    (:option dired-guess-shell-alist-user
-             (mapcar (lambda (elem) (list elem "xdg-open"))
-                     '("\\.\\(mpe?g\\|avi\\|mkv\\)$"
-                       "\\.\\(flv\\|rmvb\\|wmv\\|mp4\\|3gp\\)$"
-                       "\\.\\(ogg\\|mp3\\)$"
-                       "\\.\\(xbm\\|p[bgpn]m\\)$"
-                       "\\.\\(jpe?g\\|gif\\|tif\\|png\\)$")))
+    (setopt dired-guess-shell-alist-user
+            (mapcar (lambda (elem) (list elem "xdg-open"))
+                    '("\\.\\(mpe?g\\|avi\\|mkv\\)$"
+                      "\\.\\(flv\\|rmvb\\|wmv\\|mp4\\|3gp\\)$"
+                      "\\.\\(ogg\\|mp3\\)$"
+                      "\\.\\(xbm\\|p[bgpn]m\\)$"
+                      "\\.\\(jpe?g\\|gif\\|tif\\|png\\)$")))
 
     )
 

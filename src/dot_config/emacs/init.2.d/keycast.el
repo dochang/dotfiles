@@ -4,9 +4,9 @@
 
   (:when-loaded
 
-    (:option keycast-mode-line-remove-tail-elements nil)
+    (setopt keycast-mode-line-remove-tail-elements nil)
 
-    (:option keycast-header-line-remove-tail-elements nil)
+    (setopt keycast-header-line-remove-tail-elements nil)
 
     )
 

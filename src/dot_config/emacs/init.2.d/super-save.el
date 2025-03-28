@@ -2,8 +2,12 @@
 
   (add-hook 'emacs-startup-hook 'super-save-mode)
 
-  (setq super-save-auto-save-when-idle t)
+  (:when-loaded
 
-  (setq auto-save-default nil)
+    (setopt super-save-auto-save-when-idle t)
+
+    (setopt auto-save-default nil)
+
+    )
 
   )

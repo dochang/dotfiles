@@ -5,7 +5,7 @@
 
   (:when-loaded
 
-    (:option zig-format-on-save t)
+    (setopt zig-format-on-save t)
 
     )
 

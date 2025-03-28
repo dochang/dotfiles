@@ -4,9 +4,9 @@
 
   (:when-loaded
 
-    (:option mouse-wheel-follow-mouse t)
+    (setopt mouse-wheel-follow-mouse t)
 
-    (:option mouse-wheel-progressive-speed t)
+    (setopt mouse-wheel-progressive-speed t)
 
     )
 

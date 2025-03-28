@@ -5,7 +5,7 @@
 
   (:when-loaded
 
-    (:option highlight-indent-guides-suppress-auto-error t)
+    (setopt highlight-indent-guides-suppress-auto-error t)
     ;; https://github.com/DarthFennec/highlight-indent-guides/issues/83#issuecomment-635621246
 
     )

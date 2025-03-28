@@ -1,13 +1,13 @@
 (setup emacs
 
-  (setq user-full-name (or (getenv "NAME") (alist-get 'user-full-name **globals** "")))
-  (setq user-mail-address (or (getenv "EMAIL") (alist-get 'user-mail-address **globals** "")))
+  (setopt user-full-name (or (getenv "NAME") (alist-get 'user-full-name **globals** "")))
+  (setopt user-mail-address (or (getenv "EMAIL") (alist-get 'user-mail-address **globals** "")))
 
   ;; Disable auto save recovery record.
   ;; [[info:emacs#Recover]]
-  (setq auto-save-list-file-prefix nil)
-  (setq kill-buffer-delete-auto-save-files t)
-  (setq delete-auto-save-files t)
+  (setopt auto-save-list-file-prefix nil)
+  (setopt kill-buffer-delete-auto-save-files t)
+  (setopt delete-auto-save-files t)
 
   ;; Set fill column to 78
   ;;
@@ -20,7 +20,7 @@
   ;; at [1].
   ;;
   ;; [1]: https://choosealicense.com/licenses/mit/
-  (setq-default fill-column 78)
+  (setopt fill-column 78)
 
   ;; Disable `indent-tabs-mode'.
   ;;
@@ -32,17 +32,20 @@
   ;;
   ;; NOTE: Setting `indent-tabs-mode' to `t' does NOT mean "pressing `TAB'
   ;; inserts a `\t'".
-  (setq-default indent-tabs-mode nil)
+  ;;
+  ;; NOTE: The variable `indent-tabs-mode' is not defined in `simple.el', it's
+  ;; defined in C source code `indent.c'.
+  (setopt indent-tabs-mode nil)
   ;; Keep point at the same screen position after scrolling.
   ;; [[info:emacs#Scrolling]]
-  (setq-default scroll-preserve-screen-position t)
+  (setopt scroll-preserve-screen-position t)
 
   ;; [[info:emacs#Auto%20Scrolling][info:emacs#Auto Scrolling]]
   ;; [[https://www.emacswiki.org/emacs/SmoothScrolling]]
   ;; [[https://stackoverflow.com/q/3631220]]
   ;; [[https://www.emacswiki.org/emacs/Scrolling]]
-  (setq scroll-margin 4)
-  (setq scroll-conservatively scroll-margin)
+  (setopt scroll-margin 4)
+  (setopt scroll-conservatively scroll-margin)
   ;; Why not set it to a big number like 9999?  Because it will cause
   ;; `search-forward' doesn't recenter the point if it moves off screen.  I
   ;; found this problem when I tried to revert a dired buffer.
@@ -58,17 +61,17 @@
   ;; -> `search-forward'
 
   ;; UI Configuration
-  (setq-default cursor-type 'bar)
-  (setq-default cursor-in-non-selected-windows nil)
-  (setq-default indicate-buffer-boundaries 'left)
-  (setq-default indicate-empty-lines t)
-  (setq-default show-trailing-whitespace nil)
+  (setopt cursor-type 'bar)
+  (setopt cursor-in-non-selected-windows nil)
+  (setopt indicate-buffer-boundaries 'left)
+  (setopt indicate-empty-lines t)
+  (setopt show-trailing-whitespace nil)
   ;; Don't highlight trailing whitespace for modes other than `prog-mode'.
 
-  (setq visible-bell t)
-  (setq inhibit-startup-screen nil)
+  (setopt visible-bell t)
+  (setopt inhibit-startup-screen nil)
 
-  (setq use-default-font-for-symbols nil)
+  (setopt use-default-font-for-symbols nil)
   ;; Honor the fontsets.
 
   )
