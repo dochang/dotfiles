@@ -1,6 +1,7 @@
 ;;; Packages
-(setf (alist-get 'package-archives **defaults**)
-      (bound-and-true-p package-archives))
+(unless (alist-get 'package-archives **defaults**)
+  (setf (alist-get 'package-archives **defaults**)
+        (bound-and-true-p package-archives)))
 
 (setq package-archives
       (alist-get 'package-archives **globals**

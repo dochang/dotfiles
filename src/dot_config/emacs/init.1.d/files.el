@@ -17,8 +17,9 @@
   (setq version-control nil)
 
   ;; Customizing `safe-local-variable-values`.
-  (setf (alist-get 'safe-local-variable-values **defaults**)
-        (copy-alist safe-local-variable-values))
+  (unless (alist-get 'safe-local-variable-values **defaults**)
+    (setf (alist-get 'safe-local-variable-values **defaults**)
+          (copy-alist safe-local-variable-values)))
   (setq safe-local-variable-values
         (cons (cons 'buffer-auto-save-file-name nil)
               (copy-alist safe-local-variable-values)))
