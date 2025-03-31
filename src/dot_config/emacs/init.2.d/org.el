@@ -93,7 +93,7 @@
 
 (defvar **org-timer**)
 
-(setup org
+(setup (:package org)
 
   (:file-match "/\\.notes\\'")
   ;; Edit `org-default-notes-file' in org-mode.

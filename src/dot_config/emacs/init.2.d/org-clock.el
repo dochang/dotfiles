@@ -1,4 +1,5 @@
 (setup org-clock
+  (:package org)
 
   (:when-loaded
 

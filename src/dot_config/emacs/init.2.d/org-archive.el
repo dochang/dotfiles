@@ -1,4 +1,5 @@
 (setup org-archive
+  (:package org)
 
   (add-hook 'org-archive-hook 'org-save-all-org-buffers)
 

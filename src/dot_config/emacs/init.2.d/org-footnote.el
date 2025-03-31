@@ -1,4 +1,5 @@
 (setup org-footnote
+  (:package org)
 
   (:when-loaded
 

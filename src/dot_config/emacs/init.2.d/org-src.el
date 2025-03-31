@@ -1,4 +1,5 @@
 (setup org-src
+  (:package org)
 
   (:when-loaded
 

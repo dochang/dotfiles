@@ -3,6 +3,7 @@
 ;; https://stackoverflow.com/a/16247032
 
 (setup org-id
+  (:package org)
   (:when-loaded
     (:option org-id-link-to-org-use-id 'create-if-interactive-and-no-custom-id)
     (:option org-id-track-globally t)

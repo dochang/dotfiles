@@ -5,6 +5,7 @@
   (completing-read "capture to: " (org-files-list)))
 
 (setup org-capture
+  (:package org)
 
   (:global "C-c c" org-capture)
   ;; For user convenience.

@@ -7,6 +7,7 @@
   (toggle-truncate-lines 1))
 
 (setup org-agenda
+  (:package org)
 
   (:global "C-c a" org-agenda)
   ;; For user convenience.
