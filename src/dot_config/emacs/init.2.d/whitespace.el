@@ -1,7 +1,7 @@
 ;; https://www.emacswiki.org/emacs/WhiteSpace
 ;; http://xahlee.info/emacs/emacs/whitespace-mode.html
 
-(setup whitespace
+(setup (:package whitespace)
 
   (:with-mode (prog-mode conf-mode)
     (:hook whitespace-mode))

@@ -1,4 +1,4 @@
-(setup rmail
+(setup (:package rmail)
 
   (setq rmail-preserve-inbox t)
 

@@ -2,7 +2,7 @@
   (when (derived-mode-p 'prog-mode)
     (executable-make-buffer-file-executable-if-script-p)))
 
-(setup executable
+(setup (:package executable)
 
   (add-hook 'after-save-hook '$executable-make-buffer-file-executable-if-script-p)
 

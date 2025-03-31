@@ -15,7 +15,7 @@
 ;;
 ;;    run when executing `ibuffer' even if "*Ibuffer*" exists.
 
-(setup ibuffer
+(setup (:package ibuffer)
 
   (defun $ibuffer-mode-hook ()
     ;; Do not wrap lines in `ibuffer-mode'.

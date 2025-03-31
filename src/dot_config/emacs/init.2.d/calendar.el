@@ -47,7 +47,7 @@ to use when highlighting the day in the calendar."
       ;; after 2-7.
       ($diary-chinese-date (number-sequence 2.5 12.5 0.5) day)))
 
-(setup calendar
+(setup (:package calendar)
 
   (:when-loaded
 

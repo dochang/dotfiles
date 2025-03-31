@@ -1,4 +1,4 @@
-(setup browse-url
+(setup (:package browse-url)
 
   (defun $browse-url-clipboard (url &rest args)
     (interactive (browse-url-interactive-arg "URL: "))

@@ -1,4 +1,4 @@
-(setup time
+(setup (:package time)
 
   (:when-loaded
 

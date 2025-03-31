@@ -1,7 +1,7 @@
 (defun $js-base-mode-hook ()
   ($camel-case-mode 1))
 
-(setup js
+(setup (:package js)
 
   (setq auto-mode-alist
         (append '(("\\.[cm]js\\'" . js-mode))

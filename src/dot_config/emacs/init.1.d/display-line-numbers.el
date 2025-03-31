@@ -1,4 +1,4 @@
-(setup display-line-numbers
+(setup (:package display-line-numbers)
 
   (:with-mode (prog-mode conf-mode text-mode adoc-mode)
     (:hook display-line-numbers-mode))

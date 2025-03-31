@@ -1,4 +1,4 @@
-(setup server
+(setup (:package server)
 
   (add-hook 'emacs-startup-hook (lambda ()
                                   (unless (or (bound-and-true-p server-process)
