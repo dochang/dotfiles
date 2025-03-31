@@ -25,6 +25,10 @@
   (define-key ctl-x-map "\C-b" 'ibuffer)
 
   (:with-mode (ibuffer-mode)
-    (:hook $ibuffer-mode-hook))
+    (:hook $ibuffer-mode-hook)
+    (:hook ibuffer-auto-mode)
+    ;; `ibuffer-auto-mode' should run in `ibuffer-mode-hook' because it should
+    ;; run only once when the buffer created.
+    )
 
   )
