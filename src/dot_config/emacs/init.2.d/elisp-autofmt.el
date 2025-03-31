@@ -9,7 +9,7 @@
     (:when-loaded
 
       (:option elisp-autofmt-style 'native)
-      (:option elisp-autofmt-quoted t)
+      (:option elisp-autofmt-format-quoted t)
 
       )
 
