@@ -4,9 +4,7 @@
 
   (:when-loaded
 
-    (setf (alist-get 'zigfmt apheleia-formatters)
-          '("zig" "fmt" "--stdin")
-          (alist-get 'taplofmt apheleia-formatters)
+    (setf (alist-get 'taplofmt apheleia-formatters)
           '("taplo" "fmt" "-")
           (alist-get 'sql-formatter apheleia-formatters)
           '("sql-formatter")
@@ -30,9 +28,7 @@
           (alist-get 'google-java-format apheleia-formatters)
           '("google-java-format" "--aosp" "-"))
 
-    (setf (alist-get 'zig-mode apheleia-mode-alist)
-          'zigfmt
-          (alist-get 'toml-ts-mode apheleia-mode-alist)
+    (setf (alist-get 'toml-ts-mode apheleia-mode-alist)
           'taplofmt
           (alist-get 'toml-mode apheleia-mode-alist)
           'taplofmt
@@ -46,6 +42,8 @@
           'kdlfmt
           (alist-get 'kdl-ts-mode apheleia-mode-alist)
           'kdlfmt
+          (alist-get 'sh-mode apheleia-mode-alist)
+          'shfmt
           (alist-get 'bats-mode apheleia-mode-alist)
           'shfmt)
 
