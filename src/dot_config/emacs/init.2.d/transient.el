@@ -1,15 +1,20 @@
 (setup (:package transient)
 
-  (:require transient)
+  (add-hook 'emacs-startup-hook
+            (lambda ()
 
-  (transient-define-prefix $transient-extended ()
-    "extended map"
-    [
-     ["EMMS"
-      ("e" "Play in Dired" emms-play-dired)
-      ]
-     ])
+              (require 'transient)
 
-  (:global "C-c x" $transient-extended)
+              (transient-define-prefix $transient-extended ()
+                "extended map"
+                [
+                 ["EMMS"
+                  ("e" "Play in Dired" emms-play-dired)
+                  ]
+                 ])
+
+              (keymap-global-set "C-c x" '$transient-extended)
+
+              ))
 
   )
