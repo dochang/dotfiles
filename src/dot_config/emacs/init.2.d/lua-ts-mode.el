@@ -1,10 +1,18 @@
 (setup lua-ts-mode
 
-  (quelpa '(lua-ts-mode :fetcher url
-                        :url "https://git.savannah.gnu.org/cgit/emacs.git/plain/lisp/progmodes/lua-ts-mode.el")
-          :upgrade nil)
-  ;; https://lists.sr.ht/~emacs/emacs-devel/patches/44579
-  ;; https://lists.sr.ht/~emacs/emacs-devel/%3C20230911150314.55130-1-jm@pub.pink%3E
+  (when (< emacs-major-version 30)
+
+    (quelpa '(lua-ts-mode :fetcher url
+                          :url "https://git.savannah.gnu.org/cgit/emacs.git/plain/lisp/progmodes/lua-ts-mode.el")
+            :upgrade nil)
+    ;; https://lists.sr.ht/~emacs/emacs-devel/patches/44579
+    ;; https://lists.sr.ht/~emacs/emacs-devel/%3C20230911150314.55130-1-jm@pub.pink%3E
+    ;;
+    ;; Install `lua-ts-mode' by `quelpa' before Emacs 30, because quelpa
+    ;; supports the `url' fetcher.  Do not use `package-vc-install', it will
+    ;; clone the whole Emacs repository.
+
+    )
 
   (:when-loaded
 
