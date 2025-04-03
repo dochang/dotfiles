@@ -15,8 +15,4 @@
       ;; bind the key to `electric-newline-and-maybe-indent' explicitly.
       )
 
-    ;; Do not limit the output when evaluating.
-    (:option eval-expression-print-length nil)
-    (:option eval-expression-print-level nil)
-
     ))

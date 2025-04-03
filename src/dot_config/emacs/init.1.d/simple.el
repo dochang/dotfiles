@@ -100,6 +100,10 @@
 
   (:when-loaded
 
+    ;; Do not limit the output when evaluating.
+    (:option eval-expression-print-length nil)
+    (:option eval-expression-print-level nil)
+
     ;; Special Mode
 
     (unless (lookup-key special-mode-map "z")
