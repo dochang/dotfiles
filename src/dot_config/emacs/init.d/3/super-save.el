@@ -8,6 +8,17 @@
 
     (setopt auto-save-default nil)
 
+    (setopt super-save-triggers
+            (seq-reduce
+             (lambda (triggers trigger)
+               (if (seq-contains-p triggers trigger)
+                   triggers
+                 (cons trigger triggers)))
+             '(switch-to-buffer-other-window
+               switch-to-buffer-other-frame
+               switch-to-buffer-other-tab)
+             super-save-triggers))
+
     )
 
   )
