@@ -67,8 +67,8 @@ major mode isn't derived from `prog-mode'."
 
 (setup (:package load-dir)
   (:when-loaded
-    (setopt load-dirs
-            (directory-files user-emacs-directory 'full "init\\..*\\.d"))))
+    (setopt load-dir-recursive t)
+    (setopt load-dirs (locate-user-emacs-file "init.d"))))
 
 (defun $load-local-config (name)
   (let ((local-path (expand-file-name name "~")))
