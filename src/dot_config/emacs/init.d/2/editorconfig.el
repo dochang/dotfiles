@@ -18,6 +18,7 @@
                (puppet-mode puppet-indent-level puppet-include-indent)
                (kdl-mode tab-width)
                (kdl-ts-mode kdl-ts-mode-indent-offset)
+               (mermaid-mode mermaid-indentation-level)
                )
              editorconfig-indentation-alist))
     )
