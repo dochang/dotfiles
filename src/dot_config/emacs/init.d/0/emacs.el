@@ -22,20 +22,6 @@
   ;; [1]: https://choosealicense.com/licenses/mit/
   (setopt fill-column 78)
 
-  ;; Disable `indent-tabs-mode'.
-  ;;
-  ;; Do not insert tabs in indentation by default.
-  ;;
-  ;; Also, `web-mode' changes indentation settings if `indent-tabs-mode' is
-  ;; non-nil.  To prevent it, set the default value of `indent-tabs-mode' to
-  ;; `nil'.
-  ;;
-  ;; NOTE: Setting `indent-tabs-mode' to `t' does NOT mean "pressing `TAB'
-  ;; inserts a `\t'".
-  ;;
-  ;; NOTE: The variable `indent-tabs-mode' is not defined in `simple.el', it's
-  ;; defined in C source code `indent.c'.
-  (setopt indent-tabs-mode nil)
   ;; Keep point at the same screen position after scrolling.
   ;; [[info:emacs#Scrolling]]
   (setopt scroll-preserve-screen-position t)
