@@ -144,6 +144,10 @@ export PIPENV_VENV_IN_PROJECT=1
 # https://github.com/arcesium/poetry-plugin-pypi-mirror/#environment-variable-example
 export POETRY_PYPI_MIRROR_URL="{{ $areaData.poetryPYPIMirrorURL }}"
 
+## For pipx
+# https://pipx.pypa.io/stable/docs/#pipx-environment
+export PIPX_DEFAULT_PYTHON=/usr/bin/python3
+
 ## For ruby-build
 export RUBY_BUILD_MIRROR_URL="{{ $areaData.rubyBuildMirrorURL }}"
 
