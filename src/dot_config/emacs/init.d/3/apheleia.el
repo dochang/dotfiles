@@ -12,6 +12,10 @@
                            (seq-remove (lambda (x) (eq (car x) (car formatter)))
                                        formatters))))
              '(
+               (prettier-jsonc "apheleia-npx" "prettier" "--stdin-filepath" filepath "--parser=jsonc"
+                               (apheleia-formatters-js-indent "--use-tabs" "--tab-width" 'js-indent-level))
+               (prettier-json5 "apheleia-npx" "prettier" "--stdin-filepath" filepath "--parser=json5"
+                               (apheleia-formatters-js-indent "--use-tabs" "--tab-width" 'js-indent-level))
                (taplofmt "taplo" "fmt" "-")
                (sql-formatter "sql-formatter")
                (kdlfmt "kdlfmt" "format" "-")
@@ -41,6 +45,7 @@
                            (seq-remove (lambda (x) (eq (car x) (car elem)))
                                        alist))))
              '(
+               (jsonc-mode . prettier-jsonc)
                (toml-ts-mode . taplofmt)
                (toml-mode . taplofmt)
                (python-ts-mode black isort)
