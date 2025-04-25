@@ -61,7 +61,7 @@ bin/o-xlock
 bin/o-X
 bin/o-autostart
 bin/o-daemon
-bin/o-editor
+bin/o-edit
 bin/o-volctl
 bin/o-Xephyr-wslg
 bin/o-fcitx5-wslg

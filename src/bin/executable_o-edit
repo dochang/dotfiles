@@ -1,6 +1,6 @@
 #!/bin/sh
 
-## Why do we need an external command of `o-editor`?  Because the environment
+## Why do we need an external command of `o-edit`?  Because the environment
 ## variable `EDITOR` requires a single program name.
 
 set -e
