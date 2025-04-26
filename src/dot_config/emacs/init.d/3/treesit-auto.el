@@ -23,7 +23,17 @@
       ;; Install tree-sitter grammars noninteractively.
 
       (setq treesit-auto-recipe-list
-            (append
+            (seq-reduce
+             (lambda (recipes recipe)
+               (cons
+                recipe
+                (seq-remove
+                 (lambda (x)
+                   (seq-every-p
+                    (lambda (slotfn)
+                      (equal (funcall slotfn x) (funcall slotfn recipe)))
+                    (list #'treesit-auto-recipe-ts-mode)))
+                 recipes)))
              (list
               (make-treesit-auto-recipe
                :lang 'elisp
