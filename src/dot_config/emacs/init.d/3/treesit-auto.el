@@ -48,6 +48,13 @@
                :remap 'kdl-mode
                :url "https://github.com/tree-sitter-grammars/tree-sitter-kdl"
                :ext "\\.kdl\\'")
+              (make-treesit-auto-recipe
+               :lang 'json
+               :ts-mode 'json-ts-mode
+               :remap '(js-json-mode json-mode jsonc-mode)
+               :url "https://github.com/tree-sitter/tree-sitter-json"
+               :ext "\\.json\\'")
+              ;; Remap `json-mode' and `jsonc-mode' to `json-ts-mode'
               )
              treesit-auto-recipe-list))
 
