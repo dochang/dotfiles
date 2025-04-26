@@ -55,6 +55,12 @@
                :url "https://github.com/tree-sitter/tree-sitter-json"
                :ext "\\.json\\'")
               ;; Remap `json-mode' and `jsonc-mode' to `json-ts-mode'
+              (make-treesit-auto-recipe
+               :lang 'mermaid
+               :ts-mode 'mermaid-ts-mode
+               :remap 'mermaid-mode
+               :url "https://github.com/monaqa/tree-sitter-mermaid"
+               :ext "\\.mmd\\'")
               )
              treesit-auto-recipe-list))
 
