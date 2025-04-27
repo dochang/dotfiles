@@ -168,7 +168,7 @@ bindsym $mod+Mod1+8 move container to workspace 8
 bindsym $mod+Return exec i3-sensible-terminal
 
 # start a web browser
-bindsym XF86HomePage exec "o browser"
+bindsym XF86HomePage exec "o browse"
 
 # enter fullscreen mode for the focused container
 bindsym $mod+F11 fullscreen
@@ -330,7 +330,7 @@ mode "command" {
         bindsym Mod1+e exec "emacsclient -c"
 
         # start a web browser
-        bindsym XF86HomePage exec "o browser"
+        bindsym XF86HomePage exec "o browse"
 
         # enter fullscreen mode for the focused container
         bindsym F11 fullscreen

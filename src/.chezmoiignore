@@ -51,7 +51,7 @@ bin/vps-speed-test.sh
 .config/o
 .config/zathura
 bin/o-banish-pointer
-bin/o-browser
+bin/o-browse
 bin/pass-askpass
 bin/passrofi
 bin/rofi_run
