@@ -22,6 +22,7 @@
                (mermaid-ts-mode mermaid-ts-indent-level)
                (LilyPond-mode LilyPond-indent-level)
                (sxhkd-mode sxhkd-mode-indentation-length)
+               (json5-ts-mode json5-ts-mode-indent-offset)
                )
              editorconfig-indentation-alist))
     )

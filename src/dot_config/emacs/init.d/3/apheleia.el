@@ -15,7 +15,7 @@
                (prettier-jsonc "apheleia-npx" "prettier" "--stdin-filepath" filepath "--parser=jsonc"
                                (apheleia-formatters-indent "--use-tabs" "--tab-width" 'js-indent-level))
                (prettier-json5 "apheleia-npx" "prettier" "--stdin-filepath" filepath "--parser=json5"
-                               (apheleia-formatters-indent "--use-tabs" "--tab-width" 'js-indent-level))
+                               (apheleia-formatters-indent "--use-tabs" "--tab-width" 'json5-ts-mode-indent-offset))
                (taplofmt "taplo" "fmt" "-")
                (sql-formatter "sql-formatter")
                (kdlfmt "kdlfmt" "format" "-")
@@ -51,6 +51,7 @@
                                        alist))))
              '(
                (jsonc-mode . prettier-jsonc)
+               (json5-ts-mode . prettier-json5)
                (toml-ts-mode . taplofmt)
                (toml-mode . taplofmt)
                (python-ts-mode black isort)
