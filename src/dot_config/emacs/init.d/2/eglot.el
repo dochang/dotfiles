@@ -2,36 +2,22 @@
   (require 'eglot)
   ;; `eglot-managed-p' is not autoloaded.  Require `eglot' first.
   (when (eglot-managed-p)
+    (eglot-code-action-organize-imports (point-min) (point-max))
+    ;; https://github.com/golang/tools/blob/master/gopls/doc/emacs.md#organizing-imports-with-eglot
     (eglot-format-buffer)))
 
-;; https://github.com/golang/tools/blob/master/gopls/doc/emacs.md#organizing-imports-with-eglot
-(define-advice eglot-format-buffer (:before () organizing-imports)
-  (eglot-code-action-organize-imports (point-min) (point-max)))
-
-(define-advice eglot-ensure (:before-while () lookup-before-ensure)
-  (and buffer-file-name (eglot--lookup-mode major-mode)))
-
-(define-advice eglot--languageId (:override (&optional server &rest args) fix-json-modes)
-  "Because these json modes are derived from `js-mode', so return
-nil if `major-mode' is a json mode and `mode' is a js mode."
-  (setq server (or server (eglot--current-server-or-lose)))
-  (cl-loop for (mode . languageid) in
-           (eglot--languages server)
-           when (cond ((and (provided-mode-derived-p major-mode 'js-json-mode 'json-mode)
-                            (provided-mode-derived-p mode 'js-mode 'javascript-mode)
-                            (not (provided-mode-derived-p mode 'js-json-mode 'json-mode)))
-                       nil)
-                      ;; Because these json modes are derived from `js-mode',
-                      ;; so return nil if `major-mode' is a json mode and
-                      ;; `mode' is a js mode.
-                      (t
-                       (provided-mode-derived-p major-mode mode)))
-           return languageid))
+;; Run `eglot-ensure' only if the mode of `major-mode' has a language server.
+(defun $eglot-ensure ()
+  (and (require 'eglot)
+       ;; `eglot--lookup-mode' is not autoloaded.  Require `eglot' first.
+       buffer-file-name
+       (eglot--lookup-mode major-mode)
+       (eglot-ensure)))
 
 (setup (:package eglot)
 
   (:with-mode (prog-mode conf-mode text-mode)
-    (:hook eglot-ensure))
+    (:hook $eglot-ensure))
 
   (add-hook 'before-save-hook '$eglot-before-save-hook)
 
