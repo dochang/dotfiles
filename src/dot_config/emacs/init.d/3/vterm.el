@@ -10,7 +10,7 @@
 
     (keymap-set vterm-mode-map "C-q" 'vterm-send-next-key)
 
-    (keymap-set vterm-copy-mode-map "M-w" 'vterm-copy-mode-done)
+    (keymap-set vterm-copy-mode-map "C-w" 'vterm-copy-mode-done)
 
     )
 
