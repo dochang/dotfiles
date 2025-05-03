@@ -20,6 +20,7 @@
                (kdl-ts-mode kdl-ts-mode-indent-offset)
                (mermaid-mode mermaid-indentation-level)
                (mermaid-ts-mode mermaid-ts-indent-level)
+               (LilyPond-mode LilyPond-indent-level)
                )
              editorconfig-indentation-alist))
     )

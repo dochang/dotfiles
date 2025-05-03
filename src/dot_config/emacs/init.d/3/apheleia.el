@@ -34,6 +34,11 @@
                                 (t 0)))))
                       "-")
                (google-java-format "google-java-format" "--aosp" "-")
+               (ly "ly"
+                   (format "%s indent-tabs=false; indent; reformat"
+                           (if apheleia-formatters-respect-indent-level
+                               (format "indent-width=%d;" LilyPond-indent-level)
+                             "")))
                )
              apheleia-formatters))
 
@@ -55,6 +60,7 @@
                (kdl-ts-mode . kdlfmt)
                (sh-mode . shfmt)
                (bats-mode . shfmt)
+               (LilyPond-mode . ly)
                )
              apheleia-mode-alist))
 
