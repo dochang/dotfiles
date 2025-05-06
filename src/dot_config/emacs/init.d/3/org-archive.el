@@ -1,3 +1,5 @@
+;; https://emacs.stackexchange.com/questions/477/how-do-i-automatically-save-org-mode-buffers
+
 (setup org-archive
   (:package org)
 

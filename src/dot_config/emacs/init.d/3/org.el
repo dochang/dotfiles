@@ -86,6 +86,7 @@
 (setq org-enforce-todo-dependencies t)
 (setq org-enforce-todo-checkbox-dependencies t)
 
+;; https://emacs.stackexchange.com/questions/477/how-do-i-automatically-save-org-mode-buffers
 (defun $org-save-all-org-buffers (&rest args)
   "Ignore all arguments so that this function can be used as advice."
   (org-save-all-org-buffers))
