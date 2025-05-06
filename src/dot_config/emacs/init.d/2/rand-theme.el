@@ -15,7 +15,8 @@
 ;; - `framep'
 ;; - `frame-live-p'
 
-(define-advice rand-theme (:after (&rest args) disable-bg-color-in-terminal)
+(defun $rand-theme ()
+  (rand-theme)
   (mapc '$disable-bg-color-in-terminal (frame-list)))
 
 (defvar **rand-theme-try-dark-threshold** 8)
@@ -42,13 +43,13 @@
       (if (equal "" input) nil (intern input)))))
   (if theme
       (let ((rand-theme-wanted (list theme)))
-        (rand-theme))
-    (rand-theme)
+        ($rand-theme))
+    ($rand-theme)
     (let ((i 0))
       (while (and (or (null **rand-theme-try-dark-threshold**)
                       (< i **rand-theme-try-dark-threshold**))
                   (not ($dark-theme-p)))
-        (rand-theme)
+        ($rand-theme)
         (setq i (+ i 1))))))
 
 (setup (:package rand-theme)
