@@ -1,2 +1,30 @@
-super + @Return
+# https://gitlab.freedesktop.org/xorg/proto/xorgproto/-/blob/master/include/X11/keysym.h
+# https://gitlab.freedesktop.org/xorg/proto/xorgproto/-/blob/master/include/X11/keysymdef.h
+# https://gitlab.freedesktop.org/xorg/proto/xorgproto/-/blob/master/include/X11/XF86keysym.h
+
+# start a terminal
+super + Return
   $TERMINAL
+
+# start rofi (a program launcher)
+super + {exclam,at}
+  rofi -show {run,drun}
+
+{XF86ScreenSaver,super + ctrl + l}
+  o xlock
+
+# start a web browser
+XF86HomePage
+  o browse
+
+super + b
+  o banish-pointer
+
+{XF86AudioLowerVolume,XF86AudioRaiseVolume,XF86AudioMute}
+  o volctl {--,++,!}
+
+alt + {XF86AudioLowerVolume,XF86AudioRaiseVolume}
+  o volctl {-,+}
+
+super + {shift + comma,shift + period,alt + comma,alt + period,comma,period,slash}
+  o volctl {-,+,-,+,--,++,!}
