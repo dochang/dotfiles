@@ -1,9 +1,7 @@
 (setup (:package sly)
 
-  (:when-loaded
-
-    (setopt sly-replace-slime t)
-
-    )
+  (setq sly-replace-slime t)
+  ;; Put this assignment outside `eval-after-load' because sly queries
+  ;; `sly-replace-slime' before loading sly (e.g. upgrade).
 
   )
