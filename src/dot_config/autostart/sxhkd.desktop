@@ -1,0 +1,4 @@
+[Desktop Entry]
+Type=Application
+Name=sxhkd
+Exec=o daemon sxhkd --background --make-pidfile --oknodo --start
