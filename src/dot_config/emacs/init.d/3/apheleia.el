@@ -13,9 +13,9 @@
                                        formatters))))
              '(
                (prettier-jsonc "apheleia-npx" "prettier" "--stdin-filepath" filepath "--parser=jsonc"
-                               (apheleia-formatters-js-indent "--use-tabs" "--tab-width" 'js-indent-level))
+                               (apheleia-formatters-indent "--use-tabs" "--tab-width" 'js-indent-level))
                (prettier-json5 "apheleia-npx" "prettier" "--stdin-filepath" filepath "--parser=json5"
-                               (apheleia-formatters-js-indent "--use-tabs" "--tab-width" 'js-indent-level))
+                               (apheleia-formatters-indent "--use-tabs" "--tab-width" 'js-indent-level))
                (taplofmt "taplo" "fmt" "-")
                (sql-formatter "sql-formatter")
                (kdlfmt "kdlfmt" "format" "-")
