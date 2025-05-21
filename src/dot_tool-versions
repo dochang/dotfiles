@@ -9,8 +9,8 @@ leiningen 2.11.2
 lua 5.4.7
 lua-language-server 3.14.0
 maven 3.9.9
-nodejs 22.15.0
-pandoc 3.6.4
+nodejs 22.15.1
+pandoc 3.7.0.1
 python system
 zig 0.14.0
 zls 0.14.0
