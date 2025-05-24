@@ -22,6 +22,16 @@
                       "\\.\\(xbm\\|p[bgpn]m\\)$"
                       "\\.\\(jpe?g\\|gif\\|tif\\|png\\)$")))
 
+    (setopt dired-hide-details-hide-symlink-targets t)
+
+    (setopt dired-hide-details-hide-information-lines t)
+
+    (setopt dired-recursive-copies 'always)
+
+    (setopt dired-recursive-deletes 'top)
+
+    (setopt dired-copy-dereference t)
+
     )
 
   )
