@@ -60,6 +60,9 @@
   (setopt use-default-font-for-symbols nil)
   ;; Honor the fontsets.
 
+  (setopt create-lockfiles t)
+  ;; Explicitly enable lockfiles.
+
   )
 
 ;; Below is a sample paragraph to test filling.
