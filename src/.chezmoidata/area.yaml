@@ -1,7 +1,7 @@
 data:
   area:
     unknown:
-      guixDefaultChannelURL: "https://git.savannah.gnu.org/git/guix.git"
+      guixDefaultChannelURL: "https://codeberg.org/guix/guix.git"
       nixNixpkgsChannelURL: "https://nixos.org/channels/nixpkgs-unstable"
       nodejsOrgMirror: "https://nodejs.org/dist"
       # https://github.com/nodejs/node-gyp/blob/v11.1.0/lib/process-release.js#L75
