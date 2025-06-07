@@ -16,7 +16,10 @@
                  (cons trigger triggers)))
              '(switch-to-buffer-other-window
                switch-to-buffer-other-frame
-               switch-to-buffer-other-tab)
+               switch-to-buffer-other-tab
+               tab-next
+               tab-previous
+               magit-status)
              super-save-triggers))
 
     )
