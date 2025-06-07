@@ -39,6 +39,7 @@
                            (if apheleia-formatters-respect-indent-level
                                (format "indent-width=%d;" LilyPond-indent-level)
                              "")))
+               (hurlfmt "hurlfmt" "--no-color" "--in" "hurl" "--out" "hurl")
                )
              apheleia-formatters))
 
@@ -62,6 +63,7 @@
                (sh-mode . shfmt)
                (bats-mode . shfmt)
                (LilyPond-mode . ly)
+               (hurl-mode . hurlfmt)
                )
              apheleia-mode-alist))
 
