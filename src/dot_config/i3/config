@@ -194,7 +194,6 @@ mode "command" {
         bindsym Shift+exclam exec rofi -show run
         bindsym Shift+at exec rofi -show drun
 
-        bindsym XF86ScreenSaver exec "o xlock"
         bindsym Ctrl+l exec "o xlock"
 
         # change focus
@@ -303,13 +302,6 @@ mode "command" {
 
         # banish pointer
         bindsym b exec "o banish-pointer"
-
-        bindsym XF86AudioLowerVolume exec "o volctl --"
-        bindsym XF86AudioRaiseVolume exec "o volctl ++"
-        bindsym XF86AudioMute        exec "o volctl !"
-
-        bindsym Mod1+XF86AudioLowerVolume exec "o volctl -"
-        bindsym Mod1+XF86AudioRaiseVolume exec "o volctl +"
 
         bindsym comma exec "o volctl --"
         bindsym period exec "o volctl ++"

@@ -43,10 +43,6 @@ AddToFunc FuncBindKeysBasic
 + I Key F1 A $0 Popup MenuFvwmRoot
 # Mod + b = Move the mouse to the bottom left corner.
 + I Key b A $0 FuncBanishMouse
-# Volume
-+ I Key XF86AudioRaiseVolume A A Exec exec o volctl ++
-+ I Key XF86AudioLowerVolume A A Exec exec o volctl --
-+ I Key XF86AudioMute        A A Exec exec o volctl !
 # Mod + Mouse Button 1 = Move
 # Mod + Mouse Button 3 = Resize
 + I Mouse 1 WTSF $0 FuncRaiseAndMouseX Move
