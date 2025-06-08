@@ -109,7 +109,7 @@ AddToFunc FuncFullscreen
 ### Lock
 DestroyFunc FuncLock
 AddToFunc FuncLock
-+ I Exec exec slock
++ I Exec exec o xlock
 
 
 ### Touchpad
