@@ -1,0 +1,70 @@
+#!/bin/sh
+
+set -e
+
+usage() {
+	cat <<EOF
+Usage: ${CMD} [-h | --help] [-c | --clip | --clipboard | --copy] [-s | --select]
+
+  -c, --clip            Copy the screenshot to clipboard
+      --clipboard
+      --copy
+  -s, --select          Select a region or window
+  -h, --help            Display this help and exit
+EOF
+}
+
+call_cmd() {
+	if [ -n "$SELECT" ]; then
+		maim --hidecursor --format=png --select
+	else
+		maim --hidecursor --format=png
+	fi
+}
+
+screenshot() {
+	IMG_DIR="$HOME"
+	IMG="${IMG_DIR}/maim-$(date +%Y-%m-%dT%H-%M-%S%:::z).png"
+
+	mkdir -p "${IMG_DIR}"
+
+	call_cmd | tee "$IMG" | {
+		if [ -n "$CLIP" ]; then
+			xclip -selection clipboard -target image/png
+		else
+			cat >/dev/null
+		fi
+	}
+}
+
+parse_opt() {
+	while [ $# -gt 0 ]; do
+		case "$1" in
+		-h | --help)
+			HELP=1
+			;;
+		-c | --clip | --clipboard | --copy)
+			CLIP=1
+			;;
+		-s | --select)
+			SELECT=1
+			;;
+		esac
+		shift
+	done
+}
+
+main() {
+	CMD="$(basename "$0")"
+
+	parse_opt "$@"
+
+	if [ -n "$HELP" ]; then
+		usage
+		exit 0
+	fi
+
+	screenshot
+}
+
+main "$@"
