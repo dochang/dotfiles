@@ -5,13 +5,7 @@
 	autosquash = true
 
 [core]
-	pager = "less -+XF --RAW-CONTROL-CHARS --chop-long-lines"
-	## Git sets `LESS` to `FRX` if `LESS` is not set.  Unset `-X` and `-F`.
-	##
-	## Unset `-X` to clear the screen when less exits.
-	##
-	## Unset `-F` to cause less not to exit even if the content
-	## can be displayed on one screen.
+	pager = delta
 
 [credential]
 	helper = cache --timeout=3600
@@ -29,6 +23,15 @@
 
 [merge]
 	conflictStyle = zdiff3
+
+[interactive]
+	diffFilter = delta --color-only
+
+[delta]
+	navigate = true
+	line-numbers = true
+	side-by-side = true
+	detect-dark-light = auto
 
 [include]
 	path = vars
