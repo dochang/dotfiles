@@ -7,10 +7,13 @@
 [user]
 	name = {{ $roleData.gitUserName }}
 	email = {{ $roleData.gitUserEmail }}
+
 [color]
 	ui = auto
+
 [rebase]
 	autosquash = true
+
 [core]
 	pager = "less -+XF --RAW-CONTROL-CHARS --chop-long-lines"
 	## Git sets `LESS` to `FRX` if `LESS` is not set.  Unset `-X` and `-F`.
@@ -19,17 +22,23 @@
 	##
 	## Unset `-F` to cause less not to exit even if the content
 	## can be displayed on one screen.
+
 [credential]
 	helper = cache --timeout=3600
+
 [alias]
 	ignore-for = "!gi() { a=$(IFS=, eval 'echo \"$*\"') ; api=\"curl -sSL http://www.gitignore.io/api/$a\" ; case \"$a\" in list) api=\"$api | tr , '\\\\n'\" ;; esac ; eval \"$api | $(git config core.pager)\" ; } ; gi"
 	ignore = "!gi() { curl -sL https://www.toptal.com/developers/gitignore/api/$@ ; printf '\n' ;}; gi"
+
 [diff "spaceman-diff"]
 	command = spaceman-diff
+
 [sendemail]
 	bcc = {{ $roleData.gitUserEmail }}
-[include]
-	path = config_local
+
 [ghq]
 	## https://github.com/x-motemen/ghq#configuration
 	root = ~/src
+
+[include]
+	path = config_local
