@@ -27,6 +27,9 @@
 	## https://github.com/x-motemen/ghq#configuration
 	root = ~/src
 
+[merge]
+	conflictStyle = zdiff3
+
 [include]
 	path = vars
 	path = config_local
