@@ -35,9 +35,14 @@ export MAILHOST="{{ $roleData.mailhost }}"
 
 export MAILDIR="{{ $roleData.maildir }}"
 
-export LESS=-Ri
-## Without `-R`, less cannot handle some control characters correctly,
-## such as colors.
+export LESS='--RAW-CONTROL-CHARS --ignore-case --chop-long-lines --+no-init --+quit-if-one-screen'
+## Without `-R/--RAW-CONTROL-CHARS`, less cannot handle some control
+## characters correctly, such as colors.
+##
+## Unset `-X/--no-init` to clear the screen when less exits.
+##
+## Unset `-F/--quit-if-one-screen` to cause less not to exit even if the
+## content can be displayed on one screen.
 
 export BROWSER=o-browse
 
