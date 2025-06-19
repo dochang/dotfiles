@@ -34,7 +34,15 @@
 
     ;; Hide scheduled entry in agenda if deadline is shown and the scheduled is
     ;; before the deadline.
-    (setopt org-agenda-skip-scheduled-if-deadline-is-shown 'repeated-after-deadline)
+    (cond ((version< (org-version) "9.7.3")
+           (setopt org-agenda-skip-scheduled-if-deadline-is-shown 'repeated-after-deadline))
+          (t
+           (setopt org-agenda-skip-scheduled-if-deadline-is-shown nil)
+           (setopt org-agenda-skip-scheduled-repeats-after-deadline t)
+           ;; New variable in Org 9.7.3
+           ;;
+           ;; https://cgit.git.savannah.gnu.org/cgit/emacs.git/commit/?id=5a125fb5a9736bd3c67cf6ff9acc185d8e2260e2
+           ))
 
     ;; Hide timestamp entry in agenda if the entry has been done.
     (setopt org-agenda-skip-timestamp-if-done t)
