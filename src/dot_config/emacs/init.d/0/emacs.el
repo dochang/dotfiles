@@ -53,6 +53,8 @@
   (setopt indicate-empty-lines t)
   (setopt show-trailing-whitespace nil)
   ;; Don't highlight trailing whitespace for modes other than `prog-mode'.
+  (setopt vertical-scroll-bar 'left)
+  (setopt horizontal-scroll-bar 't)
 
   (setopt visible-bell t)
   (setopt inhibit-startup-screen nil)
