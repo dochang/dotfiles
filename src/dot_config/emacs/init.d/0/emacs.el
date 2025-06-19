@@ -65,6 +65,14 @@
   (setopt create-lockfiles t)
   ;; Explicitly enable lockfiles.
 
+  (setopt completion-ignore-case t)
+  (setopt read-buffer-completion-ignore-case t)
+  ;; For `completion-ignore-case' and `read-buffer-completion-ignore-case',
+  ;; ignore case.
+  ;;
+  ;; Because there are a lot of names of objects and internal buffers that I'm
+  ;; not sure the cases in their names.
+
   )
 
 ;; Below is a sample paragraph to test filling.
