@@ -13,9 +13,6 @@
                    alist
                  (cons elem alist)))
              '(
-               (json-mode js-indent-level json-reformat:indent-width)
-               (nxml-mode nxml-child-indent nxml-attribute-indent)
-               (puppet-mode puppet-indent-level puppet-include-indent)
                (kdl-mode tab-width)
                (kdl-ts-mode kdl-ts-mode-indent-offset)
                (mermaid-mode mermaid-indentation-level)
