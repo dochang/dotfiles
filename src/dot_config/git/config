@@ -33,6 +33,9 @@
 	side-by-side = true
 	detect-dark-light = auto
 
+[diff]
+	external = difft
+
 [include]
 	path = vars
 	path = config_local
