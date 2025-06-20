@@ -3,6 +3,10 @@
 
 [rebase]
 	autosquash = true
+	stat = true
+	rebaseMerges = rebase-cousins
+	updateRefs = true
+	missingCommitsCheck = error
 
 [core]
 	pager = delta
