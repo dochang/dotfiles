@@ -122,7 +122,7 @@
     ;; Special Mode
 
     (unless (keymap-lookup special-mode-map "z")
-      (keymap-set special-mode-map "z" 'kill-this-buffer))
+      (keymap-set special-mode-map "z" 'kill-current-buffer))
     ;; Emacs has deleted `z' binding in GIT#0d4505d & GIT#82dffff .  We
     ;; restore it here.
 
