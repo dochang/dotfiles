@@ -39,6 +39,7 @@
 
 [diff]
 	external = difft
+	renames = copies
 
 [include]
 	path = vars
