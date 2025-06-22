@@ -1,13 +1,3 @@
-{{- /* -*- mode: web; -*- */ -}}
-{{- $roleData := .data.role.basic -}}
-{{- $areaData := .data.area.unknown -}}
-{{- if eq .props.area "cn" -}}
-{{- $areaData = mergeOverwrite .data.area.cn -}}
-{{- end -}}
-[user]
-	name = {{ $roleData.gitUserName }}
-	email = {{ $roleData.gitUserEmail }}
-
 [color]
 	ui = auto
 
@@ -33,12 +23,10 @@
 [diff "spaceman-diff"]
 	command = spaceman-diff
 
-[sendemail]
-	bcc = {{ $roleData.gitUserEmail }}
-
 [ghq]
 	## https://github.com/x-motemen/ghq#configuration
 	root = ~/src
 
 [include]
+	path = vars
 	path = config_local
