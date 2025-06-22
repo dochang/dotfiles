@@ -1,0 +1,14 @@
+{{- /* -*- mode: web; -*- */ -}}
+{{- $roleData := .data.role.basic -}}
+{{- $areaData := .data.area.unknown -}}
+{{- if eq .props.area "cn" -}}
+{{- $areaData = mergeOverwrite .data.area.cn -}}
+{{- end -}}
+# -*- mode: gitconfig; -*-
+
+[user]
+	name = {{ $roleData.gitUserName }}
+	email = {{ $roleData.gitUserEmail }}
+
+[sendemail]
+	bcc = {{ $roleData.gitUserEmail }}
