@@ -13,4 +13,4 @@ if [ -z "$EMACS_SERVER_FILE" ]; then
 	fi
 fi
 
-exec emacsclient --create-frame "$@"
+exec emacsclient --reuse-frame "$@"
