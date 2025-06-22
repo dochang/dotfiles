@@ -1,6 +1,6 @@
 (setup lua-ts-mode
 
-  (when (< emacs-major-version 30)
+  (unless (package-built-in-p 'lua-ts-mode)
 
     (quelpa '(lua-ts-mode :fetcher url
                           :url "https://git.savannah.gnu.org/cgit/emacs.git/plain/lisp/progmodes/lua-ts-mode.el")
