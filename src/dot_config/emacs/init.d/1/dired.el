@@ -32,6 +32,8 @@
 
     (setopt dired-copy-dereference t)
 
+    (setopt dired-movement-style 'cycle)
+
     )
 
   )
