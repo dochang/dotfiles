@@ -3,7 +3,7 @@ clojure 1.12.1.1550
 golang 1.24.4
 gradle 8.14.2
 java temurin-21.0.7+6.0.LTS
-kotlin 2.1.21
+kotlin 2.2.0
 kotlin-language-server 1.3.13
 leiningen 2.11.2
 lua 5.4.7
