@@ -1,8 +1,5 @@
 (setup (:package emms)
 
-  (:with-feature dired
-    (:bind "E" emms-play-dired))
-
   (:when-loaded
 
     (emms-minimalistic)
