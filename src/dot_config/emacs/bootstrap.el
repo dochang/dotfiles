@@ -42,9 +42,10 @@ function instead."
 
 (if (package-installed-p 'mb-url)
     (require 'mb-url-http)
-  (let ((mb-url-dir (expand-file-name (locate-user-emacs-file "bootstrap.d/mb-url"))))
+  (let ((mb-url-dir (expand-file-name "mb-url" (make-temp-file "emacs-bootstrap-" t))))
     (unless (file-directory-p mb-url-dir)
-      (call-process "git" nil (get-buffer-create "bootstrap mb-url") nil "clone" "https://github.com/dochang/mb-url" mb-url-dir))
+      (call-process "git" nil (get-buffer-create "bootstrap mb-url") nil
+                    "clone" "https://github.com/dochang/mb-url" mb-url-dir))
     (setq load-path (append load-path (list mb-url-dir)))
     (require 'mb-url-http)
     (package-refresh-contents)
