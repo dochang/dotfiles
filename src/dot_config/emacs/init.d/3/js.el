@@ -1,4 +1,5 @@
 (defun $js-base-mode-hook ()
+  (smartparens-strict-mode -1)
   ($camel-case-mode 1))
 
 (setup (:package js)
