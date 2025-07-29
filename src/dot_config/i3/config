@@ -40,6 +40,9 @@ for_window [class="Firefox" window_role="About"] floating enable
 # Disable mouse warping entirely.
 mouse_warping none
 
+# Restrict focus wrapping inside current workspace
+focus_wrapping workspace
+
 # Basic Bindings
 # ==============
 
