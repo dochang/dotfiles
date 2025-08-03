@@ -51,6 +51,12 @@
 [apply]
 	whitespace = warn
 
+[branch]
+	sort = -committerdate
+
+[tag]
+	sort = -taggerdate
+
 [include]
 	path = vars
 	path = config_local
