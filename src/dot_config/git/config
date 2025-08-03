@@ -44,6 +44,9 @@
 [commit]
 	verbose = 2
 
+[status]
+	showStash = true
+
 [include]
 	path = vars
 	path = config_local
