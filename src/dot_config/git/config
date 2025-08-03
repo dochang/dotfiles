@@ -10,6 +10,7 @@
 
 [core]
 	pager = delta
+	preloadIndex = true
 
 [credential]
 	helper = cache --timeout=3600
@@ -40,6 +41,24 @@
 [diff]
 	external = difft
 	renames = copies
+
+[commit]
+	verbose = 2
+
+[status]
+	showStash = true
+
+[apply]
+	whitespace = warn
+
+[push]
+	followTags = true
+
+[branch]
+	sort = -committerdate
+
+[tag]
+	sort = -taggerdate
 
 [include]
 	path = vars
