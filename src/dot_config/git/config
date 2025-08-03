@@ -51,6 +51,9 @@
 [apply]
 	whitespace = warn
 
+[push]
+	followTags = true
+
 [branch]
 	sort = -committerdate
 
