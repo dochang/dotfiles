@@ -47,6 +47,9 @@
 [status]
 	showStash = true
 
+[apply]
+	whitespace = warn
+
 [include]
 	path = vars
 	path = config_local
