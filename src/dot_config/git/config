@@ -41,6 +41,9 @@
 	external = difft
 	renames = copies
 
+[commit]
+	verbose = 2
+
 [include]
 	path = vars
 	path = config_local
