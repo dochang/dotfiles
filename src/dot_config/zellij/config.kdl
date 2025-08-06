@@ -15,4 +15,5 @@ keybinds {
 }
 simplified_ui true
 default_mode "locked"
+session_serialization false
 
