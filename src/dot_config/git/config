@@ -60,6 +60,9 @@
 [tag]
 	sort = -taggerdate
 
+[init]
+	defaultBranch = main
+
 [include]
 	path = vars
 	path = config_local
