@@ -1,6 +1,6 @@
 asdf-plugin-manager 1.5.0
 clojure 1.12.1.1550
-golang 1.24.5
+golang 1.25.0
 gradle 9.0.0
 java temurin-21.0.8+9.0.LTS
 kotlin 2.2.0
