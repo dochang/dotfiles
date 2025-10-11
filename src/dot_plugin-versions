@@ -10,5 +10,4 @@ lua                     https://github.com/Stratus3D/asdf-lua.git               
 lua-language-server     https://github.com/bellini666/asdf-lua-language-server.git  0cad5c3
 nodejs                  https://github.com/asdf-vm/asdf-nodejs.git                  c36e6f0
 pandoc                  https://github.com/Fbrisset/asdf-pandoc.git                 3e93049
-python                  https://github.com/asdf-community/asdf-python.git           a3a0185
 zig                     https://github.com/asdf-community/asdf-zig.git              3f1a3ab
