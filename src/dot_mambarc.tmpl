@@ -1,0 +1,29 @@
+{{- /* -*- mode: web; -*- */ -}}
+{{- $areaData := .data.area.unknown -}}
+{{- if eq .props.area "cn" -}}
+{{- $areaData = mergeOverwrite $areaData .data.area.cn -}}
+{{- end -}}
+{{- $mamba := $areaData.mamba -}}
+auto_activate_base: false
+show_channel_urls: true
+{{- if $mamba }}
+{{- if and (hasKey $mamba "channels") $mamba.channels }}
+channels:
+{{- range $val := $mamba.channels }}
+  - {{ $val }}
+{{- end }}
+{{- end }}
+{{- if and (hasKey $mamba "defaultChannels") $mamba.defaultChannels }}
+default_channels:
+{{- range $val := $mamba.defaultChannels }}
+  - {{ $val }}
+{{- end }}
+{{- end }}
+{{- if and (hasKey $mamba "customChannels") $mamba.customChannels }}
+custom_channels:
+{{- range $key, $val := $mamba.customChannels }}
+  {{ $key }}: {{ $val }}
+{{- end }}
+{{- end }}
+{{- end }}
+channel_priority: strict

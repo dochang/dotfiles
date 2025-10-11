@@ -103,6 +103,10 @@ data:
         channels:
           - conda-forge
           - defaults
+      mamba:
+        channels:
+          - conda-forge
+          - nodefaults
     cn:
       guixDefaultChannelURL: "https://mirror.sjtu.edu.cn/git/guix.git"
       nixNixpkgsChannelURL: "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/nixpkgs-unstable"
@@ -221,6 +225,23 @@ data:
         channels:
           - conda-forge
           - defaults
+        defaultChannels:
+          - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main
+          - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/r
+          - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/msys2
+        customChannels:
+          conda-forge: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
+          msys2: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
+          bioconda: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
+          menpo: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
+          pytorch: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
+          pytorch-lts: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
+          simpleitk: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
+          deepmodeling: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
+      mamba:
+        channels:
+          - conda-forge
+          - nodefaults
         defaultChannels:
           - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main
           - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/r
