@@ -107,6 +107,7 @@ data:
         channels:
           - conda-forge
           - nodefaults
+      uvIndexURL: "https://pypi.org/simple"
     cn:
       guixDefaultChannelURL: "https://mirror.sjtu.edu.cn/git/guix.git"
       nixNixpkgsChannelURL: "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/nixpkgs-unstable"
@@ -255,3 +256,4 @@ data:
           pytorch-lts: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
           simpleitk: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
           deepmodeling: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
+      uvIndexURL: "https://pypi.tuna.tsinghua.edu.cn/simple"

@@ -1,0 +1,10 @@
+{{- /* -*- mode: web; -*- */ -}}
+{{- $areaData := .data.area.unknown -}}
+{{- if eq .props.area "cn" -}}
+{{- $areaData = mergeOverwrite $areaData .data.area.cn -}}
+{{- end -}}
+{{- $uvIndexURL := $areaData.uvIndexURL -}}
+[[index]]
+# https://pip.pypa.io/en/stable/reference/pip_wheel/#index-url
+url = "{{ $uvIndexURL }}"
+default = true
