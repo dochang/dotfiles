@@ -110,7 +110,7 @@ data:
       uvIndexURL: "https://pypi.org/simple"
     cn:
       guixDefaultChannelURL: "https://mirror.sjtu.edu.cn/git/guix.git"
-      nixNixpkgsChannelURL: "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/nixpkgs-unstable"
+      nixNixpkgsChannelURL: "https://mirror.iscas.ac.cn/nix-channels/nixpkgs-unstable/"
       nodejsOrgMirror: "https://npmmirror.com/mirrors/node"
       nodeBuildMirrorURL: "https://npmmirror.com/mirrors/node"
       sassBinarySite: "https://npmmirror.com/mirrors/node-sass"
@@ -125,11 +125,11 @@ data:
       puppeteerChromeHeadlessShellDownloadBaseURL: "https://cdn.npmmirror.com/binaries/chrome-for-testing"
       # https://github.com/cnpm/binary-mirror-config/commit/dec350b8595191ec1fb573bc697cb357f1eba951
       # https://github.com/cnpm/binary-mirror-config/pull/47/files
-      homebrewAPIDomain: "https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles/api"
-      homebrewBottleDomain: "https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles"
-      homebrewBrewGitRemote: "https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/brew.git"
-      homebrewCoreGitRemote: "https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-core.git"
-      homebrewPipIndexURL: "https://pypi.tuna.tsinghua.edu.cn/simple"
+      homebrewAPIDomain: "https://mirror.nyist.edu.cn/homebrew-bottles/api"
+      homebrewBottleDomain: "https://mirror.nyist.edu.cn/homebrew-bottles"
+      homebrewBrewGitRemote: "https://mirror.nyist.edu.cn/git/homebrew/brew.git"
+      homebrewCoreGitRemote: "https://mirror.nyist.edu.cn/git/homebrew/homebrew-core.git"
+      homebrewPipIndexURL: "https://mirrors.ustc.edu.cn/pypi/simple"
       # https://mirrors.tuna.tsinghua.edu.cn/help/homebrew/
       pythonBuildMirrorURL: "https://npmmirror.com/mirrors/python/"
       pythonBuildMirrorURLSkipChecksum: "1"
@@ -137,8 +137,9 @@ data:
       # https://golang.org/cmd/go/#hdr-Module_authentication_failures
       # https://github.com/golang/go/issues/31755#issuecomment-527611727
       gosumdb: "sum.golang.google.cn"
-      rustupDistServer: "https://mirrors.tuna.tsinghua.edu.cn/rustup"
-      rustupUpdateRoot: "https://mirrors.tuna.tsinghua.edu.cn/rustup/rustup"
+      rustupDistServer: "https://mirrors.nju.edu.cn/rustup"
+      rustupUpdateRoot: "https://mirrors.nju.edu.cn/rustup/rustup"
+      # https://mirrors.cernet.edu.cn/list/rustup
       # https://mirror.tuna.tsinghua.edu.cn/help/rustup/
       # https://rsproxy.cn/
       # https://doc.crates.io/source-replacement.html
@@ -153,11 +154,15 @@ data:
         "crates-io":
           registry: ""
           # Overriding `default`
-          replace-with: tuna-sparse
+          replace-with: nju-sparse
         tuna:
           registry: "https://mirrors.tuna.tsinghua.edu.cn/git/crates.io-index.git"
         tuna-sparse:
           registry: "sparse+https://mirrors.tuna.tsinghua.edu.cn/crates.io-index/"
+        nju:
+          registry: "https://mirror.nju.edu.cn/git/crates.io-index.git"
+        nju-sparse:
+          registry: "sparse+https://mirror.nju.edu.cn/crates.io-index/"
         rsproxy:
           registry: "https://rsproxy.cn/crates.io-index"
         rsproxy-sparse:
@@ -173,6 +178,10 @@ data:
           index: "https://mirrors.tuna.tsinghua.edu.cn/git/crates.io-index.git"
         tuna-sparse:
           index: "sparse+https://mirrors.tuna.tsinghua.edu.cn/crates.io-index/"
+        nju:
+          index: "https://mirror.nju.edu.cn/git/crates.io-index.git"
+        nju-sparse:
+          index: "sparse+https://mirror.nju.edu.cn/crates.io-index/"
         rsproxy:
           index: "https://rsproxy.cn/crates.io-index"
         rsproxy-sparse:
@@ -194,66 +203,53 @@ data:
       # http://mirrors.163.com/.help/maven.html
       npmRegistry: "https://registry.npmmirror.com"
       pbuilderMirrorsite: "https://mirrors.ustc.edu.cn/debian"
-      pipIndexURL: "https://pypi.tuna.tsinghua.edu.cn/simple"
+      pipIndexURL: "https://mirrors.ustc.edu.cn/pypi/simple"
       yarnRegistry: "https://registry.npmmirror.com"
       emacsPackageArchives:
         - id: gnu
-          location: https://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/
+          location: https://mirrors.zju.edu.cn/elpa/gnu/
         - id: nongnu
-          location: https://mirrors.tuna.tsinghua.edu.cn/elpa/nongnu/
+          location: https://mirrors.zju.edu.cn/elpa/nongnu/
         - id: melpa
-          location: https://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/
+          location: https://mirrors.zju.edu.cn/elpa/melpa/
         - id: melpa-stable
-          location: https://mirrors.tuna.tsinghua.edu.cn/elpa/stable-melpa/
-        # Downloading marmalade archive will cause Emacs hangs at 100% CPU usage.
-        # Disable it for now.  See nicferrier/elmarmalade#106 .
-        #
-        # - id: marmalade
-        #   location: https://mirrors.tuna.tsinghua.edu.cn/elpa/marmalade/
-        #
-        # Disable the following archives.  Their packages are too old.
-        #
-        # - id: ELPA
-        #   location: http://tromey.com/elpa/
-        #
-        # - id: SC
-        #   location: https://mirrors.tuna.tsinghua.edu.cn/elpa/sunrise-commander/
+          location: https://mirrors.zju.edu.cn/elpa/stable-melpa/
       rubyBuildMirrorURL: "https://cache.ruby-china.com/pub/ruby/"
       # https://ruby-china.org/wiki/ruby-mirror
-      poetryPYPIMirrorURL: "https://pypi.tuna.tsinghua.edu.cn/simple/"
+      poetryPYPIMirrorURL: "https://mirror.nju.edu.cn/pypi/web/simple/"
       # https://mirrors.tuna.tsinghua.edu.cn/help/anaconda/
       conda:
         channels:
           - conda-forge
           - defaults
         defaultChannels:
-          - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main
-          - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/r
-          - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/msys2
+          - https://mirrors.sustech.edu.cn/anaconda/pkgs/main
+          - https://mirrors.sustech.edu.cn/anaconda/pkgs/r
+          - https://mirrors.sustech.edu.cn/anaconda/pkgs/msys2
         customChannels:
-          conda-forge: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
-          msys2: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
-          bioconda: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
-          menpo: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
-          pytorch: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
-          pytorch-lts: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
-          simpleitk: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
-          deepmodeling: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
+          conda-forge: https://mirrors.sustech.edu.cn/anaconda/cloud
+          msys2: https://mirrors.sustech.edu.cn/anaconda/cloud
+          bioconda: https://mirrors.sustech.edu.cn/anaconda/cloud
+          menpo: https://mirrors.sustech.edu.cn/anaconda/cloud
+          pytorch: https://mirrors.sustech.edu.cn/anaconda/cloud
+          pytorch-lts: https://mirrors.sustech.edu.cn/anaconda/cloud
+          simpleitk: https://mirrors.sustech.edu.cn/anaconda/cloud
+          deepmodeling: https://mirrors.sustech.edu.cn/anaconda/cloud
       mamba:
         channels:
           - conda-forge
           - nodefaults
         defaultChannels:
-          - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main
-          - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/r
-          - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/msys2
+          - https://mirrors.sustech.edu.cn/anaconda/pkgs/main
+          - https://mirrors.sustech.edu.cn/anaconda/pkgs/r
+          - https://mirrors.sustech.edu.cn/anaconda/pkgs/msys2
         customChannels:
-          conda-forge: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
-          msys2: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
-          bioconda: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
-          menpo: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
-          pytorch: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
-          pytorch-lts: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
-          simpleitk: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
-          deepmodeling: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
-      uvIndexURL: "https://pypi.tuna.tsinghua.edu.cn/simple"
+          conda-forge: https://mirrors.sustech.edu.cn/anaconda/cloud
+          msys2: https://mirrors.sustech.edu.cn/anaconda/cloud
+          bioconda: https://mirrors.sustech.edu.cn/anaconda/cloud
+          menpo: https://mirrors.sustech.edu.cn/anaconda/cloud
+          pytorch: https://mirrors.sustech.edu.cn/anaconda/cloud
+          pytorch-lts: https://mirrors.sustech.edu.cn/anaconda/cloud
+          simpleitk: https://mirrors.sustech.edu.cn/anaconda/cloud
+          deepmodeling: https://mirrors.sustech.edu.cn/anaconda/cloud
+      uvIndexURL: "https://mirror.nju.edu.cn/pypi/web/simple"
