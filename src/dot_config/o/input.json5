@@ -1,5 +1,9 @@
 {
   keyboards: {
+    "PFU Limited HHKB-Hybrid": {
+      desc: "HHKB Professional HYBRID",
+      options: ["compose:ralt"],
+    },
     "HHKB-Hybrid_1 Keyboard": {
       desc: "HHKB Professional HYBRID",
       options: ["compose:ralt"],
