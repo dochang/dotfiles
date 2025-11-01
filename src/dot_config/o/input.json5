@@ -1,7 +1,23 @@
 {
   keyboards: {
+    "PFU Limited HHKB-Hybrid": {
+      desc: "HHKB Professional HYBRID (USB Interface)",
+      options: ["compose:ralt"],
+    },
     "HHKB-Hybrid_1 Keyboard": {
-      desc: "HHKB Professional HYBRID",
+      desc: "HHKB Professional HYBRID (Bluetooth Interface 1)",
+      options: ["compose:ralt"],
+    },
+    "HHKB-Hybrid_2 Keyboard": {
+      desc: "HHKB Professional HYBRID (Bluetooth Interface 2)",
+      options: ["compose:ralt"],
+    },
+    "HHKB-Hybrid_3 Keyboard": {
+      desc: "HHKB Professional HYBRID (Bluetooth Interface 3)",
+      options: ["compose:ralt"],
+    },
+    "HHKB-Hybrid_4 Keyboard": {
+      desc: "HHKB Professional HYBRID (Bluetooth Interface 4)",
       options: ["compose:ralt"],
     },
     "MOSART Semi. 2.4G Keyboard Mouse": {
