@@ -18,4 +18,10 @@
 
     )
 
+  (with-eval-after-load 'pyim-pinyin
+
+    (setopt pyim-pinyin-fuzzy-alist '())
+
+    )
+
   )
