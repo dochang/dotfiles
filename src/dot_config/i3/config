@@ -56,7 +56,7 @@ bindsym $mod+Ctrl+Mod1+r exec "o xconfirm 'i3-msg restart' 'Do you want to resta
 bindsym $mod+Ctrl+x exec "o xconfirm 'i3-msg exit' 'Do you want to exit?'"
 
 # kill focused window
-bindsym $mod+Ctrl+q kill
+bindsym $mod+Ctrl+Mod1+q kill
 
 bindsym $mod+Shift+colon exec i3-input
 
@@ -189,7 +189,7 @@ mode "command" {
         bindsym Ctrl+x exec "o xconfirm 'i3-msg exit' 'Do you want to exit?'"
 
         # kill focused window
-        bindsym Ctrl+q kill
+        bindsym Ctrl+Mod1+q kill
 
         bindsym Shift+colon exec i3-input
 
