@@ -1,0 +1,13 @@
+#!/bin/sh
+
+set -e
+
+if [ -z "$EMACS_SERVER_FILE" ]; then
+        EMACS_SERVER_FILE="$(pgrep emacs | head -n 1)"
+        export EMACS_SERVER_FILE
+        if [ -z "$EMACS_SERVER_FILE" ]; then
+                unset EMACS_SERVER_FILE
+        fi
+fi
+
+exec emacsclient "$@"
