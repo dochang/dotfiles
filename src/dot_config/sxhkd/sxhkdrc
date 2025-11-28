@@ -20,14 +20,17 @@ XF86HomePage
 super + b
     o banish-pointer
 
-{XF86AudioLowerVolume,XF86AudioRaiseVolume,XF86AudioMute}
-    o volctl {--,++,!}
+{shift + ,alt + ,_}{XF86AudioLowerVolume,XF86AudioRaiseVolume}
+    o volctl {-,-,--,+,+,++}
 
-alt + {XF86AudioLowerVolume,XF86AudioRaiseVolume}
-    o volctl {-,+}
+XF86AudioMute
+    o volctl !
 
-super + {shift + comma,shift + period,alt + comma,alt + period,comma,period,slash}
-    o volctl {-,+,-,+,--,++,!}
+super + {shift + ,alt + ,_}{comma,period}
+    o volctl {-,-,--,+,+,++}
+
+super + slash
+    o volctl !
 
 {Print,super + shift + 3,super + shift + s}
     o screenshot
