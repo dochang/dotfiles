@@ -4,42 +4,42 @@
 
 # start a terminal
 super + Return
-  $TERMINAL
+    $TERMINAL
 
 # start rofi (a program launcher)
 super + {exclam,at}
-  rofi -show {run,drun}
+    rofi -show {run,drun}
 
 {XF86ScreenSaver,super + ctrl + l}
-  o xlock
+    o xlock
 
 # start a web browser
 XF86HomePage
-  o browse
+    o browse
 
 super + b
-  o banish-pointer
+    o banish-pointer
 
 {XF86AudioLowerVolume,XF86AudioRaiseVolume,XF86AudioMute}
-  o volctl {--,++,!}
+    o volctl {--,++,!}
 
 alt + {XF86AudioLowerVolume,XF86AudioRaiseVolume}
-  o volctl {-,+}
+    o volctl {-,+}
 
 super + {shift + comma,shift + period,alt + comma,alt + period,comma,period,slash}
-  o volctl {-,+,-,+,--,++,!}
+    o volctl {-,+,-,+,--,++,!}
 
 {Print,super + shift + 3,super + shift + s}
-  o screenshot
+    o screenshot
 
 {alt + Print,super + shift + 4}
-  o screenshot --select
+    o screenshot --select
 
 ctrl + {Print,super + shift + 3,super + shift + s}
-  o screenshot --clipboard
+    o screenshot --clipboard
 
 ctrl + {alt + Print,super + shift + 4}
-  o screenshot --select --clipboard
+    o screenshot --select --clipboard
 
 super + ctrl + e
-  o emacs-everywhere
+    o emacs-everywhere
