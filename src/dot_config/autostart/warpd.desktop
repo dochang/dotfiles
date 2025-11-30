@@ -1,0 +1,4 @@
+[Desktop Entry]
+Type=Application
+Name=warpd
+Exec=o daemon warpd --background --make-pidfile --oknodo --start
