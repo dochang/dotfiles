@@ -76,22 +76,22 @@ bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
 # move focused window
-bindsym $mod+Mod1+h move left
-bindsym $mod+Mod1+j move down
-bindsym $mod+Mod1+k move up
-bindsym $mod+Mod1+l move right
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
 
 # alternatively, you can use the cursor keys:
-bindsym $mod+Mod1+Left move left
-bindsym $mod+Mod1+Down move down
-bindsym $mod+Mod1+Up move up
-bindsym $mod+Mod1+Right move right
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
 
 # focus the parent container
-bindsym $mod+Shift+6 focus parent
+bindsym $mod+u focus parent
 
 # focus the child container
-bindsym $mod+v focus child
+bindsym $mod+d focus child
 
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+w layout tabbed
@@ -212,22 +212,22 @@ mode "command" {
         bindsym Right focus right
 
         # move focused window
-        bindsym Mod1+h move left
-        bindsym Mod1+j move down
-        bindsym Mod1+k move up
-        bindsym Mod1+l move right
+        bindsym Shift+h move left
+        bindsym Shift+j move down
+        bindsym Shift+k move up
+        bindsym Shift+l move right
 
         # alternatively, you can use the cursor keys:
-        bindsym Mod1+Left move left
-        bindsym Mod1+Down move down
-        bindsym Mod1+Up move up
-        bindsym Mod1+Right move right
+        bindsym Shift+Left move left
+        bindsym Shift+Down move down
+        bindsym Shift+Up move up
+        bindsym Shift+Right move right
 
         # focus the parent container
-        bindsym Shift+6 focus parent
+        bindsym u focus parent
 
         # focus the child container
-        bindsym v focus child
+        bindsym d focus child
 
         # change container layout (stacked, tabbed, toggle split)
         bindsym w layout tabbed
