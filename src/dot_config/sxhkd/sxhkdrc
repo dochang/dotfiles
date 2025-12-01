@@ -44,5 +44,5 @@ ctrl + {Print,super + shift + 3,super + shift + s}
 ctrl + {alt + Print,super + shift + 4}
     o screenshot --select --clipboard
 
-super + ctrl + e
+super + ctrl + backslash
     o emacs-everywhere
