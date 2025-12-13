@@ -16,7 +16,6 @@
 	missingCommitsCheck = error
 
 [core]
-	pager = delta
 	preloadIndex = true
 
 [credential]
@@ -35,9 +34,6 @@
 
 [merge]
 	conflictStyle = zdiff3
-
-[interactive]
-	diffFilter = delta --color-only
 
 [delta]
 	navigate = true
