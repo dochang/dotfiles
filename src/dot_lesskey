@@ -11,6 +11,8 @@
 ## to use the octal code for ASCII DEL (\177).
 ##
 ## http://bugs.debian.org/609738
+v noaction
+## Disable invoking an editor by accidentally clicking "v".
 
 
 
