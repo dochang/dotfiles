@@ -1,5 +1,12 @@
 [color]
 	ui = auto
+	pager = true
+	# Set it to true or false based on your value of `core.pager`.
+	#
+	# For less (the default pager), true is ok.
+	#
+	# For other pagers, set it to false if the pager can not parse ANSI
+	# color codes.
 
 [rebase]
 	autosquash = true
