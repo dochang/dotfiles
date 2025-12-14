@@ -4,7 +4,9 @@
 
   (:when-loaded
 
-    (which-key-setup-side-window-right-bottom)
+    (which-key-setup-minibuffer)
+    ;; Display which-key in `side-window' does not work well with
+    ;; `repeat-help-mode'.  Display which-key in minibuffer instead.
 
     (setopt which-key-use-C-h-commands nil)
 
