@@ -57,6 +57,9 @@
     ;; This makes cnfonts use different configuration on different system for
     ;; each profile.
 
+    (setopt cnfonts-default-fontsize 16)
+    ;; Currently prefered cnfonts default fontsize.
+
     )
 
   )
