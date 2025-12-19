@@ -1,6 +1,6 @@
 # Here is a comment.
-scroll_down: f
-scroll_up: r
+scroll_down: A-j
+scroll_up: A-k
 grid_up: A-k
 grid_left: A-h
 grid_down: A-j
