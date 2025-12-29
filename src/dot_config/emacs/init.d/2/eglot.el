@@ -1,8 +1,5 @@
-(defvar **eglot-format-exclude-mode-list**
-  '(js-base-mode
-    typescript-ts-base-mode
-    yaml-ts-mode
-    yaml-mode))
+(defvar **eglot-format-mode-list**
+  '())
 
 (defun $eglot-before-save-hook ()
   (require 'eglot)
@@ -10,7 +7,7 @@
   (when (eglot-managed-p)
     (ignore-errors (eglot-code-action-organize-imports (point-min) (point-max)))
     ;; https://github.com/golang/tools/blob/master/gopls/doc/emacs.md#organizing-imports-with-eglot
-    (unless (derived-mode-p **eglot-format-exclude-mode-list**)
+    (when (derived-mode-p **eglot-format-mode-list**)
       ;; https://www.reddit.com/r/emacs/comments/zam7ja/comment/krww5gs/
       ;; https://github.com/joaotavora/eglot/issues/157
       ;; https://github.com/typescript-language-server/typescript-language-server/issues/202#issuecomment-873469507
