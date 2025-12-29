@@ -10,16 +10,21 @@ Usage: ${CMD} [-h | --help] [-c | --clip | --clipboard | --copy] [-s | --select]
       --clipboard
       --copy
   -s, --select          Select a region or window
+  -w, --window          Capture the current window
   -h, --help            Display this help and exit
 EOF
 }
 
 call_cmd() {
+	OPTS="--hidecursor --format=png"
+
 	if [ -n "$SELECT" ]; then
-		maim --hidecursor --format=png --select
-	else
-		maim --hidecursor --format=png
+		OPTS="$OPTS --select"
+	elif [ -n "$WINDOW" ]; then
+		OPTS="$OPTS --window=$(xdotool getactivewindow)"
 	fi
+
+	maim $OPTS
 }
 
 screenshot() {
@@ -48,6 +53,9 @@ parse_opt() {
 			;;
 		-s | --select)
 			SELECT=1
+			;;
+		-w | --window)
+			WINDOW=1
 			;;
 		esac
 		shift
