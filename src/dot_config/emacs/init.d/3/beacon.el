@@ -13,8 +13,9 @@
 
     (setopt beacon-blink-when-point-moves-vertically nil)
     (setopt beacon-blink-when-point-moves-horizontally nil)
+    (setopt beacon-blink-when-window-scrolls nil)
+    ;; `beacon-blink' is annoying when scrolling.
     (setopt beacon-blink-when-buffer-changes t)
-    (setopt beacon-blink-when-window-scrolls t)
     (setopt beacon-blink-when-window-changes t)
     (setopt beacon-blink-when-focused t)
 
