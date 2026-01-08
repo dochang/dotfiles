@@ -1,0 +1,21 @@
+#!/bin/sh
+
+exec od -A x -t x1z -v -w16 "$@"
+
+# -A x
+# x: display hexadecimal address
+#
+# -t x1z
+# x: display in hexadecimal
+# 1: 1 bytes per integer
+# z: display printable characters at the end of each output line
+#
+# -v
+# do not use * to mark duplicated line suppression
+#
+# -w16
+# 16: output 16 bytes per output line
+# There must not be any whitespace between `-w` and `16` since it's optional.
+#
+# --endian={big|little}
+# Use `--endian` to specify the endian.
