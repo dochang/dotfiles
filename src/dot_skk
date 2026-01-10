@@ -1,0 +1,31 @@
+;;; -*- mode: emacs-lisp; -*-
+
+(setopt skk-kakutei-key (key-parse "C-;"))
+
+(setopt skk-isearch-mode-enable t)
+;; Enable skk-isearch-mode only when ssk-mode is on.
+
+(setopt skk-egg-like-newline t)
+
+(setopt skk-delete-implies-kakutei nil)
+
+(setopt skk-delete-okuri-when-quit t)
+
+(setopt skk-henkan-rest-indicator t)
+
+(setopt skk-show-candidates-nth-henkan-char 3)
+
+(setopt skk-allow-spaces-newlines-and-tabs nil)
+
+(setopt skk-show-mode-show t)
+
+(setopt skk-show-mode-style 'inline)
+;; `tooltip' raises an error.  We have to use `inline'.
+
+(setopt skk-rom-kana-rule-list
+        (append
+         '(("x\\" nil "￥")
+           ("zp" nil "〒")
+           ("zr" nil "々")
+           ("!" nil "！"))
+         skk-rom-kana-rule-list))
