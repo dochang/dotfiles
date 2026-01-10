@@ -1,0 +1,43 @@
+;;; -*- mode: emacs-lisp; -*-
+
+(setopt skk-kakutei-key (key-parse "C-;"))
+
+(setopt skk-isearch-mode-enable t)
+;; Enable skk-isearch-mode only when ssk-mode is on.
+
+(setopt skk-egg-like-newline t)
+
+(setopt skk-delete-implies-kakutei nil)
+
+(setopt skk-delete-okuri-when-quit t)
+
+(setopt skk-henkan-rest-indicator t)
+
+(setopt skk-show-candidates-nth-henkan-char 3)
+
+(setopt skk-allow-spaces-newlines-and-tabs nil)
+
+(setopt skk-show-mode-show t)
+
+(setopt skk-show-mode-style 'inline)
+;; `tooltip' raises an error.  We have to use `inline'.
+
+(setopt skk-auto-start-henkan nil)
+
+(setopt skk-use-auto-kutouten nil)
+
+(setopt skk-kutouten-type 'jp)
+
+(setopt skk-status-indicator 'left)
+
+(setopt skk-check-okurigana-on-touroku nil)
+
+(setopt skk-rom-kana-rule-list
+        (append
+         '(("z\\" nil "￥")
+           ("zp" nil "〒")
+           ("zr" nil "々")
+           ("zq" nil skk-toggle-katakana)
+           ;; JIS X 0201 Hankaku Katakana ﾊﾝｶｸｶﾀｶﾅ
+           ("!" nil "！"))
+         skk-rom-kana-rule-list))
