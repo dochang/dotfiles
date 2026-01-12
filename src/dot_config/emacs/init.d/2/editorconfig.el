@@ -32,6 +32,7 @@
                (LilyPond-mode LilyPond-indent-level)
                (sxhkd-mode sxhkd-mode-indentation-length)
                (json5-ts-mode json5-ts-mode-indent-offset)
+               (zig-ts-mode zig-ts-mode-indent-offset)
                )
              editorconfig-indentation-alist))
 

@@ -67,6 +67,12 @@
                :remap '()
                :url "https://github.com/Joakker/tree-sitter-json5"
                :ext "\\.json5\\'")
+              (make-treesit-auto-recipe
+               :lang 'zig
+               :ts-mode 'zig-ts-mode
+               :remap 'zig-mode
+               :url "https://github.com/tree-sitter-grammars/tree-sitter-zig"
+               :ext "\\.zig\\(?:\\.zon\\)?\\'")
               )
              treesit-auto-recipe-list))
 
