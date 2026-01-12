@@ -33,6 +33,7 @@
     (setq eglot-server-programs
           (append '((kotlin-ts-mode "kotlin-language-server")
                     (sql-mode "sqls")
+                    (zig-ts-mode "zls")
                     ((toml-mode toml-ts-mode)
                      . ("taplo" "lsp" "stdio")))
                   eglot-server-programs))
