@@ -73,6 +73,12 @@
                :remap 'zig-mode
                :url "https://github.com/tree-sitter-grammars/tree-sitter-zig"
                :ext "\\.zig\\(?:\\.zon\\)?\\'")
+              (make-treesit-auto-recipe
+               :lang 'c3
+               :ts-mode 'c3-ts-mode
+               :remap '()
+               :url "https://github.com/c3lang/tree-sitter-c3"
+               :ext "\\.c3[it]?\\'")
               )
              treesit-auto-recipe-list))
 
