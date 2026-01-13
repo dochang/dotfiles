@@ -3,9 +3,14 @@
   ;; (add-hook 'emacs-startup-hook 'global-aggressive-indent-mode)
   (:with-mode (lisp-data-mode scheme-mode clojure-mode clojure-ts-mode)
     (:hook aggressive-indent-mode))
-  ;; aggressive-indent-mode is unneeded since format-all and emacs-lsp are
-  ;; released.  Enable it on demand for the modes which don't support
-  ;; format-all and LSP formatting.
+  ;; aggressive-indent-mode is unneeded since many languages already have
+  ;; their own formatters.  Enable it on demand for the modes which don't have
+  ;; a formatter.
+  ;;
+  ;; Also, never enable aggressive-indent-mode for all languages which use
+  ;; whitespace indentations (aka off-side rule).
+  ;;
+  ;; https://en.wikipedia.org/wiki/Off-side_rule
 
   (:when-loaded
 

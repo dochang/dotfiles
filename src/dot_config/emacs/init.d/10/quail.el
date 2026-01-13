@@ -196,7 +196,4 @@ Choseong         Jungseong        Jongseong        ASCII
 
     )
 
-  (let ((load-dirs (locate-user-emacs-file "im")))
-    (load-dirs))
-
   )

@@ -36,4 +36,12 @@
 
     )
 
+  (with-eval-after-load 'dired-aux
+
+    (setopt dired-create-destination-dirs 'always)
+
+    (setopt dired-create-destination-dirs-on-trailing-dirsep t)
+
+    )
+
   )
