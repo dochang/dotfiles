@@ -1,1 +1,0 @@
-(req-package writeroom-mode)
