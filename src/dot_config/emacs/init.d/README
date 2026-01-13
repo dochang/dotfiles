@@ -1,0 +1,13 @@
+00 = not featurep
+01 = not package-installed-p
+02 = essential and package-built-in-p
+03 = essential
+04 = package-built-in-p
+05 = package-installed-p
+10 = input methods
+11 = themes
+12 = (derived-mode-p '(prog-mode conf-mode text-mode)) and related
+13 = magit related
+14 = emms related
+15 = org related
+20 = crossover
