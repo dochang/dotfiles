@@ -34,6 +34,7 @@
           (append '((kotlin-ts-mode "kotlin-language-server")
                     (sql-mode "sqls")
                     (zig-ts-mode "zls")
+                    (c3-ts-mode "c3lsp")
                     ((toml-mode toml-ts-mode)
                      . ("taplo" "lsp" "stdio")))
                   eglot-server-programs))

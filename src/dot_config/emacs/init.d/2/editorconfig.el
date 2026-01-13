@@ -33,6 +33,7 @@
                (sxhkd-mode sxhkd-mode-indentation-length)
                (json5-ts-mode json5-ts-mode-indent-offset)
                (zig-ts-mode zig-ts-mode-indent-offset)
+               (c3-ts-mode c3-ts-mode-indent-offset)
                )
              editorconfig-indentation-alist))
 
