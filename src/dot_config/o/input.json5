@@ -1,5 +1,9 @@
 {
   keyboards: {
+    "keyd virtual keyboard": {
+      desc: "keyd virtual keyboard",
+      options: ["compose:rwin"],
+    },
     "PFU Limited HHKB-Hybrid": {
       desc: "HHKB Professional HYBRID (USB Interface)",
       options: ["compose:ralt"],
