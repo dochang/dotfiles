@@ -6,5 +6,5 @@ grid_left: A-h
 grid_down: A-j
 grid_right: A-l
 screen_chars: 1234567890
-indicator: bottomright
+indicator: topright
 indicator_size: 24
