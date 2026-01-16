@@ -7,16 +7,10 @@
 # Customization
 export XLOCKER="i3lock -c 000000"
 
-if [ -z "$XMODIFIERS" ]; then
-	# `im-config` is not installed.
-	export XMODIFIERS="@im=fcitx"
-	export GTK_IM_MODULE=xim
-	export QT_IM_MODULE=xim
-	if command -v anthy-dic-tool >/dev/null && [ -r ~/.anthy/private-dic.src ]; then
-		anthy-dic-tool --load --utf8 <~/.anthy/private-dic.src
-	fi
-	fcitx5 -d
-fi
+export XMODIFIERS="@im=none"
+# `local` or `none`
+#
+# https://gitlab.freedesktop.org/xorg/lib/libx11/-/blob/libX11-1.8.12/modules/im/ximcp/imLcIm.c?ref_type=tags#L96-118
 
 o input
 
