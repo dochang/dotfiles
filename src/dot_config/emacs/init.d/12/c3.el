@@ -30,6 +30,22 @@
 
       )
 
+    (with-eval-after-load 'treesit-auto
+
+      (setq treesit-auto-recipe-list
+            (cons (make-treesit-auto-recipe
+                   :lang 'c3
+                   :ts-mode 'c3-ts-mode
+                   :remap '()
+                   :url "https://github.com/c3lang/tree-sitter-c3"
+                   :ext "\\.c3[it]?\\'")
+                  treesit-auto-recipe-list))
+
+      (setopt treesit-auto-langs
+              (cons 'c3 treesit-auto-langs))
+
+      )
+
     )
 
   )

@@ -38,6 +38,22 @@
 
       )
 
+    (with-eval-after-load 'treesit-auto
+
+      (setq treesit-auto-recipe-list
+            (cons (make-treesit-auto-recipe
+                   :lang 'kdl
+                   :ts-mode 'kdl-ts-mode
+                   :remap 'kdl-mode
+                   :url "https://github.com/tree-sitter-grammars/tree-sitter-kdl"
+                   :ext "\\.kdl\\'")
+                  treesit-auto-recipe-list))
+
+      (setopt treesit-auto-langs
+              (cons 'kdl treesit-auto-langs))
+
+      )
+
     )
 
   )

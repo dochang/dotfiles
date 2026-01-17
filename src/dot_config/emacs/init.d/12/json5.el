@@ -19,6 +19,22 @@
 
       )
 
+    (with-eval-after-load 'treesit-auto
+
+      (setq treesit-auto-recipe-list
+            (cons (make-treesit-auto-recipe
+                   :lang 'json5
+                   :ts-mode 'json5-ts-mode
+                   :remap '()
+                   :url "https://github.com/Joakker/tree-sitter-json5"
+                   :ext "\\.json5\\'")
+                  treesit-auto-recipe-list))
+
+      (setopt treesit-auto-langs
+              (cons 'json5 treesit-auto-langs))
+
+      )
+
     )
 
   )
