@@ -32,6 +32,14 @@
 
       )
 
+    (with-eval-after-load 'eglot
+
+      (setq eglot-server-programs
+            (cons '(zig-ts-mode "zls")
+                  eglot-server-programs))
+
+      )
+
     )
 
   )
