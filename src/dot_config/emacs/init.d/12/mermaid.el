@@ -30,6 +30,22 @@
 
       )
 
+    (with-eval-after-load 'treesit-auto
+
+      (setq treesit-auto-recipe-list
+            (cons (make-treesit-auto-recipe
+                   :lang 'mermaid
+                   :ts-mode 'mermaid-ts-mode
+                   :remap 'mermaid-mode
+                   :url "https://github.com/monaqa/tree-sitter-mermaid"
+                   :ext "\\.mmd\\'")
+                  treesit-auto-recipe-list))
+
+      (setopt treesit-auto-langs
+              (cons 'mermaid treesit-auto-langs))
+
+      )
+
     )
 
   )

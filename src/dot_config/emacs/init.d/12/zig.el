@@ -40,6 +40,22 @@
 
       )
 
+    (with-eval-after-load 'treesit-auto
+
+      (setq treesit-auto-recipe-list
+            (cons (make-treesit-auto-recipe
+                   :lang 'zig
+                   :ts-mode 'zig-ts-mode
+                   :remap 'zig-mode
+                   :url "https://github.com/tree-sitter-grammars/tree-sitter-zig"
+                   :ext "\\.zig\\(?:\\.zon\\)?\\'")
+                  treesit-auto-recipe-list))
+
+      (setopt treesit-auto-langs
+              (cons 'zig treesit-auto-langs))
+
+      )
+
     )
 
   )
