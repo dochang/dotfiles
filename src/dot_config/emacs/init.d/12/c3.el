@@ -22,6 +22,14 @@
 
       )
 
+    (with-eval-after-load 'eglot
+
+      (setq eglot-server-programs
+            (cons '(c3-ts-mode "c3lsp")
+                   eglot-server-programs))
+
+      )
+
     )
 
   )
