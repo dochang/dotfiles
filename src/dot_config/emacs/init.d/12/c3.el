@@ -12,4 +12,16 @@
          '(("\\.c3[it]?\\'" . c3-ts-mode))
          auto-mode-alist))
 
+  (:when-loaded
+
+    (with-eval-after-load 'editorconfig
+
+      (setopt editorconfig-indentation-alist
+              (cons '(c3-ts-mode c3-ts-mode-indent-offset)
+                     editorconfig-indentation-alist))
+
+      )
+
+    )
+
   )

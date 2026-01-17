@@ -18,25 +18,6 @@
 
     (setopt editorconfig-lisp-use-default-indent nil)
 
-    (setopt editorconfig-indentation-alist
-            (seq-reduce
-             (lambda (alist elem)
-               (if (seq-contains-p alist elem)
-                   alist
-                 (cons elem alist)))
-             '(
-               (kdl-mode tab-width)
-               (kdl-ts-mode kdl-ts-mode-indent-offset)
-               (mermaid-mode mermaid-indentation-level)
-               (mermaid-ts-mode mermaid-ts-indent-level)
-               (LilyPond-mode LilyPond-indent-level)
-               (sxhkd-mode sxhkd-mode-indentation-length)
-               (json5-ts-mode json5-ts-mode-indent-offset)
-               (zig-ts-mode zig-ts-mode-indent-offset)
-               (c3-ts-mode c3-ts-mode-indent-offset)
-               )
-             editorconfig-indentation-alist))
-
     )
 
   )
