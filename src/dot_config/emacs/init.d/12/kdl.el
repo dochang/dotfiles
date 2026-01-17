@@ -1,3 +1,11 @@
+(with-eval-after-load 'apheleia
+
+  (setopt apheleia-formatters
+          (cons '(kdlfmt "kdlfmt" "format" "-")
+                apheleia-formatters))
+
+  )
+
 (setup kdl-mode
 
   (unless (package-installed-p 'kdl-mode)
@@ -16,6 +24,14 @@
       (setopt editorconfig-indentation-alist
               (cons '(kdl-mode tab-width)
                     editorconfig-indentation-alist))
+
+      )
+
+    (with-eval-after-load 'apheleia
+
+      (setopt apheleia-mode-alist
+              (cons '(kdl-mode . kdlfmt)
+                    apheleia-mode-alist))
 
       )
 
@@ -51,6 +67,14 @@
 
       (setopt treesit-auto-langs
               (cons 'kdl treesit-auto-langs))
+
+      )
+
+    (with-eval-after-load 'apheleia
+
+      (setopt apheleia-mode-alist
+              (cons '(kdl-ts-mode . kdlfmt)
+                    apheleia-mode-alist))
 
       )
 

@@ -1,9 +1,30 @@
+(with-eval-after-load 'apheleia
+
+  (setopt apheleia-formatters
+          (cons '(prettier-jsonc "apheleia-npx" "prettier" "--stdin-filepath" filepath "--parser=jsonc"
+                                 (apheleia-formatters-indent "--use-tabs" "--tab-width" 'js-indent-level))
+                apheleia-formatters))
+
+  )
+
 (setup (:package json-mode)
 
   (setq auto-mode-alist
         (append auto-mode-alist
                 '(("\\.jsonc\\'" . jsonc-mode))))
   ;; Append into the end because they're default values.
+
+  (:when-loaded
+
+    (with-eval-after-load 'apheleia
+
+      (setopt apheleia-mode-alist
+              (cons '(jsonc-mode . prettier-jsonc)
+                    apheleia-mode-alist))
+
+      )
+
+    )
 
   )
 

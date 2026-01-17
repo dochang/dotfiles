@@ -1,3 +1,12 @@
+(with-eval-after-load 'apheleia
+
+  (setopt apheleia-formatters
+          (cons '(prettier-json5 "apheleia-npx" "prettier" "--stdin-filepath" filepath "--parser=json5"
+                                 (apheleia-formatters-indent "--use-tabs" "--tab-width" 'json5-ts-mode-indent-offset))
+                apheleia-formatters))
+
+  )
+
 (setup (:package json5-ts-mode)
 
   (setq auto-mode-alist
@@ -32,6 +41,14 @@
 
       (setopt treesit-auto-langs
               (cons 'json5 treesit-auto-langs))
+
+      )
+
+    (with-eval-after-load 'apheleia
+
+      (setopt apheleia-mode-alist
+              (cons '(json5-ts-mode . prettier-json5)
+                    apheleia-mode-alist))
 
       )
 
