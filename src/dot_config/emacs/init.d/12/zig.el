@@ -22,4 +22,16 @@
          '(("\\.zig\\(?:\\.zon\\)?\\'" . zig-ts-mode))
          auto-mode-alist))
 
+  (:when-loaded
+
+    (with-eval-after-load 'editorconfig
+
+      (setopt editorconfig-indentation-alist
+              (cons '(zig-ts-mode zig-ts-mode-indent-offset)
+                    editorconfig-indentation-alist))
+
+      )
+
+    )
+
   )

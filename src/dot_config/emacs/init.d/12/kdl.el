@@ -9,11 +9,35 @@
         (append '(("\\.kdl\\'" . kdl-mode))
                 auto-mode-alist))
 
+  (:when-loaded
+
+    (with-eval-after-load 'editorconfig
+
+      (setopt editorconfig-indentation-alist
+              (cons '(kdl-mode tab-width)
+                    editorconfig-indentation-alist))
+
+      )
+
+    )
+
   )
 
 (setup kdl-ts-mode
 
   (unless (package-installed-p 'kdl-ts-mode)
     (package-vc-install '(kdl-ts-mode :url "https://github.com/dataphract/kdl-ts-mode")))
+
+  (:when-loaded
+
+    (with-eval-after-load 'editorconfig
+
+      (setopt editorconfig-indentation-alist
+              (cons '(kdl-ts-mode kdl-ts-mode-indent-offset)
+                    editorconfig-indentation-alist))
+
+      )
+
+    )
 
   )
