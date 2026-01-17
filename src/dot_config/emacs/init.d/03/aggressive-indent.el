@@ -23,18 +23,6 @@
     ;; is t, `electric-newline-and-maybe-indent' just inserts a newline, no
     ;; indenting.
 
-    (setopt aggressive-indent-excluded-modes
-            (seq-uniq
-             (append
-              '(special-mode
-                dockerfile-mode
-                makefile-mode
-                python-base-mode
-                yaml-ts-mode
-                yaml-mode)
-              aggressive-indent-excluded-modes)))
-    ;; aggressive-indent-mode will break the indentation in these modes.
-
     )
 
   )
