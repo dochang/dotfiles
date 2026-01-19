@@ -10,4 +10,11 @@
 
     )
 
+  (with-eval-after-load 'emms-history
+
+    (setopt emms-history-file nil)
+    ;; Do not save playlist for EMMS.
+
+    )
+
   )
