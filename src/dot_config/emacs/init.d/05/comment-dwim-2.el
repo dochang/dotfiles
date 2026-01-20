@@ -1,6 +1,6 @@
 (setup (:package comment-dwim-2)
 
-  (keymap-global-set "<remap> <comment-dwim>" 'comment-dwim-2)
+  (keymap-global-set "<remap> <comment-dwim>" #'comment-dwim-2)
   ;; - Putting a remapping in a prefix keymap like `esc-map' typically has no
   ;;   effect, as such keymaps are not themselves active [1].
   ;;

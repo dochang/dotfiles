@@ -9,7 +9,7 @@
 
     )
 
-  (add-hook 'emacs-startup-hook 'atomic-chrome-start-server)
+  (add-hook 'emacs-startup-hook #'atomic-chrome-start-server)
 
   (:when-loaded
 

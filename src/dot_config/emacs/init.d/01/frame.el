@@ -39,4 +39,4 @@
 
 (setup frame
   (add-hook 'emacs-startup-hook (lambda () (blink-cursor-mode -1)))
-  (add-hook 'after-make-frame-functions '$set-font))
+  (add-hook 'after-make-frame-functions #'$set-font))

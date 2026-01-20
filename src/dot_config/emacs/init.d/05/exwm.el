@@ -69,7 +69,7 @@
 
 (setup (:package exwm)
 
-  (add-hook 'emacs-startup-hook '$exwm-enable)
+  (add-hook 'emacs-startup-hook #'$exwm-enable)
 
   (:hook $exwm-mode-hook)
 

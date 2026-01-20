@@ -1,6 +1,6 @@
 (setup (:package beacon)
 
-  (add-hook 'emacs-startup-hook 'beacon-mode)
+  (add-hook 'emacs-startup-hook #'beacon-mode)
 
   (with-eval-after-load 'simple
 

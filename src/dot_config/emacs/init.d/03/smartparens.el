@@ -3,7 +3,7 @@
 ;; https://ebzzry.com/eo/emakso-paroj/
 (setup (:package smartparens)
 
-  (add-hook 'emacs-startup-hook 'smartparens-global-mode)
+  (add-hook 'emacs-startup-hook #'smartparens-global-mode)
   (:with-mode (prog-mode)
     (:hook smartparens-strict-mode)
     (:hook show-smartparens-mode))

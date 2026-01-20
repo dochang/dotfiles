@@ -1,5 +1,5 @@
 ;; https://emacs.stackexchange.com/questions/477/how-do-i-automatically-save-org-mode-buffers
-(advice-add 'org-agenda :after '$org-save-all-org-buffers)
+(advice-add 'org-agenda :after #'$org-save-all-org-buffers)
 
 (defun $org-agenda-mode-hook ()
   ;; Do not wrap lines in `org-agenda-mode'.
@@ -9,12 +9,12 @@
 (setup org-agenda
   (:package org)
 
-  (keymap-global-set "C-c a" 'org-agenda)
+  (keymap-global-set "C-c a" #'org-agenda)
   ;; For user convenience.
 
   (:with-mode (org-agenda-mode)
     (:hook $org-agenda-mode-hook))
-  (add-hook 'org-agenda-finalize-hook 'org-save-all-org-buffers)
+  (add-hook 'org-agenda-finalize-hook #'org-save-all-org-buffers)
 
   (:when-loaded
 

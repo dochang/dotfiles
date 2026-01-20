@@ -1,6 +1,6 @@
 (setup (:package keycast)
 
-  (add-hook 'emacs-startup-hook 'keycast-tab-bar-mode)
+  (add-hook 'emacs-startup-hook #'keycast-tab-bar-mode)
 
   (:when-loaded
 

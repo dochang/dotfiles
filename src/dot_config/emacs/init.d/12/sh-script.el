@@ -24,7 +24,7 @@
 
 (setup (:package sh-script)
 
-  (add-hook 'sh-base-mode-hook '$sh-base-mode-hook)
+  (add-hook 'sh-base-mode-hook #'$sh-base-mode-hook)
 
   (:when-loaded
 

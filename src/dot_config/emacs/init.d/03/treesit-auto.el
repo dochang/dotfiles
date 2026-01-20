@@ -15,7 +15,7 @@
   (setup (:package treesit-auto)
 
     (autoload 'global-treesit-auto-mode "treesit-auto")
-    (add-hook 'emacs-startup-hook 'global-treesit-auto-mode)
+    (add-hook 'emacs-startup-hook #'global-treesit-auto-mode)
 
     (:when-loaded
 

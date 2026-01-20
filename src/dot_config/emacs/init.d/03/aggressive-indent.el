@@ -1,6 +1,6 @@
 (setup (:package aggressive-indent)
 
-  ;; (add-hook 'emacs-startup-hook 'global-aggressive-indent-mode)
+  ;; (add-hook 'emacs-startup-hook #'global-aggressive-indent-mode)
   (:with-mode (lisp-data-mode scheme-mode clojure-mode clojure-ts-mode)
     (:hook aggressive-indent-mode))
   ;; aggressive-indent-mode is unneeded since many languages already have

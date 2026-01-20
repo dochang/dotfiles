@@ -26,6 +26,6 @@
   (:with-mode (prog-mode conf-mode text-mode)
     (:hook $eglot-ensure))
 
-  (add-hook 'before-save-hook '$eglot-before-save-hook)
+  (add-hook 'before-save-hook #'$eglot-before-save-hook)
 
   )

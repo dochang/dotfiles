@@ -14,6 +14,6 @@
            ("\\.tsx\\'" . tsx-ts-mode))
          auto-mode-alist))
 
-  (add-hook 'typescript-ts-base-mode-hook '$typescript-ts-base-mode-hook)
+  (add-hook 'typescript-ts-base-mode-hook #'$typescript-ts-base-mode-hook)
 
   )

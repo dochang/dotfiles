@@ -1,5 +1,5 @@
 (setup (:package autorevert)
 
-  (add-hook 'emacs-startup-hook 'global-auto-revert-mode)
+  (add-hook 'emacs-startup-hook #'global-auto-revert-mode)
 
   )

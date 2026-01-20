@@ -1,6 +1,6 @@
 (setup (:package which-key)
 
-  (add-hook 'emacs-startup-hook 'which-key-mode)
+  (add-hook 'emacs-startup-hook #'which-key-mode)
 
   (:when-loaded
 

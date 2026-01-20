@@ -3,13 +3,13 @@
 (setup org-archive
   (:package org)
 
-  (add-hook 'org-archive-hook 'org-save-all-org-buffers)
+  (add-hook 'org-archive-hook #'org-save-all-org-buffers)
 
   (:when-loaded
 
     (mapc (lambda (f)
-            (unless (advice-member-p '$org-save-all-org-buffers f)
-              (advice-add f :after '$org-save-all-org-buffers)))
+            (unless (advice-member-p #'$org-save-all-org-buffers f)
+              (advice-add f :after #'$org-save-all-org-buffers)))
           '(org-archive-subtree-default
             org-archive-subtree-default-with-confirmation
             org-archive-subtree

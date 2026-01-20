@@ -14,12 +14,12 @@
 
 (setup (:package inhibit-mouse)
 
-  (add-hook 'inhibit-mouse-mode-hook '$inhibit-mouse-mode-hook)
+  (add-hook 'inhibit-mouse-mode-hook #'$inhibit-mouse-mode-hook)
 
   (cond ((daemonp)
-         (add-hook 'server-after-make-frame-hook 'inhibit-mouse-mode))
+         (add-hook 'server-after-make-frame-hook #'inhibit-mouse-mode))
         (t
-         (add-hook 'emacs-startup-hook 'inhibit-mouse-mode)))
+         (add-hook 'emacs-startup-hook #'inhibit-mouse-mode)))
 
   (with-eval-after-load 'inhibit-mouse
 
