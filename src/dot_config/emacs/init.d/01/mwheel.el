@@ -1,6 +1,6 @@
 (setup mwheel
 
-  (add-hook 'emacs-startup-hook 'mouse-wheel-mode)
+  (add-hook 'emacs-startup-hook #'mouse-wheel-mode)
 
   (:when-loaded
 

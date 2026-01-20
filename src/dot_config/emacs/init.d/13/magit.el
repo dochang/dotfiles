@@ -26,7 +26,7 @@
     ;;
     ;; https://github.com/magit/magit/commit/9be8a4ab7a7dc6f34615f1011e8da263651c8f87
 
-    (keymap-set git-commit-redundant-bindings "C-M-i" 'completion-at-point)
+    (keymap-set git-commit-redundant-bindings "C-M-i" #'completion-at-point)
     ;; For conventional-commit
 
     )
@@ -35,7 +35,7 @@
 
     ;; Don't pop a new window.
     (setopt magit-display-buffer-function
-            'magit-display-buffer-same-window-except-diff-v1)
+            #'magit-display-buffer-same-window-except-diff-v1)
 
     )
 

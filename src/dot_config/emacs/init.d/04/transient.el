@@ -16,7 +16,7 @@
                   ]
                  ])
 
-              (keymap-global-set "C-c x" '$transient-extended)
+              (keymap-global-set "C-c x" #'$transient-extended)
 
               ))
 

@@ -8,9 +8,9 @@
     ;; t is better.  If you want to restart vterm, you have to kill the buffer
     ;; first.  Why not kill the buffer on exit?
 
-    (keymap-set vterm-mode-map "C-q" 'vterm-send-next-key)
+    (keymap-set vterm-mode-map "C-q" #'vterm-send-next-key)
 
-    (keymap-set vterm-copy-mode-map "C-w" 'vterm-copy-mode-done)
+    (keymap-set vterm-copy-mode-map "C-w" #'vterm-copy-mode-done)
 
     )
 

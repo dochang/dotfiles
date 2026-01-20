@@ -8,6 +8,6 @@
         (append '(("\\.[cm]js\\'" . js-mode))
                 auto-mode-alist))
 
-  (add-hook 'js-base-mode-hook '$js-base-mode-hook)
+  (add-hook 'js-base-mode-hook #'$js-base-mode-hook)
 
   )

@@ -1,8 +1,8 @@
 (setup simple
 
-  (add-hook 'emacs-startup-hook 'column-number-mode)
+  (add-hook 'emacs-startup-hook #'column-number-mode)
 
-  (add-hook 'emacs-startup-hook 'global-visual-line-mode)
+  (add-hook 'emacs-startup-hook #'global-visual-line-mode)
   ;; Why do I need `global-visual-line-mode'?
   ;;
   ;; With `org-indent-mode' enabled, `truncate-lines' is nil and
@@ -122,7 +122,7 @@
     ;; Special Mode
 
     (unless (keymap-lookup special-mode-map "z")
-      (keymap-set special-mode-map "z" 'kill-current-buffer))
+      (keymap-set special-mode-map "z" #'kill-current-buffer))
     ;; Emacs has deleted `z' binding in GIT#0d4505d & GIT#82dffff .  We
     ;; restore it here.
 

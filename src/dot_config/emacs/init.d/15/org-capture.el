@@ -1,5 +1,5 @@
 ;; https://emacs.stackexchange.com/questions/477/how-do-i-automatically-save-org-mode-buffers
-(advice-add 'org-capture :after '$org-save-all-org-buffers)
+(advice-add 'org-capture :after #'$org-save-all-org-buffers)
 
 (defun $org-capture-file ()
   (completing-read "capture to: " (org-files-list)))
@@ -7,10 +7,10 @@
 (setup org-capture
   (:package org)
 
-  (keymap-global-set "C-c c" 'org-capture)
+  (keymap-global-set "C-c c" #'org-capture)
   ;; For user convenience.
 
-  (add-hook 'org-capture-after-finalize-hook 'org-save-all-org-buffers)
+  (add-hook 'org-capture-after-finalize-hook #'org-save-all-org-buffers)
 
   (:when-loaded
 

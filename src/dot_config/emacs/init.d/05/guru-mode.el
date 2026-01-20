@@ -1,6 +1,6 @@
 (setup (:package guru-mode)
 
-  (add-hook 'emacs-startup-hook 'guru-global-mode)
+  (add-hook 'emacs-startup-hook #'guru-global-mode)
 
   (:when-loaded
 

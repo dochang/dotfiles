@@ -1,7 +1,7 @@
 ;;; Org
 
 (defun $org-created-get-create-on-save ()
-  (org-map-entries '$org-created-get-create))
+  (org-map-entries #'$org-created-get-create))
 
 (defun $org-created-get-create (&optional force)
   (interactive "P")
@@ -40,8 +40,8 @@
                   ("C-d" . org-delete-char)
                   ("C-e" . org-end-of-line)
                   ("C-k" . org-kill-line))))
-  (add-hook 'before-save-hook '$org-id-get-create-on-save nil 'local)
-  (add-hook 'before-save-hook '$org-created-get-create-on-save nil 'local))
+  (add-hook 'before-save-hook #'$org-id-get-create-on-save nil 'local)
+  (add-hook 'before-save-hook #'$org-created-get-create-on-save nil 'local))
 
 (define-advice org-read-agenda-file-list (:before () ensure-created)
   (when (and (stringp org-agenda-files)
@@ -79,7 +79,7 @@
 ;; Emacs runs `org-load-hook' right after loading `org', even before
 ;; `eval-after-load'.  So we better add the hook function to `org-load-hook'
 ;; once this file loaded.
-(add-hook 'org-load-hook '$org-load-hook)
+(add-hook 'org-load-hook #'$org-load-hook)
 
 ;; They have to be set before org.el is loaded.
 ;; To make the change effective, restart emacs.
@@ -135,18 +135,18 @@
                  ]
                 )
 
-              (keymap-global-set "C-c o" '$transient-org)
+              (keymap-global-set "C-c o" #'$transient-org)
 
               ))
 
-  (add-hook 'org-after-refile-insert-hook 'org-save-all-org-buffers)
+  (add-hook 'org-after-refile-insert-hook #'org-save-all-org-buffers)
   (:with-mode (org-mode)
     (:hook $org-mode-hook))
   (add-hook 'emacs-startup-hook
             (lambda ()
               (unless (bound-and-true-p **org-timer**)
                 (setq **org-timer**
-                      (run-at-time nil 3600 'org-agenda-to-appt)))))
+                      (run-at-time nil 3600 #'org-agenda-to-appt)))))
 
   (:when-loaded
 

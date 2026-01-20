@@ -22,7 +22,7 @@
     (visual-line-mode -1)
     (toggle-truncate-lines 1))
 
-  (keymap-set ctl-x-map "C-b" 'ibuffer)
+  (keymap-set ctl-x-map "C-b" #'ibuffer)
 
   (:with-mode (ibuffer-mode)
     (:hook $ibuffer-mode-hook)

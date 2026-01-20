@@ -4,6 +4,6 @@
 
 (setup (:package executable)
 
-  (add-hook 'after-save-hook '$executable-make-buffer-file-executable-if-script-p)
+  (add-hook 'after-save-hook #'$executable-make-buffer-file-executable-if-script-p)
 
   )

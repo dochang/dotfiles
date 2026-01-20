@@ -53,7 +53,7 @@
         (setq i (+ i 1))))))
 
 (setup (:package rand-theme)
-  (add-hook 'emacs-startup-hook '$set-theme)
+  (add-hook 'emacs-startup-hook #'$set-theme)
   (add-hook 'after-make-frame-functions
             (lambda (frame)
               (unless ($dark-theme-p)

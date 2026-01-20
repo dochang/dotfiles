@@ -7,7 +7,7 @@
 
 (setup (:package cnfonts)
 
-  (add-hook 'emacs-startup-hook 'cnfonts-mode)
+  (add-hook 'emacs-startup-hook #'cnfonts-mode)
 
   (:when-loaded
 

@@ -1,6 +1,6 @@
 (setup (:package super-save)
 
-  (add-hook 'emacs-startup-hook 'super-save-mode)
+  (add-hook 'emacs-startup-hook #'super-save-mode)
 
   (:when-loaded
 
