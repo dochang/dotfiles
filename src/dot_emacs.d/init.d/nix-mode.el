@@ -1,1 +1,0 @@
-(req-package nix-mode)
