@@ -114,31 +114,6 @@
   (:file-match "/\\.notes\\'")
   ;; Edit `org-default-notes-file' in org-mode.
 
-  (add-hook 'emacs-startup-hook
-            (lambda ()
-
-              (require 'transient)
-
-              (transient-define-prefix $transient-org ()
-                "org"
-                [
-                 ["Global"
-                  ("a" "agenda" org-agenda)
-                  ("b" "switchb" org-switchb)
-                  ("c" "capture" org-capture)
-                  ]
-                 ["Link"
-                  ("l" "store link" org-store-link)
-                  ("L" "insert link global" org-insert-link-global)
-                  ("o" "open at point global" org-open-at-point-global)
-                  ]
-                 ]
-                )
-
-              (keymap-global-set "C-c o" #'$transient-org)
-
-              ))
-
   (add-hook 'org-after-refile-insert-hook #'org-save-all-org-buffers)
   (:with-mode (org-mode)
     (:hook $org-mode-hook))
