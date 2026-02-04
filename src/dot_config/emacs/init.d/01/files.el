@@ -21,12 +21,7 @@
     (setf (alist-get 'safe-local-variable-values **defaults**)
           (copy-alist safe-local-variable-values)))
   (setopt safe-local-variable-values
-          (seq-reduce
-           (lambda (alist elem)
-             (if (seq-contains-p alist elem)
-                 alist
-               (cons elem alist)))
-           '((buffer-auto-save-file-name))
-           safe-local-variable-values))
+          (cons '(buffer-auto-save-file-name)
+                safe-local-variable-values))
 
   )

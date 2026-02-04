@@ -54,11 +54,7 @@
 (defun $org-load-hook ()
   (org-clock-persistence-insinuate)
   (setopt org-modules
-          (seq-reduce
-           (lambda (mods mod)
-             (if (seq-contains-p mods mod)
-                 mods
-               (cons mod mods)))
+          (append
            '(org-id
              ;; [[info:org#Handling%20links]]
              ;;
@@ -68,13 +64,9 @@
              )
            org-modules))
   (setopt org-export-backends
-          (seq-reduce
-           (lambda (backends backend)
-             (if (seq-contains-p backends backend)
-                 backends
-               (cons backend backends)))
-           '(md)
-           org-export-backends)))
+          (seq-uniq
+           (append '(md)
+                   org-export-backends))))
 
 ;; Emacs runs `org-load-hook' right after loading `org', even before
 ;; `eval-after-load'.  So we better add the hook function to `org-load-hook'
