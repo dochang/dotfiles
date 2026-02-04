@@ -103,7 +103,9 @@
 
 (setup (:package org)
 
-  (:file-match "/\\.notes\\'")
+  (setopt auto-mode-alist
+          (append '(("/\\.notes\\'" . org-mode))
+                  auto-mode-alist))
   ;; Edit `org-default-notes-file' in org-mode.
 
   (add-hook 'org-after-refile-insert-hook #'org-save-all-org-buffers)

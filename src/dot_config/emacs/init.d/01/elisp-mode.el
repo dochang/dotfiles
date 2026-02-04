@@ -1,6 +1,8 @@
 (setup elisp-mode
 
-  (:file-match "Cask\\'")
+  (setopt auto-mode-alist
+          (append '(("Cask\\'" . emacs-lisp-mode))
+                  auto-mode-alist))
 
   (:when-loaded
 

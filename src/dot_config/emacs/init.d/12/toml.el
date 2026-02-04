@@ -8,7 +8,9 @@
 
 (setup (:package toml-mode)
 
-  (:file-match "Pipfile\\'")
+  (setopt auto-mode-alist
+          (append '(("Pipfile\\'" . toml-mode))
+                  auto-mode-alist))
 
   (:when-loaded
 
