@@ -91,7 +91,7 @@
   "Ignore all arguments so that this function can be used as advice."
   (org-save-all-org-buffers))
 
-(advice-add 'org-refile :after #'$org-save-all-org-buffers)
+(advice-add #'org-refile :after #'$org-save-all-org-buffers)
 
 (defun $org-fix-header-line-format ()
   (if (bound-and-true-p org-table-sticky-header-mode)

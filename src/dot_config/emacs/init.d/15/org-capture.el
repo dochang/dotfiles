@@ -1,5 +1,5 @@
 ;; https://emacs.stackexchange.com/questions/477/how-do-i-automatically-save-org-mode-buffers
-(advice-add 'org-capture :after #'$org-save-all-org-buffers)
+(advice-add #'org-capture :after #'$org-save-all-org-buffers)
 
 (defun $org-capture-file ()
   (completing-read "capture to: " (org-files-list)))

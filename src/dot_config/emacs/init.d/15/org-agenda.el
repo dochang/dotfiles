@@ -1,5 +1,5 @@
 ;; https://emacs.stackexchange.com/questions/477/how-do-i-automatically-save-org-mode-buffers
-(advice-add 'org-agenda :after #'$org-save-all-org-buffers)
+(advice-add #'org-agenda :after #'$org-save-all-org-buffers)
 
 (defun $org-agenda-mode-hook ()
   ;; Do not wrap lines in `org-agenda-mode'.

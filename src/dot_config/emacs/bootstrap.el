@@ -2,8 +2,8 @@
   (setopt package-install-upgrade-built-in t))
 
 (with-eval-after-load 'mb-url-http
-  (setopt mb-url-http-backend 'mb-url-http-curl)
-  (advice-add 'url-http :around 'mb-url-http-around-advice))
+  (setopt mb-url-http-backend #'mb-url-http-curl)
+  (advice-add #'url-http :around #'mb-url-http-around-advice))
 
 (require 'package)
 (declare-function package-installed-p "ext:package")
