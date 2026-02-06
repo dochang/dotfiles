@@ -17,7 +17,7 @@
 
 (defun $rand-theme ()
   (rand-theme)
-  (mapc '$disable-bg-color-in-terminal (frame-list)))
+  (mapc #'$disable-bg-color-in-terminal (frame-list)))
 
 (defvar **rand-theme-try-dark-threshold** 8)
 
@@ -39,7 +39,7 @@
    (list
     (let ((input (completing-read
                   "Theme (leave blank or `nil' to select one randomly): "
-                  (mapcar 'symbol-name (custom-available-themes)))))
+                  (mapcar #'symbol-name (custom-available-themes)))))
       (if (equal "" input) nil (intern input)))))
   (if theme
       (let ((rand-theme-wanted (list theme)))

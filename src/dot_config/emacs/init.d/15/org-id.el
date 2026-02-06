@@ -1,5 +1,5 @@
 (defun $org-id-get-create-on-save ()
-  (org-map-entries 'org-id-get-create))
+  (org-map-entries #'org-id-get-create))
 ;; https://stackoverflow.com/a/16247032
 
 (setup org-id

@@ -21,7 +21,7 @@
 
   (:when-loaded
 
-    (setopt browse-url-browser-function '$browse-url-browser-select)
+    (setopt browse-url-browser-function #'$browse-url-browser-select)
 
     )
 

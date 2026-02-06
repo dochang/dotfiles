@@ -28,7 +28,7 @@
   (interactive)
   (mapc (lambda (pkg)
           (ignore-errors (package-delete pkg)))
-        (apply 'append (mapcar 'cddr package-alist))))
+        (apply #'append (mapcar #'cddr package-alist))))
 
 
 (defun $run-prog-mode-hook ()

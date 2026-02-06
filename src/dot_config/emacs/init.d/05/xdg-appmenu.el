@@ -9,7 +9,7 @@
 
   (with-eval-after-load 'xdg-appmenu
 
-    (setopt xdg-appmenu-terminal-runner '$xdg-appmenu-terminal-runner)
+    (setopt xdg-appmenu-terminal-runner #'$xdg-appmenu-terminal-runner)
 
     )
 
