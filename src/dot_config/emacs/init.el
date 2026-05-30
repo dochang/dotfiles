@@ -28,7 +28,7 @@
   (interactive)
   (mapc (lambda (pkg)
           (ignore-errors (package-delete pkg)))
-        (apply 'append (mapcar 'cddr package-alist))))
+        (apply #'append (mapcar #'cddr package-alist))))
 
 
 (defun $run-prog-mode-hook ()
@@ -59,7 +59,7 @@ major mode isn't derived from `prog-mode'."
       (vline-mode arg)))
 
   ;; (:with-mode (prog-mode conf-mode)
-  ;;   (:hook '$grand-cross-mode))
+  ;;   (:hook $grand-cross-mode))
   ;; Do not enable it by default.
 
   )
@@ -79,8 +79,8 @@ major mode isn't derived from `prog-mode'."
 (mapc
  (lambda (local-file)
    (add-hook 'emacs-startup-hook
-             `(lambda ()
-                ($load-local-config ,(car local-file)))
+             (lambda ()
+               ($load-local-config (car local-file)))
              (cdr local-file)))
  (let ((match "\\`\\.emacs_local_\\(.*\\)\\.el\\'"))
    (seq-reduce
@@ -96,5 +96,5 @@ major mode isn't derived from `prog-mode'."
 
 ;; Load ".emacs_local.el" as default hook depth
 (add-hook 'emacs-startup-hook
-          '(lambda ()
-             ($load-local-config ".emacs_local.el")))
+          (lambda ()
+            ($load-local-config ".emacs_local.el")))
